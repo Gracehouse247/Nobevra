@@ -1,5 +1,8 @@
-import React from 'react';
-import { LucideIcon } from 'lucide-react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
+import { LucideIcon, TrendingUp, TrendingDown } from 'lucide-react';
+import { LineChart, Line, ResponsiveContainer } from 'recharts';
 
 interface StatCardProps {
     title: string;
@@ -10,38 +13,159 @@ interface StatCardProps {
     iconBgColor: string;
     iconColor: string;
     loading?: boolean;
+    variant?: 'default' | 'hero';
+    trend?: number;
+    sparklineData?: number[];
 }
 
-export default function StatCard({ title, value, icon: Icon, badgeText, badgeType, iconBgColor, iconColor, loading = false }: StatCardProps) {
+// Animated number reveal on mount
+function AnimatedValue({ value, loading }: { value: string; loading: boolean }) {
+    const [displayed, setDisplayed] = useState(false);
+    useEffect(() => {
+        const t = setTimeout(() => setDisplayed(true), 100);
+        return () => clearTimeout(t);
+    }, []);
+
+    if (loading) {
+        return <div className="h-7 w-24 rounded-lg animate-pulse bg-slate-200" />;
+    }
+
+    return (
+        <p className={`text-[20px] font-semibold tracking-[-0.02em] leading-none text-slate-900 transition-all duration-700 ${
+            displayed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+        }`}>
+            {value}
+        </p>
+    );
+}
+
+export default function StatCard({
+    title,
+    value,
+    icon: Icon,
+    badgeText,
+    badgeType,
+    iconBgColor,
+    iconColor,
+    loading = false,
+    variant = 'default',
+    trend,
+    sparklineData,
+}: StatCardProps) {
+    const isHero = variant === 'hero';
+
     const getBadgeStyle = () => {
+        if (isHero) return 'bg-white/20 text-white border-white/20';
         switch (badgeType) {
-            case 'positive':
-                return 'bg-green-50 text-green-600 border-green-100';
-            case 'warning':
-                return 'bg-orange-50 text-orange-500 border-orange-100';
-            case 'neutral':
-                return 'bg-slate-50 text-slate-500 border-slate-100';
-            default:
-                return 'bg-slate-50 text-slate-500 border-slate-100';
+            case 'positive': return 'bg-emerald-50 text-emerald-600 border-emerald-100';
+            case 'warning':  return 'bg-orange-50 text-orange-500 border-orange-100';
+            case 'neutral':  return 'bg-slate-50 text-slate-500 border-slate-100';
+            default:         return 'bg-slate-50 text-slate-500 border-slate-100';
         }
     };
 
-    return (
-        <div className="bg-white/80 backdrop-blur-xl border border-white rounded-[24px] p-5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col justify-between hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all">
-            <div className="flex justify-between items-start mb-4">
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${iconBgColor}`}>
-                    <Icon className={`w-5 h-5 ${iconColor}`} />
-                </div>
-                <div className={`px-3 py-1 rounded-full border text-xs font-medium ${getBadgeStyle()}`}>
-                    {badgeText}
+    const hasTrend = trend !== undefined && trend !== null;
+    const trendUp = hasTrend && trend! >= 0;
+    const trendColor = isHero
+        ? (trendUp ? 'text-emerald-300' : 'text-red-300')
+        : (trendUp ? 'text-emerald-600' : 'text-red-500');
+    const trendBg = isHero
+        ? (trendUp ? 'bg-emerald-400/20' : 'bg-red-400/20')
+        : (trendUp ? 'bg-emerald-50' : 'bg-red-50');
+
+    const sparkData = sparklineData?.map(v => ({ v })) || [];
+
+    if (isHero) {
+        return (
+            <div className="bg-gradient-to-br from-[#006970] via-[#0599D5] to-[#00b4cc] shadow-[0_12px_40px_rgba(5,153,213,0.22)] border border-white/15 rounded-[20px] p-4 flex flex-col justify-between relative overflow-hidden hover:shadow-[0_20px_60px_rgba(5,153,213,0.32)] transition-all duration-300 group">
+                {/* Background mesh pattern */}
+                <div className="absolute inset-0 opacity-10" style={{
+                    backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)',
+                    backgroundSize: '20px 20px'
+                }} />
+                {/* Sparkline in background */}
+                {sparkData.length > 0 && (
+                    <div className="absolute bottom-0 right-0 w-24 h-12 opacity-25">
+                        <ResponsiveContainer width="100%" height="100%">
+                            <LineChart data={sparkData}>
+                                <Line type="monotone" dataKey="v" stroke="#ffffff" strokeWidth={1.5} dot={false} />
+                            </LineChart>
+                        </ResponsiveContainer>
+                    </div>
+                )}
+
+                <div className="relative z-10">
+                    <div className="flex justify-between items-start mb-3">
+                        <div className="w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                            <Icon className="w-4 h-4 text-white" />
+                        </div>
+                        <div className={`px-2.5 py-0.5 rounded-full border text-[9px] font-black uppercase tracking-wider ${getBadgeStyle()}`}>
+                            {badgeText}
+                        </div>
+                    </div>
+
+                    <p className="text-[9px] font-black uppercase tracking-widest text-white/60 mb-1.5">{title}</p>
+
+                    {loading ? (
+                        <div className="h-7 w-28 rounded-lg animate-pulse bg-white/10" />
+                    ) : (
+                        <p className="text-[22px] font-semibold tracking-[-0.02em] leading-none text-white transition-all duration-700">{value}</p>
+                    )}
+
+                    {hasTrend && !loading && (
+                        <div className={`inline-flex items-center gap-1 mt-2.5 px-2 py-0.5 rounded-full ${trendBg}`}>
+                            {trendUp
+                                ? <TrendingUp className={`w-2.5 h-2.5 ${trendColor}`} />
+                                : <TrendingDown className={`w-2.5 h-2.5 ${trendColor}`} />
+                            }
+                            <span className={`text-[9px] font-bold ${trendColor}`}>
+                                {trendUp ? '+' : ''}{trend!.toFixed(1)}% vs last month
+                            </span>
+                        </div>
+                    )}
                 </div>
             </div>
-            <div>
-                <h3 className="text-sm font-medium text-slate-500 mb-1">{title}</h3>
-                {loading ? (
-                    <div className="h-8 bg-slate-200 rounded animate-pulse w-24"></div>
-                ) : (
-                    <p className="text-2xl md:text-3xl font-bold text-slate-900">{value}</p>
+        );
+    }
+
+    // Default variant
+    return (
+        <div className="bg-white/90 backdrop-blur-xl border border-slate-100 rounded-[18px] p-4 shadow-[0_2px_12px_rgba(15,23,42,0.05)] flex flex-col justify-between hover:shadow-[0_8px_30px_rgba(15,23,42,0.08)] hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group">
+            {/* Sparkline background */}
+            {sparkData.length > 0 && (
+                <div className="absolute bottom-0 right-0 w-20 h-10 opacity-15">
+                    <ResponsiveContainer width="100%" height="100%">
+                        <LineChart data={sparkData}>
+                            <Line type="monotone" dataKey="v" stroke="#0599D5" strokeWidth={1.5} dot={false} />
+                        </LineChart>
+                    </ResponsiveContainer>
+                </div>
+            )}
+
+            <div className="relative z-10">
+                <div className="flex justify-between items-start mb-3">
+                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${iconBgColor}`}>
+                        <Icon className={`w-4 h-4 ${iconColor}`} />
+                    </div>
+                    <div className={`px-2.5 py-0.5 rounded-full border text-[9px] font-black uppercase tracking-wider ${getBadgeStyle()}`}>
+                        {badgeText}
+                    </div>
+                </div>
+
+                <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1.5">{title}</p>
+
+                <AnimatedValue value={value} loading={loading} />
+
+                {hasTrend && !loading && (
+                    <div className={`inline-flex items-center gap-1 mt-2.5 px-2 py-0.5 rounded-full ${trendBg}`}>
+                        {trendUp
+                            ? <TrendingUp className={`w-2.5 h-2.5 ${trendColor}`} />
+                            : <TrendingDown className={`w-2.5 h-2.5 ${trendColor}`} />
+                        }
+                        <span className={`text-[9px] font-bold ${trendColor}`}>
+                            {trendUp ? '+' : ''}{trend!.toFixed(1)}%
+                        </span>
+                    </div>
                 )}
             </div>
         </div>

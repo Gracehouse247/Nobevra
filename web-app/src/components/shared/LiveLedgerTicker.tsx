@@ -4,16 +4,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowUpRight, TrendingUp, DollarSign } from 'lucide-react';
 
-const LOGS = [
-    "INV-0082 SETTLED: $4,250.00 FROM META PLATFORMS",
-    "NEW ASSET SECURED: ACME CORP ADDED TO CRM",
-    "REVENUE SPIKE: +12.5% VELOCITY INCREASE IN Q2",
-    "VAULT UPDATE: GLOBAL LIQUIDITY OPTIMIZED",
-    "DIGITAL CARD SHARED: 14 NEW CONNECTIONS GENERATED",
-    "INV-0091 PENDING: $1,200.00 AWAITING CLEARANCE",
-];
+import { useDashboardData } from '@/hooks/useDashboardData';
 
 export default function LiveLedgerTicker() {
+    const { stats } = useDashboardData();
+    const LOGS = stats.tickerEvents || ["SYSTEM READY: WAITING FOR DATA"];
     return (
         <div className="fixed bottom-16 md:bottom-0 left-0 right-0 z-[60] bg-[#166FBB] py-3 overflow-hidden shadow-[0_-10px_40px_rgba(22,111,187,0.2)]">
             <div className="flex items-center gap-8 animate-marquee whitespace-nowrap">

@@ -33,7 +33,7 @@ export async function GET(req: NextRequest) {
   }
 
   // ── Rate Limiting (10 PDF downloads per minute per user) ──────────
-  const { allowed, resetMs } = rateLimit(`proforma-dl:${user.id}`, 10, 60_000);
+  const { allowed, resetMs } = await rateLimit(`proforma-dl:${user.id}`, 10, 60_000);
   if (!allowed) return rateLimitResponse(resetMs);
 
   // ── Build PDF ──────────────────────────────────────────────────────

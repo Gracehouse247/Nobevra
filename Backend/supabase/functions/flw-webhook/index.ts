@@ -15,12 +15,43 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const FLUTTERWAVE_SECRET_KEY = Deno.env.get("FLUTTERWAVE_SECRET_KEY")!;
 
+// ── Flutterwave Transaction Double-Verification ───────────────────────────────
+// Prevents forged webhooks — even if an attacker knows the secret hash, the
+// transaction must independently exist and match on Flutterwave's servers.
+async function verifyFlutterwaveTransaction(transactionId: number): Promise<{
+  valid: boolean;
+  status: string;
+  amount: number;
+  currency: string;
+}> {
+  try {
+    const res = await fetch(
+      `https://api.flutterwave.com/v3/transactions/${transactionId}/verify`,
+      { headers: { Authorization: `Bearer ${FLUTTERWAVE_SECRET_KEY}` } }
+    );
+    const body = await res.json();
+    if (body.status !== "success" || !body.data) {
+      return { valid: false, status: "", amount: 0, currency: "" };
+    }
+    return {
+      valid: true,
+      status:   body.data.status,
+      amount:   body.data.amount,
+      currency: (body.data.currency ?? "").toUpperCase(),
+    };
+  } catch (e) {
+    console.error("[flw-webhook] verifyFlutterwaveTransaction failed:", e);
+    return { valid: false, status: "", amount: 0, currency: "" };
+  }
+}
+
 // ── Fee Constants ─────────────────────────────────────────────────────────────
 // Option A: Fees are passed to the payer on top of the invoice amount.
 // The client pays invoice_total + gateway_fee.
 // The webhook receives amount = invoice_total + gateway_fee.
+// The webhook receives amount = invoice_total + gateway_fee.
 // We then extract: net_to_vendor = invoice_total - platform_commission.
-const PLATFORM_FEE_RATE = 0.01;   // 1% NobleInvoice commission
+// Platform fee rate is now dynamic based on plan tier (2% for starter, 1% for pulse/elite).
 // Local NGN gateway fee rate (1.4%). International is 3.8%.
 // We use this to determine the true invoice total from the paid amount.
 const LOCAL_GATEWAY_RATE  = 0.014;
@@ -91,21 +122,57 @@ serve(async (req) => {
     return json({ message: "Ignored — not successful" }, 200);
   }
 
+  // ── 3.5. Strict Idempotency Check (Prevent Replay Attacks) ────────────────
+  if (transactionId) {
+    const { error: idempotencyErr } = await supabase.from('processed_webhooks').insert({
+      transaction_id: String(transactionId),
+      event_type: event || 'payment',
+      provider: 'flutterwave'
+    });
+
+    if (idempotencyErr) {
+      if (idempotencyErr.code === '23505') { // Postgres Unique Violation
+        console.warn(`Idempotency: Transaction ${transactionId} already processed. Ignoring replay.`);
+        return json({ message: "Transaction already processed" }, 200);
+      }
+      console.error("Idempotency insert failed:", idempotencyErr);
+      return json({ error: "Idempotency lock failed" }, 500);
+    }
+  }
+
   // ── 4. Route by tx_ref prefix ────────────────────────────────────────────
 
   // SUBSCRIPTION: sub_{planId}_{userId}_{shortId}
   if (tx_ref?.startsWith("sub_")) {
-    return await handleSubscription(supabase, tx_ref, amount, verifiedCurrency, transactionId);
+    // ── Double-verify the transaction with FLW before any DB write ──────────
+    const verified = await verifyFlutterwaveTransaction(transactionId);
+    if (!verified.valid || verified.status !== "successful") {
+      console.error(`[flw-webhook] FLW verification failed for tx ${transactionId}:`, verified);
+      return json({ error: "Transaction verification failed" }, 402);
+    }
+    return await handleSubscription(supabase, tx_ref, verified.amount, verified.currency, transactionId);
   }
 
   // INVOICE PAYMENT: INV-{invoiceId}-{timestamp}
   if (tx_ref?.startsWith("INV-")) {
-    return await handleInvoicePayment(supabase, tx_ref, amount, verifiedCurrency, transactionId);
+    // ── Double-verify the transaction with FLW before any DB write ──────────
+    const verified = await verifyFlutterwaveTransaction(transactionId);
+    if (!verified.valid || verified.status !== "successful") {
+      console.error(`[flw-webhook] FLW verification failed for tx ${transactionId}:`, verified);
+      return json({ error: "Transaction verification failed" }, 402);
+    }
+    return await handleInvoicePayment(supabase, tx_ref, verified.amount, verified.currency, transactionId);
   }
 
   // PAYG BUNDLE: payg-bundle-{userId}-{timestamp}
   if (tx_ref?.startsWith("payg-bundle-")) {
-    return await handlePaygBundle(supabase, tx_ref, amount, verifiedCurrency, transactionId);
+    // ── Double-verify the transaction with FLW before any DB write ──────────
+    const verified = await verifyFlutterwaveTransaction(transactionId);
+    if (!verified.valid || verified.status !== "successful") {
+      console.error(`[flw-webhook] FLW verification failed for tx ${transactionId}:`, verified);
+      return json({ error: "Transaction verification failed" }, 402);
+    }
+    return await handlePaygBundle(supabase, tx_ref, verified.amount, verified.currency, transactionId);
   }
 
   console.warn("Unknown tx_ref format:", tx_ref);
@@ -134,7 +201,7 @@ async function handleInvoicePayment(
   // Fetch invoice with owner info
   const { data: invoice, error: fetchErr } = await supabase
     .from("invoices")
-    .select("id, user_id, total_amount, currency_code, status, invoice_number")
+    .select("id, user_id, total_amount, currency_code, status, invoice_number, teams(subscription_tier)")
     .eq("id", invoiceId)
     .single();
 
@@ -170,7 +237,12 @@ async function handleInvoicePayment(
 
   // Calculate the fees to log
   const gatewayFee      = parseFloat((invoiceTotal * gatewayRate).toFixed(2));
-  const platformFee     = parseFloat((invoiceTotal * PLATFORM_FEE_RATE).toFixed(2));
+  
+  // Dynamic Platform Fee: 2% for free/starter, 1% for pro/elite
+  // Fallback to starter if unknown
+  const userTier        = (invoice.teams as any)?.subscription_tier || "starter";
+  const platformFeeRate = userTier === "starter" ? 0.02 : 0.01;
+  const platformFee     = parseFloat((invoiceTotal * platformFeeRate).toFixed(2));
 
   // ── 1. Mark invoice as paid ───────────────────────────────────────────────
   const { error: updateErr } = await supabase
@@ -206,6 +278,24 @@ async function handleInvoicePayment(
     // Don't return an error to FLW (it would retry and double-mark). Log for manual resolution.
     return json({ status: "Invoice Paid", warning: "Wallet credit failed — manual review needed" }, 200);
   }
+
+  // ── 3. Dispatch Webhooks ─────────────────────────────────────────────────
+  // Fetch the team_id for the invoice to route webhooks
+  const { data: teamData } = await supabase.from('teams').select('id').eq('owner_id', invoice.user_id).single();
+  const teamId = teamData?.id || invoice.user_id;
+
+  await supabase.functions.invoke('dispatch-webhooks', {
+    body: {
+      team_id: teamId,
+      event_type: 'invoice.paid',
+      payload: {
+        invoice_id: invoiceId,
+        invoice_number: invoice.invoice_number,
+        amount: invoice.total_amount,
+        currency: invoice.currency_code,
+      }
+    }
+  }).catch(err => console.error("Webhook dispatch failed:", err));
 
   console.log(`✅ Invoice ${invoiceId} paid. Wallet credited:`, walletResult);
   return json({ status: "Invoice Paid", invoice_id: invoiceId, wallet: walletResult }, 200);

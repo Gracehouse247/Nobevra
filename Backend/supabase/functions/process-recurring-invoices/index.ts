@@ -13,7 +13,6 @@ serve(async (_req) => {
     const today = new Date().toISOString().split("T")[0];
 
     // 1. Fetch recurring TEMPLATES due for generation
-    // templates are invoices where invoice_type = 'recurring' and status = 'draft'
     const { data: templates, error: fetchErr } = await supabase
       .from("invoices")
       .select("*, invoice_items(*)")
@@ -28,16 +27,27 @@ serve(async (_req) => {
       return new Response(JSON.stringify({ created: 0, status: "No invoices due today" }), { status: 200 });
     }
 
-    let createdCount = 0;
-
+    const newInvoicesToInsert: any[] = [];
+    const newItemsToInsert: any[] = [];
+    
+    // Batch processing
     for (const template of templates) {
+      // ENFORCE SUBSCRIPTION GATING
+      const { data: entitlements } = await supabase.rpc('resolve_team_entitlements', { p_team_id: template.team_id });
+      // We assume Pulse/Elite tiers have active entitlements. If not, skip generation.
+      if (!entitlements) {
+          console.log(`Skipping template ${template.id} due to inactive subscription.`);
+          continue;
+      }
+
       const meta = template.metadata || {};
       const interval = meta.frequency || meta.recurring_interval || "Monthly";
 
-      // 1. Generate unique invoice number for the new instance
+      // 1. Generate unique invoice number and UUID
       const ts = new Date();
       const code = Math.random().toString(36).substring(7).toUpperCase();
       const invoiceNumber = `REC-${ts.getFullYear()}${String(ts.getMonth() + 1).padStart(2, '0')}-${code}`;
+      const newInvoiceId = crypto.randomUUID();
 
       // 2. Fetch Client for Tokenized Billing
       const { data: client } = await supabase
@@ -49,13 +59,12 @@ serve(async (_req) => {
       let autoCharged = false;
       let fwDetails = {};
 
-      // 3. ATTEMPT AUTO-CHARGE (Phase 7.5 Integration - Split Payments & Fees)
+      // 3. ATTEMPT AUTO-CHARGE
       if (meta.auto_charge === true && client?.payment_token) {
         try {
-          const platformFeeRate = 0.01; // 1% NobleInvoice Platform commission
+          const platformFeeRate = 0.01; 
           const platformCommission = template.total_amount * platformFeeRate;
 
-          // Fetch team's subaccount for splitting
           const { data: team } = await supabase
             .from("teams")
             .select("flw_subaccount_id")
@@ -71,16 +80,15 @@ serve(async (_req) => {
             body: JSON.stringify({
               token: client.payment_token,
               currency: template.currency_code || "NGN",
-              amount: template.total_amount, // Already includes fee if pass_fees was true at template creation
+              amount: template.total_amount,
               email: client.email,
               tx_ref: `AUTO-${invoiceNumber}`,
               customer_name: client.name,
-              // SPLIT LOGIC: Merchant gets the bulk, NobleInvoice keeps 1%
               subaccounts: team?.flw_subaccount_id ? [
                 {
                   id: team.flw_subaccount_id,
                   transaction_charge_type: "flat",
-                  transaction_charge: platformCommission // NobleInvoice's cut
+                  transaction_charge: platformCommission
                 }
               ] : [],
             }),
@@ -93,79 +101,80 @@ serve(async (_req) => {
               flutterwave_tx_id: chargeData.data.id,
               auto_charged_at: new Date().toISOString(),
               platform_commission: platformCommission,
-              linked_subaccount: team?.flutterwave_subaccount_id || 'none'
+              linked_subaccount: team?.flw_subaccount_id || 'none'
             };
-          } else {
-            console.warn(`Card charge failed for REC invoice: ${chargeData.message}`);
           }
         } catch (ce) {
           console.error(`Auto-charge execution error: ${ce}`);
         }
       }
 
-      // 4. Create the NEW invoice instance (type is 'standard', status reflects charge result)
-      const { data: newInvoice, error: createErr } = await supabase
-        .from("invoices")
-        .insert({
-          team_id: template.team_id,
-          user_id: template.user_id,
-          client_id: template.client_id,
-          invoice_number: invoiceNumber,
-          status: autoCharged ? "paid" : "pending",
-          invoice_type: "standard",
-          issue_date: today,
-          due_date: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
-          currency_code: template.currency_code,
-          tax_rate: template.tax_rate,
-          tax_type: template.tax_type,
-          tax_amount: template.tax_amount,
-          discount_type: template.discount_type,
-          discount_value: template.discount_value,
-          discount_amount: template.discount_amount,
-          subtotal: template.subtotal,
-          total_amount: template.total_amount,
-          notes: template.notes,
-          metadata: { 
-            generated_from: template.id,
-            was_auto_charged: autoCharged,
-            pass_fees: meta.pass_fees,
-            ...fwDetails
-          }
-        })
-        .select()
-        .single();
+      // 4. Prepare NEW invoice instance for batch insert
+      newInvoicesToInsert.push({
+        id: newInvoiceId,
+        team_id: template.team_id,
+        user_id: template.user_id,
+        client_id: template.client_id,
+        invoice_number: invoiceNumber,
+        status: autoCharged ? "paid" : "pending",
+        invoice_type: "standard",
+        issue_date: today,
+        due_date: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString().split("T")[0],
+        currency_code: template.currency_code,
+        tax_rate: template.tax_rate,
+        tax_type: template.tax_type,
+        tax_amount: template.tax_amount,
+        discount_type: template.discount_type,
+        discount_value: template.discount_value,
+        discount_amount: template.discount_amount,
+        subtotal: template.subtotal,
+        total_amount: template.total_amount,
+        notes: template.notes,
+        metadata: { 
+          generated_from: template.id,
+          was_auto_charged: autoCharged,
+          pass_fees: meta.pass_fees,
+          ...fwDetails
+        }
+      });
 
-      if (createErr) {
-        console.error(`Failed to create for template \${template.id}:`, createErr);
-        continue;
-      }
-
-      // 5. Clone invoice items from template to new invoice
+      // 5. Prepare invoice items for batch insert
       if (template.invoice_items && template.invoice_items.length > 0) {
-        const itemsToInsert = template.invoice_items.map((item: any) => ({
-          invoice_id: newInvoice.id,
-          description: item.description || '',
-          quantity: item.quantity || 1,
-          unit_price: item.unit_price || 0,
-          product_id: item.product_id || null,
-          total: (item.quantity || 1) * (item.unit_price || 0)
-        }));
-        await supabase.from("invoice_items").insert(itemsToInsert);
+        for (const item of template.invoice_items) {
+          newItemsToInsert.push({
+            invoice_id: newInvoiceId,
+            description: item.description || '',
+            quantity: item.quantity || 1,
+            unit_price: item.unit_price || 0,
+            product_id: item.product_id || null,
+            total: (item.quantity || 1) * (item.unit_price || 0)
+          });
+        }
       }
 
-      // 6. Update the TEMPLATE for the next generation cycle
+      // 6. Update the TEMPLATE for the next generation cycle (immediate async, no await inside loop)
       const nextDate = calculateNextDate(today, interval);
-      await supabase
+      supabase
         .from("invoices")
         .update({
           metadata: { ...meta, next_generation_date: nextDate, last_generated: today }
         })
-        .eq("id", template.id);
-
-      createdCount++;
+        .eq("id", template.id)
+        .then();
     }
 
-    return new Response(JSON.stringify({ created: createdCount, status: "success" }), {
+    // BATCH INSERTS - Eliminates N+1 DB calls
+    if (newInvoicesToInsert.length > 0) {
+      const { error: batchInvErr } = await supabase.from("invoices").insert(newInvoicesToInsert);
+      if (batchInvErr) console.error("Batch Invoice Insert Error:", batchInvErr);
+    }
+
+    if (newItemsToInsert.length > 0) {
+      const { error: batchItemErr } = await supabase.from("invoice_items").insert(newItemsToInsert);
+      if (batchItemErr) console.error("Batch Item Insert Error:", batchItemErr);
+    }
+
+    return new Response(JSON.stringify({ created: newInvoicesToInsert.length, status: "success" }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });

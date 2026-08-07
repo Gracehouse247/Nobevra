@@ -24,6 +24,10 @@ $function$;
 
 -- 2. Harden `invoices` table
 DROP POLICY IF EXISTS "Team invoice access" ON public.invoices;
+DROP POLICY IF EXISTS "invoices_select_policy" ON public.invoices;
+DROP POLICY IF EXISTS "invoices_insert_policy" ON public.invoices;
+DROP POLICY IF EXISTS "invoices_update_policy" ON public.invoices;
+DROP POLICY IF EXISTS "invoices_delete_policy" ON public.invoices;
 
 CREATE POLICY "invoices_select_policy" ON public.invoices 
 FOR SELECT USING (public.check_team_access(team_id));
@@ -39,6 +43,10 @@ FOR DELETE USING (public.check_team_access(team_id, ARRAY['owner'::public.team_r
 
 -- 3. Harden `clients` table
 DROP POLICY IF EXISTS "Team client access" ON public.clients;
+DROP POLICY IF EXISTS "clients_select_policy" ON public.clients;
+DROP POLICY IF EXISTS "clients_insert_policy" ON public.clients;
+DROP POLICY IF EXISTS "clients_update_policy" ON public.clients;
+DROP POLICY IF EXISTS "clients_delete_policy" ON public.clients;
 
 CREATE POLICY "clients_select_policy" ON public.clients 
 FOR SELECT USING (public.check_team_access(team_id));
@@ -54,6 +62,10 @@ FOR DELETE USING (public.check_team_access(team_id, ARRAY['owner'::public.team_r
 
 -- 4. Harden `expenses` table
 DROP POLICY IF EXISTS "Team expense access" ON public.expenses;
+DROP POLICY IF EXISTS "expenses_select_policy" ON public.expenses;
+DROP POLICY IF EXISTS "expenses_insert_policy" ON public.expenses;
+DROP POLICY IF EXISTS "expenses_update_policy" ON public.expenses;
+DROP POLICY IF EXISTS "expenses_delete_policy" ON public.expenses;
 
 CREATE POLICY "expenses_select_policy" ON public.expenses 
 FOR SELECT USING (public.check_team_access(team_id));
@@ -69,6 +81,10 @@ FOR DELETE USING (public.check_team_access(team_id, ARRAY['owner'::public.team_r
 
 -- 5. Harden `products` table
 DROP POLICY IF EXISTS "Team product access" ON public.products;
+DROP POLICY IF EXISTS "products_select_policy" ON public.products;
+DROP POLICY IF EXISTS "products_insert_policy" ON public.products;
+DROP POLICY IF EXISTS "products_update_policy" ON public.products;
+DROP POLICY IF EXISTS "products_delete_policy" ON public.products;
 
 CREATE POLICY "products_select_policy" ON public.products 
 FOR SELECT USING (public.check_team_access(team_id));

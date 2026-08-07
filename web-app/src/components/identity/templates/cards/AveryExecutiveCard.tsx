@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardRendererProps } from '../types';
 import { Phone, Mail, Globe, MapPin, Briefcase, Camera, Box, Leaf } from 'lucide-react';
+import { CardQRCode } from '../../CardQRCode';
 
 export const AveryExecutiveCard: React.FC<CardRendererProps & { defaultColor?: string }> = (props) => {
   const { data, side, brandAccent, brandDark, brandLight, brandMid, ON_COLOR, ON_WHITE, fs, DraggableElement, renderAvatar, effectiveAccent } = props;
@@ -57,17 +58,9 @@ export const AveryExecutiveCard: React.FC<CardRendererProps & { defaultColor?: s
                             </h2>
                         </div>
                     </DraggableElement>
-                    <DraggableElement elementKey="qr">
-                        <div className="bg-white p-3 rounded-2xl shadow-2xl inline-block">
-                            <img 
-                                src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobleinvoice.ai')}&color=${accent.replace('#', '')}`} 
-                                alt="QR" 
-                                className="w-28 h-28"
-                            />
-                        </div>
-                    </DraggableElement>
+                    <CardQRCode url={data.qrCodeUrl} qrColor={accent} borderColor='transparent' size={250} dimensionClass="w-28 h-28" DraggableElement={DraggableElement} />
                 </div>
             )}
         </div>
     );
-  };
+};

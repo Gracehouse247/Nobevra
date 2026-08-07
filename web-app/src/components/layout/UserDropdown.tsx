@@ -4,10 +4,46 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { 
-    User, Settings, CreditCard, LogOut, Sparkles, Award, Shield, ChevronRight 
+    Settings, CreditCard, LogOut, Sparkles, Award, Shield, ChevronRight, Crown, CheckCircle2
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
+
+function UserAvatar({ 
+    avatarUrl, initials, plan, size = 'md' 
+}: { 
+    avatarUrl?: string | null; 
+    initials: string; 
+    plan: string;
+    size?: 'sm' | 'md' | 'lg';
+}) {
+    const sizeMap = { sm: 'w-8 h-8 text-[10px]', md: 'w-9 h-9 text-[11px]', lg: 'w-14 h-14 text-base' };
+    const ringColor = plan === 'elite' 
+        ? '0 0 0 2.5px #F59E0B' 
+        : plan === 'pulse' 
+        ? '0 0 0 2.5px #0599D5' 
+        : '0 0 0 2px #CBD5E1';
+
+    return (
+        <div 
+            className={`${sizeMap[size]} rounded-full flex-shrink-0 overflow-hidden relative`}
+            style={{ boxShadow: ringColor }}
+        >
+            {avatarUrl ? (
+                <img 
+                    src={avatarUrl} 
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                    onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+                />
+            ) : (
+                <div className="w-full h-full bg-gradient-to-br from-[#0599D5] to-[#006970] flex items-center justify-center">
+                    <span className={`font-black text-white ${sizeMap[size].split(' ')[2]}`}>{initials}</span>
+                </div>
+            )}
+        </div>
+    );
+}
 
 export default function UserDropdown() {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,10 +51,12 @@ export default function UserDropdown() {
     const router = useRouter();
     const { userData: authUserData, user } = useAuth();
 
-    // Derive display data from real auth context
     const displayName = authUserData?.name || user?.email?.split('@')[0] || 'Noble User';
     const displayEmail = authUserData?.email || user?.email || '';
     const displayPlan = authUserData?.plan || 'explorer';
+    // Get avatar from Google OAuth or any set avatar URL
+    const avatarUrl = user?.user_metadata?.avatar_url || authUserData?.avatar_url || null;
+
     const initials = displayName
         .split(' ')
         .map((n: string) => n[0])
@@ -26,12 +64,13 @@ export default function UserDropdown() {
         .join('')
         .toUpperCase() || 'NU';
 
-    const userData = {
-        name: displayName,
-        email: displayEmail,
-        plan: displayPlan,
-        initials,
-    };
+    const isElite = displayPlan === 'elite' || displayPlan === 'admin';
+    const isPulse = displayPlan === 'pulse';
+    const isPremium = isElite || isPulse;
+
+    const planLabel = isElite ? 'Noble Elite' : isPulse ? 'Noble Pulse' : 'Free Tier';
+    const planColor = isElite ? 'text-amber-500' : isPulse ? 'text-[#0599D5]' : 'text-slate-400';
+    const planBadgeBg = isElite ? 'bg-amber-50 border-amber-100' : isPulse ? 'bg-blue-50 border-blue-100' : 'bg-slate-50 border-slate-100';
 
     // Handle clicking outside to close
     useEffect(() => {
@@ -44,132 +83,135 @@ export default function UserDropdown() {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, []);
 
-    const isPremium = ['elite', 'pro'].includes(userData.plan);
-
     return (
         <div className="relative" ref={dropdownRef}>
             {/* Trigger Button */}
             <button 
                 onClick={() => setIsOpen(!isOpen)}
-                className={`flex items-center gap-2 p-1 pl-2 pr-1 rounded-full border transition-all ${
+                className={`flex items-center gap-2.5 py-1.5 pl-3 pr-1.5 rounded-full border transition-all duration-200 ${
                     isOpen 
-                    ? 'bg-[#F8FAFC] border-[#CBD5E1] shadow-inner' 
-                    : 'bg-white border-[#E2E8F0] hover:border-[#CBD5E1] hover:bg-[#F8FAFC] shadow-sm'
+                    ? 'bg-slate-50 border-slate-200 shadow-inner' 
+                    : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-sm'
                 }`}
             >
-                <div className="hidden sm:flex flex-col items-end mr-1">
-                    <span className="text-[11px] font-black text-[#0F172A] leading-tight tracking-tight">{userData.name}</span>
-                    <span className="text-[9px] font-bold text-[#166FBB] uppercase tracking-widest">{userData.plan}</span>
+                {/* Name + Plan (desktop only) */}
+                <div className="hidden sm:flex flex-col items-end">
+                    <span className="text-[12px] font-bold text-slate-800 leading-tight tracking-tight">{displayName}</span>
+                    <span className={`text-[9px] font-black uppercase tracking-widest ${planColor}`}>{isElite ? 'ELITE' : isPulse ? 'PULSE' : 'STARTER'}</span>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-[#166FBB]/10 border border-[#166FBB]/20 flex items-center justify-center overflow-hidden shrink-0">
-                    <span className="text-[11px] font-black text-[#166FBB]">{userData.initials}</span>
-                </div>
+
+                {/* Avatar with plan ring */}
+                <UserAvatar avatarUrl={avatarUrl} initials={initials} plan={displayPlan} size="sm" />
             </button>
 
             {/* Dropdown Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        initial={{ opacity: 0, y: 8, scale: 0.96 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute right-0 mt-3 w-72 bg-white rounded-3xl border border-[#CBD5E1] shadow-[0_20px_50px_rgba(15,23,42,0.12)] z-[9999] overflow-hidden origin-top-right"
+                        exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                        transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
+                        className="absolute right-0 mt-2.5 w-72 bg-white rounded-[24px] border border-slate-200/80 shadow-[0_20px_60px_rgba(15,23,42,0.14)] z-[9999] overflow-hidden origin-top-right"
                     >
                         {/* Header Profile Area */}
-                        <div className="p-5 border-b border-[#E2E8F0] bg-gradient-to-b from-[#F8FAFC] to-white">
+                        <div className="p-5 border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white">
                             <div className="flex items-center gap-4">
-                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#166FBB] to-[#125A96] flex items-center justify-center shrink-0 shadow-md shadow-[#166FBB]/20">
-                                    <span className="text-sm font-black text-white">{userData.initials}</span>
-                                </div>
+                                <UserAvatar avatarUrl={avatarUrl} initials={initials} plan={displayPlan} size="lg" />
                                 <div className="flex-1 min-w-0">
-                                    <h3 className="text-sm font-black text-[#0F172A] truncate">{userData.name}</h3>
-                                    <p className="text-xs text-[#64748B] font-medium truncate mt-0.5">{userData.email}</p>
+                                    <div className="flex items-center gap-2 mb-0.5">
+                                        <h3 className="text-[14px] font-black text-slate-900 truncate">{displayName}</h3>
+                                        {isPremium && <CheckCircle2 className="w-3.5 h-3.5 text-[#0599D5] flex-shrink-0" />}
+                                    </div>
+                                    <p className="text-[11px] text-slate-400 font-medium truncate">{displayEmail}</p>
+                                    <div className={`inline-flex items-center gap-1 mt-2 px-2 py-0.5 rounded-full border ${planBadgeBg}`}>
+                                        {isElite ? <Crown className="w-2.5 h-2.5 text-amber-500" /> : <Sparkles className="w-2.5 h-2.5 text-[#0599D5]" />}
+                                        <span className={`text-[9px] font-black uppercase tracking-widest ${planColor}`}>{planLabel}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         {/* Upgrade / Plan Status Card */}
-                        <div className="p-3">
-                            <div className="bg-[#166FBB]/5 rounded-2xl p-4 border border-[#166FBB]/10">
-                                <div className="flex items-center justify-between mb-2">
-                                    <p className="text-[11px] font-black text-[#166FBB] uppercase tracking-widest flex items-center gap-1.5">
-                                        <Sparkles className="w-3.5 h-3.5" /> 
-                                        {userData.plan === 'elite' ? 'Noble Elite' : userData.plan === 'pulse' ? 'Noble Pro' : 'Free Tier'}
+                        {!isPremium && (
+                            <div className="px-3 pt-3">
+                                <div className="bg-gradient-to-br from-[#0599D5]/8 to-[#006970]/8 rounded-2xl p-4 border border-[#0599D5]/15">
+                                    <div className="flex items-center gap-2 mb-2">
+                                        <div className="w-6 h-6 rounded-lg bg-[#0599D5]/15 flex items-center justify-center">
+                                            <Sparkles className="w-3 h-3 text-[#0599D5]" />
+                                        </div>
+                                        <p className="text-[11px] font-black text-slate-700">Unlock Full Power</p>
+                                    </div>
+                                    <p className="text-[10px] text-slate-500 font-medium leading-relaxed mb-3">
+                                        Advanced AI invoicing, payments & client management.
                                     </p>
-                                    {userData.plan === 'elite' && <Award className="w-4 h-4 text-[#166FBB]" />}
+                                    <Link 
+                                        href="/upgrade"
+                                        onClick={() => setIsOpen(false)}
+                                        className="flex items-center justify-center w-full py-2 bg-gradient-to-r from-[#006970] to-[#0599D5] rounded-xl text-[10px] font-black text-white uppercase tracking-widest hover:shadow-lg hover:shadow-[#0599D5]/20 hover:-translate-y-0.5 transition-all"
+                                    >
+                                        Upgrade Now
+                                    </Link>
                                 </div>
-                                <p className="text-[10px] text-[#64748B] font-medium leading-relaxed mb-3">
-                                    {isPremium ? 'Your business systems are fully powered.' : 'Unlock advanced invoicing and priority tools.'}
-                                </p>
-                                <Link 
-                                    href={isPremium ? '/pro/manage' : '/upgrade'}
-                                    onClick={() => setIsOpen(false)}
-                                    className="flex items-center justify-center w-full py-2 bg-white border border-[#E2E8F0] rounded-xl text-[10px] font-black text-[#0F172A] uppercase tracking-widest hover:border-[#166FBB] hover:text-[#166FBB] transition-colors"
-                                >
-                                    {isPremium ? 'Manage Plan' : 'Upgrade Now'}
-                                </Link>
                             </div>
-                        </div>
+                        )}
+                        {isPremium && (
+                            <div className="px-3 pt-3">
+                                <div className={`rounded-2xl p-3 border ${planBadgeBg} flex items-center justify-between`}>
+                                    <div className="flex items-center gap-2">
+                                        {isElite ? <Award className="w-4 h-4 text-amber-500" /> : <Shield className="w-4 h-4 text-[#0599D5]" />}
+                                        <p className={`text-[10px] font-black uppercase tracking-widest ${planColor}`}>
+                                            {planLabel} — Active
+                                        </p>
+                                    </div>
+                                    <Link 
+                                        href="/settings/billing"
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-[9px] font-black text-slate-400 hover:text-slate-700 uppercase tracking-widest transition-colors"
+                                    >
+                                        Manage →
+                                    </Link>
+                                </div>
+                            </div>
+                        )}
 
                         {/* Menu Links */}
-                        <div className="p-2 border-t border-[#E2E8F0]">
-                            <Link 
-                                href="/settings/brand"
-                                onClick={() => setIsOpen(false)}
-                                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F8FAFC] text-[#475569] hover:text-[#0F172A] transition-colors group"
-                            >
-                                <div className="flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center group-hover:bg-white transition-colors">
-                                        <Settings className="w-4 h-4" />
+                        <div className="p-3 mt-1">
+                            {[
+                                { href: '/settings/brand', icon: Settings, label: 'Workspace Settings' },
+                                { href: '/settings/billing', icon: CreditCard, label: 'Billing & Invoices' },
+                                { href: '/settings/security', icon: Shield, label: 'Security & Identity' },
+                            ].map(({ href, icon: Icon, label }) => (
+                                <Link 
+                                    key={href}
+                                    href={href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-500 hover:text-slate-900 transition-all group"
+                                >
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center group-hover:bg-white group-hover:shadow-sm transition-all">
+                                            <Icon className="w-3.5 h-3.5" />
+                                        </div>
+                                        <span className="text-[12px] font-semibold">{label}</span>
                                     </div>
-                                    <span className="text-xs font-bold">Workspace Settings</span>
-                                </div>
-                                <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </Link>
-
-                            <Link 
-                                href="/settings/billing"
-                                onClick={() => setIsOpen(false)}
-                                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F8FAFC] text-[#475569] hover:text-[#0F172A] transition-colors group"
-                            >
-                                <div className="flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center group-hover:bg-white transition-colors">
-                                        <CreditCard className="w-4 h-4" />
-                                    </div>
-                                    <span className="text-xs font-bold">Billing & Invoices</span>
-                                </div>
-                                <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </Link>
-
-                            <Link 
-                                href="/settings/security"
-                                onClick={() => setIsOpen(false)}
-                                className="flex items-center justify-between p-3 rounded-xl hover:bg-[#F8FAFC] text-[#475569] hover:text-[#0F172A] transition-colors group"
-                            >
-                                <div className="flex items-center gap-3">
-                                    <div className="w-8 h-8 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center group-hover:bg-white transition-colors">
-                                        <Shield className="w-4 h-4" />
-                                    </div>
-                                    <span className="text-xs font-bold">Security & Identity</span>
-                                </div>
-                                <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </Link>
+                                    <ChevronRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all" />
+                                </Link>
+                            ))}
                         </div>
 
                         {/* Logout Section */}
-                        <div className="p-2 border-t border-[#E2E8F0] bg-[#F8FAFC]">
+                        <div className="px-3 pb-3 border-t border-slate-100 pt-1">
                             <button 
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/logout');
                                 }}
-                                className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-rose-50 text-[#64748B] hover:text-rose-600 transition-colors"
+                                className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-rose-50 text-slate-400 hover:text-rose-600 transition-all group"
                             >
-                                <div className="w-8 h-8 rounded-lg bg-white border border-[#E2E8F0] flex items-center justify-center">
-                                    <LogOut className="w-4 h-4" />
+                                <div className="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-rose-100 flex items-center justify-center transition-all">
+                                    <LogOut className="w-3.5 h-3.5" />
                                 </div>
-                                <span className="text-xs font-bold">Sign Out securely</span>
+                                <span className="text-[12px] font-semibold">Sign Out securely</span>
                             </button>
                         </div>
                     </motion.div>
@@ -178,4 +220,3 @@ export default function UserDropdown() {
         </div>
     );
 }
-

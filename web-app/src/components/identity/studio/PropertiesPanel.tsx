@@ -22,7 +22,7 @@ export const PropertiesPanel: React.FC = () => {
     );
   }
 
-  const handleChange = (key: string, value: any) => {
+  const handleChange = (key: string, value: string | number | boolean) => {
     updateElement(selectedElement.id, { [key]: value });
   };
 

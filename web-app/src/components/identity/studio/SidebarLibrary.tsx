@@ -11,6 +11,9 @@ import { useAuth } from '../../../context/AuthContext';
 import { QrService } from '../../../lib/services/qrService';
 import { IDENTITY_TEMPLATES } from '../../../lib/templates/businessCardTemplates';
 import PaygUnlockModal, { usePaygBundle, type UnlockCategory } from '../../features/billing/PaygUnlockModal';
+import PremiumBadge from '../../shared/PremiumBadge';
+import { useUpgradeModal } from '../../../context/UpgradeModalContext';
+import { useEntitlements } from '../../../context/EntitlementsContext';
 
 import { VECTOR_CATEGORIES } from './vectorCategories';
 
@@ -31,8 +34,9 @@ export const SidebarLibrary: React.FC = () => {
 
   // PAYG State
   const { userData } = useAuth();
-  const isFreeUser = userData?.plan === 'explorer' || !userData;
   const paygBundle = usePaygBundle(user?.id);
+  const { openUpgradeModal } = useUpgradeModal();
+  const { hasUnlockedTemplate } = useEntitlements();
   const [unlockTemplateId, setUnlockTemplateId] = useState<string | null>(null);
   const [unlockTemplateName, setUnlockTemplateName] = useState<string>('');
 
@@ -176,7 +180,7 @@ export const SidebarLibrary: React.FC = () => {
       
       toast.dismiss(loadingToast);
       toast.success('Dynamic trackable QR integrated onto canvas! 💎');
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error('QR Dynamic Sync failed, using fallback static QR:', err);
       toast.dismiss(loadingToast);
       
@@ -267,7 +271,7 @@ export const SidebarLibrary: React.FC = () => {
                       const isPremium = identityTmpl?.isPremium || false;
 
                       const handleTemplateClick = () => {
-                        if (isPremium && isFreeUser) {
+                        if (isPremium && !hasUnlockedTemplate(tmpl.id)) {
                           if (user) {
                             if (paygBundle.hasAccess('businessCard', tmpl.id)) {
                               loadTemplate(tmpl);
@@ -282,6 +286,8 @@ export const SidebarLibrary: React.FC = () => {
                           }
                           setUnlockTemplateId(tmpl.id);
                           setUnlockTemplateName(tmpl.name);
+                          // Also show upgrade modal so user knows what plan to upgrade to
+                          openUpgradeModal({ featureName: 'Premium Business Card Templates', requiredPlan: 'pulse' });
                         } else {
                           loadTemplate(tmpl);
                         }
@@ -291,7 +297,7 @@ export const SidebarLibrary: React.FC = () => {
                         <button
                           key={tmpl.id}
                           onClick={handleTemplateClick}
-                          className={`group relative w-full h-32 rounded-2xl border overflow-hidden hover:shadow-lg transition-all text-left ${isPremium && isFreeUser ? 'border-amber-200 hover:border-amber-400' : 'border-slate-200 hover:border-blue-600'}`}
+                          className={`group relative w-full h-32 rounded-2xl border overflow-hidden hover:shadow-lg transition-all text-left ${isPremium && !hasUnlockedTemplate(tmpl.id) ? 'border-amber-200 hover:border-amber-400' : 'border-slate-200 hover:border-blue-600'}`}
                           style={{ backgroundColor: tmpl.background }}
                         >
                         <div className="absolute inset-0 p-6 flex flex-col justify-center transform scale-75 origin-left">
@@ -302,12 +308,12 @@ export const SidebarLibrary: React.FC = () => {
                             {tmpl.elements.find(e => e.id === 't2')?.text || ''}
                           </span>
                         </div>
-                        {isPremium && (
-                          <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-md rounded-lg shadow-sm border border-amber-200 px-2 py-1 z-10">
-                            <span className="text-[9px] font-black text-amber-700 uppercase tracking-wider">Premium</span>
+                        {isPremium && !hasUnlockedTemplate(tmpl.id) && (
+                          <div className="absolute top-2 right-2 z-10">
+                            <PremiumBadge tier="pulse" iconOnly />
                           </div>
                         )}
-                        {!isPremium && (
+                        {(!isPremium || hasUnlockedTemplate(tmpl.id)) && (
                           <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-white/20 backdrop-blur-md rounded-full p-1.5 text-white">
                             <Plus size={14} />
                           </div>

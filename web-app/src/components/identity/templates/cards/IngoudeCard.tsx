@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardRendererProps } from '../types';
 import { Phone, Mail, Globe, MapPin, Briefcase, Camera, Box, Leaf } from 'lucide-react';
+import { SharedQRCode } from '../../SharedQRCode';
 
 export const IngoudeCard: React.FC<CardRendererProps & { defaultColor?: string }> = (props) => {
   const { data, side, brandAccent, brandDark, brandLight, brandMid, ON_COLOR, ON_WHITE, fs, DraggableElement, renderAvatar, effectiveAccent } = props;
@@ -56,7 +57,7 @@ export const IngoudeCard: React.FC<CardRendererProps & { defaultColor?: string }
               </h2>
             </DraggableElement>
             <DraggableElement elementKey="qr" className="bg-white p-3 rounded-2xl shadow-xl border-4 border-stone-200">
-              <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobleinvoice.ai')}&color=${earthTone.replace('#', '')}`} alt="QR" className="w-20 h-20"/>
+              <SharedQRCode url={data.qrCodeUrl || ''} color={earthTone} size={200} className="w-20 h-20" />
             </DraggableElement>
           </div>
         )}

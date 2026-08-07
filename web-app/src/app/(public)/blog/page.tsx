@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, Calendar, User, Search } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
+import { unstable_cache } from 'next/cache';
 
 export const revalidate = 3600; // Revalidate every hour
 
@@ -31,18 +32,25 @@ export const metadata: Metadata = {
     }
 };
 
-// Initialize Supabase client
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+
+const getArticles = unstable_cache(
+    async () => {
+        const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+        const { data, error } = await supabase
+            .from('seo_articles')
+            .select('*')
+            .eq('status', 'published')
+            .order('published_at', { ascending: false });
+        return { articles: data, error };
+    },
+    ['published-articles'],
+    { revalidate: 3600, tags: ['blog'] }
+);
+
 
 export default async function BlogIndexPage() {
     // Fetch published articles from Supabase
-    const { data: articles, error } = await supabase
-        .from('seo_articles')
-        .select('*')
-        .eq('status', 'published')
-        .order('published_at', { ascending: false });
+    const { articles, error } = await getArticles();
 
     if (error) {
         console.error("Error fetching articles:", error);

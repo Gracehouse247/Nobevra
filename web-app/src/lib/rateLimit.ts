@@ -6,57 +6,57 @@
  * https://github.com/upstash/ratelimit
  */
 
-interface RateLimitEntry {
-  timestamps: number[];
-}
+import { createClient } from '@supabase/supabase-js';
 
-const store = new Map<string, RateLimitEntry>();
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 
-// Periodically clean up old entries to prevent memory bloat
-setInterval(() => {
-  const now = Date.now();
-  for (const [key, entry] of store.entries()) {
-    // Remove entries where all timestamps are older than 5 minutes
-    if (entry.timestamps.every(t => now - t > 5 * 60 * 1000)) {
-      store.delete(key);
-    }
-  }
-}, 60 * 1000);
+const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: { persistSession: false, autoRefreshToken: false }
+});
 
 /**
- * Check if a request is within rate limit.
+ * DB-backed sliding-window rate limiter for Vercel Serverless/Edge functions.
+ * Closes SEC-05: Solves the issue where in-memory Maps reset on every cold start.
+ * 
  * @param identifier - Unique key (e.g. IP address, user ID)
  * @param limit - Maximum number of requests allowed
  * @param windowMs - Time window in milliseconds
  * @returns { allowed: boolean, remaining: number, resetMs: number }
  */
-export function rateLimit(
+export async function rateLimit(
   identifier: string,
   limit: number,
   windowMs: number
-): { allowed: boolean; remaining: number; resetMs: number } {
-  const now = Date.now();
-  const windowStart = now - windowMs;
+): Promise<{ allowed: boolean; remaining: number; resetMs: number }> {
+  try {
+    const windowSecs = Math.max(1, Math.floor(windowMs / 1000));
+    
+    // Call the atomic rate limiter RPC
+    const { data, error } = await supabaseAdmin.rpc('check_rate_limit', {
+        p_identifier: identifier,
+        p_limit: limit,
+        p_window_secs: windowSecs
+    });
 
-  const entry = store.get(identifier) ?? { timestamps: [] };
+    if (error || !data || data.length === 0) {
+        console.error('[rateLimit] RPC failed, failing open for safety:', error);
+        return { allowed: true, remaining: limit, resetMs: 0 };
+    }
 
-  // Remove timestamps outside the current window
-  entry.timestamps = entry.timestamps.filter(t => t > windowStart);
+    const result = data[0];
+    const resetTime = new Date(result.reset_at).getTime();
+    const resetMs = Math.max(0, resetTime - Date.now());
 
-  const remaining = Math.max(0, limit - entry.timestamps.length);
-  const resetMs = entry.timestamps.length > 0
-    ? Math.max(0, windowMs - (now - entry.timestamps[0]))
-    : 0;
-
-  if (entry.timestamps.length >= limit) {
-    store.set(identifier, entry);
-    return { allowed: false, remaining: 0, resetMs };
+    return { 
+        allowed: result.allowed, 
+        remaining: result.remaining, 
+        resetMs 
+    };
+  } catch (err) {
+    console.error('[rateLimit] Unexpected error:', err);
+    return { allowed: true, remaining: limit, resetMs: 0 };
   }
-
-  entry.timestamps.push(now);
-  store.set(identifier, entry);
-
-  return { allowed: true, remaining: remaining - 1, resetMs };
 }
 
 /**

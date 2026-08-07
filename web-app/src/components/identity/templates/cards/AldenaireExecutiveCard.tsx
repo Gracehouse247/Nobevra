@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardRendererProps } from '../types';
 import { Phone, Mail, Globe, MapPin, Briefcase, Camera, Box, Leaf } from 'lucide-react';
+import { CardQRCode } from '../../CardQRCode';
 
 export const AldenaireExecutiveCard: React.FC<CardRendererProps & { defaultColor?: string }> = (props) => {
   const { data, side, brandAccent, brandDark, brandLight, brandMid, ON_COLOR, ON_WHITE, fs, DraggableElement, renderAvatar, effectiveAccent } = props;
@@ -60,18 +61,9 @@ export const AldenaireExecutiveCard: React.FC<CardRendererProps & { defaultColor
                             <p className="font-bold tracking-[0.3em] uppercase" style={{ color: goldAccent, fontSize: fs(14) }}>CONSULTING</p>
                         </div>
                     </DraggableElement>
-                    <DraggableElement elementKey="qr" className="flex flex-col items-center gap-4">
-                        <div className="bg-white p-3 rounded-2xl shadow-xl border-4 border-white/30 inline-block">
-                            <img 
-                                src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobleinvoice.ai')}&color=${darkBg.replace('#', '')}`} 
-                                alt="QR" 
-                                className="w-24 h-24"
-                            />
-                        </div>
-                        <p className="text-white/50 font-bold tracking-[0.5em] uppercase" style={{ fontSize: fs(10) }}>Scan to Connect</p>
-                    </DraggableElement>
+                    <CardQRCode url={data.qrCodeUrl} qrColor={darkBg} borderColor='rgba(255,255,255,0.3)' size={250} dimensionClass="w-24 h-24" caption="Scan to Connect" DraggableElement={DraggableElement} />
                 </div>
             )}
         </div>
     );
-  };
+};

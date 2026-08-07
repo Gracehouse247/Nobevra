@@ -1,401 +1,494 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-    Plus, Search, Filter, 
-    FileText, CheckCircle2, Clock, AlertCircle,
+import {
+    Plus, Search, Filter, Clock,
+    FileText, CheckCircle2,
     Download, Send, Sparkles,
-    Loader2, Mail
+    Mail, MoreVertical, Square, CheckSquare,
+    ArrowUpRight, ChevronLeft, ChevronRight, X, Eye, Pencil
 } from 'lucide-react';
 import NobleEmptyState from '@/components/shared/NobleEmptyState';
-import MagneticCard from '@/components/shared/MagneticCard';
-import { useAuth, useFeatureGate } from '@/context/AuthContext';
+import ProactiveEmptyState from '@/components/shared/ProactiveEmptyState';
+import { useAuth } from '@/context/AuthContext';
+import { useEntitlements } from '@/context/EntitlementsContext';
 import { currencyService } from '@/lib/services/currencyService';
 import { toast } from 'react-hot-toast';
+import { InvoiceTypeModal } from '@/components/invoice/InvoiceTypeModal';
 import { useInvoices } from '@/hooks/useInvoices';
 import { supabase } from '@/lib/supabase';
 import { teamService } from '@/lib/services/supabaseService';
+import { MiniBarChart, SkeletonRow, ClientAvatar, StatusBadge, ActionBtn } from '@/components/invoice/InvoiceShared';
 
-const TABS = ['All Invoices', 'Drafts', 'Outstanding', 'Paid', 'Overdue'];
 
+const TABS = ['All', 'Outstanding', 'Paid', 'Drafts', 'Overdue'] as const;
+type Tab = typeof TABS[number];
+
+// ─── Main Page ────────────────────────────────────────────────────────────────
 export default function InvoicesPage() {
     const { user } = useAuth();
-    const { limits } = useFeatureGate();
+    const { getLimit } = useEntitlements();
     const router = useRouter();
-    const [activeTab, setActiveTab] = React.useState('All Invoices');
-    const [searchQuery, setSearchQuery] = React.useState('');
-    const [page, setPage] = React.useState(1);
-    const [monthlyCount, setMonthlyCount] = React.useState<number | null>(null);
-
-    React.useEffect(() => {
-        if (!user) return;
-        const fetchCount = async () => {
-            const tData = await teamService.getTeamByUserId(user.id);
-            const teamId = tData?.id || user.id;
-            const startOfMonth = new Date();
-            startOfMonth.setDate(1);
-            startOfMonth.setHours(0, 0, 0, 0);
-            const { count } = await supabase
-                .from('invoices')
-                .select('*', { count: 'exact', head: true })
-                .eq('team_id', teamId)
-                .gte('created_at', startOfMonth.toISOString());
-            setMonthlyCount(count || 0);
-        };
-        fetchCount();
-    }, [user]);
-
-    React.useEffect(() => {
-        setPage(1);
-    }, [searchQuery, activeTab]);
+    const [activeTab, setActiveTab] = useState<Tab>('All');
+    const [searchQuery, setSearchQuery] = useState('');
+    const [page, setPage] = useState(1);
+    const [monthlyCount, setMonthlyCount] = useState<number | null>(null);
+    const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+    const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+    const [showTypeModal, setShowTypeModal] = useState(false);
+    const menuRef = useRef<HTMLDivElement>(null);
     const PAGE_SIZE = 50;
 
-    const { 
-        invoices, 
-        loading, 
-        hasMore, 
-        baseCurrency, 
-        exchangeRates, 
-        handleMarkAsPaid 
-    } = useInvoices(page, PAGE_SIZE);
+    // Close menu on outside click
+    useEffect(() => {
+        const h = (e: MouseEvent) => { if (menuRef.current && !menuRef.current.contains(e.target as Node)) setOpenMenuId(null); };
+        document.addEventListener('mousedown', h);
+        return () => document.removeEventListener('mousedown', h);
+    }, []);
 
-    const formatCurrency = (amount: number, currencyCode: string) => {
-        // Use Number() instead of parseFloat() — safer when value is already numeric
-        const rawAmount = Number(amount) || 0;
-        const targetCurrency = currencyCode || 'NGN';
-        
-        if (targetCurrency === baseCurrency || !exchangeRates) {
-            return (
-                <span className="text-slate-900 font-semibold text-[13px]">
-                    {currencyService.format(rawAmount, targetCurrency, { decimals: 2 })}
-                </span>
-            );
-        }
+    // Monthly count for limit gate
+    useEffect(() => {
+        if (!user) return;
+        (async () => {
+            const tData = await teamService.getTeamByUserId(user.id);
+            const teamId = tData?.id || user.id;
+            const start = new Date(); start.setDate(1); start.setHours(0, 0, 0, 0);
+            const { count } = await supabase.from('invoices').select('*', { count: 'exact', head: true }).eq('team_id', teamId).gte('created_at', start.toISOString());
+            setMonthlyCount(count || 0);
+        })();
+    }, [user]);
 
-        // Convert rawAmount from original currency to base currency
-        const converted = currencyService.convert(rawAmount, targetCurrency, baseCurrency, exchangeRates);
-        return (
-            <div className="flex flex-col">
-                <span className="text-slate-900 font-semibold text-[13px]">
-                    {currencyService.format(converted, baseCurrency, { decimals: 2 })}
-                </span>
-                <span className="text-[10px] text-slate-400 font-medium uppercase tracking-wider mt-0.5">
-                    Original: {currencyService.format(rawAmount, targetCurrency, { decimals: 2 })}
-                </span>
-            </div>
-        );
+    useEffect(() => { setPage(1); setSelectedIds(new Set()); }, [searchQuery, activeTab]);
+
+    const { invoices, loading, hasMore, baseCurrency, exchangeRates, handleMarkAsPaid } = useInvoices(page, PAGE_SIZE);
+
+    const fmt = (amount: number, code: string) => {
+        const raw = Number(amount) || 0;
+        const currency = code || 'NGN';
+        if (currency === baseCurrency || !exchangeRates) return currencyService.format(raw, currency, { decimals: 2 });
+        return currencyService.format(currencyService.convert(raw, currency, baseCurrency, exchangeRates), baseCurrency, { decimals: 2 });
     };
 
-    const getStatusBadge = (status: string) => {
-        switch (status?.toLowerCase()) {
-            case 'paid':
-                return <span className="px-2 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-emerald-100 text-emerald-800 border border-emerald-200">PAID</span>;
-            case 'overdue':
-                return <span className="px-2 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-rose-100 text-rose-800 border border-rose-200">OVERDUE</span>;
-            case 'unpaid':
-            case 'sent':
-            case 'pending':
-                return <span className="px-2 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-blue-100 text-blue-800 border border-blue-200">OUTSTANDING</span>;
-            case 'draft':
-            default:
-                return <span className="px-2 py-0.5 rounded-full text-[8px] font-bold uppercase tracking-wider bg-slate-100 text-slate-800 border border-slate-200">DRAFT</span>;
-        }
-    };
-
-    const filteredInvoices = React.useMemo(() => {
-        return invoices.filter(invoice => {
-            const matchesSearch = 
-                invoice.invoice_number?.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                invoice.clients?.name?.toLowerCase().includes(searchQuery.toLowerCase());
-            
-            if (!matchesSearch) return false;
-
-            if (activeTab === 'All Invoices') return true;
-            if (activeTab === 'Drafts') return invoice.status === 'draft';
-            if (activeTab === 'Outstanding') return invoice.status === 'pending' || invoice.status === 'sent' || invoice.status === 'unpaid';
-            if (activeTab === 'Paid') return invoice.status === 'paid';
-            if (activeTab === 'Overdue') return invoice.status === 'overdue';
-            return true;
+    // ── KPI data ──
+    const kpis = useMemo(() => {
+        let outstanding = 0, paid = 0, overdue = 0, drafts = 0, total = 0;
+        const sparkPaid = new Array(10).fill(0);
+        const sparkOut  = new Array(10).fill(0);
+        const sparkAll  = new Array(10).fill(0);
+        const now = new Date();
+        invoices.forEach(inv => {
+            const amount = exchangeRates
+                ? currencyService.convert(Number(inv.total_amount) || 0, inv.currency_code || 'NGN', baseCurrency, exchangeRates)
+                : Number(inv.total_amount) || 0;
+            const s = inv.status?.toLowerCase();
+            const md = inv.created_at
+                ? (now.getFullYear() - new Date(inv.created_at).getFullYear()) * 12 + (now.getMonth() - new Date(inv.created_at).getMonth())
+                : 0;
+            const idx = md >= 0 && md < 10 ? 9 - md : -1;
+            total++;
+            if (idx >= 0) sparkAll[idx] += 1;
+            if (s === 'paid') {
+                paid += amount;
+                if (idx >= 0) sparkPaid[idx] += amount;
+            } else if (s === 'overdue') {
+                overdue += amount; outstanding += amount;
+                if (idx >= 0) sparkOut[idx] += amount;
+            } else if (['pending', 'sent', 'unpaid'].includes(s)) {
+                outstanding += amount;
+                if (idx >= 0) sparkOut[idx] += amount;
+            } else if (s === 'draft') drafts++;
         });
-    }, [invoices, searchQuery, activeTab]);
+        return { outstanding, paid, overdue, drafts, total, sparkPaid, sparkOut, sparkAll };
+    }, [invoices, baseCurrency, exchangeRates]);
+
+    const tabCounts = useMemo(() => ({
+        All: invoices.length,
+        Outstanding: invoices.filter(i => ['pending', 'sent', 'unpaid'].includes(i.status)).length,
+        Paid: invoices.filter(i => i.status === 'paid').length,
+        Drafts: invoices.filter(i => i.status === 'draft').length,
+        Overdue: invoices.filter(i => i.status === 'overdue').length,
+    }), [invoices]);
+
+    // Check if exchange rates are still loading but we need them for conversion
+    const isExchangeLoading = !exchangeRates && invoices.some(i => (i.currency_code || 'NGN') !== baseCurrency);
+    const isEffectivelyLoading = loading || isExchangeLoading;
+
+    const filtered = useMemo(() => invoices.filter(inv => {
+        const q = searchQuery.toLowerCase();
+        if (!(inv.invoice_number?.toLowerCase().includes(q) || inv.clients?.name?.toLowerCase().includes(q))) return false;
+        if (activeTab === 'Outstanding') return ['pending', 'sent', 'unpaid'].includes(inv.status);
+        if (activeTab === 'Paid') return inv.status === 'paid';
+        if (activeTab === 'Drafts') return inv.status === 'draft';
+        if (activeTab === 'Overdue') return inv.status === 'overdue';
+        return true;
+    }), [invoices, searchQuery, activeTab]);
+
+    const allSelected = filtered.length > 0 && filtered.every(i => selectedIds.has(i.id));
+    const someSelected = selectedIds.size > 0 && !allSelected;
+    const toggleAll = () => { if (allSelected) setSelectedIds(new Set()); else setSelectedIds(new Set(filtered.map(i => i.id))); };
+    const toggleOne = (id: string) => { const n = new Set(selectedIds); n.has(id) ? n.delete(id) : n.add(id); setSelectedIds(n); };
+
+    const invoiceLimit = getLimit('invoice.create'); // null = unlimited
+    const canCreate = invoiceLimit === null || (monthlyCount ?? 0) < (invoiceLimit ?? Infinity);
+
+    // KPI Cards definition — real sparklines from invoice data
+    const KPI_CARDS = [
+        { label: 'All Invoices',   value: kpis.total.toLocaleString(),          sub: `${tabCounts.Outstanding} from last month`,  color: '#3B82F6', badgeBg: '#EFF6FF', badgeText: '#1D4ED8', spark: kpis.sparkAll },
+        { label: 'New Invoices',   value: tabCounts.Outstanding.toLocaleString(), sub: `${kpis.drafts} from last month`,            color: '#8B5CF6', badgeBg: '#F5F3FF', badgeText: '#6D28D9', spark: kpis.sparkOut  },
+        { label: 'Draft Invoices', value: kpis.drafts.toLocaleString(),          sub: `${kpis.drafts} from last month`,            color: '#F59E0B', badgeBg: '#FFFBEB', badgeText: '#92400E', spark: [...kpis.sparkAll.map(v => v * 0.3)] },
+        { label: 'Paid Invoices',  value: tabCounts.Paid.toLocaleString(),       sub: fmt(kpis.paid, baseCurrency),                color: '#10B981', badgeBg: '#ECFDF5', badgeText: '#065F46', spark: kpis.sparkPaid },
+    ];
 
     return (
-        <div className="min-h-screen bg-[#F0F4F8] text-slate-900 pb-32 font-inter relative overflow-hidden selection:bg-noble-blue/20">
-            {/* Ambient Background Mesh Gradients */}
-            <div className="fixed top-[-20%] left-[-10%] w-[800px] h-[800px] bg-noble-blue/10 blur-[150px] rounded-full pointer-events-none z-0" />
-            <div className="fixed bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-electric-cyan/10 blur-[150px] rounded-full pointer-events-none z-0" />
+        <div className="min-h-screen bg-[#F3F6FC] pb-24" style={{ fontFamily: 'Inter, sans-serif' }}>
 
-            {/* Header Area with Cinematic Glass */}
-            <header className="relative z-50 bg-white/40 backdrop-blur-3xl border-b border-white/60 px-8 py-8 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                    >
-                        <div className="flex items-center gap-3 mb-3">
-                            <div className="w-12 h-12 rounded-[20px] bg-gradient-to-br from-noble-blue/20 to-transparent flex items-center justify-center text-noble-blue border border-white/50 shadow-inner">
-                                <FileText className="w-6 h-6 fill-current opacity-80" />
-                            </div>
-                            <h1 className="text-2xl md:text-3xl font-semibold text-slate-900" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
-                                Master <span className="text-noble-blue">Ledger</span>
-                            </h1>
-                        </div>
-                        <p className="text-slate-500 text-sm font-bold max-w-md mt-1">Orchestrate your revenue with pixel-perfect tracking.</p>
-                    </motion.div>
-                    
-                    <motion.div 
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="flex items-center gap-4"
-                    >
-                        <motion.div whileTap={{ scale: 0.95 }} className="inline-flex">
-                            {(() => {
-                                const canCreate = !limits || limits.max_invoices_per_month === -1 || (monthlyCount ?? 0) < limits.max_invoices_per_month;
-
-                                return canCreate ? (
-                                    <Link 
-                                        href="/invoices/new"
-                                        className="group relative overflow-hidden flex items-center gap-2 px-8 py-4 bg-white/60 backdrop-blur-md border border-white hover:border-noble-blue/30 text-slate-900 font-black text-[11px] uppercase tracking-[0.2em] rounded-2xl hover:bg-white transition-all shadow-[0_10px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_15px_30px_rgba(22,111,187,0.1)]"
-                                    >
-                                        <div className="w-6 h-6 rounded-full bg-noble-blue flex items-center justify-center group-hover:scale-110 transition-transform shadow-inner">
-                                            <Plus className="w-3.5 h-3.5 text-white" />
-                                        </div>
-                                        <span>Create Invoice</span>
-                                    </Link>
-                                ) : (
-                                    <button 
-                                        onClick={() => {
-                                            toast('You have reached your monthly limit. Please upgrade.', { icon: '🚀' });
-                                            router.push('/pricing');
-                                        }}
-                                        className="group relative overflow-hidden flex items-center gap-2 px-8 py-4 bg-slate-100 backdrop-blur-md border border-white text-slate-500 font-black text-[11px] uppercase tracking-[0.2em] rounded-2xl transition-all shadow-[0_10px_20px_rgba(0,0,0,0.02)] cursor-pointer"
-                                    >
-                                        <div className="w-6 h-6 rounded-full bg-slate-300 flex items-center justify-center shadow-inner">
-                                            <Plus className="w-3.5 h-3.5 text-white" />
-                                        </div>
-                                        <span>Upgrade to Create</span>
-                                    </button>
-                                );
-                            })()}
-                        </motion.div>
-                    </motion.div>
+            {/* ── Sticky Header ─────────────────────────────────────────────── */}
+            <header className="bg-white border-b border-slate-100 px-6 md:px-10 py-4 sticky top-0 z-30" style={{ boxShadow: '0 1px 3px rgba(15,23,42,0.06)' }}>
+                <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
+                    <div>
+                        <h1 className="text-[19px] font-bold text-slate-900 tracking-tight">Invoice</h1>
+                        <p className="text-[11px] text-slate-400 mt-0.5 hidden md:block">Manage, track and send your billing documents</p>
+                    </div>
+                    <div className="flex items-center gap-2.5">
+                        <AnimatePresence>
+                            {selectedIds.size > 0 && (
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
+                                    className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5"
+                                >
+                                    <span className="text-xs font-semibold text-slate-600">{selectedIds.size} selected</span>
+                                    <button onClick={() => { const c = selectedIds.size; selectedIds.forEach(id => handleMarkAsPaid(id)); setSelectedIds(new Set()); toast.success(`${c} invoice${c > 1 ? 's' : ''} marked as paid`); }} className="px-3 py-1 bg-emerald-600 text-white text-[11px] font-bold rounded-lg hover:bg-emerald-700 transition-colors">Mark Paid</button>
+                                    <button onClick={() => setSelectedIds(new Set())} className="p-1 text-slate-400 hover:text-slate-600"><X className="w-3 h-3" /></button>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                        <button onClick={() => setShowTypeModal(true)} className="flex items-center gap-1.5 px-5 py-2.5 text-white text-xs font-bold rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all" style={{ background: 'linear-gradient(135deg, #006970, #0599D5)' }}>
+                            <Plus className="w-3.5 h-3.5" strokeWidth={2.5} />
+                            Add New Invoice
+                        </button>
+                    </div>
                 </div>
             </header>
 
-            <div className="max-w-7xl mx-auto px-8 mt-12 relative z-10">
-                {/* Filters & Search - Noble Glass Upgrade */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="bg-white/40 backdrop-blur-2xl p-4 rounded-[32px] border border-white/60 shadow-[0_20px_40px_rgba(0,0,0,0.03)] mb-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden"
-                >
-                    <div className="absolute top-[-20%] right-[-10%] w-[300px] h-[300px] bg-noble-blue/5 blur-[80px] rounded-full pointer-events-none z-0" />
+            {/* ── Body ──────────────────────────────────────────────────────── */}
+            <div className="max-w-[1440px] mx-auto px-6 md:px-10 pt-6 space-y-5">
+                {invoices.length === 0 && !isEffectivelyLoading ? (
+                    <ProactiveEmptyState
+                        title="Create your first invoice"
+                        description="Send professional invoices in under 60 seconds. Choose from 200+ templates."
+                        variant="empty"
+                        illustrationIcons={[FileText, Clock, CheckCircle2]}
+                        tips={["Tip: You can duplicate invoices to save time", "Tip: Set up recurring invoices for repeat clients"]}
+                        actions={[
+                            { label: '+ Create Invoice', onClick: () => setShowTypeModal(true), variant: 'primary' },
+                            { label: 'Browse Templates', onClick: () => window.location.href = '/invoices/new', variant: 'secondary' }
+                        ]}
+                    />
+                ) : (
+                    <>
+                        {/* ── KPI Cards ─────────────────────────────────────────────── */}
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                    {KPI_CARDS.map((card, i) => (
+                        <motion.div
+                            key={card.label}
+                            initial={{ opacity: 0, y: 14 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.06, duration: 0.38, ease: [0.23, 1, 0.32, 1] }}
+                            className="bg-white rounded-2xl border border-slate-100 p-5 flex items-start justify-between gap-4 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-default overflow-hidden"
+                            style={{ boxShadow: '0 1px 4px rgba(15,23,42,0.06)' }}
+                        >
+                            <div className="min-w-0 flex-1">
+                                {/* Label badge */}
+                                <div className="flex items-center gap-1.5 mb-3">
+                                    <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full" style={{ backgroundColor: card.badgeBg, color: card.badgeText }}>
+                                        {card.label}
+                                    </span>
+                                    <ArrowUpRight className="w-3 h-3 text-slate-300" />
+                                </div>
+                                {/* Big number */}
+                                <p className="text-[28px] font-black text-slate-900 leading-none tracking-tight mb-1.5">
+                                    {isEffectivelyLoading ? <span className="inline-block w-16 h-7 bg-slate-100 rounded animate-pulse" /> : card.value}
+                                </p>
+                                {/* Sub */}
+                                <p className="text-[11px] font-medium truncate" style={{ color: '#94A3B8' }}>{card.sub}</p>
+                            </div>
+                            {/* Bar Chart */}
+                            <div className="flex-shrink-0 self-end pb-0.5">
+                                <MiniBarChart values={card.spark} color={card.color} />
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
 
-                    <div className="flex items-center overflow-x-auto w-full md:w-auto hide-scrollbar gap-2 p-1 relative z-10">
-                        {TABS.map((tab) => (
-                            <motion.button
-                                whileTap={{ scale: 0.95 }}
-                                key={tab}
-                                onClick={() => setActiveTab(tab)}
-                                className={`relative px-8 py-4 rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all ${
-                                    activeTab === tab 
-                                    ? 'text-noble-blue bg-white shadow-sm' 
-                                    : 'text-slate-400 hover:text-slate-700 hover:bg-white/50'
-                                }`}
-                            >
-                                <span className="relative z-10">{tab}</span>
-                            </motion.button>
-                        ))}
-                    </div>
-                    
-                    <div className="flex items-center gap-4 w-full md:w-auto relative z-10">
-                        <div className="relative w-full md:w-80">
-                            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 z-10" />
-                            <input 
+                {/* ── Ledger Table ──────────────────────────────────────────── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.25, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                    className="bg-white rounded-2xl border border-slate-100 overflow-hidden"
+                    style={{ boxShadow: '0 1px 4px rgba(15,23,42,0.06)' }}
+                >
+                    {/* Toolbar */}
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-5 pt-4 pb-3 border-b border-slate-100">
+                        {/* Search */}
+                        <div className="relative">
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+                            <input
                                 type="text"
                                 value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Search ledger..."
-                                className="w-full pl-12 pr-6 py-4 bg-white/60 backdrop-blur-md border border-white/60 rounded-2xl text-xs font-bold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-noble-blue/40 focus:ring-4 focus:ring-noble-blue/10 transition-all shadow-inner"
+                                onChange={e => setSearchQuery(e.target.value)}
+                                placeholder="Search..."
+                                className="pl-8 pr-3 py-2 w-44 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5]/20 transition-all"
                             />
                         </div>
-                        <motion.button 
-                            whileTap={{ scale: 0.95 }} 
-                            onClick={() => toast('Advanced filters coming soon', { icon: '🔧' })}
-                            className="p-4 bg-white/60 backdrop-blur-md border border-white/60 text-slate-500 rounded-2xl hover:border-noble-blue/30 hover:bg-white transition-all shadow-sm"
-                        >
-                            <Filter className="w-[18px] h-[18px]" />
-                        </motion.button>
-                    </div>
-                </motion.div>
 
-                {/* Invoices Table Area */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="bg-white/40 backdrop-blur-2xl rounded-[40px] border border-white/60 shadow-[0_40px_80px_rgba(0,0,0,0.03)] overflow-hidden"
-                >
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left border-collapse">
+                        <div className="flex items-center gap-2">
+                            {/* Tab pills */}
+                            <div className="flex items-center gap-0.5 bg-slate-100 rounded-xl p-1 overflow-x-auto hide-scrollbar">
+                                {TABS.map(tab => (
+                                    <button
+                                        key={tab}
+                                        onClick={() => setActiveTab(tab)}
+                                        className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-semibold whitespace-nowrap transition-all ${activeTab === tab ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                                    >
+                                        {tab}
+                                        {tabCounts[tab] > 0 && (
+                                            <span className={`text-[9px] font-black px-1.5 py-px rounded-full leading-none ${activeTab === tab ? 'text-white' : 'bg-slate-200 text-slate-500'}`} style={activeTab === tab ? { backgroundColor: '#0599D5' } : {}}>
+                                                {tabCounts[tab]}
+                                            </span>
+                                        )}
+                                    </button>
+                                ))}
+                            </div>
+                            <button onClick={() => toast('Advanced filters coming soon', { icon: '🔧' })} className="flex items-center gap-1.5 px-3 py-2 border border-slate-200 text-slate-600 text-[11px] font-semibold rounded-xl hover:bg-slate-50 transition-colors">
+                                <Filter className="w-3.5 h-3.5" />
+                                Filter
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Table */}
+                    <div className="overflow-x-auto" ref={menuRef}>
+                        <table className="w-full min-w-[920px]">
                             <thead>
-                                <tr className="border-b border-near-black/[0.03] bg-near-black/[0.01] table-row w-full">
-                                    <th className="px-4 md:px-8 py-4 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-900/40 table-cell whitespace-nowrap text-left align-middle">Invoice Reference</th>
-                                    <th className="px-4 md:px-8 py-4 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-900/40 table-cell whitespace-nowrap text-left align-middle">Client Entity</th>
-                                    <th className="px-4 md:px-8 py-4 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-900/40 table-cell whitespace-nowrap text-left align-middle">Asset Value</th>
-                                    <th className="px-4 md:px-8 py-4 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-900/40 table-cell whitespace-nowrap text-left align-middle">Timeline</th>
-                                    <th className="px-2 md:px-3 py-4 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-900/40 table-cell whitespace-nowrap text-left align-middle w-[120px]">Lifecycle Status</th>
-                                    <th className="px-2 py-4 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-900/40 table-cell whitespace-nowrap text-left align-middle">Operations</th>
+                                <tr className="border-b border-slate-100" style={{ backgroundColor: '#F8FAFC' }}>
+                                    <th className="px-4 py-3 w-9">
+                                        <button onClick={toggleAll} className="text-slate-400 hover:text-[#0599D5] transition-colors">
+                                            {allSelected ? <CheckSquare className="w-3.5 h-3.5 text-[#0599D5]" /> : someSelected ? <CheckSquare className="w-3.5 h-3.5 text-slate-400" /> : <Square className="w-3.5 h-3.5" />}
+                                        </button>
+                                    </th>
+                                    {['Invoice Number', 'Customer Name', 'Date', 'Total Amount', 'Total Discount', 'Status', 'Net Total', 'Action'].map(h => (
+                                        <th key={h} className={`px-4 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap ${h === 'Total Amount' || h === 'Total Discount' || h === 'Net Total' ? 'text-right' : h === 'Action' ? 'text-right pr-5' : 'text-left'}`}>{h}</th>
+                                    ))}
                                 </tr>
                             </thead>
                             <tbody>
-                                {loading ? (
+                                {isEffectivelyLoading ? (
+                                    Array.from({ length: 8 }).map((_, i) => <SkeletonRow key={i} />)
+                                ) : filtered.length === 0 ? (
                                     <tr>
-                                        <td colSpan={6} className="px-8 py-32 text-center">
-                                            <div className="flex flex-col items-center justify-center gap-4">
-                                                <Loader2 className="w-10 h-10 text-noble-blue animate-spin" />
-                                                <p className="text-slate-500 text-xs font-bold uppercase tracking-widest">Decrypting ledger transactions...</p>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ) : filteredInvoices.length === 0 ? (
-                                    <tr>
-                                        <td colSpan={6} className="px-8 py-16">
-                                            <NobleEmptyState
-                                                icon={FileText}
-                                                accentIcon={Sparkles}
-                                                title="No Invoices Yet"
-                                                description="Your financial pipeline is clear. Start billing for your expertise by drafting your first professional invoice."
-                                                actions={[
-                                                    { label: '+ Create Invoice', onClick: () => router.push('/invoices/new') }
-                                                ]}
+                                        <td colSpan={9} className="px-6 py-20">
+                                            <ProactiveEmptyState
+                                                title="No invoices found"
+                                                description={searchQuery ? `No results for "${searchQuery}".` : "Create your first invoice to get started."}
+                                                variant="filtered"
+                                                actions={[{ label: '+ Create Invoice', onClick: () => setShowTypeModal(true), variant: 'primary' }]}
                                             />
                                         </td>
                                     </tr>
-                                ) : (
-                                    filteredInvoices.map((invoice, i) => (
-                                        <motion.tr 
+                                ) : filtered.map((invoice, i) => {
+                                    const isSelected = selectedIds.has(invoice.id);
+                                    const isOpen = openMenuId === invoice.id;
+                                    const isOverdue = invoice.status === 'overdue';
+                                    const dueSoon = invoice.due_date && !['paid', 'draft'].includes(invoice.status?.toLowerCase()) && (new Date(invoice.due_date).getTime() - Date.now()) < 3 * 24 * 60 * 60 * 1000;
+                                    const discount = Number(invoice.discount_amount) || 0;
+                                    const netTotal = (Number(invoice.total_amount) || 0) - discount;
+
+                                    return (
+                                        <motion.tr
                                             key={invoice.id}
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            transition={{ delay: i * 0.03 }}
-                                            className="border-b border-near-black/[0.03] hover:bg-white/60 transition-colors group cursor-pointer"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: Math.min(i * 0.012, 0.18) }}
                                             onClick={() => router.push(`/invoices/${invoice.id}`)}
+                                            className={`group cursor-pointer border-b border-slate-50 transition-colors ${isSelected ? 'bg-blue-50/40' : 'hover:bg-slate-50/60'}`}
                                         >
-                                            <td className="px-4 md:px-8 py-3.5 font-medium text-slate-800 text-[13px]">
-                                                #{invoice.invoice_number}
+                                            {/* Checkbox */}
+                                            <td className="px-4 py-3.5" onClick={e => { e.stopPropagation(); toggleOne(invoice.id); }}>
+                                                <button className="text-slate-300 hover:text-[#0599D5] transition-colors">
+                                                    {isSelected ? <CheckSquare className="w-3.5 h-3.5 text-[#0599D5]" /> : <Square className="w-3.5 h-3.5" />}
+                                                </button>
                                             </td>
-                                            <td className="px-4 md:px-8 py-3.5 text-slate-600 text-[13px] font-medium">
-                                                {invoice.clients?.name || 'Unnamed Client'}
+
+                                            {/* Invoice Number */}
+                                            <td className="px-4 py-3.5">
+                                                <span className="text-[12px] font-semibold text-slate-700 font-mono">{invoice.invoice_number}</span>
                                             </td>
-                                            <td className="px-4 md:px-8 py-3.5 font-semibold text-slate-900 text-[13px]">
-                                                {formatCurrency(invoice.total_amount || 0, invoice.currency_code)}
+
+                                            {/* Client */}
+                                            <td className="px-4 py-3.5">
+                                                <div className="flex items-center gap-2.5">
+                                                    <ClientAvatar name={invoice.clients?.name || 'Unknown'} />
+                                                    <div className="min-w-0">
+                                                        <p className="text-[12px] font-semibold text-slate-800 truncate max-w-[150px]">{invoice.clients?.name || 'Unnamed Client'}</p>
+                                                        {invoice.clients?.email && <p className="text-[10px] text-slate-400 truncate max-w-[150px]">{invoice.clients.email}</p>}
+                                                    </div>
+                                                </div>
                                             </td>
-                                            <td className="px-4 md:px-8 py-3.5 text-slate-500 text-[12px] font-medium">
-                                                Due: {invoice.due_date ? new Date(invoice.due_date).toLocaleDateString() : 'N/A'}
+
+                                            {/* Date */}
+                                            <td className="px-4 py-3.5">
+                                                <span className="text-[11px] text-slate-500 whitespace-nowrap">
+                                                    {invoice.issue_date
+                                                        ? new Date(invoice.issue_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                                                        : invoice.created_at
+                                                            ? new Date(invoice.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+                                                            : '—'
+                                                    }
+                                                </span>
                                             </td>
-                                            <td className="px-2 md:px-3 py-3.5">
-                                                {getStatusBadge(invoice.status)}
+
+                                            {/* Total Amount */}
+                                            <td className="px-4 py-3.5 text-right">
+                                                <span className="text-[12px] font-bold text-slate-900 tabular-nums">{fmt(invoice.total_amount || 0, invoice.currency_code)}</span>
+                                                {invoice.currency_code && invoice.currency_code !== baseCurrency && exchangeRates && (
+                                                    <p className="text-[10px] text-slate-400 tabular-nums">{currencyService.format(Number(invoice.total_amount) || 0, invoice.currency_code, { decimals: 2 })}</p>
+                                                )}
                                             </td>
-                                            <td className="px-2 py-3.5 text-left">
-                                                <div className="flex items-center justify-start gap-2">
-                                                    {invoice.status !== 'paid' && (
-                                                        <motion.button
-                                                            whileTap={{ scale: 0.95 }}
-                                                            onClick={(e) => { e.stopPropagation(); handleMarkAsPaid(invoice.id); }}
-                                                            className="px-3 py-1.5 rounded-xl bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white text-[10px] font-black uppercase tracking-wider transition-all border border-emerald-100"
-                                                            title="Mark as Paid"
+
+                                            {/* Total Discount */}
+                                            <td className="px-4 py-3.5 text-right">
+                                                <span className="text-[11px] text-slate-500 tabular-nums">
+                                                    {discount > 0 ? `${Number(invoice.discount_value || 0).toFixed(1)}%` : '—'}
+                                                </span>
+                                            </td>
+
+                                            {/* Status */}
+                                            <td className="px-4 py-3.5">
+                                                <StatusBadge status={invoice.status} />
+                                            </td>
+
+                                            {/* Net Total */}
+                                            <td className="px-4 py-3.5 text-right">
+                                                <span className="text-[12px] font-bold text-slate-900 tabular-nums">{fmt(netTotal, invoice.currency_code)}</span>
+                                            </td>
+
+                                            {/* Actions — ALWAYS VISIBLE */}
+                                            <td className="px-4 py-3.5 text-right pr-5 relative" onClick={e => e.stopPropagation()}>
+                                                <div className="flex items-center justify-end gap-1.5">
+                                                    {/* View — Blue */}
+                                                    <ActionBtn
+                                                        color="#3B82F6" hoverColor="#2563EB"
+                                                        title="View Invoice"
+                                                        onClick={e => { e.stopPropagation(); router.push(`/invoices/${invoice.id}`); }}
+                                                    >
+                                                        <Eye className="w-3 h-3" />
+                                                    </ActionBtn>
+
+                                                    {/* Download / Edit — Green */}
+                                                    <ActionBtn
+                                                        color="#10B981" hoverColor="#059669"
+                                                        title="Download PDF"
+                                                        href={invoice.pdf_url || `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/get-invoice-proxy?id=${invoice.id}&token=${invoice.tracking_token}`}
+                                                        target="_blank"
+                                                        onClick={e => e.stopPropagation()}
+                                                    >
+                                                        <Download className="w-3 h-3" />
+                                                    </ActionBtn>
+
+                                                    {/* More — Orange */}
+                                                    <div className="relative">
+                                                        <ActionBtn
+                                                            color="#F97316" hoverColor="#EA580C"
+                                                            title="More actions"
+                                                            onClick={e => { e.stopPropagation(); setOpenMenuId(isOpen ? null : invoice.id); }}
                                                         >
-                                                            Mark Paid
-                                                        </motion.button>
-                                                    )}
-                                                    {(invoice.pdf_url || invoice.tracking_token) && (
-                                                        <>
-                                                            <motion.div whileTap={{ scale: 0.95 }} className="inline-flex mr-2">
-                                                                <div className="flex bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
-                                                                    <button
-                                                                        onClick={(e) => {
-                                                                            e.stopPropagation();
-                                                                            const email = invoice.clients?.email || '';
-                                                                            const rawAmount = Number(invoice.total_amount) || 0;
-                                                                            const amountStr = currencyService.format(rawAmount, invoice.currency_code || 'NGN', { decimals: 2 });
-                                                                            const portalUrl = `${window.location.origin}/portal/${invoice.tracking_token}`;
-                                                                            const subject = encodeURIComponent(`Invoice #${invoice.invoice_number} from NobleInvoice`);
-                                                                            const body = encodeURIComponent(`Hello ${invoice.clients?.name || ''},\n\nHere is your invoice #${invoice.invoice_number} for ${amountStr}.\n\nYou can view and pay it securely here:\n${portalUrl}\n\nThank you for your business!`);
-                                                                            window.open(`mailto:${email}?subject=${subject}&body=${body}`, '_blank', 'noopener,noreferrer');
-                                                                        }}
-                                                                        className="p-2 text-slate-500 hover:bg-blue-500 hover:text-white transition-all border-r border-slate-200"
-                                                                        title="Send via Email"
-                                                                    >
-                                                                        <Mail className="w-3.5 h-3.5" />
-                                                                    </button>
-                                                                    <button
-                                                                        onClick={(e) => {
-                                                                            e.stopPropagation();
-                                                                            const phone = invoice.clients?.phone ? String(invoice.clients.phone).replace(/\D/g, '') : '';
-                                                                            const rawAmount = Number(invoice.total_amount) || 0;
-                                                                            const amountStr = currencyService.format(rawAmount, invoice.currency_code || 'NGN', { decimals: 2 });
-                                                                            const portalUrl = `${window.location.origin}/portal/${invoice.tracking_token}`;
-                                                                            const text = `Hello ${invoice.clients?.name || ''}, here is your invoice #${invoice.invoice_number} for ${amountStr}. You can view and pay it securely here: ${portalUrl}`;
-                                                                            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
-                                                                        }}
-                                                                        className="p-2 text-slate-500 hover:bg-emerald-500 hover:text-white transition-all"
-                                                                        title="Send via WhatsApp"
-                                                                    >
-                                                                        <Send className="w-3.5 h-3.5" />
-                                                                    </button>
-                                                                </div>
-                                                            </motion.div>
-                                                            <motion.div whileTap={{ scale: 0.95 }} className="inline-flex">
-                                                                <a
-                                                                    href={invoice.pdf_url || `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/get-invoice-proxy?id=${invoice.id}&token=${invoice.tracking_token}`}
-                                                                    target="_blank"
-                                                                    rel="noreferrer"
-                                                                    onClick={(e) => e.stopPropagation()}
-                                                                    className="p-2 rounded-xl bg-noble-blue/10 text-noble-blue hover:bg-noble-blue hover:text-white transition-all border border-noble-blue/10"
-                                                                    title="View PDF"
+                                                            <MoreVertical className="w-3 h-3" />
+                                                        </ActionBtn>
+
+                                                        <AnimatePresence>
+                                                            {isOpen && (
+                                                                <motion.div
+                                                                    initial={{ opacity: 0, scale: 0.95, y: -4 }}
+                                                                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                                                                    exit={{ opacity: 0, scale: 0.95, y: -4 }}
+                                                                    transition={{ duration: 0.12 }}
+                                                                    className="absolute right-0 top-9 w-52 bg-white border border-slate-200 rounded-xl shadow-2xl z-[999] overflow-hidden py-1"
                                                                 >
-                                                                    <Download className="w-3.5 h-3.5" />
-                                                                </a>
-                                                            </motion.div>
-                                                        </>
-                                                    )}
+                                                                    {invoice.status !== 'paid' && (
+                                                                        <button onClick={() => { handleMarkAsPaid(invoice.id); setOpenMenuId(null); }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-emerald-700 font-semibold hover:bg-emerald-50 transition-colors">
+                                                                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />Mark as Paid
+                                                                        </button>
+                                                                    )}
+                                                                    <button onClick={() => { router.push(`/invoices/${invoice.id}`); setOpenMenuId(null); }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-slate-700 hover:bg-slate-50 transition-colors">
+                                                                        <FileText className="w-3.5 h-3.5 text-slate-400" />View Invoice
+                                                                    </button>
+                                                                    <button onClick={() => {
+                                                                        const email = invoice.clients?.email || '';
+                                                                        const amt = currencyService.format(Number(invoice.total_amount) || 0, invoice.currency_code || 'NGN', { decimals: 2 });
+                                                                        const url = `${window.location.origin}/portal/${invoice.tracking_token}`;
+                                                                        window.open(`mailto:${email}?subject=${encodeURIComponent(`Invoice #${invoice.invoice_number}`)}&body=${encodeURIComponent(`Hello ${invoice.clients?.name || ''},\n\nHere is invoice #${invoice.invoice_number} for ${amt}.\n\nPay here: ${url}\n\nThank you!`)}`, '_blank');
+                                                                        setOpenMenuId(null);
+                                                                    }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-slate-700 hover:bg-slate-50 transition-colors">
+                                                                        <Mail className="w-3.5 h-3.5 text-slate-400" />Send via Email
+                                                                    </button>
+                                                                    <button onClick={() => {
+                                                                        const phone = invoice.clients?.phone ? String(invoice.clients.phone).replace(/\D/g, '') : '';
+                                                                        const amt = currencyService.format(Number(invoice.total_amount) || 0, invoice.currency_code || 'NGN', { decimals: 2 });
+                                                                        const url = `${window.location.origin}/portal/${invoice.tracking_token}`;
+                                                                        window.open(`https://wa.me/${phone}?text=${encodeURIComponent(`Hello ${invoice.clients?.name || ''}, here is invoice #${invoice.invoice_number} for ${amt}. Pay here: ${url}`)}`, '_blank');
+                                                                        setOpenMenuId(null);
+                                                                    }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-slate-700 hover:bg-slate-50 transition-colors">
+                                                                        <Send className="w-3.5 h-3.5 text-slate-400" />Send via WhatsApp
+                                                                    </button>
+                                                                </motion.div>
+                                                            )}
+                                                        </AnimatePresence>
+                                                    </div>
                                                 </div>
                                             </td>
                                         </motion.tr>
-                                    ))
-                                )}
+                                    );
+                                })}
                             </tbody>
                         </table>
-                        
-                        {/* Pagination Controls */}
-                        <div className="p-4 border-t border-near-black/[0.03] flex items-center justify-between bg-white/30 backdrop-blur-md">
-                            <span className="text-[10px] font-bold uppercase tracking-[0.15em] text-slate-500">
-                                Page {page}
+
+                        {/* ── Pagination ──────────────────────────────────────── */}
+                        <div className="px-5 py-3 border-t border-slate-100 flex items-center justify-between" style={{ backgroundColor: '#F8FAFC' }}>
+                            <span className="text-[11px] font-medium text-slate-400">
+                                {filtered.length > 0
+                                    ? `Showing 1–${filtered.length} of ${filtered.length} invoice${filtered.length !== 1 ? 's' : ''}${selectedIds.size > 0 ? ` · ${selectedIds.size} selected` : ''}`
+                                    : 'No results'
+                                }
                             </span>
-                            <div className="flex gap-2">
-                                <button
-                                    onClick={() => setPage(p => Math.max(1, p - 1))}
-                                    disabled={page === 1 || loading}
-                                    className="px-4 py-2 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 disabled:opacity-50 transition-all shadow-sm"
-                                >
-                                    Previous
+                            <div className="flex items-center gap-1">
+                                <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1 || isEffectivelyLoading}
+                                    className="flex items-center gap-1 px-2.5 py-1.5 text-[11px] font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                                    <ChevronLeft className="w-3 h-3" />Prev
                                 </button>
-                                <button
-                                    onClick={() => setPage(p => p + 1)}
-                                    disabled={!hasMore || loading}
-                                    className="px-4 py-2 text-[10px] font-bold uppercase tracking-[0.15em] text-slate-700 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 disabled:opacity-50 transition-all shadow-sm"
-                                >
-                                    Next
+                                {[page - 1, page, page + 1].filter(p => p > 0).map(p => (
+                                    <button key={p} onClick={() => setPage(p)}
+                                        className="w-7 h-7 text-[11px] font-bold rounded-lg transition-colors"
+                                        style={{ backgroundColor: p === page ? '#0599D5' : 'white', color: p === page ? 'white' : '#475569', border: p === page ? 'none' : '1px solid #E2E8F0' }}>
+                                        {p}
+                                    </button>
+                                ))}
+                                <button onClick={() => setPage(p => p + 1)} disabled={!hasMore || isEffectivelyLoading}
+                                    className="flex items-center gap-1 px-2.5 py-1.5 text-[11px] font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                                    Next<ChevronRight className="w-3 h-3" />
                                 </button>
                             </div>
                         </div>
                     </div>
                 </motion.div>
+                    </>
+                )}
             </div>
+            {/* Invoice Type Selection Modal */}
+            <InvoiceTypeModal isOpen={showTypeModal} onClose={() => setShowTypeModal(false)} />
         </div>
     );
 }

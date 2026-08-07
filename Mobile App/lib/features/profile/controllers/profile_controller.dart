@@ -7,6 +7,7 @@ import 'package:noble_invoice/features/profile/models/profile_model.dart';
 import 'package:noble_invoice/features/profile/models/team_model.dart';
 import 'package:noble_invoice/core/services/image_processing_service.dart';
 import 'package:noble_invoice/core/services/session_service.dart';
+import 'package:noble_invoice/core/services/location_service.dart';
 
 class ProfileController extends ChangeNotifier {
   UserProfile? _profile;
@@ -24,7 +25,7 @@ class ProfileController extends ChangeNotifier {
   ThemeMode get themeMode => ThemeMode.light;
 
   Locale? get locale => _profile?.locale != null ? Locale(_profile!.locale) : null;
-  String get preferredCurrency => _profile?.preferredCurrency ?? 'NGN';
+  String get preferredCurrency => _profile?.preferredCurrency ?? LocationService.defaultCurrency;
 
   // Notification Getters
   bool get invoicingUpdates => _getPref('invoicingUpdates');
@@ -85,6 +86,35 @@ class ProfileController extends ChangeNotifier {
           'user_id': user.id,
           'role': 'owner',
         });
+      }
+
+      // Check if we need to auto-detect currency
+      if (profileData['preferred_currency'] == null) {
+        String detectedCurrency = LocationService.defaultCurrency;
+        try {
+          final countryCode = await LocationService.detectUserCountryCode();
+          if (countryCode != null) {
+            detectedCurrency = LocationService.getCurrencyForCountryCode(countryCode);
+          } else if (Platform.localeName.isNotEmpty) {
+            final locParts = Platform.localeName.split('_');
+            if (locParts.length > 1) {
+              detectedCurrency = LocationService.getCurrencyForCountryCode(locParts[1]);
+            }
+          }
+        } catch (_) {}
+
+        if (detectedCurrency != _profile?.preferredCurrency) {
+          _profile?.preferredCurrency = detectedCurrency;
+          await SupabaseService.client.from('profiles').update({
+            'preferred_currency': detectedCurrency,
+          }).eq('id', user.id);
+          
+          if (activeTeam != null) {
+            await SupabaseService.client.from('teams').update({
+              'preferred_currency': detectedCurrency,
+            }).eq('id', activeTeam.id);
+          }
+        }
       }
 
       await SessionService.upsertCurrentSession(user.id);

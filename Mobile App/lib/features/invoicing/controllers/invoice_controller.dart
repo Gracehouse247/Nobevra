@@ -86,7 +86,7 @@ class InvoiceController extends ChangeNotifier {
   AgingSummary           _agingSummary   = AgingSummary();
   List<InvoiceListItem>  _invoices       = [];
   InvoiceDetails?        _currentInvoice;
-  String                 _currencyCode   = 'NGN'; // Default to Naira for local context
+  String                 _currencyCode   = 'USD'; // Default to USD for global context
   String                 _errorMessage   = '';
   String?                _activeTeamId;
   InvoiceViewType        _viewType       = InvoiceViewType.invoices;

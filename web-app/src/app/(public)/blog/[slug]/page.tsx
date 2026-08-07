@@ -4,7 +4,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Calendar, User, Clock, ArrowRight, CheckCircle2, FileText, Download, Calculator, FileSpreadsheet, PlayCircle, TrendingUp, Zap, Shield } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
-import ReactMarkdown from 'react-markdown';
+import { unstable_cache } from 'next/cache';
+import ReactMarkdown, { Components } from 'react-markdown';
+import Image from 'next/image';
 import remarkGfm from 'remark-gfm';
 import ReadingProgressBar from './ReadingProgressBar';
 import TableOfContents from './TableOfContents';
@@ -13,10 +15,28 @@ type Props = { params: Promise<{ slug: string }> };
 
 export const revalidate = 3600; // Revalidate every hour
 
-const supabase = createClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+
+const getPostBySlug = unstable_cache(
+    async (slug: string) => {
+        const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+        const { data } = await supabase.from('seo_articles').select('*').eq('slug', slug).single();
+        return data;
+    },
+    ['blog-post-slug'],
+    { revalidate: 3600, tags: ['blog'] }
 );
+
+const getRelatedPosts = unstable_cache(
+    async (slug: string) => {
+        const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+        const { data } = await supabase.from('seo_articles').select('id, title, slug, meta_description, published_at, featured_image_url').eq('status', 'published').neq('slug', slug).order('published_at', { ascending: false }).limit(3);
+        return data;
+    },
+    ['blog-related-posts'],
+    { revalidate: 3600, tags: ['blog'] }
+);
+
 
 function extractHeadings(markdown: string) {
     const headings: { level: number; text: string; id: string }[] = [];
@@ -47,8 +67,8 @@ function getImageUrl(url?: string | null) {
 }
 
 // ─── CUSTOM MARKDOWN COMPONENTS ───────────────────────────────────────────────
-const markdownComponents: any = {
-    h2: ({ node, children, ...props }: any) => {
+const markdownComponents: Components = {
+    h2: ({ node, children, ...props }) => {
         const text = String(children).replace(/\*\*/g, '');
         const id = text.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
         return (
@@ -58,7 +78,7 @@ const markdownComponents: any = {
             </h2>
         );
     },
-    h3: ({ node, children, ...props }: any) => {
+    h3: ({ node, children, ...props }) => {
         const text = String(children).replace(/\*\*/g, '');
         const id = text.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
         return (
@@ -67,15 +87,15 @@ const markdownComponents: any = {
             </h3>
         );
     },
-    p: ({ node, children, ...props }: any) => (
+    p: ({ node, children, ...props }) => (
         <p className="text-[1.125rem] leading-[1.9] text-[#374151] mb-8 font-roboto" {...props}>
             {children}
         </p>
     ),
-    ul: ({ node, children, ...props }: any) => (
+    ul: ({ node, children, ...props }) => (
         <ul className="space-y-3 mb-8 pl-0 list-none" {...props}>{children}</ul>
     ),
-    ol: ({ node, children, ...props }: any) => (
+    ol: ({ node, children, ...props }) => (
         <ol className="space-y-3 mb-8 pl-0 list-none counter-reset-item" style={{ counterReset: 'item' }} {...props}>{children}</ol>
     ),
     li: ({ node, ordered, children, ...props }: any) => (
@@ -86,7 +106,7 @@ const markdownComponents: any = {
             <span>{children}</span>
         </li>
     ),
-    blockquote: ({ node, children, ...props }: any) => (
+    blockquote: ({ node, children, ...props }) => (
         <div className="relative my-10 overflow-hidden rounded-2xl border border-[#166FBB]/20 bg-gradient-to-br from-[#EFF6FF] to-[#F0F9FF] #1E3A5F]/20 #0F172A] p-8">
             <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#166FBB] to-[#0599D5] rounded-l-2xl" />
             <div className="absolute top-4 right-4 text-6xl text-[#166FBB]/10 font-serif leading-none select-none">"</div>
@@ -95,16 +115,16 @@ const markdownComponents: any = {
             </div>
         </div>
     ),
-    strong: ({ node, children, ...props }: any) => (
+    strong: ({ node, children, ...props }) => (
         <strong className="font-bold text-[#0F172A] " {...props}>{children}</strong>
     ),
-    a: ({ node, children, href, ...props }: any) => (
+    a: ({ node, children, href, ...props }) => (
         <a href={href} className="text-[#166FBB] font-semibold underline underline-offset-4 decoration-[#166FBB]/30 hover:decoration-[#166FBB] transition-all" {...props}>
             {children}
         </a>
     ),
-    code: ({ node, inline, children, ...props }: any) => {
-        if (inline) {
+    code: ({ node, children, ...props }: any) => {
+        if (props.inline) {
             return (
                 <code className="px-1.5 py-0.5 rounded-md bg-[#F1F5F9] text-[#166FBB] text-[0.875em] font-mono font-medium" {...props}>
                     {children}
@@ -124,10 +144,10 @@ const markdownComponents: any = {
             </div>
         );
     },
-    img: ({ node, src, alt, ...props }: any) => (
+    img: ({ node, src, alt, ...props }) => (
         <figure className="my-12 -mx-4 md:-mx-8">
             <div className="rounded-2xl overflow-hidden shadow-2xl border border-[#E2E8F0] ">
-                <img src={src} alt={alt} className="w-full object-cover" loading="lazy" {...props} />
+                <Image src={(src as string) || ""} alt={alt || ""} width={1200} height={600} className="w-full object-cover" loading="lazy" />
             </div>
             {alt && (
                 <figcaption className="text-center text-sm text-[#94A3B8] mt-3 italic">{alt}</figcaption>
@@ -135,18 +155,18 @@ const markdownComponents: any = {
         </figure>
     ),
     hr: () => null,
-    table: ({ node, children, ...props }: any) => (
+    table: ({ node, children, ...props }) => (
         <div className="my-10 rounded-2xl overflow-hidden border border-[#E2E8F0] shadow-sm">
             <table className="w-full border-collapse" {...props}>{children}</table>
         </div>
     ),
-    thead: ({ node, children, ...props }: any) => (
+    thead: ({ node, children, ...props }) => (
         <thead className="bg-[#F8FAFC] text-xs font-black uppercase tracking-widest text-[#64748B]" {...props}>{children}</thead>
     ),
-    th: ({ node, children, ...props }: any) => (
+    th: ({ node, children, ...props }) => (
         <th className="px-6 py-4 text-left border-b border-[#E2E8F0] " {...props}>{children}</th>
     ),
-    td: ({ node, children, ...props }: any) => (
+    td: ({ node, children, ...props }) => (
         <td className="px-6 py-4 text-sm text-[#374151] border-b border-[#E2E8F0] last:border-b-0" {...props}>{children}</td>
     ),
 };
@@ -166,7 +186,7 @@ export async function generateStaticParams() {
 }
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
     const { slug } = await params;
-    const { data: post } = await supabase.from('seo_articles').select('*').eq('slug', slug).single();
+    const post = await getPostBySlug(slug);
     if (!post) return { title: 'Post Not Found | NobleInvoice Blog' };
     return {
         title: `${post.meta_title || post.title} | NobleInvoice Blog`,
@@ -188,16 +208,10 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
 export default async function BlogPostPage({ params }: Props) {
     const { slug } = await params;
 
-    const { data: post, error } = await supabase.from('seo_articles').select('*').eq('slug', slug).single();
-    if (error || !post) notFound();
+    const post = await getPostBySlug(slug);
+    if (!post) notFound();
 
-    const { data: relatedPosts } = await supabase
-        .from('seo_articles')
-        .select('id, title, slug, meta_description, published_at, featured_image_url')
-        .eq('status', 'published')
-        .neq('slug', slug)
-        .order('published_at', { ascending: false })
-        .limit(3);
+    const relatedPosts = await getRelatedPosts(slug);
 
     const readTime = Math.max(1, Math.ceil(countWords(post.content_markdown || '') / 200));
     const toc = extractHeadings(post.content_markdown || '');
@@ -252,10 +266,7 @@ export default async function BlogPostPage({ params }: Props) {
                             {/* Hero image — integrated into reading column */}
                             {post.featured_image_url && (
                                 <div className="relative w-full overflow-hidden rounded-2xl border border-[#E2E8F0] mb-10" style={{ aspectRatio: '16/9' }}>
-                                    <img
-                                        src={getImageUrl(post.featured_image_url) as string}
-                                        alt={post.title}
-                                        className="w-full h-full object-cover" />
+                                    <Image src={getImageUrl(post.featured_image_url) as string} alt={post.title} width={1200} height={675} className="w-full h-full object-cover" />
                                 </div>
                             )}
 
@@ -344,11 +355,11 @@ export default async function BlogPostPage({ params }: Props) {
                                         </Link>
                                     </div>
                                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-                                        {relatedPosts.map((related: any) => (
+                                        {relatedPosts.map((related) => (
                                             <Link href={`/blog/${related.slug}`} key={related.id} className="group block bg-white #0F172A] border border-[#E2E8F0] .06] rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                                                 {related.featured_image_url && (
                                                     <div className="aspect-[4/3] overflow-hidden">
-                                                        <img src={getImageUrl(related.featured_image_url) as string} alt={related.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                                        <Image src={getImageUrl(related.featured_image_url) as string} alt={related.title} width={400} height={300} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                                     </div>
                                                 )}
                                                 <div className="p-5">

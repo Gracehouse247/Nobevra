@@ -5,21 +5,7 @@ import { useParams } from 'next/navigation';
 import { TemplateEngine } from '@/components/invoice/TemplateEngine';
 import { invoiceService } from '@/lib/services/supabaseService';
 import { supabase } from '@/lib/supabase';
-import { TemplateDefinition } from '@/lib/templates/templateRegistry';
-
-// Mock template definition logic for embed (can be expanded to fetch real template preference)
-const getTemplateDefinition = (category: string): TemplateDefinition => ({
-  id: 'prof-blue-horizon',
-  name: 'Blue Horizon',
-  category: ['professional'] as any,
-  description: 'Clean native invoice template',
-  isPremium: false,
-  accentColor: '#3B82F6',
-  headerStyle: 'standard',
-  footerStyle: 'minimal',
-  tableStyle: 'striped',
-  logoPosition: 'left'
-} as any);
+import { TEMPLATES, INVOICE_TEMPLATES } from '@/lib/templates/templateRegistry';
 
 export default function EmbedInvoicePage() {
   const params = useParams();
@@ -79,7 +65,8 @@ export default function EmbedInvoicePage() {
           discountTotal: data.discount_amount,
           total: data.total_amount,
           notes: data.notes,
-          signatureUrl: data.metadata?.signature_url
+          signatureUrl: data.metadata?.signature_url,
+          templateId: data.metadata?.template_id
         };
 
         setInvoice(formattedData);
@@ -98,10 +85,12 @@ export default function EmbedInvoicePage() {
   if (error) return <div className="min-h-screen flex items-center justify-center bg-white text-red-500 font-bold p-8 text-center">{error}</div>;
   if (!invoice) return null;
 
+  const template = TEMPLATES.find(t => t.id === invoice.templateId) || INVOICE_TEMPLATES[0];
+
   return (
     <div className="w-full bg-white min-h-screen pb-20">
       <TemplateEngine 
-        template={getTemplateDefinition('professional')} 
+        template={template} 
         data={invoice} 
       />
     </div>

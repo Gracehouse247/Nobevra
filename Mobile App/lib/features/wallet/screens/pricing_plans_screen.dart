@@ -285,6 +285,7 @@ class _PricingPlansScreenState extends State<PricingPlansScreen> {
                         email: profile.email,
                         fullName: profile.displayName ?? 'Noble User',
                         phoneNumber: profile.phone ?? '',
+                        billingPeriod: _isYearly ? 'yearly' : 'monthly',
                       );
 
                       if (!mounted) return;

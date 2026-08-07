@@ -515,6 +515,12 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
         </div>
       </div>
 
+      {/* Powered by NobleInvoice Watermark */}
+      {!data.canRemoveWatermark && (
+        <div className="absolute bottom-6 right-8 z-[100] text-[9px] font-black uppercase tracking-widest text-slate-300 pointer-events-none">
+          Powered by <span className="text-[#0599D5]">NobleInvoice</span>
+        </div>
+      )}
       {renderFooter()}
     </div>
   );

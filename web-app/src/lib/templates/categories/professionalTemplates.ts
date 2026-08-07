@@ -14,7 +14,7 @@ export const PROFESSIONAL_TEMPLATES: TemplateDefinition[] = [
     "footerStyle": "geometric",
     "tableStyle": "dark-header",
     "logoPosition": "top-left",
-    "isPremium": true,
+    "isPremium": false,
     "thumbnail": "/placeholder.png"
   },
   {
@@ -29,7 +29,7 @@ export const PROFESSIONAL_TEMPLATES: TemplateDefinition[] = [
     "footerStyle": "minimal",
     "tableStyle": "dark-header",
     "logoPosition": "top-left",
-    "isPremium": true,
+    "isPremium": false,
     "thumbnail": "/placeholder.png"
   },
   {
@@ -44,7 +44,7 @@ export const PROFESSIONAL_TEMPLATES: TemplateDefinition[] = [
     "footerStyle": "minimal",
     "tableStyle": "dark-header",
     "logoPosition": "top-left",
-    "isPremium": true,
+    "isPremium": false,
     "thumbnail": "/placeholder.png"
   },
   {
@@ -59,7 +59,7 @@ export const PROFESSIONAL_TEMPLATES: TemplateDefinition[] = [
     "footerStyle": "minimal",
     "tableStyle": "dark-header",
     "logoPosition": "top-left",
-    "isPremium": true,
+    "isPremium": false,
     "thumbnail": "/placeholder.png"
   },
   {
@@ -74,7 +74,7 @@ export const PROFESSIONAL_TEMPLATES: TemplateDefinition[] = [
     "footerStyle": "wave",
     "tableStyle": "dark-header",
     "logoPosition": "top-left",
-    "isPremium": true,
+    "isPremium": false,
     "thumbnail": "/placeholder.png"
   },
   {
@@ -226,7 +226,7 @@ export const PROFESSIONAL_TEMPLATES: TemplateDefinition[] = [
     "footerStyle": "minimal",
     "tableStyle": "dark-header",
     "logoPosition": "top-left",
-    "isPremium": true,
+    "isPremium": false,
     "thumbnail": "/placeholder.png"
   },
   {
@@ -363,7 +363,7 @@ export const PROFESSIONAL_TEMPLATES: TemplateDefinition[] = [
     "footerStyle": "minimal",
     "tableStyle": "dark-header",
     "logoPosition": "top-left",
-    "isPremium": true,
+    "isPremium": false,
     "thumbnail": "/placeholder.png"
   },
   {

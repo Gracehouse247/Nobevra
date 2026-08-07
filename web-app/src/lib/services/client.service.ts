@@ -22,7 +22,15 @@ export const clientService = {
             .select()
             .single();
         
-        if (error) throw error;
+        if (error) {
+            console.error('[clientService.createClient] Supabase error:', {
+                message: error.message,
+                code: error.code,
+                details: error.details,
+                hint: error.hint,
+            });
+            throw error;
+        }
         return data;
     },
 

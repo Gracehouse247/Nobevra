@@ -31,6 +31,7 @@ ALTER TABLE public.help_center_ratings ENABLE ROW LEVEL SECURITY;
 
 -- 1. Anyone (including anonymous visitors) can INSERT a rating.
 --    This allows unauthenticated Help Center users to submit feedback.
+DROP POLICY IF EXISTS "help_ratings_public_insert" ON public.help_center_ratings;
 CREATE POLICY "help_ratings_public_insert"
     ON public.help_center_ratings
     FOR INSERT
@@ -39,6 +40,7 @@ CREATE POLICY "help_ratings_public_insert"
 -- 2. Only authenticated admin users can SELECT ratings.
 --    The Next.js API route uses the service_role key which bypasses RLS,
 --    so this policy governs direct Supabase Studio or client-side reads.
+DROP POLICY IF EXISTS "help_ratings_admin_select" ON public.help_center_ratings;
 CREATE POLICY "help_ratings_admin_select"
     ON public.help_center_ratings
     FOR SELECT

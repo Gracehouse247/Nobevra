@@ -1,4 +1,5 @@
 import React from 'react';
+import { CardQRCode } from '../../CardQRCode';
 import { CardRendererProps } from '../types';
 import { Phone, Mail, Globe, MapPin, Briefcase, Camera, Box, Leaf } from 'lucide-react';
 
@@ -55,9 +56,7 @@ export const AdelineCard: React.FC<CardRendererProps & { defaultColor?: string }
                 {data.companyName || 'ADELINE LABS'}
               </h2>
             </DraggableElement>
-            <DraggableElement elementKey="qr" className="bg-white p-3 rounded-2xl shadow-2xl border-4" style={{ borderColor: '#F59E0B' }}>
-              <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobleinvoice.ai')}&color=${darkBg.replace('#', '')}`} alt="QR" className="w-20 h-20"/>
-            </DraggableElement>
+            <CardQRCode url={data.qrCodeUrl} qrColor={darkBg} borderColor='#F59E0B' size={200} dimensionClass="w-20 h-20" DraggableElement={DraggableElement} />
           </div>
         )}
       </div>

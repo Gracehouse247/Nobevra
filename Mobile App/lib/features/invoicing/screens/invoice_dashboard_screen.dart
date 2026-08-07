@@ -289,7 +289,8 @@ class _InvoiceDashboardScreenState extends State<InvoiceDashboardScreen> {
               return d.year == now.year && d.month == now.month;
             }).length;
 
-            if (fg.maxInvoicesPerMonth != -1 && currentMonthInvoices >= fg.maxInvoicesPerMonth) {
+            final maxInvoices = fg.getLimit('invoice.create') ?? -1;
+            if (maxInvoices != -1 && currentMonthInvoices >= maxInvoices) {
               ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Monthly invoice limit reached. Please upgrade.')));
               Navigator.pushNamed(context, AppRoutes.pricingPlans);
               return;
@@ -329,7 +330,8 @@ class _InvoiceDashboardScreenState extends State<InvoiceDashboardScreen> {
           return d.year == now.year && d.month == now.month;
         }).length;
 
-        if (fg.maxInvoicesPerMonth != -1 && currentMonthInvoices >= fg.maxInvoicesPerMonth) {
+        final maxInvoices = fg.getLimit('invoice.create') ?? -1;
+        if (maxInvoices != -1 && currentMonthInvoices >= maxInvoices) {
           ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Monthly invoice limit reached. Please upgrade.')));
           Navigator.pushNamed(context, AppRoutes.pricingPlans);
           return;

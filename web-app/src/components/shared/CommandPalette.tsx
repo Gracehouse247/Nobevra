@@ -10,6 +10,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '@/context/AuthContext';
 import { invoiceService, teamService } from '@/lib/services/supabaseService';
+import { useCurrency } from '@/context/CurrencyContext';
 import { toast } from 'react-hot-toast';
 
 const COMMANDS = [
@@ -17,7 +18,7 @@ const COMMANDS = [
     { id: 'add-client', title: 'Add New Client', icon: Users, category: 'Actions', shortcut: 'C', href: '/clients' },
     { id: 'view-invoices', title: 'View Invoices', icon: FileText, category: 'Navigation', href: '/invoices' },
     { id: 'view-wallet', title: 'Financial Overview', icon: CreditCard, category: 'Navigation', href: '/wallet' },
-    { id: 'view-inventory', title: 'Inventory Hub', icon: Package, category: 'Navigation', href: '/products' },
+    { id: 'view-products', title: 'Products & Services', icon: Package, category: 'Navigation', href: '/products' },
     { id: 'settings', title: 'System Settings', icon: Settings, category: 'Management', href: '/settings' },
 ];
 
@@ -31,10 +32,11 @@ export default function CommandPalette({ isOpen: controlledIsOpen, onClose: cont
     const isOpen = controlledIsOpen !== undefined ? controlledIsOpen : localIsOpen;
     const setIsOpen = controlledIsOpen !== undefined ? () => {} : setLocalIsOpen;
 
+    const { user } = useAuth();
+    const { currencyCode } = useCurrency();
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedIndex, setSelectedIndex] = useState(0);
     const router = useRouter();
-    const { user } = useAuth();
 
     const filteredCommands = COMMANDS.filter(cmd => 
         cmd.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -63,7 +65,7 @@ export default function CommandPalette({ isOpen: controlledIsOpen, onClose: cont
                 // Get team details to find correct team ID and preferred currency
                 const tData = await teamService.getTeamByUserId(user.id);
                 const teamId = tData?.id || user.id;
-                const currency = tData?.preferred_currency || 'NGN';
+                const currency = (tData as any)?.preferred_currency || currencyCode;
                 
                 const draftInvoice = await invoiceService.createInvoice({
                     user_id: user.id,
@@ -76,7 +78,7 @@ export default function CommandPalette({ isOpen: controlledIsOpen, onClose: cont
                 
                 toast.success('Draft invoice created!', { id: 'create-draft-inv' });
                 closePalette();
-                router.push(`/invoices/new?draftId=${draftInvoice.id}`);
+                router.push(`/invoices/new?draftId=${draftInvoice.invoice_id}`);
             } catch (err: any) {
                 console.error('Failed to create instant draft invoice:', err);
                 toast.error('Failed to create draft invoice', { id: 'create-draft-inv' });

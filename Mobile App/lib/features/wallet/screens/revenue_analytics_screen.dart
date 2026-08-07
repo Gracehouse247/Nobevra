@@ -38,7 +38,7 @@ class _RevenueAnalyticsScreenState extends State<RevenueAnalyticsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (!FeatureGateService().hasFeature('analytics_and_reports')) {
+    if (!FeatureGateService().canUse('analytics.reports')) {
       return Scaffold(
         backgroundColor: AppColors.background,
         appBar: AppBar(

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useRef } from 'react';
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, EyeOff, ShieldCheck } from 'lucide-react';
 import { OnboardingFlow } from '@/components/onboarding/OnboardingFlow';
 import { getPasswordStrength, STRENGTH_CONFIG } from '@/lib/utils/passwordStrength';
+import EmailConflictModal from '@/components/auth/EmailConflictModal';
 
 const mapAuthError = (message: string) => {
     if (message.includes('User already registered') || message.includes('already exists')) return 'An account with this email already exists. Try logging in.';
@@ -34,6 +35,8 @@ export default function RegisterPage() {
     const [loading, setLoading] = useState(false);
     const [googleLoading, setGoogleLoading] = useState(false);
     const [error, setError] = useState('');
+    const [showConflictModal, setShowConflictModal] = useState(false);
+    const [emailExists, setEmailExists] = useState(false); // tracks real-time pre-check result
     const [resendCooldown, setResendCooldown] = useState(0);
     // Tracks whether the initial session check has completed.
     // Keeps the form hidden until we know the user is not already authenticated,
@@ -90,6 +93,30 @@ export default function RegisterPage() {
     const strength = useMemo(() => getPasswordStrength(password), [password]);
     const strengthConfig = STRENGTH_CONFIG[strength];
 
+    // ── Debounced real-time email existence check (industry standard: 600ms) ──
+    const emailCheckTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    useEffect(() => {
+        setEmailExists(false); // reset on every keystroke
+        if (!email || !email.includes('@') || !email.includes('.')) return;
+        if (emailCheckTimer.current) clearTimeout(emailCheckTimer.current);
+        emailCheckTimer.current = setTimeout(async () => {
+            try {
+                const res = await fetch(`/api/auth/check-email?email=${encodeURIComponent(email.trim().toLowerCase())}`);
+                if (!res.ok) return;
+                const { exists } = await res.json();
+                if (exists && mounted.current) {
+                    setEmailExists(true);
+                    setShowConflictModal(true);
+                }
+            } catch {
+                // fail silently — don't block registration
+            }
+        }, 600);
+        return () => {
+            if (emailCheckTimer.current) clearTimeout(emailCheckTimer.current);
+        };
+    }, [email]);
+
     const handleSignupSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         
@@ -103,6 +130,12 @@ export default function RegisterPage() {
         setError('');
         
         try {
+            // Guard: if real-time check already confirmed email exists, show modal immediately
+            if (emailExists) {
+                setShowConflictModal(true);
+                setLoading(false);
+                return;
+            }
             const sanitizedEmail = email.trim().toLowerCase();
             const { error: signUpError } = await supabase.auth.signUp({
                 email: sanitizedEmail,
@@ -115,6 +148,15 @@ export default function RegisterPage() {
                 }
             });
             if (!mounted.current) return;
+            // Duplicate email — show conflict modal instead of plain error text
+            if (signUpError?.message?.includes('already registered') ||
+                signUpError?.message?.includes('already exists') ||
+                signUpError?.message?.includes('User already registered')) {
+                setEmailExists(true);
+                setShowConflictModal(true);
+                setLoading(false);
+                return;
+            }
             if (signUpError) throw signUpError;
             
             // Move to OTP step since OTP is dispatched by Supabase Confirm Email feature
@@ -313,6 +355,14 @@ export default function RegisterPage() {
                         transition={{ duration: 0.5 }}
                         className="bg-white rounded-3xl p-8 shadow-2xl w-full"
                     >
+                        {/* Email Conflict Modal */}
+                        <EmailConflictModal
+                            isOpen={showConflictModal}
+                            email={email}
+                            onClose={() => setShowConflictModal(false)}
+                            onGoogle={handleGoogle}
+                        />
+
                         {error && (
                             <div className="bg-red-50 text-red-500 text-[11px] font-bold p-3 rounded-lg border border-red-100 mb-6 text-center">
                                 {error}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardRendererProps } from '../types';
 import { Phone, Mail, Globe, MapPin, Briefcase, Camera, Box, Leaf } from 'lucide-react';
+import { SharedQRCode } from '../../SharedQRCode';
 
 export const LaranaIncCard: React.FC<CardRendererProps & { defaultColor?: string }> = (props) => {
   const { data, side, brandAccent, brandDark, brandLight, brandMid, ON_COLOR, ON_WHITE, fs, DraggableElement, renderAvatar, effectiveAccent } = props;
@@ -54,7 +55,7 @@ export const LaranaIncCard: React.FC<CardRendererProps & { defaultColor?: string
         </div>
         <DraggableElement elementKey="qr" className="flex flex-col items-center gap-3 mt-2">
           <div className="bg-white p-3 rounded-xl shadow-2xl">
-            <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(data.qrCodeUrl||'https://nobleinvoice.ai')}&color=${qc}`} alt="QR" className="w-20 h-20"/>
+            <SharedQRCode url={data.qrCodeUrl || ''} color={qc} size={200} className="w-20 h-20" />
           </div>
           <p className="font-bold tracking-[0.5em] uppercase" style={{ color: ON_COLOR, opacity: 0.3, fontSize: fs(10) }}>Scan to Connect</p>
         </DraggableElement>

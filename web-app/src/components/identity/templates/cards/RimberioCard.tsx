@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardRendererProps } from '../types';
 import { Phone, Mail, Globe, MapPin, Briefcase, Camera, Box, Leaf } from 'lucide-react';
+import { SharedQRCode } from '../../SharedQRCode';
 
 export const RimberioCard: React.FC<CardRendererProps & { defaultColor?: string }> = (props) => {
   const { data, side, brandAccent, brandDark, brandLight, brandMid, ON_COLOR, ON_WHITE, fs, DraggableElement, renderAvatar, effectiveAccent } = props;
@@ -53,7 +54,7 @@ export const RimberioCard: React.FC<CardRendererProps & { defaultColor?: string 
               </h2>
             </DraggableElement>
             <DraggableElement elementKey="qr" className="bg-white p-3 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4" style={{ borderColor: accent }}>
-              <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobleinvoice.ai')}&color=${accent.replace('#', '')}`} alt="QR" className="w-24 h-24"/>
+              <SharedQRCode url={data.qrCodeUrl || ''} color={accent} size={200} className="w-24 h-24" />
             </DraggableElement>
           </div>
         )}

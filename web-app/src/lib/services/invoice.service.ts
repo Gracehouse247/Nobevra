@@ -57,6 +57,7 @@ export interface DbInvoicePayload {
     total_amount: number;
     notes: string | null;
     metadata: Record<string, any>;
+    user_id?: string;
     updated_at?: string;
 }
 
@@ -76,6 +77,17 @@ export const invoiceService = {
         return data ?? [];
     },
 
+    async getInvoicesByClient(clientId: string) {
+        const { data, error } = await supabase
+            .from('invoices')
+            .select('*')
+            .eq('client_id', clientId)
+            .order('created_at', { ascending: false });
+            
+        if (error) throw error;
+        return data || [];
+    },
+
     async getInvoiceById(invoiceId: string) {
         const { data, error } = await supabase
             .from('invoices')
@@ -88,136 +100,123 @@ export const invoiceService = {
     },
 
     async createInvoice(invoiceData: InvoicePayload) {
+        // All business logic (subscription limits, fee injection, ledger updates,
+        // inventory deduction, audit logs, domain events) is handled securely
+        // by the `create-invoice` Edge Function. The web app simply sends the
+        // raw payload and receives a structured response.
         const { items, ...rawInvoice } = invoiceData;
 
-        const dbInvoice: DbInvoicePayload = {
-            team_id: rawInvoice.team_id || rawInvoice.user_id,
-            client_id: rawInvoice.client_id ? Number(rawInvoice.client_id) : null,
-            invoice_number: rawInvoice.invoice_number,
-            invoice_type: rawInvoice.invoice_type || 'standard',
-            issue_date: rawInvoice.issue_date || new Date().toISOString().split('T')[0],
-            due_date: rawInvoice.due_date ? new Date(rawInvoice.due_date).toISOString().split('T')[0] : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-            status: rawInvoice.status || 'draft',
-            currency_code: rawInvoice.currency_code || 'NGN',
-            tax_rate: parseFloat(String(rawInvoice.tax_rate ?? 0)) || 0,
-            tax_type: rawInvoice.tax_type || 'exclusive',
-            tax_amount: parseFloat(String(rawInvoice.tax_total ?? rawInvoice.tax_amount ?? 0)) || 0,
-            discount_type: rawInvoice.discount_type || 'none',
+        const edgePayload = {
+            client_id:      rawInvoice.client_id ? Number(rawInvoice.client_id) : null,
+            due_date:       rawInvoice.due_date ?? new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+            status:         rawInvoice.status ?? 'draft',
+            invoice_type:   rawInvoice.invoice_type ?? 'standard',
+            currency_code:  rawInvoice.currency_code ?? 'NGN',
+            notes:          rawInvoice.notes ?? null,
+            tax_rate:       parseFloat(String(rawInvoice.tax_rate ?? 0)) || 0,
+            tax_type:       rawInvoice.tax_type ?? 'exclusive',
+            discount_type:  rawInvoice.discount_type ?? 'none',
             discount_value: parseFloat(String(rawInvoice.discount_value ?? 0)) || 0,
-            discount_amount: parseFloat(String(rawInvoice.discount_amount ?? 0)) || 0,
-            subtotal: parseFloat(String(rawInvoice.subtotal ?? 0)) || 0,
-            total_amount: parseFloat(String(rawInvoice.total_amount ?? 0)) || 0,
-            notes: rawInvoice.notes || null,
             metadata: {
-                bank_name: rawInvoice.bank_name || null,
-                account_name: rawInvoice.account_name || null,
-                account_number: rawInvoice.account_number || null,
-                signature_url: rawInvoice.signature_url || null,
-                ...(rawInvoice.metadata || {})
-            }
+                bank_name:          rawInvoice.bank_name ?? null,
+                account_name:       rawInvoice.account_name ?? null,
+                account_number:     rawInvoice.account_number ?? null,
+                signature_url:      rawInvoice.signature_url ?? null,
+                ...(rawInvoice.metadata ?? {}),
+            },
+            items: (items ?? []).map((item) => ({
+                description: item.name ?? item.description ?? 'Line Item',
+                quantity:    parseFloat(String(item.quantity ?? 1)) || 1,
+                unit_price:  parseFloat(String(item.price ?? 0)) || parseFloat(String(item.unit_price ?? 0)) || 0,
+                product_id:  item.product_id ?? null,
+            })),
         };
 
-        const { data: invoice, error: invoiceError } = await supabase
-            .from('invoices')
-            .insert(dbInvoice)
-            .select()
-            .single();
+        const { data, error } = await supabase.functions.invoke('create-invoice', {
+            body: edgePayload,
+        });
 
-        if (invoiceError) {
-            console.error('[invoiceService.createInvoice] Parent insert failed:', invoiceError);
-            throw invoiceError;
+        if (error) {
+            console.error('[invoiceService.createInvoice] Edge function error:', error);
+            throw new Error(error.message ?? 'Failed to create invoice');
         }
 
-        if (items && items.length > 0) {
-            const dbItems = items.map((item: InvoiceItemPayload) => ({
-                invoice_id: invoice.id,
-                product_id: item.product_id || null,
-                description: item.name || item.description || 'Line Item',
-                quantity: parseFloat(String(item.quantity ?? 1)) || 1,
-                unit_price: parseFloat(String(item.price ?? 0)) || parseFloat(String(item.unit_price ?? 0)) || 0,
-                total: (parseFloat(String(item.quantity ?? 1)) || 1) * (parseFloat(String(item.price ?? 0)) || parseFloat(String(item.unit_price ?? 0)) || 0)
-            }));
-
-            const { error: itemsError } = await supabase
-                .from('invoice_items')
-                .insert(dbItems);
-
-            if (itemsError) {
-                console.error('[invoiceService.createInvoice] Items insert failed:', itemsError);
-                await supabase.from('invoices').delete().eq('id', invoice.id);
-                throw itemsError;
-            }
+        if (!data?.success) {
+            console.error('[invoiceService.createInvoice] Business logic error:', data?.error);
+            throw new Error(data?.error ?? 'Failed to create invoice');
         }
 
-        return invoice;
+        return data as {
+            success:        boolean;
+            invoice_id:     number;
+            invoice_number: string;
+            status:         string;
+            total_amount:   number;
+            currency_code:  string;
+            payment_link:   string | null;
+        };
     },
+
 
     async updateInvoice(invoiceId: string, invoiceData: InvoicePayload, lastUpdatedAt?: string) {
         const { items, ...rawInvoice } = invoiceData;
 
-        const dbInvoice: DbInvoicePayload = {
-            client_id: rawInvoice.client_id ? Number(rawInvoice.client_id) : null,
-            invoice_number: rawInvoice.invoice_number,
-            invoice_type: rawInvoice.invoice_type || 'standard',
-            issue_date: rawInvoice.issue_date || new Date().toISOString().split('T')[0],
-            due_date: rawInvoice.due_date ? new Date(rawInvoice.due_date).toISOString().split('T')[0] : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-            status: rawInvoice.status || 'draft',
-            currency_code: rawInvoice.currency_code || 'NGN',
-            tax_rate: parseFloat(String(rawInvoice.tax_rate ?? 0)) || 0,
-            tax_type: rawInvoice.tax_type || 'exclusive',
-            tax_amount: parseFloat(String(rawInvoice.tax_total ?? rawInvoice.tax_amount ?? 0)) || 0,
-            discount_type: rawInvoice.discount_type || 'none',
-            discount_value: parseFloat(String(rawInvoice.discount_value ?? 0)) || 0,
-            discount_amount: parseFloat(String(rawInvoice.discount_amount ?? 0)) || 0,
-            subtotal: parseFloat(String(rawInvoice.subtotal ?? 0)) || 0,
-            total_amount: parseFloat(String(rawInvoice.total_amount ?? 0)) || 0,
-            notes: rawInvoice.notes || null,
-            updated_at: new Date().toISOString(),
-            metadata: {
-                bank_name: rawInvoice.bank_name || null,
-                account_name: rawInvoice.account_name || null,
-                account_number: rawInvoice.account_number || null,
-                signature_url: rawInvoice.signature_url || null,
-                ...(rawInvoice.metadata || {})
-            }
+        // Map items to Edge Function shape
+        const edgeItems = (items ?? []).map((item: InvoiceItemPayload) => ({
+            product_id:  item.product_id || null,
+            description: item.name || item.description || 'Line Item',
+            quantity:    parseFloat(String(item.quantity ?? 1)) || 1,
+            unit_price:  parseFloat(String(item.price ?? 0)) || parseFloat(String(item.unit_price ?? 0)) || 0,
+            total: (parseFloat(String(item.quantity ?? 1)) || 1) *
+                   (parseFloat(String(item.price ?? 0)) || parseFloat(String(item.unit_price ?? 0)) || 0),
+        }));
+
+        // Merge bank / signature fields into metadata so Edge Function sees them
+        const mergedMetadata: Record<string, any> = {
+            ...(rawInvoice.metadata || {}),
+            ...(rawInvoice.bank_name     ? { bank_name:      rawInvoice.bank_name }     : {}),
+            ...(rawInvoice.account_name  ? { account_name:   rawInvoice.account_name }  : {}),
+            ...(rawInvoice.account_number? { account_number: rawInvoice.account_number }: {}),
+            ...(rawInvoice.signature_url ? { signature_url:  rawInvoice.signature_url } : {}),
         };
 
-        let currentInvoice = null;
-        if (lastUpdatedAt) {
-            const { data, error: fetchError } = await supabase
-                .from('invoices')
-                .select('updated_at')
-                .eq('id', invoiceId)
-                .single();
+        const payload = {
+            invoice_id:      Number(invoiceId),
+            client_id:       rawInvoice.client_id ? Number(rawInvoice.client_id) : null,
+            invoice_number:  rawInvoice.invoice_number,
+            invoice_type:    rawInvoice.invoice_type  || 'standard',
+            issue_date:      rawInvoice.issue_date    || new Date().toISOString().split('T')[0],
+            due_date:        rawInvoice.due_date
+                                ? new Date(rawInvoice.due_date).toISOString().split('T')[0]
+                                : new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+            status:          rawInvoice.status        || 'draft',
+            currency_code:   rawInvoice.currency_code || 'NGN',
+            tax_rate:        parseFloat(String(rawInvoice.tax_rate ?? 0)) || 0,
+            tax_type:        rawInvoice.tax_type      || 'exclusive',
+            discount_type:   rawInvoice.discount_type || 'none',
+            discount_value:  parseFloat(String(rawInvoice.discount_value ?? 0)) || 0,
+            notes:           rawInvoice.notes || null,
+            metadata:        mergedMetadata,
+            items:           edgeItems,
+            ...(lastUpdatedAt ? { last_updated_at: lastUpdatedAt } : {}),
+        };
 
-            if (fetchError) throw fetchError;
-            currentInvoice = data;
-
-            if (new Date(currentInvoice.updated_at) > new Date(lastUpdatedAt)) {
-                throw new Error('Conflict: Data was modified by another device since last sync.');
-            }
-        }
-
-        const dbItems = items?.length ? items.map((item: InvoiceItemPayload) => ({
-            product_id: item.product_id || null,
-            description: item.name || item.description || 'Line Item',
-            quantity: parseFloat(String(item.quantity ?? 1)) || 1,
-            unit_price: parseFloat(String(item.price ?? 0)) || parseFloat(String(item.unit_price ?? 0)) || 0,
-            total: (parseFloat(String(item.quantity ?? 1)) || 1) * (parseFloat(String(item.price ?? 0)) || parseFloat(String(item.unit_price ?? 0)) || 0)
-        })) : [];
-
-        const { data: updatedInvoice, error: rpcError } = await supabase.rpc('update_invoice_with_items', {
-            p_invoice_id: invoiceId,
-            p_invoice_data: dbInvoice,
-            p_items: dbItems
+        const { data, error } = await supabase.functions.invoke('update-invoice', {
+            body: payload,
         });
 
-        if (rpcError) {
-            console.error('[invoiceService.updateInvoice] RPC failed:', rpcError);
-            throw rpcError;
+        if (error) {
+            console.error('[invoiceService.updateInvoice] Edge Function error:', error);
+            // Surface the structured error message from the Edge Function if available
+            const message = (error as any)?.context?.error || error.message || 'Failed to update invoice';
+            throw new Error(message);
         }
 
-        return updatedInvoice;
+        if (!data?.success) {
+            throw new Error(data?.error || 'Update invoice failed');
+        }
+
+        return data.invoice;
     },
 
     async updateInvoiceStatus(invoiceId: string, status: string, lastUpdatedAt?: string) {

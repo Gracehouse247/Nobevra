@@ -1,77 +1,191 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useInvoiceCreator } from './InvoiceCreatorContext';
+import { useEntitlements } from '@/context/EntitlementsContext';
 import { TemplateEngine } from '@/components/invoice/TemplateEngine';
-import { LayoutTemplate } from 'lucide-react';
+import { Maximize2, Send, Download, Link as LinkIcon, Settings2, Palette, Eye, Layers } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
-export const InvoicePreviewPanel = () => {
+interface InvoicePreviewPanelProps {
+    onOpenTemplateDialog?: () => void;
+}
+
+const DOC_W = 1100;
+const DOC_H = 1424;
+
+type TabId = 'preview' | 'design' | 'settings';
+
+export const InvoicePreviewPanel = ({ onOpenTemplateDialog }: InvoicePreviewPanelProps) => {
     const { 
         selectedTemplate, customAccentColor, invoiceNumber, dueDate, 
         clients, selectedClientId, items, subtotal, taxTotal, discountTotal, total,
-        currencySymbol, notes, bankName, accountName, accountNumber, signatureUrl, teamData, invoiceType
+        currencySymbol, notes, bankName, accountName, accountNumber, signatureUrl, teamData
     } = useInvoiceCreator();
+    
+    const { canUse } = useEntitlements();
+
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [scale, setScale] = useState(0.4);
+    const [activeTab, setActiveTab] = useState<TabId>('preview');
+    const router = useRouter();
+
+    useEffect(() => {
+        const el = containerRef.current;
+        if (!el) return;
+        const update = () => {
+            const w = el.clientWidth;
+            setScale(w / DOC_W);
+        };
+        update();
+        const ro = new ResizeObserver(update);
+        ro.observe(el);
+        return () => ro.disconnect();
+    }, []);
+
+    const scaledHeight = Math.round(DOC_H * scale);
+
+    const tabs = [
+        { id: 'preview' as TabId, label: 'Preview', icon: Eye },
+        { id: 'design' as TabId, label: 'Design', icon: Palette },
+        { id: 'settings' as TabId, label: 'Settings', icon: Settings2 },
+    ];
 
     return (
-        <div className="h-full bg-[#F8FAFC] p-8 lg:p-12 flex flex-col justify-center items-center relative overflow-hidden">
-            {/* Ambient Background Grid */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: 'radial-gradient(#166FBB 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-            
-            {/* Status Pill */}
-            <div className="absolute top-8 right-8 z-30 flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-md rounded-full shadow-sm border border-slate-200">
-                <div className="w-2 h-2 bg-[#166FBB] rounded-full animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-widest text-[#0F172A]">Live 3D Preview</span>
+        <div className="h-full w-full bg-white flex flex-col overflow-hidden">
+
+            {/* ── Tab Navigation (matches Image 3 exactly) ── */}
+            <div className="h-[60px] border-b border-slate-200 px-6 flex items-end justify-between shrink-0 bg-white">
+                <div className="flex items-end h-full gap-1">
+                    {tabs.map(({ id, label, icon: Icon }) => (
+                        <button
+                            key={id}
+                            onClick={() => setActiveTab(id)}
+                            className={`relative h-full px-4 flex items-center gap-2 text-[13px] font-semibold transition-colors border-b-2 font-[Inter,sans-serif] ${
+                                activeTab === id
+                                    ? 'text-[#0599D5] border-[#0599D5]'
+                                    : 'text-slate-500 border-transparent hover:text-slate-800 hover:border-slate-300'
+                            }`}
+                        >
+                            <Icon className="w-3.5 h-3.5" />
+                            {label}
+                        </button>
+                    ))}
+                </div>
+                <div className="pb-3">
+                    <button className="h-8 px-3 rounded-lg border border-dashed border-slate-300 text-slate-500 hover:border-[#0599D5] hover:text-[#0599D5] font-semibold text-xs flex items-center gap-1.5 transition-all font-[Inter,sans-serif]">
+                        <Maximize2 className="w-3.5 h-3.5" /> Fullscreen
+                    </button>
+                </div>
             </div>
 
-            {/* Premium Preview Card */}
-            <div className="w-full max-w-[850px] relative group perspective-[2000px]">
-                {/* Scale Container to fit the 1100px invoice */}
-                <div 
-                    className="bg-white rounded-3xl shadow-[0_40px_100px_-20px_rgba(0,0,0,0.2)] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] origin-center relative transform group-hover:scale-105"
-                    style={{ aspectRatio: '8.5/11' }}
-                >
-                    <div className="w-full h-full relative" style={{ transform: 'scale(0.77)', transformOrigin: 'top left', width: '130%', height: '130%' }}>
-                        <div id="invoice-preview-element" className="w-[1100px] h-[1424px] bg-white absolute top-0 left-0">
-                            <TemplateEngine 
-                                template={{
-                                    ...selectedTemplate,
-                                    accentColor: customAccentColor || selectedTemplate.accentColor
-                                }} 
-                                data={{
-                                    invoiceNumber,
-                                    date: new Date().toLocaleDateString(),
-                                    dueDate: dueDate ? new Date(dueDate).toLocaleDateString() : 'Upon Receipt',
-                                    client: clients.find(c => c.id === selectedClientId) || { name: 'Client Name', address: 'Client Address' },
-                                    items: items.length > 0 ? items : [{ name: 'Sample Item', quantity: 1, price: 100 }],
-                                    subtotal,
-                                    taxTotal,
-                                    discountTotal,
-                                    total,
-                                    currencySymbol,
-                                    notes,
-                                    bankDetails: {
-                                        name: bankName,
-                                        accountName,
-                                        accountNumber
-                                    },
-                                    signatureUrl,
-                                    sender: teamData
-                                }} 
-                            />
-                        </div>
-                    </div>
-                </div>
+            {/* ── Canvas Body ── */}
+            <div className="flex-1 overflow-y-auto custom-scrollbar bg-[#F8F9FA]">
 
-                {/* Floating summary label */}
-                <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 px-6 py-4 bg-[#0F172A] text-white rounded-2xl shadow-2xl flex items-center gap-4 transition-transform group-hover:-translate-y-4">
-                    <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                        <LayoutTemplate className="w-5 h-5" />
+                {activeTab === 'preview' && (
+                    <div className="p-6 flex flex-col gap-6">
+
+                        {/* Floating Invoice Document */}
+                        <div
+                            ref={containerRef}
+                            className="w-full relative"
+                            style={{ height: `${scaledHeight}px` }}
+                        >
+                            <div
+                                id="invoice-preview-element"
+                                className="absolute top-0 left-0 bg-white shadow-[0_8px_40px_rgba(0,0,0,0.10)]"
+                                style={{
+                                    width: `${DOC_W}px`,
+                                    height: `${DOC_H}px`,
+                                    transform: `scale(${scale})`,
+                                    transformOrigin: 'top left',
+                                }}
+                            >
+                                <TemplateEngine
+                                    template={{
+                                        ...selectedTemplate,
+                                        accentColor: customAccentColor || selectedTemplate.accentColor
+                                    }}
+                                    data={{
+                                        invoiceNumber,
+                                        date: new Date().toLocaleDateString(),
+                                        dueDate: dueDate ? new Date(dueDate).toLocaleDateString() : 'Upon Receipt',
+                                        client: clients.find((c: any) => c.id === selectedClientId) || { name: 'Client Name', address: 'Client address will appear here' },
+                                        items: items.length > 0 ? items : [],
+                                        subtotal,
+                                        taxTotal,
+                                        discountTotal,
+                                        total,
+                                        currencySymbol,
+                                        notes,
+                                        bankDetails: { name: bankName, accountName, accountNumber },
+                                        signatureUrl,
+                                        sender: teamData,
+                                        canRemoveWatermark: canUse('brand.whitelabel')
+                                    }}
+                                />
+                            </div>
+                        </div>
+
+                        {/* Invoice Actions card (Image 3 style) */}
+                        <div className="w-full bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                            <div className="px-5 py-4 border-b border-slate-100 flex items-center gap-2.5">
+                                <Layers className="w-4 h-4 text-slate-500" />
+                                <h4 className="text-[12px] font-bold text-slate-700 mb-3 uppercase tracking-wider font-[Inter,sans-serif]">Invoice Actions</h4>
+                            </div>
+                            <div className="p-4 space-y-2">
+                                <button className="w-full h-10 rounded-xl bg-[#0599D5] hover:bg-[#0482B5] active:scale-[0.98] text-white font-bold text-[13px] flex items-center justify-center gap-2 transition-all shadow-sm shadow-[#0599D5]/20 font-[Inter,sans-serif]">
+                                    <Send className="w-4 h-4" /> Send Invoice
+                                </button>
+                                <div className="grid grid-cols-2 gap-2">
+                                    <button className="h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-[12px] flex items-center justify-center gap-1.5 transition-all font-[Inter,sans-serif]">
+                                        <Download className="w-3.5 h-3.5 text-slate-500" /> Download PDF
+                                    </button>
+                                    <button className="h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-[12px] flex items-center justify-center gap-1.5 transition-all font-[Inter,sans-serif]">
+                                        <LinkIcon className="w-3.5 h-3.5 text-slate-500" /> Share Link
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Bottom padding so content clears the ticker */}
+                        <div className="h-4" />
                     </div>
-                    <div>
-                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-300">{selectedTemplate.name}</p>
-                        <p className="text-sm font-bold mt-1">{currencySymbol}{total.toLocaleString()}</p>
+                )}
+
+                {activeTab === 'design' && (
+                    <div className="p-6 flex flex-col items-center justify-center h-full gap-4">
+                        <div className="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center">
+                            <Palette className="w-7 h-7 text-violet-600" />
+                        </div>
+                        <div className="text-center">
+                            <h3 className="text-base font-bold text-slate-800">Customise Design</h3>
+                            <p className="text-sm text-slate-500 mt-1.5 max-w-[220px] mx-auto leading-relaxed">Choose a template, accent colour, and logo for your invoice.</p>
+                        </div>
+                        <button
+                            onClick={() => onOpenTemplateDialog?.()}
+                            className="h-9 px-5 rounded-xl bg-[#0599D5] hover:bg-[#0482B5] text-white font-bold text-[13px] transition-all shadow-sm font-[Inter,sans-serif]">
+                            Browse Templates
+                        </button>
                     </div>
-                </div>
+                )}
+
+                {activeTab === 'settings' && (
+                    <div className="p-6 flex flex-col items-center justify-center h-full gap-4">
+                        <div className="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center">
+                            <Settings2 className="w-7 h-7 text-slate-500" />
+                        </div>
+                        <div className="text-center">
+                            <h3 className="text-base font-bold text-slate-800">Invoice Settings</h3>
+                            <p className="text-sm text-slate-500 mt-1.5 max-w-[220px] mx-auto leading-relaxed">Configure default tax, currency, payment gateways, and more.</p>
+                        </div>
+                        <button
+                            onClick={() => router.push('/settings/brand')}
+                            className="h-9 px-5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-[13px] transition-all shadow-sm font-[Inter,sans-serif]">
+                            Open Brand Settings
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

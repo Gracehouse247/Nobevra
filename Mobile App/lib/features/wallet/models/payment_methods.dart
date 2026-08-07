@@ -34,7 +34,7 @@ class PaymentMapping {
             description: 'Visa, Mastercard, Verve — powered by Flutterwave',
             icon: Icons.credit_card_rounded,
             gateway: PaymentGateway.flutterwave,
-            currency: 'NGN',
+            currency: 'USD',
           ),
           PaymentMethod(
             id: 'bank_transfer',
@@ -42,7 +42,7 @@ class PaymentMapping {
             description: 'Get a dedicated account for direct transfer',
             icon: Icons.account_balance_rounded,
             gateway: PaymentGateway.flutterwave,
-            currency: 'NGN',
+            currency: 'USD',
           ),
           PaymentMethod(
             id: 'ussd',
@@ -50,7 +50,7 @@ class PaymentMapping {
             description: '*737#, *737#, *000# and more',
             icon: Icons.dialpad_rounded,
             gateway: PaymentGateway.flutterwave,
-            currency: 'NGN',
+            currency: 'USD',
           ),
         ];
 

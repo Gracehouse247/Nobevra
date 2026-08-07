@@ -3,6 +3,7 @@ import { useAuth } from '@/context/AuthContext';
 import { teamService, invoiceService } from '@/lib/services/supabaseService';
 import { currencyService } from '@/lib/services/currencyService';
 import { toast } from 'react-hot-toast';
+import { useCurrency } from '@/context/CurrencyContext';
 
 // Module-level exchange rate cache with a 1-hour TTL.
 // Using module-level vars is fine here — they survive page navigation but not a full reload.
@@ -13,10 +14,11 @@ const RATES_TTL_MS = 60 * 60 * 1000; // 1 hour
 
 export function useInvoices(page: number, pageSize: number = 50) {
     const { user } = useAuth();
+    const { currencyCode } = useCurrency();
     const [invoices, setInvoices] = useState<Record<string, any>[]>([]);
     const [loading, setLoading] = useState(true);
     const [hasMore, setHasMore] = useState(true);
-    const [baseCurrency, setBaseCurrency] = useState('NGN');
+    const [baseCurrency, setBaseCurrency] = useState(currencyCode);
     const [exchangeRates, setExchangeRates] = useState<any>(null);
 
     // Cache team data in a ref so it is only fetched once per mount, not on every page change.
@@ -34,7 +36,7 @@ export function useInvoices(page: number, pageSize: number = 50) {
                     const tData = await teamService.getTeamByUserId(user.id);
                     teamRef.current = {
                         id: tData?.id || user.id,
-                        currency: tData?.preferred_currency || 'NGN',
+                        currency: (tData as any)?.preferred_currency || currencyCode,
                     };
                 }
 

@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Roboto, Montserrat } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
+import { EntitlementsProvider } from "@/context/EntitlementsContext";
+import { CurrencyProvider } from "@/context/CurrencyContext";
 import { GamificationProvider } from "@/context/GamificationContext";
 import { Toaster } from "react-hot-toast";
 import Script from "next/script";
@@ -62,6 +64,9 @@ export const metadata: Metadata = {
     images: ["/images/hero-dashboard-actual.png"],
     creator: "@NobleInvoice"
   },
+  verification: {
+    google: "KN-eXDFHjCqe3JiKGsnb0_-JCOXFAYPRs5eG-5zKQ9g",
+  },
 };
 
 export const viewport: Viewport = {
@@ -78,6 +83,18 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6ME42JV7BJ"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-6ME42JV7BJ');
+          `}
+        </Script>
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="apple-touch-icon" href="/images/logo.png" />
         {/* Preconnect to Google Fonts for faster font loading */}
@@ -95,16 +112,20 @@ export default function RootLayout({
       >
         <main className="relative z-10 min-h-screen">
           <AuthProvider>
-            <GamificationProvider>
-              <PWAClient />
-              <OfflineIndicator />
-              <SchemaOrg />
-              <CommandPalette />
-              <CookieConsent />
-              {children}
-              <Toaster position="bottom-right" reverseOrder={false} />
-              
-            </GamificationProvider>
+            <EntitlementsProvider>
+              <CurrencyProvider>
+                <GamificationProvider>
+                  <PWAClient />
+                  <OfflineIndicator />
+                  <SchemaOrg />
+                  <CommandPalette />
+                  <CookieConsent />
+                  {children}
+                  <Toaster position="bottom-right" reverseOrder={false} />
+                  
+                </GamificationProvider>
+              </CurrencyProvider>
+            </EntitlementsProvider>
           </AuthProvider>
         </main>
       </body>

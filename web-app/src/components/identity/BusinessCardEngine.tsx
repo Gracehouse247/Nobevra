@@ -3,26 +3,7 @@ import { TemplateDefinition } from '@/lib/templates/templateRegistry';
 import { IdentityData } from '@/types';
 import { Mail, Phone, Globe, MapPin, Briefcase, Camera, User, AtSign, Box, Leaf } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { LaranaIncCard } from './templates/cards/LaranaIncCard';
-import { ClaudiaAlvesCard } from './templates/cards/ClaudiaAlvesCard';
-import { ChastainKineticCard } from './templates/cards/ChastainKineticCard';
-import { AldenaireExecutiveCard } from './templates/cards/AldenaireExecutiveCard';
-import { WilsonDynamicCard } from './templates/cards/WilsonDynamicCard';
-import { ThynkAzureCard } from './templates/cards/ThynkAzureCard';
-import { RosaDynamicCard } from './templates/cards/RosaDynamicCard';
-import { LiceriaCrimsonCard } from './templates/cards/LiceriaCrimsonCard';
-import { AveryExecutiveCard } from './templates/cards/AveryExecutiveCard';
-import { EliteChevronCard } from './templates/cards/EliteChevronCard';
-import { RimberioCard } from './templates/cards/RimberioCard';
-import { DynamicWaveCard } from './templates/cards/DynamicWaveCard';
-import { IngoudeCard } from './templates/cards/IngoudeCard';
-import { AdelineCard } from './templates/cards/AdelineCard';
-import { KogaxCard } from './templates/cards/KogaxCard';
-import { SalfordCard } from './templates/cards/SalfordCard';
-import { LiceriaLiquidCard } from './templates/cards/LiceriaLiquidCard';
-import { BorcelleCard } from './templates/cards/BorcelleCard';
-import { AndradeCard } from './templates/cards/AndradeCard';
-import { GallegoDynamicCard } from './templates/cards/GallegoDynamicCard';
+import { CARD_TEMPLATE_REGISTRY } from './templates/templateRegistry';
 
 import { renderTemplateBackground } from './templates/TemplateRegistryRenderer';
 
@@ -147,30 +128,16 @@ export const BusinessCardEngine: React.FC<BusinessCardEngineProps> = ({
   const width = orientation === 'horizontal' ? 1050 : 600;
   const height = orientation === 'horizontal' ? 600 : 1050;
 
-  const isLaranaInc = id === 'id-larana-inc';
-  const isClaudiaAlves = id === 'id-claudia-alves';
-  const isChastainKinetic = id === 'id-chastain-kinetic';
-  const isAldenaireExecutive = id === 'id-aldenaire-executive';
-  const isWilsonDynamic = id === 'id-wilson-dynamic';
-  const isThynkAzure = id === 'id-thynk-azure';
-  const isRosaDynamic = id === 'id-rosa-dynamic';
-  const isRosaCrystal = id === 'id-rosa-crystal';
-  const isLiceriaCrimson = id === 'id-liceria-crimson';
-  const isAveryExecutive = id === 'id-avery-executive';
+  const registryEntry = CARD_TEMPLATE_REGISTRY[id];
 
   // --- EFFECTIVE BACKGROUND LOGIC ---
   // Use registry theme first; fall back to an explicit ID-based dark-template allowlist.
   const registryTheme = template.theme;
-  // All identity templates that render a DARK overall background:
-  const DARK_TEMPLATE_IDS = new Set([
-    'id-chastain-kinetic', 'id-liceria-crimson', 'id-gallego-dynamic',
-    'id-salford-pro', 'id-kogax-pro', 'id-adeline-pro', 'id-ingoude-pro',
-    'id-liceria-liquid', 'id-andrade-pro', 'id-rimberio-pro',
-  ]);
   const isDarkTemplate = registryTheme === 'dark' || 
+                        (registryEntry?.theme === 'dark') ||
                         (!registryTheme && (
                           id.startsWith('id-corp-') || id.startsWith('id-tech-') ||
-                          id.includes('obsidian') || DARK_TEMPLATE_IDS.has(id)
+                          id.includes('obsidian')
                         ));
   
   // Global bg/text for legacy engine; bespoke renderers use ON_COLOR / ON_WHITE locally
@@ -325,44 +292,12 @@ export const BusinessCardEngine: React.FC<BusinessCardEngineProps> = ({
   
 
   // --- MASTER RENDERER DISPATCHER ---
-  const isElite = id === 'id-elite-chevron';
-  const isRimberio = id === 'id-rimberio-pro';
-  const isDynamicWave = id === 'id-dynamic-wave-pro';
-  const isIngoude = id === 'id-ingoude-pro';
-  const isAdeline = id === 'id-adeline-pro';
-  const isKogax = id === 'id-kogax-pro';
-  const isSalford = id === 'id-salford-pro';
-  const isLiceriaLiquid = id === 'id-liceria-liquid';
-  const isBorcelle = id === 'id-borcelle-pro';
-  const isAndrade = id === 'id-andrade-pro';
-  const isGallegoDynamic = id === 'id-gallego-dynamic';
-
   const renderBespokeTemplate = () => {
     const sharedProps = { data, side, brandAccent, brandDark, brandLight, brandMid, ON_COLOR, ON_WHITE, effectiveAccent, fs, DraggableElement, renderAvatar };
-    if (isLaranaInc) return <LaranaIncCard {...sharedProps} />;
-    if (isClaudiaAlves) return <ClaudiaAlvesCard {...sharedProps} />;
-    if (isChastainKinetic) return <ChastainKineticCard {...sharedProps} />;
-    if (isAldenaireExecutive) return <AldenaireExecutiveCard {...sharedProps} />;
-    if (isWilsonDynamic) return <WilsonDynamicCard {...sharedProps} />;
-    if (isThynkAzure) return <ThynkAzureCard {...sharedProps} />;
-    if (isRosaDynamic) return <RosaDynamicCard {...sharedProps} />;
-    if (isRosaCrystal) return <RosaDynamicCard {...sharedProps} />; // Shared layout
-    if (isLiceriaCrimson) return <LiceriaCrimsonCard {...sharedProps} />;
-    if (isAveryExecutive) return <AveryExecutiveCard {...sharedProps} />;
-    
-    // Dispatching Route mapping to new bespoke templates
-    if (isElite) return <EliteChevronCard {...sharedProps} />;
-    if (isRimberio) return <RimberioCard {...sharedProps} />;
-    if (isDynamicWave) return <DynamicWaveCard {...sharedProps} />;
-    if (isIngoude) return <IngoudeCard {...sharedProps} />;
-    if (isAdeline) return <AdelineCard {...sharedProps} />;
-    if (isKogax) return <KogaxCard {...sharedProps} />;
-    if (isSalford) return <SalfordCard {...sharedProps} />;
-    if (isLiceriaLiquid) return <LiceriaLiquidCard {...sharedProps} />;
-    if (isBorcelle) return <BorcelleCard {...sharedProps} />;
-    if (isAndrade) return <AndradeCard {...sharedProps} />;
-    if (isGallegoDynamic) return <GallegoDynamicCard {...sharedProps} />;
-    
+    if (registryEntry && registryEntry.CardComponent) {
+      const Card = registryEntry.CardComponent;
+      return <Card {...sharedProps} />;
+    }
     return null;
   };
 

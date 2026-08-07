@@ -109,21 +109,21 @@ function QrGeneratorForm() {
 
     return (
         <div className="min-h-screen bg-[#F8FAFC] pb-24">
-            <div className="bg-white border-b border-[#E2E8F0] px-8 py-6 sticky top-0 z-20">
-                <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                        <Link href="/qr-generator" className="w-10 h-10 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl flex items-center justify-center text-[#0F172A] hover:bg-white transition-all shadow-sm">
-                            <ChevronLeft className="w-5 h-5" />
+            <div className="bg-white border-b border-slate-200 px-6 lg:px-8 py-4 sticky top-0 z-20 shadow-sm">
+                <div className="max-w-[1400px] mx-auto flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <Link href="/qr-generator" className="w-9 h-9 bg-[#F8FAFC] border border-slate-200 rounded-xl flex items-center justify-center text-slate-600 hover:bg-white hover:border-[#166FBB] hover:text-[#166FBB] transition-all shadow-sm">
+                            <ChevronLeft className="w-4 h-4" />
                         </Link>
                         <div>
-                            <h1 className="text-2xl font-black text-[#0F172A] tracking-tight leading-none mb-1 capitalize">Create {type} QR</h1>
-                            <p className="text-[#64748B] text-xs font-bold uppercase tracking-widest">Generator Engine</p>
+                            <h1 className="text-[19px] font-bold text-slate-900 leading-tight capitalize">Create {type} QR</h1>
+                            <p className="text-[11px] text-slate-500 font-medium mt-0.5">QR Generator Engine</p>
                         </div>
                     </div>
-                    <button 
-                        onClick={handleSave} 
+                    <button
+                        onClick={handleSave}
                         disabled={isSaving}
-                        className="flex items-center gap-2 px-6 py-3 bg-[#166FBB] text-white font-bold text-sm rounded-xl hover:bg-[#125A96] transition-all shadow-lg shadow-[#166FBB]/20 disabled:opacity-70"
+                        className="flex items-center gap-2 px-5 py-2.5 bg-[#166FBB] text-white font-bold text-[13px] rounded-xl hover:bg-blue-700 transition-all shadow-[0_4px_12px_rgba(22,111,187,0.3)] disabled:opacity-70"
                     >
                         {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : (requiresPaywall && !paygBundle.hasAccess('qrCode', type) && paygBundle.state.credits.qrCodeTemplates === 0) ? <Lock className="w-4 h-4" /> : <Save className="w-4 h-4" />}
                         {isSaving ? 'Saving...' : (requiresPaywall && !paygBundle.hasAccess('qrCode', type) && paygBundle.state.credits.qrCodeTemplates === 0) ? 'Unlock & Save' : 'Save & Generate'}
@@ -161,15 +161,15 @@ function QrGeneratorForm() {
                     <div className="lg:col-span-7 space-y-6">
                         
                         {/* Dynamic Toggle Section */}
-                        <div className={`bg-white rounded-3xl p-8 border ${isDynamic ? 'border-[#166FBB] shadow-md shadow-[#166FBB]/5' : 'border-[#E2E8F0] shadow-sm'} transition-all relative overflow-hidden`}>
+                        <div className={`bg-white rounded-2xl p-6 border ${isDynamic ? 'border-[#166FBB] shadow-md shadow-[#166FBB]/5' : 'border-slate-200 shadow-sm'} transition-all relative overflow-hidden`}>
                             {isDynamic && <div className="absolute top-0 left-0 w-1 h-full bg-[#166FBB]" />}
                             <div className="flex items-start justify-between">
                                 <div>
-                                    <h3 className="text-xl md:text-2xl font-semibold text-[#0F172A] flex items-center gap-2">
+                                    <h3 className="text-[19px] font-bold text-slate-900 flex items-center gap-2">
                                         Dynamic Routing
-                                        {plan === 'free' && <Lock className="w-3.5 h-3.5 text-[#F59E0B]" />}
+                                        {plan === 'free' && <Lock className="w-3.5 h-3.5 text-amber-500" />}
                                     </h3>
-                                    <p className="text-[#64748B] text-xs font-medium mt-1 max-w-sm">Allow updating the destination link after printing and track scan analytics via the backend.</p>
+                                    <p className="text-slate-500 text-[12px] font-medium mt-1 max-w-sm">Allow updating the destination link after printing and track scan analytics via the backend.</p>
                                 </div>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" className="sr-only peer" checked={isDynamic} onChange={(e) => setIsDynamic(e.target.checked)} />
@@ -179,8 +179,8 @@ function QrGeneratorForm() {
                         </div>
 
                         {/* Specific Content Fields */}
-                        <div className="bg-white rounded-3xl p-8 border border-[#E2E8F0] shadow-sm">
-                            <h3 className="text-xl md:text-2xl font-semibold text-[#0F172A] mb-6">Content Destination</h3>
+                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                            <h3 className="text-[19px] font-bold text-slate-900 mb-5">Content Destination</h3>
                             <QRFormEngine 
                                 type={type}
                                 onChange={setFormPayload}
@@ -190,8 +190,8 @@ function QrGeneratorForm() {
                         </div>
 
                         {/* Styling & Branding */}
-                        <div className="bg-white rounded-3xl p-8 border border-[#E2E8F0] shadow-sm">
-                            <h3 className="text-xl md:text-2xl font-semibold text-[#0F172A] mb-6 flex items-center gap-2">
+                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                            <h3 className="text-[19px] font-bold text-slate-900 mb-5 flex items-center gap-2">
                                 <Palette className="w-5 h-5 text-[#166FBB]" />
                                 Styling & Branding
                             </h3>

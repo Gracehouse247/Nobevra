@@ -131,7 +131,7 @@ const CheckRow = ({ label, ok }: { label: string; ok: boolean }) => (
   </div>
 );
 
-const ASSIST_ACTIONS: { mode: AssistMode; icon: any; label: string; desc: string; group: string }[] = [
+const ASSIST_ACTIONS: { mode: AssistMode; icon: React.ElementType; label: string; desc: string; group: string }[] = [
   // Writing
   { mode: 'improve',    icon: PenLine,     label: 'Improve Writing',  desc: 'Polish flow & clarity',     group: 'Writing' },
   { mode: 'expand',     icon: Expand,      label: 'Expand Content',   desc: 'Add depth & detail',        group: 'Writing' },

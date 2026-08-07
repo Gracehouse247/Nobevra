@@ -19,20 +19,23 @@ CREATE TABLE IF NOT EXISTS public.user_gamification (
 -- RLS
 ALTER TABLE public.user_gamification ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Users can view own gamification data" ON public.user_gamification;
 CREATE POLICY "Users can view own gamification data"
     ON public.user_gamification
     FOR SELECT
     USING (auth.uid() = user_id);
 
-CREATE POLICY "Users can update own gamification data"
-    ON public.user_gamification
-    FOR UPDATE
-    USING (auth.uid() = user_id);
-
-CREATE POLICY "Users can insert own gamification data"
+DROP POLICY IF EXISTS "System can insert gamification data" ON public.user_gamification;
+CREATE POLICY "System can insert gamification data"
     ON public.user_gamification
     FOR INSERT
     WITH CHECK (auth.uid() = user_id);
+
+DROP POLICY IF EXISTS "System can update gamification data" ON public.user_gamification;
+CREATE POLICY "System can update gamification data"
+    ON public.user_gamification
+    FOR UPDATE
+    USING (auth.uid() = user_id);
 
 -- Trigger to create gamification record on user signup
 CREATE OR REPLACE FUNCTION public.handle_new_user_gamification()
@@ -44,6 +47,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
+DROP TRIGGER IF EXISTS on_auth_user_created_gamification ON auth.users;
 CREATE TRIGGER on_auth_user_created_gamification
     AFTER INSERT ON auth.users
     FOR EACH ROW EXECUTE FUNCTION public.handle_new_user_gamification();

@@ -117,7 +117,7 @@ class CreateInvoiceController extends ChangeNotifier {
     notifyListeners();
   }
 
-  String _currencyCode = 'NGN';
+  String _currencyCode = 'USD';
   String get currencyCode => _currencyCode;
   set currencyCode(String value) {
     _currencyCode = value;
@@ -262,7 +262,7 @@ class CreateInvoiceController extends ChangeNotifier {
     paymentLinkController.text = draft['paymentLink'] ?? '';
     _invoiceType   = InvoiceDraftService.parseInvoiceType(draft['invoiceType']);
     _selectedTemplate = InvoiceDraftService.parseTemplate(draft['template']);
-    _currencyCode  = draft['currencyCode'] ?? 'NGN';
+    _currencyCode  = draft['currencyCode'] ?? 'USD';
     _taxEnabled    = draft['taxEnabled'] ?? false;
     _taxRate       = (draft['taxRate'] as num?)?.toDouble() ?? 0.0;
     _taxType       = draft['taxType'] ?? 'exclusive';

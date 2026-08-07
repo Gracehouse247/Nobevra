@@ -30,6 +30,7 @@ class PaymentGatewayService {
     required String email,
     required String fullName,
     required String phoneNumber,
+    required String billingPeriod,
   }) async {
     // Extract clean tier name: "Noble Pulse" -> "pulse", "Noble Elite" -> "elite"
     final String tier = planName.toLowerCase().replaceAll('noble ', '').trim();
@@ -39,7 +40,7 @@ class PaymentGatewayService {
     // We put the tier BEFORE the userId so the webhook parser
     // doesn't split on UUID hyphens.
     final String shortId = const Uuid().v4().substring(0, 8);
-    final String txRef = 'sub_${tier}_${userId}_$shortId';
+    final String txRef = 'sub_${tier}_${billingPeriod}_${userId}_$shortId';
 
     final Customer customer = Customer(
       name: fullName,

@@ -94,6 +94,7 @@ export interface UserData {
     email: string;
     name: string;
     photoUrl?: string;
+    avatar_url?: string;
     lastSync?: any;
     gamification?: GamificationModel;
     subscriptionStatus: 'active' | 'past_due' | 'cancelled' | 'expired';
@@ -109,6 +110,10 @@ export interface UserData {
     display_name?: string;
     business_name?: string;
     onboarding_completed?: boolean;
+    onboarding_tour_completed?: boolean;
+    first_login_at?: string;
+    last_login_at?: string;
+    subscription_expires_at?: string | null;
 }
 
 export interface Achievement {

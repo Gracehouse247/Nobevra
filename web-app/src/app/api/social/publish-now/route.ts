@@ -32,7 +32,7 @@ export async function POST(req: NextRequest) {
   }
 
   // ── 2. Rate Limiting (5 publishes per minute per user) ────────────
-  const { allowed, remaining, resetMs } = rateLimit(`social-publish:${user.id}`, 5, 60_000);
+  const { allowed, remaining, resetMs } = await rateLimit(`social-publish:${user.id}`, 5, 60_000);
   if (!allowed) return rateLimitResponse(resetMs);
 
   try {

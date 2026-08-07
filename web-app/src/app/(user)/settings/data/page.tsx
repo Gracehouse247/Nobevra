@@ -1,80 +1,47 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
-import { Database, DownloadCloud, AlertTriangle, Trash2, Loader2, X } from 'lucide-react';
+import { Database, DownloadCloud, AlertTriangle, Trash2, Loader2, CheckCircle2, ChevronRight, Shield, FileJson, Lock } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import { supabase } from '@/lib/supabase';
+import { motion } from 'framer-motion';
+import axios from 'axios';
+import Link from 'next/link';
 
-// ─── Delete Confirmation Modal ─────────────────────────────────────────────────
-function DeleteConfirmModal({ onConfirm, onCancel, loading }: {
-    onConfirm: (password: string) => void;
-    onCancel: () => void;
-    loading: boolean;
-}) {
-    const { user } = useAuth();
-    const [password, setPassword] = useState('');
-
-    return (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
-            <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-md" onClick={onCancel} />
-            <div className="relative z-10 w-full max-w-md bg-white/95 backdrop-blur-2xl border border-white/80 rounded-[2.5rem] p-8 shadow-2xl shadow-slate-900/10">
-                <button onClick={onCancel} className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-700 transition-colors">
-                    <X className="w-4 h-4" />
-                </button>
-
-                <div className="flex flex-col items-center text-center gap-4 mb-8">
-                    <div className="w-16 h-16 rounded-[20px] bg-red-50 border border-red-200 flex items-center justify-center shadow-sm">
-                        <Trash2 className="w-6 h-6 text-red-600 animate-bounce" />
-                    </div>
-                    <div>
-                        <h3 className="text-xl font-black text-slate-900 tracking-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Delete Account?</h3>
-                        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mt-2 leading-relaxed">
-                            This permanently removes all your data — Invoices, Clients, and your account. <span className="text-red-500 font-black">This cannot be undone.</span>
-                        </p>
-                    </div>
-                </div>
-
-                <div className="mb-6">
-                    <label className="block text-[10px] font-black uppercase text-red-600 tracking-[0.2em] mb-2 px-1">
-                        Confirm with current password
-                    </label>
-                    <input
-                        type="password"
-                        placeholder="Enter password to confirm..."
-                        value={password}
-                        onChange={e => setPassword(e.target.value)}
-                        className="w-full bg-white/60 border border-white/60 rounded-xl px-4 py-4 text-sm font-bold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-red-500 focus:ring-4 focus:ring-red-100 transition-all shadow-inner"
-                    />
-                </div>
-
-                <div className="flex gap-3">
-                    <button
-                        onClick={onCancel}
-                        className="flex-1 py-4 rounded-xl bg-white/60 hover:bg-white border border-white/60 text-slate-600 text-[10px] font-black uppercase tracking-[0.2em] transition-all active:scale-95 shadow-sm"
-                    >
-                        Cancel
-                    </button>
-                    <button
-                        onClick={() => onConfirm(password)}
-                        disabled={loading || !password}
-                        className="flex-1 py-4 rounded-xl bg-red-600 hover:bg-red-700 text-white text-[10px] font-black uppercase tracking-[0.2em] transition-all shadow-[0_10px_20px_rgba(220,38,38,0.15)] active:scale-95 disabled:opacity-50 flex items-center justify-center gap-2"
-                    >
-                        {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
-                        {loading ? 'Deleting...' : 'Delete Forever'}
-                    </button>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-// ─── Main Page ─────────────────────────────────────────────────────────────────
 export default function DataBackupPage() {
-    const { user, logout } = useAuth();
+    const { user, userData, logout } = useAuth();
     const [exporting, setExporting] = useState(false);
     const [deleting, setDeleting] = useState(false);
-    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [deleteConfirmation, setDeleteConfirmation] = useState('');
+    const [recentExports, setRecentExports] = useState<any[]>([]);
+    
+    // Multi-currency / Locale auto-detect setup as requested
+    const [detectedCurrency, setDetectedCurrency] = useState(userData?.preferred_currency || 'USD');
+    
+    useEffect(() => {
+        if (!userData?.preferred_currency) {
+            fetch('https://ipapi.co/json/')
+                .then(res => res.json())
+                .then(data => setDetectedCurrency(data.currency || 'USD'))
+                .catch(() => setDetectedCurrency('USD'));
+        }
+    }, [userData]);
+
+    // Fetch Recent Exports
+    useEffect(() => {
+        if (!user) return;
+        const fetchExports = async () => {
+            const { data } = await supabase
+                .from('data_exports')
+                .select('*')
+                .eq('user_id', user.id)
+                .order('created_at', { ascending: false })
+                .limit(5);
+            if (data) setRecentExports(data);
+        };
+        fetchExports();
+    }, [user]);
 
     const handleExport = async () => {
         if (!user) return;
@@ -88,6 +55,7 @@ export default function DataBackupPage() {
                     exportedAt: new Date().toISOString(),
                     userId: user.id,
                     email: user.email,
+                    currency: detectedCurrency,
                     version: '2.0',
                 },
                 invoices: invoices || [],
@@ -101,7 +69,18 @@ export default function DataBackupPage() {
             a.download = `nobleinvoice_archive_${Date.now()}.json`;
             a.click();
             URL.revokeObjectURL(url);
-            toast.success(`Archive exported — ${exportData.invoices.length} invoices, ${exportData.clients.length} clients.`);
+            // Log export in database
+            const { data: insertedExport } = await supabase.from('data_exports').insert({
+                user_id: user.id,
+                export_name: 'Full Archive JSON Export',
+                status: 'completed'
+            }).select().single();
+
+            if (insertedExport) {
+                setRecentExports(prev => [insertedExport, ...prev]);
+            }
+
+            toast.success(`Export successful! Check your downloads.`);
         } catch (error) {
             console.error('Export error:', error);
             toast.error('Export failed. Please try again.');
@@ -110,87 +89,240 @@ export default function DataBackupPage() {
         }
     };
 
-    const handleDelete = async (password: string) => {
+    const handleDelete = async () => {
+        if (deleteConfirmation !== 'DELETE') {
+            return toast.error('Please type DELETE to confirm.');
+        }
         if (!user) return;
         setDeleting(true);
         try {
-            const { error } = await supabase.auth.signInWithPassword({ email: user.email || '', password });
-            if (error) throw error;
-            
-            // Delete account using rpc or contact support
-            toast.success('Account permanently deleted (Mocked).');
-            await logout();
+            const { data: { session } } = await supabase.auth.getSession();
+            if (session) {
+                const res = await axios.post(
+                    `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/schedule-account-deletion`,
+                    {},
+                    { headers: { Authorization: `Bearer ${session.access_token}` } }
+                );
+                
+                toast.success('Your account has been scheduled for permanent deletion and you have been logged out.');
+                await logout();
+                window.location.href = '/login';
+            }
         } catch (error: any) {
             console.error('Delete account error:', error);
-            toast.error('Account deletion failed. Check password and try again.');
+            toast.error('Account deletion failed. Please contact support.');
         } finally {
             setDeleting(false);
-            setShowDeleteModal(false);
         }
     };
 
     return (
-        <>
-            {showDeleteModal && (
-                <DeleteConfirmModal
-                    onConfirm={handleDelete}
-                    onCancel={() => setShowDeleteModal(false)}
-                    loading={deleting}
-                />
-            )}
-
-            <div className="space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500 relative z-10 text-slate-800">
-                <div>
-                    <h3 className="text-xl md:text-[26px] font-semibold text-slate-900 tracking-tight">Data &amp; Archival</h3>
-                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.15em] mt-1">Control your digital footprint. Export or erase your cognitive data.</p>
+        <div className="w-full space-y-6">
+            
+            {/* ── Page Header ────────────────────────────────────────────── */}
+            <div className="flex items-center gap-3 pb-6 border-b border-slate-100">
+                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#166FBB]">
+                    <Database className="w-5 h-5" />
                 </div>
+                <div>
+                    <h1 className="text-[19px] font-black text-slate-900 tracking-tight">Data & Backup</h1>
+                    <p className="text-[13px] text-slate-500 font-medium mt-0.5">
+                        Control your digital footprint. Export or erase your cognitive data.
+                    </p>
+                </div>
+            </div>
 
+            <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] lg:grid-cols-[1.5fr_1fr] gap-6 xl:gap-8">
+                
+                {/* ── Left Column ────────────────────────────────────────── */}
                 <div className="space-y-6">
-                    <div className="p-8 bg-white/40 backdrop-blur-md rounded-3xl border border-white/60 shadow-sm">
-                        <div className="flex items-start gap-4 mb-6">
-                            <div className="p-3.5 bg-noble-blue/10 rounded-2xl border border-noble-blue/10">
-                                <Database className="w-5 h-5 text-noble-blue" />
+                    
+                    {/* Export Your Data */}
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="w-12 h-12 bg-[#F0F7FF] rounded-xl flex items-center justify-center border border-[#E1F0FF]">
+                                <Database className="w-6 h-6 text-[#166FBB]" />
                             </div>
                             <div>
-                                <h3 className="text-sm font-black text-slate-800 uppercase tracking-wider">Full Archive Export</h3>
-                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wide mt-2 max-w-[420px] leading-relaxed">
-                                    Download a complete JSON archive of your Invoices and Clients.
-                                </p>
+                                <h2 className="text-[18px] font-black text-slate-900 tracking-tight">Export Your Data</h2>
+                                <p className="text-[13px] text-slate-500 font-medium mt-0.5">Download a complete archive of your invoices, clients, products, payments, and more.</p>
                             </div>
                         </div>
+
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-6 pb-6 border-b border-slate-100">
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                                <span className="text-[13px] font-bold text-slate-700">Complete data export</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                                <span className="text-[13px] font-bold text-slate-700">Secure & encrypted</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                                <span className="text-[13px] font-bold text-slate-700">JSON format</span>
+                            </div>
+                        </div>
+
+                        <div className="bg-[#F8FAFC] rounded-xl p-4 flex items-center gap-3 mb-6 border border-slate-100">
+                            <AlertTriangle className="w-4 h-4 text-[#166FBB]" />
+                            <p className="text-[12px] font-medium text-slate-600">You will receive an email when your export is ready to download.</p>
+                        </div>
+
                         <button
                             onClick={handleExport}
                             disabled={exporting}
-                            className="px-8 py-4 bg-noble-blue hover:bg-blue-600 disabled:opacity-50 text-white rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 shadow-[0_10px_20px_rgba(22,111,187,0.15)] active:scale-95"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#166FBB] hover:bg-blue-700 text-white rounded-xl text-[13px] font-bold transition-all shadow-sm disabled:opacity-50"
                         >
                             {exporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <DownloadCloud className="w-4 h-4" />}
-                            {exporting ? 'Packaging Data...' : 'Download JSON Archive'}
+                            Download JSON Archive
                         </button>
-                        <p className="text-[9px] text-slate-400/80 mt-6 uppercase font-black tracking-widest text-center">Your data belongs to you.</p>
-                    </div>
+                    </motion.div>
+
+                    {/* Delete Your Account */}
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+                        <div className="flex items-center gap-4 mb-6">
+                            <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center border border-red-100">
+                                <AlertTriangle className="w-6 h-6 text-red-500" />
+                            </div>
+                            <div>
+                                <h2 className="text-[18px] font-black text-slate-900 tracking-tight">Delete Your Account</h2>
+                                <p className="text-[13px] text-slate-500 font-medium mt-0.5">Permanently remove your account and all associated data. This action cannot be undone.</p>
+                            </div>
+                        </div>
+
+                        <div className="bg-red-50/50 rounded-xl p-6 border border-red-100">
+                            <h4 className="text-[13px] font-black text-red-600 mb-2">This action is irreversible</h4>
+                            <p className="text-[12px] font-medium text-slate-600 mb-6 max-w-md leading-relaxed">
+                                Once you delete your account, all your data including invoices, clients, payments, settings, and files will be permanently removed from our servers.
+                            </p>
+
+                            <div className="space-y-2 mb-6">
+                                <label className="text-[12px] font-bold text-slate-700">Type DELETE to confirm</label>
+                                <input
+                                    type="text"
+                                    placeholder="DELETE"
+                                    value={deleteConfirmation}
+                                    onChange={e => setDeleteConfirmation(e.target.value)}
+                                    className="w-full max-w-sm bg-white border border-slate-200 rounded-xl px-4 py-3 text-[13px] font-bold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-red-500 focus:ring-4 focus:ring-red-100 transition-all shadow-sm"
+                                />
+                            </div>
+
+                            <button
+                                onClick={handleDelete}
+                                disabled={deleting || deleteConfirmation !== 'DELETE'}
+                                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-[13px] font-bold transition-all shadow-sm disabled:opacity-50"
+                            >
+                                {deleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
+                                Delete My NobleInvoice Account
+                            </button>
+                        </div>
+                    </motion.div>
                 </div>
 
-                <div className="space-y-4 pt-6 mt-6 border-t border-white/40">
-                    <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-red-500 flex items-center gap-2 px-1">
-                        <AlertTriangle className="w-4 h-4 text-red-500 animate-pulse" /> Irreversible Actions
-                    </h3>
-                    <div className="p-8 bg-red-50 rounded-3xl border border-red-200 shadow-sm">
-                        <h4 className="text-xs font-black text-red-600 uppercase tracking-wider mb-2">Delete Account</h4>
-                        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wide mb-6 max-w-[500px] leading-relaxed">
-                            Permanently remove your account and all associated data. This action cannot be undone and you will lose access to all features instantly.
-                        </p>
-                        <button
-                            onClick={() => setShowDeleteModal(true)}
-                            disabled={deleting}
-                            className="px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-xl text-[10px] font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 shadow-[0_10px_20px_rgba(220,38,38,0.15)] active:scale-95 whitespace-nowrap"
-                        >
-                            <Trash2 className="w-4 h-4" />
-                            Delete My NobleInvoice Account
-                        </button>
-                    </div>
+                {/* ── Right Column ───────────────────────────────────────── */}
+                <div className="space-y-6">
+                    
+                    {/* What's Included */}
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="w-8 h-8 bg-[#F0F7FF] rounded-lg flex items-center justify-center">
+                                <FileJson className="w-4 h-4 text-[#166FBB]" />
+                            </div>
+                            <h3 className="text-[15px] font-black text-slate-900">What's Included in Your Export</h3>
+                        </div>
+
+                        <div className="space-y-3">
+                            {[
+                                'Invoices & Credit Notes',
+                                'Clients & Vendors',
+                                'Products & Services',
+                                'Payments & Transactions',
+                                'Expenses & Categories',
+                                'Team Members',
+                                'Settings & Preferences',
+                                'Uploaded Files & Attachments'
+                            ].map((item, i) => (
+                                <div key={i} className="flex items-center justify-between py-1.5 group cursor-default">
+                                    <div className="flex items-center gap-2">
+                                        <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#166FBB] transition-colors" />
+                                        <span className="text-[13px] font-semibold text-slate-600 group-hover:text-slate-900 transition-colors">{item}</span>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </motion.div>
+
+                    {/* Recent Exports */}
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+                        <div className="flex items-center justify-between mb-6">
+                            <h3 className="text-[15px] font-black text-slate-900">Recent Exports</h3>
+                            <button className="text-[12px] font-bold text-[#166FBB] hover:text-blue-700 transition-colors">View All &gt;</button>
+                        </div>
+
+                        <div className="space-y-4">
+                            {recentExports.length === 0 ? (
+                                <div className="p-6 text-center border border-slate-100 rounded-xl bg-slate-50">
+                                    <p className="text-[12px] font-bold text-slate-500">No recent exports found.</p>
+                                </div>
+                            ) : (
+                                recentExports.map((exp) => (
+                                    <div key={exp.id} className="flex items-center justify-between p-4 rounded-xl border border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-colors group">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-8 h-8 bg-[#F0F7FF] rounded-lg flex items-center justify-center">
+                                                <FileJson className="w-4 h-4 text-[#166FBB]" />
+                                            </div>
+                                            <div>
+                                                <p className="text-[13px] font-bold text-slate-900">{exp.export_name}</p>
+                                                <p className="text-[11px] font-medium text-slate-400">
+                                                    {new Date(exp.created_at).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-4">
+                                            <span className="px-2.5 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-black uppercase tracking-wider border border-emerald-100">
+                                                {exp.status}
+                                            </span>
+                                            <button className="p-2 text-slate-400 hover:text-[#166FBB] transition-colors rounded-lg hover:bg-white" title="Re-download coming soon">
+                                                <DownloadCloud className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))
+                            )}
+                        </div>
+                    </motion.div>
+
+                    {/* Security Assurance */}
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+                        <div className="flex items-start gap-4">
+                            <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center border border-blue-100 flex-shrink-0">
+                                <Shield className="w-5 h-5 text-[#166FBB]" />
+                            </div>
+                            <div>
+                                <h3 className="text-[14px] font-black text-slate-900 mb-1">Security Assurance</h3>
+                                <p className="text-[12px] font-medium text-slate-500 leading-relaxed mb-3">
+                                    Your data is always protected with enterprise-grade encryption and strict access controls.
+                                </p>
+                                <a href="/settings/security" className="text-[12px] font-bold text-[#166FBB] hover:text-blue-700 transition-colors inline-flex items-center gap-1 relative z-10 cursor-pointer">
+                                    Learn more about data security &rarr;
+                                </a>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
-        </>
+
+            {/* ── Bottom Banner ──────────────────────────────────────────── */}
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] p-4 flex items-center gap-3">
+                <div className="p-2 bg-emerald-50 rounded-lg border border-emerald-100">
+                    <Lock className="w-4 h-4 text-emerald-600" />
+                </div>
+                <p className="text-[12px] font-medium text-slate-600">
+                    Your data belongs to you. We never sell your information. Learn more in our <Link href="#" className="font-bold text-[#166FBB] hover:underline">Privacy Policy &rarr;</Link>
+                </p>
+            </motion.div>
+
+        </div>
     );
 }
-

@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardRendererProps } from '../types';
 import { Phone, Mail, Globe, MapPin, Briefcase, Camera, Box, Leaf } from 'lucide-react';
+import { SharedQRCode } from '../../SharedQRCode';
 
 export const WilsonDynamicCard: React.FC<CardRendererProps & { defaultColor?: string }> = (props) => {
   const { data, side, brandAccent, brandDark, brandLight, brandMid, ON_COLOR, ON_WHITE, fs, DraggableElement, renderAvatar, effectiveAccent } = props;
@@ -55,11 +56,7 @@ export const WilsonDynamicCard: React.FC<CardRendererProps & { defaultColor?: st
                     </DraggableElement>
                     <DraggableElement elementKey="qr" className="flex flex-col items-center gap-4">
                         <div className="bg-white p-4 rounded-3xl shadow-2xl border border-slate-50 inline-block">
-                            <img 
-                                src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobleinvoice.ai')}&color=${accent.replace('#', '')}`} 
-                                alt="QR" 
-                                className="w-28 h-28"
-                            />
+                            <SharedQRCode url={data.qrCodeUrl || ''} color={accent} size={250} className="w-28 h-28" />
                         </div>
                     </DraggableElement>
                 </div>

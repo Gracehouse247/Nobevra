@@ -481,7 +481,7 @@ export default function InvoiceGeneratorLandingPage() {
                   <div className="absolute top-0 inset-x-0 h-6 bg-gray-900 z-10 rounded-t-[32px] flex justify-center pt-2">
                      <div className="w-16 h-1 bg-gray-800 rounded-full"></div>
                   </div>
-                  <img src="/images/features/mobile-invoice-app.png" alt="NobleInvoice Mobile App UI" className="w-full h-auto object-cover rounded-[32px]" />
+                  <Image src="/images/features/mobile-invoice-app.png" alt="NobleInvoice Mobile App UI" width={320} height={600} className="w-full h-auto object-cover rounded-[32px]" />
                </div>
             </div>
 

@@ -5,47 +5,16 @@ import * as Geometric from './GeometricBackgrounds';
 import * as Minimal from './MinimalBackgrounds';
 import * as Creative from './CreativeBackgrounds';
 import * as Premium from './PremiumExecutiveBackgrounds';
-import { EliteChevronBackground } from './EliteChevronBackground';
-import { RimberioBackground } from './RimberioBackground';
-import { DynamicWaveBackground } from './DynamicWaveBackground';
-import { IngoudeBackground } from './IngoudeBackground';
-import { AdelineBackground } from './AdelineBackground';
-import { KogaxBackground } from './KogaxBackground';
-import { SalfordBackground } from './SalfordBackground';
-import { LiceriaLiquidBackground } from './LiceriaLiquidBackground';
-import { BorcelleBackground } from './BorcelleBackground';
-import { AndradeBackground } from './AndradeBackground';
-import { RosaCrystalBackground } from './RosaCrystalBackground';
-import { RosaDynamicBackground } from './RosaDynamicBackground';
-import { LiceriaCrimsonBackground } from './LiceriaCrimsonBackground';
-import { GallegoDynamicBackground } from './GallegoDynamicBackground';
-import { AveryExecutiveBackground } from './AveryExecutiveBackground';
-import { ThynkAzureBackground } from './ThynkAzureBackground';
-import { WilsonDynamicBackground } from './WilsonDynamicBackground';
-import { AldenaireExecutiveBackground } from './AldenaireExecutiveBackground';
-import { ChastainKineticBackground } from './ChastainKineticBackground';
+
+import { CARD_TEMPLATE_REGISTRY } from './templateRegistry';
 
 export const renderTemplateBackground = (templateId: string, accentColor: string, side: 'front' | 'back' = 'front') => {
-  // Mapping logic based on cluster prefixes
-  if (templateId === 'id-elite-chevron') return <EliteChevronBackground accentColor={accentColor} side={side} />;
-  if (templateId === 'id-rimberio-pro') return <RimberioBackground accentColor={accentColor} side={side} />;
-  if (templateId === 'id-dynamic-wave-pro') return <DynamicWaveBackground side={side} />;
-  if (templateId === 'id-ingoude-pro') return <IngoudeBackground side={side} />;
-  if (templateId === 'id-adeline-pro') return <AdelineBackground side={side} />;
-  if (templateId === 'id-kogax-pro') return <KogaxBackground side={side} />;
-  if (templateId === 'id-salford-pro') return <SalfordBackground side={side} />;
-  if (templateId === 'id-liceria-liquid') return <LiceriaLiquidBackground side={side} />;
-  if (templateId === 'id-borcelle-pro') return <BorcelleBackground side={side} />;
-  if (templateId === 'id-andrade-pro') return <AndradeBackground side={side} />;
-  if (templateId === 'id-chastain-kinetic') return <ChastainKineticBackground accentColor={accentColor} side={side} />;
-  if (templateId === 'id-aldenaire-executive') return <AldenaireExecutiveBackground accentColor={accentColor} side={side} />;
-  if (templateId === 'id-wilson-dynamic') return <WilsonDynamicBackground accentColor={accentColor} side={side} />;
-  if (templateId === 'id-thynk-azure') return <ThynkAzureBackground accentColor={accentColor} side={side} />;
-  if (templateId === 'id-avery-executive') return <AveryExecutiveBackground accentColor={accentColor} side={side} />;
-  if (templateId === 'id-gallego-dynamic') return <GallegoDynamicBackground accentColor={accentColor} side={side} />;
-  if (templateId === 'id-liceria-crimson') return <LiceriaCrimsonBackground accentColor={accentColor} side={side} />;
-  if (templateId === 'id-rosa-dynamic') return <RosaDynamicBackground accentColor={accentColor} side={side} />;
-  if (templateId === 'id-rosa-crystal') return <RosaCrystalBackground side={side} />;
+  const registryEntry = CARD_TEMPLATE_REGISTRY[templateId];
+  if (registryEntry && registryEntry.BackgroundComponent) {
+    const Background = registryEntry.BackgroundComponent;
+    return <Background accentColor={accentColor} side={side} />;
+  }
+  
   if (templateId.startsWith('id-corp-')) {
     if (side === 'back') return <Premium.EliteNavyBackground accentColor={accentColor} />;
     if (templateId === 'id-corp-26' || templateId === 'id-obsidian') return <Premium.MillionDollarGoldBackground accentColor={accentColor} />;

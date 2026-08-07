@@ -13,6 +13,8 @@ import 'package:collection/collection.dart';
 import 'package:noble_invoice/features/invoicing/widgets/invoice_preview_widgets.dart';
 import 'package:printing/printing.dart';
 import 'package:noble_invoice/features/wallet/controllers/subscription_controller.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 
 class InvoicePreviewScreen extends StatefulWidget {
   final Invoice invoice;
@@ -146,6 +148,41 @@ class _InvoicePreviewScreenState extends State<InvoicePreviewScreen> {
     if (mounted) setState(() => _isGenerating = false);
   }
 
+  // Opens WhatsApp pre-filled with the invoice message.
+  // If the client has a phone number saved, it opens a direct chat.
+  // If not, it opens WhatsApp without a number so the user can pick any contact.
+  Future<void> _sendViaWhatsApp() async {
+    final senderName = context.read<ProfileController>().profile?.businessName
+        ?? context.read<ProfileController>().profile?.displayName
+        ?? 'Noble Invoice';
+
+    final amount = _fmtMoney(inv.totalAmount);
+    final clientName = inv.client.name.isNotEmpty ? inv.client.name : 'there';
+    final invoiceNum = inv.invoiceNumber;
+
+    final message =
+        'Hello $clientName,\n\n'
+        'Please find your Invoice *#$invoiceNum* for *$amount* from *$senderName*.\n\n'
+        'Kindly review and make payment at your earliest convenience.\n\n'
+        'Thank you for your business! 🙏';
+
+    final encoded = Uri.encodeComponent(message);
+
+    // Strip non-numeric characters from phone, then build the URL.
+    // If no phone is saved, open generic WhatsApp (user picks the contact).
+    final rawPhone = inv.client.phone?.replaceAll(RegExp(r'\D'), '') ?? '';
+    final waUrl = rawPhone.isNotEmpty
+        ? 'https://wa.me/$rawPhone?text=$encoded'
+        : 'https://wa.me/?text=$encoded';
+
+    final uri = Uri.parse(waUrl);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      if (mounted) _showSnack('Could not open WhatsApp. Please make sure it is installed.', error: true);
+    }
+  }
+
   Future<void> _confirmAndIssue() async {
     final ctrl = context.read<InvoiceController>();
     final sub = context.read<SubscriptionController>();
@@ -196,6 +233,13 @@ class _InvoicePreviewScreenState extends State<InvoicePreviewScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
+          // WhatsApp send button
+          IconButton(
+            icon: const Icon(Icons.chat_rounded, color: Color(0xFF25D366)),
+            onPressed: _sendViaWhatsApp,
+            tooltip: 'Send via WhatsApp',
+          ),
+          // PDF share button
           IconButton(
             icon: const Icon(Icons.share_rounded, color: AppColors.primary),
             onPressed: _isGenerating ? null : _sharePdf,

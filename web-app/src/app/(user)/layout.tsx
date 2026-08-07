@@ -1,206 +1,30 @@
-'use client';
+/**
+ * UserLayout — React Server Component (RSC)
+ *
+ * RSC Boundary Design:
+ *   - This file has NO 'use client' directive, making it a Server Component.
+ *   - All static provider wrappers (RealtimeProvider, UpgradeModalProvider)
+ *     are rendered on the server — their JSX shell is part of the HTML payload
+ *     with zero hydration cost.
+ *   - UserLayoutClient is the single client island that owns all browser-state:
+ *     auth guard, hotkeys, mobile menu, sidebar state, etc.
+ *   - This pattern follows the Next.js 13+ "push 'use client' down" principle,
+ *     reducing Time-to-Interactive (TTI) by keeping the outer shell server-rendered.
+ */
 
-import React, { useEffect, useState } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
-import { useAuth } from '@/context/AuthContext';
-import { AnimatePresence, motion } from 'framer-motion';
-import Script from 'next/script';
-import { supabase } from '@/lib/supabase';
-
-// New Modular Components
-import Sidebar from '@/components/layout/Sidebar';
-import Header from '@/components/layout/Header';
-
-import MobileSidebar from '@/components/layout/MobileSidebar';
-import BottomNav from '@/components/layout/BottomNav';
-import Modals from '@/components/layout/Modals';
-import LiveLedgerTicker from '@/components/shared/LiveLedgerTicker';
+import React from 'react';
 import RealtimeProvider from '@/components/providers/RealtimeProvider';
 import { UpgradeModalProvider } from '@/context/UpgradeModalContext';
-import ConflictResolverModal from '@/components/shared/ConflictResolverModal';
-import FloatingVoiceAssistant from '@/components/shared/FloatingVoiceAssistant';
-import CookieConsent from '@/components/shared/CookieConsent';
+import UserLayoutClient from '@/components/layout/UserLayoutClient';
 
-export default function UserLayout({
-    children,
-}: {
-    children: React.ReactNode;
-}) {
-    const pathname = usePathname();
-    const router = useRouter();
-    const { user, userData, loading, logout } = useAuth();
-    
-    const [mounted, setMounted] = useState(false);
-    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const [isSearchOpen, setIsSearchOpen] = useState(false);
-    const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
-    
-    // Global Hotkeys
-    useEffect(() => {
-        const handleKeyDown = (e: KeyboardEvent) => {
-            if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-                e.preventDefault();
-                setIsSearchOpen(prev => !prev);
-            }
-        };
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, []);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    // Protect the route
-    useEffect(() => {
-        if (!loading && !user) {
-            // AuthContext already called signOut — just redirect.
-            router.push('/login');
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [user, loading]);
-
-    if (loading) {
-        return (
-            <div className="h-screen w-full bg-[#F0F4F8] flex items-center justify-center overflow-hidden relative">
-                {/* Ambient background glow */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#166FBB]/5 blur-[120px] rounded-full pointer-events-none" />
-                
-                <div className="flex flex-col items-center gap-8 relative z-10">
-                    <motion.div 
-                        className="relative w-24 h-24 flex items-center justify-center"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    >
-                        {/* Outer rotating ring */}
-                        <svg className="w-full h-full text-[#166FBB]" viewBox="0 0 100 100" fill="none">
-                            <motion.circle 
-                                cx="50" cy="50" r="45" 
-                                stroke="currentColor" 
-                                strokeWidth="2" 
-                                strokeDasharray="150 200" 
-                                strokeLinecap="round" 
-                                className="opacity-20"
-                            />
-                            <motion.circle 
-                                cx="50" cy="50" r="45" 
-                                stroke="currentColor" 
-                                strokeWidth="4" 
-                                strokeDasharray="50 300" 
-                                strokeLinecap="round" 
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                                style={{ transformOrigin: "center" }}
-                            />
-                        </svg>
-                        
-                        {/* Inner glowing element */}
-                        <div className="absolute inset-0 flex items-center justify-center">
-                            <motion.div 
-                                className="w-10 h-10 bg-gradient-to-br from-[#166FBB] to-[#00E5FF] rounded-xl shadow-[0_0_20px_rgba(22,111,187,0.4)]"
-                                animate={{ scale: [1, 1.1, 1] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                            />
-                        </div>
-                    </motion.div>
-                    
-                    <div className="text-center space-y-2">
-                        <motion.h2 
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            className="text-slate-900 font-black tracking-tight text-4xl" 
-                            style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-                        >
-                            NobleInvoice
-                        </motion.h2>
-                        <motion.p 
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.2, duration: 0.5 }}
-                            className="text-slate-500 font-extrabold text-[10px] uppercase tracking-[0.3em]"
-                        >
-                            Initializing Workspace
-                        </motion.p>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    if (!user) return null;
-
-    const isStudio = pathname === '/studio';
-
-    if (isStudio) {
-        // Return full-screen studio layout without standard navigation UI
-        return (
-            <RealtimeProvider>
-            <UpgradeModalProvider>
-                <div className="flex h-screen w-screen bg-background overflow-hidden font-manrope">
-                    {children}
-                </div>
-                <Script src="https://checkout.flutterwave.com/v3.js" strategy="lazyOnload" />
-            </UpgradeModalProvider>
-        </RealtimeProvider>
-        );
-    }
-
+export default function UserLayout({ children }: { children: React.ReactNode }) {
     return (
         <RealtimeProvider>
-        <UpgradeModalProvider>
-        <div className="flex h-screen bg-background overflow-hidden font-manrope">
-            {/* Desktop Sidebar */}
-            <Sidebar 
-                userData={userData}
-                mounted={mounted}
-                setIsSearchOpen={setIsSearchOpen}
-                setIsProfileModalOpen={setIsProfileModalOpen}
-            />
-
-            {/* Main Content Area */}
-            <main className="flex-1 min-w-0 flex flex-col overflow-visible relative pb-16 md:pb-0">
-                {/* Top Header */}
-                <Header setIsMobileMenuOpen={setIsMobileMenuOpen} />
-
-                <div className="flex-1 overflow-auto bg-background/50 custom-scrollbar">
+            <UpgradeModalProvider>
+                <UserLayoutClient>
                     {children}
-                </div>
-
-                {/* Mobile Navigation */}
-                <BottomNav />
-            </main>
-
-            {/* Mobile Sidebar Drawer */}
-            <MobileSidebar 
-                isOpen={isMobileMenuOpen}
-                onClose={() => setIsMobileMenuOpen(false)}
-                userData={userData}
-                mounted={mounted}
-            />
-
-            {/* Centralized Modals */}
-            <Modals 
-                isSearchOpen={isSearchOpen}
-                setIsSearchOpen={setIsSearchOpen}
-                isProfileModalOpen={isProfileModalOpen}
-                setIsProfileModalOpen={setIsProfileModalOpen}
-            />
-
-            {/* Live Intelligence Feed */}
-            <LiveLedgerTicker />
-
-            {/* Conflict Resolution Panel — surfaces sync conflicts for user review */}
-            <ConflictResolverModal />
-            
-            {/* AI Voice Assistant */}
-            <FloatingVoiceAssistant />
-
-            {/* GDPR/NDPR Cookie Consent */}
-            <CookieConsent />
-        </div>
-            <Script src="https://checkout.flutterwave.com/v3.js" strategy="lazyOnload" />
-        </UpgradeModalProvider>
+                </UserLayoutClient>
+            </UpgradeModalProvider>
         </RealtimeProvider>
     );
 }

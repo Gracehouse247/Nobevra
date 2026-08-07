@@ -1,45 +1,132 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Bell, Smartphone, Mail, Eye, Loader2 } from 'lucide-react';
+import { 
+    Bell, Smartphone, Mail, Eye, Loader2, MessageSquare, 
+    Calendar, ShieldCheck, Database, Settings, User, Globe, DollarSign 
+} from 'lucide-react';
 import { useAuth } from '@/context/AuthContext';
 import { supabase } from '@/lib/supabase';
 import { toast } from 'react-hot-toast';
+import { useEntitlements } from '@/context/EntitlementsContext';
+import { useUpgradeModal } from '@/context/UpgradeModalContext';
+import PremiumBadge from '@/components/shared/PremiumBadge';
 
 interface Preferences {
     emailReminders: boolean;
     pushFocusAlerts: boolean;
+    teamMentions: boolean;
+    invoiceReminders: boolean;
+    securityAlerts: boolean;
     publicProfile: boolean;
     aiDataSharing: boolean;
+    autoDetectCurrency: boolean;
+    multiCurrency: boolean;
 }
 
 const DEFAULT_PREFS: Preferences = {
     emailReminders: true,
     pushFocusAlerts: true,
-    publicProfile: false,
-    aiDataSharing: true,
+    teamMentions: false,
+    invoiceReminders: true,
+    securityAlerts: true,
+    publicProfile: true,
+    aiDataSharing: false,
+    autoDetectCurrency: true,
+    multiCurrency: true,
 };
 
-function ToggleSwitch({ checked, onChange, disabled }: { checked: boolean; onChange: () => void; disabled?: boolean }) {
+function ToggleSwitch({ 
+    checked, 
+    onChange, 
+    disabled, 
+    labelOn = 'Enabled', 
+    labelOff = 'Disabled' 
+}: { 
+    checked: boolean; 
+    onChange: () => void; 
+    disabled?: boolean;
+    labelOn?: string;
+    labelOff?: string;
+}) {
     return (
-        <button
-            type="button"
-            onClick={onChange}
-            disabled={disabled}
-            className={`w-12 h-6 rounded-full p-0.5 transition-colors duration-300 ease-in-out relative border border-white/80 disabled:opacity-40 shadow-inner ${checked ? 'bg-noble-blue' : 'bg-slate-200'}`}
-        >
-            <div className={`w-4 h-4 rounded-full bg-white transition-transform duration-300 shadow-[0_2px_4px_rgba(0,0,0,0.1)] ${checked ? 'translate-x-6' : 'translate-x-0'}`} />
-        </button>
+        <div className="flex items-center gap-4">
+            <button
+                type="button"
+                onClick={onChange}
+                disabled={disabled}
+                className={`w-[44px] h-[24px] rounded-full p-[2px] transition-colors duration-300 ease-in-out relative disabled:opacity-50 flex items-center ${checked ? 'bg-[#166FBB]' : 'bg-slate-300'}`}
+            >
+                <div className={`w-5 h-5 rounded-full bg-white transition-transform duration-300 shadow-sm ${checked ? 'translate-x-[20px]' : 'translate-x-0'}`} />
+            </button>
+            <span className={`text-[12px] font-bold w-12 text-left ${checked ? 'text-slate-600' : 'text-slate-400'}`}>
+                {checked ? labelOn : labelOff}
+            </span>
+        </div>
+    );
+}
+
+function PreferenceRow({ 
+    icon, 
+    iconBg,
+    iconColor,
+    title, 
+    description, 
+    checked, 
+    onChange, 
+    disabled,
+    labelOn,
+    labelOff,
+    isLast = false,
+    premium,
+}: {
+    icon: React.ElementType;
+    iconBg: string;
+    iconColor: string;
+    title: string;
+    description: string;
+    checked: boolean;
+    onChange: () => void;
+    disabled: boolean;
+    labelOn?: string;
+    labelOff?: string;
+    isLast?: boolean;
+    premium?: 'pulse' | 'elite';
+}) {
+    const Icon = icon;
+    return (
+        <div className={`flex items-center justify-between p-6 ${!isLast ? 'border-b border-slate-100' : ''}`}>
+            <div className="flex items-center gap-5">
+                <div className={`p-3 rounded-2xl ${iconBg}`}>
+                    <Icon className={`w-5 h-5 ${iconColor}`} strokeWidth={2.5} />
+                </div>
+                <div>
+                    <div className="flex items-center gap-2">
+                        <p className="text-[14px] font-bold text-slate-800">{title}</p>
+                        {premium && <PremiumBadge tier={premium} iconOnly />}
+                    </div>
+                    <p className="text-[12px] text-slate-500 font-medium mt-0.5">{description}</p>
+                </div>
+            </div>
+            <ToggleSwitch 
+                checked={checked} 
+                onChange={onChange} 
+                disabled={disabled} 
+                labelOn={labelOn}
+                labelOff={labelOff}
+            />
+        </div>
     );
 }
 
 export default function PreferencesPage() {
     const { user, userData, refreshUserData } = useAuth();
+    const { canUse } = useEntitlements();
+    const { openUpgradeModal } = useUpgradeModal();
     const [preferences, setPreferences] = useState<Preferences>(DEFAULT_PREFS);
     const [saving, setSaving] = useState(false);
     const [loaded, setLoaded] = useState(false);
 
-    // Load preferences from Supabase userData on mount
     useEffect(() => {
         if (userData && !loaded) {
             const prefs = (userData as any).notification_preferences;
@@ -67,11 +154,10 @@ export default function PreferencesPage() {
             if (error) throw error;
 
             await refreshUserData();
-            toast.success('Preference saved.', { duration: 1200 });
+            toast.success('Preference saved.', { duration: 1500 });
         } catch (error) {
             console.error('Preference save error:', error);
-            // Revert on failure
-            setPreferences(preferences);
+            setPreferences(preferences); // Revert
             toast.error('Failed to save preference.');
         } finally {
             setSaving(false);
@@ -79,69 +165,124 @@ export default function PreferencesPage() {
     };
 
     return (
-        <div className="space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500 relative z-10 text-slate-800">
-            <div className="flex items-center justify-between pb-6 border-b border-white/40">
-                <div>
-                    <h1 className="text-2xl md:text-3xl font-semibold text-slate-900" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
-                        System <span className="text-noble-blue">Preferences</span>
-                    </h1>
-                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.15em] mt-1">Configure your notification delivery and privacy scope.</p>
+        <div className="max-w-[900px] text-slate-800 pb-16">
+            {/* Header Section */}
+            <div className="flex items-center justify-between mb-10">
+                <div className="flex items-center gap-5">
+                    <div className="p-3.5 bg-blue-50 rounded-2xl">
+                        <Settings className="w-6 h-6 text-[#166FBB]" strokeWidth={2} />
+                    </div>
+                    <div>
+                        <h1 className="text-[19px] font-black text-slate-900 tracking-tight">
+                            System Preferences
+                        </h1>
+                        <p className="text-[13px] text-slate-500 font-medium mt-1">
+                            Configure your notifications, privacy, and system behavior.
+                        </p>
+                    </div>
                 </div>
                 {saving && (
-                    <div className="flex items-center gap-2 text-noble-blue text-[10px] font-black uppercase tracking-widest bg-white/60 border border-white/60 px-4 py-2 rounded-xl shadow-sm">
+                    <div className="flex items-center gap-2 text-[#166FBB] text-[11px] font-bold bg-blue-50/50 px-4 py-2 rounded-full border border-blue-100">
                         <Loader2 className="w-3.5 h-3.5 animate-spin" /> Saving...
                     </div>
                 )}
             </div>
 
-            <div className="space-y-6">
-                <h3 className="text-[10px] font-black uppercase text-noble-blue tracking-[0.2em] px-1">Notifications</h3>
-
-                <div className="flex items-center justify-between p-5 bg-white/40 backdrop-blur-md rounded-3xl border border-white/60 shadow-sm">
-                    <div className="flex items-center gap-4">
-                        <div className="p-3 bg-noble-blue/10 rounded-2xl border border-noble-blue/10"><Mail className="w-5 h-5 text-noble-blue" /></div>
-                        <div>
-                            <p className="text-xs font-black text-slate-800 uppercase tracking-wider">Daily Digest Emails</p>
-                            <p className="text-[10px] text-slate-400 font-bold mt-1 uppercase tracking-wide">Receive a summary of your tasks and focus metrics.</p>
-                        </div>
-                    </div>
-                    <ToggleSwitch checked={preferences.emailReminders} onChange={() => handleToggle('emailReminders')} disabled={saving} />
+            {/* Notifications Section */}
+            <div className="mb-10">
+                <div className="flex items-center gap-2 mb-4 px-1">
+                    <Bell className="w-5 h-5 text-[#166FBB]" strokeWidth={2.5} />
+                    <h2 className="text-[16px] font-black text-slate-900">Notifications</h2>
                 </div>
-
-                <div className="flex items-center justify-between p-5 bg-white/40 backdrop-blur-md rounded-3xl border border-white/60 shadow-sm">
-                    <div className="flex items-center gap-4">
-                        <div className="p-3 bg-emerald-500/10 rounded-2xl border border-emerald-500/10"><Smartphone className="w-5 h-5 text-emerald-600" /></div>
-                        <div>
-                            <p className="text-xs font-black text-slate-800 uppercase tracking-wider">Focus Alerts (Mobile)</p>
-                            <p className="text-[10px] text-slate-400 font-bold mt-1 uppercase tracking-wide">Push notifications when your biological prime-time begins.</p>
-                        </div>
-                    </div>
-                    <ToggleSwitch checked={preferences.pushFocusAlerts} onChange={() => handleToggle('pushFocusAlerts')} disabled={saving} />
+                
+                <div className="bg-white rounded-[24px] border border-slate-200 shadow-sm overflow-hidden">
+                    <PreferenceRow 
+                        icon={Mail} iconBg="bg-blue-50" iconColor="text-[#166FBB]"
+                        title="Daily Digest Emails" description="Receive a summary of your tasks and focus metrics."
+                        checked={preferences.emailReminders} onChange={() => handleToggle('emailReminders')} disabled={saving}
+                    />
+                    <PreferenceRow 
+                        icon={Smartphone} iconBg="bg-emerald-50" iconColor="text-emerald-500"
+                        title="Focus Alerts (Mobile)" description="Get mobile notifications for important updates."
+                        checked={preferences.pushFocusAlerts} onChange={() => handleToggle('pushFocusAlerts')} disabled={saving}
+                    />
+                    <PreferenceRow 
+                        icon={MessageSquare} iconBg="bg-fuchsia-50" iconColor="text-fuchsia-500"
+                        title="Team Mentions" description="Get notified when someone mentions you in comments."
+                        checked={preferences.teamMentions} onChange={() => handleToggle('teamMentions')} disabled={saving}
+                    />
+                    <PreferenceRow 
+                        icon={Calendar} iconBg="bg-amber-50" iconColor="text-amber-500"
+                        title="Invoice Reminders" description="Receive reminders for upcoming and overdue invoices."
+                        checked={preferences.invoiceReminders} 
+                        onChange={() => {
+                            if (!canUse('invoice.reminders')) {
+                                openUpgradeModal({ featureName: 'Auto Payment Reminders', requiredPlan: 'pulse' });
+                                return;
+                            }
+                            handleToggle('invoiceReminders');
+                        }} 
+                        disabled={saving}
+                        premium={!canUse('invoice.reminders') ? 'pulse' : undefined}
+                    />
+                    <PreferenceRow 
+                        icon={ShieldCheck} iconBg="bg-teal-50" iconColor="text-teal-500"
+                        title="Security Alerts" description="Get notified about suspicious activity and security events."
+                        checked={preferences.securityAlerts} onChange={() => handleToggle('securityAlerts')} disabled={saving} isLast
+                    />
                 </div>
             </div>
 
-            <div className="space-y-6 pt-4">
-                <h3 className="text-[10px] font-black uppercase text-noble-blue tracking-[0.2em] px-1">Privacy &amp; AI Data</h3>
-
-                <div className="flex items-center justify-between p-5 bg-white/40 backdrop-blur-md rounded-3xl border border-white/60 shadow-sm">
-                    <div className="flex items-center gap-4">
-                        <div className="p-3 bg-purple-500/10 rounded-2xl border border-purple-500/10"><Eye className="w-5 h-5 text-purple-600" /></div>
-                        <div>
-                            <p className="text-xs font-black text-slate-800 uppercase tracking-wider">Public Profile Identity</p>
-                            <p className="text-[10px] text-slate-400 font-bold mt-1 uppercase tracking-wide">Allow other users to see your shared Mind Maps and profile.</p>
-                        </div>
-                    </div>
-                    <ToggleSwitch checked={preferences.publicProfile} onChange={() => handleToggle('publicProfile')} disabled={saving} />
+            {/* Privacy & AI Data Section */}
+            <div className="mb-10">
+                <div className="flex items-center gap-2 mb-4 px-1">
+                    <ShieldCheck className="w-5 h-5 text-[#166FBB]" strokeWidth={2.5} />
+                    <h2 className="text-[16px] font-black text-slate-900">Privacy & AI Data</h2>
                 </div>
 
-                <div className="p-6 bg-amber-50 rounded-3xl border border-amber-200 border-l-4 border-l-amber-500 shadow-sm">
-                    <p className="text-xs font-black text-amber-700 uppercase tracking-wider mb-2">AI Model Contribution</p>
-                    <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wide leading-relaxed mb-6">
-                        By default, your anonymized focus and task completion timings are used to improve the Biological Synchronization engine for all users. You can opt-out at any time.
-                    </p>
-                    <div className="flex items-center justify-end">
-                        <ToggleSwitch checked={preferences.aiDataSharing} onChange={() => handleToggle('aiDataSharing')} disabled={saving} />
-                    </div>
+                <div className="bg-white rounded-[24px] border border-slate-200 shadow-sm overflow-hidden">
+                    <PreferenceRow 
+                        icon={User} iconBg="bg-purple-50" iconColor="text-purple-600"
+                        title="Public Profile Identity" description="Make your professional profile visible to the public."
+                        checked={preferences.publicProfile} onChange={() => handleToggle('publicProfile')} disabled={saving}
+                        labelOn="Visible" labelOff="Hidden"
+                    />
+                    <PreferenceRow 
+                        icon={Database} iconBg="bg-blue-50" iconColor="text-[#166FBB]"
+                        title="Allow AI to Use My Data" description="Help improve NobleInvoice with anonymous usage data."
+                        checked={preferences.aiDataSharing} onChange={() => handleToggle('aiDataSharing')} disabled={saving} isLast
+                    />
+                </div>
+            </div>
+
+            {/* Localization & Currency Section */}
+            <div>
+                <div className="flex items-center gap-2 mb-4 px-1">
+                    <Globe className="w-5 h-5 text-[#166FBB]" strokeWidth={2.5} />
+                    <h2 className="text-[16px] font-black text-slate-900">Localization & Currency</h2>
+                </div>
+
+                <div className="bg-white rounded-[24px] border border-slate-200 shadow-sm overflow-hidden">
+                    <PreferenceRow 
+                        icon={Globe} iconBg="bg-indigo-50" iconColor="text-indigo-500"
+                        title="Auto-Detect Region" description="Automatically detect user's country and default currency."
+                        checked={preferences.autoDetectCurrency} onChange={() => handleToggle('autoDetectCurrency')} disabled={saving}
+                    />
+                    <PreferenceRow 
+                        icon={DollarSign} iconBg="bg-emerald-50" iconColor="text-emerald-500"
+                        title="Multi-Currency Invoicing" description="Allow creating invoices in currencies other than your default."
+                        checked={preferences.multiCurrency} 
+                        onChange={() => {
+                            if (!canUse('wallet.multicurrency')) {
+                                openUpgradeModal({ featureName: 'Multi-Currency Support', requiredPlan: 'pulse' });
+                                return;
+                            }
+                            handleToggle('multiCurrency');
+                        }} 
+                        disabled={saving} 
+                        isLast
+                        premium={!canUse('wallet.multicurrency') ? 'pulse' : undefined}
+                    />
                 </div>
             </div>
         </div>

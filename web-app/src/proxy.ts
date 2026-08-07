@@ -1,13 +1,55 @@
 import { createServerClient, type CookieOptions } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
-
+import { getCurrencyForCountry } from '@/lib/geo/countryToCurrency'
 
 export async function proxy(request: NextRequest) {
+  const url = request.nextUrl;
+  const hostname = request.headers.get('host') || '';
+
+  // ── Custom Domain White-Label Logic ──────────────────────────────────────
+  const isAppDomain = 
+      hostname.includes('localhost') || 
+      hostname.includes('noblesworld.com.ng') ||
+      hostname.includes('nobleinvoice.com');
+
+  if (!isAppDomain) {
+      if (url.pathname === '/') {
+          return NextResponse.rewrite(new URL(`/custom-domain-proxy?domain=${hostname}`, request.url));
+      } else if (url.pathname.startsWith('/invoice/')) {
+          const invoiceId = url.pathname.replace('/invoice/', '');
+          return NextResponse.rewrite(new URL(`/embed/invoice/${invoiceId}?domain=${hostname}`, request.url));
+      } else if (url.pathname.startsWith('/contract/')) {
+          const contractId = url.pathname.replace('/contract/', '');
+          return NextResponse.rewrite(new URL(`/embed/contract/${contractId}?domain=${hostname}`, request.url));
+      }
+  }
+
+  // ── Geo-detection: Read Vercel's free edge header (zero API cost) ──────────
+  // This header is injected automatically by Vercel on production deployments.
+  // In local dev it won't be present — the CurrencyContext falls back to /api/geo
+  const vercelCountry = request.headers.get('x-vercel-ip-country');
+  const alreadyHasGeo = request.cookies.has('ni_detected_country');
+
   let response = NextResponse.next({
     request: {
       headers: request.headers,
     },
   })
+
+  // Set geo cookie once per session if we have a Vercel country header
+  if (vercelCountry && !alreadyHasGeo) {
+    const detectedCurrency = getCurrencyForCountry(vercelCountry);
+    response.cookies.set('ni_detected_country', vercelCountry, {
+      path: '/',
+      maxAge: 86400, // 24h
+      sameSite: 'lax',
+    });
+    response.cookies.set('ni_detected_currency', detectedCurrency, {
+      path: '/',
+      maxAge: 86400,
+      sameSite: 'lax',
+    });
+  }
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -89,7 +131,7 @@ export async function proxy(request: NextRequest) {
   const protectedRoutes = [
     '/dashboard', '/invoices', '/clients', '/products', '/expenses', 
     '/networking', '/upgrade', '/wallet', '/settings', 
-    '/qr-generator', '/studio', '/inventory', '/enterprise', '/support',
+    '/qr-generator', '/studio', '/enterprise', '/support',
     '/pro', '/embed/business-card', '/reports'
   ]
   const authRoutes = ['/login', '/register']

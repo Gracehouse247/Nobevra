@@ -1,10 +1,7 @@
 /** @type {import('next').NextConfig} */
-const withPWA = require('next-pwa')({
-  dest: 'public',
-  disable: process.env.NODE_ENV === 'development',
-  register: true,
-  skipWaiting: true,
-});
+// NOTE: next-pwa@5.x is incompatible with Next.js 16 + Turbopack and causes
+// all routes to return 404. PWA functionality is provided via the static
+// manifest.webmanifest and sw.js already in the public/ directory.
 
 const securityHeaders = [
   {
@@ -39,12 +36,12 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://checkout.flutterwave.com https://api.flutterwave.com https://maps.googleapis.com https://maps.gstatic.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://checkout.flutterwave.com https://api.flutterwave.com https://maps.googleapis.com https://maps.gstatic.com https://www.googletagmanager.com https://www.google-analytics.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
-      "img-src 'self' data: blob: https://*.supabase.co https://*.supabase.in https://images.pexels.com https://lh3.googleusercontent.com https://maps.googleapis.com https://maps.gstatic.com https://i.pravatar.cc https://images.unsplash.com",
-      "connect-src 'self' ws: wss: https://*.supabase.co https://*.supabase.in https://api.flutterwave.com https://checkout.flutterwave.com https://open.er-api.com https://maps.googleapis.com https://fonts.googleapis.com https://fonts.gstatic.com",
-      "frame-src 'self' https://checkout.flutterwave.com https://checkout-v3-ui-prod.f4b-flutterwave.com https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com",
+      "img-src 'self' data: blob: https://*.supabase.co https://*.supabase.in https://images.pexels.com https://lh3.googleusercontent.com https://maps.googleapis.com https://maps.gstatic.com https://i.pravatar.cc https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com",
+      "connect-src 'self' ws: wss: https://*.supabase.co https://*.supabase.in https://api.flutterwave.com https://checkout.flutterwave.com https://open.er-api.com https://maps.googleapis.com https://fonts.googleapis.com https://fonts.gstatic.com https://www.google-analytics.com https://www.googletagmanager.com",
+      "frame-src 'self' https://checkout.flutterwave.com https://checkout-v3.flutterwave.com https://checkout-v3-ui-prod.f4b-flutterwave.com https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com",
       "worker-src 'self' blob:",
       "manifest-src 'self'",
     ].join('; '),
@@ -139,5 +136,5 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(nextConfig);
+module.exports = nextConfig;
 

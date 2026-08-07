@@ -191,7 +191,7 @@ export default function TemplateShowcase({
                                         {/* Pro Badge for every 3rd template */}
                                         {idx % 3 === 2 && (
                                             <div className="absolute top-6 right-6 z-20">
-                                                <PremiumBadge />
+                                                <PremiumBadge tier="pro" />
                                             </div>
                                         )}
 

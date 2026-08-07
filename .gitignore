@@ -83,3 +83,25 @@ desktop.ini
 *.user
 *.swp
 *.swo
+
+# -----------------------------------------------------------
+# EXCLUDE SPECIFIC FOLDERS & SEO FILES
+# -----------------------------------------------------------
+Documenetation/
+Production/
+**/graphify-out/
+*A strong*Noble World*bran*
+*autonomous seo engine*
+NobleInvoice
+SEO_BEST_PRACTICES*
+SEO_Blueprint_extracted*
+SEO_Blueprint_text*
+SEO_Content_Strategy_Blueprint*
+
+# -----------------------------------------------------------
+# GITHUB ACTIONS & LARGE ASSETS
+# -----------------------------------------------------------
+.github/workflows/
+web-app/qa_screenshots/
+*.mp4
+*.mov

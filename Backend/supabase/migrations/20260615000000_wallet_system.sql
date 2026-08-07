@@ -25,6 +25,7 @@ CREATE POLICY "Users can view their own wallet"
 DROP POLICY IF EXISTS "Service role can manage all wallets" ON public.wallets;
 CREATE POLICY "Service role can manage all wallets"
     ON public.wallets FOR ALL
+    TO service_role
     USING (TRUE)
     WITH CHECK (TRUE);
 
@@ -55,6 +56,7 @@ CREATE POLICY "Users can view their own wallet transactions"
 DROP POLICY IF EXISTS "Service role can manage all wallet transactions" ON public.wallet_transactions;
 CREATE POLICY "Service role can manage all wallet transactions"
     ON public.wallet_transactions FOR ALL
+    TO service_role
     USING (TRUE)
     WITH CHECK (TRUE);
 

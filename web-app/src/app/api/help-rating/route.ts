@@ -11,7 +11,7 @@ const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabase
 export async function POST(req: Request) {
     // ── Rate Limiting (5 ratings per minute per IP) ───────────────────
     const ip = getClientIp(req);
-    const { allowed, resetMs } = rateLimit(`help-rating:${ip}`, 5, 60_000);
+    const { allowed, resetMs } = await rateLimit(`help-rating:${ip}`, 5, 60_000);
     if (!allowed) return rateLimitResponse(resetMs);
 
     try {

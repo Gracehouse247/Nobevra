@@ -95,7 +95,7 @@ class _AdvancedReportsScreenState extends State<AdvancedReportsScreen> {
   }
 
   Widget _buildReportContent() {
-    final canUseReports = FeatureGateService().hasFeature('analytics_and_reports');
+    final canUseReports = FeatureGateService().canUse('analytics.reports');
 
     if (_loading) return const Center(child: CircularProgressIndicator());
     if (_summary == null) return const Center(child: Text('No data for this period'));

@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardRendererProps } from '../types';
 import { Phone, Mail, Globe, MapPin, Briefcase, Camera, Box, Leaf } from 'lucide-react';
+import { SharedQRCode } from '../../SharedQRCode';
 
 export const ChastainKineticCard: React.FC<CardRendererProps & { defaultColor?: string }> = (props) => {
   const { data, side, brandAccent, brandDark, brandLight, brandMid, ON_COLOR, ON_WHITE, fs, DraggableElement, renderAvatar, effectiveAccent } = props;
@@ -64,11 +65,7 @@ export const ChastainKineticCard: React.FC<CardRendererProps & { defaultColor?: 
              </DraggableElement>
              <DraggableElement elementKey="qr" className="flex flex-col items-center gap-4">
                 <div className="bg-white p-3 rounded-2xl shadow-xl border border-slate-100">
-                    <img 
-                        src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobleinvoice.ai')}&color=${accent.replace('#', '')}`} 
-                        alt="QR" 
-                        className="w-24 h-24"
-                    />
+                    <SharedQRCode url={data.qrCodeUrl || ''} color={accent} size={250} className="w-24 h-24" />
                 </div>
                 <p className="font-bold tracking-[0.5em] uppercase" style={{ color: ON_WHITE, opacity: 0.4, fontSize: fs(10) }}>Scan Me</p>
              </DraggableElement>

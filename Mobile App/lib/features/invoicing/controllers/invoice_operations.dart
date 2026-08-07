@@ -8,96 +8,55 @@ import 'package:noble_invoice/features/invoicing/models/invoice_type.dart';
 import 'package:noble_invoice/features/invoicing/services/invoice_ledger_service.dart';
 import 'package:noble_invoice/features/wallet/controllers/subscription_controller.dart';
 
+
 /// Extension to keep InvoiceController under 600 lines.
 /// Contains all mutation logic (Create, Update, Delete, Convert).
 extension InvoiceOperations on InvoiceController {
   
-  // ── Invoice Creation ───────────────────────────────────────────────────────────
+  // ── Invoice Creation ────────────────────────────────────────────────────────
+  // All business logic (subscription quota, fee injection, financials calculation,
+  // inventory deduction, ledger updates, audit logs, and domain events) is now
+  // handled atomically and securely by the `create-invoice` Edge Function.
+  // This method is intentionally thin: build the payload, call the function, refresh.
   Future<bool> createInvoice(InvoiceCreatePayload payload, SubscriptionController sub) async {
-    final limitMsg = sub.checkCreateLimit('invoices');
-    if (limitMsg != null) {
-      setError('SUBSCRIPTION_LIMIT: $limitMsg');
-      return false;
-    }
-
     setSaving(true);
     try {
-      final userId = SupabaseService.currentUser?.id;
-      if (userId == null) throw Exception('Unauthorized');
-
-      final ts = DateTime.now();
-      final num = _generateInvoiceNumber(payload.metadata['custom_prefix']?.toString(), ts);
-
-      final List<InvoiceItem> finalItems = List.from(payload.items);
-      Map<String, dynamic> finalMetadata = Map.from(payload.metadata ?? {});
-      
-      if (finalMetadata['pass_fees'] == true) {
-        final subtotalBefore = finalItems.fold<double>(0, (s, i) => s + (i.quantity * i.unitPrice));
-        final fee = subtotalBefore * 0.038;
-        if (fee > 0) {
-          finalItems.add(InvoiceItem(description: 'Payment Processing Fee (3.8%)', quantity: 1, unitPrice: fee));
-        }
-      }
-
-      final financials = _calculateFinancials(finalItems, payload.taxType, payload.taxRate, payload.discountType, payload.discountValue);
-
-      if (payload.invoiceType == InvoiceType.recurring) {
-        final frequency = finalMetadata['frequency'] ?? 'Monthly';
-        finalMetadata['next_generation_date'] = calculateNextDate(ts, frequency);
-      }
-
-      final invoiceRes = await SupabaseService.client.from('invoices').insert({
-        'team_id':        activeTeamId,
-        'user_id':        userId,
+      final edgePayload = {
         'client_id':      payload.clientId,
-        'invoice_number': num,
-        'invoice_type':   payload.invoiceType.dbValue,
-        'issue_date':     ts.toIso8601String().split('T')[0],
         'due_date':       payload.dueDate.toIso8601String().split('T')[0],
-        'notes':          payload.notes,
         'status':         payload.status,
+        'invoice_type':   payload.invoiceType.dbValue,
         'currency_code':  payload.currencyCode,
+        'notes':          payload.notes,
         'tax_rate':       payload.taxRate,
         'tax_type':       payload.taxType,
-        'tax_amount':     financials.taxAmount,
         'discount_type':  payload.discountType,
         'discount_value': payload.discountValue,
-        'discount_amount': financials.discountAmount,
-        'subtotal':       financials.subtotal,
-        'total_amount':   financials.totalAmount,
-        'metadata':       { ...finalMetadata, 'was_premium': sub.isPulseOrElite },
-      }).select('id').single();
-
-      await sub.trackUsage('invoices');
-      final invoiceId = (invoiceRes)['id'] as int;
-
-      if (finalMetadata['enable_flutterwave'] == true) {
-        await _invokePaymentLink(invoiceId);
-      }
-
-      await SupabaseService.client.from('invoice_items').insert(
-        finalItems.map((i) => {
-          'invoice_id':  invoiceId,
+        'metadata':       payload.metadata ?? {},
+        'items': payload.items.map((i) => {
           'description': i.description,
           'quantity':    i.quantity,
           'unit_price':  i.unitPrice,
-          'total':       i.quantity * i.unitPrice,
+          if (i.productId != null) 'product_id': int.tryParse(i.productId!),
         }).toList(),
+      };
+
+      final response = await SupabaseService.client.functions.invoke(
+        'create-invoice',
+        body: edgePayload,
       );
 
-      if (payload.status != 'draft') {
-        await InvoiceLedgerService.deductStock(teamId: activeTeamId, invoiceId: invoiceId, items: finalItems);
-        await InvoiceLedgerService.updateClientLedger(
-          teamId:    activeTeamId,
-          invoiceId: invoiceId,
-          clientId:  payload.clientId,
-          amount:    payload.invoiceType == InvoiceType.creditMemo ? -financials.totalAmount : financials.totalAmount,
-          type:      payload.invoiceType == InvoiceType.creditMemo ? 'credit_memo' : 'invoice',
-        );
+      if (response.status != 201) {
+        final errorMsg = (response.data as Map<String, dynamic>?)?['error'] ?? 'Failed to create invoice';
+        setError(errorMsg.toString());
+        return false;
       }
 
+      // Edge function handles subscription usage tracking internally.
+      // Refresh the local dashboard to pick up the new invoice.
       await loadDashboard();
       return true;
+
     } catch (e) {
       setError(parseError(e));
       return false;
@@ -105,6 +64,7 @@ extension InvoiceOperations on InvoiceController {
       setSaving(false);
     }
   }
+
 
   // ── Invoice Update ──────────────────────────────────────────────────────────
   Future<bool> updateInvoice(int invoiceId, InvoiceCreatePayload payload, SubscriptionController sub) async {

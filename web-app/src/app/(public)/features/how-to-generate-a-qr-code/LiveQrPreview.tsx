@@ -95,7 +95,7 @@ export default function LiveQrPreview() {
   );
 }
 
-function GlobeIcon(props: any) {
+function GlobeIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}

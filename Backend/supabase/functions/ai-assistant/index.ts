@@ -106,49 +106,73 @@ serve(async (req) => {
       });
     }
 
-    // 2. Fetch User Profile Preference Context & Validate Pro Tier
+    // 2. Fetch User Dynamic Entitlements
     let userPreferredCurrency = "NGN";
-    let userPlan = "free";
+    let aiVoiceLimit = 0;
+    let teamId = null;
+
     try {
+      // Get the user's primary team
+      const { data: teamData } = await supabaseClient
+        .from("teams")
+        .select("id")
+        .eq("owner_id", user.id)
+        .order("created_at", { ascending: true })
+        .limit(1)
+        .single();
+        
+      if (teamData) {
+        teamId = teamData.id;
+        // Resolve Entitlements
+        const { data: entitlements } = await supabaseClient
+          .rpc('resolve_team_entitlements', { p_team_id: teamId });
+          
+        if (entitlements && entitlements['ai.voice']) {
+          aiVoiceLimit = parseInt(entitlements['ai.voice']);
+        }
+      }
+
       const { data: profile } = await supabaseClient
         .from("profiles")
-        .select("preferred_currency, plan")
+        .select("preferred_currency")
         .eq("id", user.id)
         .single();
-      if (profile) {
-        if (profile.preferred_currency) userPreferredCurrency = profile.preferred_currency;
-        if (profile.plan) userPlan = profile.plan;
+      if (profile && profile.preferred_currency) {
+        userPreferredCurrency = profile.preferred_currency;
       }
     } catch (dbErr) {
-      console.warn("Could not query profile table:", dbErr);
+      console.warn("Could not query entitlements or profile:", dbErr);
     }
 
-    if (userPlan !== "pulse" && userPlan !== "elite") {
+    if (aiVoiceLimit <= 0) {
       return new Response(JSON.stringify({ 
         error: "Upgrade Required", 
-        reply: "AI features are exclusively available on the Pulse and Elite plans. Please upgrade to continue." 
+        reply: "AI Voice Assistant is exclusively available on the Pulse and Elite plans. Please upgrade to continue." 
       }), {
         status: 403,
         headers: { ...CORS_HEADERS, "Content-Type": "application/json" },
       });
     }
 
-    // 2b. Rate Limiting via ai_usage_logs
+    // 2b. Rate Limiting via team_usage
     const serviceClient = createClient(SUPABASE_URL!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
-    const monthYear = new Date().toISOString().substring(0, 7); // e.g. "2026-07"
+    const monthStart = new Date();
+    monthStart.setDate(1);
+    const periodStart = monthStart.toISOString().split('T')[0]; // "2026-07-01"
     
     const { data: usageData, error: usageErr } = await serviceClient
-      .from("ai_usage_logs")
-      .select("calls_made")
-      .eq("user_id", user.id)
-      .eq("month_year", monthYear)
+      .from("team_usage")
+      .select("used_amount")
+      .eq("team_id", teamId)
+      .eq("feature_id", "ai.voice")
+      .eq("period_start", periodStart)
       .maybeSingle();
       
-    const callsMade = usageData?.calls_made || 0;
-    if (callsMade >= 100) {
+    const callsMade = usageData?.used_amount || 0;
+    if (callsMade >= aiVoiceLimit) {
       return new Response(JSON.stringify({ 
         error: "Quota Exceeded", 
-        reply: "You have reached your AI assistant limit of 100 queries this month. It will reset next month." 
+        reply: `You have reached your limit of ${aiVoiceLimit} AI requests this month. Please upgrade your plan for more.` 
       }), {
         status: 429,
         headers: { ...CORS_HEADERS, "Content-Type": "application/json" },
@@ -156,12 +180,12 @@ serve(async (req) => {
     }
 
     // Increment usage asynchronously
-    serviceClient.from("ai_usage_logs").upsert({
-      user_id: user.id,
-      month_year: monthYear,
-      calls_made: callsMade + 1,
-      updated_at: new Date().toISOString()
-    }, { onConflict: "user_id, month_year" }).then();
+    // In a real transactional system, we would do this via an RPC increment function to avoid race conditions.
+    serviceClient.rpc('increment_team_usage', {
+      p_team_id: teamId,
+      p_feature_id: 'ai.voice',
+      p_period_start: periodStart
+    }).catch(console.error);
 
     // 3. Parse Body
     const { message, chatHistory, userContext } = await req.json();

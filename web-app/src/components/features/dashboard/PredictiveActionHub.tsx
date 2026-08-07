@@ -6,9 +6,16 @@ import {
     AlertCircle, Sparkles, TrendingUp, ChevronRight
 } from 'lucide-react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { invoiceService } from '@/lib/services/supabaseService';
+import { useEntitlements } from '@/context/EntitlementsContext';
+import { useUpgradeModal } from '@/context/UpgradeModalContext';
+import PremiumBadge from '@/components/shared/PremiumBadge';
 
 export default function PredictiveActionHub() {
+    const router = useRouter();
+    const { canUse } = useEntitlements();
+    const { openUpgradeModal } = useUpgradeModal();
     const [loading, setLoading] = useState(true);
     const [overdueCount, setOverdueCount] = useState(0);
 
@@ -58,7 +65,15 @@ export default function PredictiveActionHub() {
             bgColor: 'bg-amber-500/10',
             borderColor: 'border-amber-500/20',
             glowColor: 'bg-amber-500/10',
-            href: '/invoices?filter=overdue'
+            href: '/invoices?filter=overdue',
+            premium: 'pulse' as const,
+            onClick: () => {
+                if (!canUse('invoice.reminders')) {
+                    openUpgradeModal({ featureName: 'Payment Reminders', requiredPlan: 'pulse' });
+                    return false;
+                }
+                return true;
+            }
         });
     }
 
@@ -69,10 +84,18 @@ export default function PredictiveActionHub() {
             title: 'Generate Monthly Retainers',
             subtitle: "It's month-end. Automated invoices are ready.",
             color: 'text-noble-blue',
-            bgColor: 'bg-noble-blue/10',
-            borderColor: 'border-noble-blue/20',
-            glowColor: 'bg-noble-blue/10',
-            href: '/invoices/recurring'
+            bgColor: 'bg-fuchsia-500/10',
+            borderColor: 'border-fuchsia-500/20',
+            glowColor: 'bg-fuchsia-500/10',
+            href: '/invoices/new?type=recurring',
+            premium: 'pulse' as const,
+            onClick: () => {
+                if (!canUse('invoices.recurring')) {
+                    openUpgradeModal({ featureName: 'Recurring Invoices', requiredPlan: 'pulse' });
+                    return false;
+                }
+                return true;
+            }
         });
     }
 
@@ -134,20 +157,27 @@ export default function PredictiveActionHub() {
                         className="relative group"
                     >
                         <div className={`absolute inset-0 rounded-[24px] ${action.glowColor} blur-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
-                        <Link href={action.href} className="block relative z-10">
-                            <div className={`flex items-center gap-5 p-5 rounded-[24px] border ${action.borderColor} bg-white/60 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.02)] group-hover:bg-white group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.04)] transition-all duration-300`}>
-                                <div className={`w-14 h-14 rounded-2xl ${action.bgColor} flex items-center justify-center shrink-0 border border-white/50 shadow-inner group-hover:scale-110 transition-transform duration-300`}>
-                                    <action.icon className={`w-6 h-6 ${action.color}`} />
-                                </div>
-                                <div className="flex-1">
-                                    <h3 className="text-[14px] font-black text-slate-900 tracking-tighter" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>{action.title}</h3>
-                                    <p className="text-[10px] font-bold text-slate-500 mt-1 uppercase tracking-widest">{action.subtitle}</p>
-                                </div>
-                                <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-noble-blue group-hover:text-white transition-colors duration-300">
-                                    <ChevronRight className="w-4 h-4" />
-                                </div>
+                        <button
+                            onClick={() => {
+                                if ('onClick' in action && action.onClick && !action.onClick()) return;
+                                router.push(action.href);
+                            }}
+                            className={`w-full flex items-center gap-5 p-5 rounded-[24px] border ${action.borderColor} bg-white/60 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.02)] group-hover:bg-white group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.04)] transition-all duration-300 text-left`}
+                        >
+                            <div className={`w-14 h-14 rounded-2xl ${action.bgColor} flex items-center justify-center shrink-0 border border-white/50 shadow-inner group-hover:scale-110 transition-transform duration-300`}>
+                                <action.icon className={`w-6 h-6 ${action.color}`} />
                             </div>
-                        </Link>
+                            <div className="flex-1">
+                                <div className="flex items-center gap-2 mb-1">
+                                    <h3 className="text-[14px] font-black text-slate-900 tracking-tighter" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>{action.title}</h3>
+                                    {'premium' in action && action.premium && <PremiumBadge tier={action.premium} iconOnly />}
+                                </div>
+                                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{action.subtitle}</p>
+                            </div>
+                            <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-noble-blue group-hover:text-white transition-colors duration-300">
+                                <ChevronRight className="w-4 h-4" />
+                            </div>
+                        </button>
                     </motion.div>
                 ))}
             </div>

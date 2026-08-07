@@ -15,6 +15,13 @@ class _AiChatScreenState extends State<AiChatScreen> {
   final TextEditingController _textController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
 
+  @override
+  void dispose() {
+    _textController.dispose();
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   void _scrollToBottom() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_scrollController.hasClients) {

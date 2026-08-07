@@ -4,93 +4,115 @@ import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
-import { UserCircle, Shield, Bell, HardDrive, Palette, Users, Settings as SettingsIcon, CreditCard } from 'lucide-react';
+import { useEntitlements } from '@/context/EntitlementsContext';
+import { useUpgradeModal } from '@/context/UpgradeModalContext';
+import { UserCircle, Shield, Bell, HardDrive, Palette, Users, Settings as SettingsIcon, CreditCard, Puzzle, ExternalLink, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
+import PremiumBadge from '@/components/shared/PremiumBadge';
 
 export default function SettingsLayout({ children }: { children: React.ReactNode }) {
+    
     const pathname = usePathname();
     const { userData } = useAuth();
-    const isElite = userData?.plan === 'elite';
+    const { canUse } = useEntitlements();
+    const { openUpgradeModal } = useUpgradeModal();
+
+    const plan = userData?.plan || 'explorer';
+    const hasPlanAccess = (requiredPlan?: string): boolean => {
+        if (!requiredPlan) return true;
+        if (plan === 'admin') return true;
+        if (plan === 'elite') return true;
+        if (requiredPlan === 'elite') return false;
+        if (plan === 'pulse' && userData?.subscriptionStatus === 'active') return true;
+        return false;
+    };
+
+    const handleTabClick = (e: React.MouseEvent, item: any) => {
+        const fid = item.featureId;
+        if (fid && !canUse(fid)) {
+            e.preventDefault();
+            openUpgradeModal({ featureName: item.name, requiredPlan: 'elite' });
+        }
+    };
 
     const menuItems = [
         { name: 'Profile', path: '/settings/profile', icon: UserCircle },
-        { name: 'Brand & Identity', path: '/settings/brand', icon: Palette },
-        { name: 'Team & Roles', path: '/settings/team', icon: Users },
-        { name: 'Billing & Plans', path: '/settings/billing', icon: CreditCard },
+        { name: 'Branding', path: '/settings/brand', icon: Palette },
+        { name: 'Billing & Subscription', path: '/settings/billing', icon: CreditCard },
+        { name: 'Integrations', path: '/settings/integrations', icon: Puzzle, featureId: 'settings.integrations' },
+        { name: 'Developer', path: '/settings/developer', icon: Terminal, featureId: 'developer.api' },
         { name: 'Security', path: '/settings/security', icon: Shield },
         { name: 'Preferences', path: '/settings/preferences', icon: Bell },
         { name: 'Data & Backup', path: '/settings/data', icon: HardDrive },
     ];
 
     const visibleMenuItems = menuItems.filter(item => {
-        if (item.path === '/settings/team' && !isElite) return false;
+        if (item.path === '/settings/team' && !canUse('team.members')) return false;
         return true;
     });
 
     return (
-        <div className="min-h-screen bg-[#F0F4F8] text-slate-900 pb-32 font-inter relative overflow-hidden selection:bg-noble-blue/20">
-            {/* Ambient Background Mesh Gradients */}
-            <div className="fixed top-[-20%] left-[-10%] w-[800px] h-[800px] bg-noble-blue/10 blur-[150px] rounded-full pointer-events-none z-0" />
-            <div className="fixed bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-electric-cyan/10 blur-[150px] rounded-full pointer-events-none z-0" />
+        <div className="min-h-screen bg-white text-slate-900 pb-20 font-inter selection:bg-[#166FBB]/20">
             
-            {/* Header */}
-            <header className="relative z-50 bg-white/40 backdrop-blur-3xl border-b border-white/60 px-8 py-8 shadow-[0_20px_40px_rgba(0,0,0,0.02)]">
-                <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
-                    <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="space-y-2">
-                        <div className="flex items-center gap-2 mb-2">
-                            <div className="w-10 h-10 rounded-[14px] bg-gradient-to-br from-noble-blue/20 to-transparent flex items-center justify-center text-noble-blue border border-white/50 shadow-inner">
-                                <SettingsIcon className="w-5 h-5 fill-current opacity-20" />
-                                <SettingsIcon className="w-5 h-5 absolute" />
+            {/* Header Area */}
+            {pathname !== '/settings/team' && (
+                <div className="pt-10 px-6 lg:px-10 max-w-[1400px] mx-auto">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8">
+                        <div className="flex items-center gap-5">
+                            <div className="w-[64px] h-[64px] rounded-[18px] bg-[#EEF5FC] flex items-center justify-center text-[#166FBB]">
+                                <SettingsIcon className="w-8 h-8" strokeWidth={1.5} />
                             </div>
-                            <span className="text-xs font-bold text-noble-blue uppercase tracking-[0.2em]">Workspace Configuration</span>
+                            <div>
+                                <h1 className="text-[19px] font-bold text-slate-900 tracking-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
+                                    Settings <span className="text-[#166FBB] italic font-medium">Hub</span>
+                                </h1>
+                                <p className="text-[13px] font-medium text-slate-500 mt-1">Manage your profile, preferences, and data privacy</p>
+                            </div>
                         </div>
-                        <h1 className="text-3xl font-normal text-slate-900 tracking-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
-                            Settings <span className="text-noble-blue italic">Hub</span>
-                        </h1>
-                        <p className="text-slate-500 font-bold uppercase tracking-[0.2em] text-[10px]">Manage your profile, preferences, and data privacy</p>
-                    </motion.div>
-                </div>
-            </header>
-
-            <div className="max-w-7xl mx-auto px-8 py-12 relative z-10">
-                <div className="flex flex-col md:flex-row gap-10">
-                    {/* Sidebar Navigation */}
-                    <div className="w-full md:w-72 flex-shrink-0 space-y-3">
-                        {visibleMenuItems.map((item) => {
-                            const isActive = pathname === item.path;
-                            return (
-                                <motion.div key={item.path} whileTap={{ scale: 0.97 }}>
-                                    <Link 
-                                        href={item.path}
-                                        className={`flex items-center gap-4 px-6 py-4 rounded-3xl transition-all duration-300 border ${
-                                            isActive 
-                                                ? 'bg-white/80 border-white text-noble-blue shadow-[0_15px_30px_rgba(22,111,187,0.1)] font-black backdrop-blur-xl' 
-                                                : 'bg-white/20 border-white/30 text-slate-500 hover:bg-white/60 hover:text-slate-800 hover:border-white/60 hover:shadow-sm font-bold backdrop-blur-md'
-                                        }`}
-                                    >
-                                        <div className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors ${isActive ? 'bg-noble-blue/10' : 'bg-slate-100/50'}`}>
-                                            <item.icon className={`w-4 h-4 ${isActive ? 'text-noble-blue' : 'text-slate-400'}`} />
-                                        </div>
-                                        <span className="text-[11px] uppercase tracking-[0.15em]">{item.name}</span>
-                                    </Link>
-                                </motion.div>
-                            );
-                        })}
+                        <button className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-[12.5px] font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm transition-all shadow-sm">
+                            View Workspace
+                            <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+                        </button>
                     </div>
 
-                    {/* Main Content Area */}
-                    <motion.div 
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="flex-1 bg-white/40 backdrop-blur-2xl rounded-[40px] p-10 border border-white/60 shadow-[0_30px_60px_rgba(0,0,0,0.03)] relative overflow-hidden"
-                    >
-                        <div className="absolute top-[-20%] right-[-10%] w-[300px] h-[300px] bg-noble-blue/5 blur-[80px] rounded-full pointer-events-none z-0" />
-                        <div className="relative z-10">
-                            {children}
-                        </div>
-                    </motion.div>
+                    {/* Horizontal Tab Navigation */}
+                    <div className="border-b border-slate-200">
+                        <nav className="flex items-center gap-8 overflow-x-auto hide-scrollbar">
+                            {visibleMenuItems.map((item) => {
+                                const isActive = pathname === item.path;
+                                const fid = item.featureId;
+                                const locked = !!fid && !canUse(fid);
+                                const rp = fid ? (fid === 'developer.api' ? 'elite' : 'pro') : undefined;
+                                
+                                return (
+                                    <Link
+                                        key={item.path}
+                                        href={item.path}
+                                        onClick={(e) => handleTabClick(e, item)}
+                                        className={`flex items-center gap-2 pb-4 pt-1 border-b-[2px] transition-all duration-200 whitespace-nowrap ${
+                                            isActive
+                                                ? 'border-[#166FBB] text-[#166FBB] font-black'
+                                                : locked
+                                                ? 'border-transparent text-slate-400 hover:text-slate-600 font-bold'
+                                                : 'border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300 font-bold'
+                                        }`}
+                                    >
+                                        <item.icon className={`w-4 h-4 ${isActive ? 'text-[#166FBB]' : locked ? 'text-slate-300' : 'text-slate-400'}`} strokeWidth={isActive ? 2.5 : 2} />
+                                        <span className={`text-[13px] capitalize tracking-wide ${locked ? 'opacity-70' : ''}`}>{item.name}</span>
+                                        {locked && (
+                                            <PremiumBadge tier={rp === 'elite' ? 'elite' : 'pro'} iconOnly className="w-3.5 h-3.5 ml-1 drop-shadow-sm opacity-90" />
+                                        )}
+                                    </Link>
+                                );
+                            })}
+                        </nav>
+                    </div>
                 </div>
+            )}
+
+            {/* Main Content Area */}
+            <div className={`max-w-[1400px] mx-auto px-6 lg:px-10 ${pathname === '/settings/team' ? 'pt-10' : 'pt-8'}`}>
+                {children}
             </div>
         </div>
     );

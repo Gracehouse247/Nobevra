@@ -26,7 +26,6 @@ export const teamService = {
             return {
                 id: userId,
                 display_name: 'Noble User',
-                preferred_currency: 'NGN',
                 brand_color: '#166FBB',
                 ...(team || {})
             };

@@ -7,11 +7,13 @@ DROP POLICY IF EXISTS "Profiles are viewable by everyone" ON public.profiles;
 DROP POLICY IF EXISTS "Enable read access for all users" ON public.profiles;
 
 -- Policy 1: Users can read their own profile
+DROP POLICY IF EXISTS "Users can view own profile" ON public.profiles;
 CREATE POLICY "Users can view own profile"
 ON public.profiles FOR SELECT
 USING (auth.uid() = id);
 
 -- Policy 2: Users can update their own profile
+DROP POLICY IF EXISTS "Users can update own profile" ON public.profiles;
 CREATE POLICY "Users can update own profile"
 ON public.profiles FOR UPDATE
 USING (auth.uid() = id);

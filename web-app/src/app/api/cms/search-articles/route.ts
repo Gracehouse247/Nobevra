@@ -12,7 +12,7 @@ const MAX_QUERY_LENGTH = 200;
 export async function GET(req: NextRequest) {
   // ── Rate Limiting (20 searches per minute per IP) ─────────────────
   const ip = getClientIp(req);
-  const { allowed, resetMs } = rateLimit(`search-articles:${ip}`, 20, 60_000);
+  const { allowed, resetMs } = await rateLimit(`search-articles:${ip}`, 20, 60_000);
   if (!allowed) return rateLimitResponse(resetMs);
 
   const { searchParams } = new URL(req.url);

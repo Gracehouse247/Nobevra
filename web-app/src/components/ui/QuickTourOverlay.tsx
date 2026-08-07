@@ -33,6 +33,10 @@ export function QuickTourOverlay() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.7 }}
             exit={{ opacity: 0 }}
+            role="button"
+            tabIndex={0}
+            aria-label="Dismiss tour"
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === 'Escape') dismissTour(); }}
             className="absolute inset-0 bg-slate-900 pointer-events-auto"
             onClick={dismissTour}
           />
@@ -45,12 +49,19 @@ export function QuickTourOverlay() {
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md pointer-events-auto"
           >
-            <div className="bg-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+            <div 
+              role="dialog" 
+              aria-modal="true" 
+              aria-labelledby="tour-heading"
+              className="bg-white rounded-3xl p-8 shadow-2xl relative overflow-hidden"
+            >
               {/* Decorative gradient */}
               <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70" />
               <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70" />
 
               <button
+                type="button"
+                aria-label="Close welcome tour"
                 onClick={dismissTour}
                 className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors z-10"
               >
@@ -62,7 +73,7 @@ export function QuickTourOverlay() {
                   <Sparkles className="w-6 h-6" />
                 </div>
                 
-                <h3 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">
+                <h3 id="tour-heading" className="text-2xl font-black text-slate-900 mb-3 tracking-tight">
                   Welcome to your new Dashboard!
                 </h3>
                 

@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
   }
 
   // ── 2. Rate Limiting (10 schedules per minute per user) ───────────
-  const { allowed, resetMs } = rateLimit(`social-schedule:${user.id}`, 10, 60_000);
+  const { allowed, resetMs } = await rateLimit(`social-schedule:${user.id}`, 10, 60_000);
   if (!allowed) return rateLimitResponse(resetMs);
 
   try {

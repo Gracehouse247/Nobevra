@@ -212,9 +212,11 @@ export default function ProformaInvoicePage() {
           <div className="relative w-full aspect-video bg-slate-900 rounded-[32px] shadow-2xl overflow-hidden border border-slate-200 group cursor-pointer flex items-center justify-center">
             {/* Real video embed goes here, currently styled as a beautiful placeholder */}
             <div className="absolute inset-0 bg-gradient-to-tr from-noble-blue/20 to-transparent"></div>
-            <img 
+            <Image 
               src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2626&auto=format&fit=crop" 
               alt="Video Thumbnail" 
+              width={2626}
+              height={1477}
               className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500" 
             />
             

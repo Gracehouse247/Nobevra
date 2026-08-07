@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useAuth } from '@/context/AuthContext';
+import { useEntitlements } from '@/context/EntitlementsContext';
 import { Sparkles, Lock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useUpgradeModal } from '@/context/UpgradeModalContext';
@@ -10,26 +10,23 @@ interface PremiumGateProps {
     children: React.ReactNode;
     fallback?: React.ReactNode;
     featureName?: string;
-    tier?: 'pulse' | 'elite';
+    featureId?: string; // New: the entitlement feature ID e.g. 'ai.voice'
+    tier?: 'pulse' | 'elite'; // Kept for display text only
 }
 
 export default function PremiumGate({ 
     children, 
     fallback, 
     featureName = 'Advanced AI',
+    featureId,
     tier = 'pulse'
 }: PremiumGateProps) {
-    const { userData } = useAuth();
+    const { canUse, isLoading } = useEntitlements();
     const { openUpgradeModal } = useUpgradeModal();
     
-    // Admin, Elite and Pro users get access based on tier
-    // Elite gets everything. Pro gets only pro features.
-    // Hierarchy: Admin > Elite > Pro > Explorer (Free)
-    // Subscription must be 'active' for paid tiers
-    const hasAccess = 
-        userData?.plan === 'admin' || 
-        userData?.plan === 'elite' || 
-        (tier === 'pulse' && userData?.plan === 'pulse' && userData?.subscriptionStatus === 'active');
+    // Use the new entitlement-based check if featureId is provided.
+    // Fall back gracefully to showing the feature (fail-open) if entitlements are still loading.
+    const hasAccess = isLoading ? true : (featureId ? canUse(featureId) : true);
 
     if (hasAccess) {
         return <>{children}</>;

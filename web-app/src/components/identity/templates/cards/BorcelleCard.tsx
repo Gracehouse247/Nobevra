@@ -1,6 +1,7 @@
 import React from 'react';
 import { CardRendererProps } from '../types';
 import { Phone, Mail, Globe, MapPin, Briefcase, Camera, Box, Leaf } from 'lucide-react';
+import { CardQRCode } from '../../CardQRCode';
 
 export const BorcelleCard: React.FC<CardRendererProps & { defaultColor?: string }> = (props) => {
   const { data, side, brandAccent, brandDark, brandLight, brandMid, ON_COLOR, ON_WHITE, fs, DraggableElement, renderAvatar, effectiveAccent } = props;
@@ -56,9 +57,7 @@ export const BorcelleCard: React.FC<CardRendererProps & { defaultColor?: string 
                 {data.companyName || 'BORCELLE ENTERPRISE'}
               </h2>
             </DraggableElement>
-            <DraggableElement elementKey="qr" className="bg-white p-3 rounded-2xl shadow-xl border-4" style={{ borderColor: accent }}>
-              <img src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobleinvoice.ai')}&color=${darkBg.replace('#', '')}`} alt="QR" className="w-22 h-22"/>
-            </DraggableElement>
+            <CardQRCode url={data.qrCodeUrl} qrColor={darkBg} borderColor={accent} size={200} dimensionClass="w-22 h-22" DraggableElement={DraggableElement} />
           </div>
         )}
       </div>

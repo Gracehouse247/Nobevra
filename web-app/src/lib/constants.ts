@@ -1,7 +1,7 @@
 import { 
     LayoutDashboard, FileText, Users, Layers, Wallet,
     Settings, Network, BarChart3, CreditCard, Receipt,
-    QrCode, Contact, LifeBuoy, Package, ShieldCheck, Zap,
+    QrCode, Contact, LifeBuoy, ShieldCheck, Zap,
     Building2
 } from 'lucide-react';
 
@@ -17,39 +17,38 @@ export const QUOTES = [
 
 export const MENU_GROUPS = [
     {
-        label: 'Workspace',
+        label: 'Core Operations',
         items: [
             { name: 'Dashboard', icon: LayoutDashboard, href: '/dashboard' },
-            { name: 'Invoicing Engine', icon: FileText, href: '/invoices' },
-            { name: 'Client CRM', icon: Users, href: '/clients' },
-            { name: 'Team Intelligence', icon: ShieldCheck, href: '/settings/team', requiredPlan: 'elite' },
+            { name: 'Invoices & Billing', icon: FileText, href: '/invoices' },
+            { name: 'Customers', icon: Users, href: '/clients' },
+            { name: 'Products & Services', icon: Layers, href: '/products' },
         ]
     },
     {
-        label: 'Financials & Stock',
+        label: 'Financials & Tracking',
         items: [
             { name: 'Expenses Hub', icon: Receipt, href: '/expenses' },
-            { name: 'Products & Services', icon: Layers, href: '/products' },
-            { name: 'Inventory Ledger', icon: Package, href: '/inventory', requiredPlan: 'pro' },
-            { name: 'Wallet & Payments', icon: Wallet, href: '/wallet', requiredPlan: 'pro' },
-        ]
-    },
-    {
-        label: 'Networking & Growth',
-        items: [
-            { name: 'QR Code Engine', icon: QrCode, href: '/qr-generator' },
-            { name: 'Professional Identity', icon: Contact, href: '/studio' },
-            { name: 'Lead Intelligence', icon: Zap, href: '/networking', requiredPlan: 'pro' },
-            { name: 'Enterprise Scaling', icon: Building2, href: '/enterprise/identity', requiredPlan: 'elite' },
+            { name: 'Wallet & Payments', icon: Wallet, href: '/wallet', featureId: 'wallet.payments' },
             { name: 'Growth Reports', icon: BarChart3, href: '/reports' },
         ]
     },
     {
-        label: 'System',
+        label: 'Networking & Identity',
         items: [
-            { name: 'Settings', icon: Settings, href: '/settings/brand' },
+            { name: 'Professional Identity', icon: Contact, href: '/studio', featureId: 'networking.nfc' },
+            { name: 'QR Code Engine', icon: QrCode, href: '/qr-generator' },
+            { name: 'Smart Connect', icon: Zap, href: '/networking', featureId: 'networking.nfc' },
+            { name: 'Enterprise Scaling', icon: Building2, href: '/enterprise/identity', featureId: 'brand.whitelabel' },
+        ]
+    },
+    {
+        label: 'System & Organization',
+        items: [
+            { name: 'Team Management', icon: ShieldCheck, href: '/settings/team', featureId: 'settings.team' },
+            { name: 'Workspace Settings', icon: Settings, href: '/settings/brand' },
             { name: 'Billing & Plans', icon: CreditCard, href: '/upgrade' },
-            { name: 'Support Node', icon: LifeBuoy, href: '/support' },
+            { name: 'Support', icon: LifeBuoy, href: '/support' },
         ]
     }
 ];

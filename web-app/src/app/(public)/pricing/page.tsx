@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check, Zap, Crown, Flame, ArrowRight } from 'lucide-react';
-import { SUBSCRIPTION_PLANS, PAYG_PLAN, Plan } from '@/lib/plans';
+import { SUBSCRIPTION_PLANS, PAYG_PLAN, Plan, FEATURE_MATRIX } from '@/lib/plans';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { toast } from 'react-hot-toast';
@@ -11,6 +11,7 @@ import axios from 'axios';
 import { supabase } from '@/lib/supabase';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import PremiumBadge from '@/components/shared/PremiumBadge';
 
 const schemaMarkup = [
     {
@@ -38,18 +39,30 @@ function MatrixCell({ value }: { value: boolean | string }) {
     );
 }
 
-function MatrixRow({ feature, starter, pulse, elite, payg }: { 
+function MatrixRow({ feature, tooltip, explorer, pulse, elite }: { 
     feature: string; 
-    starter: boolean | string; 
+    tooltip?: string | null;
+    explorer: boolean | string; 
     pulse: boolean | string; 
     elite: boolean | string; 
-    payg: boolean | string; 
 }) {
     return (
-        <tr className="hover:bg-slate-50/50 transition-colors">
-            <td className="p-4 pl-8 text-[13px] font-bold text-near-black/80">{feature}</td>
-            <td className="p-4 text-center"><MatrixCell value={starter} /></td>
-            <td className="p-4 text-center border-l border-slate-100 bg-slate-50/30"><MatrixCell value={payg} /></td>
+        <tr className="hover:bg-slate-50/50 transition-colors border-b border-slate-50">
+            <td className="p-4 pl-8 text-[13px] font-bold text-near-black/80">
+                <div className="flex items-center gap-2">
+                    {feature}
+                    {tooltip && (
+                        <div className="group relative cursor-help">
+                            <div className="w-4 h-4 rounded-full bg-slate-100 flex items-center justify-center text-[10px] text-slate-500 font-black">?</div>
+                            <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-max max-w-[200px] bg-slate-800 text-white text-[11px] font-medium p-2 rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity z-10 text-center leading-tight">
+                                {tooltip}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-slate-800" />
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </td>
+            <td className="p-4 text-center border-l border-slate-100"><MatrixCell value={explorer} /></td>
             <td className="p-4 text-center bg-noble-blue/[0.02] border-x border-noble-blue/5"><MatrixCell value={pulse} /></td>
             <td className="p-4 text-center"><MatrixCell value={elite} /></td>
         </tr>
@@ -72,9 +85,9 @@ function PlanCard({ plan, billingCycle, user, userData, index }: {
         };
     }, []);
 
-    const isCurrent = userData?.subscriptionStatus === plan.id || (plan.id === 'explorer' && !userData?.subscriptionStatus);
+    const isCurrent = userData?.plan === plan.id || (plan.id === 'explorer' && !userData?.plan);
     const isElite = plan.id === 'elite';
-    const isPro = plan.id === 'pro';
+    const isPro = plan.id === 'pulse';
     const isFree = plan.id === 'explorer';
 
     const price = billingCycle === 'monthly' ? plan.priceMonthly : plan.priceYearly;
@@ -99,7 +112,7 @@ function PlanCard({ plan, billingCycle, user, userData, index }: {
         }
 
         const shortId = Math.random().toString(36).substring(2, 10);
-        const txRef = `sub_${plan.id}_${user.id}_${shortId}`;
+        const txRef = `sub_${plan.id}_${billingCycle}_${user.id}_${shortId}`;
 
         if (typeof window !== 'undefined' && (window as any).FlutterwaveCheckout) {
             (window as any).FlutterwaveCheckout({
@@ -183,8 +196,9 @@ function PlanCard({ plan, billingCycle, user, userData, index }: {
                     }`}>
                         {plan.name}
                     </h3>
-                    {isElite && <Crown className="w-6 h-6 text-yellow-500" />}
-                    {isPro && <Zap className="w-6 h-6 text-noble-blue animate-pulse" />}
+                    {/* Plan tier badge — industry standard: shown prominently in plan card header */}
+                    {isElite && <PremiumBadge tier="elite" className="scale-125 origin-right" />}
+                    {isPro && <PremiumBadge tier="pro" className="scale-125 origin-right" />}
                 </div>
                 <p className="text-[10px] font-black uppercase tracking-widest leading-relaxed text-slate-400">
                     {plan.tagline}
@@ -301,16 +315,8 @@ export default function PricingPage() {
         return null;
     }
 
-    const displayedPlans = user 
-        ? [
-            ...(['pulse', 'elite'].includes(userData?.plan || '') ? [] : [PAYG_PLAN]),
-            ...SUBSCRIPTION_PLANS.filter(p => p.id !== 'explorer' && (userData?.plan === 'pulse' ? p.id !== 'pulse' : true))
-          ]
-        : [
-            SUBSCRIPTION_PLANS.find(p => p.id === 'explorer'),
-            PAYG_PLAN,
-            ...SUBSCRIPTION_PLANS.filter(p => p.id !== 'explorer')
-          ].filter(Boolean) as Plan[];
+    // Always show all 3 subscription plans on the public pricing page
+    const displayedPlans = SUBSCRIPTION_PLANS;
 
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
@@ -355,7 +361,7 @@ export default function PricingPage() {
                 </div>
 
                 {/* Pricing Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 items-start mb-24 text-left">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start mb-24 text-left max-w-6xl mx-auto">
                     {displayedPlans.map((plan, i) => (
                         <PlanCard 
                             key={plan.id} 
@@ -384,96 +390,76 @@ export default function PricingPage() {
 
                     <div className="overflow-x-auto rounded-3xl border border-slate-100 shadow-xl shadow-slate-100/80">
                         <table className="w-full text-sm">
-                            <thead>
-                                <tr className="bg-slate-50">
-                                    <th className="text-left p-5 pl-8 font-black text-near-black/50 text-[11px] uppercase tracking-widest w-[38%]">Feature</th>
-                                    <th className="p-5 text-center font-black text-[11px] uppercase tracking-widest text-near-black/50 w-[15%]">Starter<br/><span className="font-bold text-near-black/40 text-[10px] normal-case tracking-normal">Free</span></th>
-                                    <th className="p-5 text-center font-black text-[11px] uppercase tracking-widest text-near-black/50 w-[17%] border-l border-slate-100 bg-slate-50/30">Pay-As-You-Go<br/><span className="font-bold text-near-black/40 text-[10px] normal-case tracking-normal">$1 per unlock</span></th>
-                                    <th className="p-5 text-center font-black text-[11px] uppercase tracking-widest text-noble-blue w-[15%] bg-noble-blue/5 border-x border-noble-blue/10">Noble Pulse<br/><span className="font-bold text-noble-blue/60 text-[10px] normal-case tracking-normal">$9.99/mo</span></th>
-                                    <th className="p-5 text-center font-black text-[11px] uppercase tracking-widest text-near-black/50 w-[15%]">Noble Elite<br/><span className="font-bold text-near-black/40 text-[10px] normal-case tracking-normal">$24.99/mo</span></th>
+                            <thead className="sticky top-0 bg-white/95 backdrop-blur-sm z-20 shadow-sm">
+                                <tr>
+                                    <th className="text-left p-5 pl-8 font-black text-near-black/50 text-[11px] uppercase tracking-widest w-[40%]">Feature</th>
+                                    <th className="p-5 text-center font-black text-[11px] uppercase tracking-widest text-near-black/50 w-[20%] border-l border-slate-100">Explorer<br/><span className="font-bold text-near-black/40 text-[10px] normal-case tracking-normal">Free</span></th>
+                                    <th className="p-5 text-center font-black text-[11px] uppercase tracking-widest text-noble-blue w-[20%] bg-noble-blue/5 border-x border-noble-blue/10">
+                                        <span className="flex items-center justify-center gap-1.5 mb-1">
+                                            Noble Pulse
+                                            <PremiumBadge tier="pro" iconOnly className="w-3.5 h-3.5" />
+                                        </span>
+                                        <span className="font-bold text-noble-blue/60 text-[10px] normal-case tracking-normal">$9.99/mo</span>
+                                    </th>
+                                    <th className="p-5 text-center font-black text-[11px] uppercase tracking-widest text-near-black/50 w-[20%]">
+                                        <span className="flex items-center justify-center gap-1.5 mb-1">
+                                            Noble Elite
+                                            <PremiumBadge tier="elite" iconOnly className="w-3.5 h-3.5" />
+                                        </span>
+                                        <span className="font-bold text-near-black/40 text-[10px] normal-case tracking-normal">$24.99/mo</span>
+                                    </th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-slate-50">
-                                {/* Section header */}
-                                <tr className="bg-slate-50/60">
-                                    <td colSpan={5} className="px-8 py-3 text-[10px] font-black uppercase tracking-widest text-near-black/40">Core Invoicing</td>
-                                </tr>
-                                {[
-                                    { feature: 'Monthly Invoices', starter: '10/mo', pulse: 'Unlimited', elite: 'Unlimited', payg: '1 per credit' },
-                                    { feature: 'Active Clients', starter: '5', pulse: 'Unlimited', elite: 'Unlimited', payg: '1 per credit' },
-                                    { feature: 'PDF Export & Download', starter: true, pulse: true, elite: true, payg: true },
-                                    { feature: 'Custom Invoice Branding', starter: false, pulse: true, elite: true, payg: false },
-                                    { feature: 'Recurring Invoices', starter: false, pulse: true, elite: true, payg: false },
-                                    { feature: 'Auto Payment Reminders', starter: false, pulse: true, elite: true, payg: false },
-                                ].map((row, i) => (
-                                    <MatrixRow key={i} {...row} />
-                                ))}
-
-                                <tr className="bg-slate-50/60">
-                                    <td colSpan={5} className="px-8 py-3 text-[10px] font-black uppercase tracking-widest text-near-black/40">Templates & Design</td>
-                                </tr>
-                                {[
-                                    { feature: 'Invoice Templates', starter: '10', pulse: '180+', elite: '180+', payg: '1 (choice)' },
-                                    { feature: 'Business Card Templates', starter: 'Basic', pulse: 'Premium', elite: 'Premium', payg: '1 QR card' },
-                                    { feature: 'Custom Colors & Fonts', starter: false, pulse: true, elite: true, payg: false },
-                                    { feature: 'White-Label Client Portal', starter: false, pulse: false, elite: true, payg: false },
-                                ].map((row, i) => (
-                                    <MatrixRow key={i} {...row} />
-                                ))}
-
-                                <tr className="bg-slate-50/60">
-                                    <td colSpan={5} className="px-8 py-3 text-[10px] font-black uppercase tracking-widest text-near-black/40">Payments & Finance</td>
-                                </tr>
-                                {[
-                                    { feature: 'Payment Link Generation', starter: true, pulse: true, elite: true, payg: false },
-                                    { feature: 'Flutterwave Integration', starter: false, pulse: true, elite: true, payg: false },
-                                    { feature: 'Multi-Currency Support', starter: false, pulse: false, elite: true, payg: false },
-                                    { feature: 'Expense Tracking', starter: true, pulse: true, elite: true, payg: false },
-                                    { feature: 'Advanced Tax & Compliance', starter: false, pulse: false, elite: true, payg: false },
-                                    { feature: 'Financial Analytics Dashboard', starter: false, pulse: true, elite: true, payg: false },
-                                ].map((row, i) => (
-                                    <MatrixRow key={i} {...row} />
-                                ))}
-
-                                <tr className="bg-slate-50/60">
-                                    <td colSpan={5} className="px-8 py-3 text-[10px] font-black uppercase tracking-widest text-near-black/40">CRM & Business Tools</td>
-                                </tr>
-                                {[
-                                    { feature: 'Client Portal', starter: false, pulse: true, elite: true, payg: false },
-                                    { feature: 'Full CRM Suite', starter: false, pulse: true, elite: true, payg: false },
-                                    { feature: 'Inventory & Product Catalog', starter: false, pulse: true, elite: true, payg: false },
-                                    { feature: 'Custom Contracts & E-Signature', starter: false, pulse: false, elite: true, payg: false },
-                                    { feature: 'Multi-User Team Workspace', starter: false, pulse: false, elite: true, payg: false },
-                                ].map((row, i) => (
-                                    <MatrixRow key={i} {...row} />
-                                ))}
-
-                                <tr className="bg-slate-50/60">
-                                    <td colSpan={5} className="px-8 py-3 text-[10px] font-black uppercase tracking-widest text-near-black/40">AI & Automation</td>
-                                </tr>
-                                {[
-                                    { feature: 'AI Invoice Generator', starter: false, pulse: true, elite: true, payg: false },
-                                    { feature: 'Digital Product Passports (DPP)', starter: false, pulse: true, elite: true, payg: '1 (up to 3 images)' },
-                                    { feature: 'NFC & QR Business Cards', starter: false, pulse: true, elite: true, payg: '1 QR card' },
-                                    { feature: 'API Access & Webhooks', starter: false, pulse: false, elite: true, payg: false },
-                                ].map((row, i) => (
-                                    <MatrixRow key={i} {...row} />
-                                ))}
-
-                                <tr className="bg-slate-50/60">
-                                    <td colSpan={5} className="px-8 py-3 text-[10px] font-black uppercase tracking-widest text-near-black/40">Support</td>
-                                </tr>
-                                {[
-                                    { feature: 'Email Support', starter: true, pulse: true, elite: true, payg: false },
-                                    { feature: 'Priority Email Support', starter: false, pulse: true, elite: true, payg: false },
-                                    { feature: 'Dedicated Account Manager', starter: false, pulse: false, elite: true, payg: false },
-                                    { feature: '24/7 Phone Support', starter: false, pulse: false, elite: true, payg: false },
-                                    { feature: 'Early Access to New Features', starter: false, pulse: false, elite: true, payg: false },
-                                ].map((row, i) => (
-                                    <MatrixRow key={i} {...row} />
+                            <tbody className="divide-y divide-slate-100">
+                                {FEATURE_MATRIX.map((category, idx) => (
+                                    <React.Fragment key={idx}>
+                                        <tr className="bg-slate-50/80">
+                                            <td colSpan={4} className="px-8 py-4 text-[11px] font-black uppercase tracking-widest text-near-black/60 sticky left-0">
+                                                {category.category}
+                                            </td>
+                                        </tr>
+                                        {category.rows.map((row, i) => (
+                                            <MatrixRow 
+                                                key={i} 
+                                                feature={row.feature} 
+                                                tooltip={row.tooltip}
+                                                explorer={row.explorer} 
+                                                pulse={row.pulse} 
+                                                elite={row.elite} 
+                                            />
+                                        ))}
+                                    </React.Fragment>
                                 ))}
                             </tbody>
                         </table>
+                    </div>
+
+                    {/* PAYG Add-On Section */}
+                    <div className="mt-16 bg-slate-50 rounded-3xl p-8 md:p-12 border border-slate-100 text-center max-w-[900px] mx-auto shadow-sm">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-slate-200 text-slate-600 font-bold text-[10px] uppercase tracking-widest mb-4 rounded-md">
+                            Add-Ons
+                        </div>
+                        <h3 className="text-2xl font-black text-near-black mb-4 tracking-tight">Pay-As-You-Go Credit System</h3>
+                        <p className="text-near-black/60 mb-8 max-w-lg mx-auto leading-relaxed">
+                            Need a one-time unlock without committing to a subscription? Our Explorer plan users can buy individual credits as needed.
+                        </p>
+                        
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                            {[
+                                { name: "Premium Invoice Template", cost: "$1" },
+                                { name: "Extra Client Slot", cost: "$1" },
+                                { name: "QR Business Card", cost: "$1" },
+                                { name: "Digital Product Passport", cost: "$1" }
+                            ].map((item, idx) => (
+                                <div key={idx} className="bg-white p-5 rounded-2xl border border-slate-200 hover:border-noble-blue/30 transition-colors hover:shadow-md">
+                                    <div className="text-[20px] font-black text-slate-800 mb-1">{item.cost}</div>
+                                    <div className="text-[12px] font-bold text-slate-500 leading-tight">{item.name}</div>
+                                </div>
+                            ))}
+                        </div>
+                        <p className="text-[11px] font-medium text-slate-400 mt-8 italic">
+                            * PAYG credits are available within your dashboard billing page.
+                        </p>
                     </div>
                 </div>
             </section>

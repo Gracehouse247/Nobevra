@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '@/context/AuthContext';
 import { supabase } from '@/lib/supabase';
-import { BarChart3, TrendingUp, Users, FileText, ArrowUpRight, ArrowDownRight, Loader2 } from 'lucide-react';
-import NobleEmptyState from '@/components/shared/NobleEmptyState';
+import { BarChart3, TrendingUp, Users, FileText, ArrowUpRight, ArrowDownRight, Loader2, PieChart } from 'lucide-react';
+import ProactiveEmptyState from '@/components/shared/ProactiveEmptyState';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid, BarChart, Bar } from 'recharts';
 import { currencyService } from '@/lib/services/currencyService';
 
@@ -94,11 +94,19 @@ export default function GrowthReportsPage() {
                     </div>
                 ) : !data || data.total_invoices === 0 ? (
                     <div className="flex-1 flex items-center justify-center mt-10">
-                        <NobleEmptyState
-                            icon={BarChart3}
-                            title="No data available"
-                            description={`There are no invoices in the ${activeRange} period. Adjust your date range or create a new invoice.`}
-                            actions={[{ label: 'Create Invoice', onClick: () => window.location.href = '/invoices/new', variant: 'primary' }]}
+                        <ProactiveEmptyState
+                            title="Your growth reports"
+                            description="Once you start invoicing, this page will show revenue trends, top clients, payment analytics, and cash flow forecasts."
+                            variant="empty"
+                            illustrationIcons={[BarChart3, PieChart, TrendingUp]}
+                            features={[
+                                { title: 'Revenue Trends', description: 'Track your income over time.', icon: TrendingUp },
+                                { title: 'Client Analytics', description: 'Identify your best clients.', icon: PieChart },
+                                { title: 'Cash Flow', description: 'Monitor money in and out.', icon: BarChart3 }
+                            ]}
+                            actions={[
+                                { label: 'Create Your First Invoice', onClick: () => window.location.href = '/invoices/new', variant: 'primary' }
+                            ]}
                         />
                     </div>
                 ) : (

@@ -77,7 +77,7 @@ const ToolBtn = ({
   onClick, active, disabled, icon: Icon, title, danger = false
 }: {
   onClick: () => void; active?: boolean; disabled?: boolean;
-  icon: any; title?: string; danger?: boolean;
+  icon: React.ElementType; title?: string; danger?: boolean;
 }) => (
   <button
     type="button"
@@ -131,7 +131,7 @@ const Select = ({ value, onChange, options, className = '' }: {
 );
 
 const SidebarSection = ({ title, icon: Icon, children, defaultOpen = true }: {
-  title: string; icon: any; children: React.ReactNode; defaultOpen?: boolean;
+  title: string; icon: React.ElementType; children: React.ReactNode; defaultOpen?: boolean;
 }) => {
   const [open, setOpen] = useState(defaultOpen);
   return (

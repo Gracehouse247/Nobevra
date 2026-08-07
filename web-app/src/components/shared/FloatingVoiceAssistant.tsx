@@ -5,13 +5,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mic, MicOff, Loader2, Sparkles, X, Info, Send, Keyboard } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
+import { useCurrency } from '@/context/CurrencyContext';
 import { invoiceService, clientService, teamService } from '@/lib/services/supabaseService';
 import { toast } from 'react-hot-toast';
 import { supabase } from '@/lib/supabase';
 import NeuralWaveform from '@/components/shared/NeuralWaveform';
-
+import { useEntitlements } from '@/context/EntitlementsContext';
+import { useUpgradeModal } from '@/context/UpgradeModalContext';
+import PremiumBadge from '@/components/shared/PremiumBadge';
 export default function FloatingVoiceAssistant() {
     const { user } = useAuth();
+    const { currencyCode } = useCurrency();
+    const { canUse } = useEntitlements();
+    const { openUpgradeModal } = useUpgradeModal();
     const router = useRouter();
     
     const [isOpen, setIsOpen] = useState(false);
@@ -119,7 +125,7 @@ export default function FloatingVoiceAssistant() {
                     if (tData) {
                         const td = tData as any;
                         teamId = td.id || user.id;
-                        invoiceData.currency_code = invoiceData.currency_code || td.preferred_currency || 'NGN';
+                        invoiceData.currency_code = invoiceData.currency_code || td.preferred_currency || currencyCode;
                         invoiceData.metadata = {
                             bank_name: td.bank_name || null,
                             account_name: td.account_name || null,
@@ -170,7 +176,7 @@ export default function FloatingVoiceAssistant() {
                 toast.success('Invoice created successfully!');
                 
                 // Redirect user to edit their new invoice
-                router.push(`/invoices/${newInvoice.id}`);
+                router.push(`/invoices/${newInvoice.invoice_id}`);
                 setIsOpen(false);
                 setTranscript('');
                 transcriptRef.current = '';
@@ -508,13 +514,22 @@ export default function FloatingVoiceAssistant() {
                     animate={{ scale: 1 }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={() => setIsOpen(true)}
+                    onClick={() => {
+                        if (!canUse('ai.voice')) {
+                            openUpgradeModal({ featureName: 'AI Voice Assistant', requiredPlan: 'pulse' });
+                            return;
+                        }
+                        setIsOpen(true);
+                    }}
                     className="h-auto px-5 py-3 bg-noble-blue rounded-2xl shadow-[0_10px_30px_rgba(22,111,187,0.4)] flex flex-col items-center gap-1.5 relative overflow-hidden group border border-white/20"
                 >
                     <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
                     <div className="flex flex-col items-center justify-center gap-1">
                         <Sparkles className="w-5 h-5 text-white" />
-                        <span className="text-white font-medium text-[10px] leading-tight text-center whitespace-nowrap">NobleInvoice AI</span>
+                        <span className="text-white font-medium text-[10px] leading-tight text-center whitespace-nowrap flex items-center gap-1">
+                            NobleInvoice AI
+                            {!canUse('dashboard.insights') && <PremiumBadge tier="pulse" iconOnly />}
+                        </span>
                     </div>
                 </motion.button>
             )}

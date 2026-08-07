@@ -94,26 +94,31 @@ export const gamificationService = {
     subscribeToLeaderboard(callback: (users: UserData[]) => void): () => void {
         supabase
             .from('user_gamification')
-            .select(`
-                user_id,
-                xp,
-                level,
-                unlocked_badges,
-                profiles!user_id (display_name, brand_logo_url)
-            `)
+            .select(`user_id, xp, level, unlocked_badges`)
             .order('xp', { ascending: false })
             .limit(10)
-            .then(({ data, error }) => {
-                if (error) {
-                    console.warn('[gamificationService.subscribeToLeaderboard]', error.message);
+            .then(async ({ data, error }) => {
+                if (error || !data) {
+                    console.warn('[gamificationService.subscribeToLeaderboard]', error?.message);
+                    callback([]);
                     return;
                 }
-                if (data) {
-                    const users = data.map((d: any) => ({
+                
+                const userIds = data.map(d => d.user_id);
+                const { data: profiles } = await supabase
+                    .from('public_profiles')
+                    .select('id, display_name, brand_logo_url')
+                    .in('id', userIds);
+                
+                const profileMap = new Map((profiles || []).map(p => [p.id, p]));
+
+                const users = data.map((d: any) => {
+                    const prof = profileMap.get(d.user_id);
+                    return {
                         id: d.user_id,
                         email: '',
-                        name: d.profiles?.display_name || 'Noble User',
-                        photoUrl: d.profiles?.brand_logo_url || undefined,
+                        name: prof?.display_name || 'Noble User',
+                        photoUrl: prof?.brand_logo_url || undefined,
                         gamification: {
                             uid: d.user_id,
                             xp: d.xp,
@@ -124,9 +129,10 @@ export const gamificationService = {
                             receiptsScanned: 0,
                             currentStreak: 0
                         }
-                    })) as unknown as UserData[];
-                    callback(users);
-                }
+                    };
+                }) as unknown as UserData[];
+                
+                callback(users);
             });
         return () => {};
     },

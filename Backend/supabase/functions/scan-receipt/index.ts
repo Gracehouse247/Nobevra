@@ -77,7 +77,64 @@ serve(async (req) => {
       });
     }
 
-    // 2. Parse Request Body
+    // 2. Enforce Subscription Quota
+    let scanLimit = 0;
+    let teamId = null;
+
+    try {
+      // Get primary team
+      const { data: teamData } = await supabaseClient
+        .from("teams")
+        .select("id")
+        .eq("owner_id", user.id)
+        .order("created_at", { ascending: true })
+        .limit(1)
+        .single();
+        
+      if (teamData) {
+        teamId = teamData.id;
+        // Resolve Entitlements
+        const { data: entitlements } = await supabaseClient
+          .rpc('resolve_team_entitlements', { p_team_id: teamId });
+          
+        if (entitlements && entitlements['receipt.scan']) {
+          scanLimit = parseInt(entitlements['receipt.scan']);
+        }
+      }
+    } catch (dbErr) {
+      console.warn("Could not query limits:", dbErr);
+    }
+
+    if (scanLimit <= 0) {
+      return new Response(JSON.stringify({ error: "Receipt scanning is only available on Pulse and Elite plans." }), {
+        status: 403,
+        headers: { ...CORS_HEADERS, "Content-Type": "application/json" },
+      });
+    }
+
+    const serviceClient = createClient(SUPABASE_URL!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+    const monthStart = new Date();
+    monthStart.setDate(1);
+    const periodStart = monthStart.toISOString().split('T')[0]; // "2026-07-01"
+
+    const { data: usageData, error: usageErr } = await serviceClient
+      .from("team_usage")
+      .select("used_amount")
+      .eq("team_id", teamId)
+      .eq("feature_id", "receipt.scan")
+      .eq("period_start", periodStart)
+      .maybeSingle();
+
+    const scansMade = usageData?.used_amount || 0;
+    if (scansMade >= scanLimit) {
+      return new Response(JSON.stringify({ error: `You have reached your limit of ${scanLimit} receipt scans this month.` }), {
+        status: 429,
+        headers: { ...CORS_HEADERS, "Content-Type": "application/json" },
+      });
+    }
+
+    // Note: We don't increment here yet. We increment after successful parsing.
+    // 3. Parse Request Body
     // Accept: { imageBase64: string, mimeType: string }
     // OR:     { imageUrl: string } for a remote URL
     const body = await req.json();
@@ -183,6 +240,15 @@ serve(async (req) => {
     } catch (_parseErr) {
       console.error("Failed to parse Gemini response as JSON:", modelText);
       throw new Error("AI could not parse a structured response from this image. Please try a clearer photo.");
+    }
+
+    // 5b. Increment Usage after successful extraction
+    if (teamId) {
+      serviceClient.rpc('increment_team_usage', {
+        p_team_id: teamId,
+        p_feature_id: 'receipt.scan',
+        p_period_start: periodStart
+      }).catch(console.error);
     }
 
     // 6. Return structured expense data

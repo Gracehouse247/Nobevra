@@ -14,7 +14,7 @@ export async function GET(
 ) {
     // ── Rate Limiting (30 requests per minute per IP) ─────────────────
     const ip = getClientIp(request);
-    const { allowed, resetMs } = rateLimit(`portal-invoice:${ip}`, 30, 60_000);
+    const { allowed, resetMs } = await rateLimit(`portal-invoice:${ip}`, 30, 60_000);
     if (!allowed) return rateLimitResponse(resetMs);
 
     try {
