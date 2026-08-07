@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
@@ -15,7 +15,8 @@ const mapAuthError = (message: string) => {
     if (message.includes('Signups not allowed')) return 'Account not found. Please sign up first.';
     return message;
 };
-export default function LoginPage() {
+
+function LoginContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     
@@ -457,5 +458,17 @@ export default function LoginPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+export default function LoginPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen relative w-full bg-slate-50 flex items-center justify-center">
+                <div className="w-8 h-8 border-4 border-slate-200 border-t-noble-blue rounded-full animate-spin" />
+            </div>
+        }>
+            <LoginContent />
+        </Suspense>
     );
 }

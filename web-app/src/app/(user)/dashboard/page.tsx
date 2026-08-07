@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useEffect } from 'react';
+import React, { useMemo, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { 
@@ -21,7 +21,7 @@ import LeaderboardWidget from '@/components/portal/LeaderboardWidget';
 import { useAuth } from '@/context/AuthContext';
 import { toast } from 'react-hot-toast';
 
-export default function DashboardPage() {
+function DashboardContent() {
     const { invoices, expenses, loading, error, stats, currencyCode, firstName } = useDashboardData();
     const { userData, user } = useAuth();
     
@@ -220,5 +220,17 @@ export default function DashboardPage() {
                 )}
             </div>
         </div>
+    );
+}
+
+export default function DashboardPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen flex items-center justify-center p-10">
+                <div className="w-8 h-8 border-4 border-slate-200 border-t-[#0599D5] rounded-full animate-spin" />
+            </div>
+        }>
+            <DashboardContent />
+        </Suspense>
     );
 }
