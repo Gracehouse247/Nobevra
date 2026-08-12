@@ -102,11 +102,11 @@ export default function NotificationCenter({ isOpen, onClose }: NotificationCent
     return (
         <div 
             ref={dropdownRef}
-            className="absolute top-14 right-4 sm:right-24 w-[380px] bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden z-50 animate-in fade-in slide-in-from-top-4 duration-200"
+            className="absolute top-14 right-4 sm:right-24 w-[380px] bg-noble-surface dark:bg-noble-card rounded-2xl shadow-xl border border-noble-border overflow-hidden z-50 animate-in fade-in slide-in-from-top-4 duration-200"
         >
-            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 bg-slate-50/50">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 dark:border-noble-border bg-slate-50 dark:bg-[#0D1B2E]/50">
                 <div className="flex items-center gap-2">
-                    <h3 className="text-sm font-bold text-slate-900">Notifications</h3>
+                    <h3 className="text-sm font-bold text-noble-text">Notifications</h3>
                     {unreadCount > 0 && (
                         <span className="bg-[#006970] text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
                             {unreadCount} new
@@ -124,12 +124,12 @@ export default function NotificationCenter({ isOpen, onClose }: NotificationCent
 
             <div className="max-h-[400px] overflow-y-auto custom-scrollbar">
                 {loading ? (
-                    <div className="py-10 flex flex-col items-center gap-3 text-slate-400">
+                    <div className="py-10 flex flex-col items-center gap-3 text-slate-400 dark:text-slate-500">
                         <Loader2 className="w-6 h-6 animate-spin" />
                         <p className="text-xs font-medium">Loading notifications…</p>
                     </div>
                 ) : notifications.length === 0 ? (
-                    <div className="py-10 text-center text-slate-500">
+                    <div className="py-10 text-center text-slate-500 dark:text-slate-400 dark:text-slate-500">
                         <Bell className="w-8 h-8 mx-auto mb-3 text-slate-200" />
                         <p className="text-sm font-medium">You're all caught up!</p>
                     </div>
@@ -139,24 +139,24 @@ export default function NotificationCenter({ isOpen, onClose }: NotificationCent
                             <div 
                                 key={notif.id} 
                                 onClick={() => !notif.is_read && markAsRead(notif.id)}
-                                className={`px-5 py-4 flex gap-4 hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-0 cursor-pointer ${notif.is_read ? '' : 'bg-[#f0fafa]/30'}`}
+                                className={`px-5 py-4 flex gap-4 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-colors border-b border-slate-100 dark:border-noble-border last:border-0 cursor-pointer ${notif.is_read ? '' : 'bg-[#f0fafa]/30'}`}
                             >
                                 <div className="shrink-0 mt-0.5">
                                     {notif.type === 'message' && <div className="w-8 h-8 rounded-full bg-blue-50 text-blue-600 flex items-center justify-center"><MessageSquare className="w-4 h-4" /></div>}
                                     {notif.type === 'success' && <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center"><CheckCircle2 className="w-4 h-4" /></div>}
                                     {notif.type === 'alert'   && <div className="w-8 h-8 rounded-full bg-red-50 text-red-600 flex items-center justify-center"><AlertCircle className="w-4 h-4" /></div>}
-                                    {notif.type === 'info'    && <div className="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center"><Bell className="w-4 h-4" /></div>}
+                                    {notif.type === 'info'    && <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-[#112030] text-slate-500 dark:text-slate-400 dark:text-slate-500 flex items-center justify-center"><Bell className="w-4 h-4" /></div>}
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <div className="flex justify-between items-start mb-1">
-                                        <p className={`text-sm font-bold truncate ${notif.is_read ? 'text-slate-700' : 'text-slate-900'}`}>
+                                        <p className={`text-sm font-bold truncate ${notif.is_read ? 'text-slate-700 dark:text-slate-200' : 'text-noble-text'}`}>
                                             {notif.title}
                                         </p>
-                                        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 shrink-0 ml-2">
+                                        <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 shrink-0 ml-2">
                                             {timeAgo(notif.created_at)}
                                         </span>
                                     </div>
-                                    <p className="text-xs font-medium text-slate-500 line-clamp-2">
+                                    <p className="text-xs font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 line-clamp-2">
                                         {notif.description}
                                     </p>
                                 </div>
@@ -171,8 +171,8 @@ export default function NotificationCenter({ isOpen, onClose }: NotificationCent
                 )}
             </div>
 
-            <div className="p-3 border-t border-slate-100 bg-slate-50/50">
-                <button className="w-full py-2 flex items-center justify-center gap-2 text-xs font-bold text-slate-600 hover:text-slate-900 transition-colors">
+            <div className="p-3 border-t border-slate-100 dark:border-noble-border bg-slate-50 dark:bg-[#0D1B2E]/50">
+                <button className="w-full py-2 flex items-center justify-center gap-2 text-xs font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:text-noble-text transition-colors">
                     View Complete Activity Log <ArrowRight className="w-3.5 h-3.5" />
                 </button>
             </div>

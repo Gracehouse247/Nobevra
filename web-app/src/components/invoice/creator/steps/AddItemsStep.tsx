@@ -3,9 +3,9 @@ import React from 'react';
 import { FileText, Trash2, Plus, ChevronDown } from 'lucide-react';
 import { useInvoiceCreator } from '../InvoiceCreatorContext';
 
-const inputClass = `w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;
+const inputClass = `w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;
 const labelClass = "text-[11px] font-bold text-slate-500 mb-1 block uppercase tracking-wider font-[Inter,sans-serif]";
-const cardClass = "bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-3";
+const cardClass = "bg-noble-surface rounded-xl border border-noble-border shadow-sm overflow-hidden mb-3";
 const cardHeaderClass = "px-5 py-3 border-b border-slate-100 bg-slate-50/50";
 
 export const AddItemsStep = () => {
@@ -60,7 +60,7 @@ export const AddItemsStep = () => {
                                     aria-label="Quantity"
                                     value={item.quantity}
                                     onChange={e => updateItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
-                                    className="w-14 text-[13px] text-center border border-slate-200 rounded-lg py-1 focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5]/20 outline-none bg-white font-medium font-[Inter,sans-serif]"
+                                    className="w-14 text-[13px] text-center border border-noble-border rounded-lg py-1 focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5]/20 outline-none bg-noble-surface font-medium font-[Inter,sans-serif]"
                                 />
                             </div>
                             <div className="col-span-2 flex sm:justify-end">
@@ -69,7 +69,7 @@ export const AddItemsStep = () => {
                                     aria-label="Unit rate"
                                     value={item.price}
                                     onChange={e => updateItem(item.id, 'price', parseFloat(e.target.value) || 0)}
-                                    className="w-24 text-[13px] text-right border border-slate-200 rounded-lg py-1 px-2 focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5]/20 outline-none bg-white font-medium font-[Inter,sans-serif]"
+                                    className="w-24 text-[13px] text-right border border-noble-border rounded-lg py-1 px-2 focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5]/20 outline-none bg-noble-surface font-medium font-[Inter,sans-serif]"
                                 />
                             </div>
                             <div className="col-span-2 text-right">
@@ -156,7 +156,7 @@ export const AddItemsStep = () => {
                                 <span className="font-bold text-slate-800">{currencySymbol}{taxTotal.toFixed(2)}</span>
                             </div>
                         )}
-                        <div className="pt-2 border-t border-slate-200 flex justify-between items-center">
+                        <div className="pt-2 border-t border-noble-border flex justify-between items-center">
                             <span className="text-[13px] font-bold text-slate-700 font-[Inter,sans-serif]">Total Due</span>
                             <span className="text-xl font-black text-[#0599D5] font-[Inter,sans-serif]">{currencySymbol}{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
                         </div>

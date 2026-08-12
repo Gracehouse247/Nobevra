@@ -22,10 +22,7 @@ const SUPABASE_ANON_KEY         = Deno.env.get("SUPABASE_ANON_KEY")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 
 // ── CORS ───────────────────────────────────────────────────────────────────────
-const corsHeaders = {
-  "Access-Control-Allow-Origin":  "https://invoice.noblesworld.com.ng",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+import { CORS_HEADERS as corsHeaders } from "../_shared/cors.ts";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 interface InvoiceItem {

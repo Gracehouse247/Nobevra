@@ -69,6 +69,7 @@ export default function DataBackupPage() {
             a.download = `nobleinvoice_archive_${Date.now()}.json`;
             a.click();
             URL.revokeObjectURL(url);
+            
             // Log export in database
             const { data: insertedExport } = await supabase.from('data_exports').insert({
                 user_id: user.id,
@@ -120,13 +121,13 @@ export default function DataBackupPage() {
         <div className="w-full space-y-6">
             
             {/* ── Page Header ────────────────────────────────────────────── */}
-            <div className="flex items-center gap-3 pb-6 border-b border-slate-100">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#166FBB]">
+            <div className="flex items-center gap-3 pb-6 border-b border-noble-card-border">
+                <div className="w-10 h-10 rounded-xl bg-noble-primary/10 flex items-center justify-center text-noble-primary">
                     <Database className="w-5 h-5" />
                 </div>
                 <div>
-                    <h1 className="text-[19px] font-black text-slate-900 tracking-tight">Data & Backup</h1>
-                    <p className="text-[13px] text-slate-500 font-medium mt-0.5">
+                    <h1 className="text-[19px] font-black text-noble-text tracking-tight">Data & Backup</h1>
+                    <p className="text-[13px] text-noble-muted font-medium mt-0.5">
                         Control your digital footprint. Export or erase your cognitive data.
                     </p>
                 </div>
@@ -138,41 +139,41 @@ export default function DataBackupPage() {
                 <div className="space-y-6">
                     
                     {/* Export Your Data */}
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-noble-card rounded-2xl border border-noble-card-border shadow-sm p-6 md:p-8">
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="w-12 h-12 bg-[#F0F7FF] rounded-xl flex items-center justify-center border border-[#E1F0FF]">
-                                <Database className="w-6 h-6 text-[#166FBB]" />
+                            <div className="w-12 h-12 bg-noble-primary/10 rounded-xl flex items-center justify-center border border-noble-primary/20">
+                                <Database className="w-6 h-6 text-noble-primary" />
                             </div>
                             <div>
-                                <h2 className="text-[18px] font-black text-slate-900 tracking-tight">Export Your Data</h2>
-                                <p className="text-[13px] text-slate-500 font-medium mt-0.5">Download a complete archive of your invoices, clients, products, payments, and more.</p>
+                                <h2 className="text-[18px] font-black text-noble-text tracking-tight">Export Your Data</h2>
+                                <p className="text-[13px] text-noble-muted font-medium mt-0.5">Download a complete archive of your invoices, clients, products, payments, and more.</p>
                             </div>
                         </div>
 
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-6 pb-6 border-b border-slate-100">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 mb-6 pb-6 border-b border-noble-card-border">
                             <div className="flex items-center gap-2">
                                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                                <span className="text-[13px] font-bold text-slate-700">Complete data export</span>
+                                <span className="text-[13px] font-bold text-noble-text">Complete data export</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                                <span className="text-[13px] font-bold text-slate-700">Secure & encrypted</span>
+                                <span className="text-[13px] font-bold text-noble-text">Secure & encrypted</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                                <span className="text-[13px] font-bold text-slate-700">JSON format</span>
+                                <span className="text-[13px] font-bold text-noble-text">JSON format</span>
                             </div>
                         </div>
 
-                        <div className="bg-[#F8FAFC] rounded-xl p-4 flex items-center gap-3 mb-6 border border-slate-100">
-                            <AlertTriangle className="w-4 h-4 text-[#166FBB]" />
-                            <p className="text-[12px] font-medium text-slate-600">You will receive an email when your export is ready to download.</p>
+                        <div className="bg-noble-interactive-bg rounded-xl p-4 flex items-center gap-3 mb-6 border border-noble-card-border">
+                            <AlertTriangle className="w-4 h-4 text-noble-primary" />
+                            <p className="text-[12px] font-medium text-noble-muted">You will receive an email when your export is ready to download.</p>
                         </div>
 
                         <button
                             onClick={handleExport}
                             disabled={exporting}
-                            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#166FBB] hover:bg-blue-700 text-white rounded-xl text-[13px] font-bold transition-all shadow-sm disabled:opacity-50"
+                            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-noble-primary hover:opacity-90 text-white rounded-xl text-[13px] font-bold transition-opacity shadow-sm disabled:opacity-50"
                         >
                             {exporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <DownloadCloud className="w-4 h-4" />}
                             Download JSON Archive
@@ -180,38 +181,38 @@ export default function DataBackupPage() {
                     </motion.div>
 
                     {/* Delete Your Account */}
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="bg-noble-card rounded-2xl border border-noble-card-border shadow-sm p-6 md:p-8">
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center border border-red-100">
+                            <div className="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center border border-red-500/20">
                                 <AlertTriangle className="w-6 h-6 text-red-500" />
                             </div>
                             <div>
-                                <h2 className="text-[18px] font-black text-slate-900 tracking-tight">Delete Your Account</h2>
-                                <p className="text-[13px] text-slate-500 font-medium mt-0.5">Permanently remove your account and all associated data. This action cannot be undone.</p>
+                                <h2 className="text-[18px] font-black text-noble-text tracking-tight">Delete Your Account</h2>
+                                <p className="text-[13px] text-noble-muted font-medium mt-0.5">Permanently remove your account and all associated data. This action cannot be undone.</p>
                             </div>
                         </div>
 
-                        <div className="bg-red-50/50 rounded-xl p-6 border border-red-100">
-                            <h4 className="text-[13px] font-black text-red-600 mb-2">This action is irreversible</h4>
-                            <p className="text-[12px] font-medium text-slate-600 mb-6 max-w-md leading-relaxed">
+                        <div className="bg-red-500/5 rounded-xl p-6 border border-red-500/20">
+                            <h4 className="text-[13px] font-black text-red-500 mb-2">This action is irreversible</h4>
+                            <p className="text-[12px] font-medium text-noble-muted mb-6 max-w-md leading-relaxed">
                                 Once you delete your account, all your data including invoices, clients, payments, settings, and files will be permanently removed from our servers.
                             </p>
 
                             <div className="space-y-2 mb-6">
-                                <label className="text-[12px] font-bold text-slate-700">Type DELETE to confirm</label>
+                                <label className="text-[12px] font-bold text-noble-text">Type DELETE to confirm</label>
                                 <input
                                     type="text"
                                     placeholder="DELETE"
                                     value={deleteConfirmation}
                                     onChange={e => setDeleteConfirmation(e.target.value)}
-                                    className="w-full max-w-sm bg-white border border-slate-200 rounded-xl px-4 py-3 text-[13px] font-bold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-red-500 focus:ring-4 focus:ring-red-100 transition-all shadow-sm"
+                                    className="w-full max-w-sm bg-noble-interactive-bg border border-noble-card-border rounded-xl px-4 py-3 text-[13px] font-bold text-noble-text placeholder:text-noble-muted focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition-all shadow-sm"
                                 />
                             </div>
 
                             <button
                                 onClick={handleDelete}
                                 disabled={deleting || deleteConfirmation !== 'DELETE'}
-                                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-[13px] font-bold transition-all shadow-sm disabled:opacity-50"
+                                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-[13px] font-bold transition-colors shadow-sm disabled:opacity-50"
                             >
                                 {deleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
                                 Delete My NobleInvoice Account
@@ -224,12 +225,12 @@ export default function DataBackupPage() {
                 <div className="space-y-6">
                     
                     {/* What's Included */}
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }} className="bg-noble-card rounded-2xl border border-noble-card-border shadow-sm p-6 md:p-8">
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-8 h-8 bg-[#F0F7FF] rounded-lg flex items-center justify-center">
-                                <FileJson className="w-4 h-4 text-[#166FBB]" />
+                            <div className="w-8 h-8 bg-noble-primary/10 rounded-lg flex items-center justify-center">
+                                <FileJson className="w-4 h-4 text-noble-primary" />
                             </div>
-                            <h3 className="text-[15px] font-black text-slate-900">What's Included in Your Export</h3>
+                            <h3 className="text-[15px] font-black text-noble-text">What's Included in Your Export</h3>
                         </div>
 
                         <div className="space-y-3">
@@ -245,8 +246,8 @@ export default function DataBackupPage() {
                             ].map((item, i) => (
                                 <div key={i} className="flex items-center justify-between py-1.5 group cursor-default">
                                     <div className="flex items-center gap-2">
-                                        <ChevronRight className="w-3.5 h-3.5 text-slate-300 group-hover:text-[#166FBB] transition-colors" />
-                                        <span className="text-[13px] font-semibold text-slate-600 group-hover:text-slate-900 transition-colors">{item}</span>
+                                        <ChevronRight className="w-3.5 h-3.5 text-noble-muted group-hover:text-noble-primary transition-colors" />
+                                        <span className="text-[13px] font-semibold text-noble-muted group-hover:text-noble-text transition-colors">{item}</span>
                                     </div>
                                 </div>
                             ))}
@@ -254,36 +255,36 @@ export default function DataBackupPage() {
                     </motion.div>
 
                     {/* Recent Exports */}
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 md:p-8">
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="bg-noble-card rounded-2xl border border-noble-card-border shadow-sm p-6 md:p-8">
                         <div className="flex items-center justify-between mb-6">
-                            <h3 className="text-[15px] font-black text-slate-900">Recent Exports</h3>
-                            <button className="text-[12px] font-bold text-[#166FBB] hover:text-blue-700 transition-colors">View All &gt;</button>
+                            <h3 className="text-[15px] font-black text-noble-text">Recent Exports</h3>
+                            <button className="text-[12px] font-bold text-noble-primary hover:opacity-80 transition-opacity">View All &gt;</button>
                         </div>
 
                         <div className="space-y-4">
                             {recentExports.length === 0 ? (
-                                <div className="p-6 text-center border border-slate-100 rounded-xl bg-slate-50">
-                                    <p className="text-[12px] font-bold text-slate-500">No recent exports found.</p>
+                                <div className="p-6 text-center border border-noble-card-border rounded-xl bg-noble-interactive-bg">
+                                    <p className="text-[12px] font-bold text-noble-muted">No recent exports found.</p>
                                 </div>
                             ) : (
                                 recentExports.map((exp) => (
-                                    <div key={exp.id} className="flex items-center justify-between p-4 rounded-xl border border-slate-100 hover:border-slate-200 hover:bg-slate-50 transition-colors group">
+                                    <div key={exp.id} className="flex items-center justify-between p-4 rounded-xl border border-noble-card-border hover:bg-noble-interactive-bg transition-colors group">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 bg-[#F0F7FF] rounded-lg flex items-center justify-center">
-                                                <FileJson className="w-4 h-4 text-[#166FBB]" />
+                                            <div className="w-8 h-8 bg-noble-primary/10 rounded-lg flex items-center justify-center">
+                                                <FileJson className="w-4 h-4 text-noble-primary" />
                                             </div>
                                             <div>
-                                                <p className="text-[13px] font-bold text-slate-900">{exp.export_name}</p>
-                                                <p className="text-[11px] font-medium text-slate-400">
+                                                <p className="text-[13px] font-bold text-noble-text">{exp.export_name}</p>
+                                                <p className="text-[11px] font-medium text-noble-muted">
                                                     {new Date(exp.created_at).toLocaleString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true })}
                                                 </p>
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-4">
-                                            <span className="px-2.5 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-black uppercase tracking-wider border border-emerald-100">
+                                            <span className="px-2.5 py-1 bg-emerald-500/10 text-emerald-500 rounded-full text-[10px] font-black uppercase tracking-wider border border-emerald-500/20">
                                                 {exp.status}
                                             </span>
-                                            <button className="p-2 text-slate-400 hover:text-[#166FBB] transition-colors rounded-lg hover:bg-white" title="Re-download coming soon">
+                                            <button className="p-2 text-noble-muted hover:text-noble-primary transition-colors rounded-lg hover:bg-noble-card" title="Re-download coming soon">
                                                 <DownloadCloud className="w-4 h-4" />
                                             </button>
                                         </div>
@@ -294,17 +295,17 @@ export default function DataBackupPage() {
                     </motion.div>
 
                     {/* Security Assurance */}
-                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
+                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25 }} className="bg-noble-card rounded-2xl border border-noble-card-border shadow-sm p-6">
                         <div className="flex items-start gap-4">
-                            <div className="w-10 h-10 bg-blue-50 rounded-xl flex items-center justify-center border border-blue-100 flex-shrink-0">
-                                <Shield className="w-5 h-5 text-[#166FBB]" />
+                            <div className="w-10 h-10 bg-noble-primary/10 rounded-xl flex items-center justify-center border border-noble-primary/20 flex-shrink-0">
+                                <Shield className="w-5 h-5 text-noble-primary" />
                             </div>
                             <div>
-                                <h3 className="text-[14px] font-black text-slate-900 mb-1">Security Assurance</h3>
-                                <p className="text-[12px] font-medium text-slate-500 leading-relaxed mb-3">
+                                <h3 className="text-[14px] font-black text-noble-text mb-1">Security Assurance</h3>
+                                <p className="text-[12px] font-medium text-noble-muted leading-relaxed mb-3">
                                     Your data is always protected with enterprise-grade encryption and strict access controls.
                                 </p>
-                                <a href="/settings/security" className="text-[12px] font-bold text-[#166FBB] hover:text-blue-700 transition-colors inline-flex items-center gap-1 relative z-10 cursor-pointer">
+                                <a href="/settings/security" className="text-[12px] font-bold text-noble-primary hover:opacity-80 transition-opacity inline-flex items-center gap-1 relative z-10 cursor-pointer">
                                     Learn more about data security &rarr;
                                 </a>
                             </div>
@@ -314,12 +315,12 @@ export default function DataBackupPage() {
             </div>
 
             {/* ── Bottom Banner ──────────────────────────────────────────── */}
-            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-[#F8FAFC] rounded-2xl border border-[#E2E8F0] p-4 flex items-center gap-3">
-                <div className="p-2 bg-emerald-50 rounded-lg border border-emerald-100">
-                    <Lock className="w-4 h-4 text-emerald-600" />
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-noble-interactive-bg rounded-2xl border border-noble-card-border p-4 flex items-center gap-3">
+                <div className="p-2 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
+                    <Lock className="w-4 h-4 text-emerald-500" />
                 </div>
-                <p className="text-[12px] font-medium text-slate-600">
-                    Your data belongs to you. We never sell your information. Learn more in our <Link href="#" className="font-bold text-[#166FBB] hover:underline">Privacy Policy &rarr;</Link>
+                <p className="text-[12px] font-medium text-noble-muted">
+                    Your data belongs to you. We never sell your information. Learn more in our <Link href="#" className="font-bold text-noble-primary hover:underline">Privacy Policy &rarr;</Link>
                 </p>
             </motion.div>
 

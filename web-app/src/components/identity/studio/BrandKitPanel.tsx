@@ -63,7 +63,7 @@ export const BrandKitPanel: React.FC = () => {
     <div className="p-6 flex flex-col gap-6">
       <div className="flex items-center gap-2 text-amber-500">
         <Shield size={18} />
-        <h3 className="font-bold text-slate-900 text-sm">Noble Corporate Brand Kit</h3>
+        <h3 className="font-bold text-noble-text text-sm">Noble Corporate Brand Kit</h3>
       </div>
 
       {/* Brand Colors */}
@@ -76,9 +76,9 @@ export const BrandKitPanel: React.FC = () => {
             <button
               key={color.hex}
               onClick={() => handleApplyColor(color.hex)}
-              className="flex flex-col items-center gap-1.5 p-2 bg-slate-50 border border-slate-200 rounded-xl hover:border-noble-blue hover:bg-slate-100 transition-all text-center"
+              className="flex flex-col items-center gap-1.5 p-2 bg-slate-50 border border-noble-border rounded-xl hover:border-noble-blue hover:bg-slate-100 transition-all text-center"
             >
-              <div className="w-8 h-8 rounded-full border border-slate-200 shadow-sm" style={{ backgroundColor: color.hex }} />
+              <div className="w-8 h-8 rounded-full border border-noble-border shadow-sm" style={{ backgroundColor: color.hex }} />
               <span className="text-[9px] font-bold text-slate-600 truncate w-full">{color.name}</span>
             </button>
           ))}
@@ -95,7 +95,7 @@ export const BrandKitPanel: React.FC = () => {
             <button
               key={font.name}
               onClick={() => handleApplyFont(font.name)}
-              className="flex items-center justify-between p-3 bg-slate-50 border border-slate-200 rounded-xl hover:border-noble-blue hover:bg-slate-100 transition-all text-left group"
+              className="flex items-center justify-between p-3 bg-slate-50 border border-noble-border rounded-xl hover:border-noble-blue hover:bg-slate-100 transition-all text-left group"
             >
               <span className="text-xs font-bold text-slate-800" style={{ fontFamily: font.name }}>{font.name}</span>
               <span className="text-[9px] text-slate-400 font-semibold group-hover:text-noble-blue transition-colors">{font.category}</span>
@@ -111,9 +111,9 @@ export const BrandKitPanel: React.FC = () => {
         </span>
         <button
           onClick={handleAddBrandLogo}
-          className="flex items-center gap-3 p-3 bg-slate-50 border-2 border-dashed border-slate-200 rounded-xl hover:border-noble-blue hover:bg-blue-50/20 text-left transition-all"
+          className="flex items-center gap-3 p-3 bg-slate-50 border-2 border-dashed border-noble-border rounded-xl hover:border-noble-blue hover:bg-blue-50/20 text-left transition-all"
         >
-          <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-amber-500 shadow-sm">
+          <div className="w-12 h-12 rounded-lg bg-noble-surface border border-noble-border flex items-center justify-center text-amber-500 shadow-sm">
             <Sparkles size={20} />
           </div>
           <div className="flex flex-col">

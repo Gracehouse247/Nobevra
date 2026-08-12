@@ -136,12 +136,12 @@ export default function TemplateDownloadModal({ isOpen, onClose }: Props) {
             className="fixed inset-0 z-50 flex items-center justify-center p-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-full max-w-lg bg-white rounded-[28px] shadow-2xl overflow-hidden">
+            <div className="relative w-full max-w-lg bg-noble-surface rounded-[28px] shadow-2xl overflow-hidden">
 
               {/* Close button */}
               <button
                 onClick={handleClose}
-                className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-900 transition-all"
+                className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-noble-text transition-all"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -166,7 +166,7 @@ export default function TemplateDownloadModal({ isOpen, onClose }: Props) {
                     >
                       <CheckCircle2 className="w-10 h-10 text-white" />
                     </motion.div>
-                    <h2 className="text-2xl font-black text-slate-900 mb-2">Account Created!</h2>
+                    <h2 className="text-2xl font-black text-noble-text mb-2">Account Created!</h2>
                     <p className="text-slate-500 font-medium mb-4">Your proforma invoice template is downloading...</p>
                     <motion.div
                       initial={{ width: 0 }}
@@ -199,7 +199,7 @@ export default function TemplateDownloadModal({ isOpen, onClose }: Props) {
                         </div>
                         <div>
                           <p className="text-xs font-black uppercase tracking-widest" style={{ color: '#166FBB' }}>Free Download</p>
-                          <h2 className="text-xl font-black text-slate-900 leading-tight">Professional Proforma Invoice Template</h2>
+                          <h2 className="text-xl font-black text-noble-text leading-tight">Professional Proforma Invoice Template</h2>
                         </div>
                       </div>
 
@@ -221,7 +221,7 @@ export default function TemplateDownloadModal({ isOpen, onClose }: Props) {
                             onClick={() => { setView(tab); setError(''); }}
                             className={`flex-1 py-2 text-xs font-black rounded-lg uppercase tracking-widest transition-all ${
                               view === tab
-                                ? 'bg-white text-slate-900 shadow-sm'
+                                ? 'bg-noble-surface text-noble-text shadow-sm'
                                 : 'text-slate-400 hover:text-slate-600'
                             }`}
                           >
@@ -234,7 +234,7 @@ export default function TemplateDownloadModal({ isOpen, onClose }: Props) {
                       <button
                         onClick={handleGoogle}
                         disabled={googleLoading}
-                        className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 transition-all font-bold text-sm text-slate-700 mb-4 shadow-sm disabled:opacity-50"
+                        className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-noble-border bg-noble-surface hover:bg-slate-50 transition-all font-bold text-sm text-slate-700 mb-4 shadow-sm disabled:opacity-50"
                       >
                         {googleLoading ? (
                           <div className="w-4 h-4 border-2 border-slate-300 border-t-blue-600 rounded-full animate-spin" />
@@ -269,7 +269,7 @@ export default function TemplateDownloadModal({ isOpen, onClose }: Props) {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder="Full Name / Company Name"
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
+                            className="w-full bg-slate-50 border border-noble-border rounded-xl px-4 py-3 text-sm text-noble-text placeholder:text-slate-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
                           />
                         )}
 
@@ -279,7 +279,7 @@ export default function TemplateDownloadModal({ isOpen, onClose }: Props) {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder="Email Address"
-                          className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
+                          className="w-full bg-slate-50 border border-noble-border rounded-xl px-4 py-3 text-sm text-noble-text placeholder:text-slate-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
                         />
 
                         <div className="relative">
@@ -289,7 +289,7 @@ export default function TemplateDownloadModal({ isOpen, onClose }: Props) {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             placeholder="Password (min. 8 characters)"
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 pr-12 text-sm text-slate-900 placeholder:text-slate-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
+                            className="w-full bg-slate-50 border border-noble-border rounded-xl px-4 py-3 pr-12 text-sm text-noble-text placeholder:text-slate-400 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 transition-all"
                           />
                           <button
                             type="button"

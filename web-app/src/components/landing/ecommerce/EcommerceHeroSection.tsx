@@ -8,7 +8,7 @@ const platforms = [
     { name: 'Shopify', detail: 'Auto-invoice every order', color: 'bg-green-50 border-green-200 text-green-700' },
     { name: 'WooCommerce', detail: 'PDF invoices on checkout', color: 'bg-purple-50 border-purple-200 text-purple-700' },
     { name: 'B2B Wholesale', detail: 'Net terms & bulk billing', color: 'bg-noble-blue/10 border-noble-blue/20 text-noble-blue' },
-    { name: 'Custom API', detail: 'Developer-first integration', color: 'bg-slate-100 border-slate-200 text-slate-700' },
+    { name: 'Custom API', detail: 'Developer-first integration', color: 'bg-slate-100 border-noble-border text-slate-700' },
 ];
 
 const stats = [
@@ -36,7 +36,7 @@ export default function EcommerceHeroSection() {
 
                 {/* Left: copy */}
                 <div>
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-orange-600 font-bold text-[10px] md:text-xs uppercase tracking-widest mb-8 border border-near-black/5 shadow-sm">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-surface text-orange-600 font-bold text-[10px] md:text-xs uppercase tracking-widest mb-8 border border-near-black/5 shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
                         Ecommerce Invoice Automation
                     </div>

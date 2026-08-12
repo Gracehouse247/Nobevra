@@ -176,10 +176,10 @@ export default function MediaManager({ onSelect, allowSelection = false }: Media
                         initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                         className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
                     >
-                        <div className="bg-white rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl">
+                        <div className="bg-noble-surface rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] flex flex-col shadow-2xl">
                             <div className="flex justify-between items-center mb-4">
                                 <div>
-                                    <h3 className="text-xl font-bold text-slate-900">Crop Image</h3>
+                                    <h3 className="text-xl font-bold text-noble-text">Crop Image</h3>
                                     <p className="text-sm text-slate-500">Adjust the image before uploading</p>
                                 </div>
                                 <button onClick={() => { setImgSrc(''); setCropFile(null); }} className="p-2 hover:bg-slate-100 rounded-full transition-colors">
@@ -187,7 +187,7 @@ export default function MediaManager({ onSelect, allowSelection = false }: Media
                                 </button>
                             </div>
                             
-                            <div className="flex-1 overflow-auto bg-slate-50 rounded-xl flex items-center justify-center border border-slate-200">
+                            <div className="flex-1 overflow-auto bg-slate-50 rounded-xl flex items-center justify-center border border-noble-border">
                                 <ReactCrop
                                     crop={crop}
                                     onChange={(_, percentCrop) => setCrop(percentCrop)}
@@ -265,7 +265,7 @@ export default function MediaManager({ onSelect, allowSelection = false }: Media
                                             <>
                                                 <button 
                                                     onClick={() => copyToClipboard(item.url, item.id)}
-                                                    className="p-2 bg-black/10  text-foreground  rounded-lg hover:bg-white/20 transition-all"
+                                                    className="p-2 bg-black/10  text-foreground  rounded-lg hover:bg-noble-surface/20 transition-all"
                                                     title="Copy URL"
                                                 >
                                                     {copiedId === item.id ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <LinkIcon className="w-3.5 h-3.5" />}

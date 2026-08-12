@@ -28,6 +28,8 @@ function LoginContent() {
     // Step 2 State
     const [step, setStep] = useState<1 | 2>(1);
     const [otp, setOtp] = useState('');
+    const [mfaFactorId, setMfaFactorId] = useState('');
+    const [mfaType, setMfaType] = useState<'email' | 'totp'>('email');
     
     // UI State
     const [loading, setLoading] = useState(false);
@@ -99,7 +101,23 @@ function LoginContent() {
                  throw new Error('Unable to establish a secure session.');
             }
             
-            // Password is correct. To enforce 2FA, sign out immediately so they don't have dashboard access yet.
+            // Check if user has TOTP enabled (requires AAL2)
+            const { data: aalData } = await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
+            if (aalData?.nextLevel === 'aal2') {
+                // User has Authenticator App enabled
+                const { data: factors } = await supabase.auth.mfa.listFactors();
+                const totpFactor = factors?.totp?.[0];
+                if (totpFactor) {
+                    setMfaFactorId(totpFactor.id);
+                    setMfaType('totp');
+                    setStep(2);
+                    setLoading(false);
+                    return; // Skip email OTP
+                }
+            }
+            
+            // Fallback: If no TOTP enrolled, enforce Email 2FA.
+            // Password is correct. Sign out so they don't have dashboard access yet.
             await supabase.auth.signOut();
             
             // Send the 2FA OTP
@@ -114,6 +132,7 @@ function LoginContent() {
             const expiry = Date.now() + 60 * 1000;
             localStorage.setItem('otp_cooldown_expiry', expiry.toString());
             setResendCooldown(60);
+            setMfaType('email');
             setStep(2);
             
         } catch (err: unknown) {
@@ -132,13 +151,28 @@ function LoginContent() {
         setError('');
         
         try {
-            const { error: verifyError } = await supabase.auth.verifyOtp({
-                email: email.trim().toLowerCase(),
-                token: otp,
-                type: 'email'
-            });
-            
-            if (verifyError) throw verifyError;
+            if (mfaType === 'totp') {
+                // Verify Authenticator App code
+                const { data: challenge } = await supabase.auth.mfa.challenge({ factorId: mfaFactorId });
+                if (!challenge) throw new Error('Failed to create MFA challenge');
+                
+                const { error: verifyError } = await supabase.auth.mfa.verify({
+                    factorId: mfaFactorId,
+                    challengeId: challenge.id,
+                    code: otp
+                });
+                
+                if (verifyError) throw verifyError;
+            } else {
+                // Verify Email OTP
+                const { error: verifyError } = await supabase.auth.verifyOtp({
+                    email: email.trim().toLowerCase(),
+                    token: otp,
+                    type: 'email'
+                });
+                
+                if (verifyError) throw verifyError;
+            }
             
             // Force a router refresh to bypass Next.js App Router cache cleanly
             router.refresh();
@@ -397,21 +431,26 @@ function LoginContent() {
                                         <div className="w-12 h-12 bg-blue-50 text-noble-blue rounded-full flex items-center justify-center mx-auto mb-4">
                                             <ShieldCheck className="w-6 h-6" />
                                         </div>
-                                        <h2 className="text-2xl font-black text-near-black mb-1">Verify Login</h2>
+                                        <h2 className="text-2xl font-black text-near-black mb-1">
+                                            {mfaType === 'totp' ? 'Authenticator App' : 'Verify Login'}
+                                        </h2>
                                         <p className="text-near-black/50 text-xs font-medium px-4 leading-relaxed">
-                                            For your security, we've sent an 8-digit code to <strong className="text-near-black">{email}</strong>.
+                                            {mfaType === 'totp' 
+                                                ? 'Enter the 6-digit code from your authenticator app.'
+                                                : <span>For your security, we've sent an 8-digit code to <strong className="text-near-black">{email}</strong>.</span>
+                                            }
                                         </p>
                                     </div>
 
                                     <form onSubmit={handleOtpSubmit} className="space-y-5">
                                         <div>
                                             <label className="text-[10px] font-black text-near-black/40 uppercase tracking-widest ml-1 mb-2 block text-center">
-                                                Enter 8-Digit Code
+                                                {mfaType === 'totp' ? 'Enter 6-Digit Code' : 'Enter 8-Digit Code'}
                                             </label>
                                             <input 
                                                 type="text" 
                                                 required
-                                                maxLength={8}
+                                                maxLength={mfaType === 'totp' ? 6 : 8}
                                                 value={otp}
                                                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
                                                 className="w-full bg-[#F8FAFC] border border-near-black/10 rounded-xl px-4 py-4 outline-none focus:border-noble-blue focus:ring-1 focus:ring-noble-blue/20 transition-all text-near-black font-black text-2xl text-center tracking-[0.5em] placeholder:tracking-normal placeholder:font-medium placeholder:text-sm placeholder:text-near-black/30"
@@ -422,7 +461,7 @@ function LoginContent() {
 
                                         <button 
                                             type="submit"
-                                            disabled={loading || otp.length < 8}
+                                            disabled={loading || otp.length < (mfaType === 'totp' ? 6 : 8)}
                                             className="w-full py-3 mt-2 rounded-xl text-white font-black text-xs uppercase tracking-widest transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-noble-blue/20 disabled:opacity-50 disabled:scale-100 bg-noble-blue"
                                         >
                                             {loading ? (
@@ -434,14 +473,16 @@ function LoginContent() {
                                         </button>
                                         
                                         <div className="text-center pt-2 flex flex-col gap-3">
-                                            <button 
-                                                type="button"
-                                                onClick={handleResendOtp}
-                                                disabled={resendCooldown > 0 || loading}
-                                                className="text-[10px] font-black text-noble-blue hover:text-noble-blue/80 uppercase tracking-widest transition-colors disabled:opacity-50"
-                                            >
-                                                {resendCooldown > 0 ? `Resend Code (${resendCooldown}s)` : 'Resend Code'}
-                                            </button>
+                                            {mfaType === 'email' && (
+                                                <button 
+                                                    type="button"
+                                                    onClick={handleResendOtp}
+                                                    disabled={resendCooldown > 0 || loading}
+                                                    className="text-[10px] font-black text-noble-blue hover:text-noble-blue/80 uppercase tracking-widest transition-colors disabled:opacity-50"
+                                                >
+                                                    {resendCooldown > 0 ? `Resend Code (${resendCooldown}s)` : 'Resend Code'}
+                                                </button>
+                                            )}
                                             <button 
                                                 type="button" 
                                                 onClick={() => { setStep(1); setOtp(''); }}

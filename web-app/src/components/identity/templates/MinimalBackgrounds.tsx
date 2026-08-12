@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const PureMinimalBackground: React.FC<{ accentColor: string }> = ({ accentColor }) => (
-  <div className="absolute inset-0 bg-white overflow-hidden">
+  <div className="absolute inset-0 bg-noble-surface overflow-hidden">
     <div className="absolute top-0 left-0 w-full h-1" style={{ backgroundColor: accentColor }} />
     <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
   </div>

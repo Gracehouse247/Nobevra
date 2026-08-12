@@ -9,16 +9,16 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
   if (id === 'plat-red-geo' || id === 'plat-modern-red') {
       const isRed = id === 'plat-modern-red';
       return (
-        <div className="p-16 flex justify-between items-start z-10 bg-white">
+        <div className="p-16 flex justify-between items-start z-10 bg-noble-surface">
            <div className="flex flex-col gap-4">
               {renderLogo?.("w-32 h-32")}
               <div className="space-y-1">
-                 <h2 className="text-2xl font-black text-slate-900">{sender?.full_name || 'LICERIA & CO.'}</h2>
+                 <h2 className="text-2xl font-black text-noble-text">{sender?.full_name || 'LICERIA & CO.'}</h2>
                  <p className="text-xs font-bold text-slate-500">{sender?.business_type || 'Real Estate'}</p>
               </div>
            </div>
            <div className="text-right">
-              <h1 className={`text-9xl font-black uppercase tracking-tighter ${isRed ? 'text-rose-600' : 'text-slate-900'}`}>Invoice</h1>
+              <h1 className={`text-9xl font-black uppercase tracking-tighter ${isRed ? 'text-rose-600' : 'text-noble-text'}`}>Invoice</h1>
            </div>
         </div>
       );
@@ -26,14 +26,14 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
 
   if (id === 'plat-minimal-grey') {
       return (
-        <div className="p-16 pt-24 mb-8 flex flex-col items-center z-10 bg-white">
+        <div className="p-16 pt-24 mb-8 flex flex-col items-center z-10 bg-noble-surface">
            <div className="w-full flex justify-between items-start mb-16">
               {renderLogo?.("w-24 h-24")}
               <div className="text-right">
-                 <h2 className="text-3xl font-black text-slate-900">{sender?.full_name || 'SALFORD & CO.'}</h2>
+                 <h2 className="text-3xl font-black text-noble-text">{sender?.full_name || 'SALFORD & CO.'}</h2>
               </div>
            </div>
-           <h1 className="text-[180px] font-black uppercase tracking-tighter text-slate-900 leading-none">INVOICE</h1>
+           <h1 className="text-[180px] font-black uppercase tracking-tighter text-noble-text leading-none">INVOICE</h1>
         </div>
       );
     }
@@ -58,7 +58,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  </div>
                  
                  <div className="mt-12">
-                    <h3 className="text-4xl font-black text-slate-900 mb-4">Invoice To :</h3>
+                    <h3 className="text-4xl font-black text-noble-text mb-4">Invoice To :</h3>
                  </div>
               </div>
               
@@ -73,11 +73,11 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
 
   if (id === 'plat-corp-teal') {
       return (
-        <div className="relative h-64 mb-12 flex justify-between items-center px-16 z-10 overflow-hidden bg-white border-b-2 border-slate-100">
+        <div className="relative h-64 mb-12 flex justify-between items-center px-16 z-10 overflow-hidden bg-noble-surface border-b-2 border-slate-100">
            <div className="absolute top-0 right-0 w-[60%] h-full bg-[#002E5B] z-0" style={{ clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0 100%)' }} />
            <div className="flex gap-6 items-center relative z-20">
               {renderLogo?.("w-20 h-20")}
-              <h2 className="text-2xl font-black text-slate-900 uppercase tracking-widest">Fauget</h2>
+              <h2 className="text-2xl font-black text-noble-text uppercase tracking-widest">Fauget</h2>
            </div>
            <div className="text-right relative z-20 text-white">
               <h1 className="text-9xl font-black uppercase tracking-tighter leading-none italic">INVOICE</h1>
@@ -90,7 +90,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative h-64 mb-12 flex justify-between items-center px-16 pt-8 z-10">
            <div className="flex gap-6 items-center">
-              <div className="bg-white p-2 shadow-lg">
+              <div className="bg-noble-surface p-2 shadow-lg">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-white">
@@ -133,7 +133,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16">
               <div className="flex gap-6 items-center">
-                 <div className="bg-white p-4 rounded-full shadow-xl border-4 border-rose-100">
+                 <div className="bg-noble-surface p-4 rounded-full shadow-xl border-4 border-rose-100">
                     {renderLogo?.("w-20 h-20")}
                  </div>
                  <div>
@@ -158,7 +158,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  <h1 className="text-7xl font-black uppercase tracking-tighter italic">PLATINUM</h1>
                  <p className="text-xs font-bold uppercase tracking-[0.5em] text-white/40 mt-2">Executive Corporate Series</p>
               </div>
-              <div className="bg-white p-6 rounded-none shadow-2xl">
+              <div className="bg-noble-surface p-6 rounded-none shadow-2xl">
                  {renderLogo?.("w-20 h-20")}
               </div>
            </div>
@@ -172,7 +172,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
            <div className="flex justify-between items-center mb-16">
               <div className="flex gap-10 items-center">
                  {renderLogo?.("w-20 h-20", true)}
-                 <div className="h-12 w-px bg-white/20" />
+                 <div className="h-12 w-px bg-noble-surface/20" />
                  <h2 className="text-2xl font-black uppercase tracking-widest italic">{sender?.full_name}</h2>
               </div>
               <h1 className="text-4xl font-black uppercase tracking-widest text-white/50">INV-P</h1>
@@ -185,7 +185,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-center mb-16">
-              <div className="bg-white p-4 rounded-3xl shadow-xl">
+              <div className="bg-noble-surface p-4 rounded-3xl shadow-xl">
                  {renderLogo?.("w-16 h-16")}
               </div>
               <div className="text-right">
@@ -202,7 +202,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-center mb-16 border-b border-white/10 pb-12">
               <div className="flex gap-8 items-center">
-                 <div className="bg-white p-4 rounded-none shadow-2xl border-b-4 border-[#D4AF37]">
+                 <div className="bg-noble-surface p-4 rounded-none shadow-2xl border-b-4 border-[#D4AF37]">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <h2 className="text-3xl font-black uppercase tracking-tighter italic leading-none">{sender?.full_name}</h2>
@@ -220,11 +220,11 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16">
-              <div className="bg-white p-6 rounded-none shadow-2xl border-l-4 border-[#D4AF37]">
+              <div className="bg-noble-surface p-6 rounded-none shadow-2xl border-l-4 border-[#D4AF37]">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
-                 <h1 className="text-6xl font-black text-slate-900 uppercase tracking-tighter leading-none italic">IVORY</h1>
+                 <h1 className="text-6xl font-black text-noble-text uppercase tracking-tighter leading-none italic">IVORY</h1>
                  <p className="text-[10px] font-black text-[#D4AF37] mt-1 uppercase tracking-[0.5em]">Gold Leaf Series</p>
               </div>
            </div>
@@ -235,9 +235,9 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
   if (id === 'plat-sapphire') {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
-           <div className="flex justify-between items-center mb-16 bg-white/5 backdrop-blur-xl p-10 rounded-[3rem] border border-white/10 shadow-2xl">
+           <div className="flex justify-between items-center mb-16 bg-noble-surface/5 backdrop-blur-xl p-10 rounded-[3rem] border border-white/10 shadow-2xl">
               <div className="flex gap-8 items-center">
-                 <div className="bg-white p-4 rounded-2xl shadow-xl">
+                 <div className="bg-noble-surface p-4 rounded-2xl shadow-xl">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <h2 className="text-3xl font-black uppercase tracking-tighter italic">{sender?.full_name}</h2>
@@ -253,7 +253,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-center mb-16">
               <div className="flex gap-6 items-center">
-                 <div className="bg-white p-6 rounded-full shadow-2xl border-4 border-emerald-900/20">
+                 <div className="bg-noble-surface p-6 rounded-full shadow-2xl border-4 border-emerald-900/20">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <div>
@@ -270,15 +270,15 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
   if (id === 'plat-marble-white') {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
-           <div className="flex justify-between items-center mb-16 bg-white p-12 rounded-none shadow-2xl border-t-8 border-slate-900">
+           <div className="flex justify-between items-center mb-16 bg-noble-surface p-12 rounded-none shadow-2xl border-t-8 border-slate-900">
               <div className="flex gap-10 items-center">
                  {renderLogo?.("w-20 h-20")}
                  <div className="h-16 w-px bg-slate-100" />
-                 <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter leading-none">{sender?.full_name}</h2>
+                 <h2 className="text-3xl font-black text-noble-text uppercase tracking-tighter leading-none">{sender?.full_name}</h2>
               </div>
               <div className="text-right">
                  <h1 className="text-4xl font-black text-slate-200 uppercase tracking-widest">MARBLE</h1>
-                 <Diamond className="w-8 h-8 text-slate-900 fill-slate-900 float-right mt-2" />
+                 <Diamond className="w-8 h-8 text-noble-text fill-slate-900 float-right mt-2" />
               </div>
            </div>
         </div>
@@ -289,7 +289,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16 border-b-2 border-pink-100 pb-12">
-              <div className="bg-white p-6 rounded-[2.5rem] shadow-xl border border-pink-50">
+              <div className="bg-noble-surface p-6 rounded-[2.5rem] shadow-xl border border-pink-50">
                  {renderLogo?.("w-16 h-16")}
               </div>
               <div className="text-right">
@@ -305,7 +305,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-center mb-16">
-              <div className="bg-white p-6 rounded-none shadow-2xl border-r-8 border-red-600">
+              <div className="bg-noble-surface p-6 rounded-none shadow-2xl border-r-8 border-red-600">
                  {renderLogo?.("w-16 h-16")}
               </div>
               <div className="text-right">
@@ -337,7 +337,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
            <div className="flex justify-between items-start mb-16 border-b border-slate-100 pb-12">
               {renderLogo?.("w-24 h-24")}
               <div className="text-right">
-                 <h1 className="text-2xl font-black text-slate-900 uppercase tracking-[0.5em]">PLATINUM</h1>
+                 <h1 className="text-2xl font-black text-noble-text uppercase tracking-[0.5em]">PLATINUM</h1>
                  <p className="text-[10px] font-bold text-slate-400 mt-2 uppercase tracking-widest italic">The Ultra Minimalist Edition</p>
               </div>
            </div>
@@ -348,7 +348,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
   if (id === 'plat-champagne') {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
-           <div className="flex justify-between items-center mb-16 bg-white/50 backdrop-blur-md p-8 rounded-[3rem] border border-amber-100 shadow-xl">
+           <div className="flex justify-between items-center mb-16 bg-noble-surface/50 backdrop-blur-md p-8 rounded-[3rem] border border-amber-100 shadow-xl">
               <div className="flex gap-6 items-center">
                  {renderLogo?.("w-16 h-16")}
                  <h2 className="text-2xl font-black text-amber-900 uppercase tracking-tighter leading-none italic">{sender?.full_name}</h2>
@@ -367,7 +367,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  <h1 className="text-8xl font-black uppercase tracking-tighter leading-none text-slate-800">NAVY</h1>
                  <h2 className="text-3xl font-black uppercase tracking-widest -mt-10 pl-2 text-white italic">MIDNIGHT PRESTIGE</h2>
               </div>
-              <div className="bg-white p-6 rounded-none shadow-2xl">
+              <div className="bg-noble-surface p-6 rounded-none shadow-2xl">
                  {renderLogo?.("w-16 h-16")}
               </div>
            </div>
@@ -379,9 +379,9 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16 border-b border-slate-100 pb-12">
-              <div className="flex gap-8 items-center bg-white p-6 rounded-3xl shadow-xl border border-slate-50">
+              <div className="flex gap-8 items-center bg-noble-surface p-6 rounded-3xl shadow-xl border border-slate-50">
                  {renderLogo?.("w-16 h-16")}
-                 <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter italic">{sender?.full_name}</h2>
+                 <h2 className="text-3xl font-black text-noble-text uppercase tracking-tighter italic">{sender?.full_name}</h2>
               </div>
               <Diamond className="w-10 h-10 text-slate-200 fill-slate-200" />
            </div>
@@ -394,7 +394,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-center mb-16 bg-slate-800 p-10 rounded-none shadow-2xl border-l-8 border-slate-400">
               <div className="flex gap-10 items-center">
-                 <div className="bg-white p-4 rounded-lg shadow-xl">
+                 <div className="bg-noble-surface p-4 rounded-lg shadow-xl">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <h2 className="text-3xl font-black uppercase tracking-widest italic">{sender?.full_name}</h2>
@@ -409,7 +409,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-center mb-16">
-              <div className="bg-white/10 backdrop-blur-xl p-8 rounded-[4rem] border border-white/20 shadow-2xl">
+              <div className="bg-noble-surface/10 backdrop-blur-xl p-8 rounded-[4rem] border border-white/20 shadow-2xl">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
@@ -424,9 +424,9 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
   if (id === 'plat-aubergine') {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
-           <div className="flex justify-between items-center mb-16 bg-white/5 backdrop-blur-md p-10 rounded-none border border-white/5 shadow-2xl">
+           <div className="flex justify-between items-center mb-16 bg-noble-surface/5 backdrop-blur-md p-10 rounded-none border border-white/5 shadow-2xl">
               <div className="flex gap-8 items-center">
-                 <div className="bg-white p-4 rounded-full">
+                 <div className="bg-noble-surface p-4 rounded-full">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <h2 className="text-3xl font-black uppercase tracking-tighter italic">{sender?.full_name}</h2>
@@ -441,11 +441,11 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-start mb-16">
-              <div className="bg-white p-6 rounded-[3rem] shadow-2xl border-4 border-cyan-50">
+              <div className="bg-noble-surface p-6 rounded-[3rem] shadow-2xl border-4 border-cyan-50">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right pt-4">
-                 <h1 className="text-7xl font-black text-slate-900 tracking-tighter opacity-10">ARCTIC</h1>
+                 <h1 className="text-7xl font-black text-noble-text tracking-tighter opacity-10">ARCTIC</h1>
                  <h2 className="text-4xl font-black text-cyan-600 -mt-10 relative z-10 italic uppercase">FROST EDITION</h2>
               </div>
            </div>
@@ -458,7 +458,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-center mb-16 bg-black/40 backdrop-blur-md p-10 rounded-none border-b-2 border-amber-900/50">
               <div className="flex gap-8 items-center">
-                 <div className="bg-white p-4 rounded-none shadow-xl">
+                 <div className="bg-noble-surface p-4 rounded-none shadow-xl">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <h2 className="text-3xl font-black uppercase tracking-tighter italic leading-none">{sender?.full_name}</h2>
@@ -475,11 +475,11 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
   if (id === 'plat-royal-seal') {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
-           <div className="flex justify-between items-center mb-16 bg-white p-10 shadow-2xl border-2 border-[#D4AF37]/20 rounded-3xl">
+           <div className="flex justify-between items-center mb-16 bg-noble-surface p-10 shadow-2xl border-2 border-[#D4AF37]/20 rounded-3xl">
               <div className="flex gap-8 items-center">
                  {renderLogo?.("w-20 h-20")}
                  <div className="h-16 w-px bg-slate-100" />
-                 <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter italic leading-none">{sender?.full_name}</h2>
+                 <h2 className="text-3xl font-black text-noble-text uppercase tracking-tighter italic leading-none">{sender?.full_name}</h2>
               </div>
               <div className="flex flex-col items-center">
                  <Signature className="w-12 h-12 text-[#D4AF37] mb-2" />
@@ -493,7 +493,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
   if (id === 'plat-vermillion') {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
-           <div className="flex justify-between items-center mb-16 bg-white p-8 rounded-none shadow-2xl">
+           <div className="flex justify-between items-center mb-16 bg-noble-surface p-8 rounded-none shadow-2xl">
               <div className="flex gap-8 items-center">
                  {renderLogo?.("w-16 h-16")}
                  <h2 className="text-3xl font-black text-red-900 uppercase tracking-tighter italic leading-none">{sender?.full_name}</h2>
@@ -524,7 +524,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
            <div className="flex justify-between items-center mb-16 border-t-8 border-b-8 border-slate-900 py-12 px-8">
               <div className="flex gap-8 items-center">
                  {renderLogo?.("w-20 h-20")}
-                 <h2 className="text-4xl font-black text-slate-900 uppercase tracking-tighter leading-none">{sender?.full_name}</h2>
+                 <h2 className="text-4xl font-black text-noble-text uppercase tracking-tighter leading-none">{sender?.full_name}</h2>
               </div>
               <div className="text-right">
                  <h1 className="text-5xl font-black text-[#D4AF37] uppercase tracking-[0.2em] italic">SOVEREIGN</h1>
@@ -539,7 +539,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative h-56 mb-12 flex justify-between items-center px-16 pt-4 z-10">
            <div className="flex gap-6 items-center">
-              <div className="bg-white p-2">
+              <div className="bg-noble-surface p-2">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-white">
@@ -559,7 +559,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative h-56 mb-12 flex justify-between items-center px-16 pt-4 z-10">
            <div className="flex gap-6 items-center">
-              <div className="bg-white p-2">
+              <div className="bg-noble-surface p-2">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-white">

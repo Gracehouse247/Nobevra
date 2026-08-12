@@ -126,7 +126,7 @@ export default function BusinessForm({ onChange, initialData, onPreviewValueChan
                 </h3>
                 <div className="space-y-3 bg-[#F8FAFC] p-4 rounded-xl border border-[#E2E8F0]">
                     {openingHours.map((day: any, idx: number) => (
-                        <div key={day.day} className="flex items-center gap-4 justify-between bg-white p-3 rounded-lg border border-[#E2E8F0] shadow-sm">
+                        <div key={day.day} className="flex items-center gap-4 justify-between bg-noble-surface p-3 rounded-lg border border-[#E2E8F0] shadow-sm">
                             <div className="flex items-center gap-3 w-32">
                                 <input type="checkbox" checked={day.isOpen} onChange={(e) => updateOpeningHour(idx, 'isOpen', e.target.checked)} className="w-4 h-4 text-[#166FBB] rounded focus:ring-[#166FBB]" />
                                 <span className={`text-sm font-bold ${day.isOpen ? 'text-[#0F172A]' : 'text-[#94A3B8]'}`}>{day.day}</span>
@@ -238,7 +238,7 @@ export default function BusinessForm({ onChange, initialData, onPreviewValueChan
                             </div>
                             <label className="relative inline-flex items-center cursor-pointer">
                                 <input type="checkbox" className="sr-only peer" checked={isPasswordEnabled} onChange={(e) => setIsPasswordEnabled(e.target.checked)} />
-                                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#166FBB]"></div>
+                                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-noble-surface after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#166FBB]"></div>
                             </label>
                         </div>
                         
@@ -248,7 +248,7 @@ export default function BusinessForm({ onChange, initialData, onPreviewValueChan
                                 value={password} 
                                 onChange={(e) => setPassword(e.target.value)} 
                                 placeholder="Enter Access Password" 
-                                className="w-full bg-white border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none" 
+                                className="w-full bg-noble-surface border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none" 
                             />
                         )}
                     </div>

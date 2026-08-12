@@ -8,7 +8,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-minimal-grey') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            {/* Grey box for table area */}
            <div className="absolute top-[480px] left-0 w-full h-[400px] bg-slate-100/50" />
         </div>
@@ -26,7 +26,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-blue-wave-2') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <svg className="absolute top-0 left-0 w-full" viewBox="0 0 1440 250" preserveAspectRatio="none">
               <path fill="#3F61F9" d="M0,0L1440,0L1440,150C1200,250 800,100 0,150Z" />
            </svg>
@@ -36,7 +36,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-red-geo') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-[600px] bg-rose-50" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 40%, 0 60%)' }} />
            <div className="absolute top-20 right-20 w-96 h-96 bg-rose-200/20 rounded-full blur-3xl" />
         </div>
@@ -54,7 +54,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-dark-blue-angle') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-96 bg-[#283B61]" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 60%, 0 90%)' }} />
            <div className="absolute top-1/2 right-0 w-64 h-full bg-[#283B61]/5" style={{ clipPath: 'polygon(100% 0, 0 50%, 100% 100%)' }} />
         </div>
@@ -63,7 +63,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-green-orange') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-80 bg-[#0B4731]" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)' }} />
            <div className="absolute -top-20 -right-20 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl" />
         </div>
@@ -110,7 +110,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-marble-white') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute inset-0 opacity-[0.05]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/marble.png")' }} />
            <div className="absolute top-0 right-0 w-1/2 h-full bg-slate-50/50" style={{ clipPath: 'polygon(30% 0, 100% 0, 100% 100%, 0% 100%)' }} />
         </div>
@@ -147,7 +147,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-ultra-minimal') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute top-0 left-0 w-1 h-full bg-slate-100" />
            <div className="absolute top-0 right-0 w-1 h-full bg-slate-100" />
            <div className="absolute top-1/2 left-0 w-full h-px bg-slate-50" />
@@ -186,7 +186,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
       return (
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-[#1E293B]">
            <div className="absolute top-0 left-0 w-full h-full opacity-[0.03]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/brushed-alum.png")' }} />
-           <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5" />
+           <div className="absolute top-0 right-0 w-1/3 h-full bg-noble-surface/5" />
         </div>
       );
     }
@@ -257,7 +257,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-sovereign') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-[#D4AF37]/10 to-transparent" />
            <div className="absolute bottom-0 right-0 w-full h-80 bg-gradient-to-t from-[#D4AF37]/10 to-transparent" />
         </div>
@@ -266,7 +266,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-teal-curve') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute top-0 left-0 w-[60%] h-56 bg-[#3A8A96]" style={{ borderBottomRightRadius: '100px' }} />
         </div>
       );
@@ -274,7 +274,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-dark-blue-angle') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-56 bg-[#283B61]" style={{ borderBottomLeftRadius: '24px', borderBottomRightRadius: '24px' }} />
         </div>
       );
@@ -282,7 +282,7 @@ export const PlatinumBackground = (props: SharedEngineProps) => {
 
   if (id === 'plat-green-orange') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-56 bg-[#0B4731]" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 60%, 85% 100%, 0 100%)' }} />
         </div>
       );

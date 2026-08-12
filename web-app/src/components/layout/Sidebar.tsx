@@ -53,7 +53,7 @@ export default function Sidebar({
         .toUpperCase() || 'NU';
 
     const planLabel = isElite ? 'Elite' : plan === 'pulse' ? 'Pulse' : 'Free';
-    const planColor = isElite ? 'text-amber-400' : plan === 'pulse' ? 'text-[#0599D5]' : 'text-slate-400';
+    const planColor = isElite ? 'text-amber-400' : plan === 'pulse' ? 'text-[#0599D5]' : 'text-slate-400 dark:text-slate-500';
 
     return (
         <aside

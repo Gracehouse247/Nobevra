@@ -89,8 +89,8 @@ export const PLANS: Record<string, Plan> = {
       '10 Estimates/month',
       'Priority email support',
     ],
-    flutterwavePlanIdMonthly: '160676',
-    flutterwavePlanIdYearly: '160677',
+    flutterwavePlanIdMonthly: process.env.NEXT_PUBLIC_FLW_PLAN_PRO_MONTHLY,
+    flutterwavePlanIdYearly: process.env.NEXT_PUBLIC_FLW_PLAN_PRO_YEARLY,
   },
   elite: {
     id: 'elite',
@@ -117,9 +117,9 @@ export const PLANS: Record<string, Plan> = {
       'Priority 24/7 phone support',
       'Early access to new features',
     ],
-    flutterwavePlanIdMonthly: '160678',
-    flutterwavePlanIdYearly: '160679',
-    flutterwavePlanIdEarlyBird: '160679',
+    flutterwavePlanIdMonthly: process.env.NEXT_PUBLIC_FLW_PLAN_ELITE_MONTHLY,
+    flutterwavePlanIdYearly: process.env.NEXT_PUBLIC_FLW_PLAN_ELITE_YEARLY,
+    flutterwavePlanIdEarlyBird: process.env.NEXT_PUBLIC_FLW_PLAN_ELITE_EARLY_BIRD,
   },
 };
 

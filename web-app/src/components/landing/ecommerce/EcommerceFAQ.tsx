@@ -35,7 +35,7 @@ const faqs = [
 
 export default function EcommerceFAQ() {
     return (
-        <section className="py-24 md:py-32 bg-white border-t border-slate-100" aria-labelledby="faq-heading">
+        <section className="py-24 md:py-32 bg-noble-surface border-t border-slate-100" aria-labelledby="faq-heading">
             <div className="max-w-[1430px] mx-auto px-4 md:px-16 grid lg:grid-cols-[1fr_2fr] gap-16 items-start">
                 
                 <div className="sticky top-32">
@@ -46,10 +46,10 @@ export default function EcommerceFAQ() {
                         Everything you need to know about automating your ecommerce invoice workflow.
                     </p>
 
-                    <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                    <div className="bg-slate-50 rounded-2xl p-6 border border-noble-border">
                         <div className="flex items-center gap-3 mb-3">
                             <AlertOctagon className="w-5 h-5 text-slate-400" />
-                            <h4 className="font-bold text-slate-900 text-sm uppercase tracking-widest">We may not be right for you if...</h4>
+                            <h4 className="font-bold text-noble-text text-sm uppercase tracking-widest">We may not be right for you if...</h4>
                         </div>
                         <p className="text-slate-600 text-sm leading-relaxed">
                             If you only sell low-ticket digital downloads to consumers (B2C) and your buyers never ask for a formal PDF receipt, a full B2B ecommerce invoicing software might be overkill for your current needs.
@@ -59,10 +59,10 @@ export default function EcommerceFAQ() {
 
                 <div className="space-y-4">
                     {faqs.map((faq, i) => (
-                        <details key={i} className="group bg-slate-50 rounded-[24px] border border-slate-200 overflow-hidden shadow-sm hover:border-noble-blue/30 transition-colors">
+                        <details key={i} className="group bg-slate-50 rounded-[24px] border border-noble-border overflow-hidden shadow-sm hover:border-noble-blue/30 transition-colors">
                             <summary className="flex items-center justify-between p-6 md:p-8 cursor-pointer list-none gap-6 outline-none">
-                                <span className="font-black text-slate-900 text-lg leading-snug">{faq.q}</span>
-                                <div className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 group-open:bg-noble-blue group-open:border-noble-blue group-open:text-white transition-all">
+                                <span className="font-black text-noble-text text-lg leading-snug">{faq.q}</span>
+                                <div className="w-10 h-10 rounded-full bg-noble-surface border border-noble-border flex items-center justify-center shrink-0 group-open:bg-noble-blue group-open:border-noble-blue group-open:text-white transition-all">
                                     <ChevronDown className="w-5 h-5 transition-transform duration-300 group-open:rotate-180" />
                                 </div>
                             </summary>

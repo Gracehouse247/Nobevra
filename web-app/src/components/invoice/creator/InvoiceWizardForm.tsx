@@ -18,18 +18,18 @@ const BRAND_DARK = '#0482B5';
 const BRAND_LIGHT = '#EBF7FD';
 
 // ── Design Tokens ───────────────────────────────────────────────────────────────
-const inputClass = `w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px]
+const inputClass = `w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px]
   focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10
   transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;
 const labelClass = "text-[11px] font-bold text-slate-500 mb-1 block uppercase tracking-wider font-[Inter,sans-serif]";
-const cardClass = "bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-3";
+const cardClass = "bg-noble-surface rounded-xl border border-noble-border shadow-sm overflow-hidden mb-3";
 const cardHeaderClass = "px-5 py-3 border-b border-slate-100 bg-slate-50/50";
 
 // ── Shared Button Styles ────────────────────────────────────────────────────────
 const btnPrimary = `h-10 px-6 rounded-lg bg-[#0599D5] hover:bg-[#0482B5] active:scale-[0.98]
   text-white font-bold text-[13px] flex items-center justify-center gap-2
   transition-all shadow-sm shadow-[#0599D5]/20 font-[Inter,sans-serif]`;
-const btnSecondary = `h-10 px-5 rounded-lg border border-slate-200 bg-white hover:bg-slate-50
+const btnSecondary = `h-10 px-5 rounded-lg border border-noble-border bg-noble-surface hover:bg-slate-50
   text-slate-700 font-semibold text-[13px] flex items-center justify-center gap-2
   transition-all shadow-sm font-[Inter,sans-serif]`;
 const btnGhost = `h-10 px-5 rounded-lg text-slate-500 hover:bg-slate-100
@@ -61,9 +61,9 @@ export const InvoiceWizardForm = () => {
         <div className="flex flex-col h-full bg-[#F4F5F7] font-[Inter,sans-serif]">
 
             {/* ── Top Header ── */}
-            <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between shrink-0 shadow-sm">
+            <div className="bg-noble-surface border-b border-noble-border px-6 py-4 flex items-center justify-between shrink-0 shadow-sm">
                 <div>
-                    <h2 className="text-lg font-black text-slate-900 tracking-tight font-[Inter,sans-serif]">Create Invoice</h2>
+                    <h2 className="text-lg font-black text-noble-text tracking-tight font-[Inter,sans-serif]">Create Invoice</h2>
                     <p className="text-[11px] text-slate-400 font-medium mt-0.5 font-[Inter,sans-serif]">Fill out the steps below to generate your invoice</p>
                 </div>
                 <div className="hidden sm:flex items-center gap-1.5 text-[11px] text-emerald-600 font-bold bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200 font-[Inter,sans-serif]">
@@ -72,7 +72,7 @@ export const InvoiceWizardForm = () => {
             </div>
 
             {/* ── Stepper ── */}
-            <div className="bg-white border-b border-slate-200 px-6 py-4 shrink-0">
+            <div className="bg-noble-surface border-b border-noble-border px-6 py-4 shrink-0">
                 <div className="flex items-center max-w-xl mx-auto">
                     {steps.map((s, idx) => {
                         const Icon = s.icon;
@@ -86,7 +86,7 @@ export const InvoiceWizardForm = () => {
                                             ? 'bg-[#0599D5] border-[#0599D5] text-white shadow-md shadow-[#0599D5]/25'
                                             : isDone
                                             ? 'bg-[#EBF7FD] border-[#0599D5]/30 text-[#0599D5]'
-                                            : 'bg-white border-slate-200 text-slate-400 group-hover:border-slate-300'
+                                            : 'bg-noble-surface border-noble-border text-slate-400 group-hover:border-slate-300'
                                     }`}>
                                         {isDone ? <Check className="w-4 h-4" /> : <Icon className="w-4 h-4" />}
                                     </div>
@@ -113,7 +113,7 @@ export const InvoiceWizardForm = () => {
             </div>
 
             {/* ── Sticky Footer — uses shrink-0 to always be visible above ticker ── */}
-            <div className="shrink-0 bg-white border-t border-slate-200 px-6 py-3 flex items-center justify-between gap-3 shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" style={{ zIndex: 62 }}>
+            <div className="shrink-0 bg-noble-surface border-t border-noble-border px-6 py-3 flex items-center justify-between gap-3 shadow-[0_-2px_12px_rgba(0,0,0,0.04)]" style={{ zIndex: 62 }}>
                 {step > 1 ? (
                     <button onClick={() => setStep(step - 1)} className={btnSecondary}>
                         <ArrowLeft className="w-4 h-4" /> Back

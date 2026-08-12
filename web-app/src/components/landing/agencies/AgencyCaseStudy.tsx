@@ -25,7 +25,7 @@ const reviews = [
 
 export default function AgencyCaseStudy() {
     return (
-        <section className="py-24 md:py-32 bg-white border-t border-slate-100" aria-labelledby="reviews-heading">
+        <section className="py-24 md:py-32 bg-noble-surface border-t border-slate-100" aria-labelledby="reviews-heading">
             <div className="max-w-[1430px] mx-auto px-4 md:px-16">
                 <div className="text-center max-w-2xl mx-auto mb-16">
                     <h2 id="reviews-heading" className="font-inter text-[30px] md:text-[50px] text-near-black font-black leading-[1.05] tracking-tight mb-6">
@@ -44,9 +44,9 @@ export default function AgencyCaseStudy() {
                             </div>
                             <blockquote className="text-slate-700 font-medium leading-relaxed mb-8 text-base">"{r.quote}"</blockquote>
                             <div className="flex items-center gap-4 mt-auto">
-                                <Image src={r.image} alt={r.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover border-2 border-slate-200" />
+                                <Image src={r.image} alt={r.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover border-2 border-noble-border" />
                                 <div>
-                                    <p className="font-black text-slate-900 text-sm uppercase">{r.name}</p>
+                                    <p className="font-black text-noble-text text-sm uppercase">{r.name}</p>
                                     <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">{r.role}</p>
                                 </div>
                             </div>

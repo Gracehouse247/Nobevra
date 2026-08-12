@@ -13,7 +13,7 @@ export const AldenaireExecutiveCard: React.FC<CardRendererProps & { defaultColor
             {isFront ? (
                 <>
                     <DraggableElement elementKey="logo" className="flex-[0.4] flex flex-col justify-center items-center p-12 text-center border-r-8" style={{ backgroundColor: darkBg, borderColor: goldAccent }}>
-                        <div className="w-40 h-40 bg-white rounded-2xl flex items-center justify-center mb-6 shadow-xl">
+                        <div className="w-40 h-40 bg-noble-surface rounded-2xl flex items-center justify-center mb-6 shadow-xl">
                             <Briefcase size={80} style={{ color: darkBg }} />
                         </div>
                         <h2 className="font-black text-white uppercase tracking-tight leading-none" style={{ fontSize: fs(24) }}>
@@ -52,7 +52,7 @@ export const AldenaireExecutiveCard: React.FC<CardRendererProps & { defaultColor
                 <div className="text-center space-y-12">
                     <DraggableElement elementKey="logo">
                         <div className="flex flex-col items-center gap-6">
-                            <div className="w-56 h-56 bg-white/10 rounded-3xl flex items-center justify-center shadow-2xl border border-white/20">
+                            <div className="w-56 h-56 bg-noble-surface/10 rounded-3xl flex items-center justify-center shadow-2xl border border-white/20">
                                 <Briefcase size={120} className="text-white" />
                             </div>
                             <h2 className="font-black text-white uppercase tracking-tighter" style={{ fontSize: fs(42) }}>

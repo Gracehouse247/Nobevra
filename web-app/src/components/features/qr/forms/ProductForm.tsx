@@ -59,12 +59,12 @@ export default function ProductForm({ onChange, onPreviewValueChange, initialDat
                 <div className="relative">
                     <Package className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                     {loading ? (
-                         <div className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-11 pr-4 py-3 flex items-center gap-2 text-sm text-slate-500">
+                         <div className="w-full bg-slate-50 border border-noble-border rounded-xl pl-11 pr-4 py-3 flex items-center gap-2 text-sm text-slate-500">
                              <Loader2 className="w-4 h-4 animate-spin" /> Loading inventory passports...
                          </div>
                     ) : (
                         <select 
-                            className="w-full bg-white border border-slate-200 rounded-xl pl-11 pr-4 py-3 font-bold text-sm focus:outline-none focus:border-noble-blue transition-all"
+                            className="w-full bg-noble-surface border border-noble-border rounded-xl pl-11 pr-4 py-3 font-bold text-sm focus:outline-none focus:border-noble-blue transition-all"
                             value={selectedPassportId}
                             onChange={(e) => setSelectedPassportId(e.target.value)}
                         >
@@ -79,7 +79,7 @@ export default function ProductForm({ onChange, onPreviewValueChange, initialDat
                 </div>
             </div>
 
-            <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 text-sm font-medium text-slate-600 flex items-start gap-3">
+            <div className="p-4 bg-slate-50 rounded-xl border border-noble-border text-sm font-medium text-slate-600 flex items-start gap-3">
                 <div className="mt-0.5">
                     <Package className="w-4 h-4 text-noble-blue" />
                 </div>

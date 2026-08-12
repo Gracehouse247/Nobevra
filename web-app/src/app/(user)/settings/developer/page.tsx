@@ -83,23 +83,23 @@ export default function DeveloperSettings() {
     return (
         <div className="max-w-4xl mx-auto space-y-8">
             <div>
-                <h1 className="text-2xl font-bold text-slate-900">Developer Settings</h1>
-                <p className="text-slate-500 mt-1">Manage your API keys and webhook endpoints for integrations.</p>
+                <h1 className="text-2xl font-bold text-noble-text">Developer Settings</h1>
+                <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">Manage your API keys and webhook endpoints for integrations.</p>
             </div>
 
             {/* API Keys */}
-            <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-                <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+            <div className="bg-noble-surface dark:bg-noble-card rounded-xl border border-noble-border overflow-hidden">
+                <div className="p-6 border-b border-noble-border flex justify-between items-center bg-slate-50 dark:bg-[#0D1B2E]">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg bg-indigo-100 flex items-center justify-center">
                             <Key className="w-5 h-5 text-indigo-600" />
                         </div>
                         <div>
                             <div className="flex items-center gap-2">
-                                <h2 className="font-semibold text-slate-900">API Keys</h2>
+                                <h2 className="font-semibold text-noble-text">API Keys</h2>
                                 {!canUse('developer.api') && <PremiumBadge tier="elite" iconOnly />}
                             </div>
-                            <p className="text-sm text-slate-500">Authenticate requests to the NobleInvoice API.</p>
+                            <p className="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-500">Authenticate requests to the NobleInvoice API.</p>
                         </div>
                     </div>
                     <button 
@@ -117,14 +117,14 @@ export default function DeveloperSettings() {
                 </div>
                 <div className="p-0">
                     {apiKeys.length === 0 ? (
-                        <div className="p-8 text-center text-slate-500 text-sm">No API keys generated yet.</div>
+                        <div className="p-8 text-center text-slate-500 dark:text-slate-400 dark:text-slate-500 text-sm">No API keys generated yet.</div>
                     ) : (
                         <div className="divide-y divide-slate-100">
                             {apiKeys.map(key => (
                                 <div key={key.id} className="p-4 flex items-center justify-between">
                                     <div>
-                                        <div className="font-medium text-slate-900">{key.name}</div>
-                                        <div className="text-sm text-slate-500 font-mono mt-1 flex items-center gap-2">
+                                        <div className="font-medium text-noble-text">{key.name}</div>
+                                        <div className="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-500 font-mono mt-1 flex items-center gap-2">
                                             {key.key_hash.substring(0, 12)}••••••••
                                             {key.is_active && <span className="flex items-center gap-1 text-emerald-600 text-xs bg-emerald-50 px-2 py-0.5 rounded-full"><CheckCircle2 className="w-3 h-3"/> Active</span>}
                                         </div>
@@ -136,7 +136,7 @@ export default function DeveloperSettings() {
                                                 loadData();
                                             }
                                         }}
-                                        className="p-2 text-slate-400 hover:text-red-600 rounded-lg hover:bg-red-50"
+                                        className="p-2 text-slate-400 dark:text-slate-500 hover:text-red-600 rounded-lg hover:bg-red-50"
                                     >
                                         <Trash2 className="w-4 h-4" />
                                     </button>
@@ -148,18 +148,18 @@ export default function DeveloperSettings() {
             </div>
 
             {/* Webhooks */}
-            <div className="bg-white rounded-xl border border-slate-200 overflow-hidden">
-                <div className="p-6 border-b border-slate-200 flex justify-between items-center bg-slate-50">
+            <div className="bg-noble-surface dark:bg-noble-card rounded-xl border border-noble-border overflow-hidden">
+                <div className="p-6 border-b border-noble-border flex justify-between items-center bg-slate-50 dark:bg-[#0D1B2E]">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg bg-pink-100 flex items-center justify-center">
                             <Webhook className="w-5 h-5 text-pink-600" />
                         </div>
                         <div>
                             <div className="flex items-center gap-2">
-                                <h2 className="font-semibold text-slate-900">Webhooks</h2>
+                                <h2 className="font-semibold text-noble-text">Webhooks</h2>
                                 {!canUse('developer.api') && <PremiumBadge tier="elite" iconOnly />}
                             </div>
-                            <p className="text-sm text-slate-500">Receive real-time events on your server.</p>
+                            <p className="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-500">Receive real-time events on your server.</p>
                         </div>
                     </div>
                     <button 
@@ -177,16 +177,16 @@ export default function DeveloperSettings() {
                 </div>
                 <div className="p-0">
                     {webhooks.length === 0 ? (
-                        <div className="p-8 text-center text-slate-500 text-sm">No webhooks configured.</div>
+                        <div className="p-8 text-center text-slate-500 dark:text-slate-400 dark:text-slate-500 text-sm">No webhooks configured.</div>
                     ) : (
                         <div className="divide-y divide-slate-100">
                             {webhooks.map(wh => (
                                 <div key={wh.id} className="p-4 flex items-center justify-between">
                                     <div>
-                                        <div className="font-medium text-slate-900">{wh.endpoint_url}</div>
-                                        <div className="text-sm text-slate-500 mt-1 flex gap-2">
+                                        <div className="font-medium text-noble-text">{wh.endpoint_url}</div>
+                                        <div className="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1 flex gap-2">
                                             {wh.events.map((ev: string) => (
-                                                <span key={ev} className="bg-slate-100 text-slate-600 px-2 py-0.5 rounded text-xs">{ev}</span>
+                                                <span key={ev} className="bg-slate-100 dark:bg-[#112030] text-slate-600 dark:text-slate-400 dark:text-slate-500 px-2 py-0.5 rounded text-xs">{ev}</span>
                                             ))}
                                         </div>
                                     </div>
@@ -197,7 +197,7 @@ export default function DeveloperSettings() {
                                                 loadData();
                                             }
                                         }}
-                                        className="p-2 text-slate-400 hover:text-red-600 rounded-lg hover:bg-red-50"
+                                        className="p-2 text-slate-400 dark:text-slate-500 hover:text-red-600 rounded-lg hover:bg-red-50"
                                     >
                                         <Trash2 className="w-4 h-4" />
                                     </button>

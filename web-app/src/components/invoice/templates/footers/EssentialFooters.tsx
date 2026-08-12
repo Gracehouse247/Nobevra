@@ -17,11 +17,11 @@ export const EssentialFooter = (props: SharedEngineProps) => {
               {data.signatureUrl ? (
                 <img src={data.signatureUrl} alt="Signature" className="h-16 w-auto object-contain border-b border-slate-300 mb-2" />
               ) : (
-                <div className="w-48 h-16 border-b-2 border-slate-200 mb-2 flex items-center justify-center">
+                <div className="w-48 h-16 border-b-2 border-noble-border mb-2 flex items-center justify-center">
                    <Signature className="w-8 h-8 text-slate-200" />
                 </div>
               )}
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
            </div>
         </div>
       );
@@ -29,7 +29,7 @@ export const EssentialFooter = (props: SharedEngineProps) => {
 
   if (id === 'ess-modern-swish') {
       return (
-        <div className="mt-auto px-16 py-12 relative z-10 flex justify-between items-center bg-slate-50 border-t border-slate-200">
+        <div className="mt-auto px-16 py-12 relative z-10 flex justify-between items-center bg-slate-50 border-t border-noble-border">
            <div className="flex flex-col gap-1">
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Authorized Signature</p>
               <div className="w-48 h-12 flex items-end">
@@ -82,7 +82,7 @@ export const EssentialFooter = (props: SharedEngineProps) => {
                    <Signature className="w-8 h-8 text-slate-100" />
                  )}
               </div>
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-[0.3em]">{sender?.full_name}</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-[0.3em]">{sender?.full_name}</p>
            </div>
         </div>
       );
@@ -110,7 +110,7 @@ export const EssentialFooter = (props: SharedEngineProps) => {
       return (
         <div className="mt-auto h-24 px-16 flex items-center justify-between text-slate-400 relative z-10 border-t border-slate-100">
            <p className="text-[10px] font-black uppercase tracking-[0.4em]">Modern Line Series</p>
-           <div className="h-10 w-32 border-b border-slate-200 flex items-end justify-center text-[10px] font-bold uppercase opacity-40 pb-1">Authorized Signature</div>
+           <div className="h-10 w-32 border-b border-noble-border flex items-end justify-center text-[10px] font-bold uppercase opacity-40 pb-1">Authorized Signature</div>
         </div>
       );
     }
@@ -123,7 +123,7 @@ export const EssentialFooter = (props: SharedEngineProps) => {
            </div>
            <div className="flex flex-col items-end">
               <div className="w-48 h-px bg-slate-200 mb-2" />
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
            </div>
         </div>
       );
@@ -181,13 +181,13 @@ export const EssentialFooter = (props: SharedEngineProps) => {
 
   if (id === 'ess-coral-bright') {
       return (
-        <div className="mt-auto h-24 px-16 py-12 relative z-10 flex justify-between items-center bg-white border-t-2 border-rose-100">
+        <div className="mt-auto h-24 px-16 py-12 relative z-10 flex justify-between items-center bg-noble-surface border-t-2 border-rose-100">
            <div className="text-[10px] font-black text-rose-300 uppercase tracking-widest">
               <p>CORAL SERIES • OFFICIAL DOCUMENT</p>
            </div>
            <div className="flex flex-col items-end">
               <div className="w-48 h-px bg-rose-200 mb-2" />
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Authorized Official</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">Authorized Official</p>
            </div>
         </div>
       );
@@ -199,7 +199,7 @@ export const EssentialFooter = (props: SharedEngineProps) => {
            <p className="text-[10px] font-black uppercase tracking-[0.5em] opacity-30">SLATE PRO VERIFIED</p>
            <div className="flex items-center gap-6">
               <Signature className="w-10 h-10 text-slate-500" />
-              <div className="h-8 w-px bg-white/10" />
+              <div className="h-8 w-px bg-noble-surface/10" />
               <p className="text-[9px] font-bold opacity-30 tracking-widest">SECURE SEAL</p>
            </div>
         </div>
@@ -260,7 +260,7 @@ export const EssentialFooter = (props: SharedEngineProps) => {
 
   if (id === 'ess-platinum-border') {
       return (
-        <div className="mt-auto h-24 bg-white flex items-center px-16 justify-between text-slate-900 relative z-10 border-t border-slate-100">
+        <div className="mt-auto h-24 bg-noble-surface flex items-center px-16 justify-between text-noble-text relative z-10 border-t border-slate-100">
            <p className="text-[10px] font-black uppercase tracking-[0.5em] opacity-40">PLATINUM BORDER SERIES</p>
            <div className="flex items-center gap-4">
               <Signature className="w-8 h-8 text-slate-300" />
@@ -272,13 +272,13 @@ export const EssentialFooter = (props: SharedEngineProps) => {
 
   if (id === 'ess-gold-accent') {
       return (
-        <div className="mt-auto px-16 py-12 relative z-10 border-t border-[#D4AF37]/20 flex justify-between items-center bg-white">
+        <div className="mt-auto px-16 py-12 relative z-10 border-t border-[#D4AF37]/20 flex justify-between items-center bg-noble-surface">
            <div className="text-[10px] font-black text-[#D4AF37]/50 uppercase tracking-widest">
               <p>GOLD ACCENT SERIES • OFFICIAL DOCUMENT</p>
            </div>
            <div className="flex flex-col items-end">
               <div className="w-48 h-1 bg-[#D4AF37] opacity-20 mb-2" />
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
            </div>
         </div>
       );
@@ -318,7 +318,7 @@ export const EssentialFooter = (props: SharedEngineProps) => {
               <p className="text-[10px] font-black uppercase tracking-widest">Orange Curve Series</p>
            </div>
            <div className="text-center">
-              <div className="w-48 h-12 border-b border-slate-200 mb-2" />
+              <div className="w-48 h-12 border-b border-noble-border mb-2" />
               <p className="text-[10px] font-black uppercase text-[#F97316]">Signature</p>
            </div>
         </div>
@@ -369,7 +369,7 @@ export const EssentialFooter = (props: SharedEngineProps) => {
             <div className="flex justify-between items-end">
                <div className="space-y-8">
                   <div>
-                    <h4 className="text-2xl font-black text-slate-900 mb-4 border-b-2 border-slate-300 inline-block pr-12 pb-2">Note:</h4>
+                    <h4 className="text-2xl font-black text-noble-text mb-4 border-b-2 border-slate-300 inline-block pr-12 pb-2">Note:</h4>
                     <div className="space-y-4 w-96">
                        <div className="h-0.5 bg-slate-200 w-full" />
                        <div className="h-0.5 bg-slate-200 w-full" />
@@ -377,16 +377,16 @@ export const EssentialFooter = (props: SharedEngineProps) => {
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-2xl font-black text-slate-900 mb-4">Payment Information:</h4>
+                    <h4 className="text-2xl font-black text-noble-text mb-4">Payment Information:</h4>
                     <div className="grid grid-cols-[120px_1fr] gap-x-4 gap-y-1 text-xl font-black text-slate-600">
-                       <span className="text-slate-900">Bank:</span> <span>Name Bank</span>
-                       <span className="text-slate-900">No Bank:</span> <span>123-456-7890</span>
-                       <span className="text-slate-900">Email:</span> <span>reallygreatsite.com</span>
+                       <span className="text-noble-text">Bank:</span> <span>Name Bank</span>
+                       <span className="text-noble-text">No Bank:</span> <span>123-456-7890</span>
+                       <span className="text-noble-text">Email:</span> <span>reallygreatsite.com</span>
                     </div>
                   </div>
                </div>
                <div className="text-center">
-                  <h2 className="text-8xl font-black text-slate-900 italic tracking-tighter">Thank You!</h2>
+                  <h2 className="text-8xl font-black text-noble-text italic tracking-tighter">Thank You!</h2>
                </div>
             </div>
          </div>
@@ -437,7 +437,7 @@ export const EssentialFooter = (props: SharedEngineProps) => {
          <div className="mt-auto px-20 py-20 relative z-10">
             <div className="grid grid-cols-2 gap-32">
                <div className="space-y-4">
-                  <h4 className="text-2xl font-black text-slate-900 uppercase tracking-widest">Payment Method</h4>
+                  <h4 className="text-2xl font-black text-noble-text uppercase tracking-widest">Payment Method</h4>
                   <div className="space-y-1 text-xl font-black text-slate-600">
                      <div className="flex"><span className="w-32">Name</span> <span>: {sender?.full_name}</span></div>
                      <div className="flex"><span className="w-32">Bank</span> <span>: Fauget Bank</span></div>
@@ -446,7 +446,7 @@ export const EssentialFooter = (props: SharedEngineProps) => {
                   </div>
                </div>
                <div className="space-y-4">
-                  <h4 className="text-2xl font-black text-slate-900 uppercase tracking-widest text-right">Terms & Conditions</h4>
+                  <h4 className="text-2xl font-black text-noble-text uppercase tracking-widest text-right">Terms & Conditions</h4>
                   <p className="text-lg font-bold text-slate-500 text-right leading-relaxed">
                      By using the Service, you agree to abide by these Terms and Conditions, Privacy Policy, and Payment Policy.
                   </p>
@@ -461,14 +461,14 @@ export const EssentialFooter = (props: SharedEngineProps) => {
          <div className="mt-auto px-20 py-20 relative z-10">
             <div className="grid grid-cols-2 gap-32">
                <div className="space-y-4">
-                  <h4 className="text-2xl font-black text-slate-900 uppercase">Payment To:</h4>
+                  <h4 className="text-2xl font-black text-noble-text uppercase">Payment To:</h4>
                   <div className="text-xl font-bold text-slate-600 leading-relaxed">
                      <p>Bank Name: Rimberio</p>
                      <p>Account No: 0123 4567 8901</p>
                   </div>
                </div>
                <div className="space-y-4 text-right">
-                  <h4 className="text-2xl font-black text-slate-900 uppercase">Contact Info:</h4>
+                  <h4 className="text-2xl font-black text-noble-text uppercase">Contact Info:</h4>
                   <div className="text-xl font-bold text-slate-600 leading-relaxed">
                      <p>{sender?.email || 'hello@reallygreatsite.com'}</p>
                      <p>{sender?.phone_number || '+123-456-7890'}</p>

@@ -20,16 +20,16 @@ export default function EnterpriseCTA() {
                     <Link href="/register" className="text-white bg-[#166FBB] px-12 py-6 text-lg font-extrabold rounded-[24px] hover:scale-[1.02] active:scale-95 transition-all shadow-2xl shadow-noble-blue/30 flex items-center gap-3">
                         Start free today <ArrowRight className="w-6 h-6" />
                     </Link>
-                    <Link href="/contact" className="flex items-center gap-3 px-8 py-6 rounded-[24px] border-2 border-white/10 text-white font-bold hover:bg-white/5 transition-colors">
+                    <Link href="/contact" className="flex items-center gap-3 px-8 py-6 rounded-[24px] border-2 border-white/10 text-white font-bold hover:bg-noble-surface/5 transition-colors">
                         <Phone className="w-5 h-5" /> Talk to sales
                     </Link>
                 </div>
                 
                 <div className="flex items-center justify-center gap-3 text-sm text-white/50 font-bold uppercase tracking-widest">
                     <span>Custom contracts</span>
-                    <span className="w-1 h-1 rounded-full bg-white/20" />
+                    <span className="w-1 h-1 rounded-full bg-noble-surface/20" />
                     <span>Dedicated manager</span>
-                    <span className="w-1 h-1 rounded-full bg-white/20" />
+                    <span className="w-1 h-1 rounded-full bg-noble-surface/20" />
                     <span>SLA guarantee</span>
                 </div>
             </div>

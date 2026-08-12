@@ -36,7 +36,7 @@ export default function AgencyFailureSection() {
 
                 <div className="grid md:grid-cols-3 gap-8">
                     {failures.map((f, i) => (
-                        <div key={i} className="bg-white/5 border border-white/10 rounded-[28px] p-8 hover:bg-white/10 transition-colors">
+                        <div key={i} className="bg-noble-card border border-noble-card-border rounded-[28px] p-8 hover:bg-noble-surface/10 transition-colors">
                             <div className="text-4xl mb-6">{f.icon}</div>
                             <div className="flex items-start gap-3 mb-4">
                                 <XCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />

@@ -102,22 +102,22 @@ export default function NeuralSearch({ isOpen, onClose }: NeuralSearchProps) {
                     exit={{ scale: 0.95, opacity: 0, y: -20 }}
                     className="relative w-full max-w-2xl bg-slate-900/40  glass-card rounded-[2.5rem] border border-white/10 shadow-3xl overflow-hidden"
                 >
-                    <div className="relative p-6 border-b border-white/5 bg-white/5">
+                    <div className="relative p-6 border-b border-white/5 bg-noble-surface dark:bg-noble-card/5">
                         <Search className="absolute left-10 top-1/2 -translate-y-1/2 w-5 h-5 text-[#006970]" />
                         <input 
                             autoFocus
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             placeholder="Neural search across goals, notes, and tasks..."
-                            className="w-full bg-transparent border-none py-2 pl-12 pr-4 text-white text-lg font-bold font-manrope focus:ring-0 placeholder:text-slate-600"
+                            className="w-full bg-transparent border-none py-2 pl-12 pr-4 text-white text-lg font-bold font-manrope focus:ring-0 placeholder:text-slate-600 dark:text-slate-400 dark:text-slate-500"
                         />
                         <div className="absolute right-10 top-1/2 -translate-y-1/2 flex items-center gap-2">
                             {isSearching ? (
                                 <Loader2 className="w-4 h-4 text-[#006970] animate-spin" />
                             ) : (
-                                <div className="flex items-center gap-1.5 px-2 py-1 bg-white/5 rounded-lg border border-white/5">
-                                    <Command className="w-3 h-3 text-slate-500" />
-                                    <span className="text-[10px] font-black text-slate-500">ESC</span>
+                                <div className="flex items-center gap-1.5 px-2 py-1 bg-noble-surface dark:bg-noble-card/5 rounded-lg border border-white/5">
+                                    <Command className="w-3 h-3 text-slate-500 dark:text-slate-400 dark:text-slate-500" />
+                                    <span className="text-[10px] font-black text-slate-500 dark:text-slate-400 dark:text-slate-500">ESC</span>
                                 </div>
                             )}
                         </div>
@@ -133,8 +133,8 @@ export default function NeuralSearch({ isOpen, onClose }: NeuralSearchProps) {
                                         onClick={() => handleSelect(result)}
                                         className={`p-4 rounded-2xl flex items-center justify-between cursor-pointer transition-all group ${
                                             selectedIndex === i 
-                                                ? 'bg-white/10 border border-white/5' 
-                                                : 'hover:bg-white/5'
+                                                ? 'bg-noble-surface dark:bg-noble-card/10 border border-white/5' 
+                                                : 'hover:bg-noble-surface dark:bg-noble-card/5'
                                         }`}
                                     >
                                         <div className="flex items-center gap-4">
@@ -149,28 +149,28 @@ export default function NeuralSearch({ isOpen, onClose }: NeuralSearchProps) {
                                             </div>
                                             <div>
                                                 <h4 className="text-sm font-bold text-white group-hover:text-[#006970] transition-colors uppercase tracking-tight">{result.title}</h4>
-                                                <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest flex items-center gap-2 mt-0.5">
+                                                <p className="text-[10px] font-black text-slate-500 dark:text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 mt-0.5">
                                                     <span className="hidden group-hover:inline transition-all">Go to</span> {result.type} {result.subtitle && <><span className="opacity-20">•</span> {result.subtitle}</>}
                                                 </p>
                                             </div>
                                         </div>
                                         <ArrowRight className={`w-4 h-4 transition-all ${
                                             selectedIndex === i ? 'translate-x-0 opacity-100' : '-translate-x-2 opacity-0'
-                                        } text-slate-500`} />
+                                        } text-slate-500 dark:text-slate-400 dark:text-slate-500`} />
                                     </div>
                                 ))}
                             </div>
                         ) : searchQuery && !isSearching ? (
                             <div className="py-12 flex flex-col items-center justify-center text-center space-y-4 opacity-50">
-                                <Search className="w-10 h-10 text-slate-700" />
+                                <Search className="w-10 h-10 text-slate-700 dark:text-slate-200" />
                                 <div>
                                     <h3 className="text-white font-bold">No results found</h3>
-                                    <p className="text-slate-500 text-xs mt-1">Try searching for a different keyword or category.</p>
+                                    <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 text-xs mt-1">Try searching for a different keyword or category.</p>
                                 </div>
                             </div>
                         ) : !searchQuery && (
                             <div className="p-3">
-                                <p className="text-[10px] font-black text-slate-600 uppercase tracking-widest mb-4 px-4">Workspace Navigation</p>
+                                <p className="text-[10px] font-black text-slate-600 dark:text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4 px-4">Workspace Navigation</p>
                                 <div className="grid grid-cols-2 gap-2">
                                     {[
                                         { label: 'My Roadmaps', icon: CheckCircle2, path: '/tasks' },
@@ -180,14 +180,14 @@ export default function NeuralSearch({ isOpen, onClose }: NeuralSearchProps) {
                                         <button 
                                             key={cat.label}
                                             onClick={() => { router.push(cat.path); onClose(); }}
-                                            className="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-white/10 hover:bg-white/10 transition-all flex items-center gap-3 group"
+                                            className="p-4 rounded-2xl bg-noble-surface dark:bg-noble-card/5 border border-white/5 hover:border-white/10 hover:bg-noble-surface dark:bg-noble-card/10 transition-all flex items-center gap-3 group"
                                         >
-                                            <cat.icon className="w-4 h-4 text-slate-500 group-hover:text-white transition-colors" />
-                                            <span className="text-xs font-bold text-slate-400 group-hover:text-white transition-colors uppercase tracking-tight">{cat.label}</span>
+                                            <cat.icon className="w-4 h-4 text-slate-500 dark:text-slate-400 dark:text-slate-500 group-hover:text-white transition-colors" />
+                                            <span className="text-xs font-bold text-slate-400 dark:text-slate-500 group-hover:text-white transition-colors uppercase tracking-tight">{cat.label}</span>
                                         </button>
                                     ))}
                                 </div>
-                                <div className="mt-8 flex items-center justify-center gap-4 text-slate-700">
+                                <div className="mt-8 flex items-center justify-center gap-4 text-slate-700 dark:text-slate-200">
                                     <Sparkles className="w-4 h-4" />
                                     <p className="text-[10px] font-black uppercase tracking-[0.2em]">NobleInvoice Neural Search</p>
                                     <Sparkles className="w-4 h-4" />

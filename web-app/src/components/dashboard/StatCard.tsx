@@ -31,7 +31,7 @@ function AnimatedValue({ value, loading }: { value: string; loading: boolean }) 
     }
 
     return (
-        <p className={`text-[20px] font-semibold tracking-[-0.02em] leading-none text-slate-900 transition-all duration-700 ${
+        <p className={`text-[20px] font-semibold tracking-[-0.02em] leading-none text-noble-text transition-all duration-700 ${
             displayed ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
         }`}>
             {value}
@@ -55,12 +55,12 @@ export default function StatCard({
     const isHero = variant === 'hero';
 
     const getBadgeStyle = () => {
-        if (isHero) return 'bg-white/20 text-white border-white/20';
+        if (isHero) return 'bg-noble-surface/20 text-white border-white/20';
         switch (badgeType) {
-            case 'positive': return 'bg-emerald-50 text-emerald-600 border-emerald-100';
-            case 'warning':  return 'bg-orange-50 text-orange-500 border-orange-100';
-            case 'neutral':  return 'bg-slate-50 text-slate-500 border-slate-100';
-            default:         return 'bg-slate-50 text-slate-500 border-slate-100';
+            case 'positive': return 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-500/20';
+            case 'warning':  return 'bg-orange-50 dark:bg-orange-500/10 text-orange-500 dark:text-orange-400 border-orange-100 dark:border-orange-500/20';
+            case 'neutral':  return 'bg-slate-50 dark:bg-white/5 text-slate-500 dark:text-slate-300 border-noble-card-border';
+            default:         return 'bg-slate-50 dark:bg-white/5 text-slate-500 dark:text-slate-300 border-noble-card-border';
         }
     };
 
@@ -68,10 +68,10 @@ export default function StatCard({
     const trendUp = hasTrend && trend! >= 0;
     const trendColor = isHero
         ? (trendUp ? 'text-emerald-300' : 'text-red-300')
-        : (trendUp ? 'text-emerald-600' : 'text-red-500');
+        : (trendUp ? 'text-emerald-600 dark:text-emerald-400' : 'text-red-500 dark:text-red-400');
     const trendBg = isHero
         ? (trendUp ? 'bg-emerald-400/20' : 'bg-red-400/20')
-        : (trendUp ? 'bg-emerald-50' : 'bg-red-50');
+        : (trendUp ? 'bg-emerald-50 dark:bg-emerald-500/10' : 'bg-red-50 dark:bg-red-500/10');
 
     const sparkData = sparklineData?.map(v => ({ v })) || [];
 
@@ -96,7 +96,7 @@ export default function StatCard({
 
                 <div className="relative z-10">
                     <div className="flex justify-between items-start mb-3">
-                        <div className="w-8 h-8 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/20">
+                        <div className="w-8 h-8 rounded-xl bg-noble-surface/20 backdrop-blur-sm flex items-center justify-center border border-white/20">
                             <Icon className="w-4 h-4 text-white" />
                         </div>
                         <div className={`px-2.5 py-0.5 rounded-full border text-[9px] font-black uppercase tracking-wider ${getBadgeStyle()}`}>
@@ -107,7 +107,7 @@ export default function StatCard({
                     <p className="text-[9px] font-black uppercase tracking-widest text-white/60 mb-1.5">{title}</p>
 
                     {loading ? (
-                        <div className="h-7 w-28 rounded-lg animate-pulse bg-white/10" />
+                        <div className="h-7 w-28 rounded-lg animate-pulse bg-noble-surface/10" />
                     ) : (
                         <p className="text-[22px] font-semibold tracking-[-0.02em] leading-none text-white transition-all duration-700">{value}</p>
                     )}
@@ -130,7 +130,7 @@ export default function StatCard({
 
     // Default variant
     return (
-        <div className="bg-white/90 backdrop-blur-xl border border-slate-100 rounded-[18px] p-4 shadow-[0_2px_12px_rgba(15,23,42,0.05)] flex flex-col justify-between hover:shadow-[0_8px_30px_rgba(15,23,42,0.08)] hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group">
+        <div className="bg-noble-card border border-noble-card-border rounded-[18px] p-4 shadow-[0_2px_12px_rgba(15,23,42,0.05)] dark:shadow-none flex flex-col justify-between hover:shadow-[0_8px_30px_rgba(15,23,42,0.08)] dark:hover:shadow-none hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group">
             {/* Sparkline background */}
             {sparkData.length > 0 && (
                 <div className="absolute bottom-0 right-0 w-20 h-10 opacity-15">
@@ -144,7 +144,7 @@ export default function StatCard({
 
             <div className="relative z-10">
                 <div className="flex justify-between items-start mb-3">
-                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${iconBgColor}`}>
+                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center ${iconBgColor} dark:bg-noble-icon-bg`}>
                         <Icon className={`w-4 h-4 ${iconColor}`} />
                     </div>
                     <div className={`px-2.5 py-0.5 rounded-full border text-[9px] font-black uppercase tracking-wider ${getBadgeStyle()}`}>
@@ -152,7 +152,7 @@ export default function StatCard({
                     </div>
                 </div>
 
-                <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mb-1.5">{title}</p>
+                <p className="text-[9px] font-black uppercase tracking-widest text-noble-muted mb-1.5">{title}</p>
 
                 <AnimatedValue value={value} loading={loading} />
 

@@ -3,7 +3,7 @@ import { Clock, TrendingDown, DollarSign } from 'lucide-react';
 
 export default function AgencyProblemSection() {
     return (
-        <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+        <section className="py-24 md:py-32 bg-noble-surface relative overflow-hidden">
             <div className="max-w-[1430px] mx-auto px-4 md:px-16">
 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -32,7 +32,7 @@ export default function AgencyProblemSection() {
                     </div>
 
                     {/* Right: cost calculator card */}
-                    <div className="bg-slate-50 rounded-[32px] border border-slate-200 p-8 md:p-12 shadow-sm">
+                    <div className="bg-slate-50 rounded-[32px] border border-noble-border p-8 md:p-12 shadow-sm">
                         <h3 className="font-black text-2xl text-near-black mb-8">The cost of disconnected billing</h3>
 
                         <div className="space-y-6">
@@ -41,7 +41,7 @@ export default function AgencyProblemSection() {
                                     <Clock className="w-5 h-5 text-red-500" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-slate-900 mb-1">Unlogged revisions</h4>
+                                    <h4 className="font-bold text-noble-text mb-1">Unlogged revisions</h4>
                                     <p className="text-slate-500 text-sm leading-relaxed">Creative agencies lose an average of 15% of their potential billable hours because out-of-scope requests aren't easily added to the final invoice.</p>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@ export default function AgencyProblemSection() {
                                     <TrendingDown className="w-5 h-5 text-amber-500" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-slate-900 mb-1">$31,200/year "Scope Creep Tax"</h4>
+                                    <h4 className="font-bold text-noble-text mb-1">$31,200/year "Scope Creep Tax"</h4>
                                     <p className="text-slate-500 text-sm leading-relaxed">It doesn't feel like much in the moment, but 4 lost hours a week completely erodes the profit margin on your retainer contracts.</p>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@ export default function AgencyProblemSection() {
                                     <DollarSign className="w-5 h-5 text-orange-500" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-slate-900 mb-1">Delayed cash flow</h4>
+                                    <h4 className="font-bold text-noble-text mb-1">Delayed cash flow</h4>
                                     <p className="text-slate-500 text-sm leading-relaxed">When project delivery and invoicing are handled in different systems, invoices get sent late. Late sends mean late payments.</p>
                                 </div>
                             </div>

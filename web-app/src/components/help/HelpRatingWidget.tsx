@@ -49,7 +49,7 @@ export default function HelpRatingWidget({ articleSlug, categorySlug }: Props) {
                 <button
                     onClick={() => submitRating(true)}
                     disabled={status === 'loading'}
-                    className="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-200 hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-600 text-slate-600 font-bold text-sm transition-all disabled:opacity-50"
+                    className="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-noble-border hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-600 text-slate-600 font-bold text-sm transition-all disabled:opacity-50"
                 >
                     <ThumbsUp className="w-4 h-4" />
                     Yes, helpful
@@ -57,7 +57,7 @@ export default function HelpRatingWidget({ articleSlug, categorySlug }: Props) {
                 <button
                     onClick={() => submitRating(false)}
                     disabled={status === 'loading'}
-                    className="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-slate-200 hover:border-red-200 hover:bg-red-50 hover:text-red-600 text-slate-600 font-bold text-sm transition-all disabled:opacity-50"
+                    className="flex-1 md:flex-none flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-noble-border hover:border-red-200 hover:bg-red-50 hover:text-red-600 text-slate-600 font-bold text-sm transition-all disabled:opacity-50"
                 >
                     <ThumbsDown className="w-4 h-4" />
                     Not really

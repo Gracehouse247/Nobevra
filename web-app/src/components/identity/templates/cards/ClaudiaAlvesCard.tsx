@@ -74,7 +74,7 @@ export const ClaudiaAlvesCard: React.FC<CardRendererProps & { defaultColor?: str
                   </div>
              </DraggableElement>
              <DraggableElement elementKey="qr" className="flex flex-col items-center gap-4">
-                <div className="bg-white p-3 rounded-2xl shadow-xl">
+                <div className="bg-noble-surface p-3 rounded-2xl shadow-xl">
                     <SharedQRCode url={data.qrCodeUrl || ''} color={accent} size={250} className="w-28 h-28" />
                 </div>
                 <p className="font-bold tracking-[0.5em] uppercase animate-pulse" style={{ color: ON_WHITE, opacity: 0.4, fontSize: fs(12) }}>Scan to Order</p>

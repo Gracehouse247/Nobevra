@@ -3,7 +3,7 @@ import { AlertCircle, FileX, ArrowRightCircle } from 'lucide-react';
 
 export default function EcommerceBuyerProblem() {
     return (
-        <section className="py-24 md:py-32 bg-white relative overflow-hidden border-t border-slate-100">
+        <section className="py-24 md:py-32 bg-noble-surface relative overflow-hidden border-t border-slate-100">
             <div className="max-w-[1430px] mx-auto px-4 md:px-16">
                 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -16,26 +16,26 @@ export default function EcommerceBuyerProblem() {
                         <h3 className="font-black text-2xl text-red-900 mb-8">Why B2B buyers reject your invoices</h3>
                         
                         <div className="space-y-6 relative z-10">
-                            <div className="bg-white rounded-2xl p-6 border border-red-100 shadow-sm">
+                            <div className="bg-noble-surface rounded-2xl p-6 border border-red-100 shadow-sm">
                                 <div className="flex items-center gap-3 mb-3">
                                     <AlertCircle className="w-5 h-5 text-red-500" />
-                                    <h4 className="font-bold text-slate-900">Missing PO Number</h4>
+                                    <h4 className="font-bold text-noble-text">Missing PO Number</h4>
                                 </div>
                                 <p className="text-slate-600 text-sm leading-relaxed">Accounts Payable (AP) cannot process an invoice without matching it to the original Purchase Order. Without a PO field, it gets kicked back.</p>
                             </div>
 
-                            <div className="bg-white rounded-2xl p-6 border border-red-100 shadow-sm">
+                            <div className="bg-noble-surface rounded-2xl p-6 border border-red-100 shadow-sm">
                                 <div className="flex items-center gap-3 mb-3">
                                     <AlertCircle className="w-5 h-5 text-red-500" />
-                                    <h4 className="font-bold text-slate-900">HTML Emails instead of PDFs</h4>
+                                    <h4 className="font-bold text-noble-text">HTML Emails instead of PDFs</h4>
                                 </div>
                                 <p className="text-slate-600 text-sm leading-relaxed">Sending a Shopify order confirmation email doesn't work. Finance teams require a downloadable, compliant PDF document for their records.</p>
                             </div>
 
-                            <div className="bg-white rounded-2xl p-6 border border-red-100 shadow-sm">
+                            <div className="bg-noble-surface rounded-2xl p-6 border border-red-100 shadow-sm">
                                 <div className="flex items-center gap-3 mb-3">
                                     <AlertCircle className="w-5 h-5 text-red-500" />
-                                    <h4 className="font-bold text-slate-900">Missing Tax / VAT IDs</h4>
+                                    <h4 className="font-bold text-noble-text">Missing Tax / VAT IDs</h4>
                                 </div>
                                 <p className="text-slate-600 text-sm leading-relaxed">In Europe and many other regions, a B2B invoice is legally invalid if it does not display both the seller's and the buyer's VAT registration numbers.</p>
                             </div>

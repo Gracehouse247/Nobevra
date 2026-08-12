@@ -116,7 +116,7 @@ export default function SubscriptionsPanel() {
                         ) : filtered.length === 0 ? (
                             <tr><td colSpan={5} className="px-6 py-8 text-center text-sm text-slate-500">No subscribers found matching filter.</td></tr>
                         ) : filtered.map(sub => (
-                            <tr key={sub.id} className="border-b border-black/5  hover:bg-white/2 transition-colors">
+                            <tr key={sub.id} className="border-b border-black/5  hover:bg-noble-surface/2 transition-colors">
                                 <td className="px-6 py-4">
                                     <p className="text-sm font-semibold text-foreground ">{sub.name}</p>
                                     <p className="text-xs text-slate-500">{sub.email}</p>

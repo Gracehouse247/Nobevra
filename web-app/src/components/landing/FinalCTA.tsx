@@ -5,14 +5,14 @@ import Link from 'next/link';
 
 export default function FinalCTA() {
     return (
-        <section className="relative py-[200px] overflow-hidden bg-white">
+        <section className="relative py-[200px] overflow-hidden bg-noble-surface">
             <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[800px] h-[800px] bg-noble-blue/5 blur-[180px] rounded-full"></div>
             <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] bg-blue-50/30 blur-[150px] rounded-full"></div>
             <div className="max-w-[1430px] mx-auto px-4 md:px-16 text-center relative z-10">
                 <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-noble-blue/5 border border-noble-blue/10 text-blue-800 font-black text-[10px] uppercase tracking-[0.3em] mb-12">
                     Initialize Your Account
                 </div>
-                <h2 className="font-inter text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-12 tracking-tighter leading-[1.1]">
+                <h2 className="font-inter text-4xl md:text-5xl lg:text-6xl font-black text-noble-text mb-12 tracking-tighter leading-[1.1]">
                     Try it Right Now. <br /> <span className="text-noble-blue">No Risks, No Limits.</span>
                 </h2>
                 <p className="text-2xl text-slate-500 mb-20 max-w-2xl mx-auto font-black leading-relaxed">
@@ -27,7 +27,7 @@ export default function FinalCTA() {
                     </Link>
                     <Link 
                         href="/login"
-                        className="text-slate-900/60 hover:text-slate-900 transition-colors text-xl font-black underline underline-offset-8 decoration-noble-blue/30"
+                        className="text-noble-text/60 hover:text-noble-text transition-colors text-xl font-black underline underline-offset-8 decoration-noble-blue/30"
                     >
                         Member Login
                     </Link>

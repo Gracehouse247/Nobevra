@@ -45,18 +45,18 @@ export default function LiveTemplatePreview() {
     const template = featuredTemplates[currentIndex];
 
     return (
-        <div className="w-full h-full relative group/preview overflow-hidden rounded-[40px] bg-white border border-near-black/5 shadow-2xl">
+        <div className="w-full h-full relative group/preview overflow-hidden rounded-[40px] bg-noble-surface border border-near-black/5 shadow-2xl">
             {/* Header / Labels */}
             <div className="absolute top-8 left-8 z-20">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-noble-blue text-white font-bold text-[9px] uppercase tracking-widest shadow-lg mb-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-noble-surface animate-pulse" />
                     Live Engine
                 </div>
                 <h4 className="text-xl font-black text-near-black tracking-tight">{template.name}</h4>
             </div>
 
             <div className="absolute top-8 right-8 z-20">
-                <div className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-noble-blue shadow-lg border border-white">
+                <div className="w-10 h-10 rounded-full bg-noble-surface/80 backdrop-blur-md flex items-center justify-center text-noble-blue shadow-lg border border-white">
                     <span className="material-symbols-outlined text-xl">auto_awesome</span>
                 </div>
             </div>

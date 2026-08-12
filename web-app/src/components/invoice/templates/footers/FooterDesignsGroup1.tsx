@@ -48,7 +48,7 @@ export const RedDiamondFooter = (props: SharedEngineProps) => {
                <Signature className="w-8 h-8 text-slate-200" />
              )}
           </div>
-          <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+          <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
        </div>
     </div>
   );
@@ -74,7 +74,7 @@ export const NavyGeometricFooter = (props: SharedEngineProps) => {
                   <Signature className="w-8 h-8 text-slate-100" />
                 )}
              </div>
-             <p className="text-[10px] font-black text-slate-900 uppercase tracking-[0.4em]">{sender?.full_name}</p>
+             <p className="text-[10px] font-black text-noble-text uppercase tracking-[0.4em]">{sender?.full_name}</p>
           </div>
        </div>
     </div>
@@ -86,7 +86,7 @@ export const TealGeometricFooter = (props: SharedEngineProps) => {
   const { sender } = data;
   return (
     <div className="mt-auto flex flex-col z-10 pb-12 px-16">
-       <div className="h-px w-full bg-white/10 mb-12" />
+       <div className="h-px w-full bg-noble-surface/10 mb-12" />
        <div className="flex justify-between items-center">
           <div className="flex gap-8">
              <div className="flex flex-col">
@@ -130,7 +130,7 @@ export const OrangeGeometricFooter = (props: SharedEngineProps) => {
                   <Signature className="w-8 h-8 text-slate-100" />
                 )}
              </div>
-             <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest mt-2">{sender?.full_name}</p>
+             <p className="text-[10px] font-black text-noble-text uppercase tracking-widest mt-2">{sender?.full_name}</p>
           </div>
        </div>
     </div>
@@ -149,7 +149,7 @@ export const YellowSharpFooter = (props: SharedEngineProps) => {
              <p className="text-[10px] text-slate-500 max-w-xs uppercase">The recipient acknowledges the terms by signing above.</p>
           </div>
           <div className="flex flex-col items-center relative z-10">
-             <div className="w-48 h-16 border-b-4 border-[#FBBF24] mb-4 flex items-center justify-center bg-white/5">
+             <div className="w-48 h-16 border-b-4 border-[#FBBF24] mb-4 flex items-center justify-center bg-noble-surface/5">
                 {data.signatureUrl ? (
                   <img src={data.signatureUrl} alt="Signature" className="h-full w-auto object-contain" />
                 ) : (
@@ -173,7 +173,7 @@ export const BlackYellowGeoFooter = (props: SharedEngineProps) => {
              <div className="bg-[#FBBF24] w-12 h-12 rounded-full flex items-center justify-center">
                 <Globe className="w-6 h-6 text-black" />
              </div>
-             <span className="text-sm font-black uppercase tracking-tighter text-slate-900">{sender?.website}</span>
+             <span className="text-sm font-black uppercase tracking-tighter text-noble-text">{sender?.website}</span>
           </div>
           <div className="flex flex-col items-center">
              <div className="w-64 h-20 border-b-2 border-[#FBBF24] mb-2 flex items-center justify-center">
@@ -183,7 +183,7 @@ export const BlackYellowGeoFooter = (props: SharedEngineProps) => {
                   <Signature className="w-8 h-8 text-slate-100" />
                 )}
              </div>
-             <p className="text-xs font-black text-slate-900 uppercase tracking-[0.6em]">{sender?.full_name}</p>
+             <p className="text-xs font-black text-noble-text uppercase tracking-[0.6em]">{sender?.full_name}</p>
           </div>
        </div>
     </div>
@@ -211,7 +211,7 @@ export const CyanBlackGeoFooter = (props: SharedEngineProps) => {
                   <Signature className="w-8 h-8 text-slate-100" />
                 )}
              </div>
-             <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+             <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
           </div>
        </div>
     </div>
@@ -229,14 +229,14 @@ export const YellowBluePillFooter = (props: SharedEngineProps) => {
              <p className="text-xs font-bold text-slate-400 italic">Trusted globally by leading partners.</p>
           </div>
           <div className="flex flex-col items-center">
-             <div className="w-48 h-16 bg-white rounded-full shadow-2xl border-2 border-slate-50 mb-2 flex items-center justify-center overflow-hidden">
+             <div className="w-48 h-16 bg-noble-surface rounded-full shadow-2xl border-2 border-slate-50 mb-2 flex items-center justify-center overflow-hidden">
                 {data.signatureUrl ? (
                   <img src={data.signatureUrl} alt="Signature" className="h-full w-auto object-contain" />
                 ) : (
                   <Signature className="w-8 h-8 text-slate-100" />
                 )}
              </div>
-             <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+             <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
           </div>
        </div>
        <div className="h-8 w-full bg-gradient-to-r from-[#2563EB] to-[#FBBF24]" />
@@ -261,7 +261,7 @@ export const YellowMinimalGeoFooter = (props: SharedEngineProps) => {
                <Signature className="w-8 h-8 text-slate-100" />
              )}
           </div>
-          <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+          <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
        </div>
     </div>
   );

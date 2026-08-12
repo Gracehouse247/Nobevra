@@ -30,7 +30,7 @@ export default function SEOSolutionSection() {
     ];
 
     return (
-        <section className="py-24 md:py-32 relative overflow-hidden bg-white">
+        <section className="py-24 md:py-32 relative overflow-hidden bg-noble-surface">
             {/* Background glow */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-noble-blue/[0.03] blur-[120px] rounded-full translate-x-1/3 -translate-y-1/4 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-electric-cyan/[0.03] blur-[100px] rounded-full -translate-x-1/4 translate-y-1/4 pointer-events-none" />

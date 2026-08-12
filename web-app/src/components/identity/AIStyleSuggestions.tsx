@@ -49,10 +49,10 @@ export const AIStyleSuggestions: React.FC<AIStyleSuggestionsProps> = ({
   };
 
   return (
-    <div className="space-y-8 p-8 rounded-3xl bg-white border border-slate-100 shadow-xl shadow-slate-200/20">
+    <div className="space-y-8 p-8 rounded-3xl bg-noble-surface border border-slate-100 shadow-xl shadow-slate-200/20">
       <div className="flex items-center justify-between">
         <div className="space-y-1">
-          <h2 className="text-2xl font-bold font-montserrat text-slate-900 flex items-center gap-2">
+          <h2 className="text-2xl font-bold font-montserrat text-noble-text flex items-center gap-2">
             <Wand2 className="text-noble-blue" />
             AI Style Suggestions
           </h2>
@@ -82,7 +82,7 @@ export const AIStyleSuggestions: React.FC<AIStyleSuggestionsProps> = ({
           {suggestions.map((s, idx) => (
             <div 
               key={idx}
-              className="group relative p-6 rounded-2xl bg-white border border-slate-100 hover:border-noble-blue/30 hover:shadow-xl transition-all cursor-pointer overflow-hidden"
+              className="group relative p-6 rounded-2xl bg-noble-surface border border-slate-100 hover:border-noble-blue/30 hover:shadow-xl transition-all cursor-pointer overflow-hidden"
               onClick={() => onSelect(s)}
             >
               <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -94,14 +94,14 @@ export const AIStyleSuggestions: React.FC<AIStyleSuggestionsProps> = ({
                   <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-noble-blue/5">
                     <Palette className="text-noble-blue" size={20} />
                   </div>
-                  <h3 className="text-xl font-bold font-montserrat text-slate-900">
+                  <h3 className="text-xl font-bold font-montserrat text-noble-text">
                     {s.templateId === 'id-larana-inc' ? 'Executive Vertex' : 'Dynamic Azure'}
                   </h3>
                 </div>
 
                 <div className="space-y-2">
                   <p className="text-noble-blue font-bold text-xs uppercase tracking-widest">{s.templateId.replace('id-', '')}</p>
-                  <p className="text-slate-900 text-lg font-bold italic">"{s.tagline}"</p>
+                  <p className="text-noble-text text-lg font-bold italic">"{s.tagline}"</p>
                   <p className="text-slate-500 text-xs font-medium leading-relaxed">{s.reason}</p>
                 </div>
 
@@ -119,7 +119,7 @@ export const AIStyleSuggestions: React.FC<AIStyleSuggestionsProps> = ({
 
       {suggestions.length === 0 && !loading && (
         <div className="py-12 flex flex-col items-center justify-center text-center space-y-4 border-2 border-dashed border-slate-100 rounded-2xl bg-slate-50/50">
-          <div className="w-16 h-16 rounded-2xl bg-white flex items-center justify-center shadow-sm">
+          <div className="w-16 h-16 rounded-2xl bg-noble-surface flex items-center justify-center shadow-sm">
              <Wand2 className="text-slate-300" size={32} />
           </div>
           <p className="text-slate-400 font-bold text-xs uppercase tracking-widest max-w-xs">Enter your business type to analyze your premium branding strategy.</p>

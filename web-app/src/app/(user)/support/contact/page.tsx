@@ -53,10 +53,10 @@ function SupportContactForm() {
                     <CheckCircle className="w-12 h-12 text-emerald-400" />
                 </div>
                 <h3 className="text-2xl font-black text-white">Transmission Received</h3>
-                <p className="text-sm text-slate-400 max-w-sm">
+                <p className="text-sm text-slate-400 dark:text-slate-500 max-w-sm">
                     Your {form.type} report has been securely transmitted to the NobleInvoice engineering team.
                 </p>
-                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-4">Redirecting...</p>
+                <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-4">Redirecting...</p>
             </div>
         );
     }
@@ -65,7 +65,7 @@ function SupportContactForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">Inquiry Type</label>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-2">Inquiry Type</label>
                     <select 
                         value={form.type}
                         onChange={e => setForm({ ...form, type: e.target.value })}
@@ -77,7 +77,7 @@ function SupportContactForm() {
                     </select>
                 </div>
                 <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">Reply-To Email</label>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-2">Reply-To Email</label>
                     <input 
                         type="email"
                         required
@@ -89,7 +89,7 @@ function SupportContactForm() {
             </div>
 
             <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">Subject Header</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-2">Subject Header</label>
                 <input 
                     type="text"
                     required
@@ -101,7 +101,7 @@ function SupportContactForm() {
             </div>
 
             <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500 mb-2">Message Body</label>
+                <label className="block text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-2">Message Body</label>
                 <textarea 
                     required
                     placeholder={form.type === 'bug' ? "Steps to reproduce the error..." : "Describe your request in detail..."}
@@ -130,14 +130,14 @@ export default function ContactSupportPage() {
         <div className="p-4 md:p-8 max-w-3xl mx-auto space-y-8 pb-24 md:pb-20">
             <button 
                 onClick={() => router.push('/support')}
-                className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-[#006970] transition-colors"
+                className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:text-[#006970] transition-colors"
             >
                 <ArrowLeft className="w-4 h-4" /> Back to Help Center
             </button>
             
             <div>
                 <h1 className="text-3xl font-black text-foreground  tracking-tight">Open a Ticket</h1>
-                <p className="text-slate-500 font-medium mt-2">Our cognitive engineers will respond to your registered email channel.</p>
+                <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-2">Our cognitive engineers will respond to your registered email channel.</p>
             </div>
 
             <div className="glass-card p-6 md:p-10 rounded-[2.5rem] bg-background/50 border border-black/5  relative overflow-hidden">

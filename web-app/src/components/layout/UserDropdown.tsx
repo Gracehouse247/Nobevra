@@ -66,11 +66,12 @@ export default function UserDropdown() {
 
     const isElite = displayPlan === 'elite' || displayPlan === 'admin';
     const isPulse = displayPlan === 'pulse';
-    const isPremium = isElite || isPulse;
+    const isSuperAdmin = !!authUserData?.isSuperAdmin;
+    const isPremium = isElite || isPulse || isSuperAdmin;
 
-    const planLabel = isElite ? 'Noble Elite' : isPulse ? 'Noble Pulse' : 'Free Tier';
-    const planColor = isElite ? 'text-amber-500' : isPulse ? 'text-[#0599D5]' : 'text-slate-400';
-    const planBadgeBg = isElite ? 'bg-amber-50 border-amber-100' : isPulse ? 'bg-blue-50 border-blue-100' : 'bg-slate-50 border-slate-100';
+    const planLabel = isSuperAdmin ? 'Super Admin' : isElite ? 'Noble Elite' : isPulse ? 'Noble Pulse' : 'Free Tier';
+    const planColor = isSuperAdmin ? 'text-amber-500' : isElite ? 'text-amber-500' : isPulse ? 'text-[#0599D5]' : 'text-slate-400 dark:text-slate-500';
+    const planBadgeBg = isSuperAdmin ? 'bg-amber-50 border-amber-100 dark:bg-amber-500/10 dark:border-amber-500/20' : isElite ? 'bg-amber-50 border-amber-100' : isPulse ? 'bg-blue-50 border-blue-100' : 'bg-slate-50 dark:bg-[#0D1B2E] border-slate-100 dark:border-noble-border';
 
     // Handle clicking outside to close
     useEffect(() => {
@@ -90,14 +91,16 @@ export default function UserDropdown() {
                 onClick={() => setIsOpen(!isOpen)}
                 className={`flex items-center gap-2.5 py-1.5 pl-3 pr-1.5 rounded-full border transition-all duration-200 ${
                     isOpen 
-                    ? 'bg-slate-50 border-slate-200 shadow-inner' 
-                    : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50 shadow-sm'
+                    ? 'bg-slate-50 dark:bg-[#0D1B2E] border-noble-border shadow-inner' 
+                    : 'bg-noble-dropdown-bg border-noble-border hover:border-slate-300 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] shadow-sm'
                 }`}
             >
                 {/* Name + Plan (desktop only) */}
                 <div className="hidden sm:flex flex-col items-end">
-                    <span className="text-[12px] font-bold text-slate-800 leading-tight tracking-tight">{displayName}</span>
-                    <span className={`text-[9px] font-black uppercase tracking-widest ${planColor}`}>{isElite ? 'ELITE' : isPulse ? 'PULSE' : 'STARTER'}</span>
+                    <span className="text-[12px] font-bold text-noble-dropdown-text leading-tight tracking-tight">{displayName}</span>
+                    <span className={`text-[9px] font-black uppercase tracking-widest ${planColor}`}>
+                        {isSuperAdmin ? 'SUPER ADMIN' : isElite ? 'ELITE' : isPulse ? 'PULSE' : 'STARTER'}
+                    </span>
                 </div>
 
                 {/* Avatar with plan ring */}
@@ -112,20 +115,20 @@ export default function UserDropdown() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.96 }}
                         transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
-                        className="absolute right-0 mt-2.5 w-72 bg-white rounded-[24px] border border-slate-200/80 shadow-[0_20px_60px_rgba(15,23,42,0.14)] z-[9999] overflow-hidden origin-top-right"
+                        className="absolute right-0 mt-2.5 w-72 bg-noble-dropdown-bg rounded-[24px] border border-noble-border/80 shadow-[0_20px_60px_rgba(15,23,42,0.14)] z-[9999] overflow-hidden origin-top-right"
                     >
                         {/* Header Profile Area */}
-                        <div className="p-5 border-b border-slate-100 bg-gradient-to-b from-slate-50 to-white">
+                        <div className="p-5 border-b border-slate-100 dark:border-noble-border bg-gradient-to-b from-slate-50 to-white">
                             <div className="flex items-center gap-4">
                                 <UserAvatar avatarUrl={avatarUrl} initials={initials} plan={displayPlan} size="lg" />
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center gap-2 mb-0.5">
-                                        <h3 className="text-[14px] font-black text-slate-900 truncate">{displayName}</h3>
+                                        <h3 className="text-[14px] font-black text-noble-text truncate">{displayName}</h3>
                                         {isPremium && <CheckCircle2 className="w-3.5 h-3.5 text-[#0599D5] flex-shrink-0" />}
                                     </div>
-                                    <p className="text-[11px] text-slate-400 font-medium truncate">{displayEmail}</p>
+                                    <p className="text-[11px] text-slate-400 dark:text-slate-500 font-medium truncate">{displayEmail}</p>
                                     <div className={`inline-flex items-center gap-1 mt-2 px-2 py-0.5 rounded-full border ${planBadgeBg}`}>
-                                        {isElite ? <Crown className="w-2.5 h-2.5 text-amber-500" /> : <Sparkles className="w-2.5 h-2.5 text-[#0599D5]" />}
+                                        {(isElite || isSuperAdmin) ? <Crown className="w-2.5 h-2.5 text-amber-500" /> : <Sparkles className="w-2.5 h-2.5 text-[#0599D5]" />}
                                         <span className={`text-[9px] font-black uppercase tracking-widest ${planColor}`}>{planLabel}</span>
                                     </div>
                                 </div>
@@ -140,9 +143,9 @@ export default function UserDropdown() {
                                         <div className="w-6 h-6 rounded-lg bg-[#0599D5]/15 flex items-center justify-center">
                                             <Sparkles className="w-3 h-3 text-[#0599D5]" />
                                         </div>
-                                        <p className="text-[11px] font-black text-slate-700">Unlock Full Power</p>
+                                        <p className="text-[11px] font-black text-slate-700 dark:text-slate-200">Unlock Full Power</p>
                                     </div>
-                                    <p className="text-[10px] text-slate-500 font-medium leading-relaxed mb-3">
+                                    <p className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium leading-relaxed mb-3">
                                         Advanced AI invoicing, payments & client management.
                                     </p>
                                     <Link 
@@ -167,7 +170,7 @@ export default function UserDropdown() {
                                     <Link 
                                         href="/settings/billing"
                                         onClick={() => setIsOpen(false)}
-                                        className="text-[9px] font-black text-slate-400 hover:text-slate-700 uppercase tracking-widest transition-colors"
+                                        className="text-[9px] font-black text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:text-slate-200 uppercase tracking-widest transition-colors"
                                     >
                                         Manage →
                                     </Link>
@@ -186,10 +189,10 @@ export default function UserDropdown() {
                                     key={href}
                                     href={href}
                                     onClick={() => setIsOpen(false)}
-                                    className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 text-slate-500 hover:text-slate-900 transition-all group"
+                                    className="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:text-noble-text transition-all group"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center group-hover:bg-white group-hover:shadow-sm transition-all">
+                                        <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-[#112030] flex items-center justify-center group-hover:bg-noble-dropdown-bg group-hover:shadow-sm transition-all">
                                             <Icon className="w-3.5 h-3.5" />
                                         </div>
                                         <span className="text-[12px] font-semibold">{label}</span>
@@ -200,15 +203,15 @@ export default function UserDropdown() {
                         </div>
 
                         {/* Logout Section */}
-                        <div className="px-3 pb-3 border-t border-slate-100 pt-1">
+                        <div className="px-3 pb-3 border-t border-slate-100 dark:border-noble-border pt-1">
                             <button 
                                 onClick={() => {
                                     setIsOpen(false);
                                     router.push('/logout');
                                 }}
-                                className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-rose-50 text-slate-400 hover:text-rose-600 transition-all group"
+                                className="w-full flex items-center gap-3 p-3 rounded-xl hover:bg-rose-50 text-slate-400 dark:text-slate-500 hover:text-rose-600 transition-all group"
                             >
-                                <div className="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-rose-100 flex items-center justify-center transition-all">
+                                <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-[#112030] group-hover:bg-rose-100 flex items-center justify-center transition-all">
                                     <LogOut className="w-3.5 h-3.5" />
                                 </div>
                                 <span className="text-[12px] font-semibold">Sign Out securely</span>

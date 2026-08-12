@@ -53,7 +53,7 @@ export default function NobleEmptyState({
 
     return (
         <motion.div 
-            className="flex flex-col items-center justify-center py-24 px-8 text-center relative select-none w-full max-w-2xl mx-auto rounded-[40px] bg-white/40 backdrop-blur-2xl border border-white/60 shadow-[0_40px_100px_rgba(22,111,187,0.05)] overflow-hidden"
+            className="flex flex-col items-center justify-center py-24 px-8 text-center relative select-none w-full max-w-2xl mx-auto rounded-[40px] bg-noble-surface dark:bg-noble-card/40 backdrop-blur-2xl border border-white/60 shadow-[0_40px_100px_rgba(22,111,187,0.05)] overflow-hidden"
             onMouseMove={handleMouse}
             onMouseLeave={handleMouseLeave}
             style={{ perspective: 1000 }}
@@ -82,7 +82,7 @@ export default function NobleEmptyState({
                         <motion.div
                             animate={{ y: [0, -6, 0] }}
                             transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-                            className={`absolute -top-4 -right-4 ${accentColor} bg-white rounded-xl p-2 shadow-xl border border-white/50`}
+                            className={`absolute -top-4 -right-4 ${accentColor} bg-noble-surface dark:bg-noble-card rounded-xl p-2 shadow-xl border border-white/50`}
                             style={{ transform: "translateZ(80px)" }}
                         >
                             <AccentIcon className="w-6 h-6 drop-shadow-md" />
@@ -99,10 +99,10 @@ export default function NobleEmptyState({
                 transition={{ delay: 0.2 }}
                 className="space-y-4 max-w-sm relative z-10"
             >
-                <h3 className="text-3xl font-black text-slate-900 tracking-tighter leading-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
+                <h3 className="text-3xl font-black text-noble-text tracking-tighter leading-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
                     {title}
                 </h3>
-                <p className="text-slate-500 text-[13px] leading-relaxed font-bold tracking-wide">
+                <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 text-[13px] leading-relaxed font-bold tracking-wide">
                     {description}
                 </p>
             </motion.div>
@@ -133,7 +133,7 @@ export default function NobleEmptyState({
                             onClick={action.onClick}
                             className={
                                 action.variant === 'secondary'
-                                    ? 'px-8 py-4 bg-white/60 backdrop-blur-md hover:bg-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-slate-600 transition-all border border-slate-200 shadow-sm'
+                                    ? 'px-8 py-4 bg-noble-surface dark:bg-noble-card/60 backdrop-blur-md hover:bg-noble-surface dark:bg-noble-card rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] text-slate-600 dark:text-slate-400 dark:text-slate-500 transition-all border border-noble-border shadow-sm'
                                     : 'px-8 py-4 bg-noble-blue hover:bg-noble-blue/90 text-white rounded-2xl font-black text-[10px] uppercase tracking-[0.2em] flex items-center gap-2 transition-all shadow-[0_20px_40px_rgba(22,111,187,0.3)]'
                             }
                         >

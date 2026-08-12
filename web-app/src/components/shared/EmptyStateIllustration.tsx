@@ -34,7 +34,7 @@ export function EmptyStateIllustration({
                 initial={{ y: 0 }}
                 animate={{ y: [-5, 5, -5] }}
                 transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
-                className="relative z-10 p-6 bg-white rounded-3xl shadow-xl border border-slate-100"
+                className="relative z-10 p-6 bg-noble-surface dark:bg-noble-card rounded-3xl shadow-xl border border-slate-100 dark:border-noble-border"
             >
                 <PrimaryIcon className={`w-16 h-16 ${primaryColor}`} strokeWidth={1.5} />
             </motion.div>
@@ -57,13 +57,13 @@ export function EmptyStateIllustration({
                             x: { duration: 0.8, ease: 'easeOut', delay: 0.2 + index * 0.1 },
                             y: { duration: 0.8, ease: 'easeOut', delay: 0.2 + index * 0.1 }
                         }}
-                        className="absolute inset-0 m-auto w-10 h-10 bg-white rounded-xl shadow-lg border border-slate-50 flex items-center justify-center z-20"
+                        className="absolute inset-0 m-auto w-10 h-10 bg-noble-surface dark:bg-noble-card rounded-xl shadow-lg border border-slate-50 flex items-center justify-center z-20"
                     >
                         <motion.div
                             animate={{ y: [-3, 3, -3] }}
                             transition={{ repeat: Infinity, duration: 3, delay: index * 0.5, ease: 'easeInOut' }}
                         >
-                            <Icon className={`w-5 h-5 ${index % 2 === 0 ? secondaryColor : 'text-slate-400'}`} strokeWidth={2} />
+                            <Icon className={`w-5 h-5 ${index % 2 === 0 ? secondaryColor : 'text-slate-400 dark:text-slate-500'}`} strokeWidth={2} />
                         </motion.div>
                     </motion.div>
                 );

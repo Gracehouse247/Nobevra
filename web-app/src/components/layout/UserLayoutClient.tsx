@@ -62,15 +62,17 @@ export default function UserLayoutClient({ children }: { children: React.ReactNo
     // Loading state — animated splash screen
     if (loading) {
         return (
-            <div className="h-screen w-full bg-[#F0F4F8] flex items-center justify-center overflow-hidden relative">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#166FBB]/5 blur-[120px] rounded-full pointer-events-none" />
+            <div className="h-screen w-full bg-noble-bg flex items-center justify-center overflow-hidden relative">
+                {/* Ambient glow — uses brand primary */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-noble-primary/5 blur-[120px] rounded-full pointer-events-none" />
                 <div className="flex flex-col items-center gap-8 relative z-10">
+                    {/* Spinner ring */}
                     <motion.div
                         className="relative w-24 h-24 flex items-center justify-center"
                         animate={{ rotate: 360 }}
                         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                     >
-                        <svg className="w-full h-full text-[#166FBB]" viewBox="0 0 100 100" fill="none">
+                        <svg className="w-full h-full text-noble-primary" viewBox="0 0 100 100" fill="none">
                             <motion.circle
                                 cx="50" cy="50" r="45"
                                 stroke="currentColor"
@@ -90,20 +92,23 @@ export default function UserLayoutClient({ children }: { children: React.ReactNo
                                 style={{ transformOrigin: "center" }}
                             />
                         </svg>
+                        {/* Brand icon center */}
                         <div className="absolute inset-0 flex items-center justify-center">
                             <motion.div
-                                className="w-10 h-10 bg-gradient-to-br from-[#166FBB] to-[#00E5FF] rounded-xl shadow-[0_0_20px_rgba(22,111,187,0.4)]"
+                                className="w-10 h-10 bg-gradient-to-br from-noble-secondary to-noble-primary rounded-xl shadow-[0_0_20px_rgba(5,153,213,0.4)]"
                                 animate={{ scale: [1, 1.1, 1] }}
                                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                             />
                         </div>
                     </motion.div>
+
+                    {/* Brand name + subtitle */}
                     <div className="text-center space-y-2">
                         <motion.h2
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className="text-slate-900 font-black tracking-tight text-4xl"
+                            className="text-noble-text font-black tracking-tight text-4xl"
                             style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
                         >
                             NobleInvoice
@@ -112,7 +117,7 @@ export default function UserLayoutClient({ children }: { children: React.ReactNo
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.2, duration: 0.5 }}
-                            className="text-slate-500 font-extrabold text-[10px] uppercase tracking-[0.3em]"
+                            className="text-noble-muted font-extrabold text-[10px] uppercase tracking-[0.3em]"
                         >
                             Initializing Workspace
                         </motion.p>
@@ -122,6 +127,7 @@ export default function UserLayoutClient({ children }: { children: React.ReactNo
         );
     }
 
+
     if (!user) return null;
 
     const isStudio = pathname === '/studio';
@@ -129,7 +135,7 @@ export default function UserLayoutClient({ children }: { children: React.ReactNo
     if (isStudio) {
         return (
             <>
-                <div className="flex h-screen w-screen bg-background overflow-hidden font-manrope">
+                <div className="flex h-screen w-screen bg-[#F3F6FC] dark:bg-[#060D1A] overflow-hidden font-manrope">
                     {children}
                 </div>
                 <Script src="https://checkout.flutterwave.com/v3.js" strategy="lazyOnload" />
@@ -139,7 +145,7 @@ export default function UserLayoutClient({ children }: { children: React.ReactNo
 
     return (
         <>
-            <div className="flex h-screen bg-background overflow-hidden font-manrope">
+            <div className="flex h-screen bg-[#F3F6FC] dark:bg-[#060D1A] overflow-hidden font-manrope">
                 {/* Desktop Sidebar */}
                 <Sidebar
                     userData={userData}
@@ -153,7 +159,7 @@ export default function UserLayoutClient({ children }: { children: React.ReactNo
                     {/* Top Header */}
                     <Header setIsMobileMenuOpen={setIsMobileMenuOpen} />
 
-                    <div className="flex-1 overflow-auto bg-background/50 custom-scrollbar">
+                    <div className="flex-1 overflow-auto bg-[#F3F6FC] dark:bg-[#060D1A] custom-scrollbar">
                         {children}
                     </div>
 

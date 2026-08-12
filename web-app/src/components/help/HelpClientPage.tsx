@@ -29,12 +29,12 @@ export default function HelpClientPage() {
     return (
         <>
             {/* ── Hero / Search ── */}
-            <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-[#F8FAFC] border-b border-slate-200 overflow-hidden">
+            <section className="relative pt-24 pb-20 md:pt-32 md:pb-28 bg-[#F8FAFC] border-b border-noble-border overflow-hidden">
                 <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-indigo-500/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/3 pointer-events-none" />
                 <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-noble-blue/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/3 pointer-events-none" />
 
                 <div className="max-w-4xl mx-auto px-4 md:px-8 text-center relative z-10">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6 border border-noble-blue/20 shadow-sm">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-surface text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6 border border-noble-blue/20 shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-noble-blue animate-pulse" />
                         Support · {allArticles.length} Articles
                     </div>
@@ -53,7 +53,7 @@ export default function HelpClientPage() {
                             </div>
                             <input
                                 type="text"
-                                className="block w-full pl-16 pr-8 py-6 text-lg border-2 border-slate-200 rounded-[24px] focus:ring-0 focus:border-noble-blue text-near-black placeholder-slate-400 bg-white transition-colors outline-none"
+                                className="block w-full pl-16 pr-8 py-6 text-lg border-2 border-noble-border rounded-[24px] focus:ring-0 focus:border-noble-blue text-near-black placeholder-slate-400 bg-noble-surface transition-colors outline-none"
                                 placeholder="Search articles, guides, or features..."
                                 value={query}
                                 onChange={e => setQuery(e.target.value)}
@@ -64,7 +64,7 @@ export default function HelpClientPage() {
 
                         {/* Results dropdown */}
                         {showResults && (
-                            <div className="absolute top-full mt-2 left-0 right-0 bg-white rounded-2xl border border-slate-200 shadow-2xl z-50 overflow-hidden">
+                            <div className="absolute top-full mt-2 left-0 right-0 bg-noble-surface rounded-2xl border border-noble-border shadow-2xl z-50 overflow-hidden">
                                 {results.length > 0 ? (
                                     results.map((r, i) => (
                                         <Link
@@ -106,7 +106,7 @@ export default function HelpClientPage() {
             </section>
 
             {/* ── Category Grid ── */}
-            <section className="py-20 md:py-28 bg-white">
+            <section className="py-20 md:py-28 bg-noble-surface">
                 <div className="max-w-[1430px] mx-auto px-4 md:px-16">
                     <div className="text-center mb-14">
                         <h2 className="font-inter text-3xl md:text-4xl font-black text-near-black tracking-tight mb-4">
@@ -122,7 +122,7 @@ export default function HelpClientPage() {
                                 <Link
                                     key={cat.slug}
                                     href={`/help-center/${cat.slug}`}
-                                    className="group p-8 rounded-[32px] border border-slate-200 hover:border-noble-blue/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white block"
+                                    className="group p-8 rounded-[32px] border border-noble-border hover:border-noble-blue/30 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-noble-surface block"
                                 >
                                     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border transition-all group-hover:scale-110 duration-300 ${cat.bg} ${cat.color}`}>
                                         <Icon className="w-7 h-7" />
@@ -155,7 +155,7 @@ export default function HelpClientPage() {
                             <Link
                                 key={i}
                                 href={`/help-center/${article.categorySlug}/${article.slug}`}
-                                className="flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-200 hover:border-noble-blue/30 hover:shadow-md transition-all group"
+                                className="flex items-center gap-4 p-5 rounded-2xl bg-noble-surface border border-noble-border hover:border-noble-blue/30 hover:shadow-md transition-all group"
                             >
                                 <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center shrink-0 text-slate-400 group-hover:bg-noble-blue/10 group-hover:text-noble-blue transition-colors">
                                     <FileText className="w-5 h-5" />
@@ -181,7 +181,7 @@ export default function HelpClientPage() {
             </section>
 
             {/* ── Contact Support ── */}
-            <section className="py-24 bg-white border-t border-slate-100">
+            <section className="py-24 bg-noble-surface border-t border-slate-100">
                 <div className="max-w-[1430px] mx-auto px-4 md:px-16">
                     <div className="bg-slate-900 rounded-[40px] p-8 md:p-16 relative overflow-hidden text-center">
                         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-indigo-500/20 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />

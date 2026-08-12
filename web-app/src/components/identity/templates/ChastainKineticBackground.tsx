@@ -11,7 +11,7 @@ export const ChastainKineticBackground: React.FC<ChastainKineticBackgroundProps>
 }) => {
   if (side === 'front') {
     return (
-      <div className="absolute inset-0 bg-white overflow-hidden pointer-events-none">
+      <div className="absolute inset-0 bg-noble-surface overflow-hidden pointer-events-none">
         {/* Main Kinetic Arc System (Right Side) */}
         <div className="absolute top-[-20%] right-[-15%] w-[80%] h-[140%] z-0">
           <svg viewBox="0 0 100 100" className="w-full h-full preserve-3d">
@@ -48,7 +48,7 @@ export const ChastainKineticBackground: React.FC<ChastainKineticBackgroundProps>
   }
 
   return (
-    <div className="absolute inset-0 bg-white overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 bg-noble-surface overflow-hidden pointer-events-none">
       {/* Top-Left Tiered Arcs */}
       <div className="absolute top-[-15%] left-[-15%] w-[450px] h-[450px] rotate-180">
         <svg viewBox="0 0 100 100" className="w-full h-full">

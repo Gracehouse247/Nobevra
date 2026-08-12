@@ -19,18 +19,18 @@ export const NFCProvisioningModal = ({ identityId, onClose }: NFCProvisioningMod
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="w-full max-w-lg bg-white rounded-[3rem] shadow-2xl overflow-hidden relative"
+                className="w-full max-w-lg bg-noble-surface rounded-[3rem] shadow-2xl overflow-hidden relative"
             >
                 {/* Header */}
                 <div className="p-10 bg-noble-blue text-white relative overflow-hidden">
                     <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
-                    <button onClick={onClose} className="absolute top-8 right-8 p-2 hover:bg-white/10 rounded-full transition-colors">
+                    <button onClick={onClose} className="absolute top-8 right-8 p-2 hover:bg-noble-surface/10 rounded-full transition-colors">
                         <X size={20} />
                     </button>
                     
                     <div className="relative space-y-2">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-2xl bg-white/20 flex items-center justify-center backdrop-blur-md">
+                            <div className="w-10 h-10 rounded-2xl bg-noble-surface/20 flex items-center justify-center backdrop-blur-md">
                                 <Wifi size={20} />
                             </div>
                             <h2 className="text-2xl font-bold font-montserrat tracking-tight">NFC Card Setup</h2>

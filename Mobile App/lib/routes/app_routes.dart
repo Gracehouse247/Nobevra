@@ -7,6 +7,8 @@ import 'package:noble_invoice/features/auth/screens/email_verification_screen.da
 import 'package:noble_invoice/features/auth/screens/forgot_password_screen.dart';
 import 'package:noble_invoice/features/auth/screens/create_new_password_screen.dart';
 import 'package:noble_invoice/features/auth/screens/biometric_setup_screen.dart';
+import 'package:noble_invoice/features/auth/screens/totp_setup_screen.dart';
+import 'package:noble_invoice/features/auth/screens/totp_verification_screen.dart';
 import 'package:noble_invoice/features/qr_generator/types/website/qr_website_form_screen.dart';
 import 'package:noble_invoice/features/qr_generator/types/wifi/qr_wifi_form_screen.dart';
 import 'package:noble_invoice/features/qr_generator/types/vcard/qr_vcard_form_screen.dart';
@@ -140,6 +142,8 @@ class AppRoutes {
   static const String forgotPassword = '/forgot-password';
   static const String createNewPassword = '/create-new-password';
   static const String biometricSetup = '/biometric-setup';
+  static const String totpSetup = '/totp-setup';
+  static const String totpVerification = '/totp-verification';
   
   // QR Forms
   static const String websiteQrForm = '/website-qr-form';
@@ -301,6 +305,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const CreateNewPasswordScreen());
       case biometricSetup:
         return MaterialPageRoute(builder: (_) => const BiometricSetupScreen());
+      case totpSetup:
+        return MaterialPageRoute(builder: (_) => const TotpSetupScreen());
+      case totpVerification:
+        return MaterialPageRoute(builder: (_) => const TotpVerificationScreen());
       
       // QR Forms
       case websiteQrForm:

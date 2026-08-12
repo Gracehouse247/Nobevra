@@ -33,7 +33,7 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-navy-angle') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute top-0 left-0 w-[45%] h-64 bg-[#1E3A8A]" style={{ clipPath: 'polygon(0 0, 100% 0, 80% 100%, 0 100%)' }} />
            <div className="absolute bottom-0 left-0 w-[35%] h-48 bg-[#14B8A6]" style={{ clipPath: 'polygon(0 0, 100% 100%, 0 100%)' }} />
            <div className="absolute top-0 right-0 w-12 h-full bg-slate-50" />
@@ -57,7 +57,7 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-orange-blob') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute -top-32 -right-32 w-96 h-96 bg-gradient-to-br from-[#FBBF24] to-[#F97316] rounded-full blur-3xl opacity-30" />
            <div className="absolute -top-16 -right-16 w-64 h-64 bg-gradient-to-br from-[#FBBF24] to-[#F97316]" style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }} />
            
@@ -103,7 +103,7 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-blue-geo') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <svg className="absolute inset-0 w-full h-full opacity-[0.03]" viewBox="0 0 100 100">
               <pattern id="geo-grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
                  <rect x="2" y="2" width="16" height="16" fill="none" stroke="#3B82F6" strokeWidth="0.5" />
@@ -118,7 +118,7 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-modern-swish') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-slate-100 rounded-full" />
            <div className="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-slate-50 rounded-full" />
         </div>
@@ -127,7 +127,7 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-azure-pattern') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <svg className="absolute inset-0 w-full h-full opacity-[0.05]" viewBox="0 0 1440 800" preserveAspectRatio="none">
               <path fill="#2563EB" d="M0,224L48,202.7C96,181,192,139,288,144C384,149,480,203,576,213.3C672,224,768,192,864,160C960,128,1056,96,1152,106.7C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
               <path fill="#2563EB" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,106.7C672,117,768,171,864,181.3C960,192,1056,160,1152,138.7C1248,117,1344,107,1392,101.3L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
@@ -138,13 +138,13 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-urban-skyline') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute bottom-0 left-0 w-full h-[30%] opacity-[0.07] flex items-end justify-center gap-1">
               {[40, 60, 30, 80, 50, 90, 45, 70, 35, 85].map((h, i) => (
                 <div key={i} className="w-8 bg-slate-900" style={{ height: `${h}%` }}>
                    <div className="grid grid-cols-2 gap-1 p-1">
                       {Array.from({ length: 4 }).map((_, j) => (
-                        <div key={j} className="w-full h-1 bg-white opacity-20" />
+                        <div key={j} className="w-full h-1 bg-noble-surface opacity-20" />
                       ))}
                    </div>
                 </div>
@@ -156,7 +156,7 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-corporate-clean') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-1 bg-slate-900" />
            <div className="absolute top-0 right-0 w-[30%] h-48 bg-slate-50" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 20% 0)' }} />
         </div>
@@ -165,7 +165,7 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-clean-white') {
       return (
-        <div className="absolute inset-0 bg-white" />
+        <div className="absolute inset-0 bg-noble-surface" />
       );
     }
 
@@ -247,13 +247,13 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-platinum-border') {
       return (
-        <div className="absolute inset-0 bg-white border-[20px] border-slate-50" />
+        <div className="absolute inset-0 bg-noble-surface border-[20px] border-slate-50" />
       );
     }
 
   if (id === 'ess-gold-accent') {
       return (
-        <div className="absolute inset-0 bg-white">
+        <div className="absolute inset-0 bg-noble-surface">
            <div className="absolute top-12 left-0 w-32 h-1 bg-[#D4AF37]" />
         </div>
       );
@@ -261,7 +261,7 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-silver-line') {
       return (
-        <div className="absolute inset-0 bg-white">
+        <div className="absolute inset-0 bg-noble-surface">
            <div className="absolute top-0 left-12 w-px h-full bg-slate-200" />
         </div>
       );
@@ -269,7 +269,7 @@ export const EssentialBackground = (props: SharedEngineProps) => {
 
   if (id === 'ess-onyx-bold') {
       return (
-        <div className="absolute inset-0 bg-white">
+        <div className="absolute inset-0 bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-4 bg-black" />
         </div>
       );

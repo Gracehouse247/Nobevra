@@ -28,28 +28,28 @@ export function MiniBarChart({ values, color, barCount = 10 }: { values: number[
 
 export function SkeletonRow() {
     return (
-        <tr className="border-b border-slate-50">
-            <td className="px-4 py-3.5"><div className="w-4 h-4 rounded bg-slate-100 animate-pulse" /></td>
-            <td className="px-4 py-3.5"><div className="h-3.5 w-24 rounded bg-slate-100 animate-pulse" /></td>
+        <tr className="border-b border-noble-border">
+            <td className="px-4 py-3.5"><div className="w-4 h-4 rounded bg-noble-icon-bg animate-pulse" /></td>
+            <td className="px-4 py-3.5"><div className="h-3.5 w-24 rounded bg-noble-icon-bg animate-pulse" /></td>
             <td className="px-4 py-3.5">
                 <div className="flex items-center gap-2.5">
-                    <div className="w-8 h-8 rounded-full bg-slate-100 animate-pulse shrink-0" />
+                    <div className="w-8 h-8 rounded-full bg-noble-icon-bg animate-pulse shrink-0" />
                     <div className="space-y-1.5">
-                        <div className="h-3 w-28 rounded bg-slate-100 animate-pulse" />
-                        <div className="h-2.5 w-20 rounded bg-slate-100 animate-pulse" />
+                        <div className="h-3 w-28 rounded bg-noble-icon-bg animate-pulse" />
+                        <div className="h-2.5 w-20 rounded bg-noble-icon-bg animate-pulse" />
                     </div>
                 </div>
             </td>
-            <td className="px-4 py-3.5"><div className="h-3 w-16 rounded bg-slate-100 animate-pulse" /></td>
-            <td className="px-4 py-3.5"><div className="h-3 w-16 rounded bg-slate-100 animate-pulse ml-auto" /></td>
-            <td className="px-4 py-3.5"><div className="h-3 w-14 rounded bg-slate-100 animate-pulse ml-auto" /></td>
-            <td className="px-4 py-3.5"><div className="h-5 w-16 rounded-full bg-slate-100 animate-pulse" /></td>
-            <td className="px-4 py-3.5"><div className="h-3 w-16 rounded bg-slate-100 animate-pulse ml-auto" /></td>
+            <td className="px-4 py-3.5"><div className="h-3 w-16 rounded bg-noble-icon-bg animate-pulse" /></td>
+            <td className="px-4 py-3.5"><div className="h-3 w-16 rounded bg-noble-icon-bg animate-pulse ml-auto" /></td>
+            <td className="px-4 py-3.5"><div className="h-3 w-14 rounded bg-noble-icon-bg animate-pulse ml-auto" /></td>
+            <td className="px-4 py-3.5"><div className="h-5 w-16 rounded-full bg-noble-icon-bg animate-pulse" /></td>
+            <td className="px-4 py-3.5"><div className="h-3 w-16 rounded bg-noble-icon-bg animate-pulse ml-auto" /></td>
             <td className="px-4 py-3.5">
                 <div className="flex gap-1.5 justify-end">
-                    <div className="w-6 h-6 rounded-md bg-slate-100 animate-pulse" />
-                    <div className="w-6 h-6 rounded-md bg-slate-100 animate-pulse" />
-                    <div className="w-6 h-6 rounded-md bg-slate-100 animate-pulse" />
+                    <div className="w-6 h-6 rounded-md bg-noble-icon-bg animate-pulse" />
+                    <div className="w-6 h-6 rounded-md bg-noble-icon-bg animate-pulse" />
+                    <div className="w-6 h-6 rounded-md bg-noble-icon-bg animate-pulse" />
                 </div>
             </td>
         </tr>
@@ -57,14 +57,14 @@ export function SkeletonRow() {
 }
 
 const AVATAR_PALETTE = [
-    { bg: '#EFF6FF', text: '#1D4ED8' },
-    { bg: '#F5F3FF', text: '#6D28D9' },
-    { bg: '#ECFDF5', text: '#065F46' },
-    { bg: '#FFFBEB', text: '#92400E' },
-    { bg: '#FFF1F2', text: '#9F1239' },
-    { bg: '#ECFEFF', text: '#0E7490' },
-    { bg: '#FFF7ED', text: '#9A3412' },
-    { bg: '#F0FDFA', text: '#0F766E' },
+    { bg: '#1D4ED820', text: '#60A5FA' },
+    { bg: '#6D28D920', text: '#A78BFA' },
+    { bg: '#06572020', text: '#34D399' },
+    { bg: '#92400E20', text: '#FCD34D' },
+    { bg: '#9F123920', text: '#FCA5A5' },
+    { bg: '#0E749020', text: '#22D3EE' },
+    { bg: '#9A341220', text: '#FDBA74' },
+    { bg: '#0F766E20', text: '#2DD4BF' },
 ];
 
 export function ClientAvatar({ name }: { name: string }) {
@@ -73,7 +73,7 @@ export function ClientAvatar({ name }: { name: string }) {
     return (
         <div
             className="w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-bold shrink-0"
-            style={{ backgroundColor: p.bg, color: p.text }}
+            style={{ backgroundColor: p.bg, color: p.text, border: `1px solid ${p.text}30` }}
         >
             {initials}
         </div>
@@ -81,21 +81,20 @@ export function ClientAvatar({ name }: { name: string }) {
 }
 
 type StatusKey = 'paid' | 'overdue' | 'pending' | 'sent' | 'unpaid' | 'draft';
-const STATUS_CFG: Record<StatusKey, { bg: string; text: string; border: string; label: string }> = {
-    paid:    { bg: '#ECFDF5', text: '#065F46', border: '#A7F3D0', label: 'Paid' },
-    overdue: { bg: '#FFF1F2', text: '#9F1239', border: '#FECDD3', label: 'Overdue' },
-    pending: { bg: '#FFFBEB', text: '#92400E', border: '#FDE68A', label: 'Pending' },
-    sent:    { bg: '#EFF6FF', text: '#1E40AF', border: '#BFDBFE', label: 'Sent' },
-    unpaid:  { bg: '#FFF7ED', text: '#9A3412', border: '#FED7AA', label: 'Unpaid' },
-    draft:   { bg: '#F8FAFC', text: '#475569', border: '#E2E8F0', label: 'Draft' },
+const STATUS_CFG: Record<StatusKey, { cls: string; label: string }> = {
+    paid:    { cls: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-200 dark:border-emerald-500/25', label: 'Paid' },
+    overdue: { cls: 'bg-red-50 dark:bg-red-500/10 text-red-700 dark:text-red-400 border-red-200 dark:border-red-500/25', label: 'Overdue' },
+    pending: { cls: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-500/25', label: 'Pending' },
+    sent:    { cls: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-500/25', label: 'Sent' },
+    unpaid:  { cls: 'bg-orange-50 dark:bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-200 dark:border-orange-500/25', label: 'Unpaid' },
+    draft:   { cls: 'bg-noble-table-header-bg text-noble-muted border-noble-card-border', label: 'Draft' },
 };
 
 export function StatusBadge({ status }: { status: string }) {
     const cfg = STATUS_CFG[status?.toLowerCase() as StatusKey] ?? STATUS_CFG.draft;
     return (
         <span
-            className="inline-flex items-center px-2.5 py-[3px] rounded-full text-[11px] font-semibold whitespace-nowrap border"
-            style={{ backgroundColor: cfg.bg, color: cfg.text, borderColor: cfg.border }}
+            className={`inline-flex items-center px-2.5 py-[3px] rounded-full text-[11px] font-semibold whitespace-nowrap border ${cfg.cls}`}
         >
             {cfg.label}
         </span>

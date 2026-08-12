@@ -31,7 +31,7 @@ export const EliteChevronBackground: React.FC<EliteChevronBackgroundProps> = ({ 
     const Navy = accentColor ? getDarkColor(accentColor) : '#052B55';
     // Both sides share the same geometric pattern on the right
     return (
-        <div className="absolute inset-0 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-noble-surface overflow-hidden">
             {/* Geometric Pattern Container */}
             <div className="absolute inset-0 z-0">
                 {/* Orange/Yellow Chevron */}

@@ -15,7 +15,7 @@ export const ClaudiaAlvesBackground: React.FC<ClaudiaAlvesBackgroundProps> = ({
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/handmade-paper.png')]" />
       
       {/* Subtle Corner Glow */}
-      <div className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-white/20 rounded-full blur-[100px]" />
+      <div className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-noble-surface/20 rounded-full blur-[100px]" />
       <div className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-black/10 rounded-full blur-[100px]" />
     </div>
   );

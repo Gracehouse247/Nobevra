@@ -9,4 +9,9 @@ if (!supabaseUrl || !supabaseAnonKey) {
 
 // Single shared Supabase client instance — all components must import from here.
 // Using createBrowserClient from @supabase/ssr ensures proper cookie-based session handling.
-export const supabase = createBrowserClient(supabaseUrl, supabaseAnonKey);
+export const supabase = createBrowserClient(supabaseUrl, supabaseAnonKey, {
+    auth: {
+        // @ts-ignore - TS types for experimental passkey may not be present in all versions
+        experimental: { passkey: true }
+    }
+});

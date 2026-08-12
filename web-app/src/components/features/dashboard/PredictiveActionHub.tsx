@@ -129,7 +129,7 @@ export default function PredictiveActionHub() {
     if (loading) {
         return (
             <div className="flex flex-col gap-4 relative z-10 h-full min-h-[300px] justify-center items-center">
-                <div className="w-8 h-8 border-4 border-slate-200 border-t-noble-blue rounded-full animate-spin" />
+                <div className="w-8 h-8 border-4 border-noble-border border-t-noble-blue rounded-full animate-spin" />
             </div>
         );
     }
@@ -162,14 +162,14 @@ export default function PredictiveActionHub() {
                                 if ('onClick' in action && action.onClick && !action.onClick()) return;
                                 router.push(action.href);
                             }}
-                            className={`w-full flex items-center gap-5 p-5 rounded-[24px] border ${action.borderColor} bg-white/60 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.02)] group-hover:bg-white group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.04)] transition-all duration-300 text-left`}
+                            className={`w-full flex items-center gap-5 p-5 rounded-[24px] border ${action.borderColor} bg-noble-surface/60 backdrop-blur-md shadow-[0_20px_40px_rgba(0,0,0,0.02)] group-hover:bg-noble-surface group-hover:shadow-[0_25px_50px_rgba(0,0,0,0.04)] transition-all duration-300 text-left`}
                         >
                             <div className={`w-14 h-14 rounded-2xl ${action.bgColor} flex items-center justify-center shrink-0 border border-white/50 shadow-inner group-hover:scale-110 transition-transform duration-300`}>
                                 <action.icon className={`w-6 h-6 ${action.color}`} />
                             </div>
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1">
-                                    <h3 className="text-[14px] font-black text-slate-900 tracking-tighter" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>{action.title}</h3>
+                                    <h3 className="text-[14px] font-black text-noble-text tracking-tighter" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>{action.title}</h3>
                                     {'premium' in action && action.premium && <PremiumBadge tier={action.premium} iconOnly />}
                                 </div>
                                 <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{action.subtitle}</p>

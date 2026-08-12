@@ -46,7 +46,7 @@ export default function WellbeingMonitor({ score, status }: WellbeingMonitorProp
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="relative bg-white/40 backdrop-blur-2xl p-8 rounded-[40px] border border-white/60 shadow-[0_30px_60px_rgba(0,0,0,0.03)] space-y-8 overflow-hidden"
+            className="relative bg-noble-surface/40 backdrop-blur-2xl p-8 rounded-[40px] border border-white/60 shadow-[0_30px_60px_rgba(0,0,0,0.03)] space-y-8 overflow-hidden"
         >
             {/* Ambient Background Glow */}
             <div className={`absolute top-[-30%] right-[-10%] w-[200px] h-[200px] rounded-full blur-[80px] pointer-events-none opacity-50 ${
@@ -54,7 +54,7 @@ export default function WellbeingMonitor({ score, status }: WellbeingMonitorProp
             }`} />
 
             <motion.div variants={itemVariants} className="flex items-center justify-between relative z-10">
-                <h3 className="text-xl font-black text-slate-900 flex items-center gap-3 tracking-tighter" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
+                <h3 className="text-xl font-black text-noble-text flex items-center gap-3 tracking-tighter" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
                     <div className="w-10 h-10 rounded-2xl bg-noble-blue/10 flex items-center justify-center border border-white/50 shadow-sm">
                         <Zap className="w-5 h-5 text-noble-blue fill-current" />
                     </div>
@@ -79,22 +79,22 @@ export default function WellbeingMonitor({ score, status }: WellbeingMonitorProp
             </motion.div>
 
             <motion.div variants={itemVariants} className="grid grid-cols-2 gap-4 relative z-10">
-                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-3xl bg-white/50 backdrop-blur-md border border-white/60 shadow-sm transition-all">
+                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-3xl bg-noble-surface/50 backdrop-blur-md border border-white/60 shadow-sm transition-all">
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2">Focus Energy</p>
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center">
                             <Battery className="w-4 h-4 text-emerald-500" />
                         </div>
-                        <span className="text-2xl font-black text-slate-900 tracking-tighter">{score}%</span>
+                        <span className="text-2xl font-black text-noble-text tracking-tighter">{score}%</span>
                     </div>
                 </motion.div>
-                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-3xl bg-white/50 backdrop-blur-md border border-white/60 shadow-sm transition-all">
+                <motion.div whileHover={{ scale: 1.02 }} className="p-5 rounded-3xl bg-noble-surface/50 backdrop-blur-md border border-white/60 shadow-sm transition-all">
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-2">Stress Load</p>
                     <div className="flex items-center gap-3">
                         <div className="w-8 h-8 rounded-xl bg-[#F4B400]/10 flex items-center justify-center">
                             <ShieldAlert className="w-4 h-4 text-[#F4B400]" />
                         </div>
-                        <span className="text-2xl font-black text-slate-900 tracking-tighter">{100 - score}%</span>
+                        <span className="text-2xl font-black text-noble-text tracking-tighter">{100 - score}%</span>
                     </div>
                 </motion.div>
             </motion.div>

@@ -50,7 +50,7 @@ export const renderTemplateBackground = (templateId: string, accentColor: string
 
   // Fallback for defaults
   return (
-    <div className="absolute inset-0 bg-white overflow-hidden">
+    <div className="absolute inset-0 bg-noble-surface overflow-hidden">
       <div className="absolute inset-0 opacity-[0.01]" style={{ backgroundImage: 'radial-gradient(circle, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
     </div>
   );

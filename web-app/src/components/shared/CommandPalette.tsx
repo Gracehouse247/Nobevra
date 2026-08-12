@@ -138,7 +138,7 @@ export default function CommandPalette({ isOpen: controlledIsOpen, onClose: cont
                         initial={{ opacity: 0, scale: 0.95, y: -20 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                        className="relative w-full max-w-2xl bg-white/80 backdrop-blur-2xl rounded-[32px] shadow-[0_50px_100px_-20px_rgba(5,11,26,0.3)] border border-white overflow-hidden"
+                        className="relative w-full max-w-2xl bg-noble-surface dark:bg-noble-card/80 backdrop-blur-2xl rounded-[32px] shadow-[0_50px_100px_-20px_rgba(5,11,26,0.3)] border border-white overflow-hidden"
                     >
                         {/* Search Input Area */}
                         <div className="p-6 border-b border-near-black/[0.05] flex items-center gap-4">
@@ -151,8 +151,8 @@ export default function CommandPalette({ isOpen: controlledIsOpen, onClose: cont
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className="w-full bg-transparent text-xl font-black text-near-black placeholder:text-near-black/20 outline-none"
                             />
-                            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 rounded-lg border border-slate-200">
-                                <span className="text-[10px] font-black text-slate-400">ESC</span>
+                            <div className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 dark:bg-[#112030] rounded-lg border border-noble-border">
+                                <span className="text-[10px] font-black text-slate-400 dark:text-slate-500">ESC</span>
                             </div>
                         </div>
 
@@ -183,12 +183,12 @@ export default function CommandPalette({ isOpen: controlledIsOpen, onClose: cont
                                                                 className={`w-full flex items-center justify-between p-4 rounded-2xl transition-all ${
                                                                     isSelected 
                                                                     ? 'bg-near-black text-white shadow-xl translate-x-2' 
-                                                                    : 'hover:bg-slate-50 text-near-black/60'
+                                                                    : 'hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] text-near-black/60'
                                                                 }`}
                                                             >
                                                                 <div className="flex items-center gap-4">
                                                                     <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
-                                                                        isSelected ? 'bg-white/10 text-white' : 'bg-noble-blue/5 text-noble-blue'
+                                                                        isSelected ? 'bg-noble-surface dark:bg-noble-card/10 text-white' : 'bg-noble-blue/5 text-noble-blue'
                                                                     }`}>
                                                                         <cmd.icon size={20} />
                                                                     </div>
@@ -203,7 +203,7 @@ export default function CommandPalette({ isOpen: controlledIsOpen, onClose: cont
                                                                 </div>
                                                                 {cmd.shortcut && (
                                                                     <div className={`flex items-center gap-1.5 px-2 py-1 rounded-lg border transition-colors ${
-                                                                        isSelected ? 'bg-white/10 border-white/20 text-white' : 'bg-slate-50 border-slate-200 text-slate-400'
+                                                                        isSelected ? 'bg-noble-surface dark:bg-noble-card/10 border-white/20 text-white' : 'bg-slate-50 dark:bg-[#0D1B2E] border-noble-border text-slate-400 dark:text-slate-500'
                                                                     }`}>
                                                                         <Command size={10} />
                                                                         <span className="text-[10px] font-black">{cmd.shortcut}</span>
@@ -224,7 +224,7 @@ export default function CommandPalette({ isOpen: controlledIsOpen, onClose: cont
                                 </div>
                             ) : (
                                 <div className="py-12 text-center">
-                                    <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-slate-100">
+                                    <div className="w-16 h-16 bg-slate-50 dark:bg-[#0D1B2E] rounded-2xl flex items-center justify-center mx-auto mb-4 border border-slate-100 dark:border-noble-border">
                                         <Zap className="w-6 h-6 text-slate-300" />
                                     </div>
                                     <p className="text-sm font-black text-near-black/30 uppercase tracking-widest">No executable found</p>
@@ -236,12 +236,12 @@ export default function CommandPalette({ isOpen: controlledIsOpen, onClose: cont
                         <div className="p-6 bg-near-black/[0.02] border-t border-near-black/[0.05] flex items-center justify-between">
                             <div className="flex items-center gap-6">
                                 <div className="flex items-center gap-2">
-                                    <div className="flex items-center gap-1 px-1.5 py-0.5 bg-white border border-slate-200 rounded shadow-sm text-[9px] font-black text-slate-400">↑↓</div>
-                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Navigate</span>
+                                    <div className="flex items-center gap-1 px-1.5 py-0.5 bg-noble-surface dark:bg-noble-card border border-noble-border rounded shadow-sm text-[9px] font-black text-slate-400 dark:text-slate-500">↑↓</div>
+                                    <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tighter">Navigate</span>
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <div className="px-1.5 py-0.5 bg-white border border-slate-200 rounded shadow-sm text-[9px] font-black text-slate-400">ENTER</div>
-                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Execute</span>
+                                    <div className="px-1.5 py-0.5 bg-noble-surface dark:bg-noble-card border border-noble-border rounded shadow-sm text-[9px] font-black text-slate-400 dark:text-slate-500">ENTER</div>
+                                    <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-tighter">Execute</span>
                                 </div>
                             </div>
                             <div className="flex items-center gap-2 text-noble-blue">

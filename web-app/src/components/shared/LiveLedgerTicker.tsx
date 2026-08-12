@@ -14,7 +14,7 @@ export default function LiveLedgerTicker() {
             <div className="flex items-center gap-8 animate-marquee whitespace-nowrap">
                 {[...LOGS, ...LOGS].map((log, i) => (
                     <div key={i} className="flex items-center gap-4 text-[9px] font-black tracking-[0.2em] text-white/70 uppercase">
-                        <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-noble-surface dark:bg-noble-card animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.5)]" />
                         <span>{log}</span>
                         <TrendingUp size={10} className="text-white" />
                         <span className="text-white/20 mx-4">|</span>

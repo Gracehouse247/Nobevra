@@ -56,7 +56,7 @@ export const IngoudeCard: React.FC<CardRendererProps & { defaultColor?: string }
                 {data.companyName || 'INGOUDE LABS'}
               </h2>
             </DraggableElement>
-            <DraggableElement elementKey="qr" className="bg-white p-3 rounded-2xl shadow-xl border-4 border-stone-200">
+            <DraggableElement elementKey="qr" className="bg-noble-surface p-3 rounded-2xl shadow-xl border-4 border-stone-200">
               <SharedQRCode url={data.qrCodeUrl || ''} color={earthTone} size={200} className="w-20 h-20" />
             </DraggableElement>
           </div>

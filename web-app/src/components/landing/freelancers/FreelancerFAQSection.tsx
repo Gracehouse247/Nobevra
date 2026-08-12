@@ -30,7 +30,7 @@ export default function FreelancerFAQSection() {
     const [openIndex, setOpenIndex] = useState<number | null>(0);
 
     return (
-        <section className="py-24 md:py-32 relative bg-white">
+        <section className="py-24 md:py-32 relative bg-noble-surface">
             <div className="max-w-4xl mx-auto px-4 md:px-16">
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/10 text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6">
@@ -45,7 +45,7 @@ export default function FreelancerFAQSection() {
                     {faqs.map((faq, index) => (
                         <div 
                             key={index}
-                            className={`border rounded-2xl overflow-hidden transition-colors ${openIndex === index ? 'border-noble-blue bg-blue-50/30' : 'border-slate-200 bg-white'}`}
+                            className={`border rounded-2xl overflow-hidden transition-colors ${openIndex === index ? 'border-noble-blue bg-blue-50/30' : 'border-noble-border bg-noble-surface'}`}
                         >
                             <button
                                 className="w-full text-left px-6 py-5 flex items-center justify-between"

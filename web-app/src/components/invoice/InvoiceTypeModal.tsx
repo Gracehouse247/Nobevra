@@ -61,7 +61,7 @@ export function InvoiceTypeModal({ isOpen, onClose }: { isOpen: boolean, onClose
 
     return (
         <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4 py-8">
-            <div className="bg-white rounded-3xl w-full max-w-2xl max-h-full overflow-y-auto relative animate-in fade-in zoom-in duration-200 shadow-2xl font-[Inter,sans-serif] custom-scrollbar">
+            <div className="bg-noble-surface rounded-3xl w-full max-w-2xl max-h-full overflow-y-auto relative animate-in fade-in zoom-in duration-200 shadow-2xl font-[Inter,sans-serif] custom-scrollbar">
                 <button 
                     onClick={onClose}
                     className="sticky top-5 right-5 float-right w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 transition-colors z-10"
@@ -70,7 +70,7 @@ export function InvoiceTypeModal({ isOpen, onClose }: { isOpen: boolean, onClose
                 </button>
                 
                 <div className="p-6 sm:p-8">
-                    <h2 className="text-2xl font-black text-slate-900 tracking-tight mb-2">Select Document Type</h2>
+                    <h2 className="text-2xl font-black text-noble-text tracking-tight mb-2">Select Document Type</h2>
                     <p className="text-[14px] text-slate-500 font-medium mb-8">Choose the type of document you want to create for your client.</p>
                     
                     <div className="space-y-8">
@@ -85,7 +85,7 @@ export function InvoiceTypeModal({ isOpen, onClose }: { isOpen: boolean, onClose
                                             <button
                                                 key={type.id}
                                                 onClick={() => handleSelect(type.id)}
-                                                className={`flex items-start gap-3 p-3 rounded-xl border border-slate-200 bg-white transition-all hover:shadow-sm ${type.borderColor} group text-left`}
+                                                className={`flex items-start gap-3 p-3 rounded-xl border border-noble-border bg-noble-surface transition-all hover:shadow-sm ${type.borderColor} group text-left`}
                                             >
                                                 <div className={`w-10 h-10 rounded-lg ${type.bg} flex items-center justify-center shrink-0`}>
                                                     <Icon className={`w-5 h-5 ${type.color}`} />

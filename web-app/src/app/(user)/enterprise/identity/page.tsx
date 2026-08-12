@@ -184,7 +184,7 @@ export default function EnterpriseIdentityPage() {
                 const colorObj = colors[index % colors.length];
 
                 // Role colors
-                let roleColor = 'text-slate-600 bg-slate-50';
+                let roleColor = 'text-slate-600 dark:text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-[#0D1B2E]';
                 if (roleStr.toLowerCase() === 'owner') roleColor = 'text-blue-600 bg-blue-50';
                 else if (roleStr.toLowerCase() === 'admin') roleColor = 'text-purple-600 bg-purple-50';
                 else if (roleStr.toLowerCase() === 'staff') roleColor = 'text-emerald-600 bg-emerald-50';
@@ -267,7 +267,7 @@ export default function EnterpriseIdentityPage() {
     };
 
     return (
-        <div className="min-h-screen bg-white pb-24 font-inter text-slate-800">
+        <div className="min-h-screen bg-noble-surface dark:bg-[#060D1A] dark:bg-noble-card pb-24 font-inter text-slate-800 dark:text-slate-100">
             {/* Header Section */}
             <div className="max-w-7xl mx-auto px-8 pt-8">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
@@ -276,10 +276,10 @@ export default function EnterpriseIdentityPage() {
                             <Building2 size={24} className="fill-[#166FBB]/20" />
                         </div>
                         <div>
-                            <h1 className="text-[19px] font-bold text-slate-900 mb-1 leading-tight">
+                            <h1 className="text-[19px] font-bold text-noble-text mb-1 leading-tight">
                                 Organization <span className="text-[#166FBB]">Identity Hub</span>
                             </h1>
-                            <p className="text-[13px] text-slate-500">
+                            <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500">
                                 Configure organization branding presets and manage corporate assets.
                             </p>
                         </div>
@@ -289,7 +289,7 @@ export default function EnterpriseIdentityPage() {
                         <button 
                             onClick={handleExportAnalytics}
                             disabled={loading || members.length === 0}
-                            className="px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-[13px] font-semibold text-slate-700 hover:bg-slate-50 transition-colors flex items-center gap-2 shadow-sm disabled:opacity-50"
+                            className="px-5 py-2.5 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl text-[13px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-colors flex items-center gap-2 shadow-sm disabled:opacity-50"
                         >
                             <Download size={16} />
                             Export Analytics
@@ -307,7 +307,7 @@ export default function EnterpriseIdentityPage() {
                 {/* KPI Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                     {stats.map((stat, i) => (
-                        <div key={i} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                        <div key={i} className="bg-noble-surface dark:bg-noble-card p-6 rounded-2xl border border-noble-border shadow-sm hover:shadow-md transition-shadow">
                             <div className="flex justify-between items-start mb-4">
                                 <div className="w-10 h-10 rounded-xl bg-blue-50/50 border border-blue-100 flex items-center justify-center text-[#166FBB]">
                                     <stat.icon size={20} />
@@ -317,8 +317,8 @@ export default function EnterpriseIdentityPage() {
                                 </span>
                             </div>
                             <div>
-                                <p className="text-[13px] text-slate-500 font-medium mb-1">{stat.label}</p>
-                                <h3 className="text-3xl font-bold text-slate-900 tracking-tight mb-2">{stat.value}</h3>
+                                <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mb-1">{stat.label}</p>
+                                <h3 className="text-3xl font-bold text-noble-text tracking-tight mb-2">{stat.value}</h3>
                                 <p className="text-[12px] font-semibold text-emerald-600">{stat.trend}</p>
                             </div>
                         </div>
@@ -326,7 +326,7 @@ export default function EnterpriseIdentityPage() {
                 </div>
 
                 {/* Tabs */}
-                <div className="flex items-center border-b border-slate-200 mb-6 relative">
+                <div className="flex items-center border-b border-noble-border mb-6 relative">
                     <div className="flex items-center gap-8 overflow-x-auto no-scrollbar w-full">
                         {tabs.map(tab => (
                             <button 
@@ -335,7 +335,7 @@ export default function EnterpriseIdentityPage() {
                                 className={`pb-4 text-[13px] font-bold whitespace-nowrap transition-colors relative ${
                                     activeTab === tab 
                                         ? 'text-[#166FBB]' 
-                                        : 'text-slate-500 hover:text-slate-800'
+                                        : 'text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:text-slate-800 dark:text-slate-100'
                                 }`}
                             >
                                 {tab}
@@ -351,39 +351,39 @@ export default function EnterpriseIdentityPage() {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
                     <div className="flex items-center gap-3 w-full md:w-auto">
                         <div className="relative w-full md:w-[320px]">
-                            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
+                            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" size={16} />
                             <input 
                                 type="text"
                                 placeholder="Search by name, role, or department..."
-                                className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-[13px] focus:outline-none focus:border-[#166FBB] focus:ring-1 focus:ring-[#166FBB]"
+                                className="w-full pl-10 pr-4 py-2.5 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl text-[13px] focus:outline-none focus:border-[#166FBB] focus:ring-1 focus:ring-[#166FBB]"
                                 value={searchTerm}
                                 onChange={e => setSearchTerm(e.target.value)}
                             />
                         </div>
-                        <button className="px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-[13px] font-semibold text-slate-700 hover:bg-slate-50 flex items-center gap-2">
+                        <button className="px-4 py-2.5 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl text-[13px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] flex items-center gap-2">
                             <Filter size={16} /> Filter
                         </button>
-                        <button className="p-2.5 bg-white border border-slate-200 rounded-xl text-slate-400 hover:text-[#166FBB] hover:bg-slate-50">
+                        <button className="p-2.5 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl text-slate-400 dark:text-slate-500 hover:text-[#166FBB] hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E]">
                             <LayoutGrid size={18} />
                         </button>
                     </div>
                     
                     <div className="w-full md:w-auto">
-                        <button className="w-full md:w-auto px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-[13px] font-semibold text-slate-700 hover:bg-slate-50 flex items-center justify-between gap-4">
-                            All Status <ChevronDown size={14} className="text-slate-400" />
+                        <button className="w-full md:w-auto px-4 py-2.5 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl text-[13px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] flex items-center justify-between gap-4">
+                            All Status <ChevronDown size={14} className="text-slate-400 dark:text-slate-500" />
                         </button>
                     </div>
                 </div>
 
                 {/* Table */}
-                <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden mb-6 min-h-[300px]">
+                <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border overflow-hidden mb-6 min-h-[300px]">
                     {loading ? (
-                        <div className="flex flex-col items-center justify-center h-64 text-slate-400">
+                        <div className="flex flex-col items-center justify-center h-64 text-slate-400 dark:text-slate-500">
                             <Loader2 className="w-8 h-8 animate-spin mb-4 text-[#166FBB]" />
                             <p className="text-[13px] font-medium">Loading organization members...</p>
                         </div>
                     ) : filteredMembers.length === 0 ? (
-                        <div className="flex flex-col items-center justify-center h-64 text-slate-400">
+                        <div className="flex flex-col items-center justify-center h-64 text-slate-400 dark:text-slate-500">
                             <Users className="w-10 h-10 mb-4 opacity-20" />
                             <p className="text-[13px] font-medium">No members found.</p>
                         </div>
@@ -391,7 +391,7 @@ export default function EnterpriseIdentityPage() {
                         <div className="overflow-x-auto">
                             <table className="w-full text-left border-collapse">
                                 <thead>
-                                    <tr className="border-b border-slate-200 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                                    <tr className="border-b border-noble-border text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                                         <th className="px-6 py-4">Member</th>
                                         <th className="px-6 py-4">Role</th>
                                         <th className="px-6 py-4">Status</th>
@@ -402,15 +402,15 @@ export default function EnterpriseIdentityPage() {
                                 </thead>
                                 <tbody className="divide-y divide-slate-100">
                                     {filteredMembers.map((member, idx) => (
-                                        <tr key={idx} className="hover:bg-slate-50/50 transition-colors">
+                                        <tr key={idx} className="hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E]/50 transition-colors">
                                             <td className="px-6 py-4">
                                                 <div className="flex items-center gap-4">
                                                     <div className={`w-10 h-10 rounded-full flex items-center justify-center text-[13px] font-bold ${member.color}`}>
                                                         {member.initials}
                                                     </div>
                                                     <div>
-                                                        <p className="text-[14px] font-bold text-slate-900">{member.name}</p>
-                                                        <p className="text-[12px] text-slate-500">{member.email}</p>
+                                                        <p className="text-[14px] font-bold text-noble-text">{member.name}</p>
+                                                        <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500">{member.email}</p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -426,14 +426,14 @@ export default function EnterpriseIdentityPage() {
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4">
-                                                <p className="text-[14px] font-bold text-slate-900">{member.performance}</p>
-                                                <p className="text-[11px] text-slate-500">Captured Leads</p>
+                                                <p className="text-[14px] font-bold text-noble-text">{member.performance}</p>
+                                                <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500">Captured Leads</p>
                                             </td>
                                             <td className="px-6 py-4">
-                                                <span className="text-[13px] font-medium text-slate-600">{member.lastActive}</span>
+                                                <span className="text-[13px] font-medium text-slate-600 dark:text-slate-400 dark:text-slate-500">{member.lastActive}</span>
                                             </td>
                                             <td className="px-6 py-4 text-center">
-                                                <button className="p-2 border border-slate-200 rounded-lg text-slate-400 hover:text-slate-600 hover:bg-slate-50 transition-colors">
+                                                <button className="p-2 border border-noble-border rounded-lg text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-colors">
                                                     <MoreHorizontal size={16} />
                                                 </button>
                                             </td>
@@ -445,18 +445,18 @@ export default function EnterpriseIdentityPage() {
                     )}
                     
                     {/* Pagination */}
-                    <div className="px-6 py-4 border-t border-slate-100 flex items-center justify-between">
-                        <span className="text-[13px] font-medium text-slate-500">
+                    <div className="px-6 py-4 border-t border-slate-100 dark:border-noble-border flex items-center justify-between">
+                        <span className="text-[13px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500">
                             Showing 1 to {filteredMembers.length} of {members.length} members
                         </span>
                         <div className="flex items-center gap-1">
-                            <button className="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:bg-slate-50 disabled:opacity-50" disabled>
+                            <button className="w-8 h-8 flex items-center justify-center rounded-lg border border-noble-border text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] disabled:opacity-50" disabled>
                                 &lt;
                             </button>
                             <button className="w-8 h-8 flex items-center justify-center rounded-lg bg-[#166FBB] text-white font-bold text-[13px]">
                                 1
                             </button>
-                            <button className="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 disabled:opacity-50" disabled>
+                            <button className="w-8 h-8 flex items-center justify-center rounded-lg border border-noble-border text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] disabled:opacity-50" disabled>
                                 &gt;
                             </button>
                         </div>
@@ -464,16 +464,16 @@ export default function EnterpriseIdentityPage() {
                 </div>
 
                 {/* Bottom Tip Banner */}
-                <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl p-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center shrink-0">
-                            <Info size={16} className="text-slate-400" />
+                        <div className="w-8 h-8 rounded-full border border-noble-border flex items-center justify-center shrink-0">
+                            <Info size={16} className="text-slate-400 dark:text-slate-500" />
                         </div>
-                        <p className="text-[13px] text-slate-600 font-medium">
+                        <p className="text-[13px] text-slate-600 dark:text-slate-400 dark:text-slate-500 font-medium">
                             Keep your organization identity up to date for better security and performance insights.
                         </p>
                     </div>
-                    <button className="px-4 py-2 bg-white border border-slate-200 rounded-lg text-[13px] font-bold text-slate-700 hover:bg-slate-50 flex items-center gap-2 shrink-0">
+                    <button className="px-4 py-2 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-lg text-[13px] font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] flex items-center gap-2 shrink-0">
                         View Identity Best Practices <ArrowRight size={14} />
                     </button>
                 </div>

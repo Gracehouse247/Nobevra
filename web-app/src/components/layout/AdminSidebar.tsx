@@ -25,16 +25,16 @@ const SidebarItem = ({
         <div className={`flex items-center gap-2.5 px-3 py-1.5 rounded-md cursor-pointer transition-colors duration-150 ${
             active 
             ? 'bg-[#f0fafa] text-[#006970] font-medium' 
-            : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 font-medium'
+            : 'text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030] hover:text-noble-text font-medium'
         }`}>
-            <Icon className={`w-4 h-4 ${active ? 'text-[#006970]' : 'text-slate-400'}`} />
+            <Icon className={`w-4 h-4 ${active ? 'text-[#006970]' : 'text-slate-400 dark:text-slate-500'}`} />
             <span className="text-[13px]">{label}</span>
         </div>
     </Link>
 );
 
 const SectionHeader = ({ label }: { label: string }) => (
-    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 px-3 mt-5 mb-1.5">
+    <div className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 dark:text-slate-500 px-3 mt-5 mb-1.5">
         {label}
     </div>
 );
@@ -68,9 +68,9 @@ export default function AdminSidebar({ isOpen = false, onClose = () => {} }: { i
         {isOpen && (
             <div className="fixed inset-0 bg-slate-900/50 z-40 lg:hidden backdrop-blur-sm" onClick={onClose} />
         )}
-        <aside className={`w-64 bg-white border-r border-slate-200 flex flex-col h-screen fixed lg:sticky top-0 left-0 z-50 shrink-0 transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
+        <aside className={`w-64 bg-noble-surface dark:bg-noble-card border-r border-noble-border flex flex-col h-screen fixed lg:sticky top-0 left-0 z-50 shrink-0 transition-transform duration-300 ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
             {/* Logo Area */}
-            <div className="h-14 flex items-center px-6 border-b border-slate-100 shrink-0">
+            <div className="h-14 flex items-center px-6 border-b border-slate-100 dark:border-noble-border shrink-0">
                 <Link href="/admin/dashboard" className="flex items-center gap-3 group">
                     <img 
                         src="/images/logo.png" 
@@ -96,16 +96,16 @@ export default function AdminSidebar({ isOpen = false, onClose = () => {} }: { i
                 <SidebarItem icon={Star} label="Help Ratings" href="/admin/help-ratings" active={pathname === '/admin/help-ratings'} />
                 <SidebarItem icon={Send} label="Marketing" href="/admin/marketing" active={pathname === '/admin/marketing'} />
                 
-                <div className="my-3 border-t border-slate-100 mx-3" />
+                <div className="my-3 border-t border-slate-100 dark:border-noble-border mx-3" />
                 <SidebarItem icon={FileText} label="Audit Log" href="/admin/audit" active={pathname === '/admin/audit'} />
                 <SidebarItem icon={Settings} label="System Settings" href="/admin/settings" active={pathname === '/admin/settings'} />
             </nav>
 
             {/* Footer / Sign Out */}
-            <div className="p-4 border-t border-slate-100 shrink-0">
+            <div className="p-4 border-t border-slate-100 dark:border-noble-border shrink-0">
                 <button onClick={handleSignOut} className="w-full">
-                    <div className="flex items-center gap-2.5 px-3 py-2 rounded-md cursor-pointer transition-colors text-slate-600 hover:bg-red-50 hover:text-red-600 font-medium">
-                        <LogOut className="w-4 h-4 text-slate-400 group-hover:text-red-500" />
+                    <div className="flex items-center gap-2.5 px-3 py-2 rounded-md cursor-pointer transition-colors text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-red-50 hover:text-red-600 font-medium">
+                        <LogOut className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-red-500" />
                         <span className="text-[13px]">Sign Out</span>
                     </div>
                 </button>

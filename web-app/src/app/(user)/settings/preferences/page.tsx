@@ -57,9 +57,9 @@ function ToggleSwitch({
                 disabled={disabled}
                 className={`w-[44px] h-[24px] rounded-full p-[2px] transition-colors duration-300 ease-in-out relative disabled:opacity-50 flex items-center ${checked ? 'bg-[#166FBB]' : 'bg-slate-300'}`}
             >
-                <div className={`w-5 h-5 rounded-full bg-white transition-transform duration-300 shadow-sm ${checked ? 'translate-x-[20px]' : 'translate-x-0'}`} />
+                <div className={`w-5 h-5 rounded-full bg-noble-surface dark:bg-noble-card transition-transform duration-300 shadow-sm ${checked ? 'translate-x-[20px]' : 'translate-x-0'}`} />
             </button>
-            <span className={`text-[12px] font-bold w-12 text-left ${checked ? 'text-slate-600' : 'text-slate-400'}`}>
+            <span className={`text-[12px] font-bold w-12 text-left ${checked ? 'text-slate-600 dark:text-slate-400 dark:text-slate-500' : 'text-slate-400 dark:text-slate-500'}`}>
                 {checked ? labelOn : labelOff}
             </span>
         </div>
@@ -95,17 +95,17 @@ function PreferenceRow({
 }) {
     const Icon = icon;
     return (
-        <div className={`flex items-center justify-between p-6 ${!isLast ? 'border-b border-slate-100' : ''}`}>
+        <div className={`flex items-center justify-between p-6 ${!isLast ? 'border-b border-slate-100 dark:border-noble-border' : ''}`}>
             <div className="flex items-center gap-5">
                 <div className={`p-3 rounded-2xl ${iconBg}`}>
                     <Icon className={`w-5 h-5 ${iconColor}`} strokeWidth={2.5} />
                 </div>
                 <div>
                     <div className="flex items-center gap-2">
-                        <p className="text-[14px] font-bold text-slate-800">{title}</p>
+                        <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100">{title}</p>
                         {premium && <PremiumBadge tier={premium} iconOnly />}
                     </div>
-                    <p className="text-[12px] text-slate-500 font-medium mt-0.5">{description}</p>
+                    <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-0.5">{description}</p>
                 </div>
             </div>
             <ToggleSwitch 
@@ -165,7 +165,7 @@ export default function PreferencesPage() {
     };
 
     return (
-        <div className="max-w-[900px] text-slate-800 pb-16">
+        <div className="max-w-[900px] text-slate-800 dark:text-slate-100 pb-16">
             {/* Header Section */}
             <div className="flex items-center justify-between mb-10">
                 <div className="flex items-center gap-5">
@@ -173,10 +173,10 @@ export default function PreferencesPage() {
                         <Settings className="w-6 h-6 text-[#166FBB]" strokeWidth={2} />
                     </div>
                     <div>
-                        <h1 className="text-[19px] font-black text-slate-900 tracking-tight">
+                        <h1 className="text-[19px] font-black text-noble-text tracking-tight">
                             System Preferences
                         </h1>
-                        <p className="text-[13px] text-slate-500 font-medium mt-1">
+                        <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-1">
                             Configure your notifications, privacy, and system behavior.
                         </p>
                     </div>
@@ -192,10 +192,10 @@ export default function PreferencesPage() {
             <div className="mb-10">
                 <div className="flex items-center gap-2 mb-4 px-1">
                     <Bell className="w-5 h-5 text-[#166FBB]" strokeWidth={2.5} />
-                    <h2 className="text-[16px] font-black text-slate-900">Notifications</h2>
+                    <h2 className="text-[16px] font-black text-noble-text">Notifications</h2>
                 </div>
                 
-                <div className="bg-white rounded-[24px] border border-slate-200 shadow-sm overflow-hidden">
+                <div className="bg-noble-surface dark:bg-noble-card rounded-[24px] border border-noble-border shadow-sm overflow-hidden">
                     <PreferenceRow 
                         icon={Mail} iconBg="bg-blue-50" iconColor="text-[#166FBB]"
                         title="Daily Digest Emails" description="Receive a summary of your tasks and focus metrics."
@@ -237,10 +237,10 @@ export default function PreferencesPage() {
             <div className="mb-10">
                 <div className="flex items-center gap-2 mb-4 px-1">
                     <ShieldCheck className="w-5 h-5 text-[#166FBB]" strokeWidth={2.5} />
-                    <h2 className="text-[16px] font-black text-slate-900">Privacy & AI Data</h2>
+                    <h2 className="text-[16px] font-black text-noble-text">Privacy & AI Data</h2>
                 </div>
 
-                <div className="bg-white rounded-[24px] border border-slate-200 shadow-sm overflow-hidden">
+                <div className="bg-noble-surface dark:bg-noble-card rounded-[24px] border border-noble-border shadow-sm overflow-hidden">
                     <PreferenceRow 
                         icon={User} iconBg="bg-purple-50" iconColor="text-purple-600"
                         title="Public Profile Identity" description="Make your professional profile visible to the public."
@@ -259,10 +259,10 @@ export default function PreferencesPage() {
             <div>
                 <div className="flex items-center gap-2 mb-4 px-1">
                     <Globe className="w-5 h-5 text-[#166FBB]" strokeWidth={2.5} />
-                    <h2 className="text-[16px] font-black text-slate-900">Localization & Currency</h2>
+                    <h2 className="text-[16px] font-black text-noble-text">Localization & Currency</h2>
                 </div>
 
-                <div className="bg-white rounded-[24px] border border-slate-200 shadow-sm overflow-hidden">
+                <div className="bg-noble-surface dark:bg-noble-card rounded-[24px] border border-noble-border shadow-sm overflow-hidden">
                     <PreferenceRow 
                         icon={Globe} iconBg="bg-indigo-50" iconColor="text-indigo-500"
                         title="Auto-Detect Region" description="Automatically detect user's country and default currency."

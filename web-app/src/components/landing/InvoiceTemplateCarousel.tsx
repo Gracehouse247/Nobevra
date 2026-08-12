@@ -26,7 +26,7 @@ export function InvoiceTemplateCarousel({ mockData }: { mockData: any }) {
     const currentTemplate = invoiceTemplates[currentIndex];
 
     return (
-        <div className="relative bg-white border border-gray-200 rounded-[32px] shadow-2xl overflow-hidden w-full max-w-md aspect-[1/1.414] group">
+        <div className="relative bg-noble-surface border border-gray-200 rounded-[32px] shadow-2xl overflow-hidden w-full max-w-md aspect-[1/1.414] group">
             <AnimatePresence mode="popLayout">
                 <motion.div
                     key={currentTemplate.id}
@@ -50,7 +50,7 @@ export function InvoiceTemplateCarousel({ mockData }: { mockData: any }) {
             <div className="absolute inset-0 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-[1200ms] bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-30deg] pointer-events-none" />
             
             {/* Template name overlay */}
-            <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md border border-white/40 rounded-xl p-3 shadow-lg flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+            <div className="absolute bottom-4 left-4 right-4 bg-noble-surface/90 backdrop-blur-md border border-white/40 rounded-xl p-3 shadow-lg flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
                 <span className="text-sm font-bold text-near-black">{currentTemplate.name}</span>
                 <span className="text-xs px-2 py-1 bg-noble-blue/10 text-noble-blue font-bold rounded-full">
                     {currentIndex + 1} / {invoiceTemplates.length}

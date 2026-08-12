@@ -9,7 +9,7 @@ export const BorcelleCard: React.FC<CardRendererProps & { defaultColor?: string 
     const accent = brandAccent;
     const darkBg = brandDark;
     return (
-      <div className="relative w-full h-full flex flex-col z-20 overflow-hidden bg-white">
+      <div className="relative w-full h-full flex flex-col z-20 overflow-hidden bg-noble-surface">
         {/* Layered Diagonal Ribbons */}
         <div className="absolute inset-0 opacity-15 pointer-events-none">
           <svg className="w-full h-full" viewBox="0 0 1050 600" fill="none">
@@ -27,7 +27,7 @@ export const BorcelleCard: React.FC<CardRendererProps & { defaultColor?: string 
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="space-y-4">
-                <h1 className="font-black tracking-tight leading-none uppercase text-slate-900" style={{ fontSize: fs(62) }}>
+                <h1 className="font-black tracking-tight leading-none uppercase text-noble-text" style={{ fontSize: fs(62) }}>
                   {data.fullName || 'BORCELLE CORP'}
                 </h1>
                 <p className="font-bold tracking-[0.35em] uppercase" style={{ fontSize: fs(14), color: accent }}>
@@ -53,7 +53,7 @@ export const BorcelleCard: React.FC<CardRendererProps & { defaultColor?: string 
                   <path d="M 40,40 H 60 V 60 H 40 Z" fill={accent} />
                 </svg>
               </div>
-              <h2 className="font-black text-slate-900 uppercase tracking-tighter" style={{ fontSize: fs(38) }}>
+              <h2 className="font-black text-noble-text uppercase tracking-tighter" style={{ fontSize: fs(38) }}>
                 {data.companyName || 'BORCELLE ENTERPRISE'}
               </h2>
             </DraggableElement>

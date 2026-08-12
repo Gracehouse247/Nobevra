@@ -42,10 +42,10 @@ export default function AgencyFAQ() {
                         Everything you need to know about automating your agency's retainer workflow.
                     </p>
 
-                    <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+                    <div className="bg-noble-surface rounded-2xl p-6 border border-noble-border shadow-sm">
                         <div className="flex items-center gap-3 mb-3">
                             <AlertOctagon className="w-5 h-5 text-slate-400" />
-                            <h4 className="font-bold text-slate-900 text-sm uppercase tracking-widest">We may not be right for you if...</h4>
+                            <h4 className="font-bold text-noble-text text-sm uppercase tracking-widest">We may not be right for you if...</h4>
                         </div>
                         <p className="text-slate-600 text-sm leading-relaxed">
                             If you are a solo freelancer who only sends one or two simple invoices a month and doesn't need to track ongoing retainers or provide a branded portal, our full agency billing software might be more power than you need right now.
@@ -55,10 +55,10 @@ export default function AgencyFAQ() {
 
                 <div className="space-y-4">
                     {faqs.map((faq, i) => (
-                        <details key={i} className="group bg-white rounded-[24px] border border-slate-200 overflow-hidden shadow-sm hover:border-indigo-500/30 transition-colors">
+                        <details key={i} className="group bg-noble-surface rounded-[24px] border border-noble-border overflow-hidden shadow-sm hover:border-indigo-500/30 transition-colors">
                             <summary className="flex items-center justify-between p-6 md:p-8 cursor-pointer list-none gap-6 outline-none">
-                                <span className="font-black text-slate-900 text-lg leading-snug">{faq.q}</span>
-                                <div className="w-10 h-10 rounded-full bg-slate-50 border border-slate-200 flex items-center justify-center shrink-0 group-open:bg-indigo-500 group-open:border-indigo-500 group-open:text-white transition-all">
+                                <span className="font-black text-noble-text text-lg leading-snug">{faq.q}</span>
+                                <div className="w-10 h-10 rounded-full bg-slate-50 border border-noble-border flex items-center justify-center shrink-0 group-open:bg-indigo-500 group-open:border-indigo-500 group-open:text-white transition-all">
                                     <ChevronDown className="w-5 h-5 transition-transform duration-300 group-open:rotate-180" />
                                 </div>
                             </summary>

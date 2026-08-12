@@ -45,7 +45,7 @@ export default function ContractsDashboard() {
     if (loading) return <div className="p-8">Loading contracts...</div>;
 
     return (
-        <div className="min-h-full bg-slate-50/50 p-6 lg:p-8 pb-24">
+        <div className="min-h-full bg-slate-50 dark:bg-[#0D1B2E]/50 p-6 lg:p-8 pb-24">
             <div className="max-w-[1400px] mx-auto space-y-8">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                     <div className="flex items-center gap-5">
@@ -54,12 +54,12 @@ export default function ContractsDashboard() {
                         </div>
                         <div>
                             <div className="flex items-center gap-3">
-                                <h1 className="text-[28px] font-bold text-slate-900 tracking-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
+                                <h1 className="text-[28px] font-bold text-noble-text tracking-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
                                     Client <span className="text-blue-600 italic font-medium">Contracts</span>
                                 </h1>
                                 {!canUse('team.contracts') && <PremiumBadge tier="elite" iconOnly />}
                             </div>
-                            <p className="text-[14px] font-medium text-slate-500 mt-1">Manage e-signatures, NDAs, and service agreements.</p>
+                            <p className="text-[14px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">Manage e-signatures, NDAs, and service agreements.</p>
                         </div>
                     </div>
                     <button 
@@ -77,20 +77,20 @@ export default function ContractsDashboard() {
                     </button>
                 </div>
 
-                <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
+                <div className="bg-noble-surface dark:bg-noble-card rounded-xl border border-noble-border overflow-hidden shadow-sm">
                     {contracts.length === 0 ? (
-                        <div className="p-16 text-center text-slate-500 flex flex-col items-center">
+                        <div className="p-16 text-center text-slate-500 dark:text-slate-400 dark:text-slate-500 flex flex-col items-center">
                             <PenTool className="w-12 h-12 text-slate-300 mb-4" />
-                            <h3 className="text-lg font-bold text-slate-900">No contracts yet</h3>
+                            <h3 className="text-lg font-bold text-noble-text">No contracts yet</h3>
                             <p className="text-sm mt-1">Create your first client agreement to get a legally binding e-signature.</p>
                         </div>
                     ) : (
                         <div className="divide-y divide-slate-100">
                             {contracts.map(contract => (
-                                <div key={contract.id} className="p-5 flex items-center justify-between hover:bg-slate-50 transition-colors">
+                                <div key={contract.id} className="p-5 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-colors">
                                     <div>
-                                        <div className="font-bold text-slate-900 text-[15px]">{contract.title}</div>
-                                        <div className="text-[13px] text-slate-500 mt-1 flex items-center gap-2">
+                                        <div className="font-bold text-noble-text text-[15px]">{contract.title}</div>
+                                        <div className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1 flex items-center gap-2">
                                             {new Date(contract.created_at).toLocaleDateString()}
                                             <span className="text-slate-300">•</span>
                                             {contract.status === 'signed' ? (
@@ -106,7 +106,7 @@ export default function ContractsDashboard() {
                                         <Link 
                                             href={`/embed/contract/${contract.id}`} 
                                             target="_blank"
-                                            className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-[13px] font-bold hover:bg-slate-200 flex items-center gap-2"
+                                            className="px-4 py-2 bg-slate-100 dark:bg-[#112030] text-slate-700 dark:text-slate-200 rounded-lg text-[13px] font-bold hover:bg-slate-200 flex items-center gap-2"
                                         >
                                             View Public <ExternalLink className="w-3.5 h-3.5" />
                                         </Link>

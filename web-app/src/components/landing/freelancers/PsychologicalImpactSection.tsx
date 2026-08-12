@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 export default function PsychologicalImpactSection() {
     return (
-        <section className="py-24 md:py-32 relative bg-white overflow-hidden">
+        <section className="py-24 md:py-32 relative bg-noble-surface overflow-hidden">
             <div className="max-w-[1430px] mx-auto px-4 md:px-16 w-full grid lg:grid-cols-2 gap-16 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}
@@ -53,13 +53,13 @@ export default function PsychologicalImpactSection() {
                     transition={{ duration: 0.7 }}
                     className="relative"
                 >
-                    <div className="bg-slate-50 border border-slate-200 rounded-[32px] p-8 shadow-sm">
+                    <div className="bg-slate-50 border border-noble-border rounded-[32px] p-8 shadow-sm">
                         <p className="text-center font-bold text-near-black/40 text-sm uppercase tracking-widest mb-6">Spreadsheet vs. NobleInvoice</p>
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
                             {/* The old way */}
                             <div className="opacity-50 blur-[1px] hover:blur-none transition-all">
-                                <div className="bg-white border border-slate-300 p-4 font-mono text-[10px] text-slate-500 h-[280px]">
+                                <div className="bg-noble-surface border border-slate-300 p-4 font-mono text-[10px] text-slate-500 h-[280px]">
                                     <p className="mb-4">INVOICE.docx</p>
                                     <p>To: Client</p>
                                     <p className="mb-4">Amount: $1,200</p>
@@ -70,7 +70,7 @@ export default function PsychologicalImpactSection() {
                             </div>
 
                             {/* The NobleInvoice way */}
-                            <div className="bg-white rounded-xl shadow-xl border border-slate-100 overflow-hidden h-[280px] transform scale-110 z-10 relative">
+                            <div className="bg-noble-surface rounded-xl shadow-xl border border-slate-100 overflow-hidden h-[280px] transform scale-110 z-10 relative">
                                 <div className="h-2 bg-noble-blue w-full"></div>
                                 <div className="p-4">
                                     <div className="flex justify-between items-center mb-6">

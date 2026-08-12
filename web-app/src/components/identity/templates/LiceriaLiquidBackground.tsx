@@ -6,7 +6,7 @@ export const LiceriaLiquidBackground: React.FC<{ side: 'front' | 'back' }> = ({ 
     const SkyBlue = "#00B4DB";
 
     return (
-        <div className="absolute inset-0 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-noble-surface overflow-hidden">
             {side === 'front' ? (
                 <>
                     {/* Deep Navy Main Body */}

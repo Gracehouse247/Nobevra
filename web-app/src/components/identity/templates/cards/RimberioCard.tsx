@@ -53,7 +53,7 @@ export const RimberioCard: React.FC<CardRendererProps & { defaultColor?: string 
                 {data.companyName || 'RIMBERIO ELITE'}
               </h2>
             </DraggableElement>
-            <DraggableElement elementKey="qr" className="bg-white p-3 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4" style={{ borderColor: accent }}>
+            <DraggableElement elementKey="qr" className="bg-noble-surface p-3 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4" style={{ borderColor: accent }}>
               <SharedQRCode url={data.qrCodeUrl || ''} color={accent} size={200} className="w-24 h-24" />
             </DraggableElement>
           </div>

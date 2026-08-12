@@ -42,7 +42,7 @@ const platforms = [
     {
         name: 'Custom API',
         emoji: '⚙️',
-        bg: 'bg-slate-50 border-slate-200',
+        bg: 'bg-slate-50 border-noble-border',
         badge: 'text-slate-700 bg-slate-100',
         features: [
             'RESTful API for custom integrations',

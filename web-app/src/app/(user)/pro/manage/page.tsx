@@ -13,7 +13,7 @@ export default function SubscriptionManagePage() {
     // Derived plan with legacy fallback
     const plan = userData?.plan || ((userData?.subscriptionStatus as any) === 'elite' ? 'elite' : (userData?.subscriptionStatus as any) === 'pro' ? 'pro' : 'explorer');
     const isPremium = ['pro', 'elite', 'admin'].includes(plan);
-    const planName = plan === 'elite' ? 'Noble Elite' : plan === 'pulse' ? 'Noble Pro' : 'Explorer (Free)';
+    const planName = plan === 'elite' ? 'Noble Elite' : plan === 'pulse' ? 'Noble Pulse' : 'Explorer (Free)';
 
     const handleRestore = async () => {
         setLoading(true);
@@ -34,15 +34,15 @@ export default function SubscriptionManagePage() {
         <div className="p-4 md:p-8 max-w-4xl mx-auto space-y-10 pb-24 md:pb-20">
             <div>
                 <h1 className="text-3xl font-black text-foreground  tracking-tight">Subscription Management</h1>
-                <p className="text-slate-500 font-medium mt-2">View active plans, restore purchases, and manage billing methods.</p>
+                <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-2">View active plans, restore purchases, and manage billing methods.</p>
             </div>
 
             <div className={`p-8 md:p-12 rounded-[2.5rem] border relative overflow-hidden ${
-                isPremium ? 'bg-[#006970]/5 border-[#006970]/20' : 'bg-white/5 border-white/10'
+                isPremium ? 'bg-[#006970]/5 border-[#006970]/20' : 'bg-noble-surface dark:bg-noble-card/5 border-white/10'
             }`}>
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
                     <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/20 text-xs font-bold uppercase tracking-widest text-slate-400 mb-4 border border-white/5">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/20 text-xs font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-4 border border-white/5">
                             <CreditCard className="w-3 h-3" /> Current Plan
                         </div>
                         <h2 className={`text-4xl font-black uppercase tracking-tight ${isPremium ? 'text-[#006970]' : 'text-slate-300'}`}>
@@ -61,14 +61,14 @@ export default function SubscriptionManagePage() {
                             <Rocket className="w-4 h-4" /> Upgrade Now
                         </Link>
                     ) : (
-                        <button className="px-6 py-3 bg-white/10 hover:bg-red-500/20 hover:text-red-400 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border border-white/10 hover:border-red-500/20">
+                        <button className="px-6 py-3 bg-noble-surface dark:bg-noble-card/10 hover:bg-red-500/20 hover:text-red-400 text-white rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all border border-white/10 hover:border-red-500/20">
                             Cancel Subscription
                         </button>
                     )}
                 </div>
 
                 <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <p className="text-xs text-slate-400 max-w-sm">
+                    <p className="text-xs text-slate-400 dark:text-slate-500 max-w-sm">
                         If you recently paid but your dashboard still shows free, force a manual sync with the billing server.
                     </p>
                     <button 

@@ -26,7 +26,7 @@ export default function EnterpriseFrameworkSection() {
                     {/* Connection line for desktop */}
                     <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-noble-blue/10 -translate-y-1/2 z-0" />
 
-                    <div className="bg-white rounded-[32px] p-8 border border-noble-blue/10 shadow-xl relative z-10 hover:-translate-y-2 transition-transform duration-300">
+                    <div className="bg-noble-surface rounded-[32px] p-8 border border-noble-blue/10 shadow-xl relative z-10 hover:-translate-y-2 transition-transform duration-300">
                         <div className="w-14 h-14 rounded-2xl bg-violet-100 flex items-center justify-center mb-6">
                             <Zap className="w-6 h-6 text-violet-600" />
                         </div>
@@ -36,7 +36,7 @@ export default function EnterpriseFrameworkSection() {
                         </p>
                     </div>
 
-                    <div className="bg-white rounded-[32px] p-8 border border-noble-blue/10 shadow-xl relative z-10 hover:-translate-y-2 transition-transform duration-300">
+                    <div className="bg-noble-surface rounded-[32px] p-8 border border-noble-blue/10 shadow-xl relative z-10 hover:-translate-y-2 transition-transform duration-300">
                         <div className="w-14 h-14 rounded-2xl bg-noble-blue/10 flex items-center justify-center mb-6">
                             <ShieldCheck className="w-6 h-6 text-noble-blue" />
                         </div>
@@ -46,7 +46,7 @@ export default function EnterpriseFrameworkSection() {
                         </p>
                     </div>
 
-                    <div className="bg-white rounded-[32px] p-8 border border-noble-blue/10 shadow-xl relative z-10 hover:-translate-y-2 transition-transform duration-300">
+                    <div className="bg-noble-surface rounded-[32px] p-8 border border-noble-blue/10 shadow-xl relative z-10 hover:-translate-y-2 transition-transform duration-300">
                         <div className="w-14 h-14 rounded-2xl bg-emerald-100 flex items-center justify-center mb-6">
                             <BarChart3 className="w-6 h-6 text-emerald-600" />
                         </div>

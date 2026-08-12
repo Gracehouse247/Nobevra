@@ -84,7 +84,7 @@ export default function UpgradePromptModal() {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95, y: 20 }}
                     transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                    className="relative w-full max-w-md bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col"
+                    className="relative w-full max-w-md bg-noble-surface dark:bg-noble-card rounded-3xl shadow-2xl overflow-hidden flex flex-col"
                 >
                     {/* Top Decorative Gradient */}
                     <div className={`h-2 w-full ${isElite ? 'bg-gradient-to-r from-amber-400 to-amber-600' : 'bg-gradient-to-r from-noble-blue to-blue-400'}`} />
@@ -92,7 +92,7 @@ export default function UpgradePromptModal() {
                     {/* Close Button */}
                     <button
                         onClick={closeUpgradeModal}
-                        className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors z-10"
+                        className="absolute top-4 right-4 p-2 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030] rounded-full transition-colors z-10"
                     >
                         <X className="w-5 h-5" />
                     </button>
@@ -106,18 +106,18 @@ export default function UpgradePromptModal() {
                         </div>
 
                         {/* Title & Badge */}
-                        <div className="mb-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border bg-slate-50 text-slate-600 border-slate-200">
+                        <div className="mb-2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border bg-slate-50 dark:bg-[#0D1B2E] text-slate-600 dark:text-slate-400 dark:text-slate-500 border-noble-border">
                             Requires {isElite ? 'Elite' : 'Pro'} Plan
                         </div>
-                        <h2 className="text-xl font-black text-slate-900 mb-2" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
+                        <h2 className="text-xl font-black text-noble-text mb-2" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
                             Unlock {featureName}
                         </h2>
-                        <p className="text-[13px] text-slate-500 mb-5 max-w-[280px]">
+                        <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-5 max-w-[280px]">
                             Upgrade your workspace to access this feature and supercharge your business.
                         </p>
 
                         {/* Benefits List */}
-                        <div className="w-full space-y-2 mb-5 text-left bg-slate-50 p-3 rounded-2xl border border-slate-100">
+                        <div className="w-full space-y-2 mb-5 text-left bg-slate-50 dark:bg-[#0D1B2E] p-3 rounded-2xl border border-slate-100 dark:border-noble-border">
                             {benefits.map((benefit, idx) => (
                                 <div key={idx} className="flex items-start gap-3">
                                     <div className={`mt-0.5 w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 ${
@@ -125,7 +125,7 @@ export default function UpgradePromptModal() {
                                     }`}>
                                         <Check className="w-2.5 h-2.5 stroke-[3]" />
                                     </div>
-                                    <span className="text-sm font-bold text-slate-700">{benefit}</span>
+                                    <span className="text-sm font-bold text-slate-700 dark:text-slate-200">{benefit}</span>
                                 </div>
                             ))}
                         </div>
@@ -144,7 +144,7 @@ export default function UpgradePromptModal() {
                             </button>
                             <button
                                 onClick={handleUpgradeClick}
-                                className="w-full py-2 text-[11px] font-bold text-slate-500 hover:text-slate-800 transition-colors"
+                                className="w-full py-2 text-[11px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:text-slate-800 dark:text-slate-100 transition-colors"
                             >
                                 See all plans & pricing
                             </button>

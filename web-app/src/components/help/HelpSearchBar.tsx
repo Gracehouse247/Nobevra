@@ -35,7 +35,7 @@ export default function HelpSearchBar() {
     const showResults = focused && query.length >= 2;
 
     return (
-        <div className="bg-[#F8FAFC] border-b border-slate-200 py-6" ref={containerRef}>
+        <div className="bg-[#F8FAFC] border-b border-noble-border py-6" ref={containerRef}>
             <div className="max-w-[1430px] mx-auto px-4 md:px-16">
                 <div className="relative max-w-3xl">
                     <div className="relative shadow-sm rounded-xl">
@@ -44,7 +44,7 @@ export default function HelpSearchBar() {
                         </div>
                         <input
                             type="text"
-                            className="block w-full pl-12 pr-4 py-3.5 text-base border-2 border-slate-200 rounded-xl focus:ring-0 focus:border-noble-blue text-near-black placeholder-slate-400 bg-white transition-colors outline-none"
+                            className="block w-full pl-12 pr-4 py-3.5 text-base border-2 border-noble-border rounded-xl focus:ring-0 focus:border-noble-blue text-near-black placeholder-slate-400 bg-noble-surface transition-colors outline-none"
                             placeholder="Search for articles, guides, or features..."
                             value={query}
                             onChange={e => setQuery(e.target.value)}
@@ -54,7 +54,7 @@ export default function HelpSearchBar() {
 
                     {/* Results dropdown */}
                     {showResults && (
-                        <div className="absolute top-full mt-2 left-0 right-0 bg-white rounded-xl border border-slate-200 shadow-2xl z-50 overflow-hidden max-h-[400px] overflow-y-auto">
+                        <div className="absolute top-full mt-2 left-0 right-0 bg-noble-surface rounded-xl border border-noble-border shadow-2xl z-50 overflow-hidden max-h-[400px] overflow-y-auto">
                             {results.length > 0 ? (
                                 results.map((r, i) => (
                                     <Link

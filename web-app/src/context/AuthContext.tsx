@@ -18,6 +18,10 @@ export interface ProfileRow {
     onboarding_tour_completed?: boolean;
     first_login_at?: string;
     last_login_at?: string;
+    /** Platform admin flag — stored in profiles.is_superadmin */
+    is_superadmin?: boolean;
+    /** Admin role: 'super_admin' | 'seo_manager' | 'support_staff' */
+    role?: string | null;
 }
 
 interface AuthContextType {
@@ -51,7 +55,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             // Fetch profile first
             const profileResult = await supabase
                 .from('profiles')
-                .select('display_name, business_name, brand_logo_url, subscription_tier, subscription_status, subscription_expires_at, onboarding_completed, onboarding_tour_completed, first_login_at, last_login_at')
+                .select('display_name, business_name, brand_logo_url, subscription_tier, subscription_status, subscription_expires_at, onboarding_completed, onboarding_tour_completed, first_login_at, last_login_at, is_superadmin, role')
                 .eq('id', currentUser.id)
                 .single();
 
@@ -64,20 +68,29 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
             // Map only the fields we need — never spread the entire profile row
             // to avoid accidentally exposing sensitive columns (e.g. bank_account_number)
+            // Super admins are ALWAYS treated as 'admin' plan with 'active' status,
+            // regardless of what's in subscription_tier — they are billing-exempt.
+            const isSuperAdmin = !!(profile?.is_superadmin || profile?.role === 'super_admin');
+            const resolvedTier = isSuperAdmin
+                ? 'admin'
+                : (['explorer', 'pulse', 'elite', 'admin', 'pro'].includes(profile?.subscription_tier || '')
+                    ? (profile!.subscription_tier === 'pro' ? 'pulse' : profile!.subscription_tier)
+                    : 'explorer') as 'explorer' | 'pulse' | 'elite' | 'admin';
+
             setUserData({
                 uid: currentUser.id,
                 email: currentUser.email || '',
                 name: profile?.display_name || profile?.business_name || 'Noble User',
                 photoUrl: profile?.brand_logo_url || undefined,
-                subscriptionStatus: (
+                subscriptionStatus: isSuperAdmin ? 'active' : (
                     ['active', 'past_due'].includes(profile?.subscription_status || '')
                     && (profile?.subscription_tier && profile.subscription_tier !== 'explorer')
                 ) ? 'active' : (
                     profile?.subscription_tier && profile.subscription_tier !== 'explorer' ? 'expired' : 'cancelled'
                 ) as 'active' | 'past_due' | 'cancelled' | 'expired',
-                plan: (['explorer', 'pulse', 'elite', 'admin'].includes(profile?.subscription_tier || '')
-                    ? profile!.subscription_tier
-                    : 'explorer') as 'explorer' | 'pulse' | 'elite' | 'admin',
+                plan: resolvedTier as 'explorer' | 'pulse' | 'elite' | 'admin',
+                isSuperAdmin,
+                adminRole: profile?.role || null,
                 // Subscription dates (expose for billing page)
                 subscription_expires_at: profile?.subscription_expires_at || null,
                 // Explicit profile fields used by UI

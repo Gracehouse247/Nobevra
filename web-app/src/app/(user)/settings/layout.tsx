@@ -52,7 +52,7 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
     });
 
     return (
-        <div className="min-h-screen bg-white text-slate-900 pb-20 font-inter selection:bg-[#166FBB]/20">
+        <div className="min-h-screen bg-noble-surface dark:bg-[#060D1A] dark:bg-noble-card text-noble-text pb-20 font-inter selection:bg-[#166FBB]/20">
             
             {/* Header Area */}
             {pathname !== '/settings/team' && (
@@ -63,20 +63,20 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
                                 <SettingsIcon className="w-8 h-8" strokeWidth={1.5} />
                             </div>
                             <div>
-                                <h1 className="text-[19px] font-bold text-slate-900 tracking-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
+                                <h1 className="text-[19px] font-bold text-noble-text tracking-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
                                     Settings <span className="text-[#166FBB] italic font-medium">Hub</span>
                                 </h1>
-                                <p className="text-[13px] font-medium text-slate-500 mt-1">Manage your profile, preferences, and data privacy</p>
+                                <p className="text-[13px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">Manage your profile, preferences, and data privacy</p>
                             </div>
                         </div>
-                        <button className="flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-[12.5px] font-bold text-slate-700 hover:bg-slate-50 hover:border-slate-300 hover:shadow-sm transition-all shadow-sm">
+                        <button className="flex items-center gap-2 px-5 py-2.5 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl text-[12.5px] font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] hover:border-slate-300 hover:shadow-sm transition-all shadow-sm">
                             View Workspace
-                            <ExternalLink className="w-3.5 h-3.5 text-slate-400" />
+                            <ExternalLink className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                         </button>
                     </div>
 
                     {/* Horizontal Tab Navigation */}
-                    <div className="border-b border-slate-200">
+                    <div className="border-b border-noble-border">
                         <nav className="flex items-center gap-8 overflow-x-auto hide-scrollbar">
                             {visibleMenuItems.map((item) => {
                                 const isActive = pathname === item.path;
@@ -93,11 +93,11 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
                                             isActive
                                                 ? 'border-[#166FBB] text-[#166FBB] font-black'
                                                 : locked
-                                                ? 'border-transparent text-slate-400 hover:text-slate-600 font-bold'
-                                                : 'border-transparent text-slate-500 hover:text-slate-800 hover:border-slate-300 font-bold'
+                                                ? 'border-transparent text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500 font-bold'
+                                                : 'border-transparent text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:text-slate-800 dark:text-slate-100 hover:border-slate-300 font-bold'
                                         }`}
                                     >
-                                        <item.icon className={`w-4 h-4 ${isActive ? 'text-[#166FBB]' : locked ? 'text-slate-300' : 'text-slate-400'}`} strokeWidth={isActive ? 2.5 : 2} />
+                                        <item.icon className={`w-4 h-4 ${isActive ? 'text-[#166FBB]' : locked ? 'text-slate-300' : 'text-slate-400 dark:text-slate-500'}`} strokeWidth={isActive ? 2.5 : 2} />
                                         <span className={`text-[13px] capitalize tracking-wide ${locked ? 'opacity-70' : ''}`}>{item.name}</span>
                                         {locked && (
                                             <PremiumBadge tier={rp === 'elite' ? 'elite' : 'pro'} iconOnly className="w-3.5 h-3.5 ml-1 drop-shadow-sm opacity-90" />

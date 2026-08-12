@@ -47,3 +47,5 @@ GoogleService-Info.plist
 # Symbols & Maps
 app.*.symbols
 app.*.map.json
+
+secrets.json

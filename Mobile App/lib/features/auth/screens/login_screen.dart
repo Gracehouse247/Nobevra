@@ -30,12 +30,14 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<void> _handleLogin() async {
     if (!_formKey.currentState!.validate()) return;
     final auth = context.read<AuthController>();
-    final ok = await auth.login(
+    final result = await auth.login(
       email: _emailController.text.trim(),
       password: _passwordController.text,
     );
     if (!mounted) return;
-    if (ok) {
+    if (result == 'mfa_required') {
+      Navigator.pushNamed(context, AppRoutes.totpVerification);
+    } else if (result == 'success') {
       final profileCtrl = context.read<ProfileController>();
       await profileCtrl.loadProfile();
       if (!mounted) return;

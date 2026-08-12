@@ -86,7 +86,7 @@ export default function AuthModal({ isOpen, onClose, defaultIsLogin = true }: Au
                         >
                             <button 
                                 onClick={onClose}
-                                className="absolute top-6 right-6 w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors z-10"
+                                className="absolute top-6 right-6 w-8 h-8 rounded-full bg-noble-surface dark:bg-noble-card/5 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-white hover:bg-noble-surface dark:bg-noble-card/10 transition-colors z-10"
                             >
                                 <X className="w-4 h-4" />
                             </button>
@@ -95,7 +95,7 @@ export default function AuthModal({ isOpen, onClose, defaultIsLogin = true }: Au
                                 <h2 className="text-2xl font-extrabold text-white font-manrope">
                                     {isLogin ? 'Welcome Back' : 'Join NobleInvoice'}
                                 </h2>
-                                <p className="text-slate-400 text-sm mt-2 font-medium">
+                                <p className="text-slate-400 dark:text-slate-500 text-sm mt-2 font-medium">
                                     {isLogin 
                                         ? 'Access your unified workspace across web and mobile.' 
                                         : 'Start engineering your peak performance today.'}
@@ -110,7 +110,7 @@ export default function AuthModal({ isOpen, onClose, defaultIsLogin = true }: Au
                                 <button 
                                     onClick={handleGoogleSignIn}
                                     disabled={loading}
-                                    className="w-full mt-6 h-12 bg-white text-slate-900 font-extrabold rounded-[20px] flex items-center justify-center gap-3 hover:bg-slate-100 transition-colors disabled:opacity-50"
+                                    className="w-full mt-6 h-12 bg-noble-surface dark:bg-noble-card text-noble-text font-extrabold rounded-[20px] flex items-center justify-center gap-3 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030] transition-colors disabled:opacity-50"
                                 >
                                     <svg className="w-5 h-5" viewBox="0 0 24 24">
                                         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
@@ -122,45 +122,45 @@ export default function AuthModal({ isOpen, onClose, defaultIsLogin = true }: Au
                                 </button>
 
                                 <div className="flex items-center gap-4 my-6 opacity-30">
-                                    <div className="h-px bg-white flex-1" />
+                                    <div className="h-px bg-noble-surface dark:bg-noble-card flex-1" />
                                     <span className="text-xs font-black text-white uppercase tracking-widest">Or Email</span>
-                                    <div className="h-px bg-white flex-1" />
+                                    <div className="h-px bg-noble-surface dark:bg-noble-card flex-1" />
                                 </div>
 
                                 <form onSubmit={handleEmailAuth} className="space-y-4">
                                     {!isLogin && (
                                         <div className="relative">
-                                            <UserPlus className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                                            <UserPlus className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 dark:text-slate-500" />
                                             <input 
                                                 type="text"
                                                 required
                                                 placeholder="Full Name"
                                                 value={name}
                                                 onChange={e => setName(e.target.value)}
-                                                className="w-full h-12 pl-12 pr-4 bg-white/5 border border-white/10 rounded-[20px] text-white placeholder:text-slate-500 focus:outline-none focus:border-[#F4B400] transition-colors"
+                                                className="w-full h-12 pl-12 pr-4 bg-noble-surface dark:bg-noble-card/5 border border-white/10 rounded-[20px] text-white placeholder:text-slate-500 dark:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#F4B400] transition-colors"
                                             />
                                         </div>
                                     )}
                                     <div className="relative">
-                                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 dark:text-slate-500" />
                                         <input 
                                             type="email"
                                             required
                                             placeholder="Email Address"
                                             value={email}
                                             onChange={e => setEmail(e.target.value)}
-                                            className="w-full h-12 pl-12 pr-4 bg-white/5 border border-white/10 rounded-[20px] text-white placeholder:text-slate-500 focus:outline-none focus:border-[#F4B400] transition-colors"
+                                            className="w-full h-12 pl-12 pr-4 bg-noble-surface dark:bg-noble-card/5 border border-white/10 rounded-[20px] text-white placeholder:text-slate-500 dark:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#F4B400] transition-colors"
                                         />
                                     </div>
                                     <div className="relative">
-                                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+                                        <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 dark:text-slate-500" />
                                         <input 
                                             type="password"
                                             required
                                             placeholder="Password"
                                             value={password}
                                             onChange={e => setPassword(e.target.value)}
-                                            className="w-full h-12 pl-12 pr-4 bg-white/5 border border-white/10 rounded-[20px] text-white placeholder:text-slate-500 focus:outline-none focus:border-[#F4B400] transition-colors"
+                                            className="w-full h-12 pl-12 pr-4 bg-noble-surface dark:bg-noble-card/5 border border-white/10 rounded-[20px] text-white placeholder:text-slate-500 dark:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#F4B400] transition-colors"
                                         />
                                     </div>
 
@@ -174,8 +174,8 @@ export default function AuthModal({ isOpen, onClose, defaultIsLogin = true }: Au
                                 </form>
                             </div>
 
-                            <div className="p-6 bg-white/5 border-t border-white/10 text-center">
-                                <p className="text-sm text-slate-400 font-medium">
+                            <div className="p-6 bg-noble-surface dark:bg-noble-card/5 border-t border-white/10 text-center">
+                                <p className="text-sm text-slate-400 dark:text-slate-500 font-medium">
                                     {isLogin ? "Don't have an account?" : "Already a member?"}
                                     <button 
                                         onClick={() => setIsLogin(!isLogin)}

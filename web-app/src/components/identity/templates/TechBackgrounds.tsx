@@ -13,7 +13,7 @@ export const CyberPulseBackground: React.FC<{ accentColor: string }> = ({ accent
 );
 
 export const DigitalPulseBackground: React.FC<{ accentColor: string }> = ({ accentColor }) => (
-  <div className="absolute inset-0 bg-white overflow-hidden">
+  <div className="absolute inset-0 bg-noble-surface overflow-hidden">
     <svg width="100%" height="100%" viewBox="0 0 1050 600" preserveAspectRatio="xMidYMid slice">
       <defs>
         <linearGradient id="techGrad" x1="0%" y1="0%" x2="100%" y2="100%">

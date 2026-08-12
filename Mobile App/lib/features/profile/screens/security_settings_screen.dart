@@ -47,7 +47,7 @@ class _SecuritySettingsScreenState extends State<SecuritySettingsScreen> {
                   title: 'Two-Factor Auth',
                   subtitle: 'Add an extra layer of security',
                   color: Colors.orange,
-                  onTap: () {},
+                  onTap: () => Navigator.pushNamed(context, AppRoutes.totpSetup),
                 ),
               ],
             ),

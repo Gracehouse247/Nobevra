@@ -203,38 +203,38 @@ export default function ProfileSettingsPage() {
                     <>
                         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-6 mb-10">
                             <div>
-                                <h2 className="text-[19px] font-black text-slate-900 mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Profile Details</h2>
-                                <p className="text-[13px] text-slate-500 font-medium">Manage your personal profile and display information.</p>
+                                <h2 className="text-[19px] font-black text-noble-text mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Profile Details</h2>
+                                <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">Manage your personal profile and display information.</p>
                             </div>
                             <div className="flex items-center gap-4">
                                 <div className="relative group cursor-pointer" onClick={() => fileInputRef.current?.click()}>
-                                    <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center border border-slate-200 overflow-hidden shadow-inner">
+                                    <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-[#112030] flex items-center justify-center border border-noble-border overflow-hidden shadow-inner">
                                         {avatarSrc ? (
                                             <img src={avatarSrc} alt="Avatar" className="w-full h-full object-cover" />
                                         ) : (
-                                            <span className="text-xl font-black text-slate-400">{initials}</span>
+                                            <span className="text-xl font-black text-slate-400 dark:text-slate-500">{initials}</span>
                                         )}
                                     </div>
                                     {uploading && (
-                                        <div className="absolute inset-0 rounded-full flex items-center justify-center bg-white/80 backdrop-blur-sm">
+                                        <div className="absolute inset-0 rounded-full flex items-center justify-center bg-noble-surface dark:bg-noble-card/80 backdrop-blur-sm">
                                             <Loader2 className="w-5 h-5 text-[#166FBB] animate-spin" />
                                         </div>
                                     )}
                                 </div>
                                 <div>
-                                    <button type="button" onClick={() => fileInputRef.current?.click()} disabled={uploading} className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-xl text-[12px] font-bold text-slate-700 hover:border-slate-300 hover:shadow-sm transition-all">
+                                    <button type="button" onClick={() => fileInputRef.current?.click()} disabled={uploading} className="flex items-center gap-2 px-4 py-2 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl text-[12px] font-bold text-slate-700 dark:text-slate-200 hover:border-slate-300 hover:shadow-sm transition-all">
                                         <Upload className="w-3.5 h-3.5" /> Change Avatar
                                     </button>
-                                    <p className="text-[10px] text-slate-400 mt-1.5 font-bold uppercase tracking-wider">JPG, PNG or WEBP. Max 2MB</p>
+                                    <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-1.5 font-bold uppercase tracking-wider">JPG, PNG or WEBP. Max 2MB</p>
                                 </div>
                                 <input ref={fileInputRef} type="file" accept="image/jpeg,image/png,image/webp" className="hidden" onChange={handleAvatarUpload} />
                             </div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Display Name</label>
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Display Name</label>
                                 <div className="relative">
-                                    <input type="text" value={form.displayName} onChange={(e) => setForm({ ...form, displayName: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" required />
+                                    <input type="text" value={form.displayName} onChange={(e) => setForm({ ...form, displayName: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" required />
                                     {form.displayName.trim() && <CheckCircle2 className="w-4 h-4 text-emerald-500 absolute right-4 top-1/2 -translate-y-1/2" />}
                                 </div>
                             </div>
@@ -246,17 +246,17 @@ export default function ProfileSettingsPage() {
                 return (
                     <>
                         <div className="mb-10">
-                            <h2 className="text-[19px] font-black text-slate-900 mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Public Persona</h2>
-                            <p className="text-[13px] text-slate-500 font-medium">Customize how you appear on public directories and invoicing links.</p>
+                            <h2 className="text-[19px] font-black text-noble-text mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Public Persona</h2>
+                            <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">Customize how you appear on public directories and invoicing links.</p>
                         </div>
                         <div className="space-y-6">
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Public Bio / Tagline</label>
-                                <textarea rows={4} value={form.bio} onChange={(e) => setForm({ ...form, bio: e.target.value })} placeholder="I am a professional freelancer specializing in..." className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm resize-none" />
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Public Bio / Tagline</label>
+                                <textarea rows={4} value={form.bio} onChange={(e) => setForm({ ...form, bio: e.target.value })} placeholder="I am a professional freelancer specializing in..." className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm resize-none" />
                             </div>
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Portfolio / Website URL</label>
-                                <input type="url" value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} placeholder="https://yourwebsite.com" className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" />
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Portfolio / Website URL</label>
+                                <input type="url" value={form.website} onChange={(e) => setForm({ ...form, website: e.target.value })} placeholder="https://yourwebsite.com" className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" />
                             </div>
                         </div>
                     </>
@@ -266,17 +266,17 @@ export default function ProfileSettingsPage() {
                 return (
                     <>
                         <div className="mb-10">
-                            <h2 className="text-[19px] font-black text-slate-900 mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Contact Information</h2>
-                            <p className="text-[13px] text-slate-500 font-medium">Manage how clients and the system can reach you.</p>
+                            <h2 className="text-[19px] font-black text-noble-text mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Contact Information</h2>
+                            <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">Manage how clients and the system can reach you.</p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Personal Phone Number</label>
-                                <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm placeholder:text-slate-400" placeholder="Optional" />
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Personal Phone Number</label>
+                                <input type="tel" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm placeholder:text-slate-400 dark:text-slate-500" placeholder="Optional" />
                             </div>
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Account Email (Read-only)</label>
-                                <input type="email" value={userData?.email || user?.email || ''} disabled className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-500 cursor-not-allowed shadow-sm" />
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Account Email (Read-only)</label>
+                                <input type="email" value={userData?.email || user?.email || ''} disabled className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500 cursor-not-allowed shadow-sm" />
                             </div>
                         </div>
                     </>
@@ -286,33 +286,33 @@ export default function ProfileSettingsPage() {
                 return (
                     <>
                         <div className="mb-10">
-                            <h2 className="text-[19px] font-black text-slate-900 mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Business Information</h2>
-                            <p className="text-[13px] text-slate-500 font-medium">Set default business details for your profile.</p>
+                            <h2 className="text-[19px] font-black text-noble-text mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Business Information</h2>
+                            <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">Set default business details for your profile.</p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Business Name</label>
-                                <input type="text" value={form.businessName} onChange={(e) => setForm({ ...form, businessName: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" />
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Business Name</label>
+                                <input type="text" value={form.businessName} onChange={(e) => setForm({ ...form, businessName: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" />
                             </div>
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Tax ID / VAT Number</label>
-                                <input type="text" value={form.taxNumber} onChange={(e) => setForm({ ...form, taxNumber: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" />
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Tax ID / VAT Number</label>
+                                <input type="text" value={form.taxNumber} onChange={(e) => setForm({ ...form, taxNumber: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" />
                             </div>
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Business Phone</label>
-                                <input type="tel" value={form.businessPhone} onChange={(e) => setForm({ ...form, businessPhone: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" />
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Business Phone</label>
+                                <input type="tel" value={form.businessPhone} onChange={(e) => setForm({ ...form, businessPhone: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" />
                             </div>
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Business Email</label>
-                                <input type="email" value={form.businessEmail} onChange={(e) => setForm({ ...form, businessEmail: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" />
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Business Email</label>
+                                <input type="email" value={form.businessEmail} onChange={(e) => setForm({ ...form, businessEmail: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" />
                             </div>
                             <div className="md:col-span-2">
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Business Address</label>
-                                <textarea rows={3} value={form.businessAddress} onChange={(e) => setForm({ ...form, businessAddress: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm resize-none" />
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Business Address</label>
+                                <textarea rows={3} value={form.businessAddress} onChange={(e) => setForm({ ...form, businessAddress: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm resize-none" />
                             </div>
                             <div className="md:col-span-2">
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Industry</label>
-                                <input type="text" value={form.industry} onChange={(e) => setForm({ ...form, industry: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" placeholder="e.g. Software Development" />
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Industry</label>
+                                <input type="text" value={form.industry} onChange={(e) => setForm({ ...form, industry: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm" placeholder="e.g. Software Development" />
                             </div>
                         </div>
                     </>
@@ -322,37 +322,37 @@ export default function ProfileSettingsPage() {
                 return (
                     <>
                         <div className="mb-10">
-                            <h2 className="text-[19px] font-black text-slate-900 mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Localization</h2>
-                            <p className="text-[13px] text-slate-500 font-medium">Manage region, currency, and language preferences.</p>
+                            <h2 className="text-[19px] font-black text-noble-text mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Localization</h2>
+                            <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">Manage region, currency, and language preferences.</p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Preferred Currency</label>
-                                <select value={form.preferredCurrency} onChange={(e) => setForm({ ...form, preferredCurrency: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm cursor-pointer appearance-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%2364748b\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1rem' }}>
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Preferred Currency</label>
+                                <select value={form.preferredCurrency} onChange={(e) => setForm({ ...form, preferredCurrency: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm cursor-pointer appearance-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%2364748b\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1rem' }}>
                                     {allCurrencies.map(c => (
                                         <option key={c.code} value={c.code}>{c.code} - {c.name}</option>
                                     ))}
                                 </select>
                             </div>
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Theme Mode</label>
-                                <select value={form.themeMode} onChange={(e) => setForm({ ...form, themeMode: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm cursor-pointer appearance-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%2364748b\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1rem' }}>
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Theme Mode</label>
+                                <select value={form.themeMode} onChange={(e) => setForm({ ...form, themeMode: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm cursor-pointer appearance-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%2364748b\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1rem' }}>
                                     <option value="system">Follow System</option>
                                     <option value="light">Light Mode</option>
                                     <option value="dark">Dark Mode</option>
                                 </select>
                             </div>
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Language</label>
-                                <select value={form.locale} onChange={(e) => setForm({ ...form, locale: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm cursor-pointer appearance-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%2364748b\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1rem' }}>
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Language</label>
+                                <select value={form.locale} onChange={(e) => setForm({ ...form, locale: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm cursor-pointer appearance-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%2364748b\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1rem' }}>
                                     <option value="en">English</option>
                                     <option value="fr">Français</option>
                                     <option value="es">Español</option>
                                 </select>
                             </div>
                             <div>
-                                <label className="block text-[12px] font-bold text-slate-700 mb-2">Timezone</label>
-                                <select value={form.timezone} onChange={(e) => setForm({ ...form, timezone: e.target.value })} className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3.5 text-[13px] font-semibold text-slate-900 focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm cursor-pointer appearance-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%2364748b\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1rem' }}>
+                                <label className="block text-[12px] font-bold text-slate-700 dark:text-slate-200 mb-2">Timezone</label>
+                                <select value={form.timezone} onChange={(e) => setForm({ ...form, timezone: e.target.value })} className="w-full bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl px-4 py-3.5 text-[13px] font-semibold text-noble-text focus:outline-none focus:border-[#166FBB] focus:ring-4 focus:ring-[#166FBB]/10 transition-all shadow-sm cursor-pointer appearance-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'%2364748b\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\'%3E%3C/path%3E%3C/svg%3E")', backgroundPosition: 'right 1rem center', backgroundRepeat: 'no-repeat', backgroundSize: '1rem' }}>
                                     {timezones.map(tz => (
                                         <option key={tz} value={tz}>{tz}</option>
                                     ))}
@@ -366,21 +366,21 @@ export default function ProfileSettingsPage() {
                 return (
                     <>
                         <div className="mb-10">
-                            <h2 className="text-[19px] font-black text-slate-900 mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Subscription Status</h2>
-                            <p className="text-[13px] text-slate-500 font-medium">Review your current plan and limits.</p>
+                            <h2 className="text-[19px] font-black text-noble-text mb-1" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Subscription Status</h2>
+                            <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium">Review your current plan and limits.</p>
                         </div>
                         <div className="flex items-center gap-3 mb-4">
-                            <div className="px-3 py-1.5 bg-slate-100 rounded-full flex items-center gap-2 border border-slate-200">
+                            <div className="px-3 py-1.5 bg-slate-100 dark:bg-[#112030] rounded-full flex items-center gap-2 border border-noble-border">
                                 <div className="w-1.5 h-1.5 rounded-full bg-[#166FBB]" />
-                                <span className="text-[10px] font-black text-slate-700 uppercase tracking-widest">
+                                <span className="text-[10px] font-black text-slate-700 dark:text-slate-200 uppercase tracking-widest">
                                     {((userData as any)?.plan === 'pro' || (userData as any)?.plan === 'active') ? 'Pro Plan' : (userData as any)?.plan === 'elite' ? 'Elite Plan' : 'Free Plan'}
                                 </span>
                             </div>
                         </div>
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-xl bg-slate-50 dark:bg-[#0D1B2E] border border-slate-100 dark:border-noble-border">
                             <div className="flex gap-3">
-                                <Info className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
-                                <p className="text-[12px] font-medium text-slate-600">
+                                <Info className="w-4 h-4 text-slate-400 dark:text-slate-500 flex-shrink-0 mt-0.5" />
+                                <p className="text-[12px] font-medium text-slate-600 dark:text-slate-400 dark:text-slate-500">
                                     You are currently on the {((userData as any)?.plan === 'elite') ? 'Elite' : ((userData as any)?.plan === 'pro' || (userData as any)?.plan === 'active') ? 'Pro' : 'Free'} Plan. {((userData as any)?.plan === 'elite') ? 'You have access to all premium features.' : 'Upgrade to unlock premium features.'}
                                 </p>
                             </div>
@@ -398,12 +398,12 @@ export default function ProfileSettingsPage() {
     };
 
     return (
-        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 font-inter text-slate-800 pb-10">
+        <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 font-inter text-slate-800 dark:text-slate-100 pb-10">
             <div className="flex flex-col md:flex-row gap-8">
                 
                 {/* ── Left Inner Sidebar Navigation ──────────────────────────────── */}
                 <div className="w-full md:w-[280px] flex-shrink-0 flex flex-col gap-6">
-                    <div className="bg-white border border-slate-100 rounded-3xl p-3 shadow-sm">
+                    <div className="bg-noble-surface dark:bg-noble-card border border-slate-100 dark:border-noble-border rounded-3xl p-3 shadow-sm">
                         <nav className="flex flex-col gap-1">
                             {innerTabs.map((tab) => {
                                 const isActive = activeSection === tab.id;
@@ -414,10 +414,10 @@ export default function ProfileSettingsPage() {
                                         className={`flex items-center gap-3 px-4 py-3.5 rounded-2xl text-[13px] font-bold transition-all text-left ${
                                             isActive
                                                 ? 'bg-[#166FBB]/5 text-[#166FBB] shadow-sm'
-                                                : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
+                                                : 'text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] hover:text-noble-text'
                                         }`}
                                     >
-                                        <tab.icon className={`w-4 h-4 ${isActive ? 'text-[#166FBB]' : 'text-slate-400'}`} />
+                                        <tab.icon className={`w-4 h-4 ${isActive ? 'text-[#166FBB]' : 'text-slate-400 dark:text-slate-500'}`} />
                                         {tab.label}
                                     </button>
                                 );
@@ -426,15 +426,15 @@ export default function ProfileSettingsPage() {
                     </div>
 
                     {/* Need Help Card */}
-                    <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm">
+                    <div className="bg-noble-surface dark:bg-noble-card border border-slate-100 dark:border-noble-border rounded-3xl p-6 shadow-sm">
                         <div className="flex items-center gap-2 mb-3">
                             <Info className="w-4 h-4 text-noble-blue" />
-                            <h4 className="text-[14px] font-black text-slate-900">Need Help?</h4>
+                            <h4 className="text-[14px] font-black text-noble-text">Need Help?</h4>
                         </div>
-                        <p className="text-[12px] font-medium text-slate-500 mb-5 leading-relaxed">
+                        <p className="text-[12px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-5 leading-relaxed">
                             Check our documentation or contact support.
                         </p>
-                        <button className="w-full flex items-center justify-between px-4 py-3 bg-white border border-slate-200 rounded-xl text-[12px] font-bold text-slate-700 hover:border-[#166FBB] hover:text-[#166FBB] hover:bg-[#166FBB]/5 transition-all shadow-sm">
+                        <button className="w-full flex items-center justify-between px-4 py-3 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl text-[12px] font-bold text-slate-700 dark:text-slate-200 hover:border-[#166FBB] hover:text-[#166FBB] hover:bg-[#166FBB]/5 transition-all shadow-sm">
                             Visit Help Center
                             <ArrowRight className="w-3.5 h-3.5" />
                         </button>
@@ -443,7 +443,7 @@ export default function ProfileSettingsPage() {
 
                 {/* ── Main Content Area (Right Column) ──────────────────────────── */}
                 <div className="flex-1">
-                    <div className="bg-white rounded-[24px] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.03)] overflow-hidden">
+                    <div className="bg-noble-surface dark:bg-noble-card rounded-[24px] border border-slate-100 dark:border-noble-border shadow-[0_8px_30px_rgb(0,0,0,0.03)] overflow-hidden">
                         
                         <form onSubmit={handleSave}>
                             <div className="p-8 sm:p-10 min-h-[400px]">
@@ -452,7 +452,7 @@ export default function ProfileSettingsPage() {
 
                             {/* Footer Area (Visible only if not on Subscription read-only tab) */}
                             {activeSection !== 'subscription' && (
-                                <div className="px-8 sm:px-10 py-5 bg-slate-50/80 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                                <div className="px-8 sm:px-10 py-5 bg-slate-50 dark:bg-[#0D1B2E]/80 border-t border-slate-100 dark:border-noble-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                     <button
                                         type="submit"
                                         disabled={loading}
@@ -461,8 +461,8 @@ export default function ProfileSettingsPage() {
                                         {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4 mr-2" />}
                                         Save Changes
                                     </button>
-                                    <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">
-                                        ACCOUNT: <span className="text-slate-800 lowercase font-medium tracking-normal">{userData?.email || user?.email}</span>
+                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">
+                                        ACCOUNT: <span className="text-slate-800 dark:text-slate-100 lowercase font-medium tracking-normal">{userData?.email || user?.email}</span>
                                     </p>
                                 </div>
                             )}
@@ -472,33 +472,33 @@ export default function ProfileSettingsPage() {
             </div>
 
             {/* ── Footer Trust Badges ────────────────────────────────────────── */}
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto border-t border-slate-200/60 pt-8">
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto border-t border-noble-border/60 pt-8">
                 <div className="flex items-start gap-3">
                     <Shield className="w-5 h-5 text-[#166FBB] flex-shrink-0 mt-0.5" />
                     <div>
-                        <h5 className="text-[12px] font-bold text-slate-900">Secure & Private</h5>
-                        <p className="text-[11px] font-medium text-slate-500 mt-0.5">Your data is encrypted and protected</p>
+                        <h5 className="text-[12px] font-bold text-noble-text">Secure & Private</h5>
+                        <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">Your data is encrypted and protected</p>
                     </div>
                 </div>
                 <div className="flex items-start gap-3">
                     <RefreshCw className="w-5 h-5 text-[#166FBB] flex-shrink-0 mt-0.5" />
                     <div>
-                        <h5 className="text-[12px] font-bold text-slate-900">Real-time Sync</h5>
-                        <p className="text-[11px] font-medium text-slate-500 mt-0.5">Changes sync across all your devices</p>
+                        <h5 className="text-[12px] font-bold text-noble-text">Real-time Sync</h5>
+                        <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">Changes sync across all your devices</p>
                     </div>
                 </div>
                 <div className="flex items-start gap-3">
                     <Headphones className="w-5 h-5 text-[#166FBB] flex-shrink-0 mt-0.5" />
                     <div>
-                        <h5 className="text-[12px] font-bold text-slate-900">Dedicated Support</h5>
-                        <p className="text-[11px] font-medium text-slate-500 mt-0.5">We're here to help 24/7</p>
+                        <h5 className="text-[12px] font-bold text-noble-text">Dedicated Support</h5>
+                        <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">We're here to help 24/7</p>
                     </div>
                 </div>
                 <div className="flex items-start gap-3">
                     <Lock className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
                     <div>
-                        <h5 className="text-[12px] font-bold text-slate-900">End-to-end Encryption</h5>
-                        <p className="text-[11px] font-medium text-slate-500 mt-0.5">Enterprise-grade security you can trust</p>
+                        <h5 className="text-[12px] font-bold text-noble-text">End-to-end Encryption</h5>
+                        <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">Enterprise-grade security you can trust</p>
                     </div>
                 </div>
             </div>

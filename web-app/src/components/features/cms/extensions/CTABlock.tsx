@@ -17,7 +17,7 @@ const CTAComponent = (props: any) => {
     <NodeViewWrapper className="noble-cta-block group" style={{ margin: '2rem 0' }}>
       <div 
         contentEditable="false"
-        className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 sm:p-10 text-center shadow-sm transition-all hover:shadow-md"
+        className="relative overflow-hidden rounded-2xl border border-noble-border bg-noble-surface p-8 sm:p-10 text-center shadow-sm transition-all hover:shadow-md"
       >
         {/* Abstract background blobs */}
         <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-[#006970]/10 to-transparent rounded-full -translate-x-1/2 -translate-y-1/2 blur-2xl" />
@@ -28,12 +28,12 @@ const CTAComponent = (props: any) => {
             <input 
               value={headline}
               onChange={(e) => updateAttributes({ headline: e.target.value })}
-              className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2 w-full text-center bg-slate-50 border-b border-slate-300 outline-none px-2 py-1"
+              className="text-2xl sm:text-3xl font-extrabold text-noble-text mb-2 w-full text-center bg-slate-50 border-b border-slate-300 outline-none px-2 py-1"
               placeholder="Headline..."
               autoFocus
             />
           ) : (
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3 tracking-tight">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-noble-text mb-3 tracking-tight">
               {headline}
             </h3>
           )}
@@ -53,13 +53,13 @@ const CTAComponent = (props: any) => {
           )}
 
           {editing ? (
-            <div className="flex flex-col sm:flex-row gap-3 items-center w-full max-w-md bg-slate-50 p-3 rounded-lg border border-slate-200">
+            <div className="flex flex-col sm:flex-row gap-3 items-center w-full max-w-md bg-slate-50 p-3 rounded-lg border border-noble-border">
               <div className="flex-1 w-full">
                 <label className="text-[10px] font-bold uppercase text-slate-500 mb-1 block">Button Text</label>
                 <input
                   value={buttonText}
                   onChange={(e) => updateAttributes({ buttonText: e.target.value })}
-                  className="w-full text-sm border border-slate-200 rounded px-2 py-1.5 outline-none"
+                  className="w-full text-sm border border-noble-border rounded px-2 py-1.5 outline-none"
                 />
               </div>
               <div className="flex-1 w-full">
@@ -67,7 +67,7 @@ const CTAComponent = (props: any) => {
                 <input
                   value={buttonUrl}
                   onChange={(e) => updateAttributes({ buttonUrl: e.target.value })}
-                  className="w-full text-sm border border-slate-200 rounded px-2 py-1.5 outline-none"
+                  className="w-full text-sm border border-noble-border rounded px-2 py-1.5 outline-none"
                   placeholder="https://..."
                 />
               </div>
@@ -95,7 +95,7 @@ const CTAComponent = (props: any) => {
         {!editing && (
           <button
             onClick={() => setEditing(true)}
-            className="absolute top-3 right-3 p-2 bg-white/80 backdrop-blur border border-slate-200 text-slate-500 rounded-lg opacity-0 group-hover:opacity-100 transition-all hover:bg-slate-100 hover:text-slate-900 shadow-sm"
+            className="absolute top-3 right-3 p-2 bg-noble-surface/80 backdrop-blur border border-noble-border text-slate-500 rounded-lg opacity-0 group-hover:opacity-100 transition-all hover:bg-slate-100 hover:text-noble-text shadow-sm"
             title="Edit CTA settings"
           >
             <Settings className="w-4 h-4" />

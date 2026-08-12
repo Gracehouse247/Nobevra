@@ -14,7 +14,7 @@ export const ThynkAzureBackground: React.FC<ThynkAzureBackgroundProps> = ({
   const Cyan = '#00B4DB';
 
   return (
-    <div className="absolute inset-0 w-full h-full bg-white overflow-hidden">
+    <div className="absolute inset-0 w-full h-full bg-noble-surface overflow-hidden">
       {/* Background Layered Shards (Bottom Left Cluster) */}
       
       {/* Deep Blue Shard 1 */}

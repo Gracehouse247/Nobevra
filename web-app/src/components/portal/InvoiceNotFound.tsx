@@ -14,7 +14,7 @@ export function InvoiceNotFound() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ type: 'spring', stiffness: 200, damping: 20 }}
-        className="relative z-10 flex max-w-md flex-col items-center gap-6 rounded-[40px] border border-white/60 bg-white/60 p-12 text-center shadow-[0_40px_80px_rgba(0,0,0,0.06)] backdrop-blur-2xl"
+        className="relative z-10 flex max-w-md flex-col items-center gap-6 rounded-[40px] border border-white/60 bg-noble-surface/60 p-12 text-center shadow-[0_40px_80px_rgba(0,0,0,0.06)] backdrop-blur-2xl"
       >
         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-rose-50">
           <AlertCircle className="h-10 w-10 text-rose-400" />

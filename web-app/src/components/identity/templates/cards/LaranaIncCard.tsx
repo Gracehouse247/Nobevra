@@ -9,7 +9,7 @@ export const LaranaIncCard: React.FC<CardRendererProps & { defaultColor?: string
     const panelBg = brandDark;
     if (side === 'front') return (
       <div className="relative w-full h-full flex flex-row z-20">
-        <div className="flex-[0.54] bg-white flex flex-col justify-between py-14 px-16">
+        <div className="flex-[0.54] bg-noble-surface flex flex-col justify-between py-14 px-16">
           <DraggableElement elementKey="logo" className="w-10 h-10 flex-shrink-0">
             <svg viewBox="0 0 80 80" className="w-full h-full fill-current" style={{ color: brandAccent }}>
               {[0,45,90,135,180,225,270,315].map(r=><path key={r} d="M40,12C43,12,46,26,46,36C46,44,43,45,40,45C37,45,34,44,34,36C34,26,37,12,40,12Z" transform={`rotate(${r} 40 40)`}/>)}
@@ -54,7 +54,7 @@ export const LaranaIncCard: React.FC<CardRendererProps & { defaultColor?: string
           <p className="font-black tracking-[0.6em] uppercase mt-2" style={{ color: ON_COLOR, opacity: 0.3, fontSize: fs(10) }}>PREMIUM DESIGN STUDIO</p>
         </div>
         <DraggableElement elementKey="qr" className="flex flex-col items-center gap-3 mt-2">
-          <div className="bg-white p-3 rounded-xl shadow-2xl">
+          <div className="bg-noble-surface p-3 rounded-xl shadow-2xl">
             <SharedQRCode url={data.qrCodeUrl || ''} color={qc} size={200} className="w-20 h-20" />
           </div>
           <p className="font-bold tracking-[0.5em] uppercase" style={{ color: ON_COLOR, opacity: 0.3, fontSize: fs(10) }}>Scan to Connect</p>

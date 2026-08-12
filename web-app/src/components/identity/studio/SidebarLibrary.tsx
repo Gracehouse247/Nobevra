@@ -230,7 +230,7 @@ export const SidebarLibrary: React.FC = () => {
               onClick={() => setActiveTab(tab.id)}
               className={`flex flex-col items-center gap-1.5 transition-all group w-full ${isActive ? 'text-[#166FBB] font-black scale-105' : 'text-[#64748B] hover:text-[#0F172A]'}`}
             >
-              <div className={`p-2.5 rounded-xl transition-all ${isActive ? 'bg-white border border-[#E2E8F0] text-[#166FBB] shadow-sm' : 'group-hover:bg-slate-200/50 border border-transparent'}`}>
+              <div className={`p-2.5 rounded-xl transition-all ${isActive ? 'bg-noble-surface border border-[#E2E8F0] text-[#166FBB] shadow-sm' : 'group-hover:bg-slate-200/50 border border-transparent'}`}>
                 <tab.icon size={22} strokeWidth={isActive ? 2 : 1.5} />
               </div>
               <span className="text-[9px] font-black uppercase tracking-wider">{tab.label}</span>
@@ -264,7 +264,7 @@ export const SidebarLibrary: React.FC = () => {
             <div className="flex-1 overflow-y-auto">
               {designMode === 'templates' ? (
                 <div className="p-6">
-                  <h3 className="font-bold text-slate-900 mb-4 text-sm uppercase tracking-wide">Design Presets</h3>
+                  <h3 className="font-bold text-noble-text mb-4 text-sm uppercase tracking-wide">Design Presets</h3>
                   <div className="grid grid-cols-1 gap-4">
                     {STUDIO_TEMPLATES.map((tmpl) => {
                       const identityTmpl = IDENTITY_TEMPLATES.find(t => t.id === tmpl.id);
@@ -297,7 +297,7 @@ export const SidebarLibrary: React.FC = () => {
                         <button
                           key={tmpl.id}
                           onClick={handleTemplateClick}
-                          className={`group relative w-full h-32 rounded-2xl border overflow-hidden hover:shadow-lg transition-all text-left ${isPremium && !hasUnlockedTemplate(tmpl.id) ? 'border-amber-200 hover:border-amber-400' : 'border-slate-200 hover:border-blue-600'}`}
+                          className={`group relative w-full h-32 rounded-2xl border overflow-hidden hover:shadow-lg transition-all text-left ${isPremium && !hasUnlockedTemplate(tmpl.id) ? 'border-amber-200 hover:border-amber-400' : 'border-noble-border hover:border-blue-600'}`}
                           style={{ backgroundColor: tmpl.background }}
                         >
                         <div className="absolute inset-0 p-6 flex flex-col justify-center transform scale-75 origin-left">
@@ -314,7 +314,7 @@ export const SidebarLibrary: React.FC = () => {
                           </div>
                         )}
                         {(!isPremium || hasUnlockedTemplate(tmpl.id)) && (
-                          <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-white/20 backdrop-blur-md rounded-full p-1.5 text-white">
+                          <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-noble-surface/20 backdrop-blur-md rounded-full p-1.5 text-white">
                             <Plus size={14} />
                           </div>
                         )}
@@ -334,22 +334,22 @@ export const SidebarLibrary: React.FC = () => {
         {activeTab === 'text' && (
           <div className="p-6 flex flex-col gap-6">
             <div>
-              <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wide">Typography Inserter</h3>
+              <h3 className="font-bold text-noble-text text-sm uppercase tracking-wide">Typography Inserter</h3>
               <p className="text-xs text-slate-400 mt-1">Insert customizable text layers on the canvas</p>
             </div>
             
             <div className="flex flex-col gap-3">
               <button
                 onClick={() => handleAddText('title')}
-                className="w-full py-4 px-6 bg-slate-50 hover:bg-slate-100/80 border border-slate-200 rounded-2xl text-left flex flex-col gap-1 transition-all group hover:border-blue-500"
+                className="w-full py-4 px-6 bg-slate-50 hover:bg-slate-100/80 border border-noble-border rounded-2xl text-left flex flex-col gap-1 transition-all group hover:border-blue-500"
               >
-                <span className="text-xl font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors">Add Heading</span>
+                <span className="text-xl font-extrabold text-noble-text group-hover:text-blue-600 transition-colors">Add Heading</span>
                 <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Playfair / Space Grotesk Bold</span>
               </button>
 
               <button
                 onClick={() => handleAddText('subtitle')}
-                className="w-full py-3.5 px-6 bg-slate-50 hover:bg-slate-100/80 border border-slate-200 rounded-2xl text-left flex flex-col gap-1 transition-all group hover:border-blue-500"
+                className="w-full py-3.5 px-6 bg-slate-50 hover:bg-slate-100/80 border border-noble-border rounded-2xl text-left flex flex-col gap-1 transition-all group hover:border-blue-500"
               >
                 <span className="text-sm font-semibold text-slate-700 group-hover:text-blue-600 transition-colors">Add Subheading</span>
                 <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Medium Detail Subtext</span>
@@ -357,7 +357,7 @@ export const SidebarLibrary: React.FC = () => {
 
               <button
                 onClick={() => handleAddText('body')}
-                className="w-full py-3 px-6 bg-slate-50 hover:bg-slate-100/80 border border-slate-200 rounded-2xl text-left flex flex-col gap-1 transition-all group hover:border-blue-500"
+                className="w-full py-3 px-6 bg-slate-50 hover:bg-slate-100/80 border border-noble-border rounded-2xl text-left flex flex-col gap-1 transition-all group hover:border-blue-500"
               >
                 <span className="text-xs text-slate-500 group-hover:text-blue-600 transition-colors">Add body text layer</span>
                 <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Fine Print & Info</span>
@@ -370,7 +370,7 @@ export const SidebarLibrary: React.FC = () => {
         {activeTab === 'shapes' && (
           <div className="p-6 flex flex-col gap-6 h-full overflow-y-auto no-scrollbar">
             <div>
-              <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wide">Design Vectors</h3>
+              <h3 className="font-bold text-noble-text text-sm uppercase tracking-wide">Design Vectors</h3>
               <p className="text-xs text-[#64748B] mt-1">Insert customizable vector shapes onto the layout</p>
             </div>
 
@@ -381,7 +381,7 @@ export const SidebarLibrary: React.FC = () => {
                 placeholder="Search vectors..."
                 value={searchVector}
                 onChange={(e) => setSearchVector(e.target.value)}
-                className="w-full bg-white border border-[#E2E8F0] text-slate-800 text-xs font-semibold rounded-xl pl-4 pr-10 py-3 focus:outline-none focus:border-noble-blue transition-all"
+                className="w-full bg-noble-surface border border-[#E2E8F0] text-slate-800 text-xs font-semibold rounded-xl pl-4 pr-10 py-3 focus:outline-none focus:border-noble-blue transition-all"
               />
               <span className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400">🔍</span>
             </div>
@@ -392,21 +392,21 @@ export const SidebarLibrary: React.FC = () => {
               <div className="grid grid-cols-3 gap-2">
                 <button
                   onClick={() => handleAddShape('rect')}
-                  className="py-2.5 bg-white border border-[#E2E8F0] rounded-xl flex flex-col items-center justify-center gap-1 hover:border-noble-blue hover:bg-slate-50 transition-all group"
+                  className="py-2.5 bg-noble-surface border border-[#E2E8F0] rounded-xl flex flex-col items-center justify-center gap-1 hover:border-noble-blue hover:bg-slate-50 transition-all group"
                 >
                   <Square size={16} className="text-slate-500 group-hover:text-noble-blue transition-colors" />
                   <span className="text-[9px] font-bold text-slate-600 group-hover:text-noble-blue uppercase tracking-wider">Rectangle</span>
                 </button>
                 <button
                   onClick={() => handleAddShape('circle')}
-                  className="py-2.5 bg-white border border-[#E2E8F0] rounded-xl flex flex-col items-center justify-center gap-1 hover:border-noble-blue hover:bg-slate-50 transition-all group"
+                  className="py-2.5 bg-noble-surface border border-[#E2E8F0] rounded-xl flex flex-col items-center justify-center gap-1 hover:border-noble-blue hover:bg-slate-50 transition-all group"
                 >
                   <Circle size={16} className="text-slate-500 group-hover:text-noble-blue transition-colors" />
                   <span className="text-[9px] font-bold text-slate-600 group-hover:text-noble-blue uppercase tracking-wider">Circle</span>
                 </button>
                 <button
                   onClick={() => handleAddShape('line')}
-                  className="py-2.5 bg-white border border-[#E2E8F0] rounded-xl flex flex-col items-center justify-center gap-1 hover:border-noble-blue hover:bg-slate-50 transition-all group"
+                  className="py-2.5 bg-noble-surface border border-[#E2E8F0] rounded-xl flex flex-col items-center justify-center gap-1 hover:border-noble-blue hover:bg-slate-50 transition-all group"
                 >
                   <Move size={14} className="text-slate-500 group-hover:text-noble-blue transition-colors" />
                   <span className="text-[9px] font-bold text-slate-600 group-hover:text-noble-blue uppercase tracking-wider">Accent Line</span>
@@ -431,7 +431,7 @@ export const SidebarLibrary: React.FC = () => {
                         <button
                           key={item.id}
                           onClick={() => handleAddVector(item.name, item.path)}
-                          className="aspect-square bg-white border border-[#E2E8F0] rounded-xl flex flex-col items-center justify-center p-1.5 hover:border-noble-blue hover:bg-slate-50 transition-all group"
+                          className="aspect-square bg-noble-surface border border-[#E2E8F0] rounded-xl flex flex-col items-center justify-center p-1.5 hover:border-noble-blue hover:bg-slate-50 transition-all group"
                           title={item.name}
                         >
                           <svg
@@ -453,7 +453,7 @@ export const SidebarLibrary: React.FC = () => {
         {activeTab === 'uploads' && (
           <div className="p-6 flex flex-col gap-6">
             <div>
-              <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wide">Brand Asset Studio</h3>
+              <h3 className="font-bold text-noble-text text-sm uppercase tracking-wide">Brand Asset Studio</h3>
               <p className="text-xs text-slate-400 mt-1">Upload images or strip backgrounds instantly</p>
             </div>
 
@@ -478,7 +478,7 @@ export const SidebarLibrary: React.FC = () => {
                         url: url,
                         rotation: 0
                       })}
-                      className="aspect-square rounded-xl bg-slate-50 border border-slate-200 overflow-hidden hover:border-blue-500 transition-all p-1 flex items-center justify-center relative group"
+                      className="aspect-square rounded-xl bg-slate-50 border border-noble-border overflow-hidden hover:border-blue-500 transition-all p-1 flex items-center justify-center relative group"
                     >
                       <img src={url} alt="Uploaded Layer" className="max-h-full max-w-full object-contain" />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
@@ -499,7 +499,7 @@ export const SidebarLibrary: React.FC = () => {
         {activeTab === 'qr' && (
           <div className="p-6 flex flex-col gap-6">
             <div>
-              <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wide">Noble QR Generator</h3>
+              <h3 className="font-bold text-noble-text text-sm uppercase tracking-wide">Noble QR Generator</h3>
               <p className="text-xs text-slate-400 mt-1">Direct template connectivity with live ecosystem lookup</p>
             </div>
 
@@ -510,7 +510,7 @@ export const SidebarLibrary: React.FC = () => {
                   type="text"
                   value={qrUrl}
                   onChange={(e) => setQrUrl(e.target.value)}
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm focus:border-blue-500 focus:outline-none transition-all text-slate-800"
+                  className="w-full bg-slate-50 border border-noble-border rounded-xl p-3 text-sm focus:border-blue-500 focus:outline-none transition-all text-slate-800"
                 />
               </div>
 
@@ -521,7 +521,7 @@ export const SidebarLibrary: React.FC = () => {
                     <button
                       key={color}
                       onClick={() => setQrColor(color)}
-                      className={`w-7 h-7 rounded-full border transition-all ${qrColor === color ? 'border-blue-500 scale-110' : 'border-slate-200 hover:scale-105'}`}
+                      className={`w-7 h-7 rounded-full border transition-all ${qrColor === color ? 'border-blue-500 scale-110' : 'border-noble-border hover:scale-105'}`}
                       style={{ backgroundColor: color }}
                     />
                   ))}

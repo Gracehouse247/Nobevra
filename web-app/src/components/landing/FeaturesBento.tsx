@@ -74,16 +74,16 @@ export default function FeaturesBento() {
                                         <div className="w-10 h-10 rounded-xl bg-noble-blue/10 flex items-center justify-center">
                                             <span className="material-symbols-outlined text-noble-blue">hub</span>
                                         </div>
-                                        <div className="px-3 py-1 rounded-full bg-white border border-slate-100 text-[10px] font-black text-noble-blue uppercase tracking-widest shadow-sm">
+                                        <div className="px-3 py-1 rounded-full bg-noble-surface border border-slate-100 text-[10px] font-black text-noble-blue uppercase tracking-widest shadow-sm">
                                             Pipeline Live
                                         </div>
                                     </div>
-                                    <h3 className="text-2xl font-black mb-2 text-slate-900 tracking-tight">Unified CRM</h3>
+                                    <h3 className="text-2xl font-black mb-2 text-noble-text tracking-tight">Unified CRM</h3>
                                     <p className="text-slate-500 text-sm leading-relaxed mb-6 font-medium">Full lifecycle client management from lead to final settlement.</p>
                                     
                                     <div className="space-y-3 opacity-70 group-hover:opacity-100 transition-opacity">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-full bg-white border border-slate-100 shadow-sm overflow-hidden flex items-center justify-center">
+                                            <div className="w-8 h-8 rounded-full bg-noble-surface border border-slate-100 shadow-sm overflow-hidden flex items-center justify-center">
                                                 <span className="text-[10px] font-black text-slate-400">AN</span>
                                             </div>
                                             <div className="h-2 w-24 bg-slate-100 rounded-full"></div>
@@ -114,7 +114,7 @@ export default function FeaturesBento() {
                             <p className="text-near-black/50 text-sm leading-relaxed mb-6">Automated B2B billing with embedded Apple Pay and Google Pay.</p>
                             
                             <div className="space-y-3 opacity-60 group-hover:opacity-100 transition-opacity">
-                                <div className="flex items-center justify-between p-3 rounded-2xl bg-white/50 border border-white">
+                                <div className="flex items-center justify-between p-3 rounded-2xl bg-noble-surface/50 border border-white">
                                     <div className="flex items-center gap-3">
                                         <div className="w-8 h-8 rounded-lg bg-noble-blue/10 flex items-center justify-center text-noble-blue">
                                             <span className="material-symbols-outlined text-sm">package_2</span>
@@ -147,7 +147,7 @@ export default function FeaturesBento() {
                                 <div className="absolute inset-0 bg-gradient-to-tr from-near-black/20 via-transparent to-white/30"></div>
                                 <div className="flex justify-between items-start relative z-10">
                                     <div className="flex flex-col gap-1">
-                                        <div className="w-6 h-6 bg-white/20 backdrop-blur-md rounded-md flex items-center justify-center border border-white/20">
+                                        <div className="w-6 h-6 bg-noble-surface/20 backdrop-blur-md rounded-md flex items-center justify-center border border-white/20">
                                             <span className="material-symbols-outlined text-white text-[14px]">diamond</span>
                                         </div>
                                         <div className="text-[6px] font-black text-white/40 uppercase tracking-[0.3em]">Noble Protocol</div>
@@ -171,22 +171,22 @@ export default function FeaturesBento() {
                         
                         <div className="flex-1 relative z-10">
                             <span className="text-noble-blue font-black uppercase text-[10px] tracking-widest mb-4 block">Global Settlement</span>
-                            <h3 className="text-4xl font-extrabold mb-4 tracking-tight text-slate-900">International Payments. <span className="text-noble-blue">Simplified.</span></h3>
+                            <h3 className="text-4xl font-extrabold mb-4 tracking-tight text-noble-text">International Payments. <span className="text-noble-blue">Simplified.</span></h3>
                             <p className="text-slate-500 font-medium max-w-sm mb-8">Accept payments globally with real-time settlement in 50+ currencies. Powered by Flutterwave.</p>
-                            <div className="flex items-center gap-2 font-black text-sm text-slate-900 group-hover:gap-4 transition-all">
+                            <div className="flex items-center gap-2 font-black text-sm text-noble-text group-hover:gap-4 transition-all">
                                 Configure Gateway <span className="material-symbols-outlined text-noble-blue">arrow_right_alt</span>
                             </div>
                         </div>
 
                         {/* Redesigned Visual: Currency Converter Mock */}
                         <div className="hidden lg:flex flex-col gap-4 w-[300px] relative z-10">
-                            <div className="bg-white rounded-2xl p-5 border border-slate-100 shadow-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-500">
+                            <div className="bg-noble-surface rounded-2xl p-5 border border-slate-100 shadow-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-500">
                                 <div className="flex justify-between items-center mb-4">
                                     <div className="flex items-center gap-2">
-                                        <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-black text-slate-900">US</div>
-                                        <span className="text-xs font-bold text-slate-900">USD</span>
+                                        <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-black text-noble-text">US</div>
+                                        <span className="text-xs font-bold text-noble-text">USD</span>
                                     </div>
-                                    <span className="text-lg font-black text-slate-900">$4,500.00</span>
+                                    <span className="text-lg font-black text-noble-text">$4,500.00</span>
                                 </div>
                                 <div className="flex justify-center mb-4">
                                     <div className="w-8 h-8 rounded-full bg-noble-blue flex items-center justify-center text-white shadow-lg">
@@ -196,12 +196,12 @@ export default function FeaturesBento() {
                                 <div className="flex justify-between items-center">
                                     <div className="flex items-center gap-2">
                                         <div className="w-6 h-6 rounded-full bg-green-50 flex items-center justify-center text-[10px] font-black text-green-600">NG</div>
-                                        <span className="text-xs font-bold text-slate-900">NGN</span>
+                                        <span className="text-xs font-bold text-noble-text">NGN</span>
                                     </div>
                                     <span className="text-lg font-black text-noble-blue">₦7,200,000.00</span>
                                 </div>
                             </div>
-                            <div className="bg-white rounded-xl p-3 border border-slate-50 flex items-center justify-between shadow-sm">
+                            <div className="bg-noble-surface rounded-xl p-3 border border-slate-50 flex items-center justify-between shadow-sm">
                                 <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Rate</span>
                                 <span className="text-[10px] font-bold text-noble-blue">1 USD = 1,600 NGN</span>
                             </div>

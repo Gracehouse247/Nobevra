@@ -64,7 +64,7 @@ export const ChastainKineticCard: React.FC<CardRendererProps & { defaultColor?: 
                   </div>
              </DraggableElement>
              <DraggableElement elementKey="qr" className="flex flex-col items-center gap-4">
-                <div className="bg-white p-3 rounded-2xl shadow-xl border border-slate-100">
+                <div className="bg-noble-surface p-3 rounded-2xl shadow-xl border border-slate-100">
                     <SharedQRCode url={data.qrCodeUrl || ''} color={accent} size={250} className="w-24 h-24" />
                 </div>
                 <p className="font-bold tracking-[0.5em] uppercase" style={{ color: ON_WHITE, opacity: 0.4, fontSize: fs(10) }}>Scan Me</p>

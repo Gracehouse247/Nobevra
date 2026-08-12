@@ -33,7 +33,7 @@ export const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
           <CheckCircle2 className="text-white" size={32} />
         </div>
         <div className="space-y-1">
-          <h3 className="text-2xl font-black text-slate-900">Connection Sent!</h3>
+          <h3 className="text-2xl font-black text-noble-text">Connection Sent!</h3>
           <p className="text-emerald-600 font-medium">{ownerName} has been notified of your interest.</p>
         </div>
         <button 
@@ -47,11 +47,11 @@ export const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
   }
 
   return (
-    <div className="p-8 rounded-[32px] bg-white border border-slate-100 shadow-2xl shadow-slate-200/50 space-y-8 relative overflow-hidden">
+    <div className="p-8 rounded-[32px] bg-noble-surface border border-slate-100 shadow-2xl shadow-slate-200/50 space-y-8 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-32 h-32 bg-noble-blue/5 rounded-full -mr-16 -mt-16 blur-3xl pointer-events-none" />
       
       <div className="space-y-2 relative z-10">
-        <h3 className="text-2xl font-black text-slate-900 flex items-center gap-2">
+        <h3 className="text-2xl font-black text-noble-text flex items-center gap-2">
           <Send className="text-noble-blue" size={24} />
           Connect with {ownerName.split(' ')[0]}
         </h3>
@@ -68,7 +68,7 @@ export const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
             <input 
               type="text" 
               required
-              className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 font-medium focus:outline-none focus:border-noble-blue focus:bg-white transition-all shadow-sm"
+              className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3.5 pl-12 pr-4 text-noble-text font-medium focus:outline-none focus:border-noble-blue focus:bg-noble-surface transition-all shadow-sm"
               placeholder="John Doe"
               value={form.name}
               onChange={e => setForm({...form, name: e.target.value})}
@@ -85,7 +85,7 @@ export const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
             <input 
               type="email" 
               required
-              className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 font-medium focus:outline-none focus:border-noble-blue focus:bg-white transition-all shadow-sm"
+              className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3.5 pl-12 pr-4 text-noble-text font-medium focus:outline-none focus:border-noble-blue focus:bg-noble-surface transition-all shadow-sm"
               placeholder="john@company.com"
               value={form.email}
               onChange={e => setForm({...form, email: e.target.value})}
@@ -100,7 +100,7 @@ export const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
               <MessageSquare size={18} />
             </div>
             <textarea 
-              className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 font-medium focus:outline-none focus:border-noble-blue focus:bg-white transition-all h-24 resize-none shadow-sm"
+              className="w-full bg-slate-50 border border-slate-100 rounded-xl py-3.5 pl-12 pr-4 text-noble-text font-medium focus:outline-none focus:border-noble-blue focus:bg-noble-surface transition-all h-24 resize-none shadow-sm"
               placeholder="I'd love to discuss..."
               value={form.message}
               onChange={e => setForm({...form, message: e.target.value})}
@@ -125,7 +125,7 @@ export const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
       </form>
 
       <div className="pt-6 border-t border-slate-50 flex flex-col gap-4 relative z-10">
-        <button className="w-full py-3 bg-white hover:bg-slate-50 text-slate-900 font-black text-[10px] uppercase tracking-[0.2em] rounded-xl border border-slate-100 transition-all flex items-center justify-center gap-2 shadow-sm">
+        <button className="w-full py-3 bg-noble-surface hover:bg-slate-50 text-noble-text font-black text-[10px] uppercase tracking-[0.2em] rounded-xl border border-slate-100 transition-all flex items-center justify-center gap-2 shadow-sm">
           <Download size={18} className="text-noble-blue" />
           Save to Contacts (vCard)
         </button>

@@ -38,10 +38,10 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
 
   if (id === 'plat-minimal-grey') {
        return (
-         <div className="mt-auto px-16 py-12 border-t-2 border-slate-900 z-10 bg-white">
+         <div className="mt-auto px-16 py-12 border-t-2 border-slate-900 z-10 bg-noble-surface">
             <div className="flex justify-between items-start">
                <div>
-                  <h4 className="text-sm font-black uppercase tracking-widest text-slate-900 mb-4">PAYMENT METHOD:</h4>
+                  <h4 className="text-sm font-black uppercase tracking-widest text-noble-text mb-4">PAYMENT METHOD:</h4>
                   <div className="space-y-1 text-xs font-bold text-slate-600 uppercase">
                      <p>Account No: {data.bankDetails?.accountNumber || '123-456-7890'}</p>
                      <p>Account Name: {data.bankDetails?.accountName || sender?.full_name}</p>
@@ -49,7 +49,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
                   </div>
                </div>
                <div className="text-right">
-                  <h4 className="text-sm font-black uppercase tracking-widest text-slate-900 mb-4">CONTACT & ADDRESS:</h4>
+                  <h4 className="text-sm font-black uppercase tracking-widest text-noble-text mb-4">CONTACT & ADDRESS:</h4>
                   <div className="space-y-1 text-xs font-bold text-slate-600 uppercase">
                      <p>{sender?.phone_number}</p>
                      <p className="whitespace-pre-line">{sender?.address}</p>
@@ -66,7 +66,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
          <div className="mt-auto z-10 flex flex-col gap-8">
             <div className="px-16 flex justify-between items-end">
                <div className="flex flex-col gap-12">
-                  <h2 className="text-[100px] font-black text-slate-900 tracking-tighter leading-none">Thank You!</h2>
+                  <h2 className="text-[100px] font-black text-noble-text tracking-tighter leading-none">Thank You!</h2>
                   
                   {/* Blue Pill Contact Info */}
                   <div className="bg-[#4D7CFF] rounded-tr-[50px] p-8 pr-16 text-white inline-flex flex-col gap-4 shadow-xl">
@@ -94,12 +94,12 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
                        <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-slate-300" />
                     </div>
                   ) : (
-                    <div className="w-64 h-24 border-b-2 border-slate-200 flex flex-col items-center justify-center gap-2">
+                    <div className="w-64 h-24 border-b-2 border-noble-border flex flex-col items-center justify-center gap-2">
                        <Signature className="w-10 h-10 text-slate-200" />
                     </div>
                   )}
                   <div className="text-center">
-                     <p className="text-xl font-black text-slate-900 uppercase tracking-widest">{sender?.full_name || 'JEFFERY FRIDAY'}</p>
+                     <p className="text-xl font-black text-noble-text uppercase tracking-widest">{sender?.full_name || 'JEFFERY FRIDAY'}</p>
                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">DIGITAL STRATEGIST</p>
                   </div>
                </div>
@@ -142,14 +142,14 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
         <div className="mt-auto z-10 flex flex-col pt-8">
            <div className="px-16 grid grid-cols-[1fr_1fr_200px] gap-8 mb-8">
               <div>
-                 <h4 className="text-sm font-black text-slate-900 uppercase mb-2">Payment Method</h4>
+                 <h4 className="text-sm font-black text-noble-text uppercase mb-2">Payment Method</h4>
                  <div className="text-xs font-bold text-slate-600 space-y-1">
                     <p>Bank Name: {data.bankDetails?.name || 'Any Bank'}</p>
                     <p>Account No: {data.bankDetails?.accountNumber || '123-456-7890'}</p>
                  </div>
               </div>
               <div>
-                 <h4 className="text-sm font-black text-slate-900 uppercase mb-2">Terms Of Service</h4>
+                 <h4 className="text-sm font-black text-noble-text uppercase mb-2">Terms Of Service</h4>
                  <div className="text-xs font-bold text-slate-600 space-y-1 leading-relaxed">
                     <p>{data.notes || 'Please pay within 15 days.'}</p>
                  </div>
@@ -162,7 +162,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
                       <Signature className="w-8 h-8 text-slate-300" />
                    </div>
                  )}
-                 <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+                 <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
               </div>
            </div>
            <div className="h-4 w-full bg-[#3A8A96]" />
@@ -175,7 +175,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
         <div className="mt-auto z-10 flex flex-col pt-8 relative overflow-hidden">
            <div className="px-16 grid grid-cols-[1fr_1fr_200px] gap-8 mb-24">
               <div>
-                 <h4 className="text-sm font-black text-slate-900 uppercase mb-2">Payment Method</h4>
+                 <h4 className="text-sm font-black text-noble-text uppercase mb-2">Payment Method</h4>
                  <div className="text-xs font-bold text-slate-600 space-y-1">
                     <p>Bank Name: {data.bankDetails?.name || 'Any Bank'}</p>
                     <p>Account No: {data.bankDetails?.accountNumber || '123-456-7890'}</p>
@@ -205,7 +205,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
         <div className="mt-auto h-40 bg-[#002E5B] flex items-center px-16 justify-between text-white relative z-10">
            <div className="space-y-2">
               <p className="text-xs font-black uppercase tracking-widest">CORPORATE PLATINUM OFFICIAL</p>
-              <div className="h-px w-64 bg-white/10" />
+              <div className="h-px w-64 bg-noble-surface/10" />
               <p className="text-[10px] opacity-40">Document ID: CP-2026-HQ</p>
            </div>
            <div className="flex flex-col items-end">
@@ -223,7 +223,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
            <div className="flex items-center gap-8">
               <Signature className="w-10 h-10 text-white/10" />
               <div className="text-right">
-                 <div className="w-32 h-px bg-white/20 mb-2" />
+                 <div className="w-32 h-px bg-noble-surface/20 mb-2" />
                  <p className="text-[8px] font-black uppercase tracking-widest opacity-40">Official Signature</p>
               </div>
            </div>
@@ -260,7 +260,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
 
   if (id === 'plat-ivory-gold') {
       return (
-        <div className="mt-auto h-32 bg-[#FFFEFA] flex items-center px-16 justify-between text-slate-900 relative z-10 border-t border-[#D4AF37]/20">
+        <div className="mt-auto h-32 bg-[#FFFEFA] flex items-center px-16 justify-between text-noble-text relative z-10 border-t border-[#D4AF37]/20">
            <p className="text-[10px] font-black uppercase tracking-[0.5em] text-[#D4AF37]">IVORY & GOLD OFFICIAL</p>
            <div className="flex items-center gap-6">
               <Signature className="w-12 h-12 text-[#D4AF37]/20" />
@@ -282,7 +282,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
            </div>
            <div className="flex items-center gap-4">
               <Signature className="w-10 h-10 text-blue-900" />
-              <div className="h-10 w-px bg-white/5" />
+              <div className="h-10 w-px bg-noble-surface/5" />
               <p className="text-[8px] font-black uppercase tracking-[0.4em] opacity-20 rotate-90">OFFICIAL</p>
            </div>
         </div>
@@ -304,7 +304,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
 
   if (id === 'plat-marble-white') {
       return (
-        <div className="mt-auto h-32 bg-white flex items-center px-16 justify-between text-slate-900 relative z-10 border-t-2 border-slate-900">
+        <div className="mt-auto h-32 bg-noble-surface flex items-center px-16 justify-between text-noble-text relative z-10 border-t-2 border-slate-900">
            <div className="flex flex-col gap-1">
               <p className="text-xs font-black uppercase tracking-widest italic">MARBLE ESTATE OFFICIAL</p>
               <p className="text-[10px] text-slate-400 font-bold">Document Ref: MRB-2026-X1</p>
@@ -322,7 +322,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
 
   if (id === 'plat-rose-gold-lux') {
       return (
-        <div className="mt-auto h-32 bg-white flex items-center px-16 justify-between text-pink-900 relative z-10 border-t border-pink-100">
+        <div className="mt-auto h-32 bg-noble-surface flex items-center px-16 justify-between text-pink-900 relative z-10 border-t border-pink-100">
            <p className="text-[10px] font-black uppercase tracking-[0.5em] text-pink-300">ROSE GOLD LUXURY VERIFIED</p>
            <div className="flex items-center gap-4">
               <Signature className="w-10 h-10 text-pink-50" />
@@ -356,7 +356,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
            </div>
            <div className="flex items-center gap-8">
               <Signature className="w-12 h-12 text-white/5" />
-              <div className="h-10 w-px bg-white/10" />
+              <div className="h-10 w-px bg-noble-surface/10" />
               <p className="text-[8px] font-black uppercase tracking-widest opacity-20">OFFICIAL</p>
            </div>
         </div>
@@ -365,7 +365,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
 
   if (id === 'plat-ultra-minimal') {
       return (
-        <div className="mt-auto h-32 bg-white flex items-center px-16 justify-between text-slate-900 relative z-10 border-t border-slate-100">
+        <div className="mt-auto h-32 bg-noble-surface flex items-center px-16 justify-between text-noble-text relative z-10 border-t border-slate-100">
            <p className="text-[10px] font-black uppercase tracking-[0.5em] text-slate-300 tracking-[1em]">MINIMALISM</p>
            <div className="flex flex-col items-end">
               <div className="w-32 h-px bg-slate-900 mb-2" />
@@ -405,7 +405,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
 
   if (id === 'plat-silk-cream') {
       return (
-        <div className="mt-auto h-32 bg-white flex items-center px-16 justify-between text-slate-900 relative z-10 border-t border-slate-100">
+        <div className="mt-auto h-32 bg-noble-surface flex items-center px-16 justify-between text-noble-text relative z-10 border-t border-slate-100">
            <p className="text-[10px] font-black uppercase tracking-[0.6em] text-slate-200 uppercase">SILK CREAM SERIES</p>
            <div className="flex items-center gap-6">
               <Signature className="w-12 h-12 text-slate-50" />
@@ -426,7 +426,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
            </div>
            <div className="flex items-center gap-6">
               <Signature className="w-12 h-12 text-white/5" />
-              <div className="h-10 w-px bg-white/10" />
+              <div className="h-10 w-px bg-noble-surface/10" />
               <p className="text-[8px] font-black uppercase tracking-widest opacity-20 rotate-90">OFFICIAL</p>
            </div>
         </div>
@@ -465,7 +465,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
 
   if (id === 'plat-arctic') {
       return (
-        <div className="mt-auto h-32 bg-white flex items-center px-16 justify-between text-slate-900 relative z-10 border-t border-cyan-50">
+        <div className="mt-auto h-32 bg-noble-surface flex items-center px-16 justify-between text-noble-text relative z-10 border-t border-cyan-50">
            <div className="flex flex-col gap-1">
               <p className="text-xs font-black uppercase tracking-widest text-cyan-600 italic">ARCTIC FROST VERIFIED</p>
               <p className="text-[9px] text-slate-300 font-bold tracking-widest">PLATINUM GRADE STATEMENT</p>
@@ -489,7 +489,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
 
   if (id === 'plat-royal-seal') {
       return (
-        <div className="mt-auto h-40 bg-[#FDFCF0] flex items-center px-16 justify-between text-slate-900 relative z-10 border-t border-[#D4AF37]/20">
+        <div className="mt-auto h-40 bg-[#FDFCF0] flex items-center px-16 justify-between text-noble-text relative z-10 border-t border-[#D4AF37]/20">
            <div className="space-y-2">
               <p className="text-xs font-black uppercase tracking-widest text-[#D4AF37]">ROYAL SEAL OFFICIAL</p>
               <div className="h-px w-64 bg-[#D4AF37]/10" />
@@ -512,7 +512,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
            </div>
            <div className="flex items-center gap-6">
               <Signature className="w-12 h-12 text-white/5" />
-              <div className="h-10 w-px bg-white/10" />
+              <div className="h-10 w-px bg-noble-surface/10" />
               <p className="text-[8px] font-black uppercase tracking-widest opacity-20 rotate-90">OFFICIAL</p>
            </div>
         </div>
@@ -533,7 +533,7 @@ export const PlatinumFooter = (props: SharedEngineProps) => {
 
   if (id === 'plat-sovereign') {
       return (
-        <div className="mt-auto h-40 bg-white flex items-center px-16 justify-between text-slate-900 relative z-10 border-t-8 border-slate-900">
+        <div className="mt-auto h-40 bg-noble-surface flex items-center px-16 justify-between text-noble-text relative z-10 border-t-8 border-slate-900">
            <div className="space-y-2">
               <p className="text-xs font-black uppercase tracking-widest text-[#D4AF37]">SOVEREIGN GOLD VERIFIED</p>
               <div className="h-px w-64 bg-slate-100" />

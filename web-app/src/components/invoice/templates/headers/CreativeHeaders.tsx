@@ -33,12 +33,12 @@ export const CreativeHeader = (props: SharedEngineProps) => {
            <div className="flex justify-between items-start mb-16">
               <div className="relative">
                  <div className="absolute inset-0 bg-pink-100 blur-2xl rounded-full opacity-50" />
-                 <div className="bg-white/80 backdrop-blur-md p-6 rounded-[2.5rem] shadow-xl border border-white/50 relative z-10">
+                 <div className="bg-noble-surface/80 backdrop-blur-md p-6 rounded-[2.5rem] shadow-xl border border-white/50 relative z-10">
                     {renderLogo?.("w-20 h-20")}
                  </div>
               </div>
               <div className="text-right pt-6">
-                 <h1 className="text-7xl font-black text-slate-900 tracking-tighter opacity-10 leading-none">ARTISTIC</h1>
+                 <h1 className="text-7xl font-black text-noble-text tracking-tighter opacity-10 leading-none">ARTISTIC</h1>
                  <h2 className="text-3xl font-black text-slate-800 -mt-8 relative z-10 uppercase">{sender?.full_name}</h2>
                  <p className="text-xs font-bold text-pink-500 mt-1 uppercase tracking-widest italic">Creative Studio Doc</p>
               </div>
@@ -52,7 +52,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16 bg-[#1A1A1A] p-10 rounded-[3rem] shadow-2xl border border-white/10">
               <div className="flex gap-8 items-center">
-                 <div className="bg-white p-4 rounded-3xl shadow-xl rotate-3">
+                 <div className="bg-noble-surface p-4 rounded-3xl shadow-xl rotate-3">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <div className="text-white">
@@ -60,7 +60,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                     <p className="text-[10px] font-bold text-cyan-400 tracking-[0.5em] uppercase">Premium Duotone</p>
                  </div>
               </div>
-              <div className="h-16 w-px bg-white/10" />
+              <div className="h-16 w-px bg-noble-surface/10" />
               <h1 className="text-5xl font-black uppercase text-magenta-500 tracking-widest pr-4">BILLING</h1>
            </div>
         </div>
@@ -71,7 +71,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-start mb-16 text-white">
-              <div className="bg-white p-6 rounded-xl shadow-2xl">
+              <div className="bg-noble-surface p-6 rounded-xl shadow-2xl">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
@@ -88,11 +88,11 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-16 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16">
-              <div className="bg-white p-8 rounded-[4rem] shadow-2xl border-b-8 border-amber-500/20">
+              <div className="bg-noble-surface p-8 rounded-[4rem] shadow-2xl border-b-8 border-amber-500/20">
                  {renderLogo?.("w-24 h-24")}
               </div>
               <div className="text-right">
-                 <h1 className="text-6xl font-black uppercase text-slate-900 tracking-tighter italic drop-shadow-lg">GOLDEN</h1>
+                 <h1 className="text-6xl font-black uppercase text-noble-text tracking-tighter italic drop-shadow-lg">GOLDEN</h1>
                  <p className="text-[10px] font-black uppercase tracking-[0.6em] text-amber-600 mt-2">Executive Horizon Series</p>
               </div>
            </div>
@@ -121,11 +121,11 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col items-center">
            <div className="w-full flex justify-between items-center mb-16">
-              <div className="text-slate-900 border-l-4 border-slate-900 pl-6 py-2">
+              <div className="text-noble-text border-l-4 border-slate-900 pl-6 py-2">
                  <h2 className="text-3xl font-black uppercase tracking-widest">{sender?.full_name}</h2>
                  <p className="text-xs font-bold tracking-[0.3em] uppercase opacity-60">Established 2026 • Billing Dept</p>
               </div>
-              <div className="bg-white p-6 border-2 border-slate-900 shadow-[8px_8px_0px_#000]">
+              <div className="bg-noble-surface p-6 border-2 border-slate-900 shadow-[8px_8px_0px_#000]">
                  {renderLogo?.("w-20 h-20")}
               </div>
            </div>
@@ -141,7 +141,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-16 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16">
-              <div className="bg-white/10 backdrop-blur-2xl p-8 rounded-[3rem] border border-white/20 shadow-[0_0_40px_rgba(34,211,238,0.2)]">
+              <div className="bg-noble-surface/10 backdrop-blur-2xl p-8 rounded-[3rem] border border-white/20 shadow-[0_0_40px_rgba(34,211,238,0.2)]">
                  {renderLogo?.("w-24 h-24")}
               </div>
               <div className="text-right">
@@ -157,12 +157,12 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-start mb-16">
-              <div className="bg-white p-6 border-4 border-slate-900 shadow-[12px_12px_0px_rgba(0,0,0,0.1)]">
+              <div className="bg-noble-surface p-6 border-4 border-slate-900 shadow-[12px_12px_0px_rgba(0,0,0,0.1)]">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
-                 <h1 className="text-9xl font-black text-slate-900 tracking-tighter leading-none -mr-4">BAU</h1>
-                 <h2 className="text-3xl font-black text-slate-900 uppercase tracking-widest mt-2">HAUS INVOICE</h2>
+                 <h1 className="text-9xl font-black text-noble-text tracking-tighter leading-none -mr-4">BAU</h1>
+                 <h2 className="text-3xl font-black text-noble-text uppercase tracking-widest mt-2">HAUS INVOICE</h2>
                  <p className="text-xs font-bold text-slate-400 mt-2 tracking-[0.5em] uppercase">{sender?.full_name}</p>
               </div>
            </div>
@@ -173,12 +173,12 @@ export const CreativeHeader = (props: SharedEngineProps) => {
   if (id === 'creative-paper-cut') {
       return (
         <div className="relative pt-16 px-16 z-10 flex flex-col">
-           <div className="flex justify-between items-center mb-16 bg-white p-10 rounded-[3rem] shadow-[inset_0_2px_10px_rgba(0,0,0,0.1),0_20px_40px_rgba(0,0,0,0.05)] border border-slate-100">
+           <div className="flex justify-between items-center mb-16 bg-noble-surface p-10 rounded-[3rem] shadow-[inset_0_2px_10px_rgba(0,0,0,0.1),0_20px_40px_rgba(0,0,0,0.05)] border border-slate-100">
               <div className="flex gap-8 items-center">
                  {renderLogo?.("w-20 h-20")}
                  <div className="h-12 w-px bg-slate-100" />
                  <div>
-                    <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">{sender?.full_name}</h2>
+                    <h2 className="text-3xl font-black text-noble-text uppercase tracking-tighter">{sender?.full_name}</h2>
                     <p className="text-xs font-bold text-slate-400 italic">Paper Series • Executive</p>
                  </div>
               </div>
@@ -192,15 +192,15 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col items-center">
            <div className="w-full flex justify-between items-center mb-16">
-              <div className="text-slate-900 border-b-4 border-slate-900 pb-4">
+              <div className="text-noble-text border-b-4 border-slate-900 pb-4">
                  <h2 className="text-4xl font-black uppercase tracking-tighter">{sender?.full_name}</h2>
                  <p className="text-sm font-bold text-slate-400 mt-2 uppercase tracking-widest italic">Ink & Brush Collective</p>
               </div>
-              <div className="bg-white p-6 rounded-full shadow-2xl border-4 border-slate-900/5 rotate-12">
+              <div className="bg-noble-surface p-6 rounded-full shadow-2xl border-4 border-slate-900/5 rotate-12">
                  {renderLogo?.("w-20 h-20")}
               </div>
            </div>
-           <h1 className="text-9xl font-black text-slate-900 opacity-[0.03] absolute top-12 pointer-events-none uppercase">CREATIVE</h1>
+           <h1 className="text-9xl font-black text-noble-text opacity-[0.03] absolute top-12 pointer-events-none uppercase">CREATIVE</h1>
         </div>
       );
     }
@@ -209,7 +209,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-16 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16">
-              <div className="bg-white p-8 rounded-[4rem] shadow-2xl border-b-8 border-rose-200">
+              <div className="bg-noble-surface p-8 rounded-[4rem] shadow-2xl border-b-8 border-rose-200">
                  {renderLogo?.("w-24 h-24")}
               </div>
               <div className="text-right">
@@ -230,8 +230,8 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  <h2 className="text-2xl font-black uppercase tracking-widest">{sender?.full_name}</h2>
               </div>
               <div className="text-right pt-4">
-                 <h1 className="text-[10rem] font-black text-slate-900 opacity-5 leading-none absolute right-16 top-16 select-none">BOLD</h1>
-                 <h2 className="text-6xl font-black text-slate-900 uppercase tracking-tighter relative z-10">INVOICE</h2>
+                 <h1 className="text-[10rem] font-black text-noble-text opacity-5 leading-none absolute right-16 top-16 select-none">BOLD</h1>
+                 <h2 className="text-6xl font-black text-noble-text uppercase tracking-tighter relative z-10">INVOICE</h2>
                  <div className="h-2 w-32 bg-red-600 ml-auto mt-4" />
               </div>
            </div>
@@ -243,9 +243,9 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-end mb-16 bg-[#064E3B] p-12 rounded-[5rem] shadow-2xl text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-full bg-white opacity-5" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
+              <div className="absolute top-0 right-0 w-64 h-full bg-noble-surface opacity-5" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
               <div className="flex gap-10 items-center relative z-10">
-                 <div className="bg-white p-4 rounded-3xl">
+                 <div className="bg-noble-surface p-4 rounded-3xl">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <div>
@@ -263,7 +263,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-16 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16">
-              <div className="bg-white/5 backdrop-blur-2xl p-8 rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+              <div className="bg-noble-surface/5 backdrop-blur-2xl p-8 rounded-3xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                  {renderLogo?.("w-24 h-24")}
               </div>
               <div className="text-right text-white">
@@ -278,8 +278,8 @@ export const CreativeHeader = (props: SharedEngineProps) => {
   if (id === 'creative-yellow-geo') {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
-           <div className="flex justify-between items-start mb-12 text-slate-900">
-              <div className="bg-white p-6 rounded-full shadow-2xl -mt-6 -ml-6 border-8 border-[#FBBF24]">
+           <div className="flex justify-between items-start mb-12 text-noble-text">
+              <div className="bg-noble-surface p-6 rounded-full shadow-2xl -mt-6 -ml-6 border-8 border-[#FBBF24]">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
@@ -295,10 +295,10 @@ export const CreativeHeader = (props: SharedEngineProps) => {
   if (id === 'creative-blue-poly') {
       return (
         <div className="relative pt-16 px-16 z-10">
-           <div className="flex justify-between items-center bg-white/10 backdrop-blur-xl border border-white/20 p-10 rounded-[3rem] shadow-2xl">
+           <div className="flex justify-between items-center bg-noble-card border border-noble-card-border p-10 rounded-[3rem] shadow-2xl">
               <div className="flex gap-8 items-center">
                  {renderLogo?.("w-20 h-20")}
-                 <div className="h-16 w-px bg-white/20" />
+                 <div className="h-16 w-px bg-noble-surface/20" />
                  <div className="text-white">
                     <h2 className="text-2xl font-black uppercase tracking-widest">{sender?.full_name}</h2>
                     <p className="text-xs font-bold opacity-60 tracking-widest">{sender?.email}</p>
@@ -319,7 +319,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="bg-[#14B8A6] p-12 rounded-[4rem] shadow-2xl flex justify-between items-center text-white relative overflow-hidden">
-              <div className="absolute -top-12 -left-12 w-48 h-48 bg-white/10 rounded-full blur-2xl" />
+              <div className="absolute -top-12 -left-12 w-48 h-48 bg-noble-surface/10 rounded-full blur-2xl" />
               <div className="flex gap-8 items-center relative z-10">
                  {renderLogo?.("w-20 h-20")}
                  <div>
@@ -341,7 +341,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  <h2 className="text-4xl font-black tracking-tighter uppercase">{sender?.full_name}</h2>
                  <p className="text-xs font-bold tracking-[0.4em] text-orange-400 mt-2">Executive Series</p>
               </div>
-              <div className="bg-white/5 backdrop-blur-md p-6 rounded-3xl border border-white/10 shadow-2xl">
+              <div className="bg-noble-surface/5 backdrop-blur-md p-6 rounded-3xl border border-white/10 shadow-2xl">
                  {renderLogo?.("w-24 h-24")}
               </div>
            </div>
@@ -354,7 +354,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-end">
-              <div className="bg-white p-6 rounded-t-[4rem] shadow-xl">
+              <div className="bg-noble-surface p-6 rounded-t-[4rem] shadow-xl">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right pb-4">
@@ -395,11 +395,11 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col items-center">
            <div className="w-full flex justify-between items-center mb-16">
-              <div className="text-slate-900">
+              <div className="text-noble-text">
                  <h2 className="text-2xl font-black uppercase tracking-[0.3em]">{sender?.full_name}</h2>
                  <p className="text-xs font-bold text-slate-400 mt-2">Harmonious Enterprise</p>
               </div>
-              <div className="bg-white p-8 rounded-full shadow-2xl border border-slate-50 scale-110">
+              <div className="bg-noble-surface p-8 rounded-full shadow-2xl border border-slate-50 scale-110">
                  {renderLogo?.("w-16 h-16")}
               </div>
            </div>
@@ -411,7 +411,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16 text-white">
-              <div className="bg-white/5 backdrop-blur-2xl p-10 rounded-[4rem] border border-white/10 shadow-2xl flex gap-8 items-center">
+              <div className="bg-noble-surface/5 backdrop-blur-2xl p-10 rounded-[4rem] border border-white/10 shadow-2xl flex gap-8 items-center">
                  {renderLogo?.("w-20 h-20")}
                  <div>
                     <h2 className="text-3xl font-black uppercase tracking-tighter leading-none">{sender?.full_name}</h2>
@@ -448,14 +448,14 @@ export const CreativeHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-24">
               <div className="text-white flex flex-col gap-4">
-                 <div className="bg-white p-4 rounded-2xl w-fit shadow-2xl">
+                 <div className="bg-noble-surface p-4 rounded-2xl w-fit shadow-2xl">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <h2 className="text-3xl font-black uppercase tracking-tighter italic drop-shadow-2xl leading-none">{sender?.full_name}</h2>
               </div>
               <div className="text-right relative">
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-red-600 rounded-full blur-[80px] opacity-30" />
-                 <h1 className="text-8xl font-black text-slate-900 uppercase tracking-tighter relative z-10 leading-none">INVOICE</h1>
+                 <h1 className="text-8xl font-black text-noble-text uppercase tracking-tighter relative z-10 leading-none">INVOICE</h1>
               </div>
            </div>
         </div>
@@ -473,7 +473,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
              </div>
           </div>
           <div className="flex items-center gap-4">
-             <h1 className="text-7xl font-black uppercase tracking-tight text-slate-900 drop-shadow-sm">INVOICE</h1>
+             <h1 className="text-7xl font-black uppercase tracking-tight text-noble-text drop-shadow-sm">INVOICE</h1>
              <Diamond className="w-10 h-10 text-[#FBBF24] fill-[#FBBF24] mb-8" />
           </div>
         </div>
@@ -503,7 +503,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
   if (id === 'creative-wave') {
       return (
         <div className="relative h-64 mb-12 flex justify-between items-start px-16 pt-16 z-10">
-          <div className="flex gap-6 items-start relative z-20 text-slate-800 bg-white/80 p-6 rounded-3xl backdrop-blur-md shadow-xl border border-white/40">
+          <div className="flex gap-6 items-start relative z-20 text-slate-800 bg-noble-surface/80 p-6 rounded-3xl backdrop-blur-md shadow-xl border border-white/40">
              {renderLogo?.("w-16 h-16")}
              <div>
                <h2 className="text-lg font-black leading-tight">{sender?.full_name || 'Business Name'}</h2>

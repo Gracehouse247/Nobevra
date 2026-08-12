@@ -11,9 +11,9 @@ const NoiseOverlay = () => (
 
 export const DynamicWaveBackground: React.FC<{ side: 'front' | 'back' }> = ({ side }) => {
     return (
-        <div className="absolute inset-0 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-noble-surface overflow-hidden">
             {/* White Top Area */}
-            <div className="absolute top-0 left-0 w-full h-[65%] bg-white" />
+            <div className="absolute top-0 left-0 w-full h-[65%] bg-noble-surface" />
 
             {/* Cinematic Wavy Gradient Footer */}
             <div className="absolute bottom-0 left-0 w-full h-[35%] overflow-hidden">

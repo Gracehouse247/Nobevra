@@ -59,14 +59,14 @@ export default function VideoForm({ onChange, initialData, onPreviewValueChange 
                 <button
                     type="button"
                     onClick={() => setIsUrlSource(true)}
-                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${isUrlSource ? 'bg-white shadow-sm text-[#166FBB]' : 'text-[#64748B] hover:text-[#0F172A]'}`}
+                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${isUrlSource ? 'bg-noble-surface shadow-sm text-[#166FBB]' : 'text-[#64748B] hover:text-[#0F172A]'}`}
                 >
                     <LinkIcon className="w-4 h-4" /> Link URL
                 </button>
                 <button
                     type="button"
                     onClick={() => setIsUrlSource(false)}
-                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${!isUrlSource ? 'bg-white shadow-sm text-[#166FBB]' : 'text-[#64748B] hover:text-[#0F172A]'}`}
+                    className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-bold transition-all ${!isUrlSource ? 'bg-noble-surface shadow-sm text-[#166FBB]' : 'text-[#64748B] hover:text-[#0F172A]'}`}
                 >
                     <VideoIcon className="w-4 h-4" /> Upload File
                 </button>
@@ -100,7 +100,7 @@ export default function VideoForm({ onChange, initialData, onPreviewValueChange 
                             className="hidden" 
                             id="video-upload"
                         />
-                        <label htmlFor="video-upload" className="px-5 py-2 bg-white border border-[#E2E8F0] text-[#0F172A] text-xs font-bold rounded-lg cursor-pointer shadow-sm hover:border-[#CBD5E1]">
+                        <label htmlFor="video-upload" className="px-5 py-2 bg-noble-surface border border-[#E2E8F0] text-[#0F172A] text-xs font-bold rounded-lg cursor-pointer shadow-sm hover:border-[#CBD5E1]">
                             {fileUpload ? 'Change Video' : 'Select Video'}
                         </label>
                     </div>

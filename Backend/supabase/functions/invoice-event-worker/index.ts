@@ -31,10 +31,7 @@ const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD") ?? "123NobleWORLD!@#";
 const SMTP_FROM     = Deno.env.get("SMTP_FROM")     ?? "invoice@noblesworld.com.ng";
 const NOBLE_NAME    = "NobleInvoice - The Smart Workspace For Freelancers & Agencies";
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin":  "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+import { CORS_HEADERS as corsHeaders } from "../_shared/cors.ts";
 
 // ── Handler ───────────────────────────────────────────────────────────────────
 serve(async (req) => {

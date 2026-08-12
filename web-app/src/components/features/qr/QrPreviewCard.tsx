@@ -36,7 +36,7 @@ export default function QrPreviewCard({ value, fgColor, bgColor, includeLogo, qr
         <div className="sticky top-8 space-y-6">
             <h3 className="text-xs font-black text-[#64748B] uppercase tracking-widest mb-4">Live Preview</h3>
             
-            <div className="bg-white rounded-3xl border border-[#E2E8F0] shadow-xl overflow-hidden transition-all flex flex-col items-center pt-12 pb-8 px-6 text-center">
+            <div className="bg-noble-surface rounded-3xl border border-[#E2E8F0] shadow-xl overflow-hidden transition-all flex flex-col items-center pt-12 pb-8 px-6 text-center">
                 
                 <div className="relative p-4 rounded-3xl bg-[#F8FAFC] border-2 border-dashed border-[#CBD5E1] mb-8">
                     <QRCodeSVG

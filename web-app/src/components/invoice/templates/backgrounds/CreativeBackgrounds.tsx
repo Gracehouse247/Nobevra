@@ -125,9 +125,9 @@ export const CreativeBackground = (props: SharedEngineProps) => {
 
   if (id === 'creative-dual-geo') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white flex">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface flex">
            <div className="w-[45%] h-full bg-[#DC2626]" style={{ clipPath: 'polygon(0 0, 100% 0, 80% 100%, 0% 100%)' }} />
-           <div className="flex-1 bg-white" />
+           <div className="flex-1 bg-noble-surface" />
         </div>
       );
     }
@@ -152,7 +152,7 @@ export const CreativeBackground = (props: SharedEngineProps) => {
 
   if (id === 'creative-duotone') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-[400px] bg-gradient-to-br from-[#EC4899]/10 to-[#06B6D4]/10 mix-blend-multiply" />
            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(black 2px, transparent 2px)', backgroundSize: '10px 10px' }} />
         </div>
@@ -179,7 +179,7 @@ export const CreativeBackground = (props: SharedEngineProps) => {
 
   if (id === 'creative-monochrome') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-8 bg-black" />
            <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/pinstriped-suit.png")' }} />
         </div>
@@ -205,7 +205,7 @@ export const CreativeBackground = (props: SharedEngineProps) => {
 
   if (id === 'creative-bauhaus') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 right-0 w-64 h-64 bg-red-600 opacity-5" style={{ clipPath: 'circle(50% at 100% 0)' }} />
            <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600 opacity-5" style={{ clipPath: 'polygon(0 0, 0 100%, 100% 100%)' }} />
         </div>
@@ -215,15 +215,15 @@ export const CreativeBackground = (props: SharedEngineProps) => {
   if (id === 'creative-paper-cut') {
       return (
         <div className="absolute inset-0 z-0 pointer-events-none bg-[#F3F4F6]">
-           <div className="absolute inset-10 bg-white shadow-inner rounded-[3rem]" />
-           <div className="absolute top-0 left-0 w-full h-32 bg-white/50 blur-xl" />
+           <div className="absolute inset-10 bg-noble-surface shadow-inner rounded-[3rem]" />
+           <div className="absolute top-0 left-0 w-full h-32 bg-noble-surface/50 blur-xl" />
         </div>
       );
     }
 
   if (id === 'creative-ink-splash') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 right-0 w-[50%] h-full opacity-[0.03]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/asfalt-dark.png")' }} />
         </div>
       );
@@ -240,7 +240,7 @@ export const CreativeBackground = (props: SharedEngineProps) => {
 
   if (id === 'creative-bauhaus-bold') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-4 bg-slate-900" />
            <div className="absolute top-0 left-0 w-4 h-full bg-slate-900" />
         </div>

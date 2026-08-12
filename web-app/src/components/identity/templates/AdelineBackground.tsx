@@ -45,7 +45,7 @@ export const AdelineBackground: React.FC<{ side: 'front' | 'back' }> = ({ side }
                     <div className="absolute inset-0 bg-[#0F172A]" />
                     
                     {/* Subtle Top Gradient Corner */}
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 blur-3xl rounded-full transform translate-x-32 -translate-y-32" />
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-noble-surface/5 blur-3xl rounded-full transform translate-x-32 -translate-y-32" />
                 </>
             )}
 

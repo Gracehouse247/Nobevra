@@ -11,7 +11,7 @@ export default function EnterpriseFailureSection() {
                 </h2>
                 
                 <div className="grid md:grid-cols-3 gap-8">
-                    <div className="bg-white/5 border border-white/10 rounded-[24px] p-8 text-left hover:bg-white/10 transition-colors">
+                    <div className="bg-noble-card border border-noble-card-border rounded-[24px] p-8 text-left hover:bg-noble-surface/10 transition-colors">
                         <AlertTriangle className="w-8 h-8 text-red-400 mb-6" />
                         <h3 className="text-xl font-bold mb-3">Disconnected Systems</h3>
                         <p className="text-slate-400 text-sm leading-relaxed">
@@ -19,7 +19,7 @@ export default function EnterpriseFailureSection() {
                         </p>
                     </div>
 
-                    <div className="bg-white/5 border border-white/10 rounded-[24px] p-8 text-left hover:bg-white/10 transition-colors">
+                    <div className="bg-noble-card border border-noble-card-border rounded-[24px] p-8 text-left hover:bg-noble-surface/10 transition-colors">
                         <Clock className="w-8 h-8 text-amber-400 mb-6" />
                         <h3 className="text-xl font-bold mb-3">Slow Accounts Receivable</h3>
                         <p className="text-slate-400 text-sm leading-relaxed">
@@ -27,7 +27,7 @@ export default function EnterpriseFailureSection() {
                         </p>
                     </div>
 
-                    <div className="bg-white/5 border border-white/10 rounded-[24px] p-8 text-left hover:bg-white/10 transition-colors">
+                    <div className="bg-noble-card border border-noble-card-border rounded-[24px] p-8 text-left hover:bg-noble-surface/10 transition-colors">
                         <TrendingDown className="w-8 h-8 text-noble-blue mb-6" />
                         <h3 className="text-xl font-bold mb-3">Failed Payment Processing</h3>
                         <p className="text-slate-400 text-sm leading-relaxed">

@@ -57,7 +57,7 @@ export default function SocialPublishModal({ isOpen, onClose, content, platform,
         exit={{ opacity: 0 }}
         className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
       >
-        <div className="bg-white w-full max-w-md rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+        <div className="bg-noble-surface w-full max-w-md rounded-2xl shadow-2xl flex flex-col overflow-hidden">
           <div className="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50">
             <h3 className="font-bold text-slate-800 flex items-center gap-2">
               Publish to {platform.charAt(0).toUpperCase() + platform.slice(1)}
@@ -71,13 +71,13 @@ export default function SocialPublishModal({ isOpen, onClose, content, platform,
             <div className="flex gap-2 p-1 bg-slate-100 rounded-lg">
               <button
                 onClick={() => setMode('now')}
-                className={`flex-1 py-1.5 text-sm font-semibold rounded-md transition-all ${mode === 'now' ? 'bg-white shadow text-[#006970]' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`flex-1 py-1.5 text-sm font-semibold rounded-md transition-all ${mode === 'now' ? 'bg-noble-surface shadow text-[#006970]' : 'text-slate-500 hover:text-slate-700'}`}
               >
                 Publish Now
               </button>
               <button
                 onClick={() => setMode('schedule')}
-                className={`flex-1 py-1.5 text-sm font-semibold rounded-md transition-all ${mode === 'schedule' ? 'bg-white shadow text-[#006970]' : 'text-slate-500 hover:text-slate-700'}`}
+                className={`flex-1 py-1.5 text-sm font-semibold rounded-md transition-all ${mode === 'schedule' ? 'bg-noble-surface shadow text-[#006970]' : 'text-slate-500 hover:text-slate-700'}`}
               >
                 Schedule
               </button>
@@ -90,7 +90,7 @@ export default function SocialPublishModal({ isOpen, onClose, content, platform,
                   type="datetime-local" 
                   value={scheduleDate}
                   onChange={(e) => setScheduleDate(e.target.value)}
-                  className="w-full border border-slate-200 rounded-lg p-2.5 text-sm outline-none focus:border-[#006970]"
+                  className="w-full border border-noble-border rounded-lg p-2.5 text-sm outline-none focus:border-[#006970]"
                 />
               </div>
             )}

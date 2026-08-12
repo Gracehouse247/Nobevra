@@ -22,6 +22,7 @@ import { useInvoices } from '@/hooks/useInvoices';
 import { supabase } from '@/lib/supabase';
 import { teamService } from '@/lib/services/supabaseService';
 import { MiniBarChart, SkeletonRow, ClientAvatar, StatusBadge, ActionBtn } from '@/components/invoice/InvoiceShared';
+import { Button } from '@/components/ui/button';
 
 
 const TABS = ['All', 'Outstanding', 'Paid', 'Drafts', 'Overdue'] as const;
@@ -136,45 +137,43 @@ export default function InvoicesPage() {
 
     // KPI Cards definition — real sparklines from invoice data
     const KPI_CARDS = [
-        { label: 'All Invoices',   value: kpis.total.toLocaleString(),          sub: `${tabCounts.Outstanding} from last month`,  color: '#3B82F6', badgeBg: '#EFF6FF', badgeText: '#1D4ED8', spark: kpis.sparkAll },
-        { label: 'New Invoices',   value: tabCounts.Outstanding.toLocaleString(), sub: `${kpis.drafts} from last month`,            color: '#8B5CF6', badgeBg: '#F5F3FF', badgeText: '#6D28D9', spark: kpis.sparkOut  },
-        { label: 'Draft Invoices', value: kpis.drafts.toLocaleString(),          sub: `${kpis.drafts} from last month`,            color: '#F59E0B', badgeBg: '#FFFBEB', badgeText: '#92400E', spark: [...kpis.sparkAll.map(v => v * 0.3)] },
-        { label: 'Paid Invoices',  value: tabCounts.Paid.toLocaleString(),       sub: fmt(kpis.paid, baseCurrency),                color: '#10B981', badgeBg: '#ECFDF5', badgeText: '#065F46', spark: kpis.sparkPaid },
+        { label: 'All Invoices',   value: kpis.total.toLocaleString(),          sub: `${tabCounts.Outstanding} from last month`,  color: '#3B82F6', badgeClass: 'bg-blue-50 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400', spark: kpis.sparkAll },
+        { label: 'New Invoices',   value: tabCounts.Outstanding.toLocaleString(), sub: `${kpis.drafts} from last month`,            color: '#8B5CF6', badgeClass: 'bg-violet-50 dark:bg-violet-500/10 text-violet-700 dark:text-violet-400', spark: kpis.sparkOut  },
+        { label: 'Draft Invoices', value: kpis.drafts.toLocaleString(),          sub: `${kpis.drafts} from last month`,            color: '#F59E0B', badgeClass: 'bg-amber-50 dark:bg-amber-500/10 text-amber-700 dark:text-amber-400', spark: [...kpis.sparkAll.map(v => v * 0.3)] },
+        { label: 'Paid Invoices',  value: tabCounts.Paid.toLocaleString(),       sub: fmt(kpis.paid, baseCurrency),                color: '#10B981', badgeClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-700 dark:text-emerald-400', spark: kpis.sparkPaid },
     ];
 
     return (
-        <div className="min-h-screen bg-[#F3F6FC] pb-24" style={{ fontFamily: 'Inter, sans-serif' }}>
+        <div className="w-full h-full pb-24 dark:bg-transparent" style={{ fontFamily: 'Inter, sans-serif' }}>
 
             {/* ── Sticky Header ─────────────────────────────────────────────── */}
-            <header className="bg-white border-b border-slate-100 px-6 md:px-10 py-4 sticky top-0 z-30" style={{ boxShadow: '0 1px 3px rgba(15,23,42,0.06)' }}>
-                <div className="max-w-[1440px] mx-auto flex items-center justify-between gap-4">
-                    <div>
-                        <h1 className="text-[19px] font-bold text-slate-900 tracking-tight">Invoice</h1>
-                        <p className="text-[11px] text-slate-400 mt-0.5 hidden md:block">Manage, track and send your billing documents</p>
-                    </div>
-                    <div className="flex items-center gap-2.5">
-                        <AnimatePresence>
-                            {selectedIds.size > 0 && (
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
-                                    className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5"
-                                >
-                                    <span className="text-xs font-semibold text-slate-600">{selectedIds.size} selected</span>
-                                    <button onClick={() => { const c = selectedIds.size; selectedIds.forEach(id => handleMarkAsPaid(id)); setSelectedIds(new Set()); toast.success(`${c} invoice${c > 1 ? 's' : ''} marked as paid`); }} className="px-3 py-1 bg-emerald-600 text-white text-[11px] font-bold rounded-lg hover:bg-emerald-700 transition-colors">Mark Paid</button>
-                                    <button onClick={() => setSelectedIds(new Set())} className="p-1 text-slate-400 hover:text-slate-600"><X className="w-3 h-3" /></button>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                        <button onClick={() => setShowTypeModal(true)} className="flex items-center gap-1.5 px-5 py-2.5 text-white text-xs font-bold rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all" style={{ background: 'linear-gradient(135deg, #006970, #0599D5)' }}>
-                            <Plus className="w-3.5 h-3.5" strokeWidth={2.5} />
-                            Add New Invoice
-                        </button>
-                    </div>
+            <header className="bg-noble-card border-b border-noble-card-border pb-4 mb-6 flex items-center justify-between gap-4 pt-2">
+                <div>
+                    <h1 className="text-[19px] font-bold text-noble-text tracking-tight">Invoice</h1>
+                    <p className="text-[11px] text-noble-muted mt-0.5 hidden md:block">Manage, track and send your billing documents</p>
+                </div>
+                <div className="flex items-center gap-2.5">
+                    <AnimatePresence>
+                        {selectedIds.size > 0 && (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.9 }}
+                                className="flex items-center gap-2 bg-noble-interactive-bg border border-noble-card-border rounded-xl px-3 py-1.5"
+                            >
+                                <span className="text-xs font-semibold text-noble-card-text">{selectedIds.size} selected</span>
+                                <Button size="sm" onClick={() => { const c = selectedIds.size; selectedIds.forEach(id => handleMarkAsPaid(id)); setSelectedIds(new Set()); toast.success(`${c} invoice${c > 1 ? 's' : ''} marked as paid`); }} className="bg-emerald-600 text-white hover:bg-emerald-700">Mark Paid</Button>
+                                <button onClick={() => setSelectedIds(new Set())} className="p-1 text-noble-muted hover:text-noble-text"><X className="w-3 h-3" /></button>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                    <Button onClick={() => setShowTypeModal(true)} variant="primary" className="rounded-xl">
+                        <Plus className="w-4 h-4 mr-1.5" strokeWidth={2.5} />
+                        Add New Invoice
+                    </Button>
                 </div>
             </header>
 
             {/* ── Body ──────────────────────────────────────────────────────── */}
-            <div className="max-w-[1440px] mx-auto px-6 md:px-10 pt-6 space-y-5">
+            <div className="space-y-5">
                 {invoices.length === 0 && !isEffectivelyLoading ? (
                     <ProactiveEmptyState
                         title="Create your first invoice"
@@ -197,23 +196,23 @@ export default function InvoicesPage() {
                             initial={{ opacity: 0, y: 14 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: i * 0.06, duration: 0.38, ease: [0.23, 1, 0.32, 1] }}
-                            className="bg-white rounded-2xl border border-slate-100 p-5 flex items-start justify-between gap-4 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-default overflow-hidden"
+                            className="bg-noble-card rounded-2xl border border-noble-card-border p-5 flex items-start justify-between gap-4 hover:shadow-lg dark:hover:shadow-none hover:-translate-y-0.5 transition-all duration-200 cursor-default overflow-hidden"
                             style={{ boxShadow: '0 1px 4px rgba(15,23,42,0.06)' }}
                         >
                             <div className="min-w-0 flex-1">
                                 {/* Label badge */}
                                 <div className="flex items-center gap-1.5 mb-3">
-                                    <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full" style={{ backgroundColor: card.badgeBg, color: card.badgeText }}>
+                                    <span className={`text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full ${card.badgeClass}`}>
                                         {card.label}
                                     </span>
-                                    <ArrowUpRight className="w-3 h-3 text-slate-300" />
+                                    <ArrowUpRight className="w-3 h-3 text-noble-muted/40" />
                                 </div>
                                 {/* Big number */}
-                                <p className="text-[28px] font-black text-slate-900 leading-none tracking-tight mb-1.5">
-                                    {isEffectivelyLoading ? <span className="inline-block w-16 h-7 bg-slate-100 rounded animate-pulse" /> : card.value}
+                                <p className="text-[28px] font-black text-noble-text leading-none tracking-tight mb-1.5">
+                                    {isEffectivelyLoading ? <span className="inline-block w-16 h-7 bg-noble-icon-bg rounded animate-pulse" /> : card.value}
                                 </p>
                                 {/* Sub */}
-                                <p className="text-[11px] font-medium truncate" style={{ color: '#94A3B8' }}>{card.sub}</p>
+                                <p className="text-[11px] font-medium truncate text-noble-muted">{card.sub}</p>
                             </div>
                             {/* Bar Chart */}
                             <div className="flex-shrink-0 self-end pb-0.5">
@@ -228,42 +227,42 @@ export default function InvoicesPage() {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.25, duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                    className="bg-white rounded-2xl border border-slate-100 overflow-hidden"
+                    className="bg-noble-card rounded-2xl border border-noble-card-border overflow-hidden"
                     style={{ boxShadow: '0 1px 4px rgba(15,23,42,0.06)' }}
                 >
                     {/* Toolbar */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-5 pt-4 pb-3 border-b border-slate-100">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-5 pt-4 pb-3 border-b border-noble-card-border">
                         {/* Search */}
                         <div className="relative">
-                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-noble-muted pointer-events-none" />
                             <input
                                 type="text"
                                 value={searchQuery}
                                 onChange={e => setSearchQuery(e.target.value)}
                                 placeholder="Search..."
-                                className="pl-8 pr-3 py-2 w-44 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5]/20 transition-all"
+                                className="pl-8 pr-3 py-2 w-44 bg-noble-interactive-bg border border-noble-card-border rounded-lg text-xs text-noble-card-text placeholder:text-noble-muted focus:outline-none focus:border-noble-primary focus:ring-1 focus:ring-noble-primary/20 transition-all"
                             />
                         </div>
 
                         <div className="flex items-center gap-2">
                             {/* Tab pills */}
-                            <div className="flex items-center gap-0.5 bg-slate-100 rounded-xl p-1 overflow-x-auto hide-scrollbar">
+                            <div className="flex items-center gap-0.5 bg-noble-interactive-bg rounded-xl p-1 overflow-x-auto hide-scrollbar">
                                 {TABS.map(tab => (
                                     <button
                                         key={tab}
                                         onClick={() => setActiveTab(tab)}
-                                        className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-semibold whitespace-nowrap transition-all ${activeTab === tab ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-700'}`}
+                                        className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-[11px] font-semibold whitespace-nowrap transition-all ${activeTab === tab ? 'bg-noble-card text-noble-text shadow-sm' : 'text-noble-muted hover:text-noble-text'}`}
                                     >
                                         {tab}
                                         {tabCounts[tab] > 0 && (
-                                            <span className={`text-[9px] font-black px-1.5 py-px rounded-full leading-none ${activeTab === tab ? 'text-white' : 'bg-slate-200 text-slate-500'}`} style={activeTab === tab ? { backgroundColor: '#0599D5' } : {}}>
+                                            <span className={`text-[9px] font-black px-1.5 py-px rounded-full leading-none ${activeTab === tab ? 'text-white' : 'bg-slate-200 text-slate-500 dark:text-slate-400 dark:text-slate-500'}`} style={activeTab === tab ? { backgroundColor: '#0599D5' } : {}}>
                                                 {tabCounts[tab]}
                                             </span>
                                         )}
                                     </button>
                                 ))}
                             </div>
-                            <button onClick={() => toast('Advanced filters coming soon', { icon: '🔧' })} className="flex items-center gap-1.5 px-3 py-2 border border-slate-200 text-slate-600 text-[11px] font-semibold rounded-xl hover:bg-slate-50 transition-colors">
+                            <button onClick={() => toast('Advanced filters coming soon', { icon: '🔧' })} className="flex items-center gap-1.5 px-3 py-2 border border-noble-card-border text-noble-muted text-[11px] font-semibold rounded-xl hover:bg-noble-interactive-bg transition-colors">
                                 <Filter className="w-3.5 h-3.5" />
                                 Filter
                             </button>
@@ -274,14 +273,14 @@ export default function InvoicesPage() {
                     <div className="overflow-x-auto" ref={menuRef}>
                         <table className="w-full min-w-[920px]">
                             <thead>
-                                <tr className="border-b border-slate-100" style={{ backgroundColor: '#F8FAFC' }}>
+                                <tr className="border-b border-slate-100 dark:border-noble-border bg-noble-table-header-bg">
                                     <th className="px-4 py-3 w-9">
-                                        <button onClick={toggleAll} className="text-slate-400 hover:text-[#0599D5] transition-colors">
-                                            {allSelected ? <CheckSquare className="w-3.5 h-3.5 text-[#0599D5]" /> : someSelected ? <CheckSquare className="w-3.5 h-3.5 text-slate-400" /> : <Square className="w-3.5 h-3.5" />}
+                                        <button onClick={toggleAll} className="text-noble-muted hover:text-noble-primary transition-colors">
+                                            {allSelected ? <CheckSquare className="w-3.5 h-3.5 text-[#0599D5]" /> : someSelected ? <CheckSquare className="w-3.5 h-3.5 text-noble-muted" /> : <Square className="w-3.5 h-3.5" />}
                                         </button>
                                     </th>
                                     {['Invoice Number', 'Customer Name', 'Date', 'Total Amount', 'Total Discount', 'Status', 'Net Total', 'Action'].map(h => (
-                                        <th key={h} className={`px-4 py-3 text-[10px] font-bold text-slate-400 uppercase tracking-widest whitespace-nowrap ${h === 'Total Amount' || h === 'Total Discount' || h === 'Net Total' ? 'text-right' : h === 'Action' ? 'text-right pr-5' : 'text-left'}`}>{h}</th>
+                                        <th key={h} className={`px-4 py-3 text-[10px] font-bold text-noble-muted uppercase tracking-widest whitespace-nowrap ${h === 'Total Amount' || h === 'Total Discount' || h === 'Net Total' ? 'text-right' : h === 'Action' ? 'text-right pr-5' : 'text-left'}`}>{h}</th>
                                     ))}
                                 </tr>
                             </thead>
@@ -314,7 +313,7 @@ export default function InvoicesPage() {
                                             animate={{ opacity: 1 }}
                                             transition={{ delay: Math.min(i * 0.012, 0.18) }}
                                             onClick={() => router.push(`/invoices/${invoice.id}`)}
-                                            className={`group cursor-pointer border-b border-slate-50 transition-colors ${isSelected ? 'bg-blue-50/40' : 'hover:bg-slate-50/60'}`}
+                                            className={`group cursor-pointer border-b border-noble-card-border transition-colors ${isSelected ? 'bg-noble-primary/5' : 'hover:bg-noble-interactive-bg'}`}
                                         >
                                             {/* Checkbox */}
                                             <td className="px-4 py-3.5" onClick={e => { e.stopPropagation(); toggleOne(invoice.id); }}>
@@ -325,7 +324,7 @@ export default function InvoicesPage() {
 
                                             {/* Invoice Number */}
                                             <td className="px-4 py-3.5">
-                                                <span className="text-[12px] font-semibold text-slate-700 font-mono">{invoice.invoice_number}</span>
+                                                <span className="text-[12px] font-semibold text-noble-card-text font-mono">{invoice.invoice_number}</span>
                                             </td>
 
                                             {/* Client */}
@@ -333,15 +332,15 @@ export default function InvoicesPage() {
                                                 <div className="flex items-center gap-2.5">
                                                     <ClientAvatar name={invoice.clients?.name || 'Unknown'} />
                                                     <div className="min-w-0">
-                                                        <p className="text-[12px] font-semibold text-slate-800 truncate max-w-[150px]">{invoice.clients?.name || 'Unnamed Client'}</p>
-                                                        {invoice.clients?.email && <p className="text-[10px] text-slate-400 truncate max-w-[150px]">{invoice.clients.email}</p>}
+                                                        <p className="text-[12px] font-semibold text-noble-text truncate max-w-[150px]">{invoice.clients?.name || 'Unnamed Client'}</p>
+                                                        {invoice.clients?.email && <p className="text-[10px] text-noble-muted truncate max-w-[150px]">{invoice.clients.email}</p>}
                                                     </div>
                                                 </div>
                                             </td>
 
                                             {/* Date */}
                                             <td className="px-4 py-3.5">
-                                                <span className="text-[11px] text-slate-500 whitespace-nowrap">
+                                                <span className="text-[11px] text-noble-muted whitespace-nowrap">
                                                     {invoice.issue_date
                                                         ? new Date(invoice.issue_date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
                                                         : invoice.created_at
@@ -353,15 +352,15 @@ export default function InvoicesPage() {
 
                                             {/* Total Amount */}
                                             <td className="px-4 py-3.5 text-right">
-                                                <span className="text-[12px] font-bold text-slate-900 tabular-nums">{fmt(invoice.total_amount || 0, invoice.currency_code)}</span>
+                                                <span className="text-[12px] font-bold text-noble-text tabular-nums">{fmt(invoice.total_amount || 0, invoice.currency_code)}</span>
                                                 {invoice.currency_code && invoice.currency_code !== baseCurrency && exchangeRates && (
-                                                    <p className="text-[10px] text-slate-400 tabular-nums">{currencyService.format(Number(invoice.total_amount) || 0, invoice.currency_code, { decimals: 2 })}</p>
+                                                    <p className="text-[10px] text-noble-muted tabular-nums">{currencyService.format(Number(invoice.total_amount) || 0, invoice.currency_code, { decimals: 2 })}</p>
                                                 )}
                                             </td>
 
                                             {/* Total Discount */}
                                             <td className="px-4 py-3.5 text-right">
-                                                <span className="text-[11px] text-slate-500 tabular-nums">
+                                                <span className="text-[11px] text-noble-muted tabular-nums">
                                                     {discount > 0 ? `${Number(invoice.discount_value || 0).toFixed(1)}%` : '—'}
                                                 </span>
                                             </td>
@@ -373,7 +372,7 @@ export default function InvoicesPage() {
 
                                             {/* Net Total */}
                                             <td className="px-4 py-3.5 text-right">
-                                                <span className="text-[12px] font-bold text-slate-900 tabular-nums">{fmt(netTotal, invoice.currency_code)}</span>
+                                                <span className="text-[12px] font-bold text-noble-text tabular-nums">{fmt(netTotal, invoice.currency_code)}</span>
                                             </td>
 
                                             {/* Actions — ALWAYS VISIBLE */}
@@ -416,15 +415,15 @@ export default function InvoicesPage() {
                                                                     animate={{ opacity: 1, scale: 1, y: 0 }}
                                                                     exit={{ opacity: 0, scale: 0.95, y: -4 }}
                                                                     transition={{ duration: 0.12 }}
-                                                                    className="absolute right-0 top-9 w-52 bg-white border border-slate-200 rounded-xl shadow-2xl z-[999] overflow-hidden py-1"
+                                                                    className="absolute right-0 top-9 w-52 bg-noble-dropdown-bg border border-noble-card-border rounded-xl shadow-2xl dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] z-[999] overflow-hidden py-1"
                                                                 >
                                                                     {invoice.status !== 'paid' && (
                                                                         <button onClick={() => { handleMarkAsPaid(invoice.id); setOpenMenuId(null); }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-emerald-700 font-semibold hover:bg-emerald-50 transition-colors">
                                                                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />Mark as Paid
                                                                         </button>
                                                                     )}
-                                                                    <button onClick={() => { router.push(`/invoices/${invoice.id}`); setOpenMenuId(null); }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-slate-700 hover:bg-slate-50 transition-colors">
-                                                                        <FileText className="w-3.5 h-3.5 text-slate-400" />View Invoice
+                                                                    <button onClick={() => { router.push(`/invoices/${invoice.id}`); setOpenMenuId(null); }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-noble-dropdown-text hover:bg-noble-interactive-bg transition-colors">
+                                                                        <FileText className="w-3.5 h-3.5 text-noble-muted" />View Invoice
                                                                     </button>
                                                                     <button onClick={() => {
                                                                         const email = invoice.clients?.email || '';
@@ -432,8 +431,8 @@ export default function InvoicesPage() {
                                                                         const url = `${window.location.origin}/portal/${invoice.tracking_token}`;
                                                                         window.open(`mailto:${email}?subject=${encodeURIComponent(`Invoice #${invoice.invoice_number}`)}&body=${encodeURIComponent(`Hello ${invoice.clients?.name || ''},\n\nHere is invoice #${invoice.invoice_number} for ${amt}.\n\nPay here: ${url}\n\nThank you!`)}`, '_blank');
                                                                         setOpenMenuId(null);
-                                                                    }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-slate-700 hover:bg-slate-50 transition-colors">
-                                                                        <Mail className="w-3.5 h-3.5 text-slate-400" />Send via Email
+                                                                    }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-noble-dropdown-text hover:bg-noble-interactive-bg transition-colors">
+                                                                        <Mail className="w-3.5 h-3.5 text-noble-muted" />Send via Email
                                                                     </button>
                                                                     <button onClick={() => {
                                                                         const phone = invoice.clients?.phone ? String(invoice.clients.phone).replace(/\D/g, '') : '';
@@ -441,8 +440,8 @@ export default function InvoicesPage() {
                                                                         const url = `${window.location.origin}/portal/${invoice.tracking_token}`;
                                                                         window.open(`https://wa.me/${phone}?text=${encodeURIComponent(`Hello ${invoice.clients?.name || ''}, here is invoice #${invoice.invoice_number} for ${amt}. Pay here: ${url}`)}`, '_blank');
                                                                         setOpenMenuId(null);
-                                                                    }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-slate-700 hover:bg-slate-50 transition-colors">
-                                                                        <Send className="w-3.5 h-3.5 text-slate-400" />Send via WhatsApp
+                                                                    }} className="w-full flex items-center gap-3 px-4 py-2.5 text-xs text-noble-dropdown-text hover:bg-noble-interactive-bg transition-colors">
+                                                                        <Send className="w-3.5 h-3.5 text-noble-muted" />Send via WhatsApp
                                                                     </button>
                                                                 </motion.div>
                                                             )}
@@ -457,8 +456,8 @@ export default function InvoicesPage() {
                         </table>
 
                         {/* ── Pagination ──────────────────────────────────────── */}
-                        <div className="px-5 py-3 border-t border-slate-100 flex items-center justify-between" style={{ backgroundColor: '#F8FAFC' }}>
-                            <span className="text-[11px] font-medium text-slate-400">
+                        <div className="px-5 py-3 border-t border-slate-100 dark:border-noble-border flex items-center justify-between bg-noble-table-header-bg">
+                            <span className="text-[11px] font-medium text-noble-muted">
                                 {filtered.length > 0
                                     ? `Showing 1–${filtered.length} of ${filtered.length} invoice${filtered.length !== 1 ? 's' : ''}${selectedIds.size > 0 ? ` · ${selectedIds.size} selected` : ''}`
                                     : 'No results'
@@ -466,18 +465,17 @@ export default function InvoicesPage() {
                             </span>
                             <div className="flex items-center gap-1">
                                 <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={page === 1 || isEffectivelyLoading}
-                                    className="flex items-center gap-1 px-2.5 py-1.5 text-[11px] font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                                    className="flex items-center gap-1 px-2.5 py-1.5 text-[11px] font-semibold text-noble-muted bg-noble-card border border-noble-card-border rounded-lg hover:bg-noble-interactive-bg disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
                                     <ChevronLeft className="w-3 h-3" />Prev
                                 </button>
                                 {[page - 1, page, page + 1].filter(p => p > 0).map(p => (
                                     <button key={p} onClick={() => setPage(p)}
-                                        className="w-7 h-7 text-[11px] font-bold rounded-lg transition-colors"
-                                        style={{ backgroundColor: p === page ? '#0599D5' : 'white', color: p === page ? 'white' : '#475569', border: p === page ? 'none' : '1px solid #E2E8F0' }}>
+                                        className={`w-7 h-7 text-[11px] font-bold rounded-lg transition-colors ${p === page ? 'bg-noble-primary text-white' : 'bg-noble-card text-noble-muted border border-noble-card-border'}`}>
                                         {p}
                                     </button>
                                 ))}
                                 <button onClick={() => setPage(p => p + 1)} disabled={!hasMore || isEffectivelyLoading}
-                                    className="flex items-center gap-1 px-2.5 py-1.5 text-[11px] font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
+                                    className="flex items-center gap-1 px-2.5 py-1.5 text-[11px] font-semibold text-noble-muted bg-noble-card border border-noble-card-border rounded-lg hover:bg-noble-interactive-bg disabled:opacity-40 disabled:cursor-not-allowed transition-colors">
                                     Next<ChevronRight className="w-3 h-3" />
                                 </button>
                             </div>

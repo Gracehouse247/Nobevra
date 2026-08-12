@@ -114,6 +114,10 @@ export interface UserData {
     first_login_at?: string;
     last_login_at?: string;
     subscription_expires_at?: string | null;
+    /** True if this account is a platform super-admin exempt from billing */
+    isSuperAdmin?: boolean;
+    /** The admin role string, e.g. 'super_admin', 'seo_manager', 'support_staff' */
+    adminRole?: string | null;
 }
 
 export interface Achievement {

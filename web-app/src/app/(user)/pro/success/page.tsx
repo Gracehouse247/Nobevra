@@ -44,7 +44,7 @@ function PaymentSuccessContent() {
                 <div className="space-y-6">
                     <Loader2 className="w-16 h-16 text-[#006970] animate-spin mx-auto" />
                     <h2 className="text-2xl font-black text-white">Verifying Payment...</h2>
-                    <p className="text-slate-400">Please wait while we confirm with the secure gateway.</p>
+                    <p className="text-slate-400 dark:text-slate-500">Please wait while we confirm with the secure gateway.</p>
                 </div>
             )}
 
@@ -54,7 +54,7 @@ function PaymentSuccessContent() {
                         <CheckCircle2 className="w-12 h-12 text-emerald-400" />
                     </div>
                     <h2 className="text-4xl font-black text-white tracking-tight">Welcome to Noble Pro</h2>
-                    <p className="text-slate-400 mb-8 max-w-sm mx-auto">
+                    <p className="text-slate-400 dark:text-slate-500 mb-8 max-w-sm mx-auto">
                         Your cognitive architecture just upgraded. All premium features have been unlocked.
                     </p>
                     <button 
@@ -69,7 +69,7 @@ function PaymentSuccessContent() {
             {status === 'failed' && (
                 <div className="space-y-6">
                     <h2 className="text-2xl font-black text-red-500">Verification Failed</h2>
-                    <p className="text-slate-400">We could not automatically verify your transaction. Please contact support.</p>
+                    <p className="text-slate-400 dark:text-slate-500">We could not automatically verify your transaction. Please contact support.</p>
                     <button onClick={() => router.push('/support')} className="text-[#006970] hover:underline text-sm font-bold">
                         Contact NobleInvoice Support
                     </button>

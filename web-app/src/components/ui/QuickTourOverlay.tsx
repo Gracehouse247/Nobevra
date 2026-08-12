@@ -53,7 +53,7 @@ export function QuickTourOverlay() {
               role="dialog" 
               aria-modal="true" 
               aria-labelledby="tour-heading"
-              className="bg-white rounded-3xl p-8 shadow-2xl relative overflow-hidden"
+              className="bg-noble-surface dark:bg-noble-card rounded-3xl p-8 shadow-2xl relative overflow-hidden"
             >
               {/* Decorative gradient */}
               <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70" />
@@ -63,7 +63,7 @@ export function QuickTourOverlay() {
                 type="button"
                 aria-label="Close welcome tour"
                 onClick={dismissTour}
-                className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-full transition-colors z-10"
+                className="absolute top-4 right-4 p-2 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030] rounded-full transition-colors z-10"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -73,11 +73,11 @@ export function QuickTourOverlay() {
                   <Sparkles className="w-6 h-6" />
                 </div>
                 
-                <h3 id="tour-heading" className="text-2xl font-black text-slate-900 mb-3 tracking-tight">
+                <h3 id="tour-heading" className="text-2xl font-black text-noble-text mb-3 tracking-tight">
                   Welcome to your new Dashboard!
                 </h3>
                 
-                <p className="text-slate-500 mb-8 leading-relaxed">
+                <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-8 leading-relaxed">
                   Everything you need to run your business is right here. Create invoices, manage clients, and track expenses effortlessly.
                 </p>
 

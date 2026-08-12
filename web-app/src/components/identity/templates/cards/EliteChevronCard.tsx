@@ -38,7 +38,7 @@ export const EliteChevronCard: React.FC<CardRendererProps & { defaultColor?: str
               </DraggableElement>
             </div>
             {/* Right Column - Airy white panel with Portrait Frame */}
-            <div className="flex-[0.45] bg-white flex flex-col justify-between p-16 relative">
+            <div className="flex-[0.45] bg-noble-surface flex flex-col justify-between p-16 relative">
               <div className="flex justify-end">
                 {renderAvatar(accent, 110)}
               </div>
@@ -75,7 +75,7 @@ export const EliteChevronCard: React.FC<CardRendererProps & { defaultColor?: str
                 {data.companyName || 'ELITE BRAND'}
               </h2>
             </DraggableElement>
-            <DraggableElement elementKey="qr" className="z-10 bg-white p-3 rounded-2xl shadow-2xl border-4" style={{ borderColor: accent }}>
+            <DraggableElement elementKey="qr" className="z-10 bg-noble-surface p-3 rounded-2xl shadow-2xl border-4" style={{ borderColor: accent }}>
               <SharedQRCode url={data.qrCodeUrl || ''} color={darkBg} size={200} className="w-20 h-20" />
             </DraggableElement>
           </div>

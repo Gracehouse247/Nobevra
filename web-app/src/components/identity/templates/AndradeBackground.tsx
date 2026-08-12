@@ -15,7 +15,7 @@ export const AndradeBackground: React.FC<{ side: 'front' | 'back' }> = ({ side }
     const RoyalBlue = "#0055A4";
 
     return (
-        <div className="absolute inset-0 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-noble-surface overflow-hidden">
             {side === 'front' ? (
                 <>
                     {/* Slate Main Body */}

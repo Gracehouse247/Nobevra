@@ -40,7 +40,7 @@ export default function DashboardGreeting({ invoices, clientsLength }: Dashboard
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md pointer-events-auto"
                     >
-                        <div className="bg-white rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                        <div className="bg-noble-surface rounded-3xl p-8 shadow-2xl relative overflow-hidden">
                             <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100 rounded-full mix-blend-multiply filter blur-xl opacity-70" />
                             <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70" />
 
@@ -56,7 +56,7 @@ export default function DashboardGreeting({ invoices, clientsLength }: Dashboard
                                     <Sparkles className="w-6 h-6" />
                                 </div>
                                 
-                                <h3 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">
+                                <h3 className="text-2xl font-black text-noble-greeting-text mb-3 tracking-tight">
                                     {content.title}
                                 </h3>
                                 
@@ -88,7 +88,7 @@ export default function DashboardGreeting({ invoices, clientsLength }: Dashboard
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, height: 0, marginBottom: 0 }}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-slate-200 mb-8 relative overflow-hidden"
+                className="bg-noble-surface rounded-2xl p-6 shadow-sm border border-noble-border mb-8 relative overflow-hidden"
             >
                 <button
                     onClick={handleDismiss}
@@ -98,7 +98,7 @@ export default function DashboardGreeting({ invoices, clientsLength }: Dashboard
                 </button>
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                        <h3 className="text-lg font-bold text-slate-900">{content.title}</h3>
+                        <h3 className="text-lg font-bold text-noble-greeting-text">{content.title}</h3>
                         <p className="text-sm text-slate-500">{content.sub}</p>
                     </div>
                     {state !== 'active' && (

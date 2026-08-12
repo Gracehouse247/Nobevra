@@ -171,7 +171,7 @@ export default function PaygUnlockModal({
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     exit={{ scale: 0.85, opacity: 0, y: 30 }}
                     transition={{ type: 'spring', damping: 22, stiffness: 280 }}
-                    className="relative w-full max-w-sm bg-white rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.2)] overflow-hidden"
+                    className="relative w-full max-w-sm bg-noble-surface rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.2)] overflow-hidden"
                 >
                     {/* Premium gradient top bar */}
                     <div className="h-1.5 w-full bg-gradient-to-r from-noble-blue via-electric-cyan to-noble-blue bg-[length:200%] animate-[shimmer_2s_linear_infinite]" />
@@ -195,7 +195,7 @@ export default function PaygUnlockModal({
                                 <Sparkles className="w-3 h-3 text-white absolute -top-1 -right-1 animate-pulse" />
                                 <Zap className="w-5 h-5 text-white" />
                             </div>
-                            <h2 className="text-[17px] font-black text-slate-900 tracking-tight">PAYG Premium Bundle</h2>
+                            <h2 className="text-[17px] font-black text-noble-text tracking-tight">PAYG Premium Bundle</h2>
                             <p className="text-[11px] font-bold text-slate-500 mt-0.5">Get the best tools without the subscription.</p>
                         </div>
 

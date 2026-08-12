@@ -124,7 +124,7 @@ const Select = ({ value, onChange, options, className = '' }: {
   <select
     value={value}
     onChange={e => onChange(e.target.value)}
-    className={`text-xs border border-slate-200 rounded px-1.5 py-1 bg-white text-slate-700 focus:outline-none focus:ring-1 focus:ring-[#006970] ${className}`}
+    className={`text-xs border border-noble-border rounded px-1.5 py-1 bg-noble-surface text-slate-700 focus:outline-none focus:ring-1 focus:ring-[#006970] ${className}`}
   >
     {options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
   </select>
@@ -135,7 +135,7 @@ const SidebarSection = ({ title, icon: Icon, children, defaultOpen = true }: {
 }) => {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <div className="border border-slate-200 rounded-lg overflow-hidden bg-white shadow-sm">
+    <div className="border border-noble-border rounded-lg overflow-hidden bg-noble-surface shadow-sm">
       <button
         type="button"
         onClick={() => setOpen(o => !o)}
@@ -573,8 +573,8 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
         </div>
 
         {/* ── Sidebar ── */}
-        <aside className="noble-sidebar flex flex-col h-full bg-white border-l border-slate-200">
-          <div className="flex border-b border-slate-200 sticky top-0 bg-white z-10 flex-shrink-0">
+        <aside className="noble-sidebar flex flex-col h-full bg-noble-surface border-l border-noble-border">
+          <div className="flex border-b border-noble-border sticky top-0 bg-noble-surface z-10 flex-shrink-0">
             <button
               onClick={() => setActiveSidebarTab('settings')}
               className={`flex-1 py-3 text-xs font-bold uppercase tracking-wider transition-colors ${activeSidebarTab === 'settings' ? 'text-[#006970] border-b-2 border-[#006970]' : 'text-slate-400 hover:text-slate-700'}`}
@@ -606,7 +606,7 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
                       type="button"
                       onClick={() => handleSave('draft')}
                       disabled={saving}
-                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-50 transition-all font-semibold text-sm disabled:opacity-50"
+                      className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-noble-border text-slate-700 hover:bg-slate-50 transition-all font-semibold text-sm disabled:opacity-50"
                     >
                       {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                       Save Draft
@@ -629,7 +629,7 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
                     <div className="relative aspect-video rounded-lg overflow-hidden group">
                       <img src={getImageUrl(coverImage) as string} alt="Cover" className="w-full h-full object-cover" />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                        <button type="button" onClick={() => { setMediaTarget('cover'); setShowMediaModal(true); }} className="p-2 bg-white/20 hover:bg-white/30 rounded-lg text-white transition-all"><Plus className="w-4 h-4" /></button>
+                        <button type="button" onClick={() => { setMediaTarget('cover'); setShowMediaModal(true); }} className="p-2 bg-noble-surface/20 hover:bg-noble-surface/30 rounded-lg text-white transition-all"><Plus className="w-4 h-4" /></button>
                         <button type="button" onClick={() => setCoverImage('')} className="p-2 bg-red-500/20 hover:bg-red-500/30 rounded-lg text-red-100 transition-all"><X className="w-4 h-4" /></button>
                       </div>
                     </div>
@@ -637,7 +637,7 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
                     <button
                       type="button"
                       onClick={() => { setMediaTarget('cover'); setShowMediaModal(true); }}
-                      className="w-full aspect-video rounded-lg border-2 border-dashed border-slate-200 hover:border-[#006970] hover:bg-[#f0fafa] transition-all flex flex-col items-center justify-center gap-2 text-slate-400 hover:text-[#006970]"
+                      className="w-full aspect-video rounded-lg border-2 border-dashed border-noble-border hover:border-[#006970] hover:bg-[#f0fafa] transition-all flex flex-col items-center justify-center gap-2 text-slate-400 hover:text-[#006970]"
                     >
                       <Plus className="w-5 h-5" />
                       <span className="text-[10px] font-bold uppercase tracking-widest">Add Cover Image</span>
@@ -652,7 +652,7 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
                     value={excerpt}
                     onChange={e => setExcerpt(e.target.value)}
                     placeholder="Brief description shown in post previews…"
-                    className="w-full bg-white border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-900 resize-none focus:outline-none focus:ring-2 focus:ring-[#006970]/20 focus:border-[#006970] placeholder:text-slate-400"
+                    className="w-full bg-noble-surface border border-noble-border rounded-md px-3 py-2 text-sm text-noble-text resize-none focus:outline-none focus:ring-2 focus:ring-[#006970]/20 focus:border-[#006970] placeholder:text-slate-400"
                   />
                   <span className={`text-[10px] mt-1 block font-semibold ${excerpt.length > 200 ? 'text-red-500' : 'text-slate-400'}`}>{excerpt.length}/200</span>
                 </SidebarSection>
@@ -665,7 +665,7 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
                       <input
                         value={slug || toSlug(title)}
                         onChange={e => setSlug(e.target.value)}
-                        className="w-full bg-white border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#006970]/20 focus:border-[#006970]"
+                        className="w-full bg-noble-surface border border-noble-border rounded-md px-3 py-2 text-sm text-noble-text focus:outline-none focus:ring-2 focus:ring-[#006970]/20 focus:border-[#006970]"
                       />
                     </div>
                     <div>
@@ -674,14 +674,14 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
                         value={metaTitle}
                         onChange={e => setMetaTitle(e.target.value)}
                         placeholder={title || 'SEO title…'}
-                        className="w-full bg-white border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#006970]/20 focus:border-[#006970]"
+                        className="w-full bg-noble-surface border border-noble-border rounded-md px-3 py-2 text-sm text-noble-text focus:outline-none focus:ring-2 focus:ring-[#006970]/20 focus:border-[#006970]"
                       />
                       <div className="flex justify-between mt-1">
                         <span className="text-[9px] text-slate-400">Recommended: 50–60 chars</span>
                         <span className={`text-[9px] font-bold ${metaTitle.length > 60 ? 'text-red-500' : 'text-slate-400'}`}>{metaTitle.length}/60</span>
                       </div>
                       {/* SERP Preview */}
-                      <div className="mt-2 bg-white border border-slate-200 rounded-md p-3">
+                      <div className="mt-2 bg-noble-surface border border-noble-border rounded-md p-3">
                         <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400 mb-1">SERP Preview</p>
                         <p className="text-blue-600 text-xs font-medium leading-tight truncate">{metaTitle || title || 'Post Title'}</p>
                         <p className="text-green-700 text-[10px]">nobleinvoice.com/{slug || toSlug(title) || 'post-slug'}</p>
@@ -695,7 +695,7 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
                         value={metaDesc}
                         onChange={e => setMetaDesc(e.target.value)}
                         placeholder="Compelling description that appears in search results…"
-                        className="w-full bg-white border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-900 resize-none focus:outline-none focus:ring-2 focus:ring-[#006970]/20 focus:border-[#006970]"
+                        className="w-full bg-noble-surface border border-noble-border rounded-md px-3 py-2 text-sm text-noble-text resize-none focus:outline-none focus:ring-2 focus:ring-[#006970]/20 focus:border-[#006970]"
                       />
                       <div className="flex justify-between mt-1">
                         <span className="text-[9px] text-slate-400">Recommended: 150–160 chars</span>
@@ -712,7 +712,7 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
                     onChange={e => setTagInput(e.target.value)}
                     onKeyDown={addTag}
                     placeholder="Type a tag and press Enter…"
-                    className="w-full bg-white border border-slate-200 rounded-md px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#006970]/20 focus:border-[#006970] mb-2"
+                    className="w-full bg-noble-surface border border-noble-border rounded-md px-3 py-2 text-sm text-noble-text focus:outline-none focus:ring-2 focus:ring-[#006970]/20 focus:border-[#006970] mb-2"
                   />
                   <div className="flex flex-wrap gap-1.5">
                     {tags.map(t => (
@@ -783,13 +783,13 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
       {/* ── Media Manager Modal ──────────────────────────────── */}
       {showMediaModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/50 backdrop-blur-sm">
-          <div className="relative bg-white border border-slate-200 w-full max-w-5xl h-[80vh] rounded-xl overflow-hidden shadow-2xl flex flex-col">
-            <div className="p-6 pb-4 flex justify-between items-center border-b border-slate-200">
+          <div className="relative bg-noble-surface border border-noble-border w-full max-w-5xl h-[80vh] rounded-xl overflow-hidden shadow-2xl flex flex-col">
+            <div className="p-6 pb-4 flex justify-between items-center border-b border-noble-border">
               <div>
-                <h2 className="text-xl font-bold text-slate-900">Media Library</h2>
+                <h2 className="text-xl font-bold text-noble-text">Media Library</h2>
                 <p className="text-sm text-slate-500 mt-0.5">Select an image to insert</p>
               </div>
-              <button type="button" onClick={() => setShowMediaModal(false)} className="p-2 hover:bg-slate-100 rounded-lg text-slate-500 hover:text-slate-900 transition-colors">
+              <button type="button" onClick={() => setShowMediaModal(false)} className="p-2 hover:bg-slate-100 rounded-lg text-slate-500 hover:text-noble-text transition-colors">
                 <X className="w-5 h-5" />
               </button>
             </div>

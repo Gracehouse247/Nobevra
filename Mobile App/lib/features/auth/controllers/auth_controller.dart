@@ -52,6 +52,10 @@ class AuthController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> finalizeLoginFromMfa() async {
+    await _finalizeLogin();
+  }
+
   // ── Register ───────────────────────────────────────────────────────────────
   /// Returns true on success → navigate to OTP screen
   Future<bool> register({required String name, required String email, required String password}) async {
@@ -76,8 +80,8 @@ class AuthController extends ChangeNotifier {
   }
 
   // ── Login ─────────────────────────────────────────────────────────────────
-  /// Returns true on success → navigate to dashboard
-  Future<bool> login({required String email, required String password}) async {
+  /// Returns 'success', 'mfa_required', or 'error'
+  Future<String> login({required String email, required String password}) async {
     _setLoading();
     try {
       await SupabaseService.client.auth.signInWithPassword(
@@ -85,11 +89,19 @@ class AuthController extends ChangeNotifier {
         password: password,
       );
       
+      // Check MFA requirement
+      final aalResponse = await SupabaseService.client.auth.mfa.getAuthenticatorAssuranceLevel();
+      if (aalResponse.nextLevel == AuthenticatorAssuranceLevel.aal2) {
+        // User needs to verify MFA (TOTP). We keep the AAL1 session active.
+        _setSuccess();
+        return 'mfa_required';
+      }
+      
       await _finalizeLogin();
-      return true;
+      return 'success';
     } catch (e) {
       _setError(e is AuthException ? e.message : 'Login failed. Try again.');
-      return false;
+      return 'error';
     }
   }
   

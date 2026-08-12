@@ -306,7 +306,7 @@ export const BusinessCardEngine: React.FC<BusinessCardEngineProps> = ({
   if (bespokeContent) {
     return (
         <div 
-          className="relative overflow-hidden shadow-2xl transition-all duration-700 bg-white"
+          className="relative overflow-hidden shadow-2xl transition-all duration-700 bg-noble-surface"
           style={{ 
             width: `${width}px`, 
             height: `${height}px`, 
@@ -365,7 +365,7 @@ export const BusinessCardEngine: React.FC<BusinessCardEngineProps> = ({
 
   return (
     <div 
-      className={`relative overflow-hidden shadow-2xl transition-all duration-700 bg-white ${isDraggable ? 'ring-2 ring-noble-blue ring-offset-4' : ''}`}
+      className={`relative overflow-hidden shadow-2xl transition-all duration-700 bg-noble-surface ${isDraggable ? 'ring-2 ring-noble-blue ring-offset-4' : ''}`}
       style={{ 
         width: `${width}px`, 
         height: `${height}px`, 
@@ -381,7 +381,7 @@ export const BusinessCardEngine: React.FC<BusinessCardEngineProps> = ({
         <div className="relative z-10 w-full h-full flex items-center justify-center">
              <div className="text-center space-y-8">
                 <h2 className="text-6xl font-black uppercase tracking-tight" style={{ color: contrastColor, fontFamily: data.fontFamily || undefined }}>{data.companyName}</h2>
-                <div className="bg-white p-4 rounded-3xl shadow-xl inline-block">
+                <div className="bg-noble-surface p-4 rounded-3xl shadow-xl inline-block">
                     <img 
                         src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobleinvoice.ai')}&color=${effectiveAccent.replace('#', '')}`} 
                         alt="QR" 

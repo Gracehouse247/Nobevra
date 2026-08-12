@@ -87,7 +87,7 @@ export default function FreelancerROISection() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.15, duration: 0.5 }}
-                                className={`bg-white rounded-3xl p-7 border ${stat.border} flex gap-6 items-start shadow-sm hover:shadow-md transition-shadow`}
+                                className={`bg-noble-surface rounded-3xl p-7 border ${stat.border} flex gap-6 items-start shadow-sm hover:shadow-md transition-shadow`}
                             >
                                 <div className={`w-12 h-12 rounded-2xl ${stat.bg} flex items-center justify-center shrink-0 mt-1`}>
                                     <span className={`material-symbols-outlined ${stat.color} text-xl`}>{stat.icon}</span>
@@ -119,7 +119,7 @@ export default function FreelancerROISection() {
                                 "I was spending almost a full day every month just on invoicing and chasing payments. After switching to NobleInvoice, that entire process takes about 20 minutes total."
                             </p>
                             <div className="flex items-center gap-3 relative z-10">
-                                <div className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center font-black text-sm">JL</div>
+                                <div className="w-9 h-9 rounded-full bg-noble-surface/20 flex items-center justify-center font-black text-sm">JL</div>
                                 <div>
                                     <p className="font-black text-sm text-white">James L.</p>
                                     <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest">Freelance Copywriter</p>
@@ -139,7 +139,7 @@ export default function FreelancerROISection() {
                         transition={{ duration: 0.6 }}
                         className="sticky top-28"
                     >
-                        <div className="bg-white rounded-[40px] border border-slate-200 shadow-xl overflow-hidden">
+                        <div className="bg-noble-surface rounded-[40px] border border-noble-border shadow-xl overflow-hidden">
 
                             {/* Calculator Header */}
                             <div className="bg-near-black px-8 py-6">
@@ -198,7 +198,7 @@ export default function FreelancerROISection() {
 
                                 {/* Result Panel */}
                                 <div className="bg-gradient-to-br from-[#0A1628] to-[#166FBB] rounded-3xl p-7 text-white relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 blur-2xl rounded-full translate-x-8 -translate-y-8 pointer-events-none" />
+                                    <div className="absolute top-0 right-0 w-32 h-32 bg-noble-surface/5 blur-2xl rounded-full translate-x-8 -translate-y-8 pointer-events-none" />
                                     <p className="text-white/50 text-[10px] font-black uppercase tracking-widest mb-4">If you switched today, you'd save</p>
 
                                     <div className="flex items-end gap-6 mb-4">
@@ -216,7 +216,7 @@ export default function FreelancerROISection() {
                                             </AnimatePresence>
                                             <p className="text-white/50 text-[10px] font-bold uppercase tracking-widest">Per Month</p>
                                         </div>
-                                        <div className="w-px h-12 bg-white/15" />
+                                        <div className="w-px h-12 bg-noble-surface/15" />
                                         <div>
                                             <AnimatePresence mode="wait">
                                                 <motion.p

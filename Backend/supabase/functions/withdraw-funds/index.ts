@@ -20,10 +20,7 @@ function getTransferFee(amount: number, currency: string): number {
   return 53.80; // > ₦50,000
 }
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "https://invoice.noblesworld.com.ng",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+import { CORS_HEADERS as corsHeaders } from "../_shared/cors.ts";
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {

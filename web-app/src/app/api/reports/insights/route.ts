@@ -1,7 +1,32 @@
 import { NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
 
 export async function POST(request: Request) {
     try {
+        // ── Authentication Guard ──────────────────────────────────────────────
+        // This endpoint forwards financial data to Gemini — it must be authenticated.
+        const authHeader = request.headers.get('Authorization');
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
+
+        const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+        const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+
+        if (!supabaseUrl || !supabaseAnonKey) {
+            return NextResponse.json({ error: 'Server misconfiguration' }, { status: 500 });
+        }
+
+        const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+            global: { headers: { Authorization: authHeader } },
+        });
+
+        const { data: { user }, error: authError } = await supabase.auth.getUser();
+        if (authError || !user) {
+            return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        }
+        // ─────────────────────────────────────────────────────────────────────
+
         const body = await request.json();
         const { cur, prev, status_overview } = body;
 
@@ -40,7 +65,7 @@ Status Overview: ${JSON.stringify(status_overview)}
         });
 
         const data = await response.json();
-        
+
         if (!response.ok || !data.candidates || data.candidates.length === 0) {
             console.error('Gemini API Error:', data);
             return NextResponse.json({ error: 'Failed to generate insights' }, { status: 502 });

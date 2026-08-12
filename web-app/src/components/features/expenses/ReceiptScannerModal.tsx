@@ -196,7 +196,7 @@ export default function ReceiptScannerModal({
                     animate={{ scale: 1, opacity: 1, y: 0 }}
                     exit={{ scale: 0.9, opacity: 0, y: 20 }}
                     transition={{ type: 'spring', damping: 20, stiffness: 300 }}
-                    className="relative w-full max-w-lg bg-white/90 backdrop-blur-3xl border border-white/60 rounded-[32px] shadow-[0_40px_80px_rgba(0,0,0,0.15)] overflow-hidden"
+                    className="relative w-full max-w-lg bg-noble-surface/90 backdrop-blur-3xl border border-white/60 rounded-[32px] shadow-[0_40px_80px_rgba(0,0,0,0.15)] overflow-hidden"
                 >
                     {/* Ambient gradient */}
                     <div className="absolute inset-0 bg-gradient-to-br from-noble-blue/5 via-transparent to-electric-cyan/5 pointer-events-none" />
@@ -208,7 +208,7 @@ export default function ReceiptScannerModal({
                                 <ScanLine className="w-5 h-5 text-noble-blue" />
                             </div>
                             <div>
-                                <h2 className="text-lg font-black text-slate-900 tracking-tight">AI Receipt Scanner</h2>
+                                <h2 className="text-lg font-black text-noble-text tracking-tight">AI Receipt Scanner</h2>
                                 <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Powered by Gemini Vision</p>
                             </div>
                         </div>
@@ -233,7 +233,7 @@ export default function ReceiptScannerModal({
                                     className={`relative border-2 border-dashed rounded-3xl p-10 text-center transition-all cursor-pointer ${
                                         isDragging
                                             ? 'border-noble-blue bg-noble-blue/5 scale-[1.02]'
-                                            : 'border-slate-200 hover:border-noble-blue/50 hover:bg-slate-50/50'
+                                            : 'border-noble-border hover:border-noble-blue/50 hover:bg-slate-50/50'
                                     }`}
                                     onClick={() => fileInputRef.current?.click()}
                                 >
@@ -374,7 +374,7 @@ export default function ReceiptScannerModal({
                                     ))}
 
                                     {scannedData.line_items && scannedData.line_items.length > 0 && (
-                                        <div className="pt-3 border-t border-slate-200">
+                                        <div className="pt-3 border-t border-noble-border">
                                             <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-2">Line Items</p>
                                             {scannedData.line_items.slice(0, 3).map((item, i) => (
                                                 <div key={i} className="flex justify-between items-center text-xs text-slate-600 py-1">

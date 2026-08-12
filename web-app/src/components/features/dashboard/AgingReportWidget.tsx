@@ -95,8 +95,8 @@ export default function AgingReportWidget({ baseCurrency = 'USD' }: AgingReportW
 
     if (loading) {
         return (
-            <div className="bg-white/40 backdrop-blur-2xl rounded-[40px] p-10 border border-white/60 shadow-[0_40px_80px_rgba(0,0,0,0.03)] flex flex-col justify-center items-center h-full relative overflow-hidden">
-                <div className="w-8 h-8 border-4 border-slate-200 border-t-noble-blue rounded-full animate-spin" />
+            <div className="bg-noble-surface/40 backdrop-blur-2xl rounded-[40px] p-10 border border-white/60 shadow-[0_40px_80px_rgba(0,0,0,0.03)] flex flex-col justify-center items-center h-full relative overflow-hidden">
+                <div className="w-8 h-8 border-4 border-noble-border border-t-noble-blue rounded-full animate-spin" />
             </div>
         );
     }
@@ -106,14 +106,14 @@ export default function AgingReportWidget({ baseCurrency = 'USD' }: AgingReportW
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="bg-white/40 backdrop-blur-2xl rounded-[40px] p-10 border border-white/60 shadow-[0_40px_80px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full relative overflow-hidden group"
+            className="bg-noble-surface/40 backdrop-blur-2xl rounded-[40px] p-10 border border-white/60 shadow-[0_40px_80px_rgba(0,0,0,0.03)] flex flex-col justify-between h-full relative overflow-hidden group"
         >
             <div className="absolute top-[-30%] left-[-10%] w-[250px] h-[250px] bg-noble-blue/5 blur-[80px] rounded-full pointer-events-none transition-opacity duration-700 opacity-50 group-hover:opacity-100" />
             
             <div className="relative z-10">
                 <motion.div variants={itemVariants} className="flex justify-between items-start mb-10">
                     <div>
-                        <h2 className="text-2xl font-black text-slate-900 tracking-tighter" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Accounts Receivable</h2>
+                        <h2 className="text-2xl font-black text-noble-text tracking-tighter" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Accounts Receivable</h2>
                         <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.2em] mt-1.5">Aging & Overdue Analysis</p>
                     </div>
                     <div className="bg-rose-50/80 backdrop-blur-sm text-rose-600 px-4 py-2 rounded-xl border border-rose-100/50 flex items-center gap-2 shadow-sm">

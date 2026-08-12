@@ -28,7 +28,7 @@ export const CardQRCode: React.FC<CardQRCodeProps> = ({
   return (
     <DraggableElement
       elementKey="qr"
-      className="bg-white p-3 rounded-2xl shadow-2xl border-4 flex flex-col items-center justify-center shrink-0"
+      className="bg-noble-surface p-3 rounded-2xl shadow-2xl border-4 flex flex-col items-center justify-center shrink-0"
       style={{ borderColor }}
     >
       <SharedQRCode url={url || ''} color={qrColor} size={size} className={dimensionClass} />

@@ -20,18 +20,7 @@ const FLUTTERWAVE_SECRET_KEY = Deno.env.get("FLUTTERWAVE_SECRET_KEY")!;
 // Value: Expected amount charged.
 // This is the ONLY source of truth for what a valid payment amount should be.
 // Never trust the client to supply this value.
-const PRICE_BOOK: Record<string, number> = {
-  // NGN prices
-  pulse_monthly_NGN: 4999,
-  pulse_yearly_NGN:  49999,
-  elite_monthly_NGN: 14999,
-  elite_yearly_NGN:  149999,
-  // USD prices
-  pulse_monthly_USD: 9.99,
-  pulse_yearly_USD:  99.00,
-  elite_monthly_USD: 24.99,
-  elite_yearly_USD:  240.00,
-};
+import { PRICE_BOOK } from "../_shared/price_book.ts";
 
 // Tolerance: Allow up to 2 units of the charged currency for floating-point
 // or minor FX fluctuation. E.g. $0.02 for USD, ₦2 for NGN.

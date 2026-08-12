@@ -107,7 +107,7 @@ const IssueItem = ({ issue }: { issue: SEOAnalysis['issues'][0] }) => {
         {open ? <ChevronDown className="w-3 h-3 text-slate-400" /> : <ChevronRight className="w-3 h-3 text-slate-400" />}
       </div>
       {open && (
-        <p className="mt-2 text-xs text-slate-600 pl-5 border-t border-slate-200 pt-2">
+        <p className="mt-2 text-xs text-slate-600 pl-5 border-t border-noble-border pt-2">
           <span className="font-bold">Fix: </span>{issue.fix}
         </p>
       )}
@@ -323,7 +323,7 @@ export default function AISeoAnalyzer({
               {/* SERP Preview */}
               <div className="aip-card">
                 <p className="aip-section-title mb-2">SERP Preview</p>
-                <div className="bg-white border border-slate-200 rounded-lg p-3">
+                <div className="bg-noble-surface border border-noble-border rounded-lg p-3">
                   <p className="text-blue-600 text-sm font-medium leading-tight">{analysis.snippetPreview.title}</p>
                   <p className="text-green-700 text-xs mt-0.5">nobleinvoice.com/{analysis.snippetPreview.url}</p>
                   <p className="text-slate-500 text-xs leading-relaxed mt-1 line-clamp-2">{analysis.snippetPreview.description}</p>
@@ -377,13 +377,13 @@ export default function AISeoAnalyzer({
                   {analysis.titleAnalysis.suggestion && (
                     <div className="mb-3">
                       <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Improved Title</p>
-                      <p className="text-xs text-slate-700 bg-slate-50 rounded-lg p-2 border border-slate-200 italic">"{analysis.titleAnalysis.suggestion}"</p>
+                      <p className="text-xs text-slate-700 bg-slate-50 rounded-lg p-2 border border-noble-border italic">"{analysis.titleAnalysis.suggestion}"</p>
                     </div>
                   )}
                   {analysis.metaAnalysis.suggestion && (
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">Improved Meta Description</p>
-                      <p className="text-xs text-slate-700 bg-slate-50 rounded-lg p-2 border border-slate-200 italic">"{analysis.metaAnalysis.suggestion}"</p>
+                      <p className="text-xs text-slate-700 bg-slate-50 rounded-lg p-2 border border-noble-border italic">"{analysis.metaAnalysis.suggestion}"</p>
                     </div>
                   )}
                 </div>
@@ -422,7 +422,7 @@ export default function AISeoAnalyzer({
                 type="button"
                 onClick={runSeoAnalysis}
                 disabled={analyzing}
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 text-sm font-semibold transition-all"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-lg border border-noble-border text-slate-600 hover:bg-slate-50 text-sm font-semibold transition-all"
               >
                 <RefreshCcw className="w-4 h-4" />
                 Re-analyze

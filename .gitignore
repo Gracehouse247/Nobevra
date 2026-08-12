@@ -101,7 +101,14 @@ SEO_Content_Strategy_Blueprint*
 # -----------------------------------------------------------
 # GITHUB ACTIONS & LARGE ASSETS
 # -----------------------------------------------------------
-.github/workflows/
+# .github/workflows/ (Uncommented to allow GitHub Actions CI/CD)
 web-app/qa_screenshots/
 *.mp4
 *.mov
+
+# -----------------------------------------------------------
+# SCRATCH / ONE-OFF ADMIN SCRIPTS (may contain secrets)
+# -----------------------------------------------------------
+web-app/scratch/
+Backend/scratch/
+scratch/

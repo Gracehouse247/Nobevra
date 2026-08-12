@@ -37,7 +37,7 @@ export default function EmailConflictModal({
                         animate={{ scale: 1, opacity: 1, y: 0 }}
                         exit={{ scale: 0.88, opacity: 0, y: 24 }}
                         transition={{ type: 'spring', damping: 22, stiffness: 300 }}
-                        className="relative w-full max-w-sm bg-white rounded-3xl shadow-[0_32px_64px_rgba(0,0,0,0.18)] overflow-hidden"
+                        className="relative w-full max-w-sm bg-noble-surface rounded-3xl shadow-[0_32px_64px_rgba(0,0,0,0.18)] overflow-hidden"
                         role="dialog"
                         aria-modal="true"
                         aria-labelledby="conflict-modal-title"
@@ -64,7 +64,7 @@ export default function EmailConflictModal({
                             {/* Heading */}
                             <h2
                                 id="conflict-modal-title"
-                                className="text-center text-[18px] font-black text-slate-900 tracking-tight mb-1"
+                                className="text-center text-[18px] font-black text-noble-text tracking-tight mb-1"
                             >
                                 Account already exists
                             </h2>
@@ -89,7 +89,7 @@ export default function EmailConflictModal({
                                 <button
                                     type="button"
                                     onClick={() => { onClose(); onGoogle(); }}
-                                    className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl bg-white border border-slate-200 text-slate-700 font-bold text-[13px] hover:bg-slate-50 transition-all shadow-sm"
+                                    className="flex items-center justify-center gap-2.5 w-full py-3 rounded-xl bg-noble-surface border border-noble-border text-slate-700 font-bold text-[13px] hover:bg-slate-50 transition-all shadow-sm"
                                 >
                                     <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24">
                                         <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>

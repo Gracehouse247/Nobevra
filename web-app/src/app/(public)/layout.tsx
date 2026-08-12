@@ -3,8 +3,9 @@
 import { usePathname } from 'next/navigation';
 import Navbar from '@/components/shared/Navbar';
 import CookieConsent from '@/components/shared/CookieConsent';
+import { ThemeProvider } from '@/components/providers/theme-provider';
 
-const AUTH_PATHS = ['/register', '/login'];
+const AUTH_PATHS = ['/register', '/login', '/logout', '/forgot-password', '/reset-password'];
 
 export default function PublicLayout({
     children,
@@ -15,7 +16,7 @@ export default function PublicLayout({
     const isAuthPage = AUTH_PATHS.includes(pathname);
 
     return (
-        <div className="flex flex-col min-h-screen bg-[#F8FAFC]">
+        <div data-theme-force="light" className="flex flex-col min-h-screen bg-[#F8FAFC]">
             {!isAuthPage && <Navbar />}
             <main className={`flex-1 ${!isAuthPage ? 'max-w-[1430px] mx-auto w-full' : ''}`}>
                 {children}

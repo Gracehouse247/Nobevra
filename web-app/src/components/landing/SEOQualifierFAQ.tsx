@@ -86,7 +86,7 @@ export default function SEOQualifierFAQ() {
                         viewport={{ once: true, margin: '-60px' }}
                         transition={{ duration: 0.5 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-200/50 border border-slate-200 text-slate-600 font-bold text-[10px] uppercase tracking-widest mb-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-200/50 border border-noble-border text-slate-600 font-bold text-[10px] uppercase tracking-widest mb-6">
                             <span className="w-2 h-2 rounded-full bg-slate-400" />
                             Transparency
                         </div>
@@ -139,10 +139,10 @@ export default function SEOQualifierFAQ() {
                             {faqs.map((faq, index) => (
                                 <div
                                     key={index}
-                                    className={`border rounded-2xl overflow-hidden bg-white transition-all duration-300 ${
+                                    className={`border rounded-2xl overflow-hidden bg-noble-surface transition-all duration-300 ${
                                         openFaqIndex === index
                                             ? 'border-noble-blue/30 shadow-lg shadow-noble-blue/5'
-                                            : 'border-slate-200 hover:border-noble-blue/20 shadow-sm'
+                                            : 'border-noble-border hover:border-noble-blue/20 shadow-sm'
                                     }`}
                                 >
                                     <button

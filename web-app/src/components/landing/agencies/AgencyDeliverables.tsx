@@ -54,7 +54,7 @@ const features = [
 
 export default function AgencyDeliverables() {
     return (
-        <section className="py-24 md:py-32 bg-white border-t border-slate-100" aria-labelledby="features-heading">
+        <section className="py-24 md:py-32 bg-noble-surface border-t border-slate-100" aria-labelledby="features-heading">
             <div className="max-w-[1430px] mx-auto px-4 md:px-16">
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h2 id="features-heading" className="font-inter text-[30px] md:text-[50px] text-near-black font-black leading-[1.05] tracking-tight mb-6">
@@ -71,10 +71,10 @@ export default function AgencyDeliverables() {
                             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-5 transition-all ${f.color}`}>
                                 <f.icon className="w-6 h-6" />
                             </div>
-                            <span className="inline-flex self-start px-2.5 py-0.5 bg-white rounded-full text-[9px] font-black text-slate-500 uppercase tracking-widest mb-3 border border-slate-100">{f.tag}</span>
-                            <h3 className="font-black text-slate-900 text-xl mb-3">{f.title}</h3>
+                            <span className="inline-flex self-start px-2.5 py-0.5 bg-noble-surface rounded-full text-[9px] font-black text-slate-500 uppercase tracking-widest mb-3 border border-slate-100">{f.tag}</span>
+                            <h3 className="font-black text-noble-text text-xl mb-3">{f.title}</h3>
                             <p className="text-slate-500 leading-relaxed text-sm mb-6 font-medium">{f.desc}</p>
-                            <ul className="space-y-2.5 mt-auto pt-6 border-t border-slate-200/70">
+                            <ul className="space-y-2.5 mt-auto pt-6 border-t border-noble-border/70">
                                 {f.bullets.map(b => (
                                     <li key={b} className="flex items-start gap-2 text-sm text-slate-700 font-bold leading-snug">
                                         <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />{b}

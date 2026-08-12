@@ -14,7 +14,7 @@ export const RosaDynamicBackground: React.FC<RosaDynamicBackgroundProps> = ({
   const Sky = '#3BB2F6';
 
   return (
-    <div className="absolute inset-0 w-full h-full bg-white overflow-hidden">
+    <div className="absolute inset-0 w-full h-full bg-noble-surface overflow-hidden">
       {side === 'front' ? (
         <>
           {/* Main Cyan Shape */}
@@ -28,7 +28,7 @@ export const RosaDynamicBackground: React.FC<RosaDynamicBackgroundProps> = ({
           
           {/* Circular Cutout Effect (White Circle) */}
           <div 
-            className="absolute top-[25%] right-[32%] w-64 h-64 bg-white rounded-full"
+            className="absolute top-[25%] right-[32%] w-64 h-64 bg-noble-surface rounded-full"
           />
 
           {/* Deep Navy Pill (Bottom) */}
@@ -51,7 +51,7 @@ export const RosaDynamicBackground: React.FC<RosaDynamicBackgroundProps> = ({
         <>
             {/* Dotted World Map Background */}
             <div className="absolute inset-0 opacity-[0.1] flex items-center justify-center p-20">
-                <svg viewBox="0 0 1000 500" className="w-full h-full text-slate-900 fill-current">
+                <svg viewBox="0 0 1000 500" className="w-full h-full text-noble-text fill-current">
                     <circle cx="150" cy="150" r="2" /><circle cx="170" cy="140" r="2" /><circle cx="190" cy="160" r="2" />
                     <circle cx="450" cy="200" r="2" /><circle cx="470" cy="210" r="2" /><circle cx="490" cy="190" r="2" />
                     <circle cx="850" cy="120" r="2" /><circle cx="870" cy="130" r="2" /><circle cx="830" cy="110" r="2" />

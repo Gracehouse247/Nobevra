@@ -50,7 +50,7 @@ export const VisualizerModal: React.FC<VisualizerModalProps> = ({ template, onCl
         {/* Header Controls */}
         <div className="h-20 border-b border-white/10 px-8 flex items-center justify-between shrink-0 z-10">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-amber-400">
+            <div className="w-10 h-10 rounded-xl bg-noble-surface/10 flex items-center justify-center text-amber-400">
               <Sparkles size={20} />
             </div>
             <div>
@@ -61,22 +61,22 @@ export const VisualizerModal: React.FC<VisualizerModalProps> = ({ template, onCl
 
           <div className="flex items-center gap-4">
             {/* Background Environment Selector */}
-            <div className="flex bg-white/5 border border-white/10 rounded-full p-1 text-xs">
+            <div className="flex bg-noble-card border border-noble-card-border rounded-full p-1 text-xs">
               <button
                 onClick={() => setActiveBg('marble')}
-                className={`px-4 py-1.5 rounded-full transition-all ${activeBg === 'marble' ? 'bg-white text-slate-950 font-bold' : 'text-white/60 hover:text-white'}`}
+                className={`px-4 py-1.5 rounded-full transition-all ${activeBg === 'marble' ? 'bg-noble-surface text-slate-950 font-bold' : 'text-white/60 hover:text-white'}`}
               >
                 Marble Slate
               </button>
               <button
                 onClick={() => setActiveBg('minimal')}
-                className={`px-4 py-1.5 rounded-full transition-all ${activeBg === 'minimal' ? 'bg-white text-slate-950 font-bold' : 'text-white/60 hover:text-white'}`}
+                className={`px-4 py-1.5 rounded-full transition-all ${activeBg === 'minimal' ? 'bg-noble-surface text-slate-950 font-bold' : 'text-white/60 hover:text-white'}`}
               >
                 Minimal Studio
               </button>
               <button
                 onClick={() => setActiveBg('executive')}
-                className={`px-4 py-1.5 rounded-full transition-all ${activeBg === 'executive' ? 'bg-white text-slate-950 font-bold' : 'text-white/60 hover:text-white'}`}
+                className={`px-4 py-1.5 rounded-full transition-all ${activeBg === 'executive' ? 'bg-noble-surface text-slate-950 font-bold' : 'text-white/60 hover:text-white'}`}
               >
                 Executive Desk
               </button>
@@ -84,7 +84,7 @@ export const VisualizerModal: React.FC<VisualizerModalProps> = ({ template, onCl
 
             <button
               onClick={() => setIsFlipped(!isFlipped)}
-              className="flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 hover:bg-white/5 text-white text-sm font-medium transition-all"
+              className="flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 hover:bg-noble-surface/5 text-white text-sm font-medium transition-all"
             >
               <Rotate3d size={16} />
               Flip Card
@@ -92,7 +92,7 @@ export const VisualizerModal: React.FC<VisualizerModalProps> = ({ template, onCl
 
             <button
               onClick={onClose}
-              className="p-2.5 rounded-full border border-white/10 hover:bg-white/10 text-white/70 hover:text-white transition-all"
+              className="p-2.5 rounded-full border border-white/10 hover:bg-noble-surface/10 text-white/70 hover:text-white transition-all"
             >
               <X size={20} />
             </button>
@@ -151,7 +151,7 @@ export const VisualizerModal: React.FC<VisualizerModalProps> = ({ template, onCl
               {/* Subtle back design pattern */}
               <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
               
-              <div className="w-16 h-16 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white mb-4 shadow-inner">
+              <div className="w-16 h-16 rounded-full bg-noble-card border border-noble-card-border flex items-center justify-center text-white mb-4 shadow-inner">
                 <Building size={28} className="text-amber-400" />
               </div>
               <h4 className="text-xl font-bold text-white tracking-wider uppercase">NOBLE GROUP</h4>

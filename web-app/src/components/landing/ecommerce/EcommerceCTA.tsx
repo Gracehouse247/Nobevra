@@ -20,7 +20,7 @@ export default function EcommerceCTA() {
                     <Link href="/register" className="inline-flex items-center justify-center gap-3 text-white bg-[#166FBB] px-12 py-6 text-lg font-extrabold rounded-[24px] hover:opacity-90 hover:scale-[1.02] active:scale-95 transition-all shadow-[0_20px_50px_rgba(22,111,187,0.3)] w-full sm:w-auto">
                         Start free today <ArrowRight className="w-6 h-6" />
                     </Link>
-                    <Link href="/contact" className="inline-flex items-center justify-center gap-3 text-white bg-white/5 border border-white/10 px-10 py-6 text-lg font-bold rounded-[24px] hover:bg-white/10 transition-all w-full sm:w-auto">
+                    <Link href="/contact" className="inline-flex items-center justify-center gap-3 text-white bg-noble-card border border-noble-card-border px-10 py-6 text-lg font-bold rounded-[24px] hover:bg-noble-surface/10 transition-all w-full sm:w-auto">
                         Talk to sales
                     </Link>
                 </div>

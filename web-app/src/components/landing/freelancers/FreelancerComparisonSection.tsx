@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function FreelancerComparisonSection() {
     return (
-        <section className="py-24 md:py-32 relative bg-white">
+        <section className="py-24 md:py-32 relative bg-noble-surface">
             <div className="max-w-[1430px] mx-auto px-4 md:px-16 text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/10 text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6">
                     The Smart Choice
@@ -23,7 +23,7 @@ export default function FreelancerComparisonSection() {
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        className="bg-slate-50 border border-slate-200 rounded-[32px] p-8 md:p-12 relative overflow-hidden"
+                        className="bg-slate-50 border border-noble-border rounded-[32px] p-8 md:p-12 relative overflow-hidden"
                     >
                         <div className="absolute top-0 right-0 p-6 text-slate-200">
                             <span className="material-symbols-outlined text-6xl">description</span>

@@ -58,7 +58,7 @@ export const BrandingStep = ({ data, updateData, activeColor }: BrandingStepProp
             exit={{ opacity: 0, y: -20 }}
             className="w-full max-w-lg mx-auto p-6"
         >
-            <h2 className="text-2xl font-black text-slate-900 mb-2">Visual Branding</h2>
+            <h2 className="text-2xl font-black text-noble-text mb-2">Visual Branding</h2>
             <p className="text-slate-500 mb-8 font-medium">Make your invoices look unmistakably yours.</p>
 
             <div className="space-y-8">
@@ -118,7 +118,7 @@ export const BrandingStep = ({ data, updateData, activeColor }: BrandingStepProp
                     <select
                         value={data.brandVoice}
                         onChange={(e) => updateData({ brandVoice: e.target.value })}
-                        className="w-full px-4 py-4 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                        className="w-full px-4 py-4 bg-noble-surface border border-noble-border rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all"
                         style={{ '--tw-ring-color': activeColor } as any}
                     >
                         {VOICES.map(v => (

@@ -17,7 +17,7 @@ export const RosaCrystalBackground: React.FC<{ side: 'front' | 'back' }> = ({ si
     const Navy = "#0A0E27";
 
     return (
-        <div className="absolute inset-0 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-noble-surface overflow-hidden">
             {side === 'front' ? (
                 <>
                     {/* The 3D Crystal Prism structure on the right */}
@@ -48,14 +48,14 @@ export const RosaCrystalBackground: React.FC<{ side: 'front' | 'back' }> = ({ si
                         />
                         {/* Center Cut Reflection */}
                         <div 
-                            className="absolute top-1/2 -translate-y-1/2 right-[100px] w-4 h-[120px] bg-white opacity-40 blur-sm rotate-[15deg]"
+                            className="absolute top-1/2 -translate-y-1/2 right-[100px] w-4 h-[120px] bg-noble-surface opacity-40 blur-sm rotate-[15deg]"
                         />
                     </div>
                 </>
             ) : (
                 <>
                     <DottedWorldMap />
-                    <div className="absolute inset-0 bg-white opacity-40 mix-blend-overlay" />
+                    <div className="absolute inset-0 bg-noble-surface opacity-40 mix-blend-overlay" />
                 </>
             )}
         </div>

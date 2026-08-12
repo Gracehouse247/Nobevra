@@ -178,7 +178,7 @@ Expected JSON schema:
     <div className="p-6 flex flex-col gap-6">
       <div className="flex items-center gap-2 text-noble-blue">
         <Sparkles className="animate-pulse" size={18} />
-        <h3 className="font-bold text-slate-900 text-sm">Noble AI Canvas synthesis</h3>
+        <h3 className="font-bold text-noble-text text-sm">Noble AI Canvas synthesis</h3>
       </div>
 
       <div className="flex flex-col gap-3">
@@ -187,7 +187,7 @@ Expected JSON schema:
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           placeholder="e.g. Minimalist layout for a luxury watchmaker using deep charcoal, gold, and Outfit typeface..."
-          className="w-full min-h-[100px] bg-slate-50 border border-slate-200 rounded-xl p-4 text-sm focus:border-noble-blue focus:outline-none transition-all placeholder:text-slate-400"
+          className="w-full min-h-[100px] bg-slate-50 border border-noble-border rounded-xl p-4 text-sm focus:border-noble-blue focus:outline-none transition-all placeholder:text-slate-400"
         />
       </div>
 
@@ -211,9 +211,9 @@ Expected JSON schema:
                 setPrompt(preset.text);
                 handleGenerate(preset.text);
               }}
-              className="flex items-start gap-3 p-3 bg-slate-50 border border-slate-200 rounded-xl text-left hover:border-noble-blue hover:bg-blue-50/30 transition-all group"
+              className="flex items-start gap-3 p-3 bg-slate-50 border border-noble-border rounded-xl text-left hover:border-noble-blue hover:bg-blue-50/30 transition-all group"
             >
-              <div className="w-6 h-6 rounded-lg bg-white border border-slate-200 flex items-center justify-center shrink-0 text-slate-400 group-hover:text-noble-blue transition-colors">
+              <div className="w-6 h-6 rounded-lg bg-noble-surface border border-noble-border flex items-center justify-center shrink-0 text-slate-400 group-hover:text-noble-blue transition-colors">
                 <Play size={10} fill="currentColor" />
               </div>
               <div className="flex flex-col">

@@ -1,10 +1,11 @@
 // lib/features/invoicing/services/invoice_draft_service.dart
 import 'dart:convert';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:noble_invoice/features/invoicing/controllers/invoice_controller.dart';
 import 'package:noble_invoice/features/invoicing/models/pdf_template.dart';
 
 const _kDraftKey = 'noble_draft_invoice';
+const _storage = FlutterSecureStorage();
 
 class InvoiceDraftService {
   static Future<void> save({
@@ -24,7 +25,6 @@ class InvoiceDraftService {
     required String currencyCode,
     required Map<String, dynamic> typeMetadata,
   }) async {
-    final prefs = await SharedPreferences.getInstance();
     final draft = {
       'timestamp':     DateTime.now().toIso8601String(),
       'invoiceType':   invoiceTypeDb,
@@ -56,18 +56,16 @@ class InvoiceDraftService {
       'currencyCode':  currencyCode,
       'typeMetadata':  typeMetadata,
     };
-    await prefs.setString(_kDraftKey, jsonEncode(draft));
+    await _storage.write(key: _kDraftKey, value: jsonEncode(draft));
   }
 
   static Future<void> clear() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove(_kDraftKey);
+    await _storage.delete(key: _kDraftKey);
   }
 
   /// Returns the draft if it's valid (less than 1 day old), otherwise clears and returns null.
   static Future<Map<String, dynamic>?> load() async {
-    final prefs = await SharedPreferences.getInstance();
-    final str = prefs.getString(_kDraftKey);
+    final str = await _storage.read(key: _kDraftKey);
     if (str == null) return null;
     try {
       final draft = jsonDecode(str) as Map<String, dynamic>;

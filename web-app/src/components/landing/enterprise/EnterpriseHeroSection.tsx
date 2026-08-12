@@ -11,7 +11,7 @@ export default function EnterpriseHeroSection() {
 
             <div className="max-w-[1430px] mx-auto px-4 md:px-16 w-full grid lg:grid-cols-2 gap-16 items-center relative z-10">
                 <div>
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-noble-blue font-bold text-[10px] md:text-xs uppercase tracking-widest mb-8 border border-near-black/5 shadow-sm">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-surface text-noble-blue font-bold text-[10px] md:text-xs uppercase tracking-widest mb-8 border border-near-black/5 shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-noble-blue animate-pulse" />
                         Enterprise Billing Platform
                     </div>
@@ -64,13 +64,13 @@ export default function EnterpriseHeroSection() {
                             <div className="p-4 bg-black/40 rounded-xl border border-white/5 text-emerald-400">
                                 <span className="text-slate-500">2026-07-05 14:01:22</span> POST /v1/invoices
                             </div>
-                            <div className="p-4 bg-black/40 rounded-xl border border-white/5 text-blue-400 ml-8 relative before:absolute before:-left-4 before:top-1/2 before:w-4 before:h-px before:bg-white/10">
+                            <div className="p-4 bg-black/40 rounded-xl border border-white/5 text-blue-400 ml-8 relative before:absolute before:-left-4 before:top-1/2 before:w-4 before:h-px before:bg-noble-surface/10">
                                 <span className="text-slate-500">2026-07-05 14:01:23</span> FX Conversion (EUR -{'>'} USD)
                             </div>
-                            <div className="p-4 bg-black/40 rounded-xl border border-white/5 text-purple-400 ml-16 relative before:absolute before:-left-12 before:top-1/2 before:w-12 before:h-px before:bg-white/10">
+                            <div className="p-4 bg-black/40 rounded-xl border border-white/5 text-purple-400 ml-16 relative before:absolute before:-left-12 before:top-1/2 before:w-12 before:h-px before:bg-noble-surface/10">
                                 <span className="text-slate-500">2026-07-05 14:01:25</span> Tax Orchestration Completed
                             </div>
-                            <div className="p-4 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-emerald-400 font-bold ml-8 relative before:absolute before:-left-4 before:top-1/2 before:w-4 before:h-px before:bg-white/10">
+                            <div className="p-4 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-emerald-400 font-bold ml-8 relative before:absolute before:-left-4 before:top-1/2 before:w-4 before:h-px before:bg-noble-surface/10">
                                 <span className="text-emerald-500/50 font-normal">2026-07-05 14:01:27</span> 200 OK — Invoice Sent
                             </div>
                         </div>

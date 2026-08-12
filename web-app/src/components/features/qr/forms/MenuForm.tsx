@@ -70,7 +70,7 @@ export default function MenuForm({ onChange, initialData, onPreviewValueChange }
                         className="hidden" 
                         id="menu-upload"
                     />
-                    <label htmlFor="menu-upload" className="px-5 py-2 bg-white border border-[#E2E8F0] text-[#0F172A] text-xs font-bold rounded-lg cursor-pointer shadow-sm hover:border-[#CBD5E1]">
+                    <label htmlFor="menu-upload" className="px-5 py-2 bg-noble-surface border border-[#E2E8F0] text-[#0F172A] text-xs font-bold rounded-lg cursor-pointer shadow-sm hover:border-[#CBD5E1]">
                         {fileUpload ? 'Change Menu' : 'Select File'}
                     </label>
                 </div>
@@ -110,7 +110,7 @@ export default function MenuForm({ onChange, initialData, onPreviewValueChange }
                             className={`px-4 py-2 rounded-full text-xs font-bold transition-all border ${
                                 categories.includes(cat)
                                     ? 'bg-[#166FBB] text-white border-[#166FBB]'
-                                    : 'bg-white text-[#64748B] border-[#E2E8F0] hover:border-[#CBD5E1]'
+                                    : 'bg-noble-surface text-[#64748B] border-[#E2E8F0] hover:border-[#CBD5E1]'
                             }`}
                         >
                             {cat}

@@ -3,11 +3,7 @@
 import { serve } from "https://deno.land/std@0.177.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": "https://invoice.noblesworld.com.ng",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-  "Access-Control-Allow-Methods": "POST, OPTIONS",
-};
+import { CORS_HEADERS } from "../_shared/cors.ts";
 
 const GEMINI_API_KEY = Deno.env.get("GEMINI_API_KEY");
 const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
@@ -179,13 +175,16 @@ serve(async (req) => {
       });
     }
 
-    // Increment usage asynchronously
-    // In a real transactional system, we would do this via an RPC increment function to avoid race conditions.
-    serviceClient.rpc('increment_team_usage', {
+    // Increment usage synchronously to prevent race conditions
+    const { error: incErr } = await serviceClient.rpc('increment_team_usage', {
       p_team_id: teamId,
       p_feature_id: 'ai.voice',
       p_period_start: periodStart
-    }).catch(console.error);
+    });
+    
+    if (incErr) {
+        console.warn("Failed to increment team usage:", incErr);
+    }
 
     // 3. Parse Body
     const { message, chatHistory, userContext } = await req.json();

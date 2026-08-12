@@ -213,7 +213,7 @@ export default function InteractiveMap({ topRegions }: InteractiveMapProps) {
                         }}
                         className="z-50 pointer-events-none bg-slate-900/90 backdrop-blur-md border border-white/20 px-4 py-3 rounded-2xl shadow-[0_20px_40px_rgba(0,0,0,0.5)] flex flex-col gap-1 min-w-[140px]"
                     >
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+                        <span className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-1.5">
                             <MapPin size={10} className="text-electric-cyan animate-bounce" />
                             Active Beacon
                         </span>
@@ -233,7 +233,7 @@ export default function InteractiveMap({ topRegions }: InteractiveMapProps) {
                 </span>
             </div>
 
-            <div className="absolute top-4 right-6 z-20 flex items-center gap-2 pointer-events-none bg-white/5 border border-white/10 px-3 py-1.5 rounded-full backdrop-blur-md">
+            <div className="absolute top-4 right-6 z-20 flex items-center gap-2 pointer-events-none bg-noble-surface dark:bg-noble-card/5 border border-white/10 px-3 py-1.5 rounded-full backdrop-blur-md">
                 <Sparkles size={12} className="text-electric-cyan" />
                 <span className="text-[8px] font-black text-electric-cyan uppercase tracking-widest">
                     Telemetry Online

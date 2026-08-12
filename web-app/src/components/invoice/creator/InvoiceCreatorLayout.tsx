@@ -108,7 +108,7 @@ export const InvoiceCreatorLayout = () => {
             <div className="w-full bg-[#F8FAFC]/60 backdrop-blur-sm py-8 px-4 md:px-8 font-inter">
                 <div className="max-w-7xl mx-auto space-y-10">
                     {/* Header bar */}
-                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-200/60">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-noble-border/60">
                         <div>
                             <button 
                                 onClick={() => router.back()}
@@ -116,7 +116,7 @@ export const InvoiceCreatorLayout = () => {
                             >
                                 <ChevronLeft className="w-4 h-4" /> Back to Dashboard
                             </button>
-                            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Select Invoice Type</h1>
+                            <h1 className="text-2xl font-bold text-noble-text tracking-tight">Select Invoice Type</h1>
                             <p className="text-slate-500 text-sm font-medium">Select a optimized document format for your client transaction.</p>
                         </div>
                     </div>
@@ -149,7 +149,7 @@ export const InvoiceCreatorLayout = () => {
                                                         setInvoiceType(type.id); 
                                                         setStep('form'); 
                                                     }}
-                                                    className="relative bg-white border border-slate-200/80 rounded-[32px] p-8 text-left hover:border-[#0599D5] hover:shadow-[0_20px_40px_rgba(5,153,213,0.06)] active:scale-[0.99] transition-all group overflow-hidden flex flex-col md:flex-row items-start gap-6"
+                                                    className="relative bg-noble-surface border border-noble-border/80 rounded-[32px] p-8 text-left hover:border-[#0599D5] hover:shadow-[0_20px_40px_rgba(5,153,213,0.06)] active:scale-[0.99] transition-all group overflow-hidden flex flex-col md:flex-row items-start gap-6"
                                                 >
                                                     <div className="absolute top-0 right-0 w-32 h-32 bg-[#0599D5]/5 rounded-full blur-2xl pointer-events-none group-hover:bg-[#0599D5]/10 transition-colors" />
                                                     <div className={`w-16 h-16 rounded-[22px] ${type.bg} flex items-center justify-center shrink-0 shadow-inner group-hover:scale-110 transition-transform duration-300`}>
@@ -157,7 +157,7 @@ export const InvoiceCreatorLayout = () => {
                                                     </div>
                                                     <div className="space-y-2">
                                                         <div className="flex items-center gap-2">
-                                                            <h3 className="text-lg font-black text-slate-900 leading-none">{type.title}</h3>
+                                                            <h3 className="text-lg font-black text-noble-text leading-none">{type.title}</h3>
                                                             {type.id === 'recurring' && !canUse('invoice.recurring') && <PremiumBadge tier="pulse" iconOnly />}
                                                             {type.id !== 'recurring' && <span className="bg-[#0599D5]/10 text-[#0599D5] text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full">POPULAR</span>}
                                                         </div>
@@ -172,7 +172,7 @@ export const InvoiceCreatorLayout = () => {
                                                 key={type.id}
                                                 whileHover={{ y: -3, scale: 1.01 }}
                                                 onClick={() => { setInvoiceType(type.id); setStep('form'); }}
-                                                className="bg-white border border-slate-100 rounded-2xl p-5 text-left hover:border-[#0599D5] hover:shadow-[0_15px_30px_rgba(0,0,0,0.03)] active:scale-[0.99] transition-all group flex items-start gap-4"
+                                                className="bg-noble-surface border border-slate-100 rounded-2xl p-5 text-left hover:border-[#0599D5] hover:shadow-[0_15px_30px_rgba(0,0,0,0.03)] active:scale-[0.99] transition-all group flex items-start gap-4"
                                             >
                                                 <div className={`w-11 h-11 rounded-xl ${type.bg} flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300`}>
                                                     <Icon className={`w-5 h-5 ${type.color}`} />
@@ -200,7 +200,7 @@ export const InvoiceCreatorLayout = () => {
                     <motion.div 
                         initial={{ opacity: 0, y: 40 }} 
                         animate={{ opacity: 1, y: 0 }} 
-                        className="bg-white rounded-[40px] shadow-[0_40px_80px_rgba(0,0,0,0.04)] border border-slate-100 overflow-hidden"
+                        className="bg-noble-surface rounded-[40px] shadow-[0_40px_80px_rgba(0,0,0,0.04)] border border-slate-100 overflow-hidden"
                     >
                         {/* Header Banner */}
                         <div className="px-10 py-12 text-center relative overflow-hidden bg-slate-50/50 border-b border-slate-100">
@@ -216,9 +216,9 @@ export const InvoiceCreatorLayout = () => {
                                 <CheckCircle className="w-12 h-12 stroke-[3]" />
                             </motion.div>
                             
-                            <h1 className="text-4xl font-black text-slate-900 tracking-tighter mb-3 relative z-10">Invoice Published!</h1>
+                            <h1 className="text-4xl font-black text-noble-text tracking-tighter mb-3 relative z-10">Invoice Published!</h1>
                             <p className="text-lg text-slate-500 font-medium max-w-lg mx-auto relative z-10">
-                                Your invoice <span className="text-slate-800 font-bold bg-white px-2 py-0.5 rounded-md border border-slate-200">#{invoiceNumber}</span> has been finalized and is ready to be sent.
+                                Your invoice <span className="text-slate-800 font-bold bg-noble-surface px-2 py-0.5 rounded-md border border-noble-border">#{invoiceNumber}</span> has been finalized and is ready to be sent.
                             </p>
                         </div>
 
@@ -227,13 +227,13 @@ export const InvoiceCreatorLayout = () => {
                             {/* Summary Card */}
                             <div className="bg-slate-50 rounded-3xl p-8 mb-8 border border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6">
                                 <div className="flex-1 w-full space-y-4">
-                                    <div className="flex justify-between items-center pb-4 border-b border-slate-200/60">
+                                    <div className="flex justify-between items-center pb-4 border-b border-noble-border/60">
                                         <span className="text-sm font-medium text-slate-500">Billed To</span>
-                                        <span className="text-sm font-bold text-slate-900">{clients.find((c: any) => c.id === selectedClientId)?.name}</span>
+                                        <span className="text-sm font-bold text-noble-text">{clients.find((c: any) => c.id === selectedClientId)?.name}</span>
                                     </div>
-                                    <div className="flex justify-between items-center pb-4 border-b border-slate-200/60">
+                                    <div className="flex justify-between items-center pb-4 border-b border-noble-border/60">
                                         <span className="text-sm font-medium text-slate-500">Due Date</span>
-                                        <span className="text-sm font-bold text-slate-900">{dueDate || 'Upon Receipt'}</span>
+                                        <span className="text-sm font-bold text-noble-text">{dueDate || 'Upon Receipt'}</span>
                                     </div>
                                     <div className="flex justify-between items-center pt-2">
                                         <span className="text-sm font-black text-slate-400 uppercase tracking-widest">Total Amount</span>
@@ -253,21 +253,21 @@ export const InvoiceCreatorLayout = () => {
                                 
                                 <button 
                                     onClick={handleDownloadPdf} 
-                                    className="h-16 bg-white border-2 border-slate-100 text-slate-700 rounded-2xl font-bold text-sm hover:border-[#0599D5] hover:text-[#0599D5] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3"
+                                    className="h-16 bg-noble-surface border-2 border-slate-100 text-slate-700 rounded-2xl font-bold text-sm hover:border-[#0599D5] hover:text-[#0599D5] hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3"
                                 >
                                     <FileDown className="w-5 h-5" /> Download PDF
                                 </button>
                                 
                                 <button 
                                     onClick={() => downloadAsImage('invoice-preview-element', `Invoice_${invoiceNumber}`)} 
-                                    className="h-16 bg-white border-2 border-slate-100 text-slate-700 rounded-2xl font-bold text-sm hover:border-emerald-500 hover:text-emerald-600 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3"
+                                    className="h-16 bg-noble-surface border-2 border-slate-100 text-slate-700 rounded-2xl font-bold text-sm hover:border-emerald-500 hover:text-emerald-600 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3"
                                 >
                                     <Download className="w-5 h-5" /> Export as Image
                                 </button>
                                 
                                 <button 
                                     onClick={() => router.push(`/invoices/${issuedInvoiceData?.id}`)} 
-                                    className="h-16 bg-white border-2 border-slate-100 text-slate-700 rounded-2xl font-bold text-sm hover:border-indigo-500 hover:text-indigo-600 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3"
+                                    className="h-16 bg-noble-surface border-2 border-slate-100 text-slate-700 rounded-2xl font-bold text-sm hover:border-indigo-500 hover:text-indigo-600 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3"
                                 >
                                     <FileText className="w-5 h-5" /> View Details
                                 </button>
@@ -301,12 +301,12 @@ export const InvoiceCreatorLayout = () => {
     }
 
     return (
-        <div className="h-full w-full flex flex-col lg:flex-row overflow-hidden bg-white">
+        <div className="h-full w-full flex flex-col lg:flex-row overflow-hidden bg-noble-surface">
             <div className="w-full lg:w-[62%] h-full shrink-0 overflow-hidden">
                 <InvoiceWizardForm />
             </div>
 
-            <div className="hidden lg:block lg:w-[38%] h-full relative border-l border-slate-200 bg-[#F9FAFB]">
+            <div className="hidden lg:block lg:w-[38%] h-full relative border-l border-noble-border bg-[#F9FAFB]">
                 <InvoicePreviewPanel onOpenTemplateDialog={() => setIsTemplateDialogOpen(true)} />
             </div>
 

@@ -57,7 +57,7 @@ export const GallegoDynamicCard: React.FC<CardRendererProps & { defaultColor?: s
                 {data.companyName || 'GALLEGO KINETICS'}
               </h2>
             </DraggableElement>
-            <DraggableElement elementKey="qr" className="bg-white p-3 rounded-2xl shadow-xl border-4" style={{ borderColor: accent }}>
+            <DraggableElement elementKey="qr" className="bg-noble-surface p-3 rounded-2xl shadow-xl border-4" style={{ borderColor: accent }}>
               <SharedQRCode url={data.qrCodeUrl || ''} color={darkBg} size={200} className="w-22 h-22" />
             </DraggableElement>
           </div>

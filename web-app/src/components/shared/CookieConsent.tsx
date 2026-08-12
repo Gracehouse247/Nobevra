@@ -5,6 +5,26 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Cookie } from 'lucide-react';
 
+// Initialises GA4 only after the user has explicitly accepted cookies.
+// Called both here (on accept) and by GoogleAnalyticsLoader on page load
+// when consent was previously stored.
+export function loadGoogleAnalytics() {
+    if (typeof window === 'undefined') return;
+    if ((window as any).__gaLoaded) return; // guard against double-load
+    (window as any).__gaLoaded = true;
+
+    const script = document.createElement('script');
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6ME42JV7BJ';
+    script.async = true;
+    document.head.appendChild(script);
+
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
+    (window as any).gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', 'G-6ME42JV7BJ', { anonymize_ip: true });
+}
+
 export default function CookieConsent() {
     const [mounted, setMounted] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
@@ -14,13 +34,17 @@ export default function CookieConsent() {
         const consent = localStorage.getItem('noble_cookie_consent');
         if (!consent) {
             setIsVisible(true);
+        } else if (consent === 'accepted') {
+            // Previously accepted — load GA on mount
+            loadGoogleAnalytics();
         }
     }, []);
 
     const handleConsent = (status: 'accepted' | 'declined') => {
         localStorage.setItem('noble_cookie_consent', status);
         if (status === 'accepted') {
-            document.cookie = "noble_consent=1; max-age=31536000; path=/";
+            document.cookie = 'noble_consent=1; max-age=31536000; path=/; SameSite=Lax';
+            loadGoogleAnalytics(); // Only load GA after explicit consent
         }
         setIsVisible(false);
     };
@@ -37,7 +61,7 @@ export default function CookieConsent() {
                     transition={{ type: 'spring', damping: 28, stiffness: 220 }}
                     className="fixed bottom-5 left-5 z-[100] pointer-events-auto max-w-[300px] w-full"
                 >
-                    <div className="bg-white/95 backdrop-blur-xl border border-slate-200/80 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden">
+                    <div className="bg-noble-surface dark:bg-noble-card/95 backdrop-blur-xl border border-noble-border/80 rounded-2xl shadow-2xl shadow-black/10 overflow-hidden">
                         {/* Top accent bar */}
                         <div className="h-0.5 w-full bg-gradient-to-r from-noble-blue via-blue-400 to-cyan-400" />
 
@@ -47,14 +71,14 @@ export default function CookieConsent() {
                                 <div className="w-7 h-7 rounded-lg bg-noble-blue/10 flex items-center justify-center shrink-0">
                                     <Cookie className="w-3.5 h-3.5 text-noble-blue" />
                                 </div>
-                                <h3 className="font-bold text-slate-900 text-sm tracking-tight">
+                                <h3 className="font-bold text-noble-text text-sm tracking-tight">
                                     Your Privacy Matters
                                 </h3>
                             </div>
 
                             {/* Body */}
-                            <p className="text-slate-500 text-[11px] leading-relaxed mb-4">
-                                We use essential cookies to keep our platform secure and running smoothly. Optional cookies help us improve performance and personalize your experience. Manage your preferences anytime in our{' '}
+                            <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 text-[11px] leading-relaxed mb-4">
+                                We use essential cookies to keep our platform secure and running smoothly. Optional analytics cookies (Google Analytics) help us improve performance. Manage your preferences anytime in our{' '}
                                 <Link
                                     href="/privacy"
                                     className="text-noble-blue font-semibold hover:underline underline-offset-2"
@@ -68,7 +92,7 @@ export default function CookieConsent() {
                             <div className="flex items-center gap-2">
                                 <button
                                     onClick={() => handleConsent('declined')}
-                                    className="flex-1 py-1.5 text-[11px] font-semibold text-slate-500 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors"
+                                    className="flex-1 py-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-[#112030] hover:bg-slate-200 rounded-lg transition-colors"
                                 >
                                     Decline
                                 </button>

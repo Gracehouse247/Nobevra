@@ -15,6 +15,7 @@
 import React from 'react';
 import RealtimeProvider from '@/components/providers/RealtimeProvider';
 import { UpgradeModalProvider } from '@/context/UpgradeModalContext';
+import { PageShell } from '@/components/ui/page-shell';
 import UserLayoutClient from '@/components/layout/UserLayoutClient';
 
 export default function UserLayout({ children }: { children: React.ReactNode }) {
@@ -22,7 +23,9 @@ export default function UserLayout({ children }: { children: React.ReactNode }) 
         <RealtimeProvider>
             <UpgradeModalProvider>
                 <UserLayoutClient>
-                    {children}
+                    <PageShell>
+                        {children}
+                    </PageShell>
                 </UserLayoutClient>
             </UpgradeModalProvider>
         </RealtimeProvider>

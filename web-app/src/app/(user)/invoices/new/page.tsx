@@ -18,7 +18,7 @@ function InvoiceCreatorApp() {
 export default function CreateInvoicePage() {
     return (
         <Suspense fallback={
-            <div className="h-screen flex items-center justify-center bg-[#F8FAFC]">
+            <div className="h-screen flex items-center justify-center bg-[#F8FAFC] dark:bg-[#060D1A]">
                 <div className="w-10 h-10 border-4 border-[#166FBB] border-t-transparent rounded-full animate-spin" />
             </div>
         }>

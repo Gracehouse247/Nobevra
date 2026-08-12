@@ -24,7 +24,7 @@ export default function SEOCashFlowSection() {
                     <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-12 lg:gap-16 items-center relative z-10">
                         {/* Left — Content */}
                         <div>
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/8 border border-white/10 text-electric-cyan font-bold text-[10px] uppercase tracking-widest mb-8">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-card border border-noble-card-border text-electric-cyan font-bold text-[10px] uppercase tracking-widest mb-8">
                                 <span className="w-2 h-2 rounded-full bg-electric-cyan animate-pulse" />
                                 Information Gain
                             </div>
@@ -48,7 +48,7 @@ export default function SEOCashFlowSection() {
                         {/* Right — Visual Comparison Card */}
                         <div className="space-y-6">
                             {/* Traditional Method */}
-                            <div className="bg-white/[0.06] backdrop-blur-md border border-white/10 rounded-[24px] p-6 md:p-8">
+                            <div className="bg-noble-surface/[0.06] backdrop-blur-md border border-white/10 rounded-[24px] p-6 md:p-8">
                                 <div className="flex items-center gap-3 mb-5">
                                     <div className="w-10 h-10 rounded-xl bg-red-400/20 flex items-center justify-center border border-red-400/20">
                                         <span className="material-symbols-outlined text-red-400 text-lg">timer_off</span>
@@ -63,7 +63,7 @@ export default function SEOCashFlowSection() {
                                         <span className="text-white/40 font-bold uppercase tracking-wider">Avg. payment time</span>
                                         <span className="text-red-400 font-black">14+ days</span>
                                     </div>
-                                    <div className="h-3 w-full bg-white/5 rounded-full overflow-hidden">
+                                    <div className="h-3 w-full bg-noble-surface/5 rounded-full overflow-hidden">
                                         <motion.div
                                             initial={{ width: 0 }}
                                             whileInView={{ width: '100%' }}
@@ -91,7 +91,7 @@ export default function SEOCashFlowSection() {
                                         <span className="text-white/40 font-bold uppercase tracking-wider">Avg. payment time</span>
                                         <span className="text-green-400 font-black">2–3 days</span>
                                     </div>
-                                    <div className="h-3 w-full bg-white/5 rounded-full overflow-hidden">
+                                    <div className="h-3 w-full bg-noble-surface/5 rounded-full overflow-hidden">
                                         <motion.div
                                             initial={{ width: 0 }}
                                             whileInView={{ width: '22%' }}
@@ -109,7 +109,7 @@ export default function SEOCashFlowSection() {
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.8 }}
-                                className="flex items-center justify-center gap-3 bg-white/[0.06] border border-white/10 rounded-2xl p-4"
+                                className="flex items-center justify-center gap-3 bg-noble-surface/[0.06] border border-white/10 rounded-2xl p-4"
                             >
                                 <div className="w-10 h-10 rounded-full bg-green-400/20 flex items-center justify-center">
                                     <span className="material-symbols-outlined text-green-400 text-xl">trending_up</span>

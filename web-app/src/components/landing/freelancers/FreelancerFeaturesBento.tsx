@@ -49,7 +49,7 @@ export default function FreelancerFeaturesBento() {
 
                             {/* Animated invoice mockup */}
                             <div className="relative z-10 mt-6">
-                                <div className="bg-white rounded-2xl shadow-lg border border-slate-100 p-5 max-w-xs group-hover:-translate-y-2 transition-transform duration-500">
+                                <div className="bg-noble-surface rounded-2xl shadow-lg border border-slate-100 p-5 max-w-xs group-hover:-translate-y-2 transition-transform duration-500">
                                     <div className="flex justify-between items-start mb-4">
                                         <div>
                                             <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Invoice</div>
@@ -101,7 +101,7 @@ export default function FreelancerFeaturesBento() {
                                 </p>
                                 <div className="flex flex-col gap-2">
                                     {['Sarah @ Acme Corp', 'David @ Mediavine', 'Priya @ StartupLab'].map((c, i) => (
-                                        <div key={i} className="flex items-center gap-3 bg-white/70 rounded-xl px-4 py-2 border border-slate-100">
+                                        <div key={i} className="flex items-center gap-3 bg-noble-surface/70 rounded-xl px-4 py-2 border border-slate-100">
                                             <div className="w-6 h-6 rounded-full bg-noble-blue/20 flex items-center justify-center text-noble-blue font-black text-[9px]">{c[0]}</div>
                                             <span className="text-[11px] font-bold text-slate-700">{c}</span>
                                             <div className="ml-auto w-2 h-2 rounded-full bg-green-400" />
@@ -132,7 +132,7 @@ export default function FreelancerFeaturesBento() {
                                 <p className="text-slate-500 text-sm leading-relaxed font-medium mb-5">
                                     Know the exact moment a client opens your invoice. No more guessing if it landed in spam — you see it in real time.
                                 </p>
-                                <div className="bg-white rounded-2xl border border-amber-100 p-4 shadow-sm">
+                                <div className="bg-noble-surface rounded-2xl border border-amber-100 p-4 shadow-sm">
                                     <div className="flex items-center gap-3">
                                         <div className="w-8 h-8 rounded-full bg-amber-400/20 flex items-center justify-center shrink-0">
                                             <span className="material-symbols-outlined text-amber-600 text-sm">mark_email_read</span>
@@ -159,7 +159,7 @@ export default function FreelancerFeaturesBento() {
                         <div className="h-full bg-near-black rounded-[40px] p-10 border border-white shadow-xl overflow-hidden relative group flex flex-col text-white">
                             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-noble-blue/30 blur-[60px] rounded-full pointer-events-none" />
                             <div className="relative z-10">
-                                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center mb-5">
+                                <div className="w-10 h-10 rounded-xl bg-noble-surface/10 flex items-center justify-center mb-5">
                                     <span className="material-symbols-outlined text-white text-lg">notifications_active</span>
                                 </div>
                                 <h3 className="text-xl font-black tracking-tight mb-3">Automated Reminders</h3>
@@ -169,7 +169,7 @@ export default function FreelancerFeaturesBento() {
                             </div>
                             <div className="mt-auto pt-4 flex gap-2 relative z-10">
                                 {['Day 1', 'Day 3', 'Day 7'].map((d, i) => (
-                                    <div key={i} className="flex-1 bg-white/10 rounded-xl py-2 text-center">
+                                    <div key={i} className="flex-1 bg-noble-surface/10 rounded-xl py-2 text-center">
                                         <p className="text-[9px] font-black text-white/50 uppercase tracking-widest">{d}</p>
                                         <p className="text-[10px] font-black text-white mt-0.5">{['Nudge', 'Follow-up', 'Final'][i]}</p>
                                     </div>
@@ -198,7 +198,7 @@ export default function FreelancerFeaturesBento() {
                                 </p>
                                 <div className="flex flex-col gap-2">
                                     {['💳 Credit / Debit Card', ' Apple Pay', '🏦 Bank Transfer (ACH)'].map((m, i) => (
-                                        <div key={i} className="flex items-center gap-2 bg-white rounded-xl px-4 py-2.5 border border-green-100 shadow-sm text-[11px] font-bold text-slate-700">
+                                        <div key={i} className="flex items-center gap-2 bg-noble-surface rounded-xl px-4 py-2.5 border border-green-100 shadow-sm text-[11px] font-bold text-slate-700">
                                             {m}
                                         </div>
                                     ))}
@@ -227,7 +227,7 @@ export default function FreelancerFeaturesBento() {
                                 </p>
                                 <div className="flex gap-2">
                                     {['🇺🇸 USD', '🇬🇧 GBP', '🇪🇺 EUR', '🇦🇺 AUD'].map((c, i) => (
-                                        <div key={i} className="flex-1 bg-white rounded-xl py-2 text-center border border-indigo-100 text-[9px] font-black text-slate-600 shadow-sm">
+                                        <div key={i} className="flex-1 bg-noble-surface rounded-xl py-2 text-center border border-indigo-100 text-[9px] font-black text-slate-600 shadow-sm">
                                             {c}
                                         </div>
                                     ))}

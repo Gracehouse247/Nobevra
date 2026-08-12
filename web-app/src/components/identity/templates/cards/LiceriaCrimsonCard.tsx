@@ -20,7 +20,7 @@ export const LiceriaCrimsonCard: React.FC<CardRendererProps & { defaultColor?: s
                             {data.jobTitle || 'Executive Chef'}
                         </p>
                     </DraggableElement>
-                    <DraggableElement elementKey="logo" className="flex-[0.4] bg-white flex flex-col justify-center px-24 gap-6">
+                    <DraggableElement elementKey="logo" className="flex-[0.4] bg-noble-surface flex flex-col justify-center px-24 gap-6">
                         <div className="flex justify-between items-center w-full">
                             <div className="space-y-2">
                                 <h2 className="font-black uppercase tracking-tight" style={{ color: accent, fontSize: fs(28) }}>
@@ -53,7 +53,7 @@ export const LiceriaCrimsonCard: React.FC<CardRendererProps & { defaultColor?: s
                         </div>
                     </DraggableElement>
                     <DraggableElement elementKey="qr">
-                        <div className="bg-white p-2 rounded-xl shadow-2xl inline-block">
+                        <div className="bg-noble-surface p-2 rounded-xl shadow-2xl inline-block">
                             <SharedQRCode url={data.qrCodeUrl || ''} color={qc} size={250} className="w-28 h-28" />
                         </div>
                     </DraggableElement>

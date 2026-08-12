@@ -3,7 +3,7 @@ import { Clock, DollarSign, AlertTriangle } from 'lucide-react';
 
 export default function EcommerceProblemSection() {
     return (
-        <section className="py-24 md:py-32 bg-white relative overflow-hidden">
+        <section className="py-24 md:py-32 bg-noble-surface relative overflow-hidden">
             <div className="max-w-[1430px] mx-auto px-4 md:px-16">
 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -32,7 +32,7 @@ export default function EcommerceProblemSection() {
                     </div>
 
                     {/* Right: cost calculator card */}
-                    <div className="bg-slate-50 rounded-[32px] border border-slate-200 p-8 md:p-12 shadow-sm">
+                    <div className="bg-slate-50 rounded-[32px] border border-noble-border p-8 md:p-12 shadow-sm">
                         <h3 className="font-black text-2xl text-near-black mb-8">The real cost of manual invoicing</h3>
 
                         <div className="space-y-6">
@@ -41,7 +41,7 @@ export default function EcommerceProblemSection() {
                                     <Clock className="w-5 h-5 text-orange-500" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-slate-900 mb-1">200 orders/month = 3 hrs/week wasted</h4>
+                                    <h4 className="font-bold text-noble-text mb-1">200 orders/month = 3 hrs/week wasted</h4>
                                     <p className="text-slate-500 text-sm leading-relaxed">Every manual copy-paste, every formatting fix, every email you send individually — it compounds into a part-time job nobody applied for.</p>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@ export default function EcommerceProblemSection() {
                                     <DollarSign className="w-5 h-5 text-red-500" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-slate-900 mb-1">$36,000/year in admin at 1,000 orders</h4>
+                                    <h4 className="font-bold text-noble-text mb-1">$36,000/year in admin at 1,000 orders</h4>
                                     <p className="text-slate-500 text-sm leading-relaxed">At scale, that expense doesn't just stay flat — it grows proportionally with your revenue. The more you sell, the more manual work piles up.</p>
                                 </div>
                             </div>
@@ -61,7 +61,7 @@ export default function EcommerceProblemSection() {
                                     <AlertTriangle className="w-5 h-5 text-amber-500" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-slate-900 mb-1">1 in 3 manually created invoices has an error</h4>
+                                    <h4 className="font-bold text-noble-text mb-1">1 in 3 manually created invoices has an error</h4>
                                     <p className="text-slate-500 text-sm leading-relaxed">A wrong PO number, a missing tax ID, or an incorrect amount causes B2B buyers to reject the invoice and delay payment by 2–4 weeks.</p>
                                 </div>
                             </div>

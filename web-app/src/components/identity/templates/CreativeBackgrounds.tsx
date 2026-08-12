@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const FloralBloomBackground: React.FC<{ accentColor: string }> = ({ accentColor }) => (
-  <div className="absolute inset-0 bg-white overflow-hidden">
+  <div className="absolute inset-0 bg-noble-surface overflow-hidden">
     <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full blur-[100px]" style={{ backgroundColor: `${accentColor}15` }} />
     <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full blur-[100px]" style={{ backgroundColor: `${accentColor}10` }} />
     <svg className="absolute inset-0 w-full h-full opacity-[0.03]" viewBox="0 0 100 100">

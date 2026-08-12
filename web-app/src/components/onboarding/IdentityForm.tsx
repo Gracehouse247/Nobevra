@@ -306,11 +306,11 @@ function CustomCountrySelect({ value, onChange, options }: { value: string, onCh
        <button 
          type="button" 
          onClick={() => { setIsOpen(!isOpen); setSearchTerm(''); }} 
-         className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-white flex items-center justify-between shadow-sm"
+         className="w-full px-4 py-3 rounded-xl border border-noble-border focus:ring-2 focus:ring-blue-600 outline-none transition-all bg-noble-surface flex items-center justify-between shadow-sm"
        >
           <div className="flex items-center gap-3">
              {selected ? <img src={`https://flagcdn.com/w20/${selected.code.toLowerCase()}.png`} alt="" className="w-5 object-contain" /> : null}
-             <span className={selected ? 'text-slate-900 font-medium' : 'text-slate-500'}>
+             <span className={selected ? 'text-noble-text font-medium' : 'text-slate-500'}>
                {selected ? selected.name : 'Select your country'}
              </span>
           </div>
@@ -318,7 +318,7 @@ function CustomCountrySelect({ value, onChange, options }: { value: string, onCh
        </button>
 
        {isOpen && (
-          <div className="absolute z-50 w-full mt-2 bg-white border border-slate-200 rounded-xl shadow-xl max-h-[300px] flex flex-col overflow-hidden">
+          <div className="absolute z-50 w-full mt-2 bg-noble-surface border border-noble-border rounded-xl shadow-xl max-h-[300px] flex flex-col overflow-hidden">
              <div className="p-2 border-b border-slate-100 bg-slate-50/50">
                <input 
                  type="text" 
@@ -326,7 +326,7 @@ function CustomCountrySelect({ value, onChange, options }: { value: string, onCh
                  autoFocus
                  value={searchTerm}
                  onChange={(e) => setSearchTerm(e.target.value)}
-                 className="w-full px-3 py-2 bg-white border border-slate-200 rounded-lg text-sm outline-none focus:border-blue-500 transition-colors shadow-sm"
+                 className="w-full px-3 py-2 bg-noble-surface border border-noble-border rounded-lg text-sm outline-none focus:border-blue-500 transition-colors shadow-sm"
                />
              </div>
              <div className="overflow-y-auto">
@@ -365,7 +365,7 @@ export function IdentityForm({ businessName, industry, country, onChange, onSubm
           type="text"
           value={businessName}
           onChange={(e) => onChange('businessName', e.target.value)}
-          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+          className="w-full px-4 py-3 rounded-xl border border-noble-border focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
           placeholder="Acme Corp"
           required
         />
@@ -376,7 +376,7 @@ export function IdentityForm({ businessName, industry, country, onChange, onSubm
         <select
           value={industry}
           onChange={(e) => onChange('industry', e.target.value)}
-          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white"
+          className="w-full px-4 py-3 rounded-xl border border-noble-border focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-noble-surface"
         >
           <option value="" disabled>Select your industry</option>
           {INDUSTRIES.map(ind => (

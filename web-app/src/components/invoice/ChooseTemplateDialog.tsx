@@ -181,12 +181,12 @@ export const ChooseTemplateDialog: React.FC<ChooseTemplateDialogProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.96, y: 16 }}
           transition={{ type: 'spring', damping: 28, stiffness: 320 }}
-          className="relative w-full max-w-[800px] bg-white rounded-2xl shadow-[0_32px_80px_-12px_rgba(0,0,0,0.35)] flex flex-col border border-slate-200/80"
+          className="relative w-full max-w-[800px] bg-noble-surface rounded-2xl shadow-[0_32px_80px_-12px_rgba(0,0,0,0.35)] flex flex-col border border-noble-border/80"
           style={{ height: '85vh', maxHeight: '85vh' }}
         >
 
           {/* ── Header — always visible, never clipped ─────────────────── */}
-          <div className="shrink-0 bg-white border-b border-slate-150 rounded-t-2xl overflow-hidden">
+          <div className="shrink-0 bg-noble-surface border-b border-slate-150 rounded-t-2xl overflow-hidden">
 
             {/* Top row: title + search + close */}
             <div className="flex items-center justify-between gap-4 px-5 pt-4 pb-4">
@@ -211,7 +211,7 @@ export const ChooseTemplateDialog: React.FC<ChooseTemplateDialogProps> = ({
                     placeholder="Search templates..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="h-9 w-48 pl-9 pr-8 bg-[#F8FAFC] border border-slate-200 rounded-xl text-[12px] font-medium text-slate-700 placeholder:text-slate-400 focus:outline-none focus:border-[#166FBB] focus:bg-white focus:ring-2 focus:ring-[#166FBB]/10 transition-all"
+                    className="h-9 w-48 pl-9 pr-8 bg-[#F8FAFC] border border-noble-border rounded-xl text-[12px] font-medium text-slate-700 placeholder:text-slate-400 focus:outline-none focus:border-[#166FBB] focus:bg-noble-surface focus:ring-2 focus:ring-[#166FBB]/10 transition-all"
                   />
                   {searchQuery && (
                     <button
@@ -260,7 +260,7 @@ export const ChooseTemplateDialog: React.FC<ChooseTemplateDialogProps> = ({
           </div>
 
           {/* ── Grid area ─────────────────────────────────────────────── */}
-          <div className="flex-1 overflow-y-auto bg-white px-5 py-4 no-scrollbar min-h-0">
+          <div className="flex-1 overflow-y-auto bg-noble-surface px-5 py-4 no-scrollbar min-h-0">
             
                       {/* Row header */}
                       <div className="flex items-center justify-between mb-4">
@@ -324,13 +324,13 @@ export const ChooseTemplateDialog: React.FC<ChooseTemplateDialogProps> = ({
                         className={`group relative aspect-[1/1.414] rounded-xl overflow-hidden cursor-pointer transition-all duration-200 ${
                           isSelected
                             ? 'ring-2 ring-[#166FBB] ring-offset-2 shadow-[0_4px_20px_rgba(22,111,187,0.25)]'
-                            : 'border border-slate-200/70 hover:border-[#166FBB]/40 hover:shadow-[0_4px_16px_rgba(0,0,0,0.10)]'
+                            : 'border border-noble-border/70 hover:border-[#166FBB]/40 hover:shadow-[0_4px_16px_rgba(0,0,0,0.10)]'
                         }`}
                       >
                         {/* Live template preview */}
-                        <div className="absolute inset-0 bg-white">
+                        <div className="absolute inset-0 bg-noble-surface">
                           {template.thumbnail === '/placeholder.png' ? (
-                            <div className="absolute inset-0 bg-white overflow-hidden">
+                            <div className="absolute inset-0 bg-noble-surface overflow-hidden">
                               <div
                                 className="absolute top-0 left-0 origin-top-left"
                                 style={{ width: 794, height: 1123, transform: 'scale(0.145)' }}
@@ -387,7 +387,7 @@ export const ChooseTemplateDialog: React.FC<ChooseTemplateDialogProps> = ({
                         </AnimatePresence>
 
                         {/* Template name label */}
-                        <div className="absolute bottom-0 left-0 right-0 z-10 bg-white/95 backdrop-blur-sm px-2 pt-1.5 pb-1.5 border-t border-slate-100/80">
+                        <div className="absolute bottom-0 left-0 right-0 z-10 bg-noble-surface/95 backdrop-blur-sm px-2 pt-1.5 pb-1.5 border-t border-slate-100/80">
                           <p className="text-[9.5px] font-bold text-slate-800 text-center truncate leading-tight">{template.name}</p>
                           {template.isPremium && !hasUnlockedTemplate(template.id) && (
                             <p className="text-[8px] font-bold text-amber-600 text-center leading-none mt-0.5 uppercase tracking-wide">Premium</p>
@@ -402,7 +402,7 @@ export const ChooseTemplateDialog: React.FC<ChooseTemplateDialogProps> = ({
           </div>
 
           {/* ── Footer ────────────────────────────────────────────────── */}
-          <div className="shrink-0 px-5 py-3 bg-white border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div className="shrink-0 px-5 py-3 bg-noble-surface border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
             
             {/* Community social proof */}
             <div className="flex items-center gap-4">

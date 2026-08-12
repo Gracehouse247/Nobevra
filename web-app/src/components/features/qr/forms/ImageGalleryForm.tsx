@@ -62,7 +62,7 @@ export default function ImageGalleryForm({ onChange, initialData, onPreviewValue
                     </div>
                     <label className="relative inline-flex items-center cursor-pointer">
                         <input type="checkbox" className="sr-only peer" checked={allowDownloads} onChange={(e) => setAllowDownloads(e.target.checked)} />
-                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#166FBB]"></div>
+                        <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-noble-surface after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#166FBB]"></div>
                     </label>
                 </div>
             </div>
@@ -81,7 +81,7 @@ export default function ImageGalleryForm({ onChange, initialData, onPreviewValue
                         className="hidden" 
                         id="gallery-upload"
                     />
-                    <label htmlFor="gallery-upload" className="px-5 py-2 bg-white border border-[#E2E8F0] text-[#0F172A] text-xs font-bold rounded-lg cursor-pointer shadow-sm hover:border-[#CBD5E1]">
+                    <label htmlFor="gallery-upload" className="px-5 py-2 bg-noble-surface border border-[#E2E8F0] text-[#0F172A] text-xs font-bold rounded-lg cursor-pointer shadow-sm hover:border-[#CBD5E1]">
                         Browse Files
                     </label>
                 </div>
@@ -90,7 +90,7 @@ export default function ImageGalleryForm({ onChange, initialData, onPreviewValue
                 {files.length > 0 && (
                     <div className="mt-4 grid grid-cols-2 gap-2">
                         {files.map((file, i) => (
-                            <div key={i} className="flex items-center justify-between p-2 bg-white border border-[#E2E8F0] rounded-lg">
+                            <div key={i} className="flex items-center justify-between p-2 bg-noble-surface border border-[#E2E8F0] rounded-lg">
                                 <div className="flex items-center gap-2 overflow-hidden">
                                     <ImageIcon className="w-4 h-4 text-[#94A3B8] shrink-0" />
                                     <span className="text-xs font-medium text-[#64748B] truncate">{file.name}</span>

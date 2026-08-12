@@ -12,7 +12,7 @@ export const WilsonDynamicBackground: React.FC<WilsonDynamicBackgroundProps> = (
   const Charcoal = '#2D2D2D';
 
   return (
-    <div className="absolute inset-0 w-full h-full bg-white overflow-hidden">
+    <div className="absolute inset-0 w-full h-full bg-noble-surface overflow-hidden">
       {/* Textured Background Overlay */}
       <div className="absolute inset-0 opacity-[0.15]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/white-wall.png")' }} />
       

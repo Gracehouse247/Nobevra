@@ -85,7 +85,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
     };
 
     return (
-        <div className={`h-full ${isModal ? 'bg-white' : 'bg-[#F4F5F7] min-h-screen'} font-[Inter,sans-serif]`}>
+        <div className={`h-full ${isModal ? 'bg-noble-surface' : 'bg-[#F4F5F7] min-h-screen'} font-[Inter,sans-serif]`}>
             <form onSubmit={handleSubmit} className={`${isModal ? 'p-0' : 'p-5 lg:p-8 max-w-7xl mx-auto'} space-y-6 pb-20`}>
                 
                 {!isModal && (
@@ -98,14 +98,14 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                             <ChevronRight className="w-3 h-3" />
                             <span className="text-[#0599D5]">Add New Client</span>
                         </div>
-                        <h1 className="text-2xl font-black text-slate-900 tracking-tight font-[Inter,sans-serif]">Add New Client</h1>
+                        <h1 className="text-2xl font-black text-noble-text tracking-tight font-[Inter,sans-serif]">Add New Client</h1>
                         <p className="text-[13px] text-slate-500 font-medium font-[Inter,sans-serif] mt-1">Create a new client profile to manage invoices, payments & communications</p>
                     </div>
                     <div className="flex items-center gap-3">
                         <button 
                             type="button"
                             onClick={() => onCancel ? onCancel() : fromInvoice ? router.push('/invoices/new') : router.back()}
-                            className="h-10 px-4 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-[13px] flex items-center gap-2 transition-all shadow-sm font-[Inter,sans-serif]"
+                            className="h-10 px-4 rounded-xl border border-noble-border bg-noble-surface hover:bg-slate-50 text-slate-700 font-bold text-[13px] flex items-center gap-2 transition-all shadow-sm font-[Inter,sans-serif]"
                         >
                             <ChevronLeft className="w-4 h-4" /> Back to Clients
                         </button>
@@ -129,7 +129,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {/* Contact Information Card */}
-                            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                            <div className="bg-noble-surface rounded-2xl border border-noble-border shadow-sm overflow-hidden flex flex-col">
                                 <div className="px-6 py-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50/50">
                                     <div className="w-8 h-8 rounded-lg bg-[#EBF7FD] flex items-center justify-center shrink-0">
                                         <User className="w-4 h-4 text-[#0599D5]" />
@@ -144,7 +144,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                         <label className="text-[12px] font-bold text-slate-700 font-[Inter,sans-serif]">Client Name <span className="text-red-500">*</span></label>
                                         <input 
                                             required type="text"
-                                            className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
+                                            className="w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
                                             placeholder="e.g. Major EC Opumie"
                                             value={formData.name}
                                             onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -154,7 +154,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                         <label className="text-[12px] font-bold text-slate-700 font-[Inter,sans-serif]">Email Address <span className="text-red-500">*</span></label>
                                         <input 
                                             required type="email"
-                                            className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
+                                            className="w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
                                             placeholder="e.g. info@majoropumie.com"
                                             value={formData.email}
                                             onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -170,7 +170,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                             </div>
                                             <input 
                                                 type="tel"
-                                                className="flex-1 h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
+                                                className="flex-1 h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
                                                 placeholder="803 123 4567"
                                                 value={formData.phone}
                                                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
@@ -181,7 +181,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                         <label className="text-[12px] font-bold text-slate-700 font-[Inter,sans-serif]">Website <span className="text-slate-400 font-normal">(Optional)</span></label>
                                         <input 
                                             type="url"
-                                            className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
+                                            className="w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
                                             placeholder="e.g. www.majoropumie.com"
                                             value={formData.website}
                                             onChange={(e) => setFormData({...formData, website: e.target.value})}
@@ -191,7 +191,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                             </div>
 
                             {/* Business Information Card */}
-                            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+                            <div className="bg-noble-surface rounded-2xl border border-noble-border shadow-sm overflow-hidden flex flex-col">
                                 <div className="px-6 py-4 border-b border-slate-100 flex items-center gap-3 bg-slate-50/50">
                                     <div className="w-8 h-8 rounded-lg bg-indigo-50 flex items-center justify-center shrink-0">
                                         <Building className="w-4 h-4 text-indigo-600" />
@@ -206,7 +206,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                         <label className="text-[12px] font-bold text-slate-700 font-[Inter,sans-serif]">Business Name <span className="text-slate-400 font-normal">(Optional)</span></label>
                                         <input 
                                             type="text"
-                                            className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
+                                            className="w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
                                             placeholder="e.g. Major EC Opumie Enterprises"
                                             value={formData.company}
                                             onChange={(e) => setFormData({...formData, company: e.target.value})}
@@ -216,7 +216,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                         <label className="text-[12px] font-bold text-slate-700 font-[Inter,sans-serif]">Position / Role <span className="text-slate-400 font-normal">(Optional)</span></label>
                                         <div className="relative">
                                             <select 
-                                                className="w-full h-10 px-3 pr-8 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all font-medium font-[Inter,sans-serif] appearance-none cursor-pointer"
+                                                className="w-full h-10 px-3 pr-8 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all font-medium font-[Inter,sans-serif] appearance-none cursor-pointer"
                                                 value={formData.position}
                                                 onChange={(e) => setFormData({...formData, position: e.target.value})}
                                             >
@@ -233,7 +233,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                     <div className="space-y-1.5 h-full flex flex-col">
                                         <label className="text-[12px] font-bold text-slate-700 font-[Inter,sans-serif]">Business Address</label>
                                         <textarea 
-                                            className="w-full flex-1 min-h-[90px] p-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif] resize-y"
+                                            className="w-full flex-1 min-h-[90px] p-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif] resize-y"
                                             placeholder="e.g. 32 Mobolaji Bank Anthony Way, Maryland, Lagos, Nigeria"
                                             value={formData.address}
                                             onChange={(e) => setFormData({...formData, address: e.target.value})}
@@ -245,7 +245,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
 
                         {/* Advanced CRM Card */}
                         <div 
-                            className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden flex flex-col cursor-pointer relative group"
+                            className="bg-noble-surface rounded-2xl border border-noble-border shadow-sm overflow-hidden flex flex-col cursor-pointer relative group"
                             onClickCapture={(e) => {
                                 if (!canUse('crm.full')) {
                                     e.preventDefault();
@@ -255,8 +255,8 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                             }}
                         >
                             {!canUse('crm.full') && (
-                                <div className="absolute inset-0 z-10 bg-white/40 backdrop-blur-[1px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                    <div className="bg-white px-4 py-2 rounded-xl shadow-lg border border-slate-200 text-sm font-bold text-slate-800 flex items-center gap-2">
+                                <div className="absolute inset-0 z-10 bg-noble-surface/40 backdrop-blur-[1px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <div className="bg-noble-surface px-4 py-2 rounded-xl shadow-lg border border-noble-border text-sm font-bold text-slate-800 flex items-center gap-2">
                                         <Zap className="w-4 h-4 text-[#166FBB]" /> Unlock Full CRM
                                     </div>
                                 </div>
@@ -280,7 +280,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                         <div className="relative">
                                             <div className="absolute left-3 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-emerald-500 pointer-events-none" />
                                             <select 
-                                                className="w-full h-10 pl-7 pr-8 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all font-medium font-[Inter,sans-serif] appearance-none cursor-pointer"
+                                                className="w-full h-10 pl-7 pr-8 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all font-medium font-[Inter,sans-serif] appearance-none cursor-pointer"
                                                 value={formData.lead_status}
                                                 onChange={(e) => setFormData({...formData, lead_status: e.target.value})}
                                             >
@@ -296,7 +296,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                         <label className="text-[12px] font-bold text-slate-700 font-[Inter,sans-serif]">Tags</label>
                                         <input 
                                             type="text"
-                                            className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
+                                            className="w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]"
                                             placeholder="e.g. VIP, B2B, Tech"
                                             value={formData.tags}
                                             onChange={(e) => setFormData({...formData, tags: e.target.value})}
@@ -319,7 +319,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                 <div className="space-y-1.5 h-full flex flex-col">
                                     <label className="text-[12px] font-bold text-slate-700 font-[Inter,sans-serif]">Notes</label>
                                     <textarea 
-                                        className="w-full flex-1 min-h-[140px] p-3 bg-[#F8FAFC] border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif] resize-none"
+                                        className="w-full flex-1 min-h-[140px] p-3 bg-[#F8FAFC] border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif] resize-none"
                                         placeholder="Additional notes about this client..."
                                         value={formData.notes}
                                         onChange={(e) => setFormData({...formData, notes: e.target.value})}
@@ -330,11 +330,11 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                         </div>
 
                         {/* Bottom Action Bar */}
-                        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div className="bg-noble-surface rounded-2xl border border-noble-border shadow-sm p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <button 
                                 type="button" 
                                 onClick={() => onCancel ? onCancel() : router.back()} 
-                                className="h-11 px-6 rounded-xl border border-slate-200 text-slate-600 font-bold text-[13px] hover:bg-slate-50 transition-all font-[Inter,sans-serif] order-2 sm:order-1"
+                                className="h-11 px-6 rounded-xl border border-noble-border text-slate-600 font-bold text-[13px] hover:bg-slate-50 transition-all font-[Inter,sans-serif] order-2 sm:order-1"
                             >
                                 Cancel
                             </button>
@@ -342,7 +342,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                                 <button 
                                     disabled={loading}
                                     type="submit" 
-                                    className="w-full sm:w-auto h-11 px-6 rounded-xl border border-slate-200 bg-white text-[#0599D5] font-bold text-[13px] hover:bg-slate-50 transition-all flex items-center justify-center gap-2 font-[Inter,sans-serif]"
+                                    className="w-full sm:w-auto h-11 px-6 rounded-xl border border-noble-border bg-noble-surface text-[#0599D5] font-bold text-[13px] hover:bg-slate-50 transition-all flex items-center justify-center gap-2 font-[Inter,sans-serif]"
                                 >
                                     <User className="w-4 h-4" /> {loading ? 'Saving...' : 'Save Client'}
                                 </button>
@@ -364,8 +364,8 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                         {/* Right Area (4 cols) */}
                     <div className="xl:col-span-4 space-y-6">
                         {/* Why add clients card */}
-                        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm p-6">
-                            <h3 className="font-bold text-slate-900 text-[15px] font-[Inter,sans-serif] mb-1">Why add clients?</h3>
+                        <div className="bg-noble-surface rounded-2xl border border-noble-border shadow-sm p-6">
+                            <h3 className="font-bold text-noble-text text-[15px] font-[Inter,sans-serif] mb-1">Why add clients?</h3>
                             <p className="text-slate-500 text-[12px] font-medium font-[Inter,sans-serif] mb-6">Adding clients helps you:</p>
                             <div className="space-y-6">
                                 <div className="flex gap-4">
@@ -408,7 +408,7 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                         </div>
                         
                         {/* Tips card */}
-                        <div className="bg-slate-50 rounded-2xl border border-slate-200 p-6 flex gap-3 items-start">
+                        <div className="bg-slate-50 rounded-2xl border border-noble-border p-6 flex gap-3 items-start">
                             <div className="mt-0.5 text-slate-400">
                                 <Zap className="w-4 h-4 fill-slate-300" />
                             </div>
@@ -427,11 +427,11 @@ export function NewClientForm({ isModal, onSuccess, onCancel }: { isModal?: bool
                     {/* Import from Contacts Modal */}
             {showImportModal && (
                 <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-                    <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl relative animate-in fade-in zoom-in duration-200 font-[Inter,sans-serif]">
+                    <div className="bg-noble-surface rounded-3xl p-8 max-w-md w-full shadow-2xl relative animate-in fade-in zoom-in duration-200 font-[Inter,sans-serif]">
                         <div className="w-16 h-16 bg-[#EBF7FD] text-[#0599D5] rounded-full flex items-center justify-center mx-auto mb-6">
                             <CloudDownload className="w-8 h-8" />
                         </div>
-                        <h2 className="text-xl font-black text-slate-900 text-center mb-2">Import from Contacts</h2>
+                        <h2 className="text-xl font-black text-noble-text text-center mb-2">Import from Contacts</h2>
                         <p className="text-slate-500 text-center text-[13px] font-medium leading-relaxed mb-8">
                             Native contact importing is an exclusive feature of the NobleInvoice Mobile App. Download the app to seamlessly sync your phone's address book.
                         </p>

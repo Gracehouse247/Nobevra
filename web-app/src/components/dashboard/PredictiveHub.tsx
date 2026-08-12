@@ -53,8 +53,8 @@ export default function PredictiveHub({ invoices = [], currencyCode = 'USD' }: {
         {
             id: 'overdue',
             icon: AlertTriangle,
-            iconBg: overdueInvoices.length > 0 ? 'bg-red-50' : 'bg-slate-50',
-            iconColor: overdueInvoices.length > 0 ? 'text-red-500' : 'text-slate-400',
+            iconBg: overdueInvoices.length > 0 ? 'bg-red-50 dark:bg-red-500/10' : 'bg-noble-icon-bg',
+            iconColor: overdueInvoices.length > 0 ? 'text-red-500 dark:text-red-400' : 'text-noble-muted',
             label: 'Overdue Alert',
             value: overdueInvoices.length > 0 ? currencyService.format(overdueTotal, currencyCode, { decimals: 0 }) : null,
             subtext: overdueInvoices.length > 0
@@ -66,7 +66,7 @@ export default function PredictiveHub({ invoices = [], currencyCode = 'USD' }: {
         {
             id: 'top-client',
             icon: Star,
-            iconBg: 'bg-amber-50',
+            iconBg: 'bg-amber-50 dark:bg-amber-500/10',
             iconColor: 'text-amber-500',
             label: 'Top Client',
             value: topClient ? topClient[0] : null,
@@ -83,7 +83,7 @@ export default function PredictiveHub({ invoices = [], currencyCode = 'USD' }: {
                 <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#0599D5]/20 to-[#006970]/20 flex items-center justify-center">
                     <Sparkles className="w-3.5 h-3.5 text-[#0599D5]" />
                 </div>
-                <h3 className="text-[11px] font-black text-slate-400 uppercase tracking-widest">Intelligence Hub</h3>
+                <h3 className="text-[11px] font-black text-noble-insight-text/70 uppercase tracking-widest">Intelligence Hub</h3>
                 <div className="ml-auto flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#0599D5]/10 border border-[#0599D5]/20">
                     <Zap className="w-2.5 h-2.5 text-[#0599D5]" />
                     <span className="text-[8px] font-black text-[#0599D5] uppercase tracking-widest">AI</span>
@@ -96,23 +96,23 @@ export default function PredictiveHub({ invoices = [], currencyCode = 'USD' }: {
                 return (
                     <div
                         key={card.id}
-                        className={`bg-white/85 backdrop-blur-xl border border-white/80 rounded-[20px] p-4 shadow-[0_4px_16px_rgba(15,23,42,0.05)] flex items-center gap-4 border-l-2 ${card.accent} hover:shadow-[0_8px_30px_rgba(15,23,42,0.09)] hover:-translate-y-0.5 transition-all duration-200 flex-1 group cursor-default`}
+                        className={`bg-noble-insight-bg border border-noble-card-border rounded-[20px] p-4 shadow-[0_4px_16px_rgba(15,23,42,0.05)] flex items-center gap-4 border-l-2 ${card.accent} hover:shadow-[0_8px_30px_rgba(15,23,42,0.09)] hover:-translate-y-0.5 transition-all duration-200 flex-1 group cursor-default`}
                     >
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${card.iconBg}`}>
                             <CardIcon className={`w-4.5 h-4.5 ${card.iconColor}`} />
                         </div>
                         <div className="flex-1 min-w-0">
-                            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-0.5">{card.label}</p>
+                            <p className="text-[10px] font-black text-noble-insight-text/70 uppercase tracking-widest mb-0.5">{card.label}</p>
                             {card.value ? (
                                 <>
-                                    <p className="text-[16px] font-black text-slate-900 leading-tight truncate">{card.value}</p>
-                                    <p className="text-[10px] text-slate-400 font-medium mt-0.5 truncate">{card.subtext}</p>
+                                    <p className="text-[16px] font-black text-noble-insight-text leading-tight truncate">{card.value}</p>
+                                    <p className="text-[10px] text-noble-insight-text/70 font-medium mt-0.5 truncate">{card.subtext}</p>
                                 </>
                             ) : (
-                                <p className="text-[11px] text-slate-400 font-medium leading-relaxed">{card.subtext || card.emptyMsg}</p>
+                                <p className="text-[11px] text-noble-insight-text/70 font-medium leading-relaxed">{card.subtext || card.emptyMsg}</p>
                             )}
                         </div>
-                        <ChevronRight className="w-4 h-4 text-slate-200 group-hover:text-slate-400 transition-colors flex-shrink-0" />
+                        <ChevronRight className="w-4 h-4 text-noble-border group-hover:text-noble-insight-text transition-colors flex-shrink-0" />
                     </div>
                 );
             })}

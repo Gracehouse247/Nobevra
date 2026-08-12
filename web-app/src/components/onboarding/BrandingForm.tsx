@@ -21,7 +21,7 @@ export function BrandingForm({ brandColor, secondaryColor, brandVoice, onChange,
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="p-6 border border-slate-200 rounded-2xl bg-slate-50/50">
+      <div className="p-6 border border-noble-border rounded-2xl bg-slate-50/50">
         <h3 className="text-sm font-semibold text-slate-700 mb-4">Brand Colors</h3>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -63,7 +63,7 @@ export function BrandingForm({ brandColor, secondaryColor, brandVoice, onChange,
               className={`py-2 px-3 rounded-xl border text-sm font-medium transition-all ${
                 brandVoice === voice
                   ? 'border-blue-600 bg-blue-50 text-blue-700'
-                  : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50'
+                  : 'border-noble-border bg-noble-surface text-slate-600 hover:border-slate-300 hover:bg-slate-50'
               }`}
             >
               {voice}
@@ -82,7 +82,7 @@ export function BrandingForm({ brandColor, secondaryColor, brandVoice, onChange,
         <button
           type="button"
           onClick={onSkip}
-          className="w-full py-4 bg-white text-slate-500 rounded-xl font-semibold hover:bg-slate-50 hover:text-slate-700 transition-colors"
+          className="w-full py-4 bg-noble-surface text-slate-500 rounded-xl font-semibold hover:bg-slate-50 hover:text-slate-700 transition-colors"
         >
           Skip for now
         </button>

@@ -199,7 +199,7 @@ export default function SEOStatsSection() {
                             transition={{ delay: idx * 0.1, duration: 0.5 }}
                             className="group"
                         >
-                            <div className="bg-white rounded-[24px] p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
+                            <div className="bg-noble-surface rounded-[24px] p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 text-center h-full flex flex-col items-center justify-center">
                                 <div className="w-12 h-12 rounded-2xl bg-noble-blue/8 flex items-center justify-center mb-5 group-hover:bg-noble-blue group-hover:shadow-lg group-hover:shadow-noble-blue/20 transition-all duration-300">
                                     <span className="material-symbols-outlined text-noble-blue group-hover:text-white transition-colors text-xl">{stat.icon}</span>
                                 </div>
@@ -218,7 +218,7 @@ export default function SEOStatsSection() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="max-w-3xl mx-auto text-center"
                 >
-                    <div className="bg-white rounded-[32px] p-8 md:p-12 border border-slate-100 shadow-sm relative overflow-hidden">
+                    <div className="bg-noble-surface rounded-[32px] p-8 md:p-12 border border-slate-100 shadow-sm relative overflow-hidden">
                         {/* Decorative quote mark */}
                         <div className="absolute top-4 left-6 text-noble-blue/8 text-[120px] font-serif leading-none pointer-events-none select-none">&ldquo;</div>
                         
@@ -281,7 +281,7 @@ export default function SEOStatsSection() {
                                         className="px-4 shrink-0"
                                         style={{ width: `${100 / itemsPerView}%` }}
                                     >
-                                        <div className={`h-full flex flex-col p-8 rounded-[32px] shadow-sm hover:shadow-xl transition-all duration-500 group border ${testimonial.featured ? 'bg-noble-blue text-white shadow-xl shadow-noble-blue/20 border-noble-blue' : 'bg-white text-near-black border-slate-100'}`}>
+                                        <div className={`h-full flex flex-col p-8 rounded-[32px] shadow-sm hover:shadow-xl transition-all duration-500 group border ${testimonial.featured ? 'bg-noble-blue text-white shadow-xl shadow-noble-blue/20 border-noble-blue' : 'bg-noble-surface text-near-black border-slate-100'}`}>
                                             <div className="flex gap-1 mb-6">
                                                 {[1,2,3,4,5].map(i => (
                                                     <span key={i} className={`material-symbols-outlined text-sm ${testimonial.featured ? 'text-white/80' : 'text-yellow-400'}`}>star</span>
@@ -291,7 +291,7 @@ export default function SEOStatsSection() {
                                                 "{testimonial.quote}"
                                             </p>
                                             <div className="flex items-center gap-4 mt-auto">
-                                                <div className={`w-10 h-10 rounded-full overflow-hidden shrink-0 border-2 shadow-sm ${testimonial.featured ? 'bg-white/10 border-white/20' : 'bg-slate-100 border-white'}`}>
+                                                <div className={`w-10 h-10 rounded-full overflow-hidden shrink-0 border-2 shadow-sm ${testimonial.featured ? 'bg-noble-surface/10 border-white/20' : 'bg-slate-100 border-white'}`}>
                                                     <Image src={testimonial.image} alt={testimonial.name} className="w-full h-full object-cover object-center" width={40} height={40} sizes="40px" />
                                                 </div>
                                                 <div>

@@ -58,7 +58,7 @@ export const GeometricFooter = (props: SharedEngineProps) => {
 
   if (id === 'geo-green-angle') {
       return (
-        <div className="mt-auto relative h-48 overflow-hidden z-10 bg-white">
+        <div className="mt-auto relative h-48 overflow-hidden z-10 bg-noble-surface">
            <div className="absolute bottom-0 right-0 w-[100%] h-full bg-[#10B981]" style={{ clipPath: 'polygon(50% 100%, 100% 0, 100% 100%)' }} />
            <div className="absolute bottom-0 left-0 w-full h-12 bg-slate-200" style={{ clipPath: 'polygon(0 100%, 60% 0, 100% 100%)' }} />
         </div>
@@ -67,7 +67,7 @@ export const GeometricFooter = (props: SharedEngineProps) => {
 
   if (id === 'geo-triangle') {
       return (
-        <div className="mt-auto relative h-48 overflow-hidden z-10 bg-white flex items-end">
+        <div className="mt-auto relative h-48 overflow-hidden z-10 bg-noble-surface flex items-end">
            <div className="absolute bottom-0 right-0 w-[55%] h-full bg-[#312E81]" style={{ clipPath: 'polygon(0 100%, 40% 0, 100% 0, 100% 100%)' }} />
            <div className="absolute bottom-0 left-[20%] w-[40%] h-[70%] bg-[#38BDF8]" style={{ clipPath: 'polygon(0 100%, 50% 0, 100% 100%)' }} />
            
@@ -133,7 +133,7 @@ export const GeometricFooter = (props: SharedEngineProps) => {
              <div className="absolute bottom-0 right-0 w-32 h-32 opacity-40" style={{ backgroundColor: accentBg, clipPath: 'polygon(100% 0, 100% 100%, 0 100%)' }} />
           </div>
           <div className="relative z-10">
-             <p className={`text-[10px] font-black uppercase tracking-widest mb-2 ${isDark ? 'text-white' : 'text-slate-900'}`}>Terms & Conditions</p>
+             <p className={`text-[10px] font-black uppercase tracking-widest mb-2 ${isDark ? 'text-white' : 'text-noble-text'}`}>Terms & Conditions</p>
              <p className={`text-xs font-bold ${isDark ? 'text-slate-300' : 'text-slate-500'}`}>{data.notes || 'Please pay within 15 days.'}</p>
           </div>
         </div>
@@ -184,13 +184,13 @@ export const GeometricFooter = (props: SharedEngineProps) => {
 
   if (id === 'geo-minimalist-box') {
       return (
-        <div className="mt-auto px-16 py-12 relative z-10 bg-white border-t-2 border-slate-900 flex justify-between items-center">
-           <div className="text-[10px] font-black text-slate-900 uppercase tracking-[0.6em]">
+        <div className="mt-auto px-16 py-12 relative z-10 bg-noble-surface border-t-2 border-slate-900 flex justify-between items-center">
+           <div className="text-[10px] font-black text-noble-text uppercase tracking-[0.6em]">
               <p>MINIMAL BOX SERIES OFFICIAL STATEMENT</p>
            </div>
            <div className="flex flex-col items-end">
               <div className="w-48 h-1 bg-slate-900 mb-2" />
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
            </div>
         </div>
       );
@@ -211,14 +211,14 @@ export const GeometricFooter = (props: SharedEngineProps) => {
 
   if (id === 'geo-diamond-pro') {
       return (
-        <div className="mt-auto px-16 py-12 relative z-10 bg-slate-50 border-t-4 border-slate-200 flex justify-between items-center">
+        <div className="mt-auto px-16 py-12 relative z-10 bg-slate-50 border-t-4 border-noble-border flex justify-between items-center">
            <div className="flex items-center gap-4">
               <Diamond className="w-6 h-6 text-slate-300" />
               <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">DIAMOND PRO SERIES • CORPORATE</p>
            </div>
            <div className="flex flex-col items-center">
               <div className="w-48 h-px bg-slate-300 mb-2" />
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
            </div>
         </div>
       );
@@ -241,14 +241,14 @@ export const GeometricFooter = (props: SharedEngineProps) => {
 
   if (id === 'geo-abstract-blocks') {
       return (
-        <div className="mt-auto px-16 py-12 relative z-10 border-t-8 border-slate-900 flex justify-between items-end bg-white">
+        <div className="mt-auto px-16 py-12 relative z-10 border-t-8 border-slate-900 flex justify-between items-end bg-noble-surface">
            <div className="space-y-4">
-              <h4 className="text-sm font-black text-slate-900 uppercase">Document Hash:</h4>
+              <h4 className="text-sm font-black text-noble-text uppercase">Document Hash:</h4>
               <p className="text-[10px] font-bold text-slate-400 break-all w-64 uppercase tracking-tighter opacity-50">849AE359AF6F4F58B449182E03EDF375_BLOCK_VERIFIED</p>
            </div>
            <div className="flex flex-col items-center">
-              <Signature className="w-10 h-10 text-slate-900 mb-2" />
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Authorized</p>
+              <Signature className="w-10 h-10 text-noble-text mb-2" />
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">Authorized</p>
            </div>
         </div>
       );
@@ -270,13 +270,13 @@ export const GeometricFooter = (props: SharedEngineProps) => {
 
   if (id === 'geo-origami-fold') {
       return (
-        <div className="mt-auto px-16 py-12 relative z-10 flex justify-between items-center bg-slate-50 border-t border-slate-200 shadow-inner">
+        <div className="mt-auto px-16 py-12 relative z-10 flex justify-between items-center bg-slate-50 border-t border-noble-border shadow-inner">
            <div className="text-[10px] font-black text-slate-400 uppercase tracking-[0.6em]">
               <p>ORIGAMI SERIES • PAPER FOLD VERIFIED</p>
            </div>
            <div className="flex flex-col items-center">
               <Signature className="w-10 h-10 text-slate-300 mb-2" />
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
            </div>
         </div>
       );
@@ -284,11 +284,11 @@ export const GeometricFooter = (props: SharedEngineProps) => {
 
   if (id === 'geo-pixel-perfect') {
       return (
-        <div className="mt-auto h-24 bg-white flex items-center px-16 justify-between text-slate-900 relative z-10 border-t-4 border-slate-900">
+        <div className="mt-auto h-24 bg-noble-surface flex items-center px-16 justify-between text-noble-text relative z-10 border-t-4 border-slate-900">
            <p className="text-[10px] font-black uppercase tracking-[0.5em] opacity-40">PIXEL PERFECT SERIES VERIFIED</p>
            <div className="flex items-center gap-4">
               <div className="w-10 h-10 border-2 border-slate-900 flex items-center justify-center">
-                 <Signature className="w-6 h-6 text-slate-900" />
+                 <Signature className="w-6 h-6 text-noble-text" />
               </div>
               <p className="text-[8px] font-black uppercase tracking-widest text-slate-400">Official Seal</p>
            </div>
@@ -315,7 +315,7 @@ export const GeometricFooter = (props: SharedEngineProps) => {
               <p>MATRIX SERIES DIGITAL VERIFICATION</p>
            </div>
            <div className="flex flex-col items-center">
-              <div className="w-48 h-px bg-white/20 mb-2" />
+              <div className="w-48 h-px bg-noble-surface/20 mb-2" />
               <p className="text-[10px] font-black text-white uppercase tracking-widest">{sender?.full_name}</p>
            </div>
         </div>
@@ -324,7 +324,7 @@ export const GeometricFooter = (props: SharedEngineProps) => {
 
   if (id === 'geo-shattered-glass') {
       return (
-        <div className="mt-auto h-24 bg-white flex items-center px-16 justify-between text-slate-900 relative z-10 border-t border-slate-200">
+        <div className="mt-auto h-24 bg-noble-surface flex items-center px-16 justify-between text-noble-text relative z-10 border-t border-noble-border">
            <p className="text-[10px] font-black uppercase tracking-[0.5em] opacity-30 italic">SHATTERED GLASS SERIES • VERIFIED</p>
            <div className="flex flex-col items-end">
               <Signature className="w-8 h-8 text-slate-400 mb-1" />
@@ -351,13 +351,13 @@ export const GeometricFooter = (props: SharedEngineProps) => {
 
   if (id === 'geo-concentric-circles') {
       return (
-        <div className="mt-auto px-16 py-12 relative z-10 flex justify-between items-center bg-white border-t border-slate-100">
+        <div className="mt-auto px-16 py-12 relative z-10 flex justify-between items-center bg-noble-surface border-t border-slate-100">
            <div className="text-[10px] font-black text-slate-300 uppercase tracking-[0.5em]">
               <p>CONCENTRIC DYNAMICS VERIFIED</p>
            </div>
            <div className="flex flex-col items-center">
               <div className="w-48 h-1 bg-slate-900 rounded-full mb-2" />
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
            </div>
         </div>
       );

@@ -56,7 +56,7 @@ class LocationService {
   static Future<String?> detectUserCountryCode() async {
     try {
       // Use ip-api.com (free, no key required for low volume)
-      final response = await http.get(Uri.parse('http://ip-api.com/json')).timeout(const Duration(seconds: 5));
+      final response = await http.get(Uri.parse('https://ip-api.com/json')).timeout(const Duration(seconds: 5));
       if (response.statusCode == 200) {
         final data = json.decode(response.body);
         final countryCode = data['countryCode'] as String?;

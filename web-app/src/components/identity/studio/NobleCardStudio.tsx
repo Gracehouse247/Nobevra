@@ -61,7 +61,7 @@ export const NobleCardStudio: React.FC = () => {
         <SidebarLibrary />
         
         <div 
-          className="flex-1 flex items-center justify-center relative overflow-hidden bg-white/20 backdrop-blur-md border-l border-r border-white/60"
+          className="flex-1 flex items-center justify-center relative overflow-hidden bg-noble-surface/20 backdrop-blur-md border-l border-r border-white/60"
           ref={containerRef}
           style={{ backgroundImage: 'radial-gradient(#166fbb15 1px, transparent 1px)', backgroundSize: '24px 24px' }}
         >

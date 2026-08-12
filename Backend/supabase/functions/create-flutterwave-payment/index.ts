@@ -18,10 +18,7 @@ const FLUTTERWAVE_SECRET_KEY   = Deno.env.get("FLUTTERWAVE_SECRET_KEY")!;
 const LOCAL_GATEWAY_RATE = 0.014;  // Nigerian NGN local transactions
 const INTL_GATEWAY_RATE  = 0.038;  // International / USD transactions
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+import { CORS_HEADERS as corsHeaders } from "../_shared/cors.ts";
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {

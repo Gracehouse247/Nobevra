@@ -24,10 +24,10 @@ export const DiamondEdgeBackground: React.FC<{ accentColor: string }> = ({ accen
         </svg>
 
         {/* Diamond Edge Accent */}
-        <div className="absolute top-0 right-0 w-[40%] h-full bg-white/[0.03] backdrop-blur-md" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
+        <div className="absolute top-0 right-0 w-[40%] h-full bg-noble-surface/[0.03] backdrop-blur-md" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
         
         {/* Primary Diamond Hub */}
-        <div className="absolute top-1/2 left-[30%] -translate-y-1/2 w-96 h-96 bg-white/[0.02] border border-white/5 rotate-45 rounded-3xl" />
+        <div className="absolute top-1/2 left-[30%] -translate-y-1/2 w-96 h-96 bg-noble-surface/[0.02] border border-white/5 rotate-45 rounded-3xl" />
         
         {/* Brand Accent */}
         <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-transparent via-blue-400 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.5)]" style={{ backgroundColor: accentColor }} />
@@ -37,7 +37,7 @@ export const DiamondEdgeBackground: React.FC<{ accentColor: string }> = ({ accen
 );
 
 export const CinematicWaveBackground: React.FC<{ accentColor: string }> = ({ accentColor }) => (
-    <div className="absolute inset-0 bg-white overflow-hidden">
+    <div className="absolute inset-0 bg-noble-surface overflow-hidden">
         {/* Soft Background */}
         <div className="absolute inset-0 bg-gradient-to-tr from-slate-50 via-white to-slate-50" />
         

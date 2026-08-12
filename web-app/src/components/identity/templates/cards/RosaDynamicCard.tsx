@@ -69,7 +69,7 @@ export const RosaDynamicCard: React.FC<CardRendererProps & { defaultColor?: stri
                         </div>
                     </DraggableElement>
                     <DraggableElement elementKey="qr" className="flex flex-col items-center gap-4">
-                        <div className="bg-white p-3 rounded-2xl shadow-xl border border-slate-100 inline-block">
+                        <div className="bg-noble-surface p-3 rounded-2xl shadow-xl border border-slate-100 inline-block">
                             <SharedQRCode url={data.qrCodeUrl || ''} color={qc} size={250} className="w-24 h-24" />
                         </div>
                         <p className="font-bold tracking-[0.5em] uppercase" style={{ color: ON_WHITE, opacity: 0.4, fontSize: fs(10) }}>Scan to Connect</p>

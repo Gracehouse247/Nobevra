@@ -54,7 +54,7 @@ export default function LiveChatPage() {
             <div className="flex items-center justify-between mb-6">
                 <button 
                     onClick={() => router.back()}
-                    className="flex items-center gap-2 text-slate-500 hover:text-[#166FBB] transition-colors font-black text-[10px] uppercase tracking-widest"
+                    className="flex items-center gap-2 text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:text-[#166FBB] transition-colors font-black text-[10px] uppercase tracking-widest"
                 >
                     <ChevronLeft className="w-4 h-4" />
                     Back to Help Center
@@ -65,9 +65,9 @@ export default function LiveChatPage() {
                 </div>
             </div>
 
-            <div className="flex-1 bg-white rounded-[32px] border border-[#E2E8F0] shadow-xl overflow-hidden flex flex-col">
+            <div className="flex-1 bg-noble-surface dark:bg-noble-card rounded-[32px] border border-[#E2E8F0] shadow-xl overflow-hidden flex flex-col">
                 {/* Chat Header */}
-                <div className="p-6 border-b border-[#E2E8F0] flex items-center gap-4 bg-slate-50/50">
+                <div className="p-6 border-b border-[#E2E8F0] flex items-center gap-4 bg-slate-50 dark:bg-[#0D1B2E]/50">
                     <div className="w-12 h-12 rounded-2xl bg-[#166FBB] flex items-center justify-center text-white shadow-lg shadow-[#166FBB]/20">
                         <Headset className="w-6 h-6" />
                     </div>
@@ -80,7 +80,7 @@ export default function LiveChatPage() {
                 {/* Messages Container */}
                 <div 
                     ref={scrollRef}
-                    className="flex-1 overflow-y-auto p-6 space-y-6 bg-[#F8FAFC]/50 custom-scrollbar"
+                    className="flex-1 overflow-y-auto p-6 space-y-6 bg-[#F8FAFC] dark:bg-[#060D1A]/50 custom-scrollbar"
                 >
                     {messages.map((msg) => (
                         <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -88,11 +88,11 @@ export default function LiveChatPage() {
                                 <div className={`p-4 rounded-2xl text-sm font-medium shadow-sm ${
                                     msg.sender === 'user' 
                                     ? 'bg-[#166FBB] text-white rounded-tr-none' 
-                                    : 'bg-white text-[#0F172A] border border-[#E2E8F0] rounded-tl-none'
+                                    : 'bg-noble-surface dark:bg-noble-card text-[#0F172A] border border-[#E2E8F0] rounded-tl-none'
                                 }`}>
                                     {msg.text}
                                 </div>
-                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
                                     {msg.time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                 </p>
                             </div>
@@ -100,7 +100,7 @@ export default function LiveChatPage() {
                     ))}
                     {isTyping && (
                         <div className="flex justify-start">
-                            <div className="bg-white border border-[#E2E8F0] p-4 rounded-2xl rounded-tl-none shadow-sm flex gap-1">
+                            <div className="bg-noble-surface dark:bg-noble-card border border-[#E2E8F0] p-4 rounded-2xl rounded-tl-none shadow-sm flex gap-1">
                                 <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                                 <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
                                 <div className="w-1.5 h-1.5 bg-slate-300 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
@@ -110,7 +110,7 @@ export default function LiveChatPage() {
                 </div>
 
                 {/* Input Area */}
-                <div className="p-6 bg-white border-t border-[#E2E8F0]">
+                <div className="p-6 bg-noble-surface dark:bg-noble-card border-t border-[#E2E8F0]">
                     <div className="relative">
                         <input 
                             type="text"
@@ -118,7 +118,7 @@ export default function LiveChatPage() {
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-                            className="w-full h-14 pl-6 pr-16 bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl text-sm font-medium focus:outline-none focus:border-[#166FBB] transition-all"
+                            className="w-full h-14 pl-6 pr-16 bg-[#F8FAFC] dark:bg-[#060D1A] border border-[#E2E8F0] rounded-2xl text-sm font-medium focus:outline-none focus:border-[#166FBB] transition-all"
                         />
                         <button 
                             onClick={handleSend}
@@ -127,7 +127,7 @@ export default function LiveChatPage() {
                             <Send className="w-4 h-4" />
                         </button>
                     </div>
-                    <p className="text-[10px] text-center text-slate-400 font-bold uppercase tracking-[0.2em] mt-4">
+                    <p className="text-[10px] text-center text-slate-400 dark:text-slate-500 font-bold uppercase tracking-[0.2em] mt-4">
                         Press Enter to send message
                     </p>
                 </div>

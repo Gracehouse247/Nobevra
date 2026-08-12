@@ -38,7 +38,7 @@ export default function EcommerceCaseStudy() {
                 
                 <div className="grid md:grid-cols-3 gap-8">
                     {reviews.map((r, i) => (
-                        <div key={i} className="bg-white rounded-[32px] border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                        <div key={i} className="bg-noble-surface rounded-[32px] border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                             <div className="flex gap-0.5 mb-6">
                                 {[1,2,3,4,5].map(star => <Star key={star} className="w-5 h-5 fill-yellow-400 text-yellow-400" />)}
                             </div>
@@ -46,7 +46,7 @@ export default function EcommerceCaseStudy() {
                             <div className="flex items-center gap-4 mt-auto">
                                 <Image src={r.image} alt={r.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover border-2 border-slate-100" />
                                 <div>
-                                    <p className="font-black text-slate-900 text-sm uppercase">{r.name}</p>
+                                    <p className="font-black text-noble-text text-sm uppercase">{r.name}</p>
                                     <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">{r.role}</p>
                                 </div>
                             </div>

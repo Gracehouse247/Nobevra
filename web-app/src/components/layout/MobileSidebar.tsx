@@ -78,7 +78,7 @@ export default function MobileSidebar({
                             </Link>
                             <button
                                 onClick={onClose}
-                                className="w-8 h-8 rounded-xl bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-white/50 hover:text-white transition-colors"
+                                className="w-8 h-8 rounded-xl bg-noble-surface dark:bg-noble-card/[0.06] border border-white/[0.08] flex items-center justify-center text-white/50 hover:text-white transition-colors"
                             >
                                 <X className="w-4 h-4" />
                             </button>
@@ -90,7 +90,7 @@ export default function MobileSidebar({
                                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                                 <input
                                     placeholder="Search workspace..."
-                                    className="w-full bg-white/[0.06] border border-white/[0.08] rounded-xl py-2.5 pl-10 pr-4 text-[12px] text-white/70 placeholder:text-white/25 focus:outline-none focus:border-[#0599D5]/50 transition-colors"
+                                    className="w-full bg-noble-surface dark:bg-noble-card/[0.06] border border-white/[0.08] rounded-xl py-2.5 pl-10 pr-4 text-[12px] text-white/70 placeholder:text-white/25 focus:outline-none focus:border-[#0599D5]/50 transition-colors"
                                 />
                             </div>
                         </div>
@@ -116,8 +116,8 @@ export default function MobileSidebar({
                                                         isActive
                                                             ? 'bg-[#0599D5]/15 border-l-2 border-[#0599D5] text-white'
                                                             : locked
-                                                            ? 'text-white/50 hover:bg-white/[0.04] hover:text-white/70'
-                                                            : 'text-white/60 hover:bg-white/[0.05] hover:text-white/90',
+                                                            ? 'text-white/50 hover:bg-noble-surface dark:bg-noble-card/[0.04] hover:text-white/70'
+                                                            : 'text-white/60 hover:bg-noble-surface dark:bg-noble-card/[0.05] hover:text-white/90',
                                                     ].join(' ')}
                                                 >
                                                     <item.icon

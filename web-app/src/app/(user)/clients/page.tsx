@@ -21,6 +21,7 @@ import { toast } from 'react-hot-toast';
 import NobleEmptyState from '@/components/shared/NobleEmptyState';
 import ProactiveEmptyState from '@/components/shared/ProactiveEmptyState';
 import PaygUnlockModal, { usePaygBundle } from '@/components/features/billing/PaygUnlockModal';
+import { Button } from '@/components/ui/button';
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 const TABS = [
@@ -69,7 +70,7 @@ function StatusBadge({ status }: { status: string }) {
         vip:     { label: '⭐ VIP Elite',  cls: 'bg-amber-50 text-amber-700 border border-amber-200' },
         active:  { label: '● Active',      cls: 'bg-emerald-50 text-emerald-700 border border-emerald-200' },
         lead:    { label: '◎ Lead',        cls: 'bg-sky-50 text-sky-700 border border-sky-200' },
-        churned: { label: '○ Archived',    cls: 'bg-slate-100 text-slate-500 border border-slate-200' },
+        churned: { label: '○ Archived',    cls: 'bg-slate-100 dark:bg-[#112030] text-slate-500 dark:text-slate-400 dark:text-slate-500 border border-noble-border' },
     };
     const cfg = map[status] ?? map.active;
     return (
@@ -84,7 +85,7 @@ function SkeletonRows({ count = 8 }: { count?: number }) {
     return (
         <>
             {Array.from({ length: count }).map((_, i) => (
-                <tr key={i} className="border-b border-slate-100/70">
+                <tr key={i} className="border-b border-slate-100 dark:border-noble-border/70">
                     <td className="px-5 py-3 w-8">
                         <div className="w-4 h-4 rounded shimmer" />
                     </td>
@@ -135,7 +136,7 @@ function SortableTH({
             className={`px-5 py-3 text-left whitespace-nowrap cursor-pointer select-none group ${className}`}
             onClick={() => onSort(field)}
         >
-            <span className={`inline-flex items-center gap-1 text-[11px] font-700 font-bold uppercase tracking-[0.08em] transition-colors ${active ? 'text-noble-blue' : 'text-slate-400 group-hover:text-slate-600'}`}>
+            <span className={`inline-flex items-center gap-1 text-[11px] font-700 font-bold uppercase tracking-[0.08em] transition-colors ${active ? 'text-noble-blue' : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:text-slate-400 dark:text-slate-500'}`}>
                 {label}
                 <span className="flex flex-col -space-y-1">
                     <ChevronUp   size={9} className={active && sortDir === 'asc'  ? 'text-noble-blue' : 'opacity-30'} />
@@ -146,25 +147,50 @@ function SortableTH({
     );
 }
 
+// ─── Sparkline SVG ───────────────────────────────────────────────────────────
+function Sparkline({ color = '#0599D5' }: { color?: string }) {
+    // A clean, jagged sparkline to mimic financial data
+    return (
+        <svg viewBox="0 0 100 30" className="w-full h-10" preserveAspectRatio="none">
+            <polyline
+                points="0,25 10,22 20,26 30,15 40,20 50,10 60,18 70,8 80,14 90,5 100,12"
+                fill="none"
+                stroke={color}
+                strokeWidth="1.5"
+                strokeLinecap="square"
+                strokeLinejoin="miter"
+                opacity="0.9"
+            />
+        </svg>
+    );
+}
+
 // ─── KPI stat card ────────────────────────────────────────────────────────────
 function KpiCard({
-    icon: Icon, label, value, sub, accent,
+    icon: Icon, label, value, sub, accent, sparkColor,
 }: {
-    icon: React.ElementType; label: string; value: string | number; sub: string; accent: string;
+    icon: React.ElementType; label: string; value: string | number; sub: string; accent: string; sparkColor?: string;
 }) {
     return (
         <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className="flex-1 min-w-[140px] bg-white rounded-2xl border border-slate-100 px-5 py-4 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow"
+            className="flex-1 min-w-[160px] bg-noble-card rounded-[20px] border border-noble-card-border p-5 flex flex-col justify-between shadow-sm dark:shadow-xl"
         >
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${accent}`}>
-                <Icon size={18} />
+            <div className="flex items-start justify-between">
+                <div>
+                    <div className="flex items-center gap-2 mb-3">
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${accent}`}>
+                            <Icon size={18} />
+                        </div>
+                        <div className="text-[11px] font-bold uppercase tracking-widest text-slate-400">{label}</div>
+                    </div>
+                    <div className="text-3xl font-bold text-noble-text leading-tight">{value}</div>
+                    <div className="text-[12px] text-slate-400 mt-1">{sub}</div>
+                </div>
             </div>
-            <div className="min-w-0">
-                <div className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 truncate">{label}</div>
-                <div className="text-xl font-black text-slate-900 leading-tight tracking-tight">{value}</div>
-                <div className="text-[10px] text-slate-400 mt-0.5 truncate">{sub}</div>
+            <div className="mt-4 -mx-2 -mb-2 opacity-80">
+                <Sparkline color={sparkColor ?? '#0599D5'} />
             </div>
         </motion.div>
     );
@@ -402,7 +428,7 @@ export default function ClientsPage() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.92, y: -6 }}
             transition={{ duration: 0.12 }}
-            className="absolute right-0 top-full mt-1 z-50 w-44 bg-white rounded-xl border border-slate-100 shadow-xl overflow-hidden"
+            className="absolute right-0 top-full mt-1 z-50 w-44 bg-noble-surface dark:bg-noble-card rounded-xl border border-slate-100 dark:border-noble-border shadow-sm dark:shadow-xl overflow-hidden"
             onClick={e => e.stopPropagation()}
         >
             {[
@@ -415,7 +441,7 @@ export default function ClientsPage() {
                 <button
                     key={label}
                     onClick={action}
-                    className="w-full flex items-center gap-3 px-4 py-2.5 text-[12px] font-semibold text-slate-600 hover:bg-slate-50 hover:text-noble-blue transition-colors text-left"
+                    className="w-full flex items-center gap-3 px-4 py-2.5 text-[12px] font-semibold text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-black/5 dark:bg-white/5 dark:bg-[#0D1B2E] hover:text-noble-blue transition-colors text-left"
                 >
                     <Icon size={13} className="flex-shrink-0 opacity-70" />
                     {label}
@@ -426,76 +452,71 @@ export default function ClientsPage() {
 
     // ─── Render ───────────────────────────────────────────────────────────────
     return (
-        <div className="min-h-screen bg-[#F3F6FC] text-slate-900 pb-24 selection:bg-noble-blue/20">
+        <div className="w-full h-full text-noble-text pb-24 selection:bg-noble-blue/20">
 
             {/* ── Page Header ───────────────────────────────────────────── */}
-            <header className="bg-white border-b border-slate-100 px-6 py-4 sticky top-0 z-40 shadow-[0_1px_0_0_#e2e8f0]">
-                <div className="max-w-screen-xl mx-auto flex items-center justify-between gap-4">
-                    {/* Left: title */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -16 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="flex items-center gap-3 min-w-0"
+            <header className="pb-4 mb-6 flex flex-col md:flex-row md:items-end justify-between gap-4 pt-2">
+                {/* Left: title */}
+                <motion.div
+                    initial={{ opacity: 0, x: -16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="flex items-start gap-4 min-w-0"
+                >
+                    <div className="w-12 h-12 rounded-[14px] bg-noble-card border border-noble-border flex items-center justify-center flex-shrink-0 shadow-sm dark:shadow-lg shadow-black/20 mt-1">
+                        <Users size={22} className="text-noble-primary" />
+                    </div>
+                    <div className="min-w-0">
+                        <h1 className="text-[19px] font-black tracking-tight leading-tight flex items-center gap-2">
+                            <span className="text-noble-text">Clients</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#006970] to-[#0599D5]">Ledger</span>
+                        </h1>
+                        <p className="text-[13px] text-slate-400 font-medium truncate mt-1">
+                            Your complete customer relationship register
+                        </p>
+                    </div>
+                </motion.div>
+
+                {/* Right: actions */}
+                <motion.div
+                    initial={{ opacity: 0, x: 16 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="flex items-center gap-3 flex-shrink-0"
+                >
+                    {/* Import */}
+                    <input type="file" accept=".csv" ref={fileInputRef} className="hidden" onChange={handleImportCSV} />
+                    <button
+                        onClick={() => fileInputRef.current?.click()}
+                        title="Import CSV"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-noble-border hover:border-noble-border-hover hover:bg-black/5 dark:bg-white/5 transition-all text-sm font-semibold text-noble-text bg-noble-surface dark:bg-transparent"
                     >
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-noble-blue/15 to-primary/10 flex items-center justify-center flex-shrink-0">
-                            <Users size={17} className="text-noble-blue" />
-                        </div>
-                        <div className="min-w-0">
-                            <h1 className="text-[19px] font-bold text-slate-900 tracking-tight leading-tight">
-                                Client Ledger
-                            </h1>
-                            <p className="text-[11px] text-slate-400 font-medium hidden sm:block truncate">
-                                Your complete customer relationship register
-                            </p>
-                        </div>
-                    </motion.div>
+                        <Download size={14} className="rotate-180 text-slate-400" />
+                        <span className="hidden sm:inline">Import</span>
+                    </button>
 
-                    {/* Right: actions */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 16 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="flex items-center gap-2 flex-shrink-0"
+                    {/* Export */}
+                    <button
+                        onClick={handleExportCSV}
+                        title="Export CSV (E)"
+                        className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-noble-border hover:border-noble-border-hover hover:bg-black/5 dark:bg-white/5 transition-all text-sm font-semibold text-noble-text bg-noble-surface dark:bg-transparent"
                     >
-                        {/* Keyboard hint badge */}
-                        <span className="hidden lg:flex items-center gap-1 text-[10px] font-semibold text-slate-400 bg-slate-50 border border-slate-100 px-2 py-1 rounded-lg">
-                            <kbd className="font-mono">N</kbd> new &nbsp;·&nbsp; <kbd className="font-mono">E</kbd> export
-                        </span>
+                        <Upload size={14} className="rotate-180 text-slate-400" />
+                        <span className="hidden sm:inline">Export</span>
+                    </button>
 
-                        {/* Import */}
-                        <input type="file" accept=".csv" ref={fileInputRef} className="hidden" onChange={handleImportCSV} />
-                        <button
-                            onClick={() => fileInputRef.current?.click()}
-                            title="Import CSV"
-                            className="flex items-center gap-1.5 px-3 py-2 text-[11px] font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:border-noble-blue/40 hover:text-noble-blue transition-colors"
-                        >
-                            <Upload size={13} /> <span className="hidden sm:inline">Import</span>
-                        </button>
-
-                        {/* Export */}
-                        <button
-                            onClick={handleExportCSV}
-                            title="Export CSV (E)"
-                            className="flex items-center gap-1.5 px-3 py-2 text-[11px] font-semibold text-slate-600 bg-white border border-slate-200 rounded-lg hover:border-noble-blue/40 hover:text-noble-blue transition-colors"
-                        >
-                            <Download size={13} /> <span className="hidden sm:inline">Export</span>
-                        </button>
-
-                        {/* Primary CTA */}
-                        <motion.button
-                            whileTap={{ scale: 0.97 }}
-                            onClick={handleNewClient}
-                            id="btn-new-client"
-                            className="flex items-center gap-2 px-4 py-2.5 text-[12px] font-bold text-white rounded-xl transition-all shadow-[0_4px_14px_rgba(5,153,213,0.35)] hover:shadow-[0_6px_20px_rgba(5,153,213,0.45)] hover:-translate-y-px"
-                            style={{ background: 'linear-gradient(135deg,#0599D5,#006970)' }}
-                        >
-                            <Plus size={14} />
-                            <span>New Client</span>
-                        </motion.button>
-                    </motion.div>
-                </div>
+                    {/* Primary CTA */}
+                    <button
+                        onClick={handleNewClient}
+                        id="btn-new-client"
+                        className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-noble-primary hover:opacity-90 transition-all text-sm font-bold text-noble-text shadow-[0_0_20px_rgba(5,153,213,0.3)] ml-2"
+                    >
+                        <Plus size={16} />
+                        <span>New Client</span>
+                        <ChevronDown size={14} className="ml-1 opacity-70" />
+                    </button>
+                </motion.div>
             </header>
 
-            <div className="max-w-screen-xl mx-auto px-4 sm:px-6 pt-5 space-y-4">
+            <div className="space-y-4">
 
                 {!loading && clients.length === 0 ? (
                     <ProactiveEmptyState
@@ -521,22 +542,25 @@ export default function ClientsPage() {
                         icon={Users}
                         label="Total Clients"
                         value={kpiTotal}
-                        sub="in your ledger"
+                        sub="In your ledger"
                         accent="bg-noble-blue/10 text-noble-blue"
+                        sparkColor="#0599D5"
                     />
                     <KpiCard
                         icon={UserCheck}
-                        label="Active"
+                        label="Active Clients"
                         value={kpiActive}
                         sub={`${kpiTotal > 0 ? Math.round((kpiActive / kpiTotal) * 100) : 0}% of total`}
                         accent="bg-emerald-50 text-emerald-600"
+                        sparkColor="#059669"
                     />
                     <KpiCard
                         icon={Star}
                         label="VIP Elite"
                         value={kpiVip}
-                        sub="high-value clients"
+                        sub="High-value clients"
                         accent="bg-amber-50 text-amber-600"
+                        sparkColor="#d97706"
                     />
                     <KpiCard
                         icon={UserPlus}
@@ -544,6 +568,7 @@ export default function ClientsPage() {
                         value={kpiNew}
                         sub={`${kpiLeads} leads in pipeline`}
                         accent="bg-violet-50 text-violet-600"
+                        sparkColor="#7c3aed"
                     />
                 </motion.div>
 
@@ -552,7 +577,7 @@ export default function ClientsPage() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.05 }}
-                    className="bg-white rounded-2xl border border-slate-100 shadow-sm px-4 py-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-3"
+                    className="bg-noble-card rounded-t-2xl border border-noble-border border-b-0 px-4 py-3 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 shadow-sm dark:shadow-2xl mt-6"
                 >
                     {/* Tabs */}
                     <div className="flex items-center gap-1 overflow-x-auto hide-scrollbar flex-shrink-0">
@@ -563,15 +588,14 @@ export default function ClientsPage() {
                                 <button
                                     key={tab.key}
                                     onClick={() => { setActiveTab(tab.key); setPage(1); setSelectedIds(new Set()); }}
-                                    className={`relative flex items-center gap-2 px-3.5 py-2 rounded-lg text-[12px] font-semibold transition-all whitespace-nowrap ${
+                                    className={`relative flex items-center gap-2 px-4 py-2 rounded-lg text-[13px] font-bold transition-all whitespace-nowrap ${
                                         active
-                                            ? 'bg-noble-blue/8 text-noble-blue'
-                                            : 'text-slate-500 hover:bg-slate-50 hover:text-slate-700'
+                                            ? 'text-noble-accent-alt before:absolute before:-bottom-3 before:left-0 before:right-0 before:h-0.5 before:bg-noble-accent-alt'
+                                            : 'text-slate-400 hover:text-noble-text'
                                     }`}
-                                    style={active ? { backgroundColor: 'rgba(5,153,213,0.08)' } : {}}
                                 >
                                     {tab.label}
-                                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-md ${active ? 'bg-noble-blue text-white' : 'bg-slate-100 text-slate-400'}`}>
+                                    <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${active ? 'bg-noble-accent-alt/10 text-noble-accent-alt' : 'bg-black/5 dark:bg-white/5 text-slate-400'}`}>
                                         {cnt}
                                     </span>
                                 </button>
@@ -580,28 +604,28 @@ export default function ClientsPage() {
                     </div>
 
                     {/* Search + Filter */}
-                    <div className="flex items-center gap-2 w-full md:w-auto">
-                        <div className="relative flex-1 md:w-64">
-                            <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
+                    <div className="flex items-center gap-3 w-full md:w-auto mt-2 md:mt-0">
+                        <div className="relative flex-1 md:w-72">
+                            <Search size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
                             <input
                                 type="text"
                                 id="client-search"
-                                placeholder="Search clients…"
+                                placeholder="Search clients..."
                                 value={searchQuery}
                                 onChange={e => { setSearchQuery(e.target.value); setPage(1); }}
-                                className="w-full pl-9 pr-4 py-2.5 text-[13px] font-medium text-slate-900 bg-slate-50 border border-slate-200 rounded-xl placeholder:text-slate-400 focus:outline-none focus:border-noble-blue/50 focus:ring-2 focus:ring-noble-blue/10 transition-all"
+                                className="w-full pl-10 pr-4 py-2 text-[13px] font-medium text-noble-text bg-noble-surface dark:bg-transparent border border-noble-border rounded-full placeholder:text-slate-500 focus:outline-none focus:border-noble-accent-alt/50 focus:ring-1 focus:ring-noble-accent-alt/50 transition-all shadow-inner"
                             />
                             {searchQuery && (
-                                <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                                <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300">
                                     <X size={13} />
                                 </button>
                             )}
                         </div>
                         <button
                             onClick={() => toast('Advanced filters coming soon', { icon: '🔧' })}
-                            className="flex items-center gap-1.5 px-3 py-2.5 text-[12px] font-semibold text-slate-500 bg-slate-50 border border-slate-200 rounded-xl hover:border-noble-blue/40 hover:text-noble-blue transition-colors whitespace-nowrap"
+                            className="flex items-center gap-2 px-4 py-2 text-[13px] font-bold text-noble-text bg-noble-surface dark:bg-transparent border border-noble-border rounded-full hover:bg-black/5 dark:bg-white/5 transition-colors whitespace-nowrap"
                         >
-                            <Filter size={13} /> Filter
+                            <Filter size={14} className="text-slate-400" /> Filter
                         </button>
                     </div>
                 </motion.div>
@@ -613,7 +637,7 @@ export default function ClientsPage() {
                             initial={{ opacity: 0, y: -8 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -8 }}
-                            className="bg-noble-blue text-white rounded-xl px-5 py-3 flex items-center justify-between gap-4 shadow-lg shadow-noble-blue/20"
+                            className="bg-noble-blue text-noble-text rounded-xl px-5 py-3 flex items-center justify-between gap-4 shadow-sm dark:shadow-lg shadow-noble-blue/20"
                         >
                             <span className="text-[13px] font-bold">
                                 {selectedIds.size} client{selectedIds.size > 1 ? 's' : ''} selected
@@ -621,25 +645,25 @@ export default function ClientsPage() {
                             <div className="flex items-center gap-2">
                                 <button
                                     onClick={handleExportCSV}
-                                    className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold bg-white/15 hover:bg-white/25 rounded-lg transition-colors"
+                                    className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold bg-noble-surface dark:bg-noble-card/15 hover:bg-noble-surface dark:bg-noble-card/25 rounded-lg transition-colors"
                                 >
                                     <Download size={12} /> Export
                                 </button>
                                 <button
                                     onClick={() => toast('Bulk message coming soon', { icon: '📨' })}
-                                    className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold bg-white/15 hover:bg-white/25 rounded-lg transition-colors"
+                                    className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold bg-noble-surface dark:bg-noble-card/15 hover:bg-noble-surface dark:bg-noble-card/25 rounded-lg transition-colors"
                                 >
                                     <Send size={12} /> Message
                                 </button>
                                 <button
                                     onClick={() => toast('Bulk archive coming soon', { icon: '📦' })}
-                                    className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold bg-white/15 hover:bg-white/25 rounded-lg transition-colors"
+                                    className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold bg-noble-surface dark:bg-noble-card/15 hover:bg-noble-surface dark:bg-noble-card/25 rounded-lg transition-colors"
                                 >
                                     <Archive size={12} /> Archive
                                 </button>
                                 <button
                                     onClick={() => setSelectedIds(new Set())}
-                                    className="p-1.5 rounded-lg hover:bg-white/20 transition-colors ml-1"
+                                    className="p-1.5 rounded-lg hover:bg-noble-surface dark:bg-noble-card/20 transition-colors ml-1"
                                 >
                                     <X size={14} />
                                 </button>
@@ -653,19 +677,19 @@ export default function ClientsPage() {
                     initial={{ opacity: 0, y: 14 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="bg-white rounded-2xl border border-slate-100 shadow-sm overflow-hidden"
+                    className="bg-noble-card rounded-b-2xl border border-noble-card-border shadow-sm dark:shadow-2xl overflow-hidden"
                 >
                     <div className="overflow-x-auto">
                         <table className="w-full text-left border-collapse">
                             {/* ── thead ── */}
                             <thead>
-                                <tr className="border-b border-slate-100 bg-slate-50/60">
+                                <tr className="border-b border-noble-card-border bg-transparent">
                                     {/* Checkbox col */}
-                                    <th className="px-5 py-3 w-10">
-                                        <button onClick={toggleAll} className="text-slate-400 hover:text-noble-blue transition-colors">
+                                    <th className="px-5 py-4 w-10">
+                                        <button onClick={toggleAll} className="text-slate-500 hover:text-noble-text transition-colors">
                                             {allPageSelected
-                                                ? <CheckSquare size={15} className="text-noble-blue" />
-                                                : <Square size={15} />
+                                                ? <CheckSquare size={16} className="text-noble-accent-alt" />
+                                                : <Square size={16} className="opacity-50" />
                                             }
                                         </button>
                                     </th>
@@ -673,11 +697,11 @@ export default function ClientsPage() {
                                     <SortableTH field="company"    label="Contact"     sortField={sortField} sortDir={sortDir} onSort={handleSort} />
                                     <SortableTH field="lead_status" label="Status"     sortField={sortField} sortDir={sortDir} onSort={handleSort} />
                                     <th className="px-5 py-3 text-left whitespace-nowrap">
-                                        <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400">Client Score</span>
+                                        <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-500">Client Score</span>
                                     </th>
                                     <SortableTH field="created_at" label="Joined"     sortField={sortField} sortDir={sortDir} onSort={handleSort} className="hidden lg:table-cell" />
                                     <th className="px-5 py-3 text-right whitespace-nowrap">
-                                        <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400">Actions</span>
+                                        <span className="text-[11px] font-bold uppercase tracking-[0.08em] text-slate-400 dark:text-slate-500">Actions</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -729,24 +753,24 @@ export default function ClientsPage() {
                                                 initial={{ opacity: 0, y: 6 }}
                                                 animate={{ opacity: 1, y: 0 }}
                                                 transition={{ delay: Math.min(i * 0.03, 0.3) }}
-                                                className={`border-b border-slate-100/70 group cursor-pointer transition-colors relative ${
+                                                className={`border-b border-noble-card-border group cursor-pointer transition-colors relative ${
                                                     isSelected
-                                                        ? 'bg-noble-blue/[0.03]'
-                                                        : 'hover:bg-slate-50/80'
+                                                        ? 'bg-black/5 dark:bg-white/5'
+                                                        : 'hover:bg-black/5 dark:bg-white/5 bg-transparent'
                                                 }`}
                                                 onClick={() => router.push(`/clients/${client.id}`)}
                                             >
                                                 {/* Hover left accent */}
                                                 <td
-                                                    className="px-5 py-3 w-10 relative"
+                                                    className="px-5 py-4 w-10 relative"
                                                     onClick={e => { e.stopPropagation(); toggleRow(client.id); }}
                                                 >
                                                     {/* Left accent bar on hover/select */}
-                                                    <div className={`absolute left-0 top-0 bottom-0 w-[3px] rounded-r-sm transition-opacity ${isSelected ? 'bg-noble-blue opacity-100' : 'bg-noble-blue opacity-0 group-hover:opacity-60'}`} />
-                                                    <button className="text-slate-300 hover:text-noble-blue transition-colors">
+                                                    <div className={`absolute left-0 top-0 bottom-0 w-[3px] rounded-r-sm transition-opacity ${isSelected ? 'bg-noble-accent-alt opacity-100' : 'bg-noble-accent-alt opacity-0 group-hover:opacity-60'}`} />
+                                                    <button className="text-slate-500 hover:text-noble-accent-alt transition-colors">
                                                         {isSelected
-                                                            ? <CheckSquare size={14} className="text-noble-blue" />
-                                                            : <Square size={14} className="group-hover:text-slate-400" />
+                                                            ? <CheckSquare size={15} className="text-noble-accent-alt" />
+                                                            : <Square size={15} className="group-hover:text-slate-400 opacity-50" />
                                                         }
                                                     </button>
                                                 </td>
@@ -761,10 +785,10 @@ export default function ClientsPage() {
                                                             {(client.name || '?').charAt(0).toUpperCase()}
                                                         </div>
                                                         <div className="min-w-0">
-                                                            <div className="text-[13px] font-semibold text-slate-900 truncate max-w-[160px]">
+                                                            <div className="text-[13px] font-semibold text-noble-text truncate max-w-[160px]">
                                                                 {client.name}
                                                             </div>
-                                                            <div className="flex items-center gap-1 text-[11px] text-slate-400 mt-0.5">
+                                                            <div className="flex items-center gap-1 text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">
                                                                 {client.company
                                                                     ? <><Building size={10} className="flex-shrink-0" /><span className="truncate max-w-[120px]">{client.company}</span></>
                                                                     : <><User size={10} className="flex-shrink-0" /><span>Individual</span></>
@@ -778,13 +802,13 @@ export default function ClientsPage() {
                                                 <td className="px-5 py-3">
                                                     <div className="space-y-0.5">
                                                         {client.email && (
-                                                            <div className="flex items-center gap-1.5 text-[12px] text-slate-600 font-medium">
+                                                            <div className="flex items-center gap-1.5 text-[12px] text-slate-600 dark:text-slate-400 dark:text-slate-500 font-medium">
                                                                 <Mail size={11} className="text-noble-blue/50 flex-shrink-0" />
                                                                 <span className="truncate max-w-[180px]">{client.email}</span>
                                                             </div>
                                                         )}
                                                         {client.phone && (
-                                                            <div className="flex items-center gap-1.5 text-[11px] text-slate-400">
+                                                            <div className="flex items-center gap-1.5 text-[11px] text-slate-400 dark:text-slate-500">
                                                                 <Phone size={10} className="flex-shrink-0" />
                                                                 {client.country_code} {client.phone}
                                                             </div>
@@ -801,25 +825,25 @@ export default function ClientsPage() {
                                                 </td>
 
                                                 {/* Client Score */}
-                                                <td className="px-5 py-3">
+                                                <td className="px-5 py-4">
                                                     <div className="w-32">
-                                                        <div className="flex items-center justify-between mb-1">
-                                                            <span className="text-[10px] font-bold text-slate-400">Profile</span>
-                                                            <span className={`text-[10px] font-bold ${score >= 80 ? 'text-emerald-600' : score >= 60 ? 'text-noble-blue' : 'text-slate-400'}`}>
+                                                        <div className="flex items-center justify-between mb-1.5">
+                                                            <span className="text-[11px] font-bold text-slate-400">Profile</span>
+                                                            <span className={`text-[11px] font-bold ${score >= 80 ? 'text-[#10B981]' : score >= 60 ? 'text-noble-primary' : 'text-slate-400'}`}>
                                                                 {score}%
                                                             </span>
                                                         </div>
-                                                        <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                                        <div className="h-1.5 bg-black/5 dark:bg-white/5 rounded-full overflow-hidden">
                                                             <motion.div
                                                                 initial={{ width: 0 }}
                                                                 animate={{ width: `${score}%` }}
                                                                 transition={{ duration: 0.7, delay: Math.min(i * 0.03, 0.3), ease: 'easeOut' }}
                                                                 className={`h-full rounded-full ${
                                                                     score >= 80
-                                                                        ? 'bg-gradient-to-r from-emerald-400 to-emerald-500'
+                                                                        ? 'bg-gradient-to-r from-emerald-500 to-noble-accent-alt'
                                                                         : score >= 60
-                                                                        ? 'bg-gradient-to-r from-noble-blue to-primary'
-                                                                        : 'bg-gradient-to-r from-slate-300 to-slate-400'
+                                                                        ? 'bg-gradient-to-r from-noble-primary to-[#3B82F6]'
+                                                                        : 'bg-gradient-to-r from-slate-400 to-slate-500'
                                                                 }`}
                                                             />
                                                         </div>
@@ -828,21 +852,20 @@ export default function ClientsPage() {
 
                                                 {/* Joined date */}
                                                 <td className="px-5 py-3 hidden lg:table-cell">
-                                                    <span className="text-[12px] text-slate-400 font-medium">{joinedDate}</span>
+                                                    <span className="text-[12px] text-slate-400 dark:text-slate-500 font-medium">{joinedDate}</span>
                                                 </td>
 
                                                 {/* Actions */}
-                                                <td className="px-5 py-3 text-right">
-                                                    <div className="flex items-center justify-end gap-1.5 transition-opacity">
+                                                <td className="px-5 py-4 text-right">
+                                                    <div className="flex items-center justify-end gap-2 transition-opacity">
                                                         {/* Quick Invoice */}
                                                         <motion.button
                                                             whileTap={{ scale: 0.93 }}
                                                             onClick={e => handleQuickInvoice(e, client)}
                                                             title="Create invoice for this client"
-                                                            className="flex items-center gap-1 px-2.5 py-1.5 text-[10px] font-bold text-noble-blue bg-noble-blue/8 hover:bg-noble-blue hover:text-white rounded-lg transition-all border border-noble-blue/20 hover:border-noble-blue whitespace-nowrap"
-                                                            style={{ backgroundColor: 'rgba(5,153,213,0.07)' }}
+                                                            className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] font-bold text-noble-primary hover:text-white bg-noble-primary/5 hover:bg-noble-primary rounded-lg border border-noble-primary/20 hover:border-noble-primary transition-all whitespace-nowrap"
                                                         >
-                                                            <FileText size={11} />
+                                                            <FileText size={12} />
                                                             <span className="hidden sm:inline">Invoice</span>
                                                         </motion.button>
 
@@ -851,7 +874,7 @@ export default function ClientsPage() {
                                                             whileTap={{ scale: 0.93 }}
                                                             onClick={e => { e.stopPropagation(); router.push(`/clients/${client.id}`); }}
                                                             title="View client profile"
-                                                            className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-50 border border-slate-200 text-slate-400 hover:bg-noble-blue hover:text-white hover:border-noble-blue transition-all"
+                                                            className="w-7 h-7 flex items-center justify-center rounded-lg bg-transparent border border-noble-border text-slate-400 hover:bg-black/5 dark:bg-white/5 hover:text-noble-text transition-all"
                                                         >
                                                             <ArrowUpRight size={13} />
                                                         </motion.button>
@@ -862,7 +885,7 @@ export default function ClientsPage() {
                                                                 whileTap={{ scale: 0.93 }}
                                                                 onClick={e => { e.stopPropagation(); setOpenMenuId(isMenuOpen ? null : client.id); }}
                                                                 title="More options"
-                                                                className="w-7 h-7 flex items-center justify-center rounded-lg bg-slate-50 border border-slate-200 text-slate-400 hover:bg-slate-100 transition-all"
+                                                                className="w-7 h-7 flex items-center justify-center rounded-lg bg-transparent border border-transparent text-slate-400 hover:bg-black/5 dark:bg-white/5 hover:text-noble-text transition-all"
                                                             >
                                                                 <MoreHorizontal size={14} />
                                                             </motion.button>
@@ -882,35 +905,22 @@ export default function ClientsPage() {
 
                     {/* ── Pagination Footer ────────────────────────────── */}
                     {!loading && filtered.length > 0 && (
-                        <div className="border-t border-slate-100 px-5 py-3 flex flex-col sm:flex-row items-center justify-between gap-3 bg-slate-50/40">
+                        <div className="border-t border-noble-border px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 bg-transparent">
                             {/* Row count info */}
                             <div className="flex items-center gap-3">
                                 <span className="text-[12px] text-slate-400 font-medium">
-                                    Showing <span className="text-slate-700 font-semibold">{(page - 1) * pageSize + 1}–{Math.min(page * pageSize, filtered.length)}</span> of <span className="text-slate-700 font-semibold">{filtered.length}</span> clients
+                                    Showing <span className="text-noble-text font-bold">{(page - 1) * pageSize + 1}–{Math.min(page * pageSize, filtered.length)}</span> of <span className="text-noble-text font-bold">{filtered.length}</span> clients
                                 </span>
-                                {/* Rows per page */}
-                                <div className="flex items-center gap-1 text-[11px] text-slate-400">
-                                    <span>Show:</span>
-                                    {PAGE_SIZES.map(s => (
-                                        <button
-                                            key={s}
-                                            onClick={() => { setPageSize(s); setPage(1); }}
-                                            className={`w-7 h-6 rounded text-[11px] font-semibold transition-colors ${pageSize === s ? 'bg-noble-blue text-white' : 'hover:bg-slate-200 text-slate-400'}`}
-                                        >
-                                            {s}
-                                        </button>
-                                    ))}
-                                </div>
                             </div>
 
                             {/* Page buttons */}
-                            <div className="flex items-center gap-1">
+                            <div className="flex items-center gap-1.5">
                                 <button
                                     onClick={() => setPage(p => Math.max(1, p - 1))}
                                     disabled={page === 1}
-                                    className="w-7 h-7 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:border-noble-blue/40 hover:text-noble-blue disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                    className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-noble-border text-slate-400 hover:text-noble-text hover:bg-black/5 dark:bg-white/5 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-[12px] font-bold"
                                 >
-                                    <ChevronLeft size={13} />
+                                    <ChevronLeft size={12} /> Prev
                                 </button>
                                 {Array.from({ length: Math.min(totalPages, 5) }, (_, i) => {
                                     const pg = totalPages <= 5
@@ -924,10 +934,10 @@ export default function ClientsPage() {
                                         <button
                                             key={pg}
                                             onClick={() => setPage(pg)}
-                                            className={`w-7 h-7 rounded-lg text-[12px] font-semibold transition-colors ${
+                                            className={`w-7 h-7 rounded-lg text-[12px] font-bold transition-all ${
                                                 pg === page
-                                                    ? 'bg-noble-blue text-white shadow-sm'
-                                                    : 'text-slate-500 hover:bg-slate-100'
+                                                    ? 'bg-noble-accent-alt text-noble-text shadow-sm dark:shadow-lg shadow-[#4F46E5]/25'
+                                                    : 'text-slate-400 hover:text-noble-text hover:bg-black/5 dark:bg-white/5'
                                             }`}
                                         >
                                             {pg}
@@ -937,10 +947,22 @@ export default function ClientsPage() {
                                 <button
                                     onClick={() => setPage(p => Math.min(totalPages, p + 1))}
                                     disabled={page === totalPages}
-                                    className="w-7 h-7 flex items-center justify-center rounded-lg border border-slate-200 text-slate-400 hover:border-noble-blue/40 hover:text-noble-blue disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                    className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-noble-border text-slate-400 hover:text-noble-text hover:bg-black/5 dark:bg-white/5 disabled:opacity-30 disabled:cursor-not-allowed transition-colors text-[12px] font-bold"
                                 >
-                                    <ChevronRight size={13} />
+                                    Next <ChevronRight size={12} />
                                 </button>
+                            </div>
+                            {/* Show N per page */}
+                            <div className="flex items-center gap-2 text-[12px] text-slate-400">
+                                <span className="font-medium">Show</span>
+                                <select
+                                    value={pageSize}
+                                    onChange={e => { setPageSize(Number(e.target.value)); setPage(1); }}
+                                    className="h-8 px-3 pr-8 rounded-lg border border-noble-border bg-transparent text-noble-text font-bold focus:outline-none focus:border-noble-accent-alt appearance-none cursor-pointer transition-colors hover:border-noble-border-hover"
+                                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 8px center' }}
+                                >
+                                    {PAGE_SIZES.map(s => <option key={s} value={s}>{s}</option>)}
+                                </select>
                             </div>
                         </div>
                     )}

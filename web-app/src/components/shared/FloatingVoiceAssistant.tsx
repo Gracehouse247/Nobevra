@@ -392,7 +392,7 @@ export default function FloatingVoiceAssistant() {
                                 <Sparkles className="w-4 h-4 text-electric-cyan" />
                                 <h3 className="text-sm font-semibold text-white">NobleInvoice Assistant</h3>
                             </div>
-                            <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-white transition-colors">
+                            <button onClick={() => setIsOpen(false)} className="text-slate-400 dark:text-slate-500 hover:text-white transition-colors">
                                 <X className="w-5 h-5" />
                             </button>
                         </div>
@@ -402,7 +402,7 @@ export default function FloatingVoiceAssistant() {
                             <div className="max-h-[160px] overflow-y-auto px-4 py-3 space-y-3 scrollbar-thin border-b border-white/5 bg-black/15 flex-shrink-0">
                                 {chatHistory.map((msg, index) => (
                                     <div key={index} className={`flex flex-col ${msg.role === 'user' ? 'items-end' : 'items-start'}`}>
-                                        <span className="text-[9px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">
+                                        <span className="text-[9px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider mb-0.5">
                                             {msg.role === 'user' ? 'You' : 'Assistant'}
                                         </span>
                                         <div className={`max-w-[85%] rounded-2xl px-3 py-1.5 text-xs ${
@@ -435,7 +435,7 @@ export default function FloatingVoiceAssistant() {
                                                 ? 'bg-gradient-to-br from-noble-blue to-blue-500 shadow-[0_0_30px_rgba(22,111,187,0.5)]' 
                                                 : isProcessing
                                                     ? 'bg-slate-800 border border-slate-700'
-                                                    : 'bg-white text-slate-900 hover:scale-105 shadow-xl'
+                                                    : 'bg-noble-surface dark:bg-noble-card text-noble-text hover:scale-105 shadow-xl'
                                         }`}
                                     >
                                         {isProcessing ? (
@@ -443,7 +443,7 @@ export default function FloatingVoiceAssistant() {
                                         ) : isListening ? (
                                             <Mic className="w-8 h-8 text-white" />
                                         ) : (
-                                            <Mic className="w-8 h-8 text-slate-900" />
+                                            <Mic className="w-8 h-8 text-noble-text" />
                                         )}
                                     </button>
                                 </div>
@@ -467,10 +467,10 @@ export default function FloatingVoiceAssistant() {
                                     </p>
                                 ) : (
                                     <div className="space-y-1">
-                                        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                                        <p className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
                                             {isSpeechSupported ? 'Tap microphone to speak or type below' : 'Type a command below'}
                                         </p>
-                                        <p className="text-[9px] text-slate-500 font-semibold uppercase tracking-wider">
+                                        <p className="text-[9px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-semibold uppercase tracking-wider">
                                             e.g., "Create an invoice for Acme Corp for $500"
                                         </p>
                                     </div>
@@ -523,12 +523,12 @@ export default function FloatingVoiceAssistant() {
                     }}
                     className="h-auto px-5 py-3 bg-noble-blue rounded-2xl shadow-[0_10px_30px_rgba(22,111,187,0.4)] flex flex-col items-center gap-1.5 relative overflow-hidden group border border-white/20"
                 >
-                    <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity" />
+                    <div className="absolute inset-0 bg-noble-surface dark:bg-noble-card opacity-0 group-hover:opacity-10 transition-opacity" />
                     <div className="flex flex-col items-center justify-center gap-1">
                         <Sparkles className="w-5 h-5 text-white" />
                         <span className="text-white font-medium text-[10px] leading-tight text-center whitespace-nowrap flex items-center gap-1">
                             NobleInvoice AI
-                            {!canUse('dashboard.insights') && <PremiumBadge tier="pulse" iconOnly />}
+                            {!canUse('ai.voice') && <PremiumBadge tier="pulse" iconOnly />}
                         </span>
                     </div>
                 </motion.button>

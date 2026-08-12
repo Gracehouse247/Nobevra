@@ -29,7 +29,7 @@ export default function FreelancerHowToSection() {
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-8 rounded-3xl shadow-sm border border-slate-100"
+                            className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-noble-surface p-8 rounded-3xl shadow-sm border border-slate-100"
                         >
                             <h3 className="text-xl font-black text-near-black mb-4">
                                 Generate your self-employed billing profile
@@ -53,7 +53,7 @@ export default function FreelancerHowToSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.1 }}
-                            className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-8 rounded-3xl shadow-sm border border-slate-100"
+                            className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-noble-surface p-8 rounded-3xl shadow-sm border border-slate-100"
                         >
                             <h3 className="text-xl font-black text-near-black mb-4">
                                 Itemize your freelance billing software template
@@ -77,7 +77,7 @@ export default function FreelancerHowToSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: 0.2 }}
-                            className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-white p-8 rounded-3xl shadow-sm border border-slate-100"
+                            className="w-[calc(100%-4rem)] md:w-[calc(50%-3rem)] bg-noble-surface p-8 rounded-3xl shadow-sm border border-slate-100"
                         >
                             <h3 className="text-xl font-black text-near-black mb-4">
                                 Send via a dedicated freelancer billing app

@@ -50,7 +50,7 @@ export default function Mp3Form({ onChange, initialData, onPreviewValueChange }:
                         className="hidden" 
                         id="audio-upload"
                     />
-                    <label htmlFor="audio-upload" className="px-5 py-2 bg-white border border-[#E2E8F0] text-[#0F172A] text-xs font-bold rounded-lg cursor-pointer shadow-sm hover:border-[#CBD5E1]">
+                    <label htmlFor="audio-upload" className="px-5 py-2 bg-noble-surface border border-[#E2E8F0] text-[#0F172A] text-xs font-bold rounded-lg cursor-pointer shadow-sm hover:border-[#CBD5E1]">
                         {fileUpload ? 'Change Audio' : 'Select Audio'}
                     </label>
                 </div>

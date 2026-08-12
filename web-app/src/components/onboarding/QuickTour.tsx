@@ -45,7 +45,7 @@ export const QuickTour = ({ onComplete }: { onComplete: () => void }) => {
                     className="flex flex-col items-center max-w-md"
                 >
                     {React.createElement(slides[currentSlide].icon, { className: "w-24 h-24 text-noble-blue mb-8" })}
-                    <h2 className="text-3xl font-black text-slate-900 mb-4">{slides[currentSlide].title}</h2>
+                    <h2 className="text-3xl font-black text-noble-text mb-4">{slides[currentSlide].title}</h2>
                     <p className="text-slate-500 font-medium text-lg leading-relaxed mb-12">
                         {slides[currentSlide].subtitle}
                     </p>

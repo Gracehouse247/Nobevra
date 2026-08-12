@@ -30,7 +30,7 @@ const faqs = [
 
 export default function EnterpriseFAQ() {
     return (
-        <section className="py-24 md:py-32 bg-white border-t border-slate-100" aria-labelledby="faq-heading">
+        <section className="py-24 md:py-32 bg-noble-surface border-t border-slate-100" aria-labelledby="faq-heading">
             <div className="max-w-4xl mx-auto px-4 md:px-16">
                 
                 {/* The "Not for you" qualifier section (Information Gain) */}
@@ -63,12 +63,12 @@ export default function EnterpriseFAQ() {
                     {faqs.map((faq, i) => (
                         <details key={i} className="group bg-slate-50 rounded-[24px] border border-slate-100 overflow-hidden hover:border-noble-blue/30 transition-colors">
                             <summary className="flex items-center justify-between p-6 md:p-8 cursor-pointer list-none gap-4">
-                                <span className="font-black text-slate-900 text-lg leading-snug pr-8">{faq.q}</span>
-                                <div className="w-10 h-10 rounded-full bg-white border border-slate-200 flex items-center justify-center shrink-0 group-open:bg-noble-blue group-open:border-noble-blue group-open:text-white transition-colors">
+                                <span className="font-black text-noble-text text-lg leading-snug pr-8">{faq.q}</span>
+                                <div className="w-10 h-10 rounded-full bg-noble-surface border border-noble-border flex items-center justify-center shrink-0 group-open:bg-noble-blue group-open:border-noble-blue group-open:text-white transition-colors">
                                     <ChevronDown className="w-5 h-5 transition-transform group-open:rotate-180" />
                                 </div>
                             </summary>
-                            <div className="px-6 md:px-8 pb-8 text-slate-600 text-base leading-relaxed border-t border-slate-100 pt-6 bg-white font-medium">
+                            <div className="px-6 md:px-8 pb-8 text-slate-600 text-base leading-relaxed border-t border-slate-100 pt-6 bg-noble-surface font-medium">
                                 {faq.a}
                             </div>
                         </details>

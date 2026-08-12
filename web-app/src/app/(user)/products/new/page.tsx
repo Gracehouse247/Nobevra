@@ -156,7 +156,7 @@ export default function NewProductPage() {
     const previewPrice = parseFloat(formData.price) || 0;
 
     return (
-        <div className="min-h-screen bg-[#F8FAFC] pb-24 text-slate-900 font-inter">
+        <div className="min-h-screen bg-[#F8FAFC] dark:bg-transparent dark:bg-[#060D1A] pb-24 text-noble-text font-inter">
             <div className="max-w-[1400px] mx-auto px-5 lg:px-8 py-8">
                 
                 {/* Header */}
@@ -168,10 +168,10 @@ export default function NewProductPage() {
                         <ChevronLeft className="w-4 h-4" />
                         Back to Catalog
                     </button>
-                    <h1 className="text-[19px] font-bold text-slate-900 tracking-tight">
+                    <h1 className="text-[19px] font-bold text-noble-text tracking-tight">
                         {isEditMode ? 'Edit Item' : 'Add New Item'}
                     </h1>
-                    <p className="text-[15px] text-slate-500 mt-1">
+                    <p className="text-[15px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">
                         {isEditMode ? 'Update the details of your inventory item.' : 'Define a new product or service for your invoicing inventory.'}
                     </p>
                 </div>
@@ -181,28 +181,28 @@ export default function NewProductPage() {
                     <div className="xl:col-span-8 space-y-6">
                         
                         {/* 1. Basic Information */}
-                        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                        <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-7 h-7 rounded-lg bg-[#0599D5] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#0599D5]/30">
                                     1
                                 </div>
-                                <h2 className="text-lg font-bold text-slate-900">Basic Information</h2>
+                                <h2 className="text-lg font-bold text-noble-text">Basic Information</h2>
                             </div>
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                                 {/* Item Name */}
                                 <div className="space-y-1.5 lg:col-span-2">
-                                    <label className="text-[13px] font-bold text-slate-700">
+                                    <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
                                         Item Name <span className="text-red-500">*</span>
                                     </label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                            <FileText className="h-4 w-4 text-slate-400" />
+                                            <FileText className="h-4 w-4 text-slate-400 dark:text-slate-500" />
                                         </div>
                                         <input 
                                             required
                                             type="text"
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
                                             placeholder="e.g. Web Design Package"
                                             value={formData.name}
                                             onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -212,15 +212,15 @@ export default function NewProductPage() {
 
                                 {/* Type */}
                                 <div className="space-y-1.5">
-                                    <label className="text-[13px] font-bold text-slate-700">
+                                    <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
                                         Type <span className="text-red-500">*</span>
                                     </label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                            <Package className="h-4 w-4 text-slate-400" />
+                                            <Package className="h-4 w-4 text-slate-400 dark:text-slate-500" />
                                         </div>
                                         <select
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-slate-900 appearance-none focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all cursor-pointer"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text appearance-none focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all cursor-pointer"
                                             value={formData.type}
                                             onChange={(e) => setFormData({...formData, type: e.target.value})}
                                         >
@@ -228,23 +228,23 @@ export default function NewProductPage() {
                                             <option value="service">Service</option>
                                         </select>
                                         <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                                            <ChevronLeft className="h-4 w-4 text-slate-400 -rotate-90" />
+                                            <ChevronLeft className="h-4 w-4 text-slate-400 dark:text-slate-500 -rotate-90" />
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Category */}
                                 <div className="space-y-1.5 lg:col-span-1">
-                                    <label className="text-[13px] font-bold text-slate-700">
+                                    <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
                                         Category <span className="text-red-500">*</span>
                                     </label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                            <Tag className="h-4 w-4 text-slate-400" />
+                                            <Tag className="h-4 w-4 text-slate-400 dark:text-slate-500" />
                                         </div>
                                         <input 
                                             type="text"
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
                                             placeholder="Select category"
                                             value={formData.category}
                                             onChange={(e) => setFormData({...formData, category: e.target.value})}
@@ -254,16 +254,16 @@ export default function NewProductPage() {
 
                                 {/* SKU */}
                                 <div className="space-y-1.5 lg:col-span-1">
-                                    <label className="text-[13px] font-bold text-slate-700">
-                                        SKU / Item Code <span className="text-slate-400 font-normal">(Optional)</span>
+                                    <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
+                                        SKU / Item Code <span className="text-slate-400 dark:text-slate-500 font-normal">(Optional)</span>
                                     </label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                            <Hash className="h-4 w-4 text-slate-400" />
+                                            <Hash className="h-4 w-4 text-slate-400 dark:text-slate-500" />
                                         </div>
                                         <input 
                                             type="text"
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
                                             placeholder="e.g. INV-001"
                                             value={formData.sku}
                                             onChange={(e) => setFormData({...formData, sku: e.target.value})}
@@ -273,15 +273,15 @@ export default function NewProductPage() {
 
                                 {/* Unit */}
                                 <div className="space-y-1.5 lg:col-span-1">
-                                    <label className="text-[13px] font-bold text-slate-700">
+                                    <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
                                         Unit <span className="text-red-500">*</span>
                                     </label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                            <Layers className="h-4 w-4 text-slate-400" />
+                                            <Layers className="h-4 w-4 text-slate-400 dark:text-slate-500" />
                                         </div>
                                         <select
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-slate-900 appearance-none focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all cursor-pointer"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text appearance-none focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all cursor-pointer"
                                             value={formData.unit}
                                             onChange={(e) => setFormData({...formData, unit: e.target.value})}
                                         >
@@ -293,19 +293,19 @@ export default function NewProductPage() {
                                             <option value="Boxes">Boxes</option>
                                         </select>
                                         <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                                            <ChevronLeft className="h-4 w-4 text-slate-400 -rotate-90" />
+                                            <ChevronLeft className="h-4 w-4 text-slate-400 dark:text-slate-500 -rotate-90" />
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Tax Rate */}
                                 <div className="space-y-1.5 lg:col-span-1 lg:col-start-1">
-                                    <label className="text-[13px] font-bold text-slate-700">
+                                    <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
                                         Tax Rate (%)
                                     </label>
                                     <div className="relative">
                                         <select
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-[14px] font-semibold text-slate-900 appearance-none focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all cursor-pointer"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-2.5 text-[14px] font-semibold text-noble-text appearance-none focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all cursor-pointer"
                                             value={formData.taxRate}
                                             onChange={(e) => setFormData({...formData, taxRate: e.target.value})}
                                         >
@@ -315,7 +315,7 @@ export default function NewProductPage() {
                                             <option value="20">20.0% (High)</option>
                                         </select>
                                         <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                                            <ChevronLeft className="h-4 w-4 text-slate-400 -rotate-90" />
+                                            <ChevronLeft className="h-4 w-4 text-slate-400 dark:text-slate-500 -rotate-90" />
                                         </div>
                                     </div>
                                 </div>
@@ -323,22 +323,22 @@ export default function NewProductPage() {
                         </div>
 
                         {/* 2. Description */}
-                        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                        <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm">
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                                 <div className="flex items-center gap-3">
                                     <div className="w-7 h-7 rounded-lg bg-[#0599D5] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#0599D5]/30">
                                         2
                                     </div>
-                                    <h2 className="text-lg font-bold text-slate-900">Description</h2>
+                                    <h2 className="text-lg font-bold text-noble-text">Description</h2>
                                 </div>
-                                <div className="flex items-center gap-3 bg-slate-50 px-4 py-2 rounded-xl border border-slate-200">
+                                <div className="flex items-center gap-3 bg-slate-50 dark:bg-[#0D1B2E] px-4 py-2 rounded-xl border border-noble-border">
                                     <Globe className="w-4 h-4 text-[#0599D5]" />
                                     <div>
                                         <div className="flex items-center gap-2">
-                                            <p className="text-[13px] font-bold text-slate-800">Digital Passport (SEO)</p>
+                                            <p className="text-[13px] font-bold text-slate-800 dark:text-slate-100">Digital Passport (SEO)</p>
                                             {!canUse('products.passport') && <PremiumBadge tier="pulse" iconOnly />}
                                         </div>
-                                        <p className="text-[10px] text-slate-500 hidden sm:block">Make this item discoverable</p>
+                                        <p className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 hidden sm:block">Make this item discoverable</p>
                                     </div>
                                     <button 
                                         type="button"
@@ -353,51 +353,51 @@ export default function NewProductPage() {
                                     >
                                         <motion.div 
                                             animate={{ x: enablePassport ? 20 : 0 }}
-                                            className="w-4 h-4 bg-white rounded-full shadow-sm" 
+                                            className="w-4 h-4 bg-noble-surface dark:bg-noble-card rounded-full shadow-sm" 
                                         />
                                     </button>
                                 </div>
                             </div>
 
                             <div className="space-y-1.5">
-                                <p className="text-[12px] font-medium text-slate-500 mb-2">Detailed description for the invoice...</p>
+                                <p className="text-[12px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-2">Detailed description for the invoice...</p>
                                 <textarea 
-                                    className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-[14px] text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all min-h-[120px] resize-y"
+                                    className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl p-4 text-[14px] text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all min-h-[120px] resize-y"
                                     placeholder="Describe the item, its features, usage, or any important notes..."
                                     value={formData.description}
                                     onChange={(e) => setFormData({...formData, description: e.target.value})}
                                     maxLength={1000}
                                 />
                                 <div className="text-right">
-                                    <span className="text-[11px] font-semibold text-slate-400">{formData.description.length} / 1000</span>
+                                    <span className="text-[11px] font-semibold text-slate-400 dark:text-slate-500">{formData.description.length} / 1000</span>
                                 </div>
                             </div>
                         </div>
 
                         {/* 3. Pricing & Inventory */}
-                        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                        <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-7 h-7 rounded-lg bg-[#0599D5] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#0599D5]/30">
                                     3
                                 </div>
-                                <h2 className="text-lg font-bold text-slate-900">Pricing {isProduct && '& Inventory'}</h2>
+                                <h2 className="text-lg font-bold text-noble-text">Pricing {isProduct && '& Inventory'}</h2>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                                 {/* Unit Price */}
                                 <div className="space-y-1.5">
-                                    <label className="text-[13px] font-bold text-slate-700">
+                                    <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
                                         Unit Price <span className="text-red-500">*</span>
                                     </label>
-                                    <div className="flex bg-slate-50 border border-slate-200 rounded-xl overflow-hidden focus-within:ring-1 focus-within:ring-[#0599D5] focus-within:border-[#0599D5] transition-all">
-                                        <div className="bg-slate-100 border-r border-slate-200 px-3 flex items-center text-[13px] font-bold text-slate-600">
+                                    <div className="flex bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl overflow-hidden focus-within:ring-1 focus-within:ring-[#0599D5] focus-within:border-[#0599D5] transition-all">
+                                        <div className="bg-slate-100 dark:bg-[#112030] border-r border-noble-border px-3 flex items-center text-[13px] font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500">
                                             {currencyCode}
                                         </div>
                                         <input 
                                             required
                                             type="number"
                                             step="0.01"
-                                            className="w-full bg-transparent px-3 py-2.5 text-[14px] font-bold text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                                            className="w-full bg-transparent px-3 py-2.5 text-[14px] font-bold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none"
                                             placeholder="0.00"
                                             value={formData.price}
                                             onChange={(e) => setFormData({...formData, price: e.target.value})}
@@ -407,17 +407,17 @@ export default function NewProductPage() {
 
                                 {/* Cost Price */}
                                 <div className="space-y-1.5">
-                                    <label className="text-[13px] font-bold text-slate-700">
-                                        Cost Price <span className="text-slate-400 font-normal">(Optional)</span>
+                                    <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
+                                        Cost Price <span className="text-slate-400 dark:text-slate-500 font-normal">(Optional)</span>
                                     </label>
-                                    <div className="flex bg-slate-50 border border-slate-200 rounded-xl overflow-hidden focus-within:ring-1 focus-within:ring-[#0599D5] focus-within:border-[#0599D5] transition-all">
-                                        <div className="bg-slate-100 border-r border-slate-200 px-3 flex items-center text-[13px] font-bold text-slate-600">
+                                    <div className="flex bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl overflow-hidden focus-within:ring-1 focus-within:ring-[#0599D5] focus-within:border-[#0599D5] transition-all">
+                                        <div className="bg-slate-100 dark:bg-[#112030] border-r border-noble-border px-3 flex items-center text-[13px] font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500">
                                             {currencyCode}
                                         </div>
                                         <input 
                                             type="number"
                                             step="0.01"
-                                            className="w-full bg-transparent px-3 py-2.5 text-[14px] font-bold text-slate-900 placeholder:text-slate-400 focus:outline-none"
+                                            className="w-full bg-transparent px-3 py-2.5 text-[14px] font-bold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none"
                                             placeholder="0.00"
                                             value={formData.costPrice}
                                             onChange={(e) => setFormData({...formData, costPrice: e.target.value})}
@@ -428,12 +428,12 @@ export default function NewProductPage() {
                                 {/* Initial Stock */}
                                 {isProduct && (
                                     <div className="space-y-1.5">
-                                        <label className="text-[13px] font-bold text-slate-700">
-                                            Initial Stock <span className="text-slate-400 font-normal">(Optional)</span>
+                                        <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
+                                            Initial Stock <span className="text-slate-400 dark:text-slate-500 font-normal">(Optional)</span>
                                         </label>
                                         <input 
                                             type="number"
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-[14px] font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
                                             placeholder="0"
                                             value={formData.initialStock}
                                             onChange={(e) => setFormData({...formData, initialStock: e.target.value})}
@@ -445,41 +445,41 @@ export default function NewProductPage() {
                                 {isProduct && (
                                     <>
                                         <div className="space-y-1.5 lg:col-span-1">
-                                            <label className="text-[13px] font-bold text-slate-700">
-                                                Minimum Stock Alert <span className="text-slate-400 font-normal">(Optional)</span>
+                                            <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
+                                                Minimum Stock Alert <span className="text-slate-400 dark:text-slate-500 font-normal">(Optional)</span>
                                             </label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                                    <AlertCircle className="h-4 w-4 text-slate-400" />
+                                                    <AlertCircle className="h-4 w-4 text-slate-400 dark:text-slate-500" />
                                                 </div>
                                                 <input 
                                                     type="number"
-                                                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                                    className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
                                                     placeholder="e.g. 5"
                                                     value={formData.minStockAlert}
                                                     onChange={(e) => setFormData({...formData, minStockAlert: e.target.value})}
                                                 />
                                             </div>
-                                            <p className="text-[11px] text-slate-500 mt-1">You'll be notified when stock is low</p>
+                                            <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">You'll be notified when stock is low</p>
                                         </div>
 
                                         <div className="space-y-1.5 lg:col-span-1">
-                                            <label className="text-[13px] font-bold text-slate-700">
-                                                Reorder Level <span className="text-slate-400 font-normal">(Optional)</span>
+                                            <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
+                                                Reorder Level <span className="text-slate-400 dark:text-slate-500 font-normal">(Optional)</span>
                                             </label>
                                             <div className="relative">
                                                 <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                                    <UploadCloud className="h-4 w-4 text-slate-400 rotate-180" />
+                                                    <UploadCloud className="h-4 w-4 text-slate-400 dark:text-slate-500 rotate-180" />
                                                 </div>
                                                 <input 
                                                     type="number"
-                                                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                                    className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
                                                     placeholder="e.g. 10"
                                                     value={formData.reorderLevel}
                                                     onChange={(e) => setFormData({...formData, reorderLevel: e.target.value})}
                                                 />
                                             </div>
-                                            <p className="text-[11px] text-slate-500 mt-1">Suggested stock level to reorder</p>
+                                            <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">Suggested stock level to reorder</p>
                                         </div>
                                     </>
                                 )}
@@ -487,18 +487,18 @@ export default function NewProductPage() {
                         </div>
 
                         {/* 4. Additional Settings */}
-                        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                        <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm">
                             <div className="flex items-center gap-3 mb-6">
                                 <div className="w-7 h-7 rounded-lg bg-[#0599D5] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#0599D5]/30">
                                     4
                                 </div>
-                                <h2 className="text-lg font-bold text-slate-900">Additional Settings <span className="text-slate-400 font-normal text-sm ml-1">(Optional)</span></h2>
+                                <h2 className="text-lg font-bold text-noble-text">Additional Settings <span className="text-slate-400 dark:text-slate-500 font-normal text-sm ml-1">(Optional)</span></h2>
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                                 {/* Tags */}
                                 <div>
-                                    <label className="text-[13px] font-bold text-slate-700 mb-2 block">Tags</label>
+                                    <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200 mb-2 block">Tags</label>
                                     <div className="flex flex-wrap gap-2 mb-3">
                                         {formData.tags.map(tag => (
                                             <span key={tag} className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0599D5]/10 text-[#0599D5] rounded-lg text-xs font-bold">
@@ -512,7 +512,7 @@ export default function NewProductPage() {
                                     <div className="flex items-center gap-2">
                                         <input 
                                             type="text"
-                                            className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2 text-[13px] font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-2 text-[13px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
                                             placeholder="Add Tag"
                                             value={tagInput}
                                             onChange={(e) => setTagInput(e.target.value)}
@@ -521,7 +521,7 @@ export default function NewProductPage() {
                                         <button 
                                             type="button"
                                             onClick={handleAddTag}
-                                            className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-[#0599D5] font-bold rounded-xl text-sm transition-colors whitespace-nowrap"
+                                            className="px-4 py-2 bg-slate-100 dark:bg-[#112030] hover:bg-slate-200 text-[#0599D5] font-bold rounded-xl text-sm transition-colors whitespace-nowrap"
                                         >
                                             + Add Tag
                                         </button>
@@ -530,13 +530,13 @@ export default function NewProductPage() {
 
                                 {/* Image Upload */}
                                 <div>
-                                    <label className="text-[13px] font-bold text-slate-700 mb-2 block">Product Image</label>
-                                    <div onClick={() => document.getElementById('product-image-upload')?.click()} className="border-2 border-dashed border-slate-200 rounded-2xl bg-slate-50/50 p-6 flex flex-col items-center justify-center text-center hover:border-[#0599D5]/50 transition-colors cursor-pointer group">
+                                    <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200 mb-2 block">Product Image</label>
+                                    <div onClick={() => document.getElementById('product-image-upload')?.click()} className="border-2 border-dashed border-noble-border rounded-2xl bg-slate-50 dark:bg-[#0D1B2E]/50 p-6 flex flex-col items-center justify-center text-center hover:border-[#0599D5]/50 transition-colors cursor-pointer group">
                                         <div className="w-10 h-10 rounded-full bg-[#0599D5]/10 flex items-center justify-center text-[#0599D5] mb-3 group-hover:scale-110 transition-transform">
                                             <UploadCloud className="w-5 h-5" />
                                         </div>
-                                        <p className="text-[13px] font-bold text-slate-900">Upload Image</p>
-                                        <p className="text-[11px] text-slate-500 mt-1">PNG, JPG up to 2MB</p>
+                                        <p className="text-[13px] font-bold text-noble-text">Upload Image</p>
+                                        <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">PNG, JPG up to 2MB</p>
                                         <input type="file" id="product-image-upload" className="hidden" accept="image/png, image/jpeg" onChange={(e) => { if (e.target.files?.length) { alert('Image selected successfully.'); } }} />
                                     </div>
                                 </div>
@@ -548,7 +548,7 @@ export default function NewProductPage() {
                             <button 
                                 type="button"
                                 onClick={() => router.back()}
-                                className="w-full sm:w-auto px-6 py-3 border border-slate-200 rounded-xl text-slate-600 font-bold text-sm hover:bg-slate-50 transition-colors"
+                                className="w-full sm:w-auto px-6 py-3 border border-noble-border rounded-xl text-slate-600 dark:text-slate-400 dark:text-slate-500 font-bold text-sm hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-colors"
                             >
                                 Cancel
                             </button>
@@ -557,7 +557,7 @@ export default function NewProductPage() {
                                     type="button"
                                     onClick={(e) => handleSubmit(e, true)}
                                     disabled={loading}
-                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-white border border-slate-200 rounded-xl text-slate-700 font-bold text-sm hover:bg-slate-50 transition-colors shadow-sm disabled:opacity-50"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl text-slate-700 dark:text-slate-200 font-bold text-sm hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-colors shadow-sm disabled:opacity-50"
                                 >
                                     <Save className="w-4 h-4" /> Save as Draft
                                 </button>
@@ -578,20 +578,20 @@ export default function NewProductPage() {
                     <div className="xl:col-span-4 space-y-6">
                         
                         {/* Item Preview */}
-                        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm sticky top-6">
+                        <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm sticky top-6">
                             <div className="flex items-center gap-2 mb-6 text-[#0599D5]">
                                 <Eye className="w-4 h-4" />
                                 <h3 className="font-bold text-sm">Item Preview</h3>
                             </div>
                             
-                            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col items-center text-center">
+                            <div className="bg-slate-50 dark:bg-[#0D1B2E] rounded-2xl p-6 border border-slate-100 dark:border-noble-border flex flex-col items-center text-center">
                                 <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-inner mb-4 ${isProduct ? 'bg-[#0599D5]/10 text-[#0599D5]' : 'bg-violet-100 text-violet-600'}`}>
                                     {isProduct ? <Package className="w-8 h-8" /> : <Layers className="w-8 h-8" />}
                                 </div>
-                                <h4 className="text-xl font-black text-slate-900 tracking-tight leading-tight mb-1">
+                                <h4 className="text-xl font-black text-noble-text tracking-tight leading-tight mb-1">
                                     {formData.name || 'Item Name'}
                                 </h4>
-                                <div className="flex items-center justify-center gap-2 text-xs font-semibold text-slate-500 mb-4">
+                                <div className="flex items-center justify-center gap-2 text-xs font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-4">
                                     <span>{formData.category || 'Category'}</span>
                                     <span className="w-1 h-1 rounded-full bg-slate-300" />
                                     <span>{isProduct ? 'Product' : 'Service'}</span>
@@ -599,27 +599,27 @@ export default function NewProductPage() {
                                 <div className="text-2xl font-black text-[#0599D5] mb-1">
                                     {formatMoney(previewPrice)}
                                 </div>
-                                <div className="text-[11px] font-semibold text-slate-400 mb-6">
+                                <div className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-6">
                                     Tax: {formData.taxRate}%
                                 </div>
 
-                                <div className="w-full space-y-3 pt-4 border-t border-slate-200">
+                                <div className="w-full space-y-3 pt-4 border-t border-noble-border">
                                     <div className="flex items-center justify-between text-xs">
-                                        <span className="font-bold text-slate-500">Unit</span>
-                                        <span className="font-semibold text-slate-900">{formData.unit}</span>
+                                        <span className="font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500">Unit</span>
+                                        <span className="font-semibold text-noble-text">{formData.unit}</span>
                                     </div>
                                     <div className="flex items-center justify-between text-xs">
-                                        <span className="font-bold text-slate-500">SKU</span>
-                                        <span className="font-semibold text-slate-900 uppercase">{formData.sku || 'N/A'}</span>
+                                        <span className="font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500">SKU</span>
+                                        <span className="font-semibold text-noble-text uppercase">{formData.sku || 'N/A'}</span>
                                     </div>
                                     <div className="flex items-center justify-between text-xs">
-                                        <span className="font-bold text-slate-500">Stock</span>
-                                        <span className="font-semibold text-slate-900">
+                                        <span className="font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500">Stock</span>
+                                        <span className="font-semibold text-noble-text">
                                             {!isProduct ? 'Unlimited' : (formData.initialStock || '0')}
                                         </span>
                                     </div>
                                     <div className="flex items-center justify-between text-xs">
-                                        <span className="font-bold text-slate-500">Status</span>
+                                        <span className="font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500">Status</span>
                                         <span className="px-2 py-0.5 rounded bg-emerald-50 text-emerald-600 font-bold">
                                             Active
                                         </span>
@@ -629,7 +629,7 @@ export default function NewProductPage() {
                         </div>
 
                         {/* Quick Tips */}
-                        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                        <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm">
                             <div className="flex items-center gap-2 mb-5 text-[#006970]">
                                 <Lightbulb className="w-4 h-4" />
                                 <h3 className="font-bold text-sm">Quick Tips</h3>
@@ -640,8 +640,8 @@ export default function NewProductPage() {
                                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                                     </div>
                                     <div>
-                                        <p className="text-[13px] font-bold text-slate-900">Use clear, descriptive names</p>
-                                        <p className="text-[11px] text-slate-500 leading-snug mt-0.5">Helps you and your clients understand easily.</p>
+                                        <p className="text-[13px] font-bold text-noble-text">Use clear, descriptive names</p>
+                                        <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-snug mt-0.5">Helps you and your clients understand easily.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-3">
@@ -649,8 +649,8 @@ export default function NewProductPage() {
                                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                                     </div>
                                     <div>
-                                        <p className="text-[13px] font-bold text-slate-900">Set correct tax rates</p>
-                                        <p className="text-[11px] text-slate-500 leading-snug mt-0.5">Ensure accurate invoicing and compliance.</p>
+                                        <p className="text-[13px] font-bold text-noble-text">Set correct tax rates</p>
+                                        <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-snug mt-0.5">Ensure accurate invoicing and compliance.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-3">
@@ -658,8 +658,8 @@ export default function NewProductPage() {
                                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                                     </div>
                                     <div>
-                                        <p className="text-[13px] font-bold text-slate-900">Add images for easy recognition</p>
-                                        <p className="text-[11px] text-slate-500 leading-snug mt-0.5">Visual items are easier to manage.</p>
+                                        <p className="text-[13px] font-bold text-noble-text">Add images for easy recognition</p>
+                                        <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-snug mt-0.5">Visual items are easier to manage.</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-3">
@@ -667,8 +667,8 @@ export default function NewProductPage() {
                                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                                     </div>
                                     <div>
-                                        <p className="text-[13px] font-bold text-slate-900">Track inventory for stock items</p>
-                                        <p className="text-[11px] text-slate-500 leading-snug mt-0.5">Stay on top of your stock levels.</p>
+                                        <p className="text-[13px] font-bold text-noble-text">Track inventory for stock items</p>
+                                        <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-snug mt-0.5">Stay on top of your stock levels.</p>
                                     </div>
                                 </div>
                             </div>

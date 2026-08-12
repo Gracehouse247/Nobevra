@@ -42,15 +42,15 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
   const renderLogo = (size = "w-24 h-24", light = false) => {
     if ((sender as any)?.brand_logo_url) {
       return (
-        <div className={`${size} rounded-2xl overflow-hidden shadow-sm flex items-center justify-center bg-white/10 backdrop-blur-md transition-all duration-500`}>
+        <div className={`${size} rounded-2xl overflow-hidden shadow-sm flex items-center justify-center bg-noble-surface/10 backdrop-blur-md transition-all duration-500`}>
           <img src={(sender as any).brand_logo_url} alt="Logo" className="w-full h-full object-contain p-2" />
         </div>
       );
     }
     
-    const borderColor = light ? 'border-white/30' : 'border-slate-200';
+    const borderColor = light ? 'border-white/30' : 'border-noble-border';
     const textColor = light ? 'text-white/40' : 'text-slate-300';
-    const bgColor = light ? 'bg-white/5' : 'bg-slate-50/50';
+    const bgColor = light ? 'bg-noble-surface/5' : 'bg-slate-50/50';
 
     return (
       <div className={`${size} rounded-2xl border-2 border-dashed ${borderColor} flex flex-col items-center justify-center gap-2 ${bgColor} backdrop-blur-sm group transition-all`}>
@@ -74,7 +74,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
         <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-4 flex items-center gap-2">
            <Building2 className="w-3 h-3" /> Sender Details
         </p>
-        <p className="font-black text-slate-900 text-2xl tracking-tighter leading-tight mb-2">{sender?.full_name || 'Business Name'}</p>
+        <p className="font-black text-noble-text text-2xl tracking-tighter leading-tight mb-2">{sender?.full_name || 'Business Name'}</p>
         <div className="space-y-2">
           <div className="flex items-start gap-3 text-slate-500">
              <MapPin className="w-3.5 h-3.5 mt-1 shrink-0 opacity-50" />
@@ -99,7 +99,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
         <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-4 flex items-center gap-2">
            <User className="w-3 h-3" /> Recipient
         </p>
-        <p className="font-black text-slate-900 text-2xl tracking-tighter leading-tight mb-2">{client?.name || 'Client Name'}</p>
+        <p className="font-black text-noble-text text-2xl tracking-tighter leading-tight mb-2">{client?.name || 'Client Name'}</p>
         <div className="space-y-2">
           <div className="flex items-start gap-3 text-slate-500">
              <MapPin className="w-3.5 h-3.5 mt-1 shrink-0 opacity-50" />
@@ -193,10 +193,10 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
 
     // Determine text color for header based on background
     const isHeaderDark = (!id.startsWith('creative-') || id === 'creative-fluid-wave' || id === 'creative-grey-topography' || id === 'creative-teal-grunge' || id === 'creative-dual-geo' || id === 'creative-blue-poly' || id === 'creative-azure-wave' || id === 'creative-iso-grid' || id === 'creative-soft-ripples' || id === 'creative-teal-liquid') && id !== 'geo-austen' && id !== 'geo-proforma' && id !== 'ess-minimal-grid';
-    const thColorClass = id === 'geo-austen' ? 'text-[#1E3A8A]' : (isHeaderDark ? 'text-white' : 'text-slate-900');
+    const thColorClass = id === 'geo-austen' ? 'text-[#1E3A8A]' : (isHeaderDark ? 'text-white' : 'text-noble-text');
     thClass = thClass.replace('text-white', thColorClass);
 
-    const rowBgColor = id.startsWith('creative-') ? 'bg-white/70 backdrop-blur-sm' : 'bg-white';
+    const rowBgColor = id.startsWith('creative-') ? 'bg-noble-surface/70 backdrop-blur-sm' : 'bg-noble-surface';
     const altRowBgColor = id.startsWith('creative-') ? 'bg-slate-100/70 backdrop-blur-sm' : 'bg-slate-50';
     
     if (isBordered) {
@@ -237,7 +237,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
                   }`}
                 >
                   <td className={tdClass}>
-                    <p className="font-black text-slate-900 text-[18px] mb-2">{item.name || 'Untitled Item'}</p>
+                    <p className="font-black text-noble-text text-[18px] mb-2">{item.name || 'Untitled Item'}</p>
                   </td>
                   <td className={`${tdClass} text-center`}>
                     <span className="font-black text-slate-600 text-lg">{item.quantity}</span>
@@ -245,7 +245,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
                   <td className={`${tdClass} text-right font-bold text-slate-600 text-lg`}>
                     {data.currencySymbol}{(item.price || 0).toLocaleString()}
                   </td>
-                  <td className={`${tdClass} text-right font-black text-slate-900 text-xl`}>
+                  <td className={`${tdClass} text-right font-black text-noble-text text-xl`}>
                     {data.currencySymbol}{((item.quantity || 0) * (item.price || 0)).toLocaleString()}
                   </td>
                 </tr>
@@ -349,12 +349,12 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
            <div className="w-[40%] text-right">
               <div className="flex justify-between py-2 font-bold text-slate-400 text-sm">
                  <span>Subtotal</span>
-                 <span className="text-slate-900">{data.currencySymbol}{(data.subtotal || 0).toLocaleString()}</span>
+                 <span className="text-noble-text">{data.currencySymbol}{(data.subtotal || 0).toLocaleString()}</span>
               </div>
               {data.taxTotal > 0 && (
                 <div className="flex justify-between py-2 font-bold text-slate-400 text-sm">
                    <span>Tax Total</span>
-                   <span className="text-slate-900">{data.currencySymbol}{(data.taxTotal || 0).toLocaleString()}</span>
+                   <span className="text-noble-text">{data.currencySymbol}{(data.taxTotal || 0).toLocaleString()}</span>
                 </div>
               )}
               <div className="h-1 w-full bg-slate-100 mt-4 rounded-full" />
@@ -383,7 +383,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
              </div>
            )}
            <div className="flex justify-between items-center py-6 border-t-4 mt-2" style={{ borderTopColor: isTransparentSummary ? 'transparent' : totalBgColor }}>
-              <span className="font-black uppercase tracking-[0.3em] text-slate-900 text-sm">Amount Due In Full</span>
+              <span className="font-black uppercase tracking-[0.3em] text-noble-text text-sm">Amount Due In Full</span>
               <span className="font-black text-4xl tracking-tighter" style={{ color: isTransparentSummary ? '#1E293B' : totalBgColor }}>{data.currencySymbol}{(data.total || 0).toLocaleString()}</span>
            </div>
         </div>
@@ -400,7 +400,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
     const headerHandlesSender = id.startsWith('creative-') || id.startsWith('prof-') || id.startsWith('plat-') || id === 'ess-steel-minimal' || id === 'ess-navy-lines' || id === 'ess-orange-blob' || id === 'ess-blue-angle' || id === 'ess-blue-curve' || id === 'ess-dark-orange-wave' || id === 'prof-blue-wave-premium' || id === 'prof-blue-curved-banner';
 
     return (
-    <div className={`bg-white shadow-[0_48px_128px_-32px_rgba(0,0,0,0.2)] ${containerRounding} w-full h-full flex flex-col overflow-hidden ${fontClass} relative border border-slate-100 transition-all duration-700 ease-in-out`}>
+    <div className={`bg-noble-surface shadow-[0_48px_128px_-32px_rgba(0,0,0,0.2)] ${containerRounding} w-full h-full flex flex-col overflow-hidden ${fontClass} relative border border-slate-100 transition-all duration-700 ease-in-out`}>
       {renderBackground()}
 
       {/* Design Flourish for Premium/Creative - Subtle and Professional */}
@@ -423,7 +423,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
                    <User className="w-3.5 h-3.5" /> BILL TO
                 </p>
                 <div className="space-y-4">
-                   <p className="font-black text-slate-900 text-3xl tracking-tighter leading-tight">{client?.name || 'Client Name'}</p>
+                   <p className="font-black text-noble-text text-3xl tracking-tighter leading-tight">{client?.name || 'Client Name'}</p>
                    <div className="space-y-2 text-slate-500 font-bold text-sm leading-relaxed">
                       {client?.address && (
                         <div className="flex items-start gap-3">
@@ -448,7 +448,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
                 </p>
                 <div className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3">
                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest text-left">INVOICE NUMBER</span>
-                   <span className="text-sm font-black text-slate-900">: # {data.invoiceNumber}</span>
+                   <span className="text-sm font-black text-noble-text">: # {data.invoiceNumber}</span>
                    
                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest text-left">DATE</span>
                    <span className="text-sm font-bold text-slate-600">: {data.date}</span>
@@ -457,7 +457,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
                    <span className="text-sm font-bold text-slate-600">: {data.dueDate}</span>
                    
                    <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest text-left">CURRENCY</span>
-                   <span className="text-sm font-black text-slate-900">: {data.currencySymbol}</span>
+                   <span className="text-sm font-black text-noble-text">: {data.currencySymbol}</span>
                 </div>
              </div>
           </div>
@@ -476,7 +476,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
         <div className="grid grid-cols-12 gap-8 items-start">
           <div className="col-span-3 p-4 rounded-2xl bg-slate-50 border border-slate-100 relative group transition-all flex flex-col justify-center min-h-[140px]">
             <div className="flex items-center gap-2 mb-2">
-              <div className="w-5 h-5 rounded-full bg-white flex items-center justify-center shadow-sm">
+              <div className="w-5 h-5 rounded-full bg-noble-surface flex items-center justify-center shadow-sm">
                 <FileText className="w-3 h-3 text-slate-400" />
               </div>
               <h3 className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em]">Terms & Policy</h3>
@@ -496,13 +496,13 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
                 <div className="flex flex-col items-end">
                    <div className="flex items-center gap-1.5 mb-0.5">
                      <CheckCircle2 className="w-2.5 h-2.5 text-emerald-500" />
-                     <p className="text-[8px] font-black text-slate-900 uppercase tracking-[0.2em]">Verified Official Seal</p>
+                     <p className="text-[8px] font-black text-noble-text uppercase tracking-[0.2em]">Verified Official Seal</p>
                    </div>
                    <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">{sender?.full_name || 'Authorized Official'}</p>
                 </div>
               </div>
             ) : (
-              <div className="w-full max-w-[240px] aspect-[2.4/1] border-2 border-dashed border-slate-200 rounded-2xl flex flex-col items-center justify-center gap-3 bg-slate-50/50 group hover:border-slate-300 transition-all cursor-default overflow-hidden relative">
+              <div className="w-full max-w-[240px] aspect-[2.4/1] border-2 border-dashed border-noble-border rounded-2xl flex flex-col items-center justify-center gap-3 bg-slate-50/50 group hover:border-slate-300 transition-all cursor-default overflow-hidden relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent to-slate-100/50 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <Signature className="w-8 h-8 text-slate-300 group-hover:scale-110 transition-transform duration-500" />
                 <div className="text-center">

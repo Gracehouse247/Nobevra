@@ -84,12 +84,16 @@ function getPulseEntitlements(): EntitlementsData {
 
     // Branding (the primary upgrade motivator from free)
     'brand.whitelabel': null,   // Remove "Powered by NobleInvoice" watermark
+    'brand.studio': null,       // Professional Identity Studio
 
     // Multi-Currency (moved from Elite — common freelancer need)
     'wallet.multicurrency': null,
 
-    // NFC Smart Cards
+    // NFC Smart Cards & Networking
     'networking.nfc': null,
+    
+    // AI Features
+    'ai.voice': null,           // AI Voice Assistant
   };
 }
 

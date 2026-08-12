@@ -18,7 +18,7 @@ export const AveryExecutiveBackground: React.FC<AveryExecutiveBackgroundProps> =
         <>
           {/* Large White Sweep */}
           <div 
-            className="absolute top-[-20%] right-[-15%] w-[80%] h-[140%] bg-white shadow-2xl"
+            className="absolute top-[-20%] right-[-15%] w-[80%] h-[140%] bg-noble-surface shadow-2xl"
             style={{ borderRadius: '50% 0 0 50%' }}
           />
           
@@ -40,7 +40,7 @@ export const AveryExecutiveBackground: React.FC<AveryExecutiveBackgroundProps> =
         <>
             {/* Mirrored Large White Sweep */}
             <div 
-                className="absolute top-[-20%] left-[-15%] w-[80%] h-[140%] bg-white shadow-2xl"
+                className="absolute top-[-20%] left-[-15%] w-[80%] h-[140%] bg-noble-surface shadow-2xl"
                 style={{ borderRadius: '0 50% 50% 0' }}
             />
             

@@ -94,9 +94,28 @@ export const clientService = {
     },
 
     async updateClient(clientId: string, updates: any, lastUpdatedAt?: string) {
+        // Whitelist only columns that exist in the clients table.
+        // Note: the DB column is 'company_name', not 'company'. We remap it here
+        // so the frontend form key ('company') is saved to the correct column.
+        const FIELD_MAP: Record<string, string> = {
+            company: 'company_name', // form key → actual DB column
+        };
+        const ALLOWED_FIELDS = [
+            'name', 'email', 'phone', 'company_name', 'address', 'city', 'country',
+            'country_code', 'lead_status', 'notes', 'tags', 'metadata',
+            'position', 'website',
+        ];
+        // Remap any aliased keys then keep only allowed columns
+        const remapped = Object.fromEntries(
+            Object.entries(updates).map(([k, v]) => [FIELD_MAP[k] ?? k, v])
+        );
+        const safeUpdates = Object.fromEntries(
+            Object.entries(remapped).filter(([k]) => ALLOWED_FIELDS.includes(k))
+        );
+
         let query = supabase
             .from('clients')
-            .update({ ...updates, updated_at: new Date().toISOString() })
+            .update({ ...safeUpdates, updated_at: new Date().toISOString() })
             .eq('id', clientId);
         
         if (lastUpdatedAt) {
@@ -106,6 +125,13 @@ export const clientService = {
         const { data, error } = await query.select().single();
         
         if (error) {
+            // JSON.stringify is required — Supabase error properties are non-enumerable
+            console.error('[clientService.updateClient] Supabase error:', JSON.stringify({
+                message: error.message,
+                code: error.code,
+                details: error.details,
+                hint: error.hint,
+            }), { clientId, safeUpdates });
             if (error.code === 'PGRST116') {
                 throw new Error('Conflict: Data was modified by another device since last sync.');
             }
@@ -113,6 +139,7 @@ export const clientService = {
         }
         return data;
     },
+
 
     async deleteClient(clientId: string) {
         const { error } = await supabase

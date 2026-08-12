@@ -27,7 +27,7 @@ export function InvoicingForm({ taxNumber, invoiceFooter, onChange, onSubmit, on
           type="text"
           value={taxNumber}
           onChange={(e) => onChange('taxNumber', e.target.value)}
-          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
+          className="w-full px-4 py-3 rounded-xl border border-noble-border focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all"
           placeholder="e.g. GB123456789"
         />
       </div>
@@ -39,7 +39,7 @@ export function InvoicingForm({ taxNumber, invoiceFooter, onChange, onSubmit, on
           value={invoiceFooter}
           onChange={(e) => onChange('invoiceFooter', e.target.value)}
           rows={3}
-          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none"
+          className="w-full px-4 py-3 rounded-xl border border-noble-border focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all resize-none"
           placeholder="Thank you for your business!"
         />
       </div>
@@ -63,7 +63,7 @@ export function InvoicingForm({ taxNumber, invoiceFooter, onChange, onSubmit, on
           type="button"
           onClick={onSkip}
           disabled={isSubmitting}
-          className="w-full py-4 bg-white text-slate-500 rounded-xl font-semibold hover:bg-slate-50 hover:text-slate-700 transition-colors disabled:opacity-50"
+          className="w-full py-4 bg-noble-surface text-slate-500 rounded-xl font-semibold hover:bg-slate-50 hover:text-slate-700 transition-colors disabled:opacity-50"
         >
           Skip for now
         </button>

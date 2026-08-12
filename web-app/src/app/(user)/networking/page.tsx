@@ -16,7 +16,7 @@ import PremiumBadge from '@/components/shared/PremiumBadge';
 
 // ── Tiny skeleton shimmer ─────────────────────────────────────────────────────
 const Skeleton = ({ className = '' }: { className?: string }) => (
-    <div className={`animate-pulse bg-slate-100 rounded-lg ${className}`} />
+    <div className={`animate-pulse bg-slate-100 dark:bg-[#112030] rounded-lg ${className}`} />
 );
 
 // ── Trend pill (reused in KPI cards) ─────────────────────────────────────────
@@ -24,7 +24,7 @@ type Trend = { pct: number; dir: 'up' | 'down' | 'flat' };
 const TrendPill = ({ trend, suffix = '%' }: { trend: Trend | null; suffix?: string }) => {
     if (!trend) return <Skeleton className="h-4 w-28 mt-1" />;
     if (trend.dir === 'flat') return (
-        <p className="text-[12px] font-semibold text-slate-400 flex items-center gap-1 mt-1">
+        <p className="text-[12px] font-semibold text-slate-400 dark:text-slate-500 flex items-center gap-1 mt-1">
             <Minus size={12} /> No change vs period
         </p>
     );
@@ -32,7 +32,7 @@ const TrendPill = ({ trend, suffix = '%' }: { trend: Trend | null; suffix?: stri
     return (
         <p className={`text-[12px] font-semibold flex items-center gap-1 mt-1 ${up ? 'text-emerald-600' : 'text-red-500'}`}>
             {up ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
-            {trend.pct}{suffix} <span className="text-slate-400 font-normal">vs prev period</span>
+            {trend.pct}{suffix} <span className="text-slate-400 dark:text-slate-500 font-normal">vs prev period</span>
         </p>
     );
 };
@@ -313,16 +313,16 @@ export default function NetworkIntelligencePage() {
     // RENDER
     // ═══════════════════════════════════════════════════════════════════════════
     return (
-        <div className="min-h-screen bg-[#F8FAFC] pb-24 font-inter text-slate-800">
+        <div className="min-h-screen bg-[#F8FAFC] dark:bg-transparent dark:bg-[#060D1A] pb-24 font-inter text-slate-800 dark:text-slate-100">
             <div className="max-w-[1400px] mx-auto px-6 lg:px-8 pt-8">
 
                 {/* ── Breadcrumbs ── */}
-                <div className="flex items-center gap-2 text-[13px] font-medium text-slate-400 mb-6">
+                <div className="flex items-center gap-2 text-[13px] font-medium text-slate-400 dark:text-slate-500 mb-6">
                     <span>Workspace</span>
                     <span>›</span>
-                    <Link href="/networking" className="hover:text-slate-700 transition-colors">Smart Connect</Link>
+                    <Link href="/networking" className="hover:text-slate-700 dark:text-slate-200 transition-colors">Smart Connect</Link>
                     <span>›</span>
-                    <span className="text-slate-900 font-semibold">Network Intelligence</span>
+                    <span className="text-noble-text font-semibold">Network Intelligence</span>
                 </div>
 
                 {/* ── Page Header ── */}
@@ -333,13 +333,13 @@ export default function NetworkIntelligencePage() {
                         </div>
                         <div>
                             <div className="flex items-center gap-3">
-                                <h1 className="text-[19px] font-bold text-slate-900 leading-tight">Network Intelligence</h1>
+                                <h1 className="text-[19px] font-bold text-noble-text leading-tight">Network Intelligence</h1>
                                 <span className="px-2 py-0.5 bg-emerald-50 border border-emerald-100 text-emerald-600 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1.5">
                                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
                                     Live
                                 </span>
                             </div>
-                            <p className="text-[13px] text-slate-500 mt-0.5">Profile Engagement Analytics</p>
+                            <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5">Profile Engagement Analytics</p>
                         </div>
                     </div>
 
@@ -348,18 +348,18 @@ export default function NetworkIntelligencePage() {
                         <div className="relative" ref={datePickerRef}>
                             <button
                                 onClick={() => setIsDatePickerOpen(v => !v)}
-                                className="flex items-center gap-2 px-3.5 py-2 bg-white border border-slate-200 rounded-xl text-[13px] font-semibold text-slate-700 hover:bg-slate-50 transition-colors shadow-sm"
+                                className="flex items-center gap-2 px-3.5 py-2 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl text-[13px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-colors shadow-sm"
                             >
                                 {dateFilter.label}
-                                <ChevronDown size={14} className={`text-slate-400 transition-transform ${isDatePickerOpen ? 'rotate-180' : ''}`} />
+                                <ChevronDown size={14} className={`text-slate-400 dark:text-slate-500 transition-transform ${isDatePickerOpen ? 'rotate-180' : ''}`} />
                             </button>
                             {isDatePickerOpen && (
-                                <div className="absolute right-0 top-full mt-2 w-44 bg-white border border-slate-200 rounded-xl shadow-lg z-50 overflow-hidden">
+                                <div className="absolute right-0 top-full mt-2 w-44 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-xl shadow-lg z-50 overflow-hidden">
                                     {DATE_OPTIONS.map(opt => (
                                         <button
                                             key={opt.days}
                                             onClick={() => { setDateFilter(opt); setIsDatePickerOpen(false); }}
-                                            className={`w-full text-left px-4 py-2.5 text-[13px] font-medium transition-colors hover:bg-slate-50 ${dateFilter.days === opt.days ? 'text-[#166FBB] font-bold bg-blue-50' : 'text-slate-700'}`}
+                                            className={`w-full text-left px-4 py-2.5 text-[13px] font-medium transition-colors hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] ${dateFilter.days === opt.days ? 'text-[#166FBB] font-bold bg-blue-50' : 'text-slate-700 dark:text-slate-200'}`}
                                         >
                                             {opt.label}
                                         </button>
@@ -368,7 +368,7 @@ export default function NetworkIntelligencePage() {
                             )}
                         </div>
 
-                        <button onClick={() => fetchTelemetry()} title="Refresh" className="flex items-center justify-center w-9 h-9 rounded-xl border border-slate-200 text-slate-500 hover:bg-slate-50 hover:text-slate-700 transition-colors shadow-sm bg-white">
+                        <button onClick={() => fetchTelemetry()} title="Refresh" className="flex items-center justify-center w-9 h-9 rounded-xl border border-noble-border text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] hover:text-slate-700 dark:text-slate-200 transition-colors shadow-sm bg-noble-surface dark:bg-noble-card">
                             <RefreshCw size={14} />
                         </button>
 
@@ -385,48 +385,48 @@ export default function NetworkIntelligencePage() {
                 {/* ── KPI Cards ── */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
                     {/* Total Scans */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
+                    <div className="bg-noble-surface dark:bg-noble-card p-5 rounded-2xl border border-noble-border shadow-sm hover:shadow-md transition-all group">
                         <div className="flex justify-between items-start mb-4">
                             <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100/80 flex items-center justify-center text-[#166FBB] group-hover:scale-105 transition-transform">
                                 <QrCode size={19} />
                             </div>
                             {!loading && scansTrend && (
-                                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${scansTrend.dir === 'up' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : scansTrend.dir === 'down' ? 'bg-red-50 text-red-500 border-red-100' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
+                                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${scansTrend.dir === 'up' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : scansTrend.dir === 'down' ? 'bg-red-50 text-red-500 border-red-100' : 'bg-slate-50 dark:bg-[#0D1B2E] text-slate-400 dark:text-slate-500 border-slate-100 dark:border-noble-border'}`}>
                                     {scansTrend.dir === 'up' ? '↑' : scansTrend.dir === 'down' ? '↓' : '—'} {scansTrend.pct}%
                                 </span>
                             )}
                         </div>
-                        <p className="text-[12px] text-slate-500 font-medium mb-1">Total Scans</p>
+                        <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mb-1">Total Scans</p>
                         {loading ? <Skeleton className="h-8 w-20 mb-2" /> : (
-                            <h3 className="text-[26px] font-bold text-slate-900 tracking-tight leading-none mb-1">{totalScans.toLocaleString()}</h3>
+                            <h3 className="text-[26px] font-bold text-noble-text tracking-tight leading-none mb-1">{totalScans.toLocaleString()}</h3>
                         )}
                         {!loading && uniqueScans !== totalScans && (
-                            <p className="text-[10px] text-slate-400 font-medium mb-0.5">{uniqueScans.toLocaleString()} unique</p>
+                            <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium mb-0.5">{uniqueScans.toLocaleString()} unique</p>
                         )}
                         <TrendPill trend={loading ? null : scansTrend} />
                     </div>
 
                     {/* Leads Captured */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
+                    <div className="bg-noble-surface dark:bg-noble-card p-5 rounded-2xl border border-noble-border shadow-sm hover:shadow-md transition-all group">
                         <div className="flex justify-between items-start mb-4">
                             <div className="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-100/80 flex items-center justify-center text-emerald-600 group-hover:scale-105 transition-transform">
                                 <Users size={19} />
                             </div>
                             {!loading && leadsTrend && (
-                                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${leadsTrend.dir === 'up' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : leadsTrend.dir === 'down' ? 'bg-red-50 text-red-500 border-red-100' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
+                                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${leadsTrend.dir === 'up' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : leadsTrend.dir === 'down' ? 'bg-red-50 text-red-500 border-red-100' : 'bg-slate-50 dark:bg-[#0D1B2E] text-slate-400 dark:text-slate-500 border-slate-100 dark:border-noble-border'}`}>
                                     {leadsTrend.dir === 'up' ? '↑' : leadsTrend.dir === 'down' ? '↓' : '—'} {leadsTrend.pct}%
                                 </span>
                             )}
                         </div>
-                        <p className="text-[12px] text-slate-500 font-medium mb-1">Leads Captured</p>
+                        <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mb-1">Leads Captured</p>
                         {loading ? <Skeleton className="h-8 w-16 mb-2" /> : (
-                            <h3 className="text-[26px] font-bold text-slate-900 tracking-tight leading-none mb-1">{leadsCaptured.toLocaleString()}</h3>
+                            <h3 className="text-[26px] font-bold text-noble-text tracking-tight leading-none mb-1">{leadsCaptured.toLocaleString()}</h3>
                         )}
                         <TrendPill trend={loading ? null : leadsTrend} />
                     </div>
 
                     {/* Conversion Rate */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
+                    <div className="bg-noble-surface dark:bg-noble-card p-5 rounded-2xl border border-noble-border shadow-sm hover:shadow-md transition-all group">
                         <div className="flex justify-between items-start mb-4">
                             <div className="w-10 h-10 rounded-xl bg-amber-50 border border-amber-100/80 flex items-center justify-center text-amber-500 group-hover:scale-105 transition-transform">
                                 <Target size={19} />
@@ -437,15 +437,15 @@ export default function NetworkIntelligencePage() {
                                 </span>
                             )}
                         </div>
-                        <p className="text-[12px] text-slate-500 font-medium mb-1">Conversion Rate</p>
+                        <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mb-1">Conversion Rate</p>
                         {loading ? <Skeleton className="h-8 w-24 mb-2" /> : (
-                            <h3 className="text-[26px] font-bold text-slate-900 tracking-tight leading-none mb-1">{conversionRate}%</h3>
+                            <h3 className="text-[26px] font-bold text-noble-text tracking-tight leading-none mb-1">{conversionRate}%</h3>
                         )}
                         <TrendPill trend={loading ? null : convRateTrend} suffix=" pts" />
                     </div>
 
                     {/* Presence Score */}
-                    <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all group">
+                    <div className="bg-noble-surface dark:bg-noble-card p-5 rounded-2xl border border-noble-border shadow-sm hover:shadow-md transition-all group">
                         <div className="flex justify-between items-start mb-4">
                             <div className="w-10 h-10 rounded-xl bg-purple-50 border border-purple-100/80 flex items-center justify-center text-purple-500 group-hover:scale-105 transition-transform">
                                 <Activity size={19} />
@@ -454,16 +454,16 @@ export default function NetworkIntelligencePage() {
                                 {loading ? '—' : presenceScoreStatus}
                             </span>
                         </div>
-                        <p className="text-[12px] text-slate-500 font-medium mb-1">Presence Score</p>
+                        <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mb-1">Presence Score</p>
                         {loading ? <Skeleton className="h-8 w-20 mb-2" /> : (
-                            <h3 className="text-[26px] font-bold text-slate-900 tracking-tight leading-none mb-1 flex items-baseline gap-1">
-                                {presenceScore ?? '—'}<span className="text-[14px] text-slate-400 font-medium">/100</span>
+                            <h3 className="text-[26px] font-bold text-noble-text tracking-tight leading-none mb-1 flex items-baseline gap-1">
+                                {presenceScore ?? '—'}<span className="text-[14px] text-slate-400 dark:text-slate-500 font-medium">/100</span>
                             </h3>
                         )}
                         {!loading && presenceScoreDelta !== null ? (
                             <p className={`text-[12px] font-semibold flex items-center gap-1 mt-1 ${presenceScoreDelta >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
                                 {presenceScoreDelta >= 0 ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
-                                {Math.abs(presenceScoreDelta)} pts <span className="text-slate-400 font-normal">change</span>
+                                {Math.abs(presenceScoreDelta)} pts <span className="text-slate-400 dark:text-slate-500 font-normal">change</span>
                             </p>
                         ) : loading ? <Skeleton className="h-4 w-24 mt-1" /> : null}
                     </div>
@@ -478,7 +478,7 @@ export default function NetworkIntelligencePage() {
 
                         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 h-full">
                             <div className="max-w-sm">
-                                <div className="inline-flex items-center gap-2 text-white/70 font-bold tracking-widest text-[10px] uppercase mb-3 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+                                <div className="inline-flex items-center gap-2 text-white/70 font-bold tracking-widest text-[10px] uppercase mb-3 bg-noble-surface dark:bg-noble-card/5 border border-white/10 px-3 py-1.5 rounded-full">
                                     <Zap size={12} className="fill-white/60" /> INTEREVENT MODE
                                 </div>
                                 <p className="text-[18px] font-semibold leading-snug mb-6 text-white/90">
@@ -515,9 +515,9 @@ export default function NetworkIntelligencePage() {
                             </div>
 
                             {/* QR Code display */}
-                            <div className="shrink-0 p-4 bg-white/8 backdrop-blur-md rounded-3xl border border-white/15 shadow-2xl relative">
+                            <div className="shrink-0 p-4 bg-noble-surface dark:bg-noble-card/8 backdrop-blur-md rounded-3xl border border-white/15 shadow-2xl relative">
                                 <div className="absolute inset-0 bg-[#166FBB] blur-[50px] opacity-15 rounded-3xl" />
-                                <div className="bg-white p-3 rounded-2xl relative">
+                                <div className="bg-noble-surface dark:bg-noble-card p-3 rounded-2xl relative">
                                     <QrCode size={112} className="text-[#0A192F]" />
                                 </div>
                             </div>
@@ -525,17 +525,17 @@ export default function NetworkIntelligencePage() {
                     </div>
 
                     {/* Digital Identity Card */}
-                    <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
+                    <div className="bg-noble-surface dark:bg-noble-card rounded-3xl border border-noble-border p-6 shadow-sm flex flex-col justify-between">
                         <div>
                             <div className="flex items-center justify-between mb-4">
-                                <h3 className="text-[16px] font-bold text-slate-900">Your Digital Identity</h3>
+                                <h3 className="text-[16px] font-bold text-noble-text">Your Digital Identity</h3>
                                 {primaryIdentity && (
                                     <Link href="/studio" className="text-[11px] font-bold text-[#166FBB] hover:underline">Edit →</Link>
                                 )}
                             </div>
 
                             {/* Identity preview card */}
-                            <div className="p-4 border border-slate-100 bg-gradient-to-br from-slate-50 to-white rounded-2xl mb-5 shadow-inner">
+                            <div className="p-4 border border-slate-100 dark:border-noble-border bg-gradient-to-br from-slate-50 to-white rounded-2xl mb-5 shadow-inner">
                                 <div className="flex items-center gap-3 mb-4">
                                     <div className="w-11 h-11 bg-gradient-to-br from-[#166FBB] to-blue-700 rounded-xl flex items-center justify-center shrink-0 text-white font-bold text-lg overflow-hidden shadow-md">
                                         {primaryIdentity?.card_image_url ? (
@@ -545,11 +545,11 @@ export default function NetworkIntelligencePage() {
                                         )}
                                     </div>
                                     <div className="overflow-hidden">
-                                        <h4 className="text-[14px] font-bold text-slate-900 truncate">
-                                            {primaryIdentity?.full_name || <span className="text-slate-400 italic">Setup your profile</span>}
+                                        <h4 className="text-[14px] font-bold text-noble-text truncate">
+                                            {primaryIdentity?.full_name || <span className="text-slate-400 dark:text-slate-500 italic">Setup your profile</span>}
                                         </h4>
-                                        <p className="text-[12px] text-slate-500 truncate flex items-center gap-1 mt-0.5">
-                                            {primaryIdentity?.job_title || <span className="text-slate-400 italic">Add a job title</span>}
+                                        <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 truncate flex items-center gap-1 mt-0.5">
+                                            {primaryIdentity?.job_title || <span className="text-slate-400 dark:text-slate-500 italic">Add a job title</span>}
                                             {primaryIdentity && <CheckCircle2 size={11} className="text-[#166FBB] shrink-0" />}
                                         </p>
                                     </div>
@@ -558,22 +558,22 @@ export default function NetworkIntelligencePage() {
                                 {/* Social links */}
                                 <div className="flex items-center gap-2">
                                     {primaryIdentity?.website && (
-                                        <a href={primaryIdentity.website.startsWith('http') ? primaryIdentity.website : `https://${primaryIdentity.website}`} target="_blank" rel="noreferrer" className="w-8 h-8 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-500 hover:text-[#166FBB] hover:border-[#166FBB] transition-colors shadow-sm" title="Website">
+                                        <a href={primaryIdentity.website.startsWith('http') ? primaryIdentity.website : `https://${primaryIdentity.website}`} target="_blank" rel="noreferrer" className="w-8 h-8 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:text-[#166FBB] hover:border-[#166FBB] transition-colors shadow-sm" title="Website">
                                             <Globe size={13} />
                                         </a>
                                     )}
                                     {primaryIdentity?.email && (
-                                        <a href={`mailto:${primaryIdentity.email}`} className="w-8 h-8 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-500 hover:text-[#166FBB] hover:border-[#166FBB] transition-colors shadow-sm" title="Email">
+                                        <a href={`mailto:${primaryIdentity.email}`} className="w-8 h-8 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:text-[#166FBB] hover:border-[#166FBB] transition-colors shadow-sm" title="Email">
                                             <Mail size={13} />
                                         </a>
                                     )}
                                     {primaryIdentity?.phone && (
-                                        <a href={`tel:${primaryIdentity.phone}`} className="w-8 h-8 bg-white border border-slate-200 rounded-full flex items-center justify-center text-slate-500 hover:text-[#166FBB] hover:border-[#166FBB] transition-colors shadow-sm" title="Phone">
+                                        <a href={`tel:${primaryIdentity.phone}`} className="w-8 h-8 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-full flex items-center justify-center text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:text-[#166FBB] hover:border-[#166FBB] transition-colors shadow-sm" title="Phone">
                                             <Smartphone size={13} />
                                         </a>
                                     )}
                                     {!primaryIdentity?.website && !primaryIdentity?.email && !primaryIdentity?.phone && (
-                                        <span className="text-[11px] text-slate-400 italic">No links added</span>
+                                        <span className="text-[11px] text-slate-400 dark:text-slate-500 italic">No links added</span>
                                     )}
                                 </div>
                             </div>
@@ -583,17 +583,17 @@ export default function NetworkIntelligencePage() {
                             {/* Profile Completeness */}
                             <div className="mb-5">
                                 <div className="flex justify-between items-center mb-2">
-                                    <span className="text-[12px] font-bold text-slate-700">Profile Completeness</span>
+                                    <span className="text-[12px] font-bold text-slate-700 dark:text-slate-200">Profile Completeness</span>
                                     <span className="text-[12px] font-bold text-[#166FBB]">{profileCompleteness}%</span>
                                 </div>
-                                <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                                <div className="w-full h-1.5 bg-slate-100 dark:bg-[#112030] rounded-full overflow-hidden">
                                     <div
                                         className="h-full bg-gradient-to-r from-blue-400 to-[#166FBB] transition-all duration-1000 ease-out rounded-full"
                                         style={{ width: `${profileCompleteness}%` }}
                                     />
                                 </div>
                                 {profileCompleteness < 100 && (
-                                    <p className="text-[11px] text-slate-400 mt-1.5">Complete your profile to boost your Presence Score.</p>
+                                    <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1.5">Complete your profile to boost your Presence Score.</p>
                                 )}
                             </div>
 
@@ -605,7 +605,7 @@ export default function NetworkIntelligencePage() {
                                     }
                                     setIsNfcSetupOpen(true);
                                 }}
-                                className="w-full py-3 bg-slate-50 border border-slate-200 rounded-xl text-[13px] font-bold text-slate-700 hover:bg-slate-100 transition-colors flex items-center justify-center gap-2"
+                                className="w-full py-3 bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl text-[13px] font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030] transition-colors flex items-center justify-center gap-2"
                             >
                                 <SmartphoneNfc size={15} /> Setup NFC Card
                                 {!canUse('networking.nfc') && <PremiumBadge tier="pulse" iconOnly />}
@@ -617,19 +617,19 @@ export default function NetworkIntelligencePage() {
                 {/* ── Charts Row ── */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-8">
                     {/* Scan Velocity */}
-                    <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <div className="bg-noble-surface dark:bg-noble-card p-6 rounded-3xl border border-noble-border shadow-sm">
                         <div className="flex items-center justify-between mb-6">
                             <div>
-                                <h3 className="text-[16px] font-bold text-slate-900">Scan Velocity</h3>
-                                <p className="text-[12px] text-slate-400 mt-0.5">{dateFilter.label} • {totalScans} total scans</p>
+                                <h3 className="text-[16px] font-bold text-noble-text">Scan Velocity</h3>
+                                <p className="text-[12px] text-slate-400 dark:text-slate-500 mt-0.5">{dateFilter.label} • {totalScans} total scans</p>
                             </div>
-                            <span className={`text-[11px] font-bold px-2.5 py-1 rounded-lg border ${scansTrend?.dir === 'up' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : scansTrend?.dir === 'down' ? 'bg-red-50 text-red-500 border-red-100' : 'bg-slate-50 text-slate-400 border-slate-100'}`}>
+                            <span className={`text-[11px] font-bold px-2.5 py-1 rounded-lg border ${scansTrend?.dir === 'up' ? 'bg-emerald-50 text-emerald-600 border-emerald-100' : scansTrend?.dir === 'down' ? 'bg-red-50 text-red-500 border-red-100' : 'bg-slate-50 dark:bg-[#0D1B2E] text-slate-400 dark:text-slate-500 border-slate-100 dark:border-noble-border'}`}>
                                 {scansTrend ? `${scansTrend.dir === 'up' ? '↑' : scansTrend.dir === 'down' ? '↓' : '—'} ${scansTrend.pct}%` : '—'}
                             </span>
                         </div>
 
                         {/* Chart */}
-                        <div className="flex gap-3 h-44 w-full border-b border-slate-100 mb-3 pb-2">
+                        <div className="flex gap-3 h-44 w-full border-b border-slate-100 dark:border-noble-border mb-3 pb-2">
                             <div className="flex flex-col justify-between text-[10px] font-semibold text-slate-300 py-1 shrink-0 w-8 text-right">
                                 <span>{chartData?.maxPeak ?? '...'}</span>
                                 <span>{chartData ? Math.round(chartData.maxPeak * 0.75) : '...'}</span>
@@ -659,38 +659,38 @@ export default function NetworkIntelligencePage() {
                         </div>
 
                         {/* Sub-stats */}
-                        <div className="grid grid-cols-4 gap-3 pt-4 border-t border-slate-100">
+                        <div className="grid grid-cols-4 gap-3 pt-4 border-t border-slate-100 dark:border-noble-border">
                             <div>
-                                <p className="text-[10px] text-slate-400 font-medium mb-1">Peak Day</p>
-                                <p className="text-[13px] font-bold text-slate-900">{chartData?.maxPeak ?? 0}</p>
-                                <p className="text-[10px] text-slate-400 mt-0.5">{chartData?.peakDate ?? 'N/A'}</p>
+                                <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium mb-1">Peak Day</p>
+                                <p className="text-[13px] font-bold text-noble-text">{chartData?.maxPeak ?? 0}</p>
+                                <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">{chartData?.peakDate ?? 'N/A'}</p>
                             </div>
                             <div>
-                                <p className="text-[10px] text-slate-400 font-medium mb-1">Penetration</p>
-                                <p className="text-[13px] font-bold text-slate-900">{chartData?.penetrationRate ?? '0%'}</p>
-                                <p className="text-[10px] text-slate-400 mt-0.5">Unique views</p>
+                                <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium mb-1">Penetration</p>
+                                <p className="text-[13px] font-bold text-noble-text">{chartData?.penetrationRate ?? '0%'}</p>
+                                <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Unique views</p>
                             </div>
                             <div>
-                                <p className="text-[10px] text-slate-400 font-medium mb-1">Growth Rate</p>
-                                <p className={`text-[13px] font-bold ${scansTrend?.dir === 'up' ? 'text-emerald-600' : scansTrend?.dir === 'down' ? 'text-red-500' : 'text-slate-400'}`}>
+                                <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium mb-1">Growth Rate</p>
+                                <p className={`text-[13px] font-bold ${scansTrend?.dir === 'up' ? 'text-emerald-600' : scansTrend?.dir === 'down' ? 'text-red-500' : 'text-slate-400 dark:text-slate-500'}`}>
                                     {scansTrend ? `${scansTrend.dir === 'up' ? '↑' : '↓'} ${scansTrend.pct}%` : '—'}
                                 </p>
-                                <p className="text-[10px] text-slate-400 mt-0.5">vs prev period</p>
+                                <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">vs prev period</p>
                             </div>
                             <div>
-                                <p className="text-[10px] text-slate-400 font-medium mb-1">Avg. Time</p>
-                                <p className="text-[13px] font-bold text-slate-900">{chartData?.engagementTime ?? '0s'}</p>
-                                <p className="text-[10px] text-slate-400 mt-0.5">Per visit</p>
+                                <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium mb-1">Avg. Time</p>
+                                <p className="text-[13px] font-bold text-noble-text">{chartData?.engagementTime ?? '0s'}</p>
+                                <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-0.5">Per visit</p>
                             </div>
                         </div>
                     </div>
 
                     {/* Geographic Reach */}
-                    <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex flex-col">
+                    <div className="bg-noble-surface dark:bg-noble-card p-6 rounded-3xl border border-noble-border shadow-sm flex flex-col">
                         <div className="flex items-center justify-between mb-4">
                             <div>
-                                <h3 className="text-[16px] font-bold text-slate-900">Geographic Reach</h3>
-                                <p className="text-[12px] text-slate-400 mt-0.5">Scan origin nodes · all time</p>
+                                <h3 className="text-[16px] font-bold text-noble-text">Geographic Reach</h3>
+                                <p className="text-[12px] text-slate-400 dark:text-slate-500 mt-0.5">Scan origin nodes · all time</p>
                             </div>
                             <div className="flex items-center gap-1.5 text-[11px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-lg">
                                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
@@ -741,12 +741,12 @@ export default function NetworkIntelligencePage() {
                             </svg>
                         </div>
 
-                        <div className="mt-3 flex items-center justify-between text-[11px] text-slate-500">
+                        <div className="mt-3 flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500">
                             <div className="flex items-center gap-1.5">
                                 <div className="w-2.5 h-2.5 rounded-full bg-blue-400" />
                                 <span className="font-medium">Scan origin node</span>
                             </div>
-                            <span className="text-slate-400">{geoLocations.length > 0 ? `${geoLocations.length} distinct location${geoLocations.length > 1 ? 's' : ''}` : 'Share your card to map scans'}</span>
+                            <span className="text-slate-400 dark:text-slate-500">{geoLocations.length > 0 ? `${geoLocations.length} distinct location${geoLocations.length > 1 ? 's' : ''}` : 'Share your card to map scans'}</span>
                         </div>
                     </div>
                 </div>
@@ -759,26 +759,26 @@ export default function NetworkIntelligencePage() {
                         </div>
                         <div>
                             <p className={`text-[10px] font-bold uppercase tracking-wider mb-0.5 ${scansTrend?.dir === 'down' ? 'text-amber-600' : 'text-[#166FBB]'}`}>SMART INSIGHT</p>
-                            <h4 className="text-[14px] font-bold text-slate-900">
+                            <h4 className="text-[14px] font-bold text-noble-text">
                                 {scansTrend?.dir === 'down' ? 'Time to boost your visibility' : 'Your digital presence is growing!'}
                             </h4>
-                            <p className="text-[13px] text-slate-600">{insightMessage()}</p>
+                            <p className="text-[13px] text-slate-600 dark:text-slate-400 dark:text-slate-500">{insightMessage()}</p>
                         </div>
                     </div>
-                    <Link href="/networking/leads" className="px-4 py-2 bg-white border border-slate-200 rounded-lg text-[13px] font-bold text-slate-700 hover:bg-slate-50 transition-colors shrink-0 shadow-sm flex items-center gap-2 whitespace-nowrap">
+                    <Link href="/networking/leads" className="px-4 py-2 bg-noble-surface dark:bg-noble-card border border-noble-border rounded-lg text-[13px] font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-colors shrink-0 shadow-sm flex items-center gap-2 whitespace-nowrap">
                         <Download size={14} /> View Full Report
                     </Link>
                 </div>
 
                 {/* ── Recent Leads Table ── */}
-                <div className="bg-white rounded-3xl border border-slate-200 shadow-sm mb-8 overflow-hidden">
-                    <div className="flex items-center gap-3 p-6 pb-4 border-b border-slate-100">
+                <div className="bg-noble-surface dark:bg-noble-card rounded-3xl border border-noble-border shadow-sm mb-8 overflow-hidden">
+                    <div className="flex items-center gap-3 p-6 pb-4 border-b border-slate-100 dark:border-noble-border">
                         <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                             <Users size={18} />
                         </div>
                         <div>
-                            <h3 className="text-[16px] font-bold text-slate-900">Recent Leads</h3>
-                            <p className="text-[12px] text-slate-400">Latest contacts captured from your card scans</p>
+                            <h3 className="text-[16px] font-bold text-noble-text">Recent Leads</h3>
+                            <p className="text-[12px] text-slate-400 dark:text-slate-500">Latest contacts captured from your card scans</p>
                         </div>
                         <div className="ml-auto flex items-center gap-3">
                             <Link href="/networking/leads" className="text-[#166FBB] text-[13px] font-bold flex items-center gap-1 hover:underline">
@@ -790,7 +790,7 @@ export default function NetworkIntelligencePage() {
                     <div className="overflow-x-auto">
                         <table className="w-full text-left">
                             <thead>
-                                <tr className="bg-slate-50/70 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                                <tr className="bg-slate-50 dark:bg-[#0D1B2E]/70 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                                     <th className="px-6 py-3.5">CONTACT</th>
                                     <th className="px-4 py-3.5">COMPANY</th>
                                     <th className="px-4 py-3.5">SOURCE</th>
@@ -812,40 +812,40 @@ export default function NetworkIntelligencePage() {
                                         </tr>
                                     ))
                                 ) : recentLeads.length > 0 ? recentLeads.map(lead => (
-                                    <tr key={lead.id} className="hover:bg-slate-50/60 transition-colors">
+                                    <tr key={lead.id} className="hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E]/60 transition-colors">
                                         <td className="px-6 py-3.5">
                                             <div className="flex items-center gap-3">
                                                 <div className="w-8 h-8 rounded-full bg-blue-50 text-[#166FBB] flex items-center justify-center text-[11px] font-bold shrink-0 border border-blue-100">
                                                     {lead.name?.substring(0, 2).toUpperCase() || '??'}
                                                 </div>
                                                 <div>
-                                                    <p className="text-[13px] font-semibold text-slate-900">{lead.name}</p>
-                                                    <p className="text-[11px] text-slate-400">{lead.job_title || lead.email}</p>
+                                                    <p className="text-[13px] font-semibold text-noble-text">{lead.name}</p>
+                                                    <p className="text-[11px] text-slate-400 dark:text-slate-500">{lead.job_title || lead.email}</p>
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="px-4 py-3.5">
-                                            <p className="text-[13px] font-medium text-slate-900">{lead.company || '—'}</p>
+                                            <p className="text-[13px] font-medium text-noble-text">{lead.company || '—'}</p>
                                         </td>
                                         <td className="px-4 py-3.5">
-                                            <span className="text-[12px] font-medium text-slate-600 capitalize">{(lead.source || 'Web Form').replace('_', ' ')}</span>
+                                            <span className="text-[12px] font-medium text-slate-600 dark:text-slate-400 dark:text-slate-500 capitalize">{(lead.source || 'Web Form').replace('_', ' ')}</span>
                                         </td>
                                         <td className="px-4 py-3.5">
                                             <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold tracking-wide capitalize ${
                                                 lead.status === 'converted' ? 'bg-purple-50 text-purple-600 border border-purple-100' :
                                                 lead.status === 'qualified' ? 'bg-emerald-50 text-emerald-600 border border-emerald-100' :
                                                 lead.status === 'contacted' ? 'bg-blue-50 text-blue-600 border border-blue-100' :
-                                                'bg-slate-50 text-slate-500 border border-slate-200'
+                                                'bg-slate-50 dark:bg-[#0D1B2E] text-slate-500 dark:text-slate-400 dark:text-slate-500 border border-noble-border'
                                             }`}>
                                                 {lead.status || 'New'}
                                             </span>
                                         </td>
                                         <td className="px-4 py-3.5">
-                                            <p className="text-[12px] text-slate-500">{new Date(lead.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</p>
+                                            <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500">{new Date(lead.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</p>
                                         </td>
                                         <td className="px-4 py-3.5">
                                             <div className="flex items-center gap-1.5 justify-end">
-                                                <Link href={`/networking/leads?id=${lead.id}`} className="w-7 h-7 rounded-lg bg-slate-50 text-slate-500 flex items-center justify-center hover:bg-slate-100 hover:text-slate-700 transition-colors border border-slate-100" title="View lead">
+                                                <Link href={`/networking/leads?id=${lead.id}`} className="w-7 h-7 rounded-lg bg-slate-50 dark:bg-[#0D1B2E] text-slate-500 dark:text-slate-400 dark:text-slate-500 flex items-center justify-center hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030] hover:text-slate-700 dark:text-slate-200 transition-colors border border-slate-100 dark:border-noble-border" title="View lead">
                                                     <Eye size={13} />
                                                 </Link>
                                                 <a href={`mailto:${lead.email}`} className="w-7 h-7 rounded-lg bg-blue-50 text-[#166FBB] flex items-center justify-center hover:bg-blue-100 transition-colors border border-blue-100" title="Email lead">
@@ -858,8 +858,8 @@ export default function NetworkIntelligencePage() {
                                     <tr>
                                         <td colSpan={6} className="py-12 text-center">
                                             <Users size={28} className="text-slate-200 mx-auto mb-2" />
-                                            <p className="text-[14px] font-bold text-slate-700">No leads captured yet</p>
-                                            <p className="text-[12px] text-slate-400 mt-1">Start sharing your digital card to capture leads here.</p>
+                                            <p className="text-[14px] font-bold text-slate-700 dark:text-slate-200">No leads captured yet</p>
+                                            <p className="text-[12px] text-slate-400 dark:text-slate-500 mt-1">Start sharing your digital card to capture leads here.</p>
                                         </td>
                                     </tr>
                                 )}
@@ -867,8 +867,8 @@ export default function NetworkIntelligencePage() {
                         </table>
                     </div>
 
-                    <div className="px-6 py-3.5 border-t border-slate-100 flex items-center justify-between">
-                        <p className="text-[12px] text-slate-400">{leadsCaptured} total leads</p>
+                    <div className="px-6 py-3.5 border-t border-slate-100 dark:border-noble-border flex items-center justify-between">
+                        <p className="text-[12px] text-slate-400 dark:text-slate-500">{leadsCaptured} total leads</p>
                         <Link href="/networking/leads" className="text-[#166FBB] text-[12px] font-bold hover:underline flex items-center gap-1">
                             Manage All Leads <ArrowRight size={12} />
                         </Link>
@@ -878,9 +878,9 @@ export default function NetworkIntelligencePage() {
                 {/* ── Pipeline + Channels Row ── */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-8">
                     {/* Pipeline Overview */}
-                    <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
+                    <div className="bg-noble-surface dark:bg-noble-card p-6 rounded-3xl border border-noble-border shadow-sm">
                         <div className="flex items-center justify-between mb-6">
-                            <h3 className="text-[16px] font-bold text-slate-900">Pipeline Overview</h3>
+                            <h3 className="text-[16px] font-bold text-noble-text">Pipeline Overview</h3>
                             <Link href="/networking/leads" className="text-[12px] font-bold text-[#166FBB] hover:underline">Manage →</Link>
                         </div>
 
@@ -893,22 +893,22 @@ export default function NetworkIntelligencePage() {
                                 { label: 'Converted', value: pipeline.converted, color: '#1D4ED8', pct: pipeline.totalScans > 0 ? (pipeline.converted / pipeline.totalScans) * 100 : 0 },
                             ].map((stage, i) => (
                                 <div key={stage.label} className="flex items-center gap-3">
-                                    <span className="text-[11px] font-medium text-slate-500 w-24 shrink-0 text-right">{stage.label}</span>
-                                    <div className="flex-1 h-8 bg-slate-50 rounded-lg overflow-hidden">
+                                    <span className="text-[11px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 w-24 shrink-0 text-right">{stage.label}</span>
+                                    <div className="flex-1 h-8 bg-slate-50 dark:bg-[#0D1B2E] rounded-lg overflow-hidden">
                                         <div
                                             className="h-full rounded-lg transition-all duration-700 flex items-center px-2"
                                             style={{ width: `${Math.max(stage.value > 0 ? 8 : 0, stage.pct)}%`, backgroundColor: stage.color }}
                                         />
                                     </div>
-                                    <span className="text-[13px] font-bold text-slate-900 w-10 text-right shrink-0">{stage.value}</span>
+                                    <span className="text-[13px] font-bold text-noble-text w-10 text-right shrink-0">{stage.value}</span>
                                 </div>
                             ))}
                         </div>
 
-                        <div className="mt-6 pt-5 border-t border-slate-100 flex items-center justify-between">
+                        <div className="mt-6 pt-5 border-t border-slate-100 dark:border-noble-border flex items-center justify-between">
                             <div>
-                                <p className="text-[11px] text-slate-400 font-medium">Conversion Rate</p>
-                                <h3 className="text-[22px] font-bold text-slate-900">{conversionRate}%</h3>
+                                <p className="text-[11px] text-slate-400 dark:text-slate-500 font-medium">Conversion Rate</p>
+                                <h3 className="text-[22px] font-bold text-noble-text">{conversionRate}%</h3>
                             </div>
                             <TrendPill trend={convRateTrend} suffix=" pts" />
                         </div>
@@ -916,8 +916,8 @@ export default function NetworkIntelligencePage() {
 
                     {/* Engagement Channels + Pro Tip */}
                     <div className="flex flex-col gap-5">
-                        <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm flex-1">
-                            <h3 className="text-[16px] font-bold text-slate-900 mb-5">Engagement Channels</h3>
+                        <div className="bg-noble-surface dark:bg-noble-card p-6 rounded-3xl border border-noble-border shadow-sm flex-1">
+                            <h3 className="text-[16px] font-bold text-noble-text mb-5">Engagement Channels</h3>
                             <div className="flex items-center justify-between gap-4">
                                 {/* Donut */}
                                 <div className="relative w-28 h-28 shrink-0">
@@ -930,7 +930,7 @@ export default function NetworkIntelligencePage() {
                                         <circle cx="50" cy="50" r="38" fill="none" stroke="#E2E8F0" strokeWidth="22" strokeDasharray={`${channels.others * 2.39} 239`} strokeDashoffset={`-${(channels.qrCode + channels.nfcTap + channels.webLink + channels.sms) * 2.39}`} className="transition-all duration-1000" />
                                     </svg>
                                     <div className="absolute inset-0 flex items-center justify-center">
-                                        <span className="text-[14px] font-bold text-slate-700">{channels.qrCode > 0 || channels.nfcTap > 0 ? `${Math.max(channels.qrCode, channels.nfcTap)}%` : '—'}</span>
+                                        <span className="text-[14px] font-bold text-slate-700 dark:text-slate-200">{channels.qrCode > 0 || channels.nfcTap > 0 ? `${Math.max(channels.qrCode, channels.nfcTap)}%` : '—'}</span>
                                     </div>
                                 </div>
 
@@ -944,17 +944,17 @@ export default function NetworkIntelligencePage() {
                                         { label: 'Others', val: channels.others, color: '#E2E8F0' },
                                     ].map(ch => (
                                         <div key={ch.label} className="flex items-center justify-between">
-                                            <div className="flex items-center gap-2 text-[12px] font-medium text-slate-600">
+                                            <div className="flex items-center gap-2 text-[12px] font-medium text-slate-600 dark:text-slate-400 dark:text-slate-500">
                                                 <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: ch.color }} />
                                                 {ch.label}
                                             </div>
-                                            <span className="text-[12px] font-bold text-slate-900">{ch.val}%</span>
+                                            <span className="text-[12px] font-bold text-noble-text">{ch.val}%</span>
                                         </div>
                                     ))}
                                 </div>
                             </div>
                             {channels.qrCode === 0 && channels.nfcTap === 0 && (
-                                <p className="text-[11px] text-slate-400 text-center mt-4 italic">No scan data yet. Share your card to see channel breakdown.</p>
+                                <p className="text-[11px] text-slate-400 dark:text-slate-500 text-center mt-4 italic">No scan data yet. Share your card to see channel breakdown.</p>
                             )}
                         </div>
 
@@ -977,7 +977,7 @@ export default function NetworkIntelligencePage() {
                 </div>
 
                 {/* ── Footer ── */}
-                <div className="flex items-center justify-center gap-2 text-[12px] font-semibold text-slate-400 pb-4">
+                <div className="flex items-center justify-center gap-2 text-[12px] font-semibold text-slate-400 dark:text-slate-500 pb-4">
                     <Shield size={13} /> End-to-end encrypted networking
                 </div>
             </div>
@@ -989,12 +989,12 @@ export default function NetworkIntelligencePage() {
             {/* NFC Setup Modal */}
             {isNfcSetupOpen && (
                 <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-                    <div className="bg-white rounded-3xl shadow-2xl w-full max-w-md overflow-hidden">
-                        <div className="p-5 border-b border-slate-100 flex items-center justify-between">
-                            <h2 className="text-[16px] font-bold text-slate-900 flex items-center gap-2">
+                    <div className="bg-noble-surface dark:bg-noble-card rounded-3xl shadow-2xl w-full max-w-md overflow-hidden">
+                        <div className="p-5 border-b border-slate-100 dark:border-noble-border flex items-center justify-between">
+                            <h2 className="text-[16px] font-bold text-noble-text flex items-center gap-2">
                                 <SmartphoneNfc size={19} className="text-[#166FBB]" /> Setup NFC Card
                             </h2>
-                            <button onClick={() => setIsNfcSetupOpen(false)} className="p-1.5 text-slate-400 hover:bg-slate-50 rounded-full transition-colors">
+                            <button onClick={() => setIsNfcSetupOpen(false)} className="p-1.5 text-slate-400 dark:text-slate-500 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] rounded-full transition-colors">
                                 <X size={19} />
                             </button>
                         </div>
@@ -1002,15 +1002,15 @@ export default function NetworkIntelligencePage() {
                             <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mb-5 animate-pulse">
                                 <SmartphoneNfc size={40} className="text-[#166FBB]" />
                             </div>
-                            <h3 className="text-[19px] font-bold text-slate-900 mb-2">Ready to Pair</h3>
-                            <p className="text-[13px] text-slate-500 leading-relaxed mb-7">
+                            <h3 className="text-[19px] font-bold text-noble-text mb-2">Ready to Pair</h3>
+                            <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed mb-7">
                                 Hold your NobleInvoice NFC Card near the top-back of your iPhone, or the center-back of your Android device to link it to your digital identity.
                             </p>
                             <div className="w-full space-y-2.5">
                                 <button className="w-full py-3.5 bg-[#166FBB] text-white rounded-xl text-[14px] font-bold shadow-[0_4px_14px_rgba(22,111,187,0.25)] hover:bg-blue-600 transition-colors flex items-center justify-center gap-2">
                                     <Zap size={16} className="fill-white/20" /> Start NFC Pairing
                                 </button>
-                                <button className="w-full py-3.5 bg-white border border-slate-200 text-slate-700 rounded-xl text-[14px] font-bold shadow-sm hover:bg-slate-50 transition-colors">
+                                <button className="w-full py-3.5 bg-noble-surface dark:bg-noble-card border border-noble-border text-slate-700 dark:text-slate-200 rounded-xl text-[14px] font-bold shadow-sm hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-colors">
                                     Pair with QR Code instead
                                 </button>
                             </div>
@@ -1026,7 +1026,7 @@ export default function NetworkIntelligencePage() {
                         {/* Header */}
                         <div className="relative px-5 pt-5 pb-4 text-center text-white border-b border-slate-800">
                             <div className="absolute inset-0 bg-gradient-to-br from-[#166FBB]/20 to-transparent" />
-                            <button onClick={() => setIsEventModeOpen(false)} className="absolute top-3 right-3 p-1 text-white/40 hover:bg-white/10 rounded-full transition-colors z-20">
+                            <button onClick={() => setIsEventModeOpen(false)} className="absolute top-3 right-3 p-1 text-white/40 hover:bg-noble-surface dark:bg-noble-card/10 rounded-full transition-colors z-20">
                                 <X size={16} />
                             </button>
                             <div className="relative z-10">
@@ -1038,7 +1038,7 @@ export default function NetworkIntelligencePage() {
                             </div>
                         </div>
                         {/* Body */}
-                        <div className="px-5 py-4 bg-white">
+                        <div className="px-5 py-4 bg-noble-surface dark:bg-noble-card">
                             <div className="space-y-3">
                                 {[
                                     { icon: <QrCode size={15} />, color: 'bg-blue-50 text-blue-600', title: 'Persistent Broadcast Display', desc: 'Locks your screen to your QR code at max brightness — no fumbling for your card.' },
@@ -1048,13 +1048,13 @@ export default function NetworkIntelligencePage() {
                                     <div key={item.title} className="flex gap-3 items-start">
                                         <div className={`w-8 h-8 rounded-lg ${item.color} flex items-center justify-center shrink-0`}>{item.icon}</div>
                                         <div>
-                                            <h4 className="text-[13px] font-bold text-slate-900 leading-tight">{item.title}</h4>
-                                            <p className="text-[11px] text-slate-500 leading-relaxed mt-0.5">{item.desc}</p>
+                                            <h4 className="text-[13px] font-bold text-noble-text leading-tight">{item.title}</h4>
+                                            <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed mt-0.5">{item.desc}</p>
                                         </div>
                                     </div>
                                 ))}
                             </div>
-                            <div className="mt-4 pt-4 border-t border-slate-100">
+                            <div className="mt-4 pt-4 border-t border-slate-100 dark:border-noble-border">
                                 <button onClick={activateIntereventMode} className="w-full py-2.5 bg-[#166FBB] hover:bg-blue-600 transition-colors rounded-xl text-white text-[13px] font-bold tracking-wide shadow-[0_4px_14px_rgba(22,111,187,0.25)] flex items-center justify-center gap-2">
                                     <Zap size={15} className="fill-white/30" /> Activate Interevent Mode Now
                                 </button>
@@ -1076,10 +1076,10 @@ export default function NetworkIntelligencePage() {
                             <span className="text-white/70 text-[13px] font-bold tracking-widest uppercase">Interevent Mode · Live</span>
                         </div>
                         <div className="flex items-center gap-3">
-                            <div className="px-4 py-2 bg-white/8 border border-white/10 rounded-xl text-white text-[13px] font-bold">
+                            <div className="px-4 py-2 bg-noble-surface dark:bg-noble-card/8 border border-white/10 rounded-xl text-white text-[13px] font-bold">
                                 {todayScans.toLocaleString()} scans today
                             </div>
-                            <button onClick={deactivateIntereventMode} className="p-2 bg-white/10 hover:bg-white/20 border border-white/10 rounded-xl text-white/60 hover:text-white transition-colors">
+                            <button onClick={deactivateIntereventMode} className="p-2 bg-noble-surface dark:bg-noble-card/10 hover:bg-noble-surface dark:bg-noble-card/20 border border-white/10 rounded-xl text-white/60 hover:text-white transition-colors">
                                 <X size={18} />
                             </button>
                         </div>
@@ -1088,8 +1088,8 @@ export default function NetworkIntelligencePage() {
                     {/* Center QR */}
                     <div className="relative flex flex-col items-center gap-8 z-10">
                         <div className="absolute inset-0 rounded-[3rem] bg-[#166FBB]/20 blur-[80px] scale-110" />
-                        <div className="relative bg-white/8 backdrop-blur-md border border-white/15 rounded-[2.5rem] p-8 shadow-2xl">
-                            <div className="bg-white p-6 rounded-3xl shadow-xl">
+                        <div className="relative bg-noble-surface dark:bg-noble-card/8 backdrop-blur-md border border-white/15 rounded-[2.5rem] p-8 shadow-2xl">
+                            <div className="bg-noble-surface dark:bg-noble-card p-6 rounded-3xl shadow-xl">
                                 <QrCode size={220} className="text-[#0A192F]" strokeWidth={1.5} />
                             </div>
                         </div>

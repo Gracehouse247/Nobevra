@@ -53,7 +53,7 @@ export default function EcommerceFrameworkSection() {
                     <div className="hidden md:block absolute top-14 left-[calc(16.67%+2rem)] right-[calc(16.67%+2rem)] h-0.5 bg-noble-blue/10 z-0" />
 
                     {steps.map((s) => (
-                        <div key={s.num} className="bg-white rounded-[32px] p-8 border border-noble-blue/10 shadow-xl relative z-10 hover:-translate-y-2 transition-transform duration-300">
+                        <div key={s.num} className="bg-noble-surface rounded-[32px] p-8 border border-noble-blue/10 shadow-xl relative z-10 hover:-translate-y-2 transition-transform duration-300">
                             <div className={`w-10 h-10 rounded-full ${s.numBg} text-white font-black text-lg flex items-center justify-center mb-6`}>
                                 {s.num}
                             </div>

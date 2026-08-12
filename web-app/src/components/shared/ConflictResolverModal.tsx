@@ -88,7 +88,7 @@ function ConflictCard({ conflict, onResolved }: { conflict: SyncConflict; onReso
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            className="bg-white/60 backdrop-blur-xl border border-amber-200/60 rounded-[24px] p-6 shadow-[0_8px_32px_rgba(245,158,11,0.08)] relative overflow-hidden"
+            className="bg-noble-surface dark:bg-noble-card/60 backdrop-blur-xl border border-amber-200/60 rounded-[24px] p-6 shadow-[0_8px_32px_rgba(245,158,11,0.08)] relative overflow-hidden"
         >
             {/* Glow accent */}
             <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-400 to-orange-500 rounded-l-[24px]" />
@@ -103,14 +103,14 @@ function ConflictCard({ conflict, onResolved }: { conflict: SyncConflict; onReso
                         <span className="text-[10px] font-black text-amber-600 uppercase tracking-[0.2em]">
                             Sync Conflict
                         </span>
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">
+                        <span className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">
                             · {entityName}
                         </span>
                     </div>
-                    <p className="text-sm font-bold text-slate-800 leading-snug">
+                    <p className="text-sm font-bold text-slate-800 dark:text-slate-100 leading-snug">
                         This {entityName.toLowerCase()} was edited on another device while you were offline.
                     </p>
-                    <p className="text-xs text-slate-400 font-semibold mt-1">
+                    <p className="text-xs text-slate-400 dark:text-slate-500 font-semibold mt-1">
                         Queued {new Date(conflict.action.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </p>
 
@@ -132,17 +132,17 @@ function ConflictCard({ conflict, onResolved }: { conflict: SyncConflict; onReso
                                         exit={{ height: 0, opacity: 0 }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="mt-2 bg-white/80 border border-slate-100 rounded-2xl p-3 space-y-1.5">
+                                        <div className="mt-2 bg-noble-surface dark:bg-noble-card/80 border border-slate-100 dark:border-noble-border rounded-2xl p-3 space-y-1.5">
                                             {Object.entries(diff).slice(0, 6).map(([key, value]) => (
                                                 <div key={key} className="flex items-center gap-3 text-xs">
-                                                    <span className="text-slate-400 font-bold w-28 flex-shrink-0 truncate">
+                                                    <span className="text-slate-400 dark:text-slate-500 font-bold w-28 flex-shrink-0 truncate">
                                                         {friendlyLabel(key)}
                                                     </span>
-                                                    <span className="font-bold text-slate-700 truncate">{value}</span>
+                                                    <span className="font-bold text-slate-700 dark:text-slate-200 truncate">{value}</span>
                                                 </div>
                                             ))}
                                             {Object.keys(diff).length > 6 && (
-                                                <p className="text-[10px] text-slate-400 font-bold">
+                                                <p className="text-[10px] text-slate-400 dark:text-slate-500 font-bold">
                                                     +{Object.keys(diff).length - 6} more fields…
                                                 </p>
                                             )}
@@ -171,7 +171,7 @@ function ConflictCard({ conflict, onResolved }: { conflict: SyncConflict; onReso
                             whileTap={{ scale: 0.95 }}
                             onClick={handleAcceptRemote}
                             disabled={loading}
-                            className="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 text-slate-700 rounded-xl text-[10px] font-black uppercase tracking-[0.15em] hover:bg-slate-50 transition-all shadow-sm disabled:opacity-50"
+                            className="flex items-center gap-2 px-4 py-2.5 bg-noble-surface dark:bg-noble-card border border-noble-border text-slate-700 dark:text-slate-200 rounded-xl text-[10px] font-black uppercase tracking-[0.15em] hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-all shadow-sm disabled:opacity-50"
                         >
                             <Monitor className="w-3 h-3" />
                             Accept Server
@@ -203,7 +203,7 @@ export default function ConflictResolverModal() {
             >
                 {/* Header */}
                 <div
-                    className="bg-white/80 backdrop-blur-2xl border border-amber-200/60 rounded-t-[28px] px-6 py-4 flex items-center justify-between shadow-[0_-4px_20px_rgba(0,0,0,0.04)] cursor-pointer"
+                    className="bg-noble-surface dark:bg-noble-card/80 backdrop-blur-2xl border border-amber-200/60 rounded-t-[28px] px-6 py-4 flex items-center justify-between shadow-[0_-4px_20px_rgba(0,0,0,0.04)] cursor-pointer"
                     onClick={() => setIsMinimized(!isMinimized)}
                 >
                     <div className="flex items-center gap-3">
@@ -211,10 +211,10 @@ export default function ConflictResolverModal() {
                             <AlertTriangle className="w-4 h-4 text-amber-500" />
                         </div>
                         <div>
-                            <h3 className="text-[11px] font-black text-slate-900 uppercase tracking-[0.2em]">
+                            <h3 className="text-[11px] font-black text-noble-text uppercase tracking-[0.2em]">
                                 Sync Conflicts
                             </h3>
-                            <p className="text-[10px] text-slate-400 font-bold">
+                            <p className="text-[10px] text-slate-400 dark:text-slate-500 font-bold">
                                 {conflicts.length} {conflicts.length === 1 ? 'conflict needs' : 'conflicts need'} your review
                             </p>
                         </div>
@@ -223,7 +223,7 @@ export default function ConflictResolverModal() {
                         animate={{ rotate: isMinimized ? 180 : 0 }}
                         transition={{ duration: 0.2 }}
                     >
-                        <ChevronDown className="w-4 h-4 text-slate-400" />
+                        <ChevronDown className="w-4 h-4 text-slate-400 dark:text-slate-500" />
                     </motion.div>
                 </div>
 
@@ -234,7 +234,7 @@ export default function ConflictResolverModal() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: 'auto', opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden bg-white/60 backdrop-blur-xl border-x border-b border-amber-200/60 rounded-b-[28px] shadow-[0_20px_60px_rgba(245,158,11,0.12)]"
+                            className="overflow-hidden bg-noble-surface dark:bg-noble-card/60 backdrop-blur-xl border-x border-b border-amber-200/60 rounded-b-[28px] shadow-[0_20px_60px_rgba(245,158,11,0.12)]"
                         >
                             <div className="p-4 space-y-3 max-h-[400px] overflow-y-auto">
                                 <AnimatePresence>
@@ -257,7 +257,7 @@ export default function ConflictResolverModal() {
                                             conflicts.forEach((c) => removeConflict(c.action.id));
                                             toast.success('All conflicts dismissed. Server versions kept.');
                                         }}
-                                        className="w-full py-3 bg-white/80 border border-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-slate-50 transition-all"
+                                        className="w-full py-3 bg-noble-surface dark:bg-noble-card/80 border border-slate-100 dark:border-noble-border text-slate-500 dark:text-slate-400 dark:text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] transition-all"
                                     >
                                         Accept All Server Versions
                                     </motion.button>

@@ -117,7 +117,7 @@ export default function TemplateShowcase({
                                     className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap ${
                                         activeCategory === cat 
                                         ? 'bg-noble-blue text-white shadow-[0_10px_25px_rgba(22,111,187,0.4)] scale-105' 
-                                        : 'bg-white text-near-black/60 border border-near-black/5 hover:border-near-black/20'
+                                        : 'bg-noble-surface text-near-black/60 border border-near-black/5 hover:border-near-black/20'
                                     }`}
                                 >
                                     {cat}
@@ -126,7 +126,7 @@ export default function TemplateShowcase({
                         </div>
 
                         {/* Color Swatches */}
-                        <div className="bg-white p-6 rounded-[32px] border border-near-black/5 shadow-sm inline-flex flex-col">
+                        <div className="bg-noble-surface p-6 rounded-[32px] border border-near-black/5 shadow-sm inline-flex flex-col">
                             <p className="text-[10px] font-black uppercase tracking-widest text-near-black/60 mb-4 ml-2">Brand Palette</p>
                             <div className="flex flex-wrap gap-3">
                                 {SHOWCASE_COLORS.map((color) => (
@@ -173,11 +173,11 @@ export default function TemplateShowcase({
                                         scale: 1.02
                                     }}
                                     transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-                                    className="bg-white rounded-[40px] overflow-hidden border border-near-black/5 hover:border-noble-blue/40 transition-all duration-700 group/card relative shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_48px_96px_rgba(22,111,187,0.15)]"
+                                    className="bg-noble-surface rounded-[40px] overflow-hidden border border-near-black/5 hover:border-noble-blue/40 transition-all duration-700 group/card relative shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_48px_96px_rgba(22,111,187,0.15)]"
                                     style={{ transformStyle: 'preserve-3d' }}
                                 >
                                     {/* Real Template Preview */}
-                                    <div className="aspect-[1/1.414] relative bg-white overflow-hidden">
+                                    <div className="aspect-[1/1.414] relative bg-noble-surface overflow-hidden">
                                         <div className="absolute top-0 left-0 w-[1000px] h-[1414px] origin-top-left scale-[0.28] md:scale-[0.38] transition-transform duration-1000 ease-out group-hover/card:scale-[0.31] md:group-hover/card:scale-[0.41]">
                                             <TemplateEngine 
                                                 template={{
@@ -209,14 +209,14 @@ export default function TemplateShowcase({
                     <button 
                         onClick={() => scroll('left')}
                         aria-label="Scroll left"
-                        className="absolute left-4 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center text-near-black hover:bg-noble-blue hover:text-white transition-all opacity-0 group-hover:opacity-100 z-10"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-noble-surface shadow-2xl flex items-center justify-center text-near-black hover:bg-noble-blue hover:text-white transition-all opacity-0 group-hover:opacity-100 z-10"
                     >
                         <span className="material-symbols-outlined" aria-hidden="true">chevron_left</span>
                     </button>
                     <button 
                         onClick={() => scroll('right')}
                         aria-label="Scroll right"
-                        className="absolute right-4 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white shadow-2xl flex items-center justify-center text-near-black hover:bg-noble-blue hover:text-white transition-all opacity-0 group-hover:opacity-100 z-10"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-noble-surface shadow-2xl flex items-center justify-center text-near-black hover:bg-noble-blue hover:text-white transition-all opacity-0 group-hover:opacity-100 z-10"
                     >
                         <span className="material-symbols-outlined" aria-hidden="true">chevron_right</span>
                     </button>

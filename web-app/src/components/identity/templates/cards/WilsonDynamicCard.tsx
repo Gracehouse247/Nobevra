@@ -55,7 +55,7 @@ export const WilsonDynamicCard: React.FC<CardRendererProps & { defaultColor?: st
                         </div>
                     </DraggableElement>
                     <DraggableElement elementKey="qr" className="flex flex-col items-center gap-4">
-                        <div className="bg-white p-4 rounded-3xl shadow-2xl border border-slate-50 inline-block">
+                        <div className="bg-noble-surface p-4 rounded-3xl shadow-2xl border border-slate-50 inline-block">
                             <SharedQRCode url={data.qrCodeUrl || ''} color={accent} size={250} className="w-28 h-28" />
                         </div>
                     </DraggableElement>

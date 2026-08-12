@@ -46,7 +46,7 @@ export default function SyncStatus() {
                                 />
                             )}
                         </div>
-                        <span className="text-[9px] font-black uppercase tracking-[0.1em] text-slate-500 group-hover:text-emerald-500 transition-colors">
+                        <span className="text-[9px] font-black uppercase tracking-[0.1em] text-slate-500 dark:text-slate-400 dark:text-slate-500 group-hover:text-emerald-500 transition-colors">
                             {isSyncing ? 'Synchronizing Intelligence' : <span><span className="hidden sm:inline">Neural Stream Connected</span><span className="sm:hidden">Connected</span></span>}
                         </span>
                     </motion.div>

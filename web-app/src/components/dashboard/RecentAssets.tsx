@@ -47,20 +47,20 @@ export default function RecentAssets({ invoices = [], currencyCode = 'NGN' }: Re
     }));
 
     return (
-        <div className="bg-white/85 backdrop-blur-xl border border-white/80 rounded-[28px] p-6 shadow-[0_4px_24px_rgba(15,23,42,0.06)] h-full flex flex-col">
+        <div className="bg-noble-card border border-noble-card-border rounded-[28px] p-6 shadow-[0_4px_24px_rgba(15,23,42,0.06)] h-full flex flex-col">
             {/* Header */}
             <div className="flex justify-between items-center mb-4">
                 <div>
-                    <h3 className="text-[15px] font-bold text-slate-900 tracking-[-0.01em]">Recent Activity</h3>
-                    <p className="text-[11px] text-slate-400 font-medium mt-0.5">Latest invoice transactions</p>
+                    <h3 className="text-[15px] font-bold text-noble-text tracking-[-0.01em]">Recent Activity</h3>
+                    <p className="text-[11px] text-noble-muted font-medium mt-0.5">Latest invoice transactions</p>
                 </div>
-                <button className="w-8 h-8 rounded-xl border border-slate-200 flex items-center justify-center text-slate-400 hover:bg-slate-50 hover:text-slate-600 transition-colors">
+                <button className="w-8 h-8 rounded-xl border border-noble-border flex items-center justify-center text-noble-muted hover:bg-noble-interactive-bg hover:text-noble-text transition-colors">
                     <MoreHorizontal className="w-4 h-4" />
                 </button>
             </div>
 
             {/* Divider */}
-            <div className="h-px bg-slate-100 mb-3" />
+            <div className="h-px bg-noble-border mb-3" />
 
             {/* Invoice rows */}
             <div className="flex-1 space-y-0.5 overflow-y-auto [&::-webkit-scrollbar]:w-[3px]">
@@ -70,36 +70,36 @@ export default function RecentAssets({ invoices = [], currencyCode = 'NGN' }: Re
                         <Link
                             href="/invoices"
                             key={asset.id}
-                            className="flex items-center gap-2.5 px-2 py-2.5 rounded-xl hover:bg-slate-50 transition-all duration-150 group cursor-pointer"
+                            className="flex items-center gap-2.5 px-2 py-2.5 rounded-xl hover:bg-noble-interactive-bg transition-all duration-150 group cursor-pointer"
                         >
                             {/* Avatar */}
                             <ClientAvatar name={asset.client} />
 
                             {/* Invoice info */}
                             <div className="flex-1 min-w-0">
-                                <p className="text-[9.5px] font-medium text-slate-600 leading-tight truncate max-w-[110px]">{asset.invoiceNumber}</p>
-                                <p className="text-[9px] text-slate-400 font-normal truncate max-w-[110px] mt-0.5">{asset.client}</p>
+                                <p className="text-[9.5px] font-medium text-noble-card-text/80 leading-tight truncate max-w-[110px]">{asset.invoiceNumber}</p>
+                                <p className="text-[9px] text-noble-muted font-normal truncate max-w-[110px] mt-0.5">{asset.client}</p>
                             </div>
 
                             {/* Amount + Status */}
                             <div className="flex flex-col items-end gap-1 flex-shrink-0">
-                                <p className="text-[11px] font-semibold text-slate-800 tabular-nums">{asset.amount}</p>
+                                <p className="text-[11px] font-semibold text-noble-amount-text tabular-nums">{asset.amount}</p>
                                 <div className={`flex items-center gap-1 px-1.5 py-0.5 rounded-full ${statusCfg.bg}`}>
                                     <span className={`w-1 h-1 rounded-full flex-shrink-0 ${statusCfg.dot}`} />
                                     <span className={`text-[8px] font-bold uppercase tracking-wide ${statusCfg.text}`}>{statusCfg.label}</span>
                                 </div>
                             </div>
 
-                            <ArrowRight className="w-3 h-3 text-slate-200 group-hover:text-slate-400 transition-all group-hover:translate-x-0.5 flex-shrink-0" />
+                            <ArrowRight className="w-3 h-3 text-noble-border group-hover:text-noble-muted transition-all group-hover:translate-x-0.5 flex-shrink-0" />
                         </Link>
                     );
                 }) : (
                     <div className="flex flex-col items-center justify-center h-full py-8 text-center">
-                        <div className="w-14 h-14 rounded-2xl bg-slate-100 flex items-center justify-center mb-3">
-                            <FileText className="w-6 h-6 text-slate-300" />
+                        <div className="w-14 h-14 rounded-2xl bg-noble-icon-bg flex items-center justify-center mb-3">
+                        <FileText className="w-6 h-6 text-noble-muted/50" />
                         </div>
-                        <p className="text-sm font-bold text-slate-500 mb-1">No invoices yet</p>
-                        <p className="text-xs text-slate-400">Create your first invoice to get started.</p>
+                        <p className="text-sm font-bold text-noble-muted mb-1">No invoices yet</p>
+                        <p className="text-xs text-noble-muted">Create your first invoice to get started.</p>
                     </div>
                 )}
             </div>

@@ -60,7 +60,7 @@ export default function SEOProblemSection() {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.2 + idx * 0.1 }}
-                                className="group bg-white rounded-[24px] p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:border-red-500/10 transition-all duration-500"
+                                className="group bg-noble-surface rounded-[24px] p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-xl hover:border-red-500/10 transition-all duration-500"
                             >
                                 <div className="flex items-center gap-5">
                                     <div className="w-14 h-14 rounded-2xl bg-red-500/8 flex items-center justify-center shrink-0 group-hover:bg-red-500 transition-colors duration-300">

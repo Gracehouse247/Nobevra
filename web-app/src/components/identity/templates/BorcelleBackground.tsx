@@ -5,7 +5,7 @@ export const BorcelleBackground: React.FC<{ side: 'front' | 'back' }> = ({ side 
     const DarkRed = "#700000";
 
     return (
-        <div className="absolute inset-0 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-noble-surface overflow-hidden">
             {side === 'front' ? (
                 <>
                     {/* Right Shards */}

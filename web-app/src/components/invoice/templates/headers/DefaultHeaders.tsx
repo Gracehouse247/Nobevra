@@ -28,10 +28,10 @@ export const DefaultHeader = (props: SharedEngineProps) => {
         return (
           <div className="mb-12 relative">
             <div className="h-4 w-full" style={{ backgroundColor: accentColor }} />
-            <div className="p-16 flex justify-between items-center bg-white border-b border-slate-50">
+            <div className="p-16 flex justify-between items-center bg-noble-surface border-b border-slate-50">
                {renderLogo?.("w-20 h-20")}
                <div className="text-center">
-                 <h1 className="text-4xl font-black uppercase tracking-[0.3em] text-slate-900">Invoice</h1>
+                 <h1 className="text-4xl font-black uppercase tracking-[0.3em] text-noble-text">Invoice</h1>
                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.5em] mt-2">Ref: {data.invoiceNumber}</p>
                </div>
                <div className="w-20" />
@@ -55,11 +55,11 @@ export const DefaultHeader = (props: SharedEngineProps) => {
           <div className="p-16 mb-12 flex justify-between items-end border-b-[12px] border-slate-50">
              <div className="flex flex-col items-start">
                <div className="w-20 h-2 mb-8 rounded-full" style={{ backgroundColor: accentColor }} />
-               <h1 className="text-6xl font-black uppercase tracking-tight text-slate-900 leading-none">Invoice</h1>
+               <h1 className="text-6xl font-black uppercase tracking-tight text-noble-text leading-none">Invoice</h1>
              </div>
              <div className="text-right">
                 <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-2">Serial No.</p>
-                <p className="text-4xl font-black text-slate-900 tracking-tighter italic">{data.invoiceNumber}</p>
+                <p className="text-4xl font-black text-noble-text tracking-tighter italic">{data.invoiceNumber}</p>
              </div>
           </div>
         );
@@ -68,7 +68,7 @@ export const DefaultHeader = (props: SharedEngineProps) => {
           <div className="p-16 mb-12 flex justify-between items-start border-b-2 border-slate-50">
              {renderLogo?.("w-24 h-24")}
              <div className="text-right">
-               <h1 className="text-6xl font-black uppercase tracking-tighter text-slate-900 mb-2">Invoice</h1>
+               <h1 className="text-6xl font-black uppercase tracking-tighter text-noble-text mb-2">Invoice</h1>
                <p className="text-slate-400 font-black text-xs uppercase tracking-[0.3em]">#{data.invoiceNumber}</p>
              </div>
           </div>

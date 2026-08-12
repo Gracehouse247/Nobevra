@@ -58,5 +58,52 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+
+		<!-- ── Privacy Usage Description Strings (required by Apple) ──────────────
+		     Apple will reject any app that uses a protected framework without
+		     the matching NSxxxUsageDescription key in Info.plist.
+		     These strings are displayed to the user in the system permission dialog.
+		-->
+
+		<!-- Contacts — used by flutter_contacts to import client details -->
+		<key>NSContactsUsageDescription</key>
+		<string>NobleInvoice needs access to your contacts so you can quickly import client details when creating invoices, estimates, and business cards.</string>
+
+		<!-- Photo Library — used by image_picker to select logos, receipts, and product images -->
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>NobleInvoice needs access to your photo library so you can add your business logo, upload receipt images, and attach product photos.</string>
+
+		<!-- Camera — used by image_picker to capture receipts and document photos -->
+		<key>NSCameraUsageDescription</key>
+		<string>NobleInvoice needs access to your camera so you can photograph receipts for expense scanning and capture images for invoices and business cards.</string>
+
+		<!-- Microphone — required by speech_to_text for voice-assisted invoice creation -->
+		<key>NSMicrophoneUsageDescription</key>
+		<string>NobleInvoice needs microphone access to enable voice-assisted invoice creation so you can dictate invoice details hands-free.</string>
+
+		<!-- Speech Recognition — used by speech_to_text -->
+		<key>NSSpeechRecognitionUsageDescription</key>
+		<string>NobleInvoice uses speech recognition to convert your voice into invoice data so you can create invoices faster using voice commands.</string>
+
+		<!-- Location (When In Use) — used by geolocator for currency auto-detection -->
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>NobleInvoice uses your approximate location to automatically set the correct currency for your region. This improves the accuracy of invoices for international clients.</string>
+
+		<!-- Location (Always) — declared for completeness; actual usage is When In Use only -->
+		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>NobleInvoice uses your approximate location to automatically set the correct currency for your region.</string>
+
+		<!-- Face ID — used by local_auth for biometric app lock -->
+		<key>NSFaceIDUsageDescription</key>
+		<string>NobleInvoice uses Face ID to protect your account and keep your financial data secure.</string>
+
+		<!-- Bluetooth — required by some Flutter plugins; not actively used for user features -->
+		<key>NSBluetoothAlwaysUsageDescription</key>
+		<string>NobleInvoice may use Bluetooth for certain device communication features.</string>
+
+		<!-- Photo Library Additions — for saving exported documents and QR codes -->
+		<key>NSPhotoLibraryAddUsageDescription</key>
+		<string>NobleInvoice needs permission to save exported invoices, QR codes, and business card images to your photo library.</string>
+
 	</dict>
 </plist>

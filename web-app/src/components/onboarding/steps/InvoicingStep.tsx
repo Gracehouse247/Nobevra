@@ -21,7 +21,7 @@ export const InvoicingStep = ({ data, updateData, activeColor }: InvoicingStepPr
             exit={{ opacity: 0, y: -20 }}
             className="w-full max-w-lg mx-auto p-6"
         >
-            <h2 className="text-2xl font-black text-slate-900 mb-2">Invoicing Details</h2>
+            <h2 className="text-2xl font-black text-noble-text mb-2">Invoicing Details</h2>
             <p className="text-slate-500 mb-8 font-medium">Configure your default billing identifiers.</p>
 
             <div className="space-y-6">
@@ -34,7 +34,7 @@ export const InvoicingStep = ({ data, updateData, activeColor }: InvoicingStepPr
                             value={data.taxNumber}
                             onChange={(e) => updateData({ taxNumber: e.target.value })}
                             placeholder="e.g. GB123456789"
-                            className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                            className="w-full pl-12 pr-4 py-4 bg-noble-surface border border-noble-border rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all"
                             style={{ '--tw-ring-color': activeColor } as any}
                         />
                     </div>
@@ -49,7 +49,7 @@ export const InvoicingStep = ({ data, updateData, activeColor }: InvoicingStepPr
                             onChange={(e) => updateData({ invoiceFooter: e.target.value })}
                             placeholder="Thank you for your business! Payment is due within 30 days."
                             rows={4}
-                            className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none"
+                            className="w-full pl-12 pr-4 py-4 bg-noble-surface border border-noble-border rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all resize-none"
                             style={{ '--tw-ring-color': activeColor } as any}
                         />
                     </div>

@@ -36,7 +36,7 @@ export default function NobleButton({
 
     const variants = {
         primary: "bg-[#166FBB] text-white shadow-xl shadow-noble-blue/20 hover:bg-[#125A96] hover:shadow-2xl hover:shadow-noble-blue/30",
-        secondary: "bg-white border border-slate-200 text-slate-900 hover:border-noble-blue/30 hover:bg-slate-50",
+        secondary: "bg-noble-surface dark:bg-noble-card border border-noble-border text-noble-text hover:border-noble-blue/30 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E]",
         glass: "bg-noble-blue/5 backdrop-blur-md border border-noble-blue/10 text-noble-blue hover:bg-noble-blue/10"
     };
 
@@ -63,7 +63,7 @@ export default function NobleButton({
                     initial={{ scale: 0, opacity: 0.5 }}
                     animate={{ scale: 2, opacity: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="absolute inset-0 bg-white/20 rounded-full pointer-events-none"
+                    className="absolute inset-0 bg-noble-surface dark:bg-noble-card/20 rounded-full pointer-events-none"
                 />
             </AnimatePresence>
         </motion.button>

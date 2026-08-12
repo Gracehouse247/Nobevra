@@ -27,7 +27,7 @@ export const DynamicWaveCard: React.FC<CardRendererProps & { defaultColor?: stri
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="space-y-3">
-                <h1 className="font-black tracking-tighter uppercase leading-none text-slate-900" style={{ fontSize: fs(66) }}>
+                <h1 className="font-black tracking-tighter uppercase leading-none text-noble-text" style={{ fontSize: fs(66) }}>
                   {data.fullName || 'WAVE DESIGN'}
                 </h1>
                 <p className="font-bold tracking-[0.35em] uppercase" style={{ fontSize: fs(15), color: accent }}>
@@ -59,11 +59,11 @@ export const DynamicWaveCard: React.FC<CardRendererProps & { defaultColor?: stri
                   <circle cx="50" cy="50" r="10" fill={accent} />
                 </svg>
               </div>
-              <h2 className="font-black text-slate-900 uppercase tracking-tighter" style={{ fontSize: fs(38) }}>
+              <h2 className="font-black text-noble-text uppercase tracking-tighter" style={{ fontSize: fs(38) }}>
                 {data.companyName || 'DYNAMIC WAVE'}
               </h2>
             </DraggableElement>
-            <DraggableElement elementKey="qr" className="bg-white p-3 rounded-2xl shadow-xl border-4" style={{ borderColor: accent }}>
+            <DraggableElement elementKey="qr" className="bg-noble-surface p-3 rounded-2xl shadow-xl border-4" style={{ borderColor: accent }}>
               <SharedQRCode url={data.qrCodeUrl || ''} color={accent} size={200} className="w-22 h-22" />
             </DraggableElement>
           </div>

@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Roboto, Montserrat } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import { EntitlementsProvider } from "@/context/EntitlementsContext";
@@ -12,24 +11,12 @@ import SchemaOrg from "@/components/seo/SchemaOrg";
 import CommandPalette from "@/components/shared/CommandPalette";
 import OfflineIndicator from "@/components/shared/OfflineIndicator";
 import CookieConsent from "@/components/shared/CookieConsent";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-});
-
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
-});
-
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-});
+// Removed next/font/google to bypass Turbopack network crash
+const inter = { variable: "font-sans" };
+const roboto = { variable: "font-sans" };
+const montserrat = { variable: "font-sans" };
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://nobleinvoice.noblesworld.com.ng'),
@@ -83,18 +70,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-6ME42JV7BJ"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-6ME42JV7BJ');
-          `}
-        </Script>
         <link rel="manifest" href="/manifest.webmanifest" />
         <link rel="apple-touch-icon" href="/images/logo.png" />
         {/* Preconnect to Google Fonts for faster font loading */}
@@ -115,14 +90,20 @@ export default function RootLayout({
             <EntitlementsProvider>
               <CurrencyProvider>
                 <GamificationProvider>
-                  <PWAClient />
-                  <OfflineIndicator />
-                  <SchemaOrg />
-                  <CommandPalette />
-                  <CookieConsent />
-                  {children}
-                  <Toaster position="bottom-right" reverseOrder={false} />
-                  
+                  <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                  >
+                    <PWAClient />
+                    <OfflineIndicator />
+                    <SchemaOrg />
+                    <CommandPalette />
+                    <CookieConsent />
+                    {children}
+                    <Toaster position="bottom-right" reverseOrder={false} />
+                  </ThemeProvider>
                 </GamificationProvider>
               </CurrencyProvider>
             </EntitlementsProvider>

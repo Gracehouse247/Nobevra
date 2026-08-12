@@ -16,7 +16,7 @@ export default function FeaturePage({
     tag: string;
 }) {
     return (
-        <div className="min-h-screen bg-white pt-32 pb-20 overflow-hidden relative">
+        <div className="min-h-screen bg-noble-surface dark:bg-noble-card pt-32 pb-20 overflow-hidden relative">
             {/* Background Decorations */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-noble-blue/5 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-electric-cyan/5 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />

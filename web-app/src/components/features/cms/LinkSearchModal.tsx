@@ -50,7 +50,7 @@ export default function LinkSearchModal({ isOpen, onClose, onSelect }: LinkSearc
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
         >
-          <div className="bg-white w-full max-w-lg rounded-2xl shadow-2xl flex flex-col max-h-[80vh]">
+          <div className="bg-noble-surface w-full max-w-lg rounded-2xl shadow-2xl flex flex-col max-h-[80vh]">
             <div className="p-4 border-b border-slate-100 flex items-center gap-3">
               <Search className="w-5 h-5 text-slate-400" />
               <input

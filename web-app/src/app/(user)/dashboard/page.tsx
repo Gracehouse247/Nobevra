@@ -8,6 +8,7 @@ import {
     Plus, Download, Users, RefreshCw, Zap,
     FileText, PenTool, Sparkles, CreditCard
 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import StatCard from '@/components/dashboard/StatCard';
 import ProactiveEmptyState from '@/components/shared/ProactiveEmptyState';
 import PredictiveHub from '@/components/dashboard/PredictiveHub';
@@ -55,40 +56,41 @@ function DashboardContent() {
     if (error && !loading && invoices.length === 0) {
         return (
             <div className="min-h-full flex flex-col items-center justify-center p-10">
-                <div className="bg-white rounded-3xl shadow-xl p-10 max-w-md w-full text-center">
+                <div className="bg-noble-surface dark:bg-noble-card rounded-3xl shadow-xl p-10 max-w-md w-full text-center">
                     <RefreshCw className="w-10 h-10 text-[#0599D5] mx-auto mb-4 opacity-60" />
-                    <h2 className="text-xl font-black text-slate-900 mb-2">Couldn't Load Dashboard</h2>
-                    <p className="text-slate-500 text-sm mb-6">{error}</p>
-                    <button
+                    <h2 className="text-xl font-black text-noble-text mb-2">Couldn't Load Dashboard</h2>
+                    <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 text-sm mb-6">{error}</p>
+                    <Button
                         onClick={() => window.location.reload()}
-                        className="px-8 py-3 bg-[#0599D5] text-white rounded-full font-black text-xs uppercase tracking-widest hover:bg-[#0599D5]/90 transition-colors shadow-lg"
+                        variant="primary"
+                        className="px-8 h-12 rounded-full font-black text-xs uppercase tracking-widest"
                     >
                         Retry
-                    </button>
+                    </Button>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="min-h-full bg-[#F3F6FC] p-5 md:p-8 pb-24 lg:pb-10 relative overflow-hidden">
+        <div className="relative w-full h-full pb-24 lg:pb-10">
             {/* Ambient Background Glows */}
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#0599D5]/5 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3" />
             <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-[#006970]/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/2" />
             
-            <div className="max-w-[1600px] mx-auto relative z-10">
+            <div className="relative z-10 w-full">
                 <DashboardGreeting invoices={invoices} clientsLength={stats.clientsCount || 0} />
                 
                 {/* 1. Welcome Section & Quick Actions */}
                 <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-10">
                     <div className="flex items-center gap-5">
                         <div>
-                            <h1 className="text-[19px] font-bold text-slate-800 tracking-tight">
-                                {timeGreeting}, <span className="font-bold text-slate-900">{firstName || 'Noble'}</span>
+                            <h1 className="text-[19px] font-bold text-slate-800 dark:text-slate-100 tracking-tight">
+                                {timeGreeting}, <span className="font-bold text-noble-text">{firstName || 'Noble'}</span>
                             </h1>
-                            <p className="text-sm font-medium text-slate-500 mt-1">
+                            <p className="text-sm font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">
                                 {pendingCount > 0 
-                                    ? <span>You have <strong className="text-slate-700">{pendingCount} pending invoices</strong> totalling <strong className="text-slate-700">{currencyService.format(pendingTotal, currencyCode, { decimals: 0 })}</strong>.</span>
+                                    ? <span>You have <strong className="text-slate-700 dark:text-slate-200">{pendingCount} pending invoices</strong> totalling <strong className="text-slate-700 dark:text-slate-200">{currencyService.format(pendingTotal, currencyCode, { decimals: 0 })}</strong>.</span>
                                     : (stats.paidCount > 0 
                                         ? <span><strong className="text-emerald-600">{stats.paidCount} payments</strong> collected. Keep up the momentum!</span>
                                         : <span>Welcome! Create your first invoice to get paid.</span>)
@@ -98,24 +100,22 @@ function DashboardContent() {
                     </div>
                     
                     {/* Quick Actions Island */}
-                    <div className="p-2 flex items-center gap-2 self-start lg:self-center bg-white/90 backdrop-blur-xl border border-white/80 rounded-[20px] shadow-[0_4px_24px_rgba(15,23,42,0.06)]">
-                        <Link 
-                            href="/invoices/new"
-                            className="px-6 py-3 bg-gradient-to-r from-[#006970] to-[#0599D5] text-white rounded-[14px] font-bold text-[13px] flex items-center gap-2 hover:shadow-lg hover:shadow-[#0599D5]/20 hover:-translate-y-0.5 transition-all"
-                        >
-                            <Plus className="w-4 h-4" strokeWidth={3} />
-                            Create Invoice
-                        </Link>
-                        <Link 
-                            href="/clients/new"
-                            className="px-4 py-3 bg-slate-50 hover:bg-slate-100 text-slate-700 rounded-[14px] font-semibold text-[13px] flex items-center gap-2 transition-all border border-slate-200/60"
-                        >
-                            <Users className="w-4 h-4 text-slate-400" />
-                            <span className="hidden sm:inline">Add Client</span>
-                        </Link>
-                        <button className="w-11 h-11 bg-slate-50 hover:bg-slate-100 text-slate-400 rounded-[14px] flex items-center justify-center transition-all border border-slate-200/60">
+                    <div className="p-2 flex items-center gap-2 self-start lg:self-center bg-noble-surface dark:bg-noble-card/90 backdrop-blur-xl border border-noble-border rounded-[20px] shadow-sm">
+                        <Button asChild variant="primary" className="rounded-[14px]">
+                            <Link href="/invoices/new">
+                                <Plus className="w-4 h-4 mr-2" strokeWidth={3} />
+                                Create Invoice
+                            </Link>
+                        </Button>
+                        <Button asChild variant="outline" className="rounded-[14px]">
+                            <Link href="/clients/new">
+                                <Users className="w-4 h-4 mr-2" />
+                                <span className="hidden sm:inline">Add Client</span>
+                            </Link>
+                        </Button>
+                        <Button variant="outline" size="icon" className="rounded-[14px]">
                             <Download className="w-4 h-4" />
-                        </button>
+                        </Button>
                     </div>
                 </div>
 
@@ -227,7 +227,7 @@ export default function DashboardPage() {
     return (
         <Suspense fallback={
             <div className="min-h-screen flex items-center justify-center p-10">
-                <div className="w-8 h-8 border-4 border-slate-200 border-t-[#0599D5] rounded-full animate-spin" />
+                <div className="w-8 h-8 border-4 border-noble-border border-t-[#0599D5] rounded-full animate-spin" />
             </div>
         }>
             <DashboardContent />

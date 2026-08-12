@@ -8,18 +8,18 @@ export default function AgencyClientPortal() {
                 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                     
-                    <div className="bg-white rounded-[32px] border border-slate-200 p-8 md:p-12 shadow-sm relative">
+                    <div className="bg-noble-surface rounded-[32px] border border-noble-border p-8 md:p-12 shadow-sm relative">
                         <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none">
                             <ShieldCheck className="w-48 h-48 text-indigo-500" />
                         </div>
                         
-                        <h3 className="font-black text-2xl text-slate-900 mb-8">Why email invoices delay payment</h3>
+                        <h3 className="font-black text-2xl text-noble-text mb-8">Why email invoices delay payment</h3>
                         
                         <div className="space-y-6 relative z-10">
                             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-sm">
                                 <div className="flex items-center gap-3 mb-3">
                                     <Mail className="w-5 h-5 text-slate-400" />
-                                    <h4 className="font-bold text-slate-900">The 14-Day PDF Trap</h4>
+                                    <h4 className="font-bold text-noble-text">The 14-Day PDF Trap</h4>
                                 </div>
                                 <p className="text-slate-600 text-sm leading-relaxed">When you email a PDF, your client has to download it, forward it to their AP department, log into their bank portal, and manually wire the money. The average time to complete this? 14 days.</p>
                             </div>
@@ -27,7 +27,7 @@ export default function AgencyClientPortal() {
                             <div className="bg-indigo-50 rounded-2xl p-6 border border-indigo-100 shadow-sm">
                                 <div className="flex items-center gap-3 mb-3">
                                     <ShieldCheck className="w-5 h-5 text-indigo-500" />
-                                    <h4 className="font-bold text-slate-900">The 45-Second Portal Solution</h4>
+                                    <h4 className="font-bold text-noble-text">The 45-Second Portal Solution</h4>
                                 </div>
                                 <p className="text-slate-600 text-sm leading-relaxed">Sending them a link to a dedicated client portal allows them to click "Pay via ACH or Card" instantly. The invoice is marked paid immediately, and the money routes to your account.</p>
                             </div>

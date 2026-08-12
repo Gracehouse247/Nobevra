@@ -41,7 +41,7 @@ export default function AgencyHeroSection() {
 
                 {/* Left: copy */}
                 <div>
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-indigo-600 font-bold text-[10px] md:text-xs uppercase tracking-widest mb-8 border border-near-black/5 shadow-sm">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-surface text-indigo-600 font-bold text-[10px] md:text-xs uppercase tracking-widest mb-8 border border-near-black/5 shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse" />
                         The Premier Agency Billing Platform
                     </div>

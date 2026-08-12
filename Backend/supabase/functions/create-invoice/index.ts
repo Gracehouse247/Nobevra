@@ -22,10 +22,7 @@ const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const FLUTTERWAVE_SECRET_KEY    = Deno.env.get("FLUTTERWAVE_SECRET_KEY")!;
 
 // ── CORS ──────────────────────────────────────────────────────────────────────
-const corsHeaders = {
-  "Access-Control-Allow-Origin":  "https://invoice.noblesworld.com.ng",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+import { CORS_HEADERS as corsHeaders } from "../_shared/cors.ts";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 interface InvoiceItem {
@@ -97,13 +94,14 @@ serve(async (req) => {
     // ── Layer 1C: Resolve User's Team & Entitlements ─────────────────────────
     const { data: team, error: teamErr } = await supabaseAdmin
       .from("teams")
-      .select("id")
+      .select("id, subscription_tier")
       .eq("owner_id", user.id)
       .order("created_at", { ascending: true })
       .limit(1)
       .maybeSingle();
 
     const teamId = team?.id ?? null;
+    const subscriptionTier = team?.subscription_tier || "explorer";
     if (!teamId) return jsonError("No team found for this user. Please complete onboarding.", 403);
 
     // ── Layer 1D: Validate Subscription Quota via Entitlement Engine ──────────

@@ -25,22 +25,22 @@ export default function FreelancerHeroSection() {
                             animate={{ scale: 1, opacity: 1 }}
                             exit={{ scale: 0.9, opacity: 0 }}
                             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-                            className="relative w-full max-w-4xl bg-white rounded-[32px] overflow-hidden shadow-2xl border border-slate-100"
+                            className="relative w-full max-w-4xl bg-noble-surface rounded-[32px] overflow-hidden shadow-2xl border border-slate-100"
                             onClick={(e) => e.stopPropagation()}
                         >
                             <button
                                 onClick={() => setDemoOpen(false)}
                                 aria-label="Close demo video"
-                                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-100/80 backdrop-blur-sm flex items-center justify-center text-slate-900 hover:bg-slate-200 transition-colors"
+                                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-100/80 backdrop-blur-sm flex items-center justify-center text-noble-text hover:bg-slate-200 transition-colors"
                             >
                                 <span className="material-symbols-outlined" aria-hidden="true">close</span>
                             </button>
                             <div className="aspect-video flex flex-col items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50 gap-6">
-                                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center shadow-xl border border-slate-100">
+                                <div className="w-20 h-20 rounded-full bg-noble-surface flex items-center justify-center shadow-xl border border-slate-100">
                                     <span className="material-symbols-outlined text-5xl text-noble-blue">play_arrow</span>
                                 </div>
                                 <div className="text-center">
-                                    <p className="text-slate-900 font-black text-lg">Simple Invoicing for Freelancers — Demo</p>
+                                    <p className="text-noble-text font-black text-lg">Simple Invoicing for Freelancers — Demo</p>
                                     <p className="text-slate-400 text-sm mt-1 font-medium">See how easy independent contractor invoicing can be</p>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@ export default function FreelancerHeroSection() {
                         transition={{ duration: 0.7, ease: 'easeOut' }}
                         className="relative z-10"
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-primary font-bold text-[10px] md:text-xs uppercase tracking-widest mb-8 border border-near-black/5 shadow-sm">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-surface text-primary font-bold text-[10px] md:text-xs uppercase tracking-widest mb-8 border border-near-black/5 shadow-sm">
                             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                             #1 Invoice App For Self Employed
                         </div>
@@ -90,7 +90,7 @@ export default function FreelancerHeroSection() {
                                 ].map((a, i) => (
                                     <div
                                         key={i}
-                                        className={`w-9 h-9 rounded-full ${a.bg} border-2 border-white flex items-center justify-center text-slate-900 text-[10px] font-black shadow-sm`}
+                                        className={`w-9 h-9 rounded-full ${a.bg} border-2 border-white flex items-center justify-center text-noble-text text-[10px] font-black shadow-sm`}
                                         style={{ textShadow: '0 1px 2px rgba(255,255,255,0.3)' }}
                                     >
                                         {a.text}
@@ -197,7 +197,7 @@ export default function FreelancerHeroSection() {
                             style={{ transform: 'rotateY(-12deg) rotateX(4deg) scale(1.02)' }}
                         >
                             <div className="absolute -inset-4 bg-gradient-to-tr from-noble-blue/20 to-electric-cyan/20 blur-2xl rounded-[40px] opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
-                            <div className="relative bg-white/50 backdrop-blur-sm p-3 sm:p-4 rounded-[24px] sm:rounded-[40px] shadow-[0_50px_100px_rgba(0,0,0,0.15)] border border-white/80 overflow-hidden">
+                            <div className="relative bg-noble-surface/50 backdrop-blur-sm p-3 sm:p-4 rounded-[24px] sm:rounded-[40px] shadow-[0_50px_100px_rgba(0,0,0,0.15)] border border-white/80 overflow-hidden">
                                 <div className="flex items-center gap-1.5 px-2 pb-3 pt-1">
                                     <div className="w-2.5 h-2.5 rounded-full bg-red-400"></div>
                                     <div className="w-2.5 h-2.5 rounded-full bg-yellow-400"></div>
@@ -221,7 +221,7 @@ export default function FreelancerHeroSection() {
                             initial={{ opacity: 0, x: 20 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: 0.9, duration: 0.5 }}
-                            className="absolute -bottom-4 -left-4 lg:-left-8 bg-white rounded-2xl px-5 py-3.5 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-near-black/5 z-20 flex items-center gap-3"
+                            className="absolute -bottom-4 -left-4 lg:-left-8 bg-noble-surface rounded-2xl px-5 py-3.5 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-near-black/5 z-20 flex items-center gap-3"
                         >
                             <div className="w-9 h-9 rounded-xl bg-green-500/10 flex items-center justify-center shrink-0">
                                 <span className="material-symbols-outlined text-green-500 text-base">check_circle</span>

@@ -78,15 +78,15 @@ export const OnboardingWizard = () => {
     return (
         <div className="w-full h-full flex flex-col bg-[#F8FAFC] relative">
             {isSaving && (
-                <div className="absolute inset-0 z-50 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center">
-                    <div className="w-12 h-12 border-4 border-slate-200 rounded-full animate-spin border-t-[#166FBB] mb-4" />
+                <div className="absolute inset-0 z-50 bg-noble-surface/80 backdrop-blur-sm flex flex-col items-center justify-center">
+                    <div className="w-12 h-12 border-4 border-noble-border rounded-full animate-spin border-t-[#166FBB] mb-4" />
                     <p className="font-bold text-slate-700">Syncing your business DNA...</p>
                 </div>
             )}
             
             {/* Header / Progress */}
             <div className="px-8 py-6 w-full max-w-4xl mx-auto flex items-center justify-between">
-                <div className="font-black text-xl text-slate-900 tracking-tighter">NobleInvoice</div>
+                <div className="font-black text-xl text-noble-text tracking-tighter">NobleInvoice</div>
                 <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">
                     Step {currentStep + 1} of 3
                 </div>
@@ -116,12 +116,12 @@ export const OnboardingWizard = () => {
             </div>
 
             {/* Footer Actions */}
-            <div className="fixed bottom-0 left-0 right-0 p-6 bg-white border-t border-slate-200">
+            <div className="fixed bottom-0 left-0 right-0 p-6 bg-noble-surface border-t border-noble-border">
                 <div className="w-full max-w-4xl mx-auto flex gap-4">
                     {currentStep > 0 && (
                         <button 
                             onClick={() => setCurrentStep(prev => prev - 1)}
-                            className="px-8 py-4 bg-white border border-slate-200 text-slate-700 font-bold rounded-2xl hover:bg-slate-50 transition-colors"
+                            className="px-8 py-4 bg-noble-surface border border-noble-border text-slate-700 font-bold rounded-2xl hover:bg-slate-50 transition-colors"
                         >
                             Back
                         </button>

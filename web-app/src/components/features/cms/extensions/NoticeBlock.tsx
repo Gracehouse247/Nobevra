@@ -12,7 +12,7 @@ const NoticeComponent = (props: any) => {
     warning: { icon: AlertTriangle, bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-800', iconColor: 'text-amber-500' },
     success: { icon: CheckCircle, bg: 'bg-emerald-50', border: 'border-emerald-200', text: 'text-emerald-800', iconColor: 'text-emerald-500' },
     error: { icon: XCircle, bg: 'bg-red-50', border: 'border-red-200', text: 'text-red-800', iconColor: 'text-red-500' },
-  }[type] || { icon: Info, bg: 'bg-slate-50', border: 'border-slate-200', text: 'text-slate-800', iconColor: 'text-slate-500' };
+  }[type] || { icon: Info, bg: 'bg-slate-50', border: 'border-noble-border', text: 'text-slate-800', iconColor: 'text-slate-500' };
 
   const Icon = config.icon;
 
@@ -30,7 +30,7 @@ const NoticeComponent = (props: any) => {
         </div>
 
         {/* Floating controls (only visible when focused/hovered in editor) */}
-        <div className="absolute top-2 right-2 flex gap-1 opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100 bg-white/80 backdrop-blur shadow-sm rounded-md border border-slate-200 p-1 z-10" contentEditable="false">
+        <div className="absolute top-2 right-2 flex gap-1 opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100 bg-noble-surface/80 backdrop-blur shadow-sm rounded-md border border-noble-border p-1 z-10" contentEditable="false">
           {(['info', 'success', 'warning', 'error'] as const).map(t => (
             <button
               key={t}

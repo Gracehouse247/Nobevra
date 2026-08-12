@@ -2,7 +2,7 @@ import React from 'react';
 export const CountrySelect = ({ value, onChange }: { value: string, onChange: (val: string) => void }) => {
     return (
         <select 
-            className="w-full h-10 pl-9 pr-2 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all font-medium font-[Inter,sans-serif] appearance-none cursor-pointer"
+            className="w-full h-10 pl-9 pr-2 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all font-medium font-[Inter,sans-serif] appearance-none cursor-pointer"
             value={value}
             onChange={(e) => onChange(e.target.value)}
         >

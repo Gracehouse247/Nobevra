@@ -36,12 +36,12 @@ export const GeometricHeader = (props: SharedEngineProps) => {
                  <div className="bg-slate-900 p-6 w-fit mb-6">
                     {renderLogo?.("w-20 h-20", true)}
                  </div>
-                 <h2 className="text-2xl font-black uppercase text-slate-900">{sender?.full_name}</h2>
+                 <h2 className="text-2xl font-black uppercase text-noble-text">{sender?.full_name}</h2>
                  <p className="text-xs font-bold text-slate-400 mt-1 uppercase tracking-widest">Minimal Box Series</p>
               </div>
               <div className="text-right">
                  <h1 className="text-9xl font-black text-slate-100 leading-none">BOX</h1>
-                 <h2 className="text-4xl font-black text-slate-900 -mt-12 relative z-10 uppercase">INVOICE</h2>
+                 <h2 className="text-4xl font-black text-noble-text -mt-12 relative z-10 uppercase">INVOICE</h2>
               </div>
            </div>
         </div>
@@ -53,12 +53,12 @@ export const GeometricHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16">
               <div className="flex gap-10 items-center">
-                 <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-100">
+                 <div className="bg-noble-surface p-6 rounded-2xl shadow-xl border border-slate-100">
                     {renderLogo?.("w-20 h-20")}
                  </div>
                  <div className="h-16 w-px bg-slate-200" />
                  <div>
-                    <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">{sender?.full_name}</h2>
+                    <h2 className="text-3xl font-black text-noble-text uppercase tracking-tighter">{sender?.full_name}</h2>
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Slanted Edge Edition</p>
                  </div>
               </div>
@@ -76,13 +76,13 @@ export const GeometricHeader = (props: SharedEngineProps) => {
            <div className="flex justify-between items-center mb-16">
               <div className="relative">
                  <div className="absolute inset-0 bg-slate-200 rotate-45 transform scale-125" />
-                 <div className="bg-white p-8 relative z-10 shadow-2xl border border-slate-100">
+                 <div className="bg-noble-surface p-8 relative z-10 shadow-2xl border border-slate-100">
                     {renderLogo?.("w-20 h-20")}
                  </div>
               </div>
               <div className="text-right">
                  <div className="flex items-center gap-4 justify-end mb-2">
-                    <h1 className="text-5xl font-black text-slate-900 uppercase tracking-tighter">DIAMOND</h1>
+                    <h1 className="text-5xl font-black text-noble-text uppercase tracking-tighter">DIAMOND</h1>
                     <Diamond className="w-10 h-10 text-slate-400" />
                  </div>
                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.6em]">Pro Series Corporate Doc</p>
@@ -96,7 +96,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-start mb-16 border-b border-white/10 pb-12">
-              <div className="bg-white p-6 rounded-none shadow-[0_0_30px_rgba(255,255,255,0.1)]">
+              <div className="bg-noble-surface p-6 rounded-none shadow-[0_0_30px_rgba(255,255,255,0.1)]">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
@@ -113,14 +113,14 @@ export const GeometricHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16">
-              <div className="flex gap-8 items-center bg-white p-8 rounded-3xl shadow-xl border-l-[12px] border-slate-900">
+              <div className="flex gap-8 items-center bg-noble-surface p-8 rounded-3xl shadow-xl border-l-[12px] border-slate-900">
                  {renderLogo?.("w-20 h-20")}
                  <div>
-                    <h2 className="text-3xl font-black text-slate-900 uppercase tracking-tighter">{sender?.full_name}</h2>
+                    <h2 className="text-3xl font-black text-noble-text uppercase tracking-tighter">{sender?.full_name}</h2>
                     <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Abstract Block Series</p>
                  </div>
               </div>
-              <h1 className="text-7xl font-black text-slate-900 opacity-5 uppercase rotate-90 absolute -right-16 top-32">BLOCKS</h1>
+              <h1 className="text-7xl font-black text-noble-text opacity-5 uppercase rotate-90 absolute -right-16 top-32">BLOCKS</h1>
            </div>
         </div>
       );
@@ -131,7 +131,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-center mb-16 bg-[#1A1A1A] p-10 rounded-2xl border border-emerald-500/20 shadow-2xl">
               <div className="flex gap-10 items-center">
-                 <div className="bg-white p-4 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.3)]">
+                 <div className="bg-noble-surface p-4 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.3)]">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <div>
@@ -149,11 +149,11 @@ export const GeometricHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16">
-              <div className="bg-white p-6 shadow-2xl border border-slate-50 rounded-tr-[5rem]">
+              <div className="bg-noble-surface p-6 shadow-2xl border border-slate-50 rounded-tr-[5rem]">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
-                 <h1 className="text-6xl font-black text-slate-900 tracking-tighter uppercase italic drop-shadow-xl">ORIGAMI</h1>
+                 <h1 className="text-6xl font-black text-noble-text tracking-tighter uppercase italic drop-shadow-xl">ORIGAMI</h1>
                  <p className="text-[10px] font-black text-slate-400 mt-2 uppercase tracking-[0.8em]">Paper Fold Professional</p>
               </div>
            </div>
@@ -197,12 +197,12 @@ export const GeometricHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-start mb-16">
-              <div className="bg-white p-8 rounded-full shadow-xl border-4 border-slate-900">
+              <div className="bg-noble-surface p-8 rounded-full shadow-xl border-4 border-slate-900">
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right pt-4">
-                 <h1 className="text-8xl font-black text-slate-900 opacity-5 leading-none mb-2 select-none">MATRIX</h1>
-                 <h2 className="text-4xl font-black text-slate-900 uppercase tracking-tighter relative z-10">INVOICE</h2>
+                 <h1 className="text-8xl font-black text-noble-text opacity-5 leading-none mb-2 select-none">MATRIX</h1>
+                 <h2 className="text-4xl font-black text-noble-text uppercase tracking-tighter relative z-10">INVOICE</h2>
                  <p className="text-xs font-bold text-slate-400 mt-2 uppercase tracking-[0.5em]">{sender?.full_name}</p>
               </div>
            </div>
@@ -213,16 +213,16 @@ export const GeometricHeader = (props: SharedEngineProps) => {
   if (id === 'geo-shattered-glass') {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col items-center">
-           <div className="w-full flex justify-between items-center mb-16 bg-slate-50/50 backdrop-blur-md p-10 border border-slate-200">
+           <div className="w-full flex justify-between items-center mb-16 bg-slate-50/50 backdrop-blur-md p-10 border border-noble-border">
               <div className="flex flex-col gap-2">
                  <h2 className="text-3xl font-black uppercase tracking-tighter italic text-slate-800">{sender?.full_name}</h2>
                  <div className="h-1 w-32 bg-slate-400" />
               </div>
-              <div className="bg-white p-4 shadow-xl -rotate-6">
+              <div className="bg-noble-surface p-4 shadow-xl -rotate-6">
                  {renderLogo?.("w-20 h-20")}
               </div>
            </div>
-           <h1 className="text-[12rem] font-black text-slate-900 opacity-[0.02] absolute top-12 pointer-events-none uppercase italic">SHATTERED</h1>
+           <h1 className="text-[12rem] font-black text-noble-text opacity-[0.02] absolute top-12 pointer-events-none uppercase italic">SHATTERED</h1>
         </div>
       );
     }
@@ -236,7 +236,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
                  <h2 className="text-2xl font-black uppercase mt-6 tracking-widest">{sender?.full_name}</h2>
               </div>
               <div className="text-right pt-6">
-                 <h1 className="text-7xl font-black uppercase tracking-tighter text-slate-900 border-b-[16px] border-slate-900 pb-2">INVOICE</h1>
+                 <h1 className="text-7xl font-black uppercase tracking-tighter text-noble-text border-b-[16px] border-slate-900 pb-2">INVOICE</h1>
               </div>
            </div>
         </div>
@@ -247,18 +247,18 @@ export const GeometricHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col items-center">
            <div className="w-full flex justify-between items-center mb-16">
-              <div className="text-slate-900">
+              <div className="text-noble-text">
                  <h2 className="text-3xl font-black uppercase tracking-widest leading-none">{sender?.full_name}</h2>
                  <p className="text-xs font-bold text-slate-400 mt-4 uppercase tracking-[0.4em]">Circular Dynamics Series</p>
               </div>
               <div className="relative">
                  <div className="absolute inset-0 bg-slate-100 rounded-full scale-150 blur-xl opacity-50" />
-                 <div className="bg-white p-8 rounded-full shadow-2xl border border-slate-50 relative z-10">
+                 <div className="bg-noble-surface p-8 rounded-full shadow-2xl border border-slate-50 relative z-10">
                     {renderLogo?.("w-20 h-20")}
                  </div>
               </div>
            </div>
-           <h1 className="text-6xl font-black text-slate-900 opacity-5 absolute top-24 uppercase tracking-[1em]">CONCENTRIC</h1>
+           <h1 className="text-6xl font-black text-noble-text opacity-5 absolute top-24 uppercase tracking-[1em]">CONCENTRIC</h1>
         </div>
       );
     }
@@ -268,7 +268,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-16 bg-slate-900 p-12 shadow-2xl skew-y-[-2deg]">
               <div className="flex gap-8 items-center skew-y-[2deg]">
-                 <div className="bg-white p-4 rounded-none shadow-xl border-t-4 border-slate-400">
+                 <div className="bg-noble-surface p-4 rounded-none shadow-xl border-t-4 border-slate-400">
                     {renderLogo?.("w-16 h-16")}
                  </div>
                  <div className="text-white">
@@ -287,7 +287,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-12 text-white">
               <div className="flex gap-6 items-center">
-                 <div className="bg-white p-4 rounded-2xl shadow-xl">
+                 <div className="bg-noble-surface p-4 rounded-2xl shadow-xl">
                     {renderLogo?.("w-20 h-20")}
                  </div>
                  <div>
@@ -302,7 +302,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
            </div>
-           <div className="bg-white rounded-[2.5rem] p-1 shadow-2xl -mb-1" />
+           <div className="bg-noble-surface rounded-[2.5rem] p-1 shadow-2xl -mb-1" />
         </div>
       );
     }
@@ -312,7 +312,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-12 text-white">
               <div className="flex gap-6 items-center">
-                 <div className="bg-white p-4 rounded-2xl shadow-xl">
+                 <div className="bg-noble-surface p-4 rounded-2xl shadow-xl">
                     {renderLogo?.("w-20 h-20")}
                  </div>
                  <div>
@@ -327,7 +327,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
            </div>
-           <div className="bg-white rounded-[2.5rem] p-1 shadow-2xl -mb-1" />
+           <div className="bg-noble-surface rounded-[2.5rem] p-1 shadow-2xl -mb-1" />
         </div>
       );
     }
@@ -337,7 +337,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-12 text-white">
               <div className="flex gap-6 items-center">
-                 <div className="bg-white p-4 rounded-2xl shadow-xl">
+                 <div className="bg-noble-surface p-4 rounded-2xl shadow-xl">
                     {renderLogo?.("w-20 h-20")}
                  </div>
                  <div>
@@ -352,7 +352,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
            </div>
-           <div className="bg-white rounded-[2.5rem] p-1 shadow-2xl -mb-1" />
+           <div className="bg-noble-surface rounded-[2.5rem] p-1 shadow-2xl -mb-1" />
         </div>
       );
     }
@@ -362,7 +362,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-center mb-12 text-white">
               <div className="flex gap-6 items-center">
-                 <div className="bg-white p-4 rounded-2xl shadow-xl">
+                 <div className="bg-noble-surface p-4 rounded-2xl shadow-xl">
                     {renderLogo?.("w-20 h-20")}
                  </div>
                  <div>
@@ -377,7 +377,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
            </div>
-           <div className="bg-white rounded-[2.5rem] p-1 shadow-2xl -mb-1" />
+           <div className="bg-noble-surface rounded-[2.5rem] p-1 shadow-2xl -mb-1" />
         </div>
       );
     }
@@ -385,7 +385,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
   if (id === 'geo-slate-minimal') {
       return (
         <div className="relative pt-12 px-16 z-10 flex flex-col">
-           <div className="flex justify-between items-center mb-12 text-slate-900">
+           <div className="flex justify-between items-center mb-12 text-noble-text">
               <div className="flex gap-6 items-center">
                  <div className="bg-[#334155] p-4 rounded-2xl shadow-xl">
                     {renderLogo?.("w-20 h-20", true)}
@@ -408,14 +408,14 @@ export const GeometricHeader = (props: SharedEngineProps) => {
 
   if (id === 'geo-austen') {
       return (
-        <div className="relative h-64 mb-12 flex justify-between items-start px-16 pt-16 z-10 bg-white overflow-hidden">
+        <div className="relative h-64 mb-12 flex justify-between items-start px-16 pt-16 z-10 bg-noble-surface overflow-hidden">
            {/* Top Right Polygons */}
            <div className="absolute top-0 right-0 w-[40%] h-full bg-[#1E3A8A]" style={{ clipPath: 'polygon(50% 0, 100% 0, 100% 100%, 0% 100%)' }} />
            <div className="absolute top-0 right-[25%] w-[30%] h-full bg-[#9F7AEA]" style={{ clipPath: 'polygon(30% 0, 100% 0, 70% 100%, 0% 100%)' }} />
            
            <div className="flex flex-col gap-2 relative z-20 w-[60%]">
               <h1 className="text-4xl font-black text-[#1E3A8A] uppercase">{sender?.full_name || 'Austen Tech'}</h1>
-              <p className="text-sm font-bold text-slate-900 leading-relaxed max-w-sm">{sender?.address || '23 Anywhere St., Any City, ST 12345'}</p>
+              <p className="text-sm font-bold text-noble-text leading-relaxed max-w-sm">{sender?.address || '23 Anywhere St., Any City, ST 12345'}</p>
            </div>
            
            <div className="flex flex-col items-end gap-2 relative z-20 text-white mt-12 pr-12">
@@ -425,7 +425,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
            {/* Absolute position "Invoice" text lower down */}
            <div className="absolute bottom-4 left-16 flex justify-between w-[calc(100%-8rem)] items-end">
               <h1 className="text-7xl font-black text-[#1E3A8A]">Invoice</h1>
-              <div className="text-right text-slate-900">
+              <div className="text-right text-noble-text">
                  <p className="text-xl font-black mb-1">Invoice # {data.invoiceNumber}</p>
                  <p className="text-xl font-black">{data.date}</p>
               </div>
@@ -475,7 +475,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
 
   if (id === 'geo-green-angle') {
       return (
-        <div className="relative h-64 mb-12 flex justify-between items-start px-16 pt-16 z-10 bg-white overflow-hidden">
+        <div className="relative h-64 mb-12 flex justify-between items-start px-16 pt-16 z-10 bg-noble-surface overflow-hidden">
            <div className="absolute top-0 left-0 w-[60%] h-full bg-[#10B981]" style={{ clipPath: 'polygon(0 0, 100% 0, 30% 100%, 0% 100%)' }} />
            <div className="absolute top-0 left-0 w-[65%] h-12 bg-slate-200" style={{ clipPath: 'polygon(0 0, 100% 0, 95% 100%, 0% 100%)' }} />
            
@@ -492,7 +492,7 @@ export const GeometricHeader = (props: SharedEngineProps) => {
 
   if (id === 'geo-triangle') {
       return (
-        <div className="relative mb-12 flex flex-col px-16 pt-16 z-10 bg-white">
+        <div className="relative mb-12 flex flex-col px-16 pt-16 z-10 bg-noble-surface">
            <div className="flex justify-between items-start w-full">
               <h1 className="text-8xl font-black text-[#111827] uppercase tracking-tighter">INVOICE</h1>
               <div className="flex flex-col gap-3 text-right">

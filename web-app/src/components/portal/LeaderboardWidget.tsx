@@ -20,7 +20,7 @@ export default function LeaderboardWidget() {
 
     if (loading) {
         return (
-            <div className="bg-white/60 backdrop-blur-xl border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[24px] p-6 animate-pulse">
+            <div className="bg-noble-card border border-noble-card-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-[24px] p-6 animate-pulse">
                 <div className="h-6 w-32 bg-slate-200 rounded-full mb-6" />
                 <div className="space-y-4">
                     {[1, 2, 3].map(i => (
@@ -38,7 +38,7 @@ export default function LeaderboardWidget() {
     }
 
     return (
-        <div className="bg-white/80 backdrop-blur-xl border border-white/60 shadow-[0_12px_40px_rgb(0,0,0,0.06)] rounded-[24px] p-6 relative overflow-hidden group">
+        <div className="bg-noble-card border border-noble-card-border shadow-[0_12px_40px_rgb(0,0,0,0.06)] rounded-[24px] p-6 relative overflow-hidden group">
             {/* Ambient Background */}
             <div className="absolute -top-10 -right-10 w-40 h-40 bg-amber-400/10 blur-[50px] rounded-full pointer-events-none group-hover:bg-amber-400/20 transition-colors duration-500" />
             <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-noble-blue/5 blur-[40px] rounded-full pointer-events-none" />

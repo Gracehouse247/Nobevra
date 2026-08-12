@@ -31,7 +31,7 @@ export const RimberioBackground: React.FC<RimberioBackgroundProps> = ({ accentCo
     const Grey = accentColor ? getDarkColor(accentColor) : "#333333";
 
     return (
-        <div className="absolute inset-0 bg-white overflow-hidden">
+        <div className="absolute inset-0 bg-noble-surface overflow-hidden">
             {side === 'front' ? (
                 <>
                     {/* Front Bottom Left - The Large Ribbon Fold */}

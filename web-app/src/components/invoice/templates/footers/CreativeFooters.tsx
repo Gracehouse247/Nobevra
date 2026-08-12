@@ -100,7 +100,7 @@ export const CreativeFooter = (props: SharedEngineProps) => {
         <div className="mt-auto px-16 py-10 relative z-10 border-t-4" style={{ borderTopColor: brand.main }}>
            <div className="flex justify-between items-center">
              <div>
-               <p className="text-[10px] font-black uppercase tracking-widest mb-2 text-slate-900">Payment Terms</p>
+               <p className="text-[10px] font-black uppercase tracking-widest mb-2 text-noble-text">Payment Terms</p>
                <p className="text-xs font-bold text-slate-500">{data.notes || 'Please remit payment within 30 days.'}</p>
              </div>
              <div className="flex items-center gap-3">
@@ -118,7 +118,7 @@ export const CreativeFooter = (props: SharedEngineProps) => {
            <div className="flex justify-between items-center">
              <p className="text-[10px] font-black uppercase tracking-widest text-white/70">{data.notes || 'Please remit payment within 30 days.'}</p>
              <div className="flex items-center gap-2">
-               <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
+               <div className="w-6 h-6 rounded-full bg-noble-surface/20 flex items-center justify-center">
                  <CheckCircle2 className="w-4 h-4 text-white" />
                </div>
                <p className="text-[9px] font-black uppercase tracking-[0.3em] text-white/50">Verified</p>
@@ -133,7 +133,7 @@ export const CreativeFooter = (props: SharedEngineProps) => {
         <div className="mt-auto px-16 py-10 relative z-10 bg-slate-900 border-t-4" style={{ borderTopColor: brand.main }}>
            <div className="flex justify-between items-center">
              <p className="text-[10px] font-black uppercase tracking-widest text-white/40">{data.notes || 'Please remit payment within 30 days.'}</p>
-             <div className="h-px flex-1 mx-8 bg-white/10" />
+             <div className="h-px flex-1 mx-8 bg-noble-surface/10" />
              <Diamond className="w-5 h-5 text-amber-400 fill-amber-400 opacity-50" />
            </div>
         </div>
@@ -169,12 +169,12 @@ export const CreativeFooter = (props: SharedEngineProps) => {
       return (
         <div className="mt-auto px-16 py-12 relative z-10 flex justify-between items-end">
            <div className="space-y-4">
-              <h4 className="text-sm font-black text-slate-900 uppercase">Artist Notes:</h4>
+              <h4 className="text-sm font-black text-noble-text uppercase">Artist Notes:</h4>
               <p className="text-xs font-bold text-slate-500 max-w-xs leading-relaxed italic opacity-80">{data.notes || 'Every stroke is a commitment to excellence.'}</p>
            </div>
            <div className="flex flex-col items-center">
               <div className="w-48 h-8 bg-gradient-to-r from-pink-100 to-blue-100 blur-lg opacity-50 mb-2" />
-              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-900">{sender?.full_name}</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.4em] text-noble-text">{sender?.full_name}</p>
            </div>
         </div>
       );
@@ -186,7 +186,7 @@ export const CreativeFooter = (props: SharedEngineProps) => {
            <p className="text-[10px] font-black uppercase tracking-[0.5em] opacity-40">DUOTONE SERIES • VERIFIED</p>
            <div className="flex items-center gap-4">
               <Signature className="w-8 h-8 text-magenta-500" />
-              <div className="h-8 w-px bg-white/10" />
+              <div className="h-8 w-px bg-noble-surface/10" />
               <p className="text-[9px] font-bold opacity-30 tracking-widest">OFFICIAL SEAL</p>
            </div>
         </div>
@@ -202,7 +202,7 @@ export const CreativeFooter = (props: SharedEngineProps) => {
            </div>
            <div className="flex flex-col items-center pr-8">
               <Signature className="w-12 h-12 text-white mb-1" />
-              <div className="w-48 h-px bg-white/30" />
+              <div className="w-48 h-px bg-noble-surface/30" />
               <p className="text-[8px] font-black uppercase tracking-widest mt-2">Lead Architect</p>
            </div>
         </div>
@@ -223,7 +223,7 @@ export const CreativeFooter = (props: SharedEngineProps) => {
 
   if (id === 'creative-monochrome') {
       return (
-        <div className="mt-auto px-16 py-12 relative z-10 border-t-8 border-black flex justify-between items-center bg-white">
+        <div className="mt-auto px-16 py-12 relative z-10 border-t-8 border-black flex justify-between items-center bg-noble-surface">
            <div className="text-[10px] font-black text-black uppercase tracking-[0.4em]">
               <p>Certified Monochrome Statement</p>
               <p className="mt-1 opacity-40 italic"># {data.invoiceNumber}</p>
@@ -243,12 +243,12 @@ export const CreativeFooter = (props: SharedEngineProps) => {
         <div className="mt-auto px-16 py-10 relative z-10 border-t-4 border-slate-900 bg-[#FCF9F1]">
            <div className="flex justify-between items-center">
               <div className="space-y-1">
-                 <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Retro Series Verification</p>
+                 <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">Retro Series Verification</p>
                  <p className="text-[8px] font-bold text-slate-400 italic">This document is rendered in classic typographic style.</p>
               </div>
               <div className="flex flex-col items-center">
                  <div className="w-48 h-px bg-slate-900 mb-2" />
-                 <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">Official Seal</p>
+                 <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">Official Seal</p>
               </div>
            </div>
         </div>
@@ -274,14 +274,14 @@ export const CreativeFooter = (props: SharedEngineProps) => {
 
   if (id === 'creative-bauhaus') {
       return (
-        <div className="mt-auto h-24 bg-white flex items-center px-16 justify-between text-slate-900 relative z-10 border-t-8 border-slate-900">
+        <div className="mt-auto h-24 bg-noble-surface flex items-center px-16 justify-between text-noble-text relative z-10 border-t-8 border-slate-900">
            <div className="flex gap-4">
               <div className="w-4 h-4 bg-red-600" />
               <div className="w-4 h-4 bg-blue-600 rounded-full" />
               <div className="w-4 h-4 bg-yellow-400" style={{ clipPath: 'polygon(50% 0, 100% 100%, 0 100%)' }} />
            </div>
            <div className="flex flex-col items-end">
-              <Signature className="w-8 h-8 text-slate-900 mb-1" />
+              <Signature className="w-8 h-8 text-noble-text mb-1" />
               <p className="text-[8px] font-black uppercase tracking-widest text-slate-400">Modernist Approval</p>
            </div>
         </div>
@@ -296,7 +296,7 @@ export const CreativeFooter = (props: SharedEngineProps) => {
            </div>
            <div className="flex flex-col items-center">
               <div className="w-48 h-0.5 bg-slate-200 mb-2" />
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">{sender?.full_name}</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">{sender?.full_name}</p>
            </div>
         </div>
       );
@@ -304,13 +304,13 @@ export const CreativeFooter = (props: SharedEngineProps) => {
 
   if (id === 'creative-ink-splash') {
       return (
-        <div className="mt-auto h-32 bg-white flex items-center px-16 justify-between relative z-10 overflow-hidden">
+        <div className="mt-auto h-32 bg-noble-surface flex items-center px-16 justify-between relative z-10 overflow-hidden">
            <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/asfalt-dark.png")' }} />
            <div className="relative z-20">
-              <p className="text-[10px] font-black text-slate-900 uppercase tracking-widest">INK SERIES DOC</p>
+              <p className="text-[10px] font-black text-noble-text uppercase tracking-widest">INK SERIES DOC</p>
            </div>
            <div className="relative z-20 flex flex-col items-end">
-              <Signature className="w-12 h-12 text-slate-900 mb-1 opacity-80" />
+              <Signature className="w-12 h-12 text-noble-text mb-1 opacity-80" />
               <p className="text-[8px] font-black uppercase tracking-widest text-slate-400">Artistic Verified</p>
            </div>
         </div>
@@ -332,7 +332,7 @@ export const CreativeFooter = (props: SharedEngineProps) => {
   if (id === 'creative-bauhaus-bold') {
       return (
         <div className="mt-auto h-24 bg-slate-900 flex items-center px-16 justify-between text-white relative z-10">
-           <div className="flex gap-1 bg-white h-full w-4" />
+           <div className="flex gap-1 bg-noble-surface h-full w-4" />
            <p className="text-[10px] font-black uppercase tracking-[0.5em] text-white/50 pr-8">BAUHAUS BOLD OFFICIAL STATEMENT</p>
            <div className="flex flex-col items-end pr-16">
               <Signature className="w-10 h-10 text-white mb-1" />

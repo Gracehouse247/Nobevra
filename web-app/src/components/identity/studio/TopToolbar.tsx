@@ -75,7 +75,7 @@ export const TopToolbar: React.FC = () => {
   };
 
   return (
-    <div className="h-16 bg-white/60 backdrop-blur-md border-b border-white/60 px-6 flex items-center justify-between shrink-0 z-20 shadow-sm relative">
+    <div className="h-16 bg-noble-surface/60 backdrop-blur-md border-b border-white/60 px-6 flex items-center justify-between shrink-0 z-20 shadow-sm relative">
       <div className="flex items-center gap-4">
         <button 
           onClick={() => window.location.href = '/dashboard'}
@@ -85,7 +85,7 @@ export const TopToolbar: React.FC = () => {
         </button>
         <div className="h-6 w-px bg-slate-200 mx-2" />
         <div className="flex flex-col">
-          <span className="font-semibold text-slate-900 text-sm">
+          <span className="font-semibold text-noble-text text-sm">
             {template?.name || 'Untitled Design'}
           </span>
           <span className="text-[10px] text-slate-400 font-medium">NobleCard Studio Pro</span>
@@ -103,7 +103,7 @@ export const TopToolbar: React.FC = () => {
         
         <button 
           onClick={handleOpen3D}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 rounded-lg transition-colors"
+          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-noble-surface border border-noble-border hover:bg-slate-50 rounded-lg transition-colors"
         >
           <Eye size={16} className="text-amber-500" />
           Preview 3D
@@ -111,7 +111,7 @@ export const TopToolbar: React.FC = () => {
 
         <button 
           onClick={handleExportPng}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 rounded-lg transition-colors"
+          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-noble-surface border border-noble-border hover:bg-slate-50 rounded-lg transition-colors"
         >
           <Download size={16} />
           High-Res PNG

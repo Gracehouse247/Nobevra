@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* ── Dark mode: class strategy (next-themes sets .dark on <html>) ── */
+/* Ignores any element inside [data-theme-force="light"] so public pages stay light */
+@variant dark (&:where(.dark, .dark *):not(:where([data-theme-force="light"], [data-theme-force="light"] *)));
+
+
 @theme {
   --font-manrope: var(--font-manrope);
   --font-inter: "Inter", sans-serif;
@@ -34,27 +39,413 @@
   --color-sidebar-active-bg: rgba(5,153,213,0.18);
   --color-sidebar-active-border: #0599D5;
 
+  /* Phase 1 & 2 Noble Variables — reference CSS vars so dark mode works */
+  --color-noble-primary: var(--noble-primary);
+  --color-noble-secondary: var(--noble-secondary);
+  --color-noble-accent-alt: var(--noble-accent-alt);
+  --color-noble-bg: var(--noble-bg);
+  --color-noble-surface: var(--noble-surface);
+  --color-noble-border: var(--noble-border);
+  --color-noble-border-hover: var(--noble-border-hover);
+  --color-noble-text: var(--noble-text);
+  --color-noble-muted: var(--noble-muted);
+  --color-noble-card: var(--noble-card);
+  --color-noble-sidebar: var(--noble-sidebar);
+  --color-noble-interactive-bg: var(--noble-interactive-bg);
+  --color-noble-card-border: var(--noble-card-border);
+  --color-noble-card-text: var(--noble-card-text);
+  --color-noble-table-header-bg: var(--noble-table-header-bg);
+  --color-noble-amount-text: var(--noble-amount-text);
+  --color-noble-stat-text: var(--noble-stat-text);
+  --color-noble-icon-bg: var(--noble-icon-bg);
+  --color-noble-empty-bg: var(--noble-empty-bg);
+  --color-noble-empty-text: var(--noble-empty-text);
+  --color-noble-insight-bg: var(--noble-insight-bg);
+  --color-noble-insight-text: var(--noble-insight-text);
+  --color-noble-dropdown-bg: var(--noble-dropdown-bg);
+  --color-noble-dropdown-text: var(--noble-dropdown-text);
+  --color-noble-greeting-text: var(--noble-greeting-text);
+  --color-noble-invoice-type-bg: var(--noble-invoice-type-bg);
+  --color-noble-invoice-type-text: var(--noble-invoice-type-text);
+  --color-noble-form-bg: var(--noble-form-bg);
+  --color-noble-form-text: var(--noble-form-text);
+
+  /* Core background/foreground reference CSS vars */
+  --color-background: var(--noble-bg);
+  --color-foreground: var(--noble-text);
+  --color-surface: var(--noble-surface);
+
   --radius-noble: 20px;
   --radius-noble-card: 24px;
 }
 
 :root {
+  color-scheme: light dark;
   --background: #FFFFFF;
   --foreground: #050B1A;
   --primary: #006970;
-  /* Permanently lock to light mode — prevents OS/browser dark mode overrides */
-  color-scheme: light;
+  
+  /* Noble Variables */
+  --noble-primary: #0599D5;
+  --noble-secondary: #006970;
+  --noble-accent-alt: #4F46E5;
+
+  /* New Global Tokens */
+  --noble-card-border: rgba(255, 255, 255, 0.02);
+  --noble-card-text: #F1F5F9;
+  --noble-table-header-bg: rgba(255, 255, 255, 0.02);
+  --noble-amount-text: #F8FAFC;
+  --noble-stat-text: #F1F5F9;
+  --noble-icon-bg: rgba(255, 255, 255, 0.05);
+  
+  --noble-empty-bg: #0A111F;
+  --noble-empty-text: #94A3B8;
+  
+  --noble-insight-bg: #0E1629; /* Amplified Dark Indigo */
+  --noble-insight-text: #60A5FA; /* Pop of blue */
+  
+  --noble-dropdown-bg: #0A111F;
+  --noble-dropdown-text: #F1F5F9;
+  
+  --noble-greeting-text: #F8FAFC;
+  
+  --noble-invoice-type-bg: #0A111F;
+  --noble-invoice-type-text: #F1F5F9;
+  
+  --noble-form-bg: #0A111F;
+  --noble-form-text: #F1F5F9;
+  --noble-gradient: linear-gradient(135deg, #006970, #0599D5);
+  --noble-bg: #F3F6FC;
+  --noble-surface: #FFFFFF;
+  --noble-border: #E2E8F0;
+  --noble-border-hover: #CBD5E1;
+  --noble-text: #0F172A;
+  --noble-muted: #64748B;
+  --noble-card: #FFFFFF;
+  --noble-sidebar: #0A1628;
+  --noble-interactive-bg: #F1F5F9;
+
+  /* New Global Tokens */
+  --noble-card-border: #E2E8F0;
+  --noble-card-text: #0F172A;
+  --noble-table-header-bg: #F8FAFC;
+  --noble-amount-text: #0F172A;
+  --noble-stat-text: #0F172A;
+  --noble-icon-bg: #F1F5F9;
+  
+  --noble-empty-bg: #FFFFFF;
+  --noble-empty-text: #64748B;
+  
+  --noble-insight-bg: #F0F9FF;
+  --noble-insight-text: #006970;
+  
+  --noble-dropdown-bg: #FFFFFF;
+  --noble-dropdown-text: #0F172A;
+  
+  --noble-greeting-text: #0F172A;
+  
+  --noble-invoice-type-bg: #FFFFFF;
+  --noble-invoice-type-text: #0F172A;
+  
+  --noble-form-bg: #FFFFFF;
+  --noble-form-text: #0F172A;
 }
 
-/* Smooth scrolling for TOC anchor links */
+:root.dark:not(:has([data-theme-force="light"])) {
+  color-scheme: dark;
+  --background:      #060D1A;
+  --foreground:      #F1F5F9;
+  --noble-bg:        #060D1A;
+  --noble-surface:   #0D1625;
+  --noble-border:    rgba(255, 255, 255, 0.05);
+  --noble-border-hover: rgba(255, 255, 255, 0.1);
+  --noble-text:      #F1F5F9;
+  --noble-muted:     #94A3B8;
+  --noble-card:      #0D1625;
+  --noble-sidebar:   #040C18;
+  --noble-interactive-bg: rgba(255, 255, 255, 0.05);
+  --noble-gradient:  linear-gradient(to right, #006970, #0599D5);
+  --noble-accent-alt: #4F46E5;
+
+  /* ─── New Global Tokens — Dark Mode ─────────────────────────── */
+  /* Card */
+  --noble-card-border:        rgba(255, 255, 255, 0.06);
+  --noble-card-text:          #E2E8F0;
+
+  /* Table */
+  --noble-table-header-bg:    rgba(255, 255, 255, 0.03);
+
+  /* Amounts & Stats */
+  --noble-amount-text:        #F8FAFC;
+  --noble-stat-text:          #F1F5F9;
+
+  /* Icon backgrounds inside cards */
+  --noble-icon-bg:            rgba(255, 255, 255, 0.06);
+
+  /* Empty States */
+  --noble-empty-bg:           #0D1625;
+  --noble-empty-text:         #64748B;
+
+  /* Smart Insight / Intelligence Hub banners */
+  --noble-insight-bg:         #0E1A2F;
+  --noble-insight-text:       #93C5FD;
+
+  /* Profile / Nav Dropdown */
+  --noble-dropdown-bg:        #0D1625;
+  --noble-dropdown-text:      #F1F5F9;
+
+  /* Dashboard Greeting text */
+  --noble-greeting-text:      #F8FAFC;
+
+  /* Invoice Type Selector & Forms */
+  --noble-invoice-type-bg:    #0D1625;
+  --noble-invoice-type-text:  #F1F5F9;
+  --noble-form-bg:            #0D1625;
+  --noble-form-text:          #F1F5F9;
+}
+
+/* ── Base HTML / Body ────────────────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background: #ffffff;
-  color: #050B1A;
+  background-color: var(--noble-bg);
+  color: var(--noble-text);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
+
+/* Catch-all: every direct child of body in dark mode must have dark bg */
+/* Exclude pages wrapped in data-theme-force="light" */
+html.dark body:not(:has([data-theme-force="light"])) {
+  background-color: #060D1A !important;
+}
+
+/* ── Light Mode Isolation for Public Pages ── */
+[data-theme-force="light"],
+[data-theme-force="light"] * {
+  color-scheme: light !important;
+}
+
+/* ── Dark mode component-level overrides ─────────────────────────────────── */
+
+/* Page wrapper & main content areas */
+:root.dark:not(:has([data-theme-force="light"])) main,
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-noble-surface"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-noble-bg"] {
+  background-color: var(--noble-bg);
+}
+
+/* ── NUCLEAR: The scrollable content shell and all direct page children ── */
+/* This ensures zero white gaps between cards regardless of what class is used */
+:root.dark:not(:has([data-theme-force="light"])) main > div,
+:root.dark:not(:has([data-theme-force="light"])) main > section {
+  background-color: transparent !important;
+}
+
+/* The actual scrollable area must ALWAYS be dark */
+:root.dark:not(:has([data-theme-force="light"])) .flex-1.overflow-auto {
+  background-color: #060D1A !important;
+}
+
+/* Header bar */
+:root.dark:not(:has([data-theme-force="light"])) header {
+  background-color: rgba(13, 27, 46, 0.95) !important;
+  border-bottom-color: #1E293B !important;
+}
+:root.dark:not(:has([data-theme-force="light"])) header span,
+:root.dark:not(:has([data-theme-force="light"])) header p,
+:root.dark:not(:has([data-theme-force="light"])) header a {
+  color: var(--noble-text) !important;
+}
+:root.dark:not(:has([data-theme-force="light"])) header button {
+  color: var(--noble-muted);
+}
+:root.dark:not(:has([data-theme-force="light"])) header button:hover {
+  color: var(--noble-text);
+  background-color: rgba(255,255,255,0.06);
+}
+
+/* Cards & panels */
+:root.dark:not(:has([data-theme-force="light"])) .kpi-card,
+:root.dark:not(:has([data-theme-force="light"])) .glass-card {
+  background-color: var(--noble-card) !important;
+  border-color: var(--noble-border) !important;
+}
+
+/* ── Dark mode: ensure ALL dashboard card divs inherit dark bg ──────── */
+/* Force bg-noble-card utility class to be dark */
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-noble-card"] {
+  background-color: var(--noble-card) !important;
+}
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-noble-insight-bg"] {
+  background-color: var(--noble-insight-bg) !important;
+}
+/* Prevent any white/light surface bleed on card wrappers */
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-noble-surface"] {
+  background-color: var(--noble-surface) !important;
+}
+/* Any element that has a bg-white utility in dark mode */
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-white"]:not([class*="data-theme-force"]) {
+  background-color: var(--noble-card) !important;
+}
+/* Icon backgrounds in dark mode — keep subtle */
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-blue-50"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-orange-50"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-emerald-50"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-amber-50"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-slate-100"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="bg-slate-50"] {
+  background-color: var(--noble-icon-bg) !important;
+}
+/* Override for colored icon text — keep the accent colors visible */
+:root.dark:not(:has([data-theme-force="light"])) [class*="text-emerald-"] {
+  color: unset;
+}
+:root.dark:not(:has([data-theme-force="light"])) [class*="text-orange-"] {
+  color: unset;
+}
+:root.dark:not(:has([data-theme-force="light"])) [class*="text-amber-"] {
+  color: unset;
+}
+:root.dark:not(:has([data-theme-force="light"])) [class*="text-red-"] {
+  color: unset;
+}
+/* Muted text */
+:root.dark:not(:has([data-theme-force="light"])) [class*="text-slate-400"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="text-slate-500"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="text-slate-600"] {
+  color: var(--noble-muted) !important;
+}
+/* Strong text */
+:root.dark:not(:has([data-theme-force="light"])) [class*="text-slate-800"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="text-slate-900"] {
+  color: var(--noble-text) !important;
+}
+
+/* Tables */
+:root.dark:not(:has([data-theme-force="light"])) table,
+:root.dark:not(:has([data-theme-force="light"])) thead,
+:root.dark:not(:has([data-theme-force="light"])) tbody tr {
+  background-color: var(--noble-surface) !important;
+  border-color: var(--noble-border) !important;
+}
+:root.dark:not(:has([data-theme-force="light"])) thead th {
+  color: var(--noble-muted) !important;
+}
+:root.dark:not(:has([data-theme-force="light"])) tbody tr:hover {
+  background-color: rgba(255,255,255,0.04) !important;
+}
+
+/* Inputs & selects */
+:root.dark:not(:has([data-theme-force="light"])) input,
+:root.dark:not(:has([data-theme-force="light"])) select,
+:root.dark:not(:has([data-theme-force="light"])) textarea {
+  background-color: rgba(255,255,255,0.05) !important;
+  border-color: var(--noble-border) !important;
+  color: var(--noble-text) !important;
+}
+:root.dark:not(:has([data-theme-force="light"])) input::placeholder,
+:root.dark:not(:has([data-theme-force="light"])) textarea::placeholder {
+  color: var(--noble-muted) !important;
+}
+:root.dark:not(:has([data-theme-force="light"])) input:focus,
+:root.dark:not(:has([data-theme-force="light"])) select:focus,
+:root.dark:not(:has([data-theme-force="light"])) textarea:focus {
+  border-color: #0599D5 !important;
+  box-shadow: 0 0 0 3px rgba(5, 153, 213, 0.15) !important;
+}
+
+/* Modals & dropdowns */
+:root.dark:not(:has([data-theme-force="light"])) [role="dialog"],
+:root.dark:not(:has([data-theme-force="light"])) [role="menu"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="dropdown"],
+:root.dark:not(:has([data-theme-force="light"])) [class*="popover"] {
+  background-color: var(--noble-card) !important;
+  border-color: var(--noble-border) !important;
+}
+
+/* Shimmer skeleton in dark */
+:root.dark:not(:has([data-theme-force="light"])) .shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.05) 0%,
+    rgba(255,255,255,0.1) 40%,
+    rgba(255,255,255,0.05) 80%
+  );
+  background-size: 200% 100%;
+}
+
+/* Scrollbar in dark */
+:root.dark:not(:has([data-theme-force="light"])) ::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.12);
+}
+:root.dark:not(:has([data-theme-force="light"])) ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* ── Catch-all: force every remaining white surface dark ─────────────────── */
+
+/* Any inline bg-white div that escaped the migration */
+:root.dark:not(:has([data-theme-force="light"])) div[class*="bg-white"],
+:root.dark:not(:has([data-theme-force="light"])) section[class*="bg-white"],
+:root.dark:not(:has([data-theme-force="light"])) aside[class*="bg-white"],
+:root.dark:not(:has([data-theme-force="light"])) nav[class*="bg-white"] {
+  background-color: var(--noble-surface) !important;
+}
+
+/* Any bg-slate-50 / bg-gray-50 sections in dark */
+:root.dark:not(:has([data-theme-force="light"])) div[class*="bg-slate-50"],
+:root.dark:not(:has([data-theme-force="light"])) div[class*="bg-gray-50"] {
+  background-color: var(--noble-card) !important;
+}
+
+/* Notification panel, user dropdown, mobile drawer panels */
+:root.dark:not(:has([data-theme-force="light"])) .notification-panel,
+:root.dark:not(:has([data-theme-force="light"])) .user-dropdown-panel,
+:root.dark:not(:has([data-theme-force="light"])) .mobile-drawer {
+  background-color: var(--noble-surface) !important;
+  border-color: var(--noble-border) !important;
+}
+
+/* Status badges in dark (neon keeps working) */
+:root.dark:not(:has([data-theme-force="light"])) .status-neon-success {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.25);
+}
+:root.dark:not(:has([data-theme-force="light"])) .status-neon-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border-color: rgba(248, 113, 113, 0.25);
+}
+
+/* Quick action island in dark */
+:root.dark:not(:has([data-theme-force="light"])) .quick-actions-island {
+  background: rgba(13, 27, 46, 0.92);
+  border-color: rgba(255,255,255,0.06);
+}
+
+/* KPI stat cards in dark */
+:root.dark:not(:has([data-theme-force="light"])) .kpi-card {
+  background: var(--noble-card);
+  border-color: var(--noble-border);
+}
+:root.dark:not(:has([data-theme-force="light"])) .kpi-card:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* Ledger rows in dark */
+:root.dark:not(:has([data-theme-force="light"])) .ledger-row:hover {
+  background-color: rgba(255,255,255,0.03);
+}
+
+/* Sidebar items in dark (already dark sidebar, but ensure text) */
+:root.dark:not(:has([data-theme-force="light"])) .sidebar-item-hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* ── End dark mode overrides ─────────────────────────────────────────────── */
 
 /* Font utility classes for Tailwind v4 */
 .font-roboto {
@@ -100,7 +491,7 @@ body {
 
 .text-hero {
     font-size: clamp(3rem, 8vw, 120px);
-    line-height: 95%;
+    line-height: 1.1;
     letter-spacing: -0.06em;
     font-weight: 800;
 }
@@ -123,6 +514,16 @@ body {
     line-height: 160%;
     font-weight: 400;
 }
+
+/* ── Standardized Typography Scale ── */
+.text-2xs  { font-size: 0.625rem; }  /* 10px */
+.text-xs   { font-size: 0.75rem; }   /* 12px */
+.text-sm   { font-size: 0.875rem; }  /* 14px */
+.text-base { font-size: 1rem; }      /* 16px */
+.text-lg   { font-size: 1.125rem; }  /* 18px */
+.text-xl   { font-size: 1.25rem; }   /* 20px */
+.text-2xl  { font-size: 1.5rem; }    /* 24px */
+.text-3xl  { font-size: 1.875rem; }  /* 30px */
 
 /* ── Dashboard Metric Type Scale ── */
 .text-metric-xl {
@@ -383,13 +784,36 @@ body {
   display: none;
 }
 
+/* Firefox scrollbar and general focus ring */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #CBD5E1 transparent;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--noble-primary);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.noble-input:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 0 0 4px var(--noble-primary);
+}
+
+@supports (-webkit-touch-callout: none) {
+  .modal-overlay {
+    height: -webkit-fill-available;
+  }
+}
+
 /* ── Ledger: Primary Gradient CTA Button ── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 10px 18px;
-  background: linear-gradient(135deg, #0599D5, #006970);
+  background: linear-gradient(to right, #006970, #0599D5);
   color: #ffffff;
   font-size: 12px;
   font-weight: 700;

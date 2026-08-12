@@ -153,7 +153,7 @@ export default function LiveChatPanel() {
                 <div className="flex-1 overflow-y-auto p-2 space-y-1">
                     {filtered.map(conv => (
                         <div key={conv.id} onClick={() => setActiveConv(conv.id)}
-                            className={`p-4 rounded-2xl cursor-pointer transition-all ${activeConv === conv.id ? 'bg-[#006970]/10 border border-[#006970]/20' : 'hover:bg-black/5 :bg-white/5'}`}>
+                            className={`p-4 rounded-2xl cursor-pointer transition-all ${activeConv === conv.id ? 'bg-[#006970]/10 border border-[#006970]/20' : 'hover:bg-black/5 :bg-noble-surface/5'}`}>
                             <div className="flex items-start justify-between mb-1">
                                 <div className="flex items-center gap-2">
                                     <div className="relative">
@@ -185,7 +185,7 @@ export default function LiveChatPanel() {
                     ) : (
                         <div className="text-sm text-slate-500">Select a conversation</div>
                     )}
-                    <button className="p-2 hover:bg-black/5 :bg-white/5 rounded-xl transition-colors text-slate-500"><MoreVertical className="w-5 h-5" /></button>
+                    <button className="p-2 hover:bg-black/5 :bg-noble-surface/5 rounded-xl transition-colors text-slate-500"><MoreVertical className="w-5 h-5" /></button>
                 </div>
 
                 <div className="flex-1 overflow-y-auto p-6 space-y-4">

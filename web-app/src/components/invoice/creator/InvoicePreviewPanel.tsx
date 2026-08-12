@@ -52,10 +52,10 @@ export const InvoicePreviewPanel = ({ onOpenTemplateDialog }: InvoicePreviewPane
     ];
 
     return (
-        <div className="h-full w-full bg-white flex flex-col overflow-hidden">
+        <div className="h-full w-full bg-noble-surface flex flex-col overflow-hidden">
 
             {/* ── Tab Navigation (matches Image 3 exactly) ── */}
-            <div className="h-[60px] border-b border-slate-200 px-6 flex items-end justify-between shrink-0 bg-white">
+            <div className="h-[60px] border-b border-noble-border px-6 flex items-end justify-between shrink-0 bg-noble-surface">
                 <div className="flex items-end h-full gap-1">
                     {tabs.map(({ id, label, icon: Icon }) => (
                         <button
@@ -93,7 +93,7 @@ export const InvoicePreviewPanel = ({ onOpenTemplateDialog }: InvoicePreviewPane
                         >
                             <div
                                 id="invoice-preview-element"
-                                className="absolute top-0 left-0 bg-white shadow-[0_8px_40px_rgba(0,0,0,0.10)]"
+                                className="absolute top-0 left-0 bg-noble-surface shadow-[0_8px_40px_rgba(0,0,0,0.10)]"
                                 style={{
                                     width: `${DOC_W}px`,
                                     height: `${DOC_H}px`,
@@ -128,7 +128,7 @@ export const InvoicePreviewPanel = ({ onOpenTemplateDialog }: InvoicePreviewPane
                         </div>
 
                         {/* Invoice Actions card (Image 3 style) */}
-                        <div className="w-full bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                        <div className="w-full bg-noble-surface border border-noble-border rounded-2xl shadow-sm overflow-hidden">
                             <div className="px-5 py-4 border-b border-slate-100 flex items-center gap-2.5">
                                 <Layers className="w-4 h-4 text-slate-500" />
                                 <h4 className="text-[12px] font-bold text-slate-700 mb-3 uppercase tracking-wider font-[Inter,sans-serif]">Invoice Actions</h4>
@@ -138,10 +138,10 @@ export const InvoicePreviewPanel = ({ onOpenTemplateDialog }: InvoicePreviewPane
                                     <Send className="w-4 h-4" /> Send Invoice
                                 </button>
                                 <div className="grid grid-cols-2 gap-2">
-                                    <button className="h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-[12px] flex items-center justify-center gap-1.5 transition-all font-[Inter,sans-serif]">
+                                    <button className="h-9 rounded-xl border border-noble-border bg-noble-surface hover:bg-slate-50 text-slate-700 font-semibold text-[12px] flex items-center justify-center gap-1.5 transition-all font-[Inter,sans-serif]">
                                         <Download className="w-3.5 h-3.5 text-slate-500" /> Download PDF
                                     </button>
-                                    <button className="h-9 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-[12px] flex items-center justify-center gap-1.5 transition-all font-[Inter,sans-serif]">
+                                    <button className="h-9 rounded-xl border border-noble-border bg-noble-surface hover:bg-slate-50 text-slate-700 font-semibold text-[12px] flex items-center justify-center gap-1.5 transition-all font-[Inter,sans-serif]">
                                         <LinkIcon className="w-3.5 h-3.5 text-slate-500" /> Share Link
                                     </button>
                                 </div>
@@ -181,7 +181,7 @@ export const InvoicePreviewPanel = ({ onOpenTemplateDialog }: InvoicePreviewPane
                         </div>
                         <button
                             onClick={() => router.push('/settings/brand')}
-                            className="h-9 px-5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-bold text-[13px] transition-all shadow-sm font-[Inter,sans-serif]">
+                            className="h-9 px-5 rounded-xl border border-noble-border bg-noble-surface hover:bg-slate-50 text-slate-700 font-bold text-[13px] transition-all shadow-sm font-[Inter,sans-serif]">
                             Open Brand Settings
                         </button>
                     </div>

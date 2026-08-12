@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 export default function Footer() {
     return (
-        <footer className="bg-[#F8FAFC] border-t border-near-black/5 pt-20 pb-10 px-6 overflow-hidden relative">
+        <footer className="bg-[#F8FAFC] dark:bg-[#060D1A] border-t border-near-black/5 pt-20 pb-10 px-6 overflow-hidden relative">
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-noble-blue/5 blur-[150px] rounded-full -mr-64 -mt-64" />
             
             <div className="max-w-[1430px] mx-auto relative z-10">
@@ -42,12 +42,12 @@ export default function Footer() {
                     <div>
                         <p className="text-[10px] font-black text-near-black uppercase tracking-[0.3em] mb-8">Products</p>
                         <ul className="space-y-4">
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/invoice-generator">Free Invoice Generator</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/features/ai-invoice-generator">AI Invoice Generator</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/gamified-invoicing">Gamified Invoicing</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/freelance-crm">Freelance CRM</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/solutions/enterprise">Enterprise Billing Platform</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/receipt-scanner">Receipt Scanner</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/free-invoice-generator">Free Invoice Generator</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/features/best-ai-invoice-generator-free">AI Invoice Generator</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/gamified-invoicing-software">Gamified Invoicing</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/lightweight-crm-for-freelancers">Freelance CRM</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/solutions/enterprise-billing-platform">Enterprise Billing Platform</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/ai-receipt-scanner">Receipt Scanner</Link></li>
                             <li className="pt-2">
                                 <Link className="text-noble-blue font-bold hover:text-near-black transition-colors text-sm flex items-center gap-1 group" href="/features">
                                     View all our features
@@ -61,10 +61,10 @@ export default function Footer() {
                     <div>
                         <p className="text-[10px] font-black text-near-black uppercase tracking-[0.3em] mb-8">Company</p>
                         <ul className="space-y-4">
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/about">Our Story</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/free-invoice-maker-app-about">Our Story</Link></li>
                             <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/blog">Press Kit</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/about">Careers</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/contact">Contact</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/free-invoice-maker-app-about">Careers</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/where-to-make-business-cards">Contact</Link></li>
                             <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/compliance">Global Compliance</Link></li>
                         </ul>
                     </div>
@@ -73,9 +73,13 @@ export default function Footer() {
                     <div className="space-y-10">
                         <div>
                             <p className="text-[10px] font-black text-near-black uppercase tracking-[0.3em] mb-8">Legal</p>
-                            <ul className="space-y-4">
-                                <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/privacy">Privacy Policy</Link></li>
+                            <ul className="space-y-3">
                                 <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/terms">Terms of Service</Link></li>
+                                <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/privacy">Privacy Policy</Link></li>
+                                <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/refund">Refund Policy</Link></li>
+                                <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/acceptable-use">Acceptable Use</Link></li>
+                                <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/compliance">Global Compliance</Link></li>
+                                <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/security">Security</Link></li>
                             </ul>
                         </div>
                         
@@ -86,13 +90,34 @@ export default function Footer() {
                                 <input 
                                     type="email" 
                                     placeholder="Enter email"
-                                    className="w-full bg-white border border-near-black/5 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-noble-blue/20 transition-all"
+                                    className="w-full bg-noble-surface dark:bg-noble-card border border-near-black/5 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-noble-blue/20 transition-all"
                                 />
                                 <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-near-black text-white flex items-center justify-center hover:bg-noble-blue transition-colors">
                                     <span className="material-symbols-outlined text-sm">arrow_forward</span>
                                 </button>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                {/* Zoho-style bottom legal row - positioned before copyright */}
+                <div className="w-full bg-[#000000] py-2 px-6 rounded-lg mb-8">
+                    <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[12px] font-semibold">
+                        <Link href="/cookies" className="text-slate-300 hover:text-white transition-colors">Cookie Policy</Link>
+                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <Link href="/ai-policy" className="text-slate-300 hover:text-white transition-colors">AI Policy</Link>
+                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <Link href="/dpa" className="text-slate-300 hover:text-white transition-colors">DPA</Link>
+                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <Link href="/subprocessors" className="text-slate-300 hover:text-white transition-colors">Subprocessors</Link>
+                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <Link href="/data-retention" className="text-slate-300 hover:text-white transition-colors">Data Retention</Link>
+                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <Link href="/esa" className="text-slate-300 hover:text-white transition-colors">Enterprise Security Addendum</Link>
+                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <Link href="/sla" className="text-slate-300 hover:text-white transition-colors">Service Level Agreement</Link>
+                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <Link href="/disaster-recovery" className="text-slate-300 hover:text-white transition-colors">Disaster Recovery</Link>
                     </div>
                 </div>
 

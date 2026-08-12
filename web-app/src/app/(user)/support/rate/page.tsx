@@ -29,10 +29,10 @@ export default function RateAppPage() {
                     <CheckCircle className="w-12 h-12 text-emerald-400" />
                 </div>
                 <h1 className="text-3xl font-black tracking-tight">Transmission Received</h1>
-                <p className="text-slate-400 max-w-sm">
+                <p className="text-slate-400 dark:text-slate-500 max-w-sm">
                     Thank you for evolving NobleInvoice. Your feedback helps us recalibrate the cognitive engine.
                 </p>
-                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-8">Redirecting to Workspace...</div>
+                <div className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-8">Redirecting to Workspace...</div>
             </div>
         );
     }
@@ -47,7 +47,7 @@ export default function RateAppPage() {
                         <MessageSquareHeart className="w-10 h-10 text-[#006970]" />
                     </div>
                     <h1 className="text-4xl font-black text-white tracking-tight leading-tight">Rate Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-indigo-300">Cognitive Experience</span></h1>
-                    <p className="text-slate-400 text-sm font-medium max-w-sm mx-auto">
+                    <p className="text-slate-400 dark:text-slate-500 text-sm font-medium max-w-sm mx-auto">
                         How has NobleInvoice impacted your productivity and mental whitespace?
                     </p>
                 </div>
@@ -65,7 +65,7 @@ export default function RateAppPage() {
                                 className={`w-10 h-10 md:w-12 md:h-12 transition-colors duration-300 ${
                                     (hover || rating) >= star 
                                         ? 'fill-indigo-500 text-[#006970]' 
-                                        : 'text-slate-700'
+                                        : 'text-slate-700 dark:text-slate-200'
                                 }`} 
                             />
                         </button>
@@ -87,7 +87,7 @@ export default function RateAppPage() {
                          <button 
                             type="button"
                             onClick={() => router.back()}
-                            className="flex-1 py-4 bg-white/5 hover:bg-white/10 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 border border-white/5"
+                            className="flex-1 py-4 bg-noble-surface dark:bg-noble-card/5 hover:bg-noble-surface dark:bg-noble-card/10 text-white rounded-2xl text-[10px] font-black uppercase tracking-[0.2em] transition-all flex items-center justify-center gap-2 border border-white/5"
                         >
                             <ArrowLeft className="w-3 h-3" /> Go Back
                         </button>

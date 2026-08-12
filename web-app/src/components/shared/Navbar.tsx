@@ -31,37 +31,37 @@ export default function Navbar() {
         {
             category: "Invoicing & Billing",
             items: [
-                { title: "Invoice Generator", desc: "Create invoices instantly", icon: "bolt", href: "/invoice-generator" },
-                { title: "AI Invoice Generator", desc: "Text-to-invoice engine", icon: "auto_awesome", href: "/features/ai-invoice-generator" },
-                { title: "Gamified Invoicing", desc: "Make billing engaging", icon: "sports_esports", href: "/gamified-invoicing" },
-                { title: "Shopify Billing", desc: "Automate B2B commerce", icon: "inventory_2", href: "/features/shopify-invoice-generator" },
+                { title: "Invoice Generator", desc: "Create invoices instantly", icon: "bolt", href: "/free-invoice-generator" },
+                { title: "AI Invoice Generator", desc: "Text-to-invoice engine", icon: "auto_awesome", href: "/features/best-ai-invoice-generator-free" },
+                { title: "Gamified Invoicing", desc: "Make billing engaging", icon: "sports_esports", href: "/gamified-invoicing-software" },
+                { title: "Shopify Billing", desc: "Automate B2B commerce", icon: "inventory_2", href: "/features/free-invoice-generator-for-shopify" },
             ]
         },
         {
             category: "Growth & CRM",
             items: [
-                { title: "Freelance CRM", desc: "Client vault & tracking", icon: "contacts", href: "/freelance-crm" },
-                { title: "CRM Engine", desc: "Full client lifecycle", icon: "hub", href: "/features/crm-engine" },
-                { title: "Lead Intelligence", desc: "Identify high-value clients", icon: "radar", href: "/features/lead-intelligence" },
-                { title: "Client Portal", desc: "White-label dashboard", icon: "vpn_key", href: "/features/billing-software-online" },
+                { title: "Freelance CRM", desc: "Client vault & tracking", icon: "contacts", href: "/lightweight-crm-for-freelancers" },
+                { title: "CRM Engine", desc: "Full client lifecycle", icon: "hub", href: "/features/what-is-invoicing-software" },
+                { title: "QR Code Generator", desc: "Identify high-value clients", icon: "radar", href: "/features/how-to-make-a-qr-code-for-a-website-free" },
+                { title: "Online Billing Software", desc: "White-label dashboard", icon: "vpn_key", href: "/features/billing-software-online" },
             ]
         },
         {
             category: "Operations & Analytics",
             items: [
-                { title: "Receipt Scanner", desc: "Automate expense tracking", icon: "document_scanner", href: "/receipt-scanner" },
-                { title: "Products & Services", desc: "Manage your catalog", icon: "category", href: "/features/products-services" },
-                { title: "Growth Reports", desc: "Financial analytics", icon: "query_stats", href: "/features/growth-reports" },
+                { title: "Receipt Scanner", desc: "Automate expense tracking", icon: "document_scanner", href: "/ai-receipt-scanner" },
+                { title: "Proforma Invoice", desc: "Manage your catalog", icon: "category", href: "/features/how-to-make-a-proforma-invoice" },
+                { title: "Create Invoice", desc: "Financial analytics", icon: "query_stats", href: "/features/how-do-i-make-an-invoice" },
                 { title: "Global Settlements", desc: "Get paid across borders", icon: "account_balance_wallet", href: "/features/best-free-invoice-app" },
             ]
         },
         {
             category: "Brand & Enterprise",
             items: [
-                { title: "Professional Identity", desc: "Branded templates", icon: "verified", href: "/features/professional-identity" },
-                { title: "Digital Business Cards", desc: "Network seamlessly", icon: "contactless", href: "/features/digital-business-cards" },
-                { title: "Team Workspace", desc: "Multi-user collaboration", icon: "groups", href: "/features/team-workspace" },
-                { title: "Enterprise Scaling", desc: "High-volume tools", icon: "domain", href: "/features/enterprise-scaling" },
+                { title: "Professional Identity", desc: "Branded templates", icon: "verified", href: "/features/how-to-create-a-business-card-for-free" },
+                { title: "Digital Business Cards", desc: "Network seamlessly", icon: "contactless", href: "/features/business-card-creation-free" },
+                { title: "Team Workspace", desc: "Multi-user collaboration", icon: "groups", href: "/features/what-is-the-best-invoice-maker" },
+                { title: "Enterprise Scaling", desc: "High-volume tools", icon: "domain", href: "/features/automated-invoicing-software" },
             ]
         }
     ];
@@ -78,25 +78,25 @@ export default function Navbar() {
             title: "For Agencies",
             desc: "Creative & service teams",
             icon: "groups",
-            href: "/solutions/agencies",
+            href: "/solutions/agency-billing-platform",
         },
         {
             title: "For Small Businesses",
             desc: "Growing companies",
             icon: "storefront",
-            href: "/solutions/small-businesses",
+            href: "/solutions/best-small-business-invoicing-software",
         },
         {
             title: "For E-commerce",
             desc: "Shopify & digital stores",
             icon: "shopping_cart",
-            href: "/solutions/ecommerce",
+            href: "/solutions/ecommerce-invoice-automation",
         },
         {
             title: "Enterprise",
             desc: "High-volume operations",
             icon: "domain",
-            href: "/solutions/enterprise",
+            href: "/solutions/enterprise-billing-platform",
         },
     ];
 
@@ -232,7 +232,7 @@ export default function Navbar() {
             {/* ── Main Navbar ── */}
             <nav
                 className={`fixed left-0 right-0 z-[120] transition-all duration-500 ${announcementVisible ? 'top-[38px]' : 'top-0'} ${
-                    isScrolled ? 'bg-white/90 backdrop-blur-md border-b border-near-black/5 shadow-sm' : 'bg-transparent'
+                    isScrolled ? 'bg-noble-surface dark:bg-noble-card/90 backdrop-blur-md border-b border-near-black/5 shadow-sm' : 'bg-transparent'
                 }`}
                 onMouseLeave={() => setActiveMenu(null)}
             >
@@ -267,7 +267,7 @@ export default function Navbar() {
                                     exit={{ opacity: 0, y: 10 }}
                                     transition={{ duration: 0.18 }}
                                     onMouseEnter={() => setActiveMenu('features')}
-                                    className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[960px] bg-white/98 backdrop-blur-2xl rounded-3xl p-10 shadow-[0_50px_100px_rgba(0,0,0,0.1)] border border-near-black/5 z-50"
+                                    className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[960px] bg-noble-surface dark:bg-noble-card/98 backdrop-blur-2xl rounded-3xl p-10 shadow-[0_50px_100px_rgba(0,0,0,0.1)] border border-near-black/5 z-50"
                                 >
                                     <div className="grid grid-cols-4 gap-x-10 gap-y-10">
                                         {featureCategories.map((category) => (
@@ -315,7 +315,7 @@ export default function Navbar() {
                                         exit={{ opacity: 0, y: 10 }}
                                         transition={{ duration: 0.18 }}
                                         onMouseEnter={() => setActiveMenu('solutions')}
-                                        className="absolute top-[70px] left-1/2 -translate-x-1/2 w-[300px] bg-white/98 backdrop-blur-2xl rounded-3xl p-6 shadow-[0_50px_100px_rgba(0,0,0,0.1)] border border-near-black/5 z-50"
+                                        className="absolute top-[70px] left-1/2 -translate-x-1/2 w-[300px] bg-noble-surface dark:bg-noble-card/98 backdrop-blur-2xl rounded-3xl p-6 shadow-[0_50px_100px_rgba(0,0,0,0.1)] border border-near-black/5 z-50"
                                     >
                                         <div className="space-y-2">
                                             {solutionsLinks.map((item) => (
@@ -324,7 +324,7 @@ export default function Navbar() {
                                                     href={item.href}
                                                     className="flex items-start gap-4 p-3 rounded-2xl group hover:bg-noble-blue/5 transition-all"
                                                 >
-                                                    <div className="shrink-0 w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-noble-blue group-hover:text-white group-hover:border-noble-blue transition-all">
+                                                    <div className="shrink-0 w-9 h-9 rounded-xl bg-slate-50 dark:bg-[#0D1B2E] border border-slate-100 dark:border-noble-border flex items-center justify-center text-slate-400 dark:text-slate-500 group-hover:bg-noble-blue group-hover:text-white group-hover:border-noble-blue transition-all">
                                                         <span className="material-symbols-outlined text-[16px]">{item.icon}</span>
                                                     </div>
                                                     <div>
@@ -355,7 +355,7 @@ export default function Navbar() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 10 }}
                                         transition={{ duration: 0.18 }}
-                                        className="absolute top-[70px] left-1/2 -translate-x-1/2 w-[420px] bg-white/98 backdrop-blur-2xl rounded-2xl p-5 shadow-[0_30px_80px_rgba(0,0,0,0.08)] border border-near-black/5"
+                                        className="absolute top-[70px] left-1/2 -translate-x-1/2 w-[420px] bg-noble-surface dark:bg-noble-card/98 backdrop-blur-2xl rounded-2xl p-5 shadow-[0_30px_80px_rgba(0,0,0,0.08)] border border-near-black/5"
                                     >
                                         {/* Header */}
                                         <p className="text-[9px] font-black text-near-black/40 uppercase tracking-[0.25em] mb-3">Noble's World Ecosystem</p>
@@ -369,7 +369,7 @@ export default function Navbar() {
                                                         rel="noopener noreferrer"
                                                         className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl group hover:bg-noble-blue/5 transition-all cursor-pointer"
                                                     >
-                                                        <div className="shrink-0 w-7 h-7 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-noble-blue group-hover:text-white group-hover:border-noble-blue transition-all">
+                                                        <div className="shrink-0 w-7 h-7 rounded-lg bg-slate-50 dark:bg-[#0D1B2E] border border-slate-100 dark:border-noble-border flex items-center justify-center text-slate-400 dark:text-slate-500 group-hover:bg-noble-blue group-hover:text-white group-hover:border-noble-blue transition-all">
                                                             <span className="material-symbols-outlined text-[13px]">{product.icon}</span>
                                                         </div>
                                                         <div className="flex-1 min-w-0">
@@ -413,7 +413,7 @@ export default function Navbar() {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 10 }}
                                         transition={{ duration: 0.18 }}
-                                        className="absolute top-[70px] left-1/2 -translate-x-1/2 w-[300px] bg-white/98 backdrop-blur-2xl rounded-3xl p-6 shadow-[0_50px_100px_rgba(0,0,0,0.1)] border border-near-black/5"
+                                        className="absolute top-[70px] left-1/2 -translate-x-1/2 w-[300px] bg-noble-surface dark:bg-noble-card/98 backdrop-blur-2xl rounded-3xl p-6 shadow-[0_50px_100px_rgba(0,0,0,0.1)] border border-near-black/5"
                                     >
                                         <div className="space-y-2">
                                             {learnLinks.map((item) => (
@@ -422,7 +422,7 @@ export default function Navbar() {
                                                     href={item.href}
                                                     className="flex items-start gap-4 p-3 rounded-2xl group hover:bg-noble-blue/5 transition-all"
                                                 >
-                                                    <div className="shrink-0 w-9 h-9 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 group-hover:bg-noble-blue group-hover:text-white group-hover:border-noble-blue transition-all">
+                                                    <div className="shrink-0 w-9 h-9 rounded-xl bg-slate-50 dark:bg-[#0D1B2E] border border-slate-100 dark:border-noble-border flex items-center justify-center text-slate-400 dark:text-slate-500 group-hover:bg-noble-blue group-hover:text-white group-hover:border-noble-blue transition-all">
                                                         <span className="material-symbols-outlined text-[16px]">{item.icon}</span>
                                                     </div>
                                                     <div>
@@ -496,7 +496,7 @@ export default function Navbar() {
                             animate={{ x: 0 }}
                             exit={{ x: '100%' }}
                             transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-                            className="fixed top-0 right-0 bottom-0 z-[150] w-[85vw] max-w-sm bg-white shadow-2xl flex flex-col overflow-y-auto"
+                            className="fixed top-0 right-0 bottom-0 z-[150] w-[85vw] max-w-sm bg-noble-surface dark:bg-noble-card shadow-2xl flex flex-col overflow-y-auto"
                         >
                             {/* Drawer Header */}
                             <div className="flex items-center justify-between px-6 py-5 border-b border-near-black/5">
@@ -591,7 +591,7 @@ export default function Navbar() {
                                                         onClick={() => setMobileOpen(false)}
                                                         className="flex items-center gap-3 px-4 py-3 rounded-xl text-near-black/70 hover:text-noble-blue hover:bg-noble-blue/5 transition-colors"
                                                     >
-                                                        <span className="material-symbols-outlined text-sm text-slate-400">{item.icon}</span>
+                                                        <span className="material-symbols-outlined text-sm text-slate-400 dark:text-slate-500">{item.icon}</span>
                                                         <div>
                                                             <div className="font-bold text-sm">{item.title}</div>
                                                             <div className="text-[10px] text-near-black/40">{item.desc}</div>
@@ -631,7 +631,7 @@ export default function Navbar() {
                                                             onClick={() => setMobileOpen(false)}
                                                             className="flex items-center gap-3 px-4 py-3 rounded-xl text-near-black/70 hover:text-noble-blue hover:bg-noble-blue/5 transition-colors"
                                                         >
-                                                            <span className="material-symbols-outlined text-sm text-slate-400">{product.icon}</span>
+                                                            <span className="material-symbols-outlined text-sm text-slate-400 dark:text-slate-500">{product.icon}</span>
                                                             <div className="flex-1">
                                                                 <div className="flex items-center gap-1.5">
                                                                     <div className="font-bold text-sm">{product.title}</div>
@@ -677,7 +677,7 @@ export default function Navbar() {
                                                         onClick={() => setMobileOpen(false)}
                                                         className="flex items-center gap-3 px-4 py-3 rounded-xl text-near-black/70 hover:text-noble-blue hover:bg-noble-blue/5 transition-colors"
                                                     >
-                                                        <span className="material-symbols-outlined text-sm text-slate-400">{item.icon}</span>
+                                                        <span className="material-symbols-outlined text-sm text-slate-400 dark:text-slate-500">{item.icon}</span>
                                                         <div>
                                                             <div className="font-bold text-sm">{item.title}</div>
                                                             <div className="text-[10px] text-near-black/40">{item.desc}</div>

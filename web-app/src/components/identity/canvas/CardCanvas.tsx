@@ -147,7 +147,7 @@ export const CardCanvas: React.FC<CardCanvasProps> = ({ containerWidth }) => {
         onMouseDown={checkDeselect}
         onTouchStart={checkDeselect}
         ref={stageRef}
-        className="bg-white"
+        className="bg-noble-surface"
       >
         {/* Layer 1: Background Layer */}
         <Layer id="background-layer">

@@ -15,13 +15,13 @@ export default function IntegrationsPage() {
     const { user, userData } = useAuth();
     
     return (
-        <div className="min-h-screen bg-[#F0F4F8] selection:bg-noble-blue/20 font-manrope relative overflow-hidden">
+        <div className="min-h-screen bg-[#F0F4F8] dark:bg-transparent dark:bg-[#060D1A] selection:bg-noble-blue/20 font-manrope relative overflow-hidden">
             {/* Ambient Background Mesh Gradients */}
             <div className="fixed top-[-20%] left-[-10%] w-[800px] h-[800px] bg-noble-blue/10 blur-[150px] rounded-full pointer-events-none z-0" />
             <div className="fixed bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-electric-cyan/10 blur-[150px] rounded-full pointer-events-none z-0" />
 
             <main className="max-w-4xl mx-auto pt-10 pb-28 px-6 relative z-10">
-                <div className="space-y-4 mb-14 text-slate-800">
+                <div className="space-y-4 mb-14 text-slate-800 dark:text-slate-100">
                     <motion.div 
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -30,10 +30,10 @@ export default function IntegrationsPage() {
                         <Puzzle className="w-3.5 h-3.5" />
                         Ecosystem Synchronizer
                     </motion.div>
-                    <h1 className="text-2xl md:text-3xl font-semibold text-slate-900" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
+                    <h1 className="text-2xl md:text-3xl font-semibold text-noble-text" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
                         Third-Party <span className="text-noble-blue">Integrations</span>
                     </h1>
-                    <p className="text-slate-500 font-bold uppercase tracking-wider text-xs max-w-xl leading-relaxed">
+                    <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider text-xs max-w-xl leading-relaxed">
                         Connect your existing knowledge bases and workflow engines to NobleInvoice's core.
                     </p>
                 </div>
@@ -64,7 +64,7 @@ export default function IntegrationsPage() {
                         </div>
                         <div className="space-y-2">
                             <h4 className="text-xs font-black text-amber-700 uppercase tracking-wider">A Note on Security</h4>
-                            <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wide leading-relaxed">
+                            <p className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wide leading-relaxed">
                                 NobleInvoice only requests the minimum necessary permissions to synchronize your data. We never store your third-party passwords. Your token is encrypted at rest using AES-256 standards.
                             </p>
                         </div>
@@ -78,12 +78,12 @@ export default function IntegrationsPage() {
 function FeatureItem({ icon, title, desc }: { icon: React.ReactElement, title: string, desc: string }) {
     return (
         <div className="flex gap-4">
-            <div className="p-3 rounded-2xl bg-white/60 border border-white/60 h-min text-slate-400 shadow-sm">
+            <div className="p-3 rounded-2xl bg-noble-surface dark:bg-noble-card/60 border border-white/60 h-min text-slate-400 dark:text-slate-500 shadow-sm">
                 {React.cloneElement(icon, { className: 'w-4 h-4 text-noble-blue' } as any)}
             </div>
             <div>
-                <h4 className="text-[10px] font-black text-slate-800 uppercase tracking-wider">{title}</h4>
-                <p className="text-[9px] text-slate-400 font-bold uppercase tracking-wide mt-1">{desc}</p>
+                <h4 className="text-[10px] font-black text-slate-800 dark:text-slate-100 uppercase tracking-wider">{title}</h4>
+                <p className="text-[9px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wide mt-1">{desc}</p>
             </div>
         </div>
     );
@@ -91,17 +91,17 @@ function FeatureItem({ icon, title, desc }: { icon: React.ReactElement, title: s
 
 function SimpleIntegrationCard({ name, logo, status }: { name: string, logo: string, status: string }) {
     return (
-        <div className="bg-white/40 backdrop-blur-md p-6 rounded-[2.5rem] border border-white/60 flex items-center justify-between hover:border-noble-blue/30 transition-all group shadow-sm active:scale-98 cursor-pointer">
+        <div className="bg-noble-surface dark:bg-noble-card/40 backdrop-blur-md p-6 rounded-[2.5rem] border border-white/60 flex items-center justify-between hover:border-noble-blue/30 transition-all group shadow-sm active:scale-98 cursor-pointer">
             <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-white p-2 shadow-sm border border-slate-100 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl bg-noble-surface dark:bg-noble-card p-2 shadow-sm border border-slate-100 dark:border-noble-border flex items-center justify-center">
                     <img src={logo} alt={name} className="w-full h-full object-contain" />
                 </div>
                 <div>
-                    <h3 className="text-sm font-black text-slate-800 tracking-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>{name}</h3>
-                    <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 mt-0.5">{status}</p>
+                    <h3 className="text-sm font-black text-slate-800 dark:text-slate-100 tracking-tight" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>{name}</h3>
+                    <p className="text-[9px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mt-0.5">{status}</p>
                 </div>
             </div>
-            <div className="p-3 rounded-2xl bg-white/60 border border-white/60 text-slate-400 group-hover:text-noble-blue transition-all shadow-inner">
+            <div className="p-3 rounded-2xl bg-noble-surface dark:bg-noble-card/60 border border-white/60 text-slate-400 dark:text-slate-500 group-hover:text-noble-blue transition-all shadow-inner">
                 {status === 'Live' ? <ChevronRight className="w-4 h-4" /> : <Lock className="w-4 h-4" />}
             </div>
         </div>

@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function LandingCRM() {
     return (
-        <section className="py-32 relative overflow-hidden bg-white">
+        <section className="py-32 relative overflow-hidden bg-noble-surface">
             <div className="max-w-[1430px] mx-auto px-4 md:px-16 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                     <div className="relative group">

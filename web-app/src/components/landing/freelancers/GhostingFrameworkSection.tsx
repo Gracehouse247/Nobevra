@@ -46,7 +46,7 @@ export default function GhostingFrameworkSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.15, duration: 0.6 }}
-                            className="bg-white rounded-[32px] p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all relative"
+                            className="bg-noble-surface rounded-[32px] p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all relative"
                         >
                             <div className="w-12 h-12 rounded-2xl bg-red-50 flex items-center justify-center mb-6">
                                 <span className="material-symbols-outlined text-red-500">{step.icon}</span>

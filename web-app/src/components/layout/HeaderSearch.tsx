@@ -102,8 +102,8 @@ export default function HeaderSearch() {
 
     return (
         <div ref={wrapperRef} className="relative w-full max-w-2xl">
-            <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94A3B8]" />
+            <div className="relative group">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-noble-muted group-hover:text-noble-text transition-colors" />
                 <input 
                     type="text"
                     value={searchQuery}
@@ -114,15 +114,15 @@ export default function HeaderSearch() {
                     onFocus={() => {
                         if (searchQuery) setIsOpen(true);
                     }}
-                    placeholder="Quick Find Invoices..."
-                    className="w-full bg-[#F8FAFC] border border-[#E2E8F0] text-sm text-[#0F172A] rounded-xl py-2 pl-9 pr-8 focus:outline-none focus:ring-2 focus:ring-[#166FBB]/20 focus:border-[#166FBB] transition-all placeholder:text-[#94A3B8] font-medium"
+                    placeholder="Quick Find Invoices, clients..."
+                    className="w-full bg-transparent border border-noble-border hover:border-noble-border-hover focus:border-noble-primary text-sm text-noble-text rounded-full py-2.5 pl-11 pr-12 focus:outline-none focus:ring-4 focus:ring-noble-primary/10 transition-all placeholder:text-noble-muted font-medium shadow-inner"
                 />
-                <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center">
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center">
                     {isSearching ? (
-                        <Loader2 className="w-4 h-4 text-[#166FBB] animate-spin" />
+                        <Loader2 className="w-4 h-4 text-noble-primary animate-spin" />
                     ) : (
-                        <div className="flex items-center justify-center bg-white border border-[#E2E8F0] px-1.5 py-0.5 rounded shadow-sm">
-                            <span className="text-[9px] font-black tracking-tighter text-[#94A3B8]">⌘K</span>
+                        <div className="flex items-center justify-center bg-noble-interactive-bg border border-noble-border px-1.5 py-0.5 rounded shadow-sm group-hover:bg-noble-border-hover transition-colors">
+                            <span className="text-[10px] font-medium tracking-tighter text-noble-muted group-hover:text-noble-text">⌘K</span>
                         </div>
                     )}
                 </div>
@@ -134,7 +134,7 @@ export default function HeaderSearch() {
                         initial={{ opacity: 0, y: 5 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 5 }}
-                        className="absolute top-full left-0 right-0 mt-2 bg-white rounded-xl border border-[#E2E8F0] shadow-xl overflow-hidden z-50 max-h-96 overflow-y-auto"
+                        className="absolute top-full left-0 right-0 mt-2 bg-noble-surface dark:bg-noble-card rounded-xl border border-[#E2E8F0] shadow-xl overflow-hidden z-50 max-h-96 overflow-y-auto"
                     >
                         {results.length > 0 ? (
                             <div className="p-2 space-y-1">
@@ -145,8 +145,8 @@ export default function HeaderSearch() {
                                         onClick={() => handleSelect(result)}
                                         className={`p-3 rounded-lg flex items-center justify-between cursor-pointer transition-all group ${
                                             selectedIndex === i 
-                                                ? 'bg-[#F8FAFC]' 
-                                                : 'hover:bg-[#F8FAFC]'
+                                                ? 'bg-[#F8FAFC] dark:bg-[#060D1A]' 
+                                                : 'hover:bg-[#F8FAFC] dark:bg-[#060D1A]'
                                         }`}
                                     >
                                         <div className="flex items-center gap-3">

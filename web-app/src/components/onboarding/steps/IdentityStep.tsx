@@ -25,7 +25,7 @@ export const IdentityStep = ({ data, updateData, activeColor }: IdentityStepProp
             exit={{ opacity: 0, y: -20 }}
             className="w-full max-w-lg mx-auto p-6"
         >
-            <h2 className="text-2xl font-black text-slate-900 mb-2">Business Identity</h2>
+            <h2 className="text-2xl font-black text-noble-text mb-2">Business Identity</h2>
             <p className="text-slate-500 mb-8 font-medium">Let's start with the basics. How should your clients know you?</p>
 
             <div className="space-y-6">
@@ -38,7 +38,7 @@ export const IdentityStep = ({ data, updateData, activeColor }: IdentityStepProp
                             value={data.businessName}
                             onChange={(e) => updateData({ businessName: e.target.value })}
                             placeholder="Acme Corp"
-                            className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all"
+                            className="w-full pl-12 pr-4 py-4 bg-noble-surface border border-noble-border rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all"
                             style={{ '--tw-ring-color': activeColor } as any}
                         />
                     </div>
@@ -51,7 +51,7 @@ export const IdentityStep = ({ data, updateData, activeColor }: IdentityStepProp
                         <select
                             value={data.industry}
                             onChange={(e) => updateData({ industry: e.target.value })}
-                            className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all appearance-none"
+                            className="w-full pl-12 pr-4 py-4 bg-noble-surface border border-noble-border rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all appearance-none"
                             style={{ '--tw-ring-color': activeColor } as any}
                         >
                             {INDUSTRIES.map(ind => (
@@ -68,7 +68,7 @@ export const IdentityStep = ({ data, updateData, activeColor }: IdentityStepProp
                         <select
                             value={data.country}
                             onChange={(e) => updateData({ country: e.target.value })}
-                            className="w-full pl-12 pr-4 py-4 bg-white border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all appearance-none"
+                            className="w-full pl-12 pr-4 py-4 bg-noble-surface border border-noble-border rounded-2xl focus:outline-none focus:ring-2 focus:border-transparent transition-all appearance-none"
                             style={{ '--tw-ring-color': activeColor } as any}
                         >
                             {COUNTRIES.map(c => (

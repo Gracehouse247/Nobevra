@@ -30,7 +30,7 @@ export default function SavingsCalculator() {
     }, [invoices, timePerInvoice, hourlyRate]);
 
     return (
-        <div className="bg-white rounded-[48px] p-8 md:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.06)] border border-near-black/[0.03] max-w-5xl mx-auto relative overflow-hidden group/main">
+        <div className="bg-noble-surface rounded-[48px] p-8 md:p-16 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.06)] border border-near-black/[0.03] max-w-5xl mx-auto relative overflow-hidden group/main">
             {/* Subtle background decorative pattern */}
             <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'radial-gradient(#166FBB 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
             
@@ -121,7 +121,7 @@ export default function SavingsCalculator() {
 
                         <div className="relative z-10 space-y-12">
                             <div className="space-y-4">
-                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 text-[10px] font-black uppercase tracking-widest text-electric-cyan">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-noble-card border border-noble-card-border text-[10px] font-black uppercase tracking-widest text-electric-cyan">
                                     <TrendingUp className="w-3 h-3" />
                                     Annual Projection Optimized
                                 </div>
@@ -159,7 +159,7 @@ export default function SavingsCalculator() {
 
                             <Link 
                                 href="/register"
-                                className="relative flex items-center justify-center w-full h-16 bg-white text-near-black rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-electric-cyan hover:scale-[1.02] transition-all shadow-2xl group/btn"
+                                className="relative flex items-center justify-center w-full h-16 bg-noble-surface text-near-black rounded-2xl font-black uppercase tracking-widest text-[10px] hover:bg-electric-cyan hover:scale-[1.02] transition-all shadow-2xl group/btn"
                             >
                                 <span className="relative z-10 flex items-center gap-3">
                                     Claim Your Time Back

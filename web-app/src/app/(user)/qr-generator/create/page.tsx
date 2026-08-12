@@ -108,16 +108,16 @@ function QrGeneratorForm() {
     };
 
     return (
-        <div className="min-h-screen bg-[#F8FAFC] pb-24">
-            <div className="bg-white border-b border-slate-200 px-6 lg:px-8 py-4 sticky top-0 z-20 shadow-sm">
+        <div className="min-h-screen bg-[#F8FAFC] dark:bg-transparent dark:bg-[#060D1A] pb-24">
+            <div className="bg-noble-surface dark:bg-noble-card border-b border-noble-border px-6 lg:px-8 py-4 sticky top-0 z-20 shadow-sm">
                 <div className="max-w-[1400px] mx-auto flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <Link href="/qr-generator" className="w-9 h-9 bg-[#F8FAFC] border border-slate-200 rounded-xl flex items-center justify-center text-slate-600 hover:bg-white hover:border-[#166FBB] hover:text-[#166FBB] transition-all shadow-sm">
+                        <Link href="/qr-generator" className="w-9 h-9 bg-[#F8FAFC] dark:bg-[#060D1A] border border-noble-border rounded-xl flex items-center justify-center text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-noble-surface dark:bg-noble-card hover:border-[#166FBB] hover:text-[#166FBB] transition-all shadow-sm">
                             <ChevronLeft className="w-4 h-4" />
                         </Link>
                         <div>
-                            <h1 className="text-[19px] font-bold text-slate-900 leading-tight capitalize">Create {type} QR</h1>
-                            <p className="text-[11px] text-slate-500 font-medium mt-0.5">QR Generator Engine</p>
+                            <h1 className="text-[19px] font-bold text-noble-text leading-tight capitalize">Create {type} QR</h1>
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-0.5">QR Generator Engine</p>
                         </div>
                     </div>
                     <button
@@ -137,19 +137,19 @@ function QrGeneratorForm() {
                 {(requiresPaywall && !paygBundle.hasAccess('qrCode', type)) && (
                     <div className="mb-8 p-4 bg-gradient-to-r from-[#1E293B] to-[#0F172A] rounded-2xl flex items-center justify-between shadow-lg border border-[#334155]">
                         <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center">
+                            <div className="w-12 h-12 bg-noble-surface dark:bg-noble-card/10 rounded-xl flex items-center justify-center">
                                 <Sparkles className="w-6 h-6 text-[#00F0FF]" />
                             </div>
                             <div>
                                 <h4 className="text-white font-black text-sm tracking-wide">Premium Feature Locked</h4>
-                                <p className="text-slate-400 text-xs mt-0.5">Dynamic QR routing and media uploads are premium features.</p>
+                                <p className="text-slate-400 dark:text-slate-500 text-xs mt-0.5">Dynamic QR routing and media uploads are premium features.</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-3">
-                            <button onClick={() => setShowPaygModal(true)} className="px-5 py-2.5 bg-transparent text-white border border-white/20 font-black text-xs rounded-xl hover:bg-white/5 transition-all uppercase tracking-widest whitespace-nowrap">
+                            <button onClick={() => setShowPaygModal(true)} className="px-5 py-2.5 bg-transparent text-white border border-white/20 font-black text-xs rounded-xl hover:bg-noble-surface dark:bg-noble-card/5 transition-all uppercase tracking-widest whitespace-nowrap">
                                 Pay $1 Bundle
                             </button>
-                            <Link href="/upgrade" className="px-5 py-2.5 bg-[#00F0FF] text-[#0F172A] font-black text-xs rounded-xl hover:bg-white transition-all shadow-md uppercase tracking-widest whitespace-nowrap">
+                            <Link href="/upgrade" className="px-5 py-2.5 bg-[#00F0FF] text-[#0F172A] font-black text-xs rounded-xl hover:bg-noble-surface dark:bg-noble-card transition-all shadow-md uppercase tracking-widest whitespace-nowrap">
                                 Upgrade Plan
                             </Link>
                         </div>
@@ -161,26 +161,26 @@ function QrGeneratorForm() {
                     <div className="lg:col-span-7 space-y-6">
                         
                         {/* Dynamic Toggle Section */}
-                        <div className={`bg-white rounded-2xl p-6 border ${isDynamic ? 'border-[#166FBB] shadow-md shadow-[#166FBB]/5' : 'border-slate-200 shadow-sm'} transition-all relative overflow-hidden`}>
+                        <div className={`bg-noble-surface dark:bg-noble-card rounded-2xl p-6 border ${isDynamic ? 'border-[#166FBB] shadow-md shadow-[#166FBB]/5' : 'border-noble-border shadow-sm'} transition-all relative overflow-hidden`}>
                             {isDynamic && <div className="absolute top-0 left-0 w-1 h-full bg-[#166FBB]" />}
                             <div className="flex items-start justify-between">
                                 <div>
-                                    <h3 className="text-[19px] font-bold text-slate-900 flex items-center gap-2">
+                                    <h3 className="text-[19px] font-bold text-noble-text flex items-center gap-2">
                                         Dynamic Routing
                                         {plan === 'free' && <Lock className="w-3.5 h-3.5 text-amber-500" />}
                                     </h3>
-                                    <p className="text-slate-500 text-[12px] font-medium mt-1 max-w-sm">Allow updating the destination link after printing and track scan analytics via the backend.</p>
+                                    <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 text-[12px] font-medium mt-1 max-w-sm">Allow updating the destination link after printing and track scan analytics via the backend.</p>
                                 </div>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" className="sr-only peer" checked={isDynamic} onChange={(e) => setIsDynamic(e.target.checked)} />
-                                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#166FBB]"></div>
+                                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-noble-surface dark:bg-noble-card after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#166FBB]"></div>
                                 </label>
                             </div>
                         </div>
 
                         {/* Specific Content Fields */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-                            <h3 className="text-[19px] font-bold text-slate-900 mb-5">Content Destination</h3>
+                        <div className="bg-noble-surface dark:bg-noble-card rounded-2xl p-6 border border-noble-border shadow-sm">
+                            <h3 className="text-[19px] font-bold text-noble-text mb-5">Content Destination</h3>
                             <QRFormEngine 
                                 type={type}
                                 onChange={setFormPayload}
@@ -190,8 +190,8 @@ function QrGeneratorForm() {
                         </div>
 
                         {/* Styling & Branding */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
-                            <h3 className="text-[19px] font-bold text-slate-900 mb-5 flex items-center gap-2">
+                        <div className="bg-noble-surface dark:bg-noble-card rounded-2xl p-6 border border-noble-border shadow-sm">
+                            <h3 className="text-[19px] font-bold text-noble-text mb-5 flex items-center gap-2">
                                 <Palette className="w-5 h-5 text-[#166FBB]" />
                                 Styling & Branding
                             </h3>
@@ -200,16 +200,16 @@ function QrGeneratorForm() {
                                     <label className="text-xs font-bold text-[#64748B] uppercase tracking-widest">Foreground Color</label>
                                     <div className="flex items-center gap-3">
                                         <input type="color" value={fgColor} onChange={(e) => setFgColor(e.target.value)} className="w-10 h-10 rounded cursor-pointer border-0 p-0" />
-                                        <input type="text" value={fgColor.toUpperCase()} readOnly className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm font-bold text-[#0F172A] outline-none" />
+                                        <input type="text" value={fgColor.toUpperCase()} readOnly className="w-full bg-[#F8FAFC] dark:bg-[#060D1A] border border-[#E2E8F0] rounded-xl px-4 py-2.5 text-sm font-bold text-[#0F172A] outline-none" />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-xs font-bold text-[#64748B] uppercase tracking-widest">Include Center Logo</label>
-                                    <div className="flex items-center h-[42px] px-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl">
+                                    <div className="flex items-center h-[42px] px-4 bg-[#F8FAFC] dark:bg-[#060D1A] border border-[#E2E8F0] rounded-xl">
                                         <label className="relative inline-flex items-center cursor-pointer w-full justify-between">
                                             <span className="text-sm font-bold text-[#0F172A]">NobleInvoice Icon</span>
                                             <input type="checkbox" className="sr-only peer" checked={includeLogo} onChange={(e) => setIncludeLogo(e.target.checked)} />
-                                            <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#166FBB]"></div>
+                                            <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-noble-surface dark:bg-noble-card after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#166FBB]"></div>
                                         </label>
                                     </div>
                                 </div>
@@ -249,7 +249,7 @@ function QrGeneratorForm() {
 
 export default function UnifiedQrGeneratorPage() {
     return (
-        <Suspense fallback={<div className="min-h-screen bg-[#F8FAFC] flex items-center justify-center font-bold text-[#64748B]">Loading QR Engine...</div>}>
+        <Suspense fallback={<div className="min-h-screen bg-[#F8FAFC] dark:bg-transparent dark:bg-[#060D1A] flex items-center justify-center font-bold text-[#64748B]">Loading QR Engine...</div>}>
             <QrGeneratorForm />
         </Suspense>
     );

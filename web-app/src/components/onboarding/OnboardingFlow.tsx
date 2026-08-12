@@ -144,7 +144,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
         <StepIndicator currentStep={currentStep} totalSteps={3} />
 
         <div className="mt-6">
-          <h1 className="text-2xl font-black text-slate-900 mb-1 tracking-tight">
+          <h1 className="text-2xl font-black text-noble-text mb-1 tracking-tight">
             {getStepTitle()}
           </h1>
           <p className="text-slate-500 text-xs">

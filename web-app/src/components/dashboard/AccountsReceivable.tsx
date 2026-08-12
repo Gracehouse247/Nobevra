@@ -18,9 +18,9 @@ interface AccountsReceivableProps {
 const CustomTooltip = ({ active, payload, label }: any) => {
     if (active && payload && payload.length) {
         return (
-            <div className="bg-white border border-slate-200 rounded-xl shadow-lg p-3">
-                <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{label}</p>
-                <p className="text-sm font-black text-slate-900">{payload[0]?.payload?.formatted}</p>
+            <div className="bg-noble-surface border border-noble-border rounded-xl shadow-lg p-3">
+                <p className="text-[10px] font-black text-noble-muted uppercase tracking-widest mb-1">{label}</p>
+                <p className="text-sm font-black text-noble-text">{payload[0]?.payload?.formatted}</p>
             </div>
         );
     }
@@ -67,21 +67,21 @@ export default function AccountsReceivable({ invoices = [], currencyCode = 'NGN'
     const getPercent = (amt: number) => total > 0 ? (amt / total) * 100 : 0;
 
     return (
-        <div className="bg-white/85 backdrop-blur-xl border border-white/80 rounded-[26px] p-6 shadow-[0_4px_24px_rgba(15,23,42,0.06)] h-full flex flex-col">
+        <div className="bg-noble-card border border-noble-card-border rounded-[26px] p-6 shadow-[0_4px_24px_rgba(15,23,42,0.06)] dark:shadow-none h-full flex flex-col">
             {/* Header */}
             <div className="flex justify-between items-start mb-5">
                 <div>
                     <div className="flex items-center gap-2.5 mb-1">
                         <div className="w-7 h-7 rounded-lg bg-slate-100 flex items-center justify-center">
-                            <Clock className="w-3.5 h-3.5 text-slate-500" />
+                            <Clock className="w-3.5 h-3.5 text-noble-muted" />
                         </div>
-                        <h3 className="text-[15px] font-bold text-slate-900 tracking-[-0.01em]">Accounts Receivable</h3>
+                        <h3 className="text-[15px] font-bold text-noble-text tracking-[-0.01em]">Accounts Receivable</h3>
                     </div>
-                    <p className="text-[11px] text-slate-400 font-medium uppercase tracking-wider">Aging &amp; Overdue Analysis</p>
+                    <p className="text-[11px] text-noble-muted font-medium uppercase tracking-wider">Aging &amp; Overdue Analysis</p>
                 </div>
                 <div className="text-right">
-                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Total AR</p>
-                    <p className="text-lg font-bold text-slate-900 tracking-tight leading-none">{format(total)}</p>
+                    <p className="text-[10px] font-black text-noble-muted uppercase tracking-widest mb-1">Total AR</p>
+                    <p className="text-lg font-bold text-noble-text tracking-tight leading-none">{format(total)}</p>
                     {totalOverdue > 0 && (
                         <p className="text-[10px] font-bold text-red-500 mt-0.5">{format(totalOverdue)} overdue</p>
                     )}
@@ -93,7 +93,7 @@ export default function AccountsReceivable({ invoices = [], currencyCode = 'NGN'
                 {barData.map(item => (
                     <div key={item.name} className="rounded-xl p-3" style={{ background: `${item.color}10`, border: `1px solid ${item.color}25` }}>
                         <p className="text-[9px] font-black uppercase tracking-widest mb-1" style={{ color: item.color }}>{item.name}</p>
-                        <p className="text-[13px] font-black text-slate-900 leading-tight truncate">{item.formatted}</p>
+                        <p className="text-[13px] font-black text-noble-text leading-tight truncate">{item.formatted}</p>
                     </div>
                 ))}
             </div>
@@ -120,7 +120,7 @@ export default function AccountsReceivable({ invoices = [], currencyCode = 'NGN'
                     {barData.map(item => (
                         <div key={item.name} className="flex items-center gap-1">
                             <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: item.color }} />
-                            <span className="text-[9px] font-semibold text-slate-400">{item.name}</span>
+                            <span className="text-[9px] font-semibold text-noble-muted">{item.name}</span>
                         </div>
                     ))}
                 </div>

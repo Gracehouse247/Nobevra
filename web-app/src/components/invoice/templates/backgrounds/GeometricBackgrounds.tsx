@@ -47,7 +47,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-navy-prism') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-[320px] bg-[#1E3A8A]" />
            <div className="absolute top-0 right-0 w-[45%] h-[320px] bg-[#3B82F6]" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
         </div>
@@ -56,7 +56,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-cyan-edge') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-[320px] bg-black" />
            <div className="absolute top-0 right-0 w-[40%] h-[320px] bg-[#06B6D4]" style={{ clipPath: 'polygon(25% 0, 100% 0, 100% 100%, 0% 100%)' }} />
         </div>
@@ -65,7 +65,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-cobalt-stripe') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-[320px] bg-[#1E3A8A]" />
            <div className="absolute top-0 right-0 w-[35%] h-[320px] bg-[#2563EB]" style={{ clipPath: 'polygon(30% 0, 100% 0, 100% 100%, 0% 100%)' }} />
         </div>
@@ -74,7 +74,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-onyx-glass') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-[350px] bg-[#374151]" />
            <div className="absolute top-0 right-0 w-[50%] h-[350px] bg-black" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
         </div>
@@ -83,7 +83,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-slate-minimal') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-12 bg-[#334155]" />
            <div className="absolute top-12 left-0 w-full h-24 bg-[#334155]/10" />
         </div>
@@ -101,7 +101,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-minimalist-box') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute inset-16 border border-slate-100" />
            <div className="absolute top-0 left-0 w-full h-2 bg-slate-900" />
         </div>
@@ -110,7 +110,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-slanted-edge') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 right-0 w-[45%] h-full bg-slate-50" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
         </div>
       );
@@ -135,7 +135,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-abstract-blocks') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 right-0 w-64 h-64 bg-slate-100 -rotate-12 translate-x-12 -translate-y-12" />
            <div className="absolute bottom-0 left-0 w-64 h-64 bg-slate-100 rotate-12 -translate-x-12 translate-y-12" />
         </div>
@@ -153,7 +153,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-origami-fold') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-full opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000), linear-gradient(45deg, #000 25%, transparent 25%, transparent 75%, #000 75%, #000)', backgroundPosition: '0 0, 40px 40px', backgroundSize: '80px 80px' }} />
         </div>
       );
@@ -161,7 +161,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-pixel-perfect') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '8px 8px' }} />
         </div>
       );
@@ -177,7 +177,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-matrix-dots') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute right-0 top-0 w-1/3 h-full bg-slate-50 opacity-50" />
            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#1E293B 2px, transparent 2px)', backgroundSize: '24px 24px' }} />
         </div>
@@ -186,7 +186,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-shattered-glass') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute top-0 left-0 w-full h-full opacity-5" style={{ clipPath: 'polygon(0 0, 100% 0, 70% 30%, 0 100%)', backgroundColor: '#CBD5E1' }} />
            <div className="absolute top-0 right-0 w-full h-full opacity-5" style={{ clipPath: 'polygon(100% 0, 100% 100%, 30% 70%)', backgroundColor: '#94A3B8' }} />
         </div>
@@ -204,7 +204,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-concentric-circles') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white overflow-hidden">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface overflow-hidden">
            <div className="absolute -top-32 -right-32 w-96 h-96 border-[40px] border-slate-50 rounded-full" />
            <div className="absolute -bottom-32 -left-32 w-96 h-96 border-[40px] border-slate-50 rounded-full" />
         </div>
@@ -213,7 +213,7 @@ export const GeometricBackground = (props: SharedEngineProps) => {
 
   if (id === 'geo-isometric-tower') {
       return (
-        <div className="absolute inset-0 z-0 pointer-events-none bg-white">
+        <div className="absolute inset-0 z-0 pointer-events-none bg-noble-surface">
            <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/cubes.png")' }} />
         </div>
       );

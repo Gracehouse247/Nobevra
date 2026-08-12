@@ -35,7 +35,7 @@ export default function EnterpriseCaseStudy() {
                 
                 <div className="grid md:grid-cols-3 gap-8">
                     {reviews.map((r) => (
-                        <div key={r.name} className="bg-white rounded-[32px] border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:border-noble-blue/20 transition-all">
+                        <div key={r.name} className="bg-noble-surface rounded-[32px] border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:border-noble-blue/20 transition-all">
                             <div className="flex gap-0.5 mb-6">
                                 {[1,2,3,4,5].map(i => <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />)}
                             </div>
@@ -43,7 +43,7 @@ export default function EnterpriseCaseStudy() {
                             <div className="flex items-center gap-4 mt-auto border-t border-slate-50 pt-6">
                                 <Image src={r.image} alt={r.name} width={44} height={44} className="w-11 h-11 rounded-full object-cover border-2 border-slate-100" />
                                 <div>
-                                    <p className="font-black text-slate-900 text-sm uppercase">{r.name}</p>
+                                    <p className="font-black text-noble-text text-sm uppercase">{r.name}</p>
                                     <p className="text-[10px] text-slate-400 font-bold tracking-widest uppercase">{r.role}</p>
                                 </div>
                             </div>

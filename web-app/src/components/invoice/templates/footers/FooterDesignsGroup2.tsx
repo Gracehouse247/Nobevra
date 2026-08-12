@@ -130,7 +130,7 @@ export const CobaltSplitFooter = (props: SharedEngineProps) => {
 export const SlateGridFooter = (props: SharedEngineProps) => {
   const { data } = props;
   return (
-    <div className="mt-auto h-24 px-16 flex items-center justify-between text-slate-400 relative z-10 border-t border-slate-200 bg-slate-50">
+    <div className="mt-auto h-24 px-16 flex items-center justify-between text-slate-400 relative z-10 border-t border-noble-border bg-slate-50">
        <p className="text-[10px] font-black uppercase tracking-[0.4em]">Slate Grid Series</p>
        <div className="w-40 h-8 border-b border-slate-300 flex items-center justify-center">
           {data.signatureUrl && <img src={data.signatureUrl} alt="Signature" className="h-full w-auto object-contain" />}
@@ -188,16 +188,16 @@ export const BrickFooter = (props: SharedEngineProps) => {
     <div className="mt-auto px-16 py-12 relative z-10 border-t-8" style={{ borderTopColor: '#D97706' }}>
        <div className="flex justify-between items-end">
           <div className="space-y-4">
-             <h4 className="text-sm font-black text-slate-900 uppercase tracking-widest">Terms & Conditions</h4>
+             <h4 className="text-sm font-black text-noble-text uppercase tracking-widest">Terms & Conditions</h4>
              <p className="text-xs font-bold text-slate-500 max-w-sm leading-relaxed">{data.notes || 'Remit payment within 15 days. Subject to NobleInvoice standards.'}</p>
           </div>
           <div className="flex flex-col items-center">
              {data.signatureUrl ? (
                <img src={data.signatureUrl} alt="Signature" className="h-20 w-auto object-contain border-b-2 border-slate-900 mb-2" />
              ) : (
-               <div className="w-48 h-12 border-b-2 border-slate-200 mb-2" />
+               <div className="w-48 h-12 border-b-2 border-noble-border mb-2" />
              )}
-             <p className="text-[10px] font-black text-slate-900 uppercase tracking-[0.4em]">{sender?.full_name}</p>
+             <p className="text-[10px] font-black text-noble-text uppercase tracking-[0.4em]">{sender?.full_name}</p>
           </div>
        </div>
     </div>
@@ -222,7 +222,7 @@ export const DarkGoldFooter = (props: SharedEngineProps) => {
              </div>
           </div>
           <div className="text-right">
-             <p className="text-[10px] font-black text-slate-900 uppercase tracking-[0.5em] italic">Platinum Elite Series</p>
+             <p className="text-[10px] font-black text-noble-text uppercase tracking-[0.5em] italic">Platinum Elite Series</p>
           </div>
        </div>
     </div>
@@ -251,7 +251,7 @@ export const SlateAngleFooter = (props: SharedEngineProps) => {
   const { sender } = data;
   return (
     <div className="mt-auto relative h-32 overflow-hidden z-10 bg-[#1E293B]">
-       <div className="absolute top-0 right-10 w-8 h-full bg-white opacity-10 -rotate-12" />
+       <div className="absolute top-0 right-10 w-8 h-full bg-noble-surface opacity-10 -rotate-12" />
        <div className="relative z-20 h-full flex items-center px-16 justify-between text-white">
           <div className="flex items-center gap-6">
              <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
@@ -263,9 +263,9 @@ export const SlateAngleFooter = (props: SharedEngineProps) => {
              </div>
           </div>
           <div className="flex gap-4">
-             <div className="w-2 h-2 rounded-full bg-white/20" />
-             <div className="w-2 h-2 rounded-full bg-white/40" />
-             <div className="w-2 h-2 rounded-full bg-white" />
+             <div className="w-2 h-2 rounded-full bg-noble-surface/20" />
+             <div className="w-2 h-2 rounded-full bg-noble-surface/40" />
+             <div className="w-2 h-2 rounded-full bg-noble-surface" />
           </div>
        </div>
     </div>

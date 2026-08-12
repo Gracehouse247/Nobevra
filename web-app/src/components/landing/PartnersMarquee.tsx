@@ -17,7 +17,7 @@ export default function PartnersMarquee() {
     ];
 
     return (
-        <section className="py-16 bg-white border-y border-near-black/5 overflow-hidden">
+        <section className="py-16 bg-noble-surface border-y border-near-black/5 overflow-hidden">
             <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-near-black/60 mb-10">
                 Trusted by teams powered by these platforms
             </p>

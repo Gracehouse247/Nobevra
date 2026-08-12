@@ -9,9 +9,9 @@ import { useEntitlements } from '@/context/EntitlementsContext';
 import { useUpgradeModal } from '@/context/UpgradeModalContext';
 import PremiumBadge from '@/components/shared/PremiumBadge';
 
-const inputClass = `w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;
+const inputClass = `w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;
 const labelClass = "text-[11px] font-bold text-slate-500 mb-1 block uppercase tracking-wider font-[Inter,sans-serif]";
-const cardClass = "bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden mb-3";
+const cardClass = "bg-noble-surface rounded-xl border border-noble-border shadow-sm overflow-hidden mb-3";
 const cardHeaderClass = "px-5 py-3 border-b border-slate-100 bg-slate-50/50";
 
 export const InvoiceDetailsStep = () => {
@@ -59,13 +59,13 @@ export const InvoiceDetailsStep = () => {
                                 {selectedClient.name?.charAt(0).toUpperCase()}
                             </div>
                             <div className="flex-1 min-w-0">
-                                <p className="text-[13px] font-bold text-slate-900 truncate font-[Inter,sans-serif]">{selectedClient.name}</p>
+                                <p className="text-[13px] font-bold text-noble-text truncate font-[Inter,sans-serif]">{selectedClient.name}</p>
                                 {selectedClient.email && <p className="text-[11px] text-slate-500 truncate">{selectedClient.email}</p>}
                             </div>
                             <button
                                 aria-label="Remove selected client"
                                 onClick={() => setSelectedClientId('')}
-                                className="p-1.5 rounded-lg hover:bg-white/60 text-slate-400 hover:text-red-500 transition-colors"
+                                className="p-1.5 rounded-lg hover:bg-noble-surface/60 text-slate-400 hover:text-red-500 transition-colors"
                             >
                                 <X className="w-4 h-4" />
                             </button>
@@ -99,7 +99,7 @@ export const InvoiceDetailsStep = () => {
 
                             {/* Dropdown */}
                             {open && (
-                                <div className="absolute top-full left-0 right-0 mt-1.5 bg-white border border-slate-200 rounded-xl shadow-xl z-50 overflow-hidden" role="listbox" aria-label="Client list">
+                                <div className="absolute top-full left-0 right-0 mt-1.5 bg-noble-surface border border-noble-border rounded-xl shadow-xl z-50 overflow-hidden" role="listbox" aria-label="Client list">
                                     {filtered.length === 0 ? (
                                         <div className="px-4 py-3 text-center">
                                             <p className="text-[12px] text-slate-500 font-[Inter,sans-serif]">
@@ -206,7 +206,7 @@ export const InvoiceDetailsStep = () => {
                             tabIndex={0} 
                             aria-label="Add billing address" 
                             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') e.currentTarget.click(); }}
-                            className="h-10 border border-slate-200 rounded-lg bg-slate-50 flex items-center justify-between px-3 hover:border-[#0599D5]/40 transition-colors cursor-pointer"
+                            className="h-10 border border-noble-border rounded-lg bg-slate-50 flex items-center justify-between px-3 hover:border-[#0599D5]/40 transition-colors cursor-pointer"
                         >
                             <span className="text-[13px] text-slate-400 font-[Inter,sans-serif]">
                                 {selectedClient?.address || 'Click to add billing address'}
@@ -261,7 +261,7 @@ export const InvoiceDetailsStep = () => {
                     aria-label="Add New Client" 
                     className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4"
                 >
-                    <div className="bg-white rounded-3xl w-full max-w-4xl max-h-[95vh] overflow-y-auto relative animate-in fade-in zoom-in duration-200 custom-scrollbar shadow-2xl">
+                    <div className="bg-noble-surface rounded-3xl w-full max-w-4xl max-h-[95vh] overflow-y-auto relative animate-in fade-in zoom-in duration-200 custom-scrollbar shadow-2xl">
                         <button 
                             type="button"
                             aria-label="Close modal"

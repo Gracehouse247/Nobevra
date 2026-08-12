@@ -89,7 +89,7 @@ export const BackgroundRemover: React.FC<BackgroundRemoverProps> = ({ onProcesse
   };
 
   return (
-    <div className="flex flex-col gap-4 p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+    <div className="flex flex-col gap-4 p-4 bg-slate-50 border border-noble-border rounded-2xl">
       <div className="flex items-center gap-1.5 text-blue-600">
         <Sparkles size={16} />
         <span className="font-bold text-xs uppercase tracking-wider">Noble AI Backdrop Remover</span>
@@ -106,7 +106,7 @@ export const BackgroundRemover: React.FC<BackgroundRemoverProps> = ({ onProcesse
       {!originalImage ? (
         <button
           onClick={() => document.getElementById('bg-remover-upload')?.click()}
-          className="h-32 border-2 border-dashed border-slate-200 hover:border-blue-600 rounded-xl flex flex-col items-center justify-center gap-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50/20 transition-all cursor-pointer"
+          className="h-32 border-2 border-dashed border-noble-border hover:border-blue-600 rounded-xl flex flex-col items-center justify-center gap-2 text-slate-500 hover:text-blue-600 hover:bg-blue-50/20 transition-all cursor-pointer"
         >
           <Upload size={24} />
           <span className="text-xs font-bold uppercase tracking-wider">Upload Portrait or Logo</span>
@@ -152,13 +152,13 @@ export const BackgroundRemover: React.FC<BackgroundRemoverProps> = ({ onProcesse
             <div className="flex gap-2 mt-1">
               <button
                 onClick={() => { setKeyColor({ r: 255, g: 255, b: 255 }); toast.success('Targeted white background'); }}
-                className="flex-1 py-1 text-[9px] font-bold uppercase border border-slate-200 rounded-lg bg-white text-slate-600 hover:bg-slate-50"
+                className="flex-1 py-1 text-[9px] font-bold uppercase border border-noble-border rounded-lg bg-noble-surface text-slate-600 hover:bg-slate-50"
               >
                 Target White
               </button>
               <button
                 onClick={() => { setKeyColor({ r: 0, g: 0, b: 0 }); toast.success('Targeted black background'); }}
-                className="flex-1 py-1 text-[9px] font-bold uppercase border border-slate-200 rounded-lg bg-white text-slate-600 hover:bg-slate-50"
+                className="flex-1 py-1 text-[9px] font-bold uppercase border border-noble-border rounded-lg bg-noble-surface text-slate-600 hover:bg-slate-50"
               >
                 Target Black
               </button>
@@ -169,7 +169,7 @@ export const BackgroundRemover: React.FC<BackgroundRemoverProps> = ({ onProcesse
           <div className="flex gap-2">
             <button
               onClick={() => setOriginalImage(null)}
-              className="px-3 py-2 border border-slate-200 rounded-xl text-slate-500 hover:text-red-500 hover:bg-red-50 transition-all"
+              className="px-3 py-2 border border-noble-border rounded-xl text-slate-500 hover:text-red-500 hover:bg-red-50 transition-all"
             >
               <Trash2 size={16} />
             </button>

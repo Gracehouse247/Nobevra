@@ -51,7 +51,7 @@ export default function SocialForm({ onChange, initialData, onPreviewValueChange
                                 className={`flex flex-col items-center justify-center p-3 rounded-xl border-2 transition-all ${
                                     isSelected 
                                         ? 'border-[#166FBB] bg-[#166FBB]/5 text-[#166FBB]' 
-                                        : 'border-[#E2E8F0] bg-white text-[#94A3B8] hover:border-[#CBD5E1]'
+                                        : 'border-[#E2E8F0] bg-noble-surface text-[#94A3B8] hover:border-[#CBD5E1]'
                                 }`}
                             >
                                 <Icon className="w-6 h-6 mb-2" />
