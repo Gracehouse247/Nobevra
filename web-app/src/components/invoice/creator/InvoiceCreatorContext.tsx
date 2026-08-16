@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { invoiceService, clientService, productService, teamService } from '@/lib/services/supabaseService';
 import { toast } from 'react-hot-toast';
+import { geoService } from '@/lib/services/geoService';
 import { useInvoiceCreatorStore } from '@/store/useInvoiceCreatorStore';
 
 const InvoiceCreatorContext = createContext<any>(undefined);
@@ -24,7 +25,7 @@ export const InvoiceCreatorProvider = ({ children }: { children: ReactNode }) =>
             store.setInvoiceType(initialType);
             store.setStep('form');
         }
-    }, [initialType]);
+    }, [initialType, store]);
 
     useEffect(() => {
         if (newClientId) {
@@ -32,7 +33,7 @@ export const InvoiceCreatorProvider = ({ children }: { children: ReactNode }) =>
             store.setStep('form');
             store.setCurrentWizardStep(0);
         }
-    }, [newClientId]);
+    }, [newClientId, store]);
 
     useEffect(() => {
         if (!user) {
@@ -46,7 +47,18 @@ export const InvoiceCreatorProvider = ({ children }: { children: ReactNode }) =>
                 if (tData) {
                     const td = tData as any;
                     store.setTeamData(tData);
-                    store.setCurrencyCode(td.preferred_currency || 'NGN');
+                    
+                    if (td.preferred_currency) {
+                        store.setCurrencyCode(td.preferred_currency);
+                    } else {
+                        // Auto-detect currency via IP location if team hasn't set one
+                        geoService.getClientGeo().then(geo => {
+                            if (geo && geo.currency) {
+                                store.setCurrencyCode(geo.currency);
+                            }
+                        }).catch(() => {}); // Fallback to NGN which is store default
+                    }
+                    
                     store.setBankName(td.bank_name || '');
                     store.setAccountName(td.account_name || '');
                     store.setAccountNumber(td.account_number || '');
@@ -155,7 +167,8 @@ export const InvoiceCreatorProvider = ({ children }: { children: ReactNode }) =>
         total: store.getTotal(),
         currencySymbol: store.getCurrencySymbol(),
         handleSave: (status: 'draft' | 'pending' = 'pending') => store.handleSave(user, draftId, status),
-        createAndSelectClient: (clientData: any) => store.createAndSelectClient(user, clientData)
+        createAndSelectClient: (clientData: any) => store.createAndSelectClient(user, clientData),
+        resetStore: store.resetStore
     };
 
     return (

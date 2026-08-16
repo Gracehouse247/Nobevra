@@ -7,7 +7,7 @@ import {
     FileText, QrCode, User, Zap, Loader2, Star,
     Briefcase
 } from 'lucide-react';
-import { PAYG_PLAN, PAYG_PRICE_NGN, PAYG_PRICE_USD, type PaygBundleState } from '@/lib/plans';
+import { PAYG_PLAN, type PaygBundleState } from '@/lib/plans';
 import { useAuth } from '@/context/AuthContext';
 import { toast } from 'react-hot-toast';
 
@@ -60,8 +60,8 @@ export default function PaygUnlockModal({
     const [currency, setCurrency] = useState<'NGN' | 'USD'>('NGN');
     const [isProcessing, setIsProcessing] = useState(false);
 
-    const price = currency === 'NGN' ? PAYG_PRICE_NGN : PAYG_PRICE_USD;
-    const priceLabel = currency === 'NGN' ? `₦${PAYG_PRICE_NGN.toLocaleString()}` : `$${PAYG_PRICE_USD.toFixed(2)}`;
+    const price = currency === 'NGN' ? PAYG_PLAN.priceNGN : PAYG_PLAN.priceUSD;
+    const priceLabel = currency === 'NGN' ? `₦${PAYG_PLAN.priceNGN.toLocaleString()}` : `$${PAYG_PLAN.priceUSD.toFixed(2)}`;
 
     const handlePayment = () => {
         if (!user) {

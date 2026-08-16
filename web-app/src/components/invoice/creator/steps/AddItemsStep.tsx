@@ -56,16 +56,18 @@ export const AddItemsStep = () => {
                             </div>
                             <div className="col-span-2 flex sm:justify-center">
                                 <input
-                                    type="number" min="0"
+                                    id={`qty-${item.id}`}
+                                    type="number" min="0" step="1"
                                     aria-label="Quantity"
                                     value={item.quantity}
-                                    onChange={e => updateItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
+                                    onChange={e => updateItem(item.id, 'quantity', parseInt(e.target.value, 10) || 0)}
                                     className="w-14 text-[13px] text-center border border-noble-border rounded-lg py-1 focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5]/20 outline-none bg-noble-surface font-medium font-[Inter,sans-serif]"
                                 />
                             </div>
                             <div className="col-span-2 flex sm:justify-end">
                                 <input
-                                    type="number" min="0"
+                                    id={`price-${item.id}`}
+                                    type="number" min="0" step="0.01"
                                     aria-label="Unit rate"
                                     value={item.price}
                                     onChange={e => updateItem(item.id, 'price', parseFloat(e.target.value) || 0)}
@@ -88,14 +90,9 @@ export const AddItemsStep = () => {
                         </div>
                     ))}
                 </div>
-
                 <div className="px-5 py-3 border-t border-slate-100 bg-slate-50/30 flex items-center gap-4">
-                    <button onClick={addItem} className="text-[13px] font-semibold text-[#0599D5] hover:text-[#0482B5] flex items-center gap-1 transition-colors font-[Inter,sans-serif]">
+                    <button onClick={addItem} className="text-[13px] font-semibold text-[#0599D5] hover:text-[#0482B5] flex items-center gap-1 transition-colors font-['Inter',sans-serif]">
                         <Plus className="w-3.5 h-3.5" /> Add Item
-                    </button>
-                    <span className="text-slate-200 select-none">|</span>
-                    <button className="text-[13px] font-semibold text-slate-400 hover:text-slate-600 flex items-center gap-1 transition-colors font-[Inter,sans-serif]">
-                        <Plus className="w-3.5 h-3.5" /> Add Section
                     </button>
                 </div>
             </div>
@@ -145,8 +142,8 @@ export const AddItemsStep = () => {
                             <span className="font-bold text-slate-800">{currencySymbol}{subtotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
                         </div>
                         {discountTotal > 0 && (
-                            <div className="flex justify-between items-center text-[13px] text-[#0599D5] font-[Inter,sans-serif]">
-                                <span className="font-medium">Discount</span>
+                            <div className="flex justify-between items-center text-[13px] text-[#0599D5] font-['Inter',sans-serif]">
+                                <span className="font-medium">Discount {discountType === 'percentage' ? `(${discountValue}%)` : '(Flat)'}</span>
                                 <span className="font-bold">−{currencySymbol}{discountTotal.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
                             </div>
                         )}

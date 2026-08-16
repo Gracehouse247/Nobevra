@@ -7,6 +7,7 @@ import {
     ChevronDown, CreditCard, ChevronRight, ArrowLeft, User, FileCheck
 } from 'lucide-react';
 import { toast } from 'react-hot-toast';
+import { useRouter } from 'next/navigation';
 import { NewClientForm } from '@/components/clients/NewClientForm';
 import { InvoiceDetailsStep } from './steps/InvoiceDetailsStep';
 import { AddItemsStep } from './steps/AddItemsStep';
@@ -40,8 +41,9 @@ const btnGhost = `h-10 px-5 rounded-lg text-slate-500 hover:bg-slate-100
 
 // ── Main Wizard Shell ───────────────────────────────────────────────────────────
 export const InvoiceWizardForm = () => {
-    const { handleSave, selectedClientId } = useInvoiceCreator();
+    const { handleSave, selectedClientId, items, resetStore } = useInvoiceCreator();
     const [step, setStep] = useState(1);
+    const router = useRouter();
 
     const steps = [
         { id: 1, label: 'Invoice Details', icon: User },
@@ -57,17 +59,26 @@ export const InvoiceWizardForm = () => {
         handleSave('pending');
     };
 
+    const handleNextStep = (targetStep: number) => {
+        if (targetStep > 1 && !selectedClientId) {
+            toast.error('Please select a customer before continuing.');
+            return;
+        }
+        if (targetStep > 2 && items?.some((item: any) => !item.name?.trim() || item.price <= 0 || item.quantity <= 0)) {
+            toast.error('Please complete all line items with valid quantities and prices.');
+            return;
+        }
+        setStep(targetStep);
+    };
+
     return (
         <div className="flex flex-col h-full bg-[#F4F5F7] font-[Inter,sans-serif]">
 
             {/* ── Top Header ── */}
             <div className="bg-noble-surface border-b border-noble-border px-6 py-4 flex items-center justify-between shrink-0 shadow-sm">
                 <div>
-                    <h2 className="text-lg font-black text-noble-text tracking-tight font-[Inter,sans-serif]">Create Invoice</h2>
-                    <p className="text-[11px] text-slate-400 font-medium mt-0.5 font-[Inter,sans-serif]">Fill out the steps below to generate your invoice</p>
-                </div>
-                <div className="hidden sm:flex items-center gap-1.5 text-[11px] text-emerald-600 font-bold bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200 font-[Inter,sans-serif]">
-                    <Check className="w-3 h-3" /> Auto-saved
+                    <h2 className="text-lg font-black text-noble-text tracking-tight font-['Inter',sans-serif]">Create Invoice</h2>
+                    <p className="text-[11px] text-slate-400 font-medium mt-0.5 font-['Inter',sans-serif]">Fill out the steps below to generate your invoice</p>
                 </div>
             </div>
 
@@ -80,7 +91,11 @@ export const InvoiceWizardForm = () => {
                         const isDone = step > s.id;
                         return (
                             <React.Fragment key={s.id}>
-                                <button onClick={() => setStep(s.id)} className="flex flex-col items-center gap-1.5 group">
+                                <button 
+                                    onClick={() => handleNextStep(s.id)}
+                                    aria-current={isActive ? "step" : undefined}
+                                    className="flex flex-col items-center gap-1.5 group"
+                                >
                                     <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-all border-2 ${
                                         isActive
                                             ? 'bg-[#0599D5] border-[#0599D5] text-white shadow-md shadow-[#0599D5]/25'
@@ -119,7 +134,15 @@ export const InvoiceWizardForm = () => {
                         <ArrowLeft className="w-4 h-4" /> Back
                     </button>
                 ) : (
-                    <button className={btnGhost}>Cancel</button>
+                    <button 
+                        onClick={() => {
+                            if (resetStore) resetStore();
+                            router.push('/invoices');
+                        }} 
+                        className={btnGhost}
+                    >
+                        Cancel
+                    </button>
                 )}
 
                 <div className="flex items-center gap-2.5">
@@ -127,7 +150,7 @@ export const InvoiceWizardForm = () => {
                         Save Draft
                     </button>
                     {step < 3 ? (
-                        <button onClick={() => setStep(step + 1)} className={btnPrimary}>
+                        <button onClick={() => handleNextStep(step + 1)} className={btnPrimary}>
                             Continue <ChevronRight className="w-4 h-4" />
                         </button>
                     ) : (

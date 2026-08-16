@@ -109,6 +109,7 @@ export const invoiceService = {
         const edgePayload = {
             client_id:      rawInvoice.client_id ? Number(rawInvoice.client_id) : null,
             due_date:       rawInvoice.due_date ?? new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+            issue_date:     rawInvoice.issue_date ?? new Date().toISOString().split('T')[0],
             status:         rawInvoice.status ?? 'draft',
             invoice_type:   rawInvoice.invoice_type ?? 'standard',
             currency_code:  rawInvoice.currency_code ?? 'NGN',
@@ -118,10 +119,12 @@ export const invoiceService = {
             discount_type:  rawInvoice.discount_type ?? 'none',
             discount_value: parseFloat(String(rawInvoice.discount_value ?? 0)) || 0,
             metadata: {
-                bank_name:          rawInvoice.bank_name ?? null,
-                account_name:       rawInvoice.account_name ?? null,
-                account_number:     rawInvoice.account_number ?? null,
-                signature_url:      rawInvoice.signature_url ?? null,
+                bank_name:              rawInvoice.bank_name ?? null,
+                account_name:           rawInvoice.account_name ?? null,
+                account_number:         rawInvoice.account_number ?? null,
+                signature_url:          rawInvoice.signature_url ?? null,
+                payment_terms:          rawInvoice.metadata?.payment_terms ?? null,
+                accept_online_payments: rawInvoice.metadata?.accept_online_payments ?? false,
                 ...(rawInvoice.metadata ?? {}),
             },
             items: (items ?? []).map((item) => ({
@@ -178,10 +181,12 @@ export const invoiceService = {
             ...(rawInvoice.account_name  ? { account_name:   rawInvoice.account_name }  : {}),
             ...(rawInvoice.account_number? { account_number: rawInvoice.account_number }: {}),
             ...(rawInvoice.signature_url ? { signature_url:  rawInvoice.signature_url } : {}),
+            payment_terms:          rawInvoice.metadata?.payment_terms ?? null,
+            accept_online_payments: rawInvoice.metadata?.accept_online_payments ?? false,
         };
 
         const payload = {
-            invoice_id:      Number(invoiceId),
+            invoice_id:      invoiceId, // FIX: UUIDs are strings, Number() makes it NaN
             client_id:       rawInvoice.client_id ? Number(rawInvoice.client_id) : null,
             invoice_number:  rawInvoice.invoice_number,
             invoice_type:    rawInvoice.invoice_type  || 'standard',

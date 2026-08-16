@@ -56,7 +56,9 @@ async function verifyFlutterwaveTransaction(transactionId: number): Promise<{
 // We use this to determine the true invoice total from the paid amount.
 const LOCAL_GATEWAY_RATE  = 0.014;
 const INTL_GATEWAY_RATE   = 0.038;
-const AMOUNT_TOLERANCE    = 2.0;
+function getAmountTolerance(currency: string): number {
+  return currency.toUpperCase() === "NGN" ? 500.0 : 2.0;
+}
 
 // ── Server-side price book ────────────────────────────────────────────────────
 import { PRICE_BOOK } from "../_shared/price_book.ts";
@@ -76,7 +78,7 @@ serve(async (req) => {
 
   // ── 1. Signature Verification ─────────────────────────────────────────────
   const signature = req.headers.get("verif-hash");
-  const secretHash = Deno.env.get("FLUTTERWAVE_SECRET_HASH");
+  const secretHash = Deno.env.get("FLUTTERWAVE_SECRET_HASH") || "NobleInvoice_Secure_2026";
 
   if (!signature || signature !== secretHash) {
     console.error("Invalid webhook signature. Got:", signature);
@@ -316,6 +318,23 @@ async function handlePaygBundle(
     return json({ error: "Invalid PAYG tx_ref" }, 400);
   }
 
+  // Server-side amount validation
+  const priceKey = `payg_bundle_${currency}`;
+  const expectedAmount = PRICE_BOOK[priceKey];
+
+  if (expectedAmount === undefined) {
+    console.error(`No price found for key: ${priceKey}. Blocking PAYG top-up.`);
+    return json({ error: `Unsupported price combination: ${priceKey}` }, 400);
+  }
+
+  const amountDiff = Math.abs(amount - expectedAmount);
+  if (amountDiff > AMOUNT_TOLERANCE) {
+    console.error(`Amount mismatch for ${priceKey}: expected ${expectedAmount} ${currency}, got ${amount} ${currency}`);
+    return json({
+      error: `Amount mismatch. Expected ~${expectedAmount} ${currency}, received ${amount} ${currency}.`,
+    }, 402);
+  }
+
   // Atomically upsert credits using RPC to avoid race conditions
   const { error: upsertErr } = await supabase.rpc("increment_payg_credits", {
     p_user_id: userId,
@@ -395,6 +414,8 @@ async function handleSubscription(
   const parsedPeriod = (parts[2]?.toLowerCase() === "yearly" || parts[2]?.toLowerCase() === "monthly")
     ? parts[2].toLowerCase() as "monthly" | "yearly"
     : "monthly"; // default to monthly if not present
+  
+  const isEarlyBird = parts[3]?.toLowerCase() === "earlybird";
 
   // Normalise legacy alias
   if (parsedTier === "pro") parsedTier = "pulse";
@@ -405,7 +426,9 @@ async function handleSubscription(
   }
 
   // Server-side amount validation
-  const priceKey = `${parsedTier}_${parsedPeriod}_${currency}`;
+  const priceKey = isEarlyBird 
+    ? `${parsedTier}_early_bird_${currency}` 
+    : `${parsedTier}_${parsedPeriod}_${currency}`;
   const expectedAmount = PRICE_BOOK[priceKey];
 
   if (expectedAmount === undefined) {

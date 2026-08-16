@@ -44,9 +44,7 @@ export const InvoiceCreatorLayout = () => {
     const [isTemplateDialogOpen, setIsTemplateDialogOpen] = useState(false);
 
     // ── Success page helpers (must be top-level — not inside a conditional block) ──
-    const portalUrl = (typeof window !== 'undefined' && issuedInvoiceData?.tracking_token)
-        ? `${window.location.origin}/portal/${issuedInvoiceData.tracking_token}`
-        : '';
+    const portalUrl = issuedInvoiceData?.payment_link || '';
 
     const handleCopyLink = () => {
         if (!portalUrl) return;
@@ -57,7 +55,7 @@ export const InvoiceCreatorLayout = () => {
     const handleDownloadPdf = () => {
         if (!issuedInvoiceData) return;
         const url = issuedInvoiceData.pdf_url
-            || `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/get-invoice-proxy?id=${issuedInvoiceData.id}&token=${issuedInvoiceData.tracking_token}`;
+            || `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/get-invoice-proxy?id=${issuedInvoiceData.invoice_id || issuedInvoiceData.id}&token=${issuedInvoiceData.tracking_token || ''}`;
         window.open(url, '_blank', 'noopener,noreferrer');
     };
 
@@ -229,7 +227,7 @@ export const InvoiceCreatorLayout = () => {
                                 <div className="flex-1 w-full space-y-4">
                                     <div className="flex justify-between items-center pb-4 border-b border-noble-border/60">
                                         <span className="text-sm font-medium text-slate-500">Billed To</span>
-                                        <span className="text-sm font-bold text-noble-text">{clients.find((c: any) => c.id === selectedClientId)?.name}</span>
+                                        <span className="text-sm font-bold text-noble-text">{clients.find((c: any) => String(c.id) === String(selectedClientId))?.name}</span>
                                     </div>
                                     <div className="flex justify-between items-center pb-4 border-b border-noble-border/60">
                                         <span className="text-sm font-medium text-slate-500">Due Date</span>
@@ -246,7 +244,8 @@ export const InvoiceCreatorLayout = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                                 <button 
                                     onClick={handleCopyLink} 
-                                    className="h-16 bg-[#0599D5] text-white rounded-2xl font-bold text-sm shadow-[0_10px_30px_rgba(5,153,213,0.3)] hover:shadow-[0_15px_40px_rgba(5,153,213,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3"
+                                    disabled={!portalUrl}
+                                    className="h-16 bg-[#0599D5] text-white rounded-2xl font-bold text-sm shadow-[0_10px_30px_rgba(5,153,213,0.3)] hover:shadow-[0_15px_40px_rgba(5,153,213,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     <Share2 className="w-5 h-5" /> Copy Payment Link
                                 </button>
@@ -266,7 +265,7 @@ export const InvoiceCreatorLayout = () => {
                                 </button>
                                 
                                 <button 
-                                    onClick={() => router.push(`/invoices/${issuedInvoiceData?.id}`)} 
+                                    onClick={() => router.push(`/invoices/${issuedInvoiceData?.invoice_id || issuedInvoiceData?.id}`)} 
                                     className="h-16 bg-noble-surface border-2 border-slate-100 text-slate-700 rounded-2xl font-bold text-sm hover:border-indigo-500 hover:text-indigo-600 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3"
                                 >
                                     <FileText className="w-5 h-5" /> View Details

@@ -241,33 +241,54 @@ export default function RegisterPage() {
 
     // Hydration check for incomplete onboarding
     React.useEffect(() => {
+        // Safety net: if the check hangs for any reason, unblock the UI after 3s
+        const safetyTimeout = setTimeout(() => {
+            setChecking(false);
+        }, 3000);
+
         const checkSession = async () => {
             try {
-                const { data: { user } } = await supabase.auth.getUser();
+                // Use getSession() instead of getUser() — reads from local storage/cookie
+                // instantly without a network round-trip, preventing client-side nav hangs.
+                const { data: { session } } = await supabase.auth.getSession();
                 if (!mounted.current) return;
-                // Ensure the user actually has authenticated identity factors (i.e. not in intermediate 2FA/OTP validation)
-                if (user && user.identities && user.identities.length > 0) {
-                    const { data: profile } = await supabase.from('profiles').select('onboarding_completed').eq('id', user.id).single();
-                    if (!mounted.current) return;
-                    if (profile && !profile.onboarding_completed) {
-                        setStep(3);
-                    } else if (profile?.onboarding_completed) {
-                        router.push('/dashboard');
-                        return; // stay on checking=true while redirecting
+
+                if (session?.user) {
+                    const user = session.user;
+                    // Ensure the user actually has authenticated identity factors
+                    if (user.identities && user.identities.length > 0) {
+                        const { data: profile } = await supabase
+                            .from('profiles')
+                            .select('onboarding_completed')
+                            .eq('id', user.id)
+                            .single();
+                        if (!mounted.current) return;
+                        if (profile && !profile.onboarding_completed) {
+                            setStep(3);
+                        } else if (profile?.onboarding_completed) {
+                            router.push('/dashboard');
+                            return; // stay on checking=true while redirecting
+                        }
                     }
                 }
+            } catch {
+                // On any error, unblock the page — never leave user stuck on spinner
             } finally {
-                if (mounted.current) setChecking(false);
+                clearTimeout(safetyTimeout);
+                // Don't guard with mounted.current here — we always want to unblock
+                setChecking(false);
             }
         };
         checkSession();
-    }, [router]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []); // Run once on mount only — router is stable and doesn't need to be a dep
+
 
     // Show nothing while we check for an existing session (prevents flicker)
     if (checking) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-slate-50">
-                <div className="w-8 h-8 border-4 border-noble-blue border-t-transparent rounded-full animate-spin" />
+            <div className="min-h-screen flex items-center justify-center bg-[#0A192F]">
+                <div className="w-8 h-8 border-4 border-white/20 border-t-white rounded-full animate-spin" />
             </div>
         );
     }
@@ -275,17 +296,23 @@ export default function RegisterPage() {
     return (
         <div className="min-h-screen relative w-full overflow-y-auto overflow-x-hidden">
             {/* Ambient Background */}
-            <div className="fixed inset-0 w-full h-full z-0 noble-gradient-bg overflow-hidden bg-slate-50">
-                <div className="yolo-circle w-[600px] h-[600px] top-[-10%] left-[-10%] bg-noble-blue"></div>
-                <div className="yolo-circle w-[500px] h-[500px] bottom-[-10%] right-[-5%] bg-primary"></div>
-                <div className="absolute inset-0 bg-white/40 backdrop-blur-[100px]" />
+            <div className="fixed inset-0 w-full h-full z-0 overflow-hidden bg-[#0A192F]">
+                <Image
+                    src="/images/auth-bg.jpg"
+                    alt="Background"
+                    fill
+                    priority
+                    quality={90}
+                    className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
             </div>
 
             <div className="relative z-10 min-h-screen w-full max-w-[1430px] mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between py-12">
                 
                 <div className="w-full lg:w-1/2 flex flex-col justify-center mb-12 lg:mb-0 lg:pr-12">
                     <Link href="/" className="mb-8 self-start block">
-                        <Image src="/images/logo.png" alt="NobleInvoice" width={160} height={40} className="h-10 w-auto object-contain hover:opacity-80 transition-opacity" />
+                        <Image src="/images/logo.png" alt="NobleInvoice" width={160} height={40} className="h-10 w-auto object-contain hover:opacity-80 transition-opacity brightness-0 invert" />
                     </Link>
                     <AnimatePresence mode="wait">
                         {step === 3 ? (
@@ -296,19 +323,19 @@ export default function RegisterPage() {
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.4 }}
                             >
-                                <h1 className="text-3xl md:text-4xl font-black text-slate-900 leading-tight mb-6 tracking-tighter">
+                                <h1 className="text-3xl md:text-4xl font-black text-white leading-tight mb-6 tracking-tighter drop-shadow-md">
                                     "It completely transformed how we get paid."
                                 </h1>
-                                <p className="text-slate-600 text-base font-medium max-w-md leading-relaxed italic mb-8 border-l-4 border-blue-600 pl-4 py-2 rounded-r-lg">
+                                <p className="text-white/90 text-base font-medium max-w-md leading-relaxed italic mb-8 border-l-4 border-blue-400 pl-4 py-2 rounded-r-lg drop-shadow">
                                     "{testimonial.quote}"
                                 </p>
                                 <div className="flex items-center gap-4 mt-8">
-                                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center font-bold text-blue-600 text-xl shadow-inner border border-blue-200">
+                                    <div className="w-12 h-12 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center font-bold text-white text-xl shadow-inner border border-white/20">
                                         {testimonial.initials}
                                     </div>
                                     <div>
-                                        <p className="font-bold text-slate-900">{testimonial.author}</p>
-                                        {testimonial.role && <p className="text-[11px] font-black uppercase tracking-widest text-slate-400 mt-0.5">{testimonial.role}</p>}
+                                        <p className="font-bold text-white drop-shadow-sm">{testimonial.author}</p>
+                                        {testimonial.role && <p className="text-[11px] font-black uppercase tracking-widest text-white/60 mt-0.5">{testimonial.role}</p>}
                                     </div>
                                 </div>
                             </motion.div>
@@ -320,21 +347,21 @@ export default function RegisterPage() {
                                 exit={{ opacity: 0, y: -10 }}
                                 transition={{ duration: 0.4 }}
                             >
-                                <h1 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-4 tracking-tighter">
+                                <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-4 tracking-tighter drop-shadow-md">
                                     Your ultimate workspace
                                 </h1>
-                                <p className="text-slate-500 text-lg font-medium max-w-md leading-relaxed">
+                                <p className="text-white/80 text-lg font-medium max-w-md leading-relaxed drop-shadow">
                                     Join modern businesses using NobleInvoice to get paid faster and grow smarter.
                                 </p>
                                 <div className="flex gap-8 mt-12">
                                     <div>
-                                        <p className="text-2xl font-black text-slate-900">Secure</p>
-                                        <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mt-1">Processing</p>
+                                        <p className="text-2xl font-black text-white drop-shadow-sm">Secure</p>
+                                        <p className="text-white/60 text-[10px] font-black uppercase tracking-widest mt-1">Processing</p>
                                     </div>
-                                    <div className="w-px bg-slate-200"></div>
+                                    <div className="w-px bg-white/20"></div>
                                     <div>
-                                        <p className="text-2xl font-black text-slate-900">180+</p>
-                                        <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mt-1">Templates</p>
+                                        <p className="text-2xl font-black text-white drop-shadow-sm">180+</p>
+                                        <p className="text-white/60 text-[10px] font-black uppercase tracking-widest mt-1">Templates</p>
                                     </div>
                                 </div>
                             </motion.div>
@@ -344,7 +371,7 @@ export default function RegisterPage() {
 
                 <div className="w-full lg:w-[420px] flex-shrink-0">
                     <div className="flex justify-end mb-4">
-                        <Link href="/login" className="px-6 py-2.5 bg-white hover:bg-slate-50 border border-slate-100 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-900 transition-all shadow-xl shadow-slate-200/50">
+                        <Link href="/login" className="px-6 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest text-white transition-all shadow-xl shadow-black/10">
                             Log in
                         </Link>
                     </div>
@@ -353,7 +380,8 @@ export default function RegisterPage() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="bg-white rounded-3xl p-8 shadow-2xl w-full"
+                        className="relative bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] w-full overflow-hidden"
+                        style={{ boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.15)' }}
                     >
                         {/* Email Conflict Modal */}
                         <EmailConflictModal
@@ -364,7 +392,7 @@ export default function RegisterPage() {
                         />
 
                         {error && (
-                            <div className="bg-red-50 text-red-500 text-[11px] font-bold p-3 rounded-lg border border-red-100 mb-6 text-center">
+                            <div className="bg-red-500/20 text-red-200 text-[11px] font-bold p-3 rounded-lg border border-red-400/30 mb-6 text-center backdrop-blur-sm">
                                 {error}
                             </div>
                         )}
@@ -378,17 +406,17 @@ export default function RegisterPage() {
                                     exit={{ opacity: 0, x: -20 }}
                                 >
                                     <div className="text-center mb-6">
-                                        <h2 className="text-2xl font-black text-near-black mb-1">Get Started</h2>
-                                        <p className="text-near-black/50 text-xs font-medium">Create your free account.</p>
+                                        <h2 className="text-2xl font-black text-white mb-1">Get Started</h2>
+                                        <p className="text-white/60 text-xs font-medium">Create your free account.</p>
                                     </div>
 
                                     <button
                                         onClick={handleGoogle}
                                         disabled={googleLoading}
-                                        className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-near-black/10 bg-white hover:bg-near-black/5 transition-all font-bold text-sm text-near-black mb-5 shadow-sm disabled:opacity-50"
+                                        className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-white/25 bg-white/15 hover:bg-white/25 backdrop-blur-md transition-all font-bold text-sm text-white mb-5 shadow-sm disabled:opacity-50"
                                     >
                                         {googleLoading ? (
-                                            <div className="w-4 h-4 border-2 border-near-black/30 border-t-noble-blue rounded-full animate-spin" />
+                                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                         ) : (
                                             <svg className="w-4 h-4" viewBox="0 0 24 24">
                                                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
@@ -401,9 +429,9 @@ export default function RegisterPage() {
                                     </button>
 
                                     <div className="flex items-center gap-3 mb-5">
-                                        <div className="flex-1 h-px bg-near-black/5"></div>
-                                        <span className="text-[9px] font-black uppercase tracking-widest text-near-black/30">Or use email</span>
-                                        <div className="flex-1 h-px bg-near-black/5"></div>
+                                        <div className="flex-1 h-px bg-white/20"></div>
+                                        <span className="text-[9px] font-black uppercase tracking-widest text-white/50">Or use email</span>
+                                        <div className="flex-1 h-px bg-white/20"></div>
                                     </div>
 
                                     <form onSubmit={handleSignupSubmit} className="space-y-4">
@@ -413,7 +441,7 @@ export default function RegisterPage() {
                                             autoComplete="name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
-                                            className="w-full bg-[#F8FAFC] border border-near-black/10 rounded-xl px-4 py-3 outline-none focus:border-noble-blue focus:ring-1 focus:ring-noble-blue/20 transition-all text-near-black placeholder:text-near-black/40 text-sm"
+                                            className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/40 text-sm backdrop-blur-sm"
                                             placeholder="Full Name / Company Name"
                                         />
                                         
@@ -423,7 +451,7 @@ export default function RegisterPage() {
                                             autoComplete="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="w-full bg-[#F8FAFC] border border-near-black/10 rounded-xl px-4 py-3 outline-none focus:border-noble-blue focus:ring-1 focus:ring-noble-blue/20 transition-all text-near-black placeholder:text-near-black/40 text-sm"
+                                            className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/40 text-sm backdrop-blur-sm"
                                             placeholder="Email Address"
                                         />
 
@@ -434,13 +462,13 @@ export default function RegisterPage() {
                                                 autoComplete="new-password"
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
-                                                className="w-full bg-[#F8FAFC] border border-near-black/10 rounded-xl px-4 py-3 pr-12 outline-none focus:border-noble-blue focus:ring-1 focus:ring-noble-blue/20 transition-all text-near-black placeholder:text-near-black/40 text-sm"
+                                                className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 pr-12 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/40 text-sm backdrop-blur-sm"
                                                 placeholder="Password (min. 8 characters)"
                                             />
                                             <button
                                                 type="button"
                                                 onClick={() => setShowPassword(prev => !prev)}
-                                                className="absolute right-3 top-1/2 -translate-y-1/2 text-near-black/30 hover:text-near-black/60 transition-colors p-1"
+                                                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors p-1"
                                                 tabIndex={-1}
                                                 aria-label={showPassword ? 'Hide password' : 'Show password'}
                                             >
@@ -451,7 +479,7 @@ export default function RegisterPage() {
                                         {password.length > 0 && (
                                             <div className="space-y-2">
                                                 <div className="flex items-center justify-between px-1">
-                                                    <span className="text-[10px] font-black uppercase tracking-widest text-near-black/40">
+                                                    <span className="text-[10px] font-black uppercase tracking-widest text-white/50">
                                                         Security Level
                                                     </span>
                                                     <span 
@@ -468,7 +496,7 @@ export default function RegisterPage() {
                                                             key={index}
                                                             className="flex-1 h-1.5 rounded-full transition-all duration-300"
                                                             style={{
-                                                                backgroundColor: index < strength ? strengthConfig.color : '#E2E8F0'
+                                                                backgroundColor: index < strength ? strengthConfig.color : 'rgba(255,255,255,0.15)'
                                                             }}
                                                         />
                                                     ))}
@@ -482,14 +510,14 @@ export default function RegisterPage() {
                                                         { label: 'Symbol',          met: /[!@#$%^&*(),.?":{}|<>]/.test(password) },
                                                     ].map(({ label, met }) => (
                                                         <div key={label} className="flex items-center gap-1.5">
-                                                            <div className={`w-3 h-3 rounded-full flex items-center justify-center transition-all ${met ? 'bg-emerald-500' : 'bg-slate-200'}`}>
+                                                            <div className={`w-3 h-3 rounded-full flex items-center justify-center transition-all ${met ? 'bg-emerald-500' : 'bg-white/15'}`}>
                                                                 {met && (
                                                                     <svg className="w-1.5 h-1.5 text-white" fill="none" viewBox="0 0 6 5">
                                                                         <path d="M1 2.5L2.5 4L5 1" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                                                                     </svg>
                                                                 )}
                                                             </div>
-                                                            <span className={`text-[10px] font-bold transition-colors ${met ? 'text-emerald-600' : 'text-near-black/30'}`}>
+                                                            <span className={`text-[10px] font-bold transition-colors ${met ? 'text-emerald-400' : 'text-white/30'}`}>
                                                                 {label}
                                                             </span>
                                                         </div>
@@ -512,8 +540,8 @@ export default function RegisterPage() {
                                         </button>
                                     </form>
                                     
-                                    <p className="text-center text-[10px] text-near-black/40 mt-5 leading-relaxed font-medium">
-                                        By signing up, you agree to our <Link href="/terms" className="underline hover:text-noble-blue">Terms</Link> & <Link href="/privacy" className="underline hover:text-noble-blue">Privacy Policy</Link>
+                                    <p className="text-center text-[10px] text-white/40 mt-5 leading-relaxed font-medium">
+                                        By signing up, you agree to our <Link href="/terms" className="underline hover:text-white/80 transition-colors">Terms</Link> &amp; <Link href="/privacy" className="underline hover:text-white/80 transition-colors">Privacy Policy</Link>
                                     </p>
                                 </motion.div>
                             ) : step === 2 ? (
@@ -524,18 +552,18 @@ export default function RegisterPage() {
                                     exit={{ opacity: 0, x: 20 }}
                                 >
                                     <div className="text-center mb-6">
-                                        <div className="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <div className="w-12 h-12 bg-white/15 backdrop-blur-md text-white border border-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                                             <ShieldCheck className="w-6 h-6" />
                                         </div>
-                                        <h2 className="text-2xl font-black text-near-black mb-1">Verify Email</h2>
-                                        <p className="text-near-black/50 text-xs font-medium px-4 leading-relaxed">
-                                            Almost done! Enter the 8-digit verification code sent to <strong className="text-near-black">{email}</strong>.
+                                        <h2 className="text-2xl font-black text-white mb-1">Verify Email</h2>
+                                        <p className="text-white/60 text-xs font-medium px-4 leading-relaxed">
+                                            Almost done! Enter the 8-digit verification code sent to <strong className="text-white">{email}</strong>.
                                         </p>
                                     </div>
 
                                     <form onSubmit={handleOtpSubmit} className="space-y-5">
                                         <div>
-                                            <label className="text-[10px] font-black text-near-black/40 uppercase tracking-widest ml-1 mb-2 block text-center">
+                                            <label className="text-[10px] font-black text-white/50 uppercase tracking-widest ml-1 mb-2 block text-center">
                                                 Enter 8-Digit Code
                                             </label>
                                             <input 
@@ -544,7 +572,7 @@ export default function RegisterPage() {
                                                 maxLength={8}
                                                 value={otp}
                                                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
-                                                className="w-full bg-[#F8FAFC] border border-near-black/10 rounded-xl px-4 py-4 outline-none focus:border-noble-blue focus:ring-1 focus:ring-noble-blue/20 transition-all text-near-black font-black text-2xl text-center tracking-[0.5em] placeholder:tracking-normal placeholder:font-medium placeholder:text-sm placeholder:text-near-black/30"
+                                                className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-4 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white font-black text-2xl text-center tracking-[0.5em] placeholder:tracking-normal placeholder:font-medium placeholder:text-sm placeholder:text-white/30 backdrop-blur-sm"
                                                 placeholder="••••••••"
                                                 autoComplete="one-time-code"
                                             />
@@ -568,14 +596,14 @@ export default function RegisterPage() {
                                                 type="button"
                                                 onClick={handleResendOtp}
                                                 disabled={resendCooldown > 0 || loading}
-                                                className="text-[10px] font-black text-noble-blue hover:text-noble-blue/80 uppercase tracking-widest transition-colors disabled:opacity-50"
+                                                className="text-[10px] font-black text-white/70 hover:text-white uppercase tracking-widest transition-colors disabled:opacity-50"
                                             >
                                                 {resendCooldown > 0 ? `Resend Code (${resendCooldown}s)` : 'Resend Code'}
                                             </button>
                                             <button 
                                                 type="button" 
                                                 onClick={() => { setStep(1); setOtp(''); }}
-                                                className="text-[10px] font-black text-near-black/40 hover:text-noble-blue uppercase tracking-widest transition-colors"
+                                                className="text-[10px] font-black text-white/40 hover:text-white uppercase tracking-widest transition-colors"
                                             >
                                                 Back to Sign Up
                                             </button>

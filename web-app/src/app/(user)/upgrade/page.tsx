@@ -16,6 +16,7 @@ import { useRouter } from 'next/navigation';
 import { useCurrency } from '@/context/CurrencyContext';
 import { currencyService, ExchangeRates } from '@/lib/services/currencyService';
 import Image from 'next/image';
+import { useFlutterwave, closePaymentModal } from 'flutterwave-react-v3';
 
 /* ─────────────────────────────────────────────────────────────────────────────
    PlanCard Component
@@ -48,13 +49,28 @@ function PlanCard({
     const earlyBird = !isPayg && billingCycle === 'yearly' && plan.earlyBirdYearlyPrice;
     const finalPrice = isPayg ? 1 : (earlyBird ? plan.earlyBirdYearlyPrice! : (plan.priceMonthly === 0 ? 0 : price));
 
+    let checkoutCurrency = 'USD';
+    let checkoutAmount = finalPrice;
+
+    // Use fixed local pricing for supported currencies
+    if (currencyCode === 'NGN') {
+        checkoutCurrency = 'NGN';
+        if (isPayg) {
+            checkoutAmount = (plan as any).priceNGN || 1500;
+        } else if (billingCycle === 'monthly') {
+            checkoutAmount = plan.priceMonthlyNGN || finalPrice;
+        } else {
+            checkoutAmount = earlyBird ? (plan.earlyBirdPriceNGN || finalPrice) : (plan.priceYearlyNGN || finalPrice);
+        }
+    }
+
     let suffix = `/month`;
     if (billingCycle === 'yearly' && !isPayg) suffix = `/year`;
     if (isPayg) suffix = `/one-time`;
 
-    // Calculate localized equivalent using exchange rates relative to USD
+    // Calculate localized equivalent only if we are falling back to USD charging
     let localPriceElement = null;
-    if (currencyCode !== 'USD' && exchangeRates) {
+    if (checkoutCurrency === 'USD' && currencyCode !== 'USD' && exchangeRates) {
         const localAmount = currencyService.convert(finalPrice, 'USD', currencyCode, exchangeRates);
         if (localAmount > 0) {
             localPriceElement = (
@@ -65,51 +81,66 @@ function PlanCard({
         }
     }
 
-    // ── Industry-standard: use server-side redirect for robust payment plans ──
-    const handleUpgrade = useCallback(async () => {
+    // Resolve Flutterwave Payment Plan ID based on selected cycle and tier
+    const flwPlanId = isPayg
+        ? undefined
+        : (billingCycle === 'monthly'
+            ? plan.flutterwavePlanIdMonthly
+            : (earlyBird ? plan.flutterwavePlanIdEarlyBird : plan.flutterwavePlanIdYearly));
+
+    // Generate a tx_ref that's stable per render but unique enough for Flutterwave
+    const billingCycleRef = earlyBird ? `${billingCycle}_earlybird` : billingCycle;
+    const txRef = `sub_${plan.id}_${billingCycleRef}_${user?.id || 'user'}_${Date.now()}`;
+
+    const config = {
+        public_key: process.env.NEXT_PUBLIC_FLW_PUBLIC_KEY || '',
+        tx_ref: txRef,
+        amount: checkoutAmount,
+        currency: checkoutCurrency,
+        payment_options: 'card,mobilemoney,ussd',
+        customer: {
+            email: user?.email || '',
+            phone_number: user?.phone || user?.user_metadata?.phone || '',
+            name: user?.user_metadata?.full_name || user?.user_metadata?.name || 'NobleInvoice User',
+        },
+        customizations: {
+            title: `NobleInvoice ${plan.name}`,
+            description: `Subscription to ${plan.name} (${billingCycle})`,
+            logo: `${process.env.NEXT_PUBLIC_API_URL || 'https://invoice.noblesworld.com.ng'}/images/logo.png`,
+        },
+        meta: {
+            user_id: user?.id,
+            tier: plan.id,
+            billing_cycle: billingCycle,
+        },
+        ...(flwPlanId && { payment_plan: String(flwPlanId) }),
+    };
+
+    const handleFlutterPayment = useFlutterwave(config);
+
+    // ── Inline React implementation using useFlutterwave ──
+    const handleUpgrade = useCallback(() => {
         if (plan.id === 'explorer') return;
         if (!user) return toast.error('Please sign in to upgrade');
 
-        // Resolve Flutterwave Payment Plan ID based on selected cycle and tier
-        const flwPlanId = isPayg
-            ? undefined
-            : (billingCycle === 'monthly'
-                ? plan.flutterwavePlanIdMonthly
-                : (earlyBird ? plan.flutterwavePlanIdEarlyBird : plan.flutterwavePlanIdYearly));
-
-        // Generate a unique tx_ref per click — NOT on every render
-        const shortId = Math.random().toString(36).substring(2, 10);
-        const txRef = `sub_${plan.id}_${billingCycle}_${user?.id || 'user'}_${shortId}`;
-
         setLoading(true);
-        const initToast = toast.loading('Initializing secure checkout...');
-
-        try {
-            const response = await axios.post('/api/flw-initiate-payment', {
-                tier: plan.id,
-                billingCycle,
-                userEmail: user?.email || '',
-                userName: user?.user_metadata?.full_name || user?.user_metadata?.name || 'NobleInvoice User',
-                userId: user?.id,
-                txRef,
-                amount: finalPrice,
-                planId: flwPlanId
-            });
-
-            if (response.data.paymentLink) {
-                toast.dismiss(initToast);
-                // Redirect user to Flutterwave's hosted checkout page
-                window.location.href = response.data.paymentLink;
-            } else {
-                throw new Error('Failed to get payment link');
-            }
-        } catch (err: any) {
-            console.error('Payment initiation error:', err);
-            toast.dismiss(initToast);
-            toast.error(err.response?.data?.error || 'Could not initiate checkout. Please try again later.');
-            setLoading(false);
-        }
-    }, [plan, billingCycle, user, finalPrice, earlyBird, isPayg]);
+        handleFlutterPayment({
+            callback: (response) => {
+                console.log('Payment response:', response);
+                if (response.status === 'successful' || response.status === 'completed') {
+                    toast.success('Payment successful!');
+                    router.push(`/payment/callback?status=successful&tx_ref=${txRef}&transaction_id=${response.transaction_id}`);
+                } else {
+                    toast.error('Payment was not completed.');
+                    setLoading(false);
+                }
+                closePaymentModal();
+            },
+            onClose: () => {
+                setLoading(false);
+            },
+        });
+    }, [plan, user, handleFlutterPayment, txRef, router]);
 
     return (
         <motion.div
@@ -149,7 +180,7 @@ function PlanCard({
             <div className="mb-6">
                 <div className="flex items-baseline gap-1">
                     <span className="text-[34px] font-black text-noble-text tracking-tight">
-                        ${finalPrice}
+                        {checkoutCurrency === 'USD' ? `$${finalPrice}` : formatMoney(checkoutAmount, { decimals: 0 })}
                     </span>
                     <span className="text-slate-400 dark:text-slate-500 font-bold text-[11px] tracking-wide">
                         {suffix}

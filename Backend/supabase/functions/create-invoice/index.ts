@@ -40,6 +40,7 @@ interface InvoicePayload {
   due_date:       string;
   status:         "draft" | "pending" | "sent";
   invoice_type?:  string;
+  issue_date?:    string;
   currency_code?: string;
   notes?:         string;
   // Financials
@@ -245,7 +246,7 @@ serve(async (req) => {
         p_invoice_number:  invoiceNumber,
         p_invoice_type:    invoiceType,
         p_status:          payload.status ?? "draft",
-        p_issue_date:      now.toISOString().split("T")[0],
+        p_issue_date:      payload.issue_date ? new Date(payload.issue_date).toISOString().split("T")[0] : now.toISOString().split("T")[0],
         p_due_date:        new Date(payload.due_date).toISOString().split("T")[0],
         p_currency_code:   currency,
         p_tax_rate:        taxRate,

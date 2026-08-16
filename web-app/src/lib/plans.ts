@@ -4,10 +4,13 @@ export interface Plan {
   tier: 'explorer' | 'pulse' | 'elite' | 'payg';
   priceMonthly: number;
   priceYearly: number;
+  priceMonthlyNGN?: number;
+  priceYearlyNGN?: number;
   monthlyPrice?: number;
   yearlyPrice?: number;
   earlyBirdPrice?: number;
   earlyBirdYearlyPrice?: number;
+  earlyBirdPriceNGN?: number;
   features: string[];
   flutterwavePlanIdMonthly?: string;
   flutterwavePlanIdYearly?: string;
@@ -38,8 +41,6 @@ export interface PaygBundleState {
   }>;
 }
 
-export const PAYG_PRICE_USD = 1.00;
-export const PAYG_PRICE_NGN = 1500; // ≈ $1 at current rates — update as needed
 
 export const PLANS: Record<string, Plan> = {
   explorer: {
@@ -69,6 +70,8 @@ export const PLANS: Record<string, Plan> = {
     tier: 'pulse',
     priceMonthly: 9.99,
     priceYearly: 99.00,
+    priceMonthlyNGN: 15000,
+    priceYearlyNGN: 148500,
     monthlyPrice: 9.99,
     yearlyPrice: 99.00,
     popular: true,
@@ -89,8 +92,8 @@ export const PLANS: Record<string, Plan> = {
       '10 Estimates/month',
       'Priority email support',
     ],
-    flutterwavePlanIdMonthly: process.env.NEXT_PUBLIC_FLW_PLAN_PRO_MONTHLY,
-    flutterwavePlanIdYearly: process.env.NEXT_PUBLIC_FLW_PLAN_PRO_YEARLY,
+    flutterwavePlanIdMonthly: process.env.NEXT_PUBLIC_FLW_PLAN_PULSE_MONTHLY,
+    flutterwavePlanIdYearly: process.env.NEXT_PUBLIC_FLW_PLAN_PULSE_YEARLY,
   },
   elite: {
     id: 'elite',
@@ -98,10 +101,13 @@ export const PLANS: Record<string, Plan> = {
     tier: 'elite',
     priceMonthly: 24.99,
     priceYearly: 240.00,
+    priceMonthlyNGN: 37500,
+    priceYearlyNGN: 360000,
     monthlyPrice: 24.99,
     yearlyPrice: 240.00,
-    earlyBirdPrice: 199.99,
-    earlyBirdYearlyPrice: 199.99,
+    earlyBirdPrice: 200.99,
+    earlyBirdYearlyPrice: 200.99,
+    earlyBirdPriceNGN: 300000,
     tagline: 'For scaling enterprises',
     features: [
       'Everything in Pulse, plus:',
@@ -132,8 +138,8 @@ export const PAYG_PLAN = {
   id: 'payg',
   name: 'Pay-As-You-Go',
   tier: 'payg' as const,
-  priceUSD: PAYG_PRICE_USD,
-  priceNGN: PAYG_PRICE_NGN,
+  priceUSD: 1.00,
+  priceNGN: 1500,
   tagline: 'Unlock one premium template, one client, one QR card',
   features: [
     '1 premium invoice template (your choice)',

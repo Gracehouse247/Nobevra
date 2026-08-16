@@ -73,9 +73,14 @@ function PaymentCallbackContent() {
             // Non-critical
           }
 
+          // Force session reload so AuthContext picks up updated user metadata / plan immediately
+          await supabase.auth.refreshSession();
+
           setStatus('success');
           setMessage(`Welcome to NobleInvoice ${tier === 'pulse' ? 'Noble Pulse' : 'Noble Elite'}! Your plan is now active.`);
-          setTimeout(() => router.push('/dashboard'), 3000);
+          setTimeout(() => {
+            window.location.href = '/dashboard';
+          }, 2500);
         } else {
           throw new Error(verifyRes.data.error || 'Verification failed');
         }

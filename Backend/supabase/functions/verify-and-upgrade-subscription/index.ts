@@ -22,9 +22,11 @@ const FLUTTERWAVE_SECRET_KEY = Deno.env.get("FLUTTERWAVE_SECRET_KEY")!;
 // Never trust the client to supply this value.
 import { PRICE_BOOK } from "../_shared/price_book.ts";
 
-// Tolerance: Allow up to 2 units of the charged currency for floating-point
-// or minor FX fluctuation. E.g. $0.02 for USD, ₦2 for NGN.
-const AMOUNT_TOLERANCE = 2.0;
+// Tolerance: Currency-aware tolerance to account for minor FX or rounding.
+// E.g. $2.00 for USD, ₦500.00 for NGN.
+function getAmountTolerance(currency: string): number {
+  return currency.toUpperCase() === "NGN" ? 500.0 : 2.0;
+}
 
 serve(async (req) => {
   // Only allow POST
@@ -72,14 +74,17 @@ serve(async (req) => {
 
   // ── 1. Parse tier & billing period from tx_ref ──────────────────────────────
   // Format: sub_{tier}_{period}_{userId}_{shortId}
-  const txRefMatch = tx_ref.match(/^sub_([a-z]+)_(monthly|yearly)_([0-9a-f-]{36})_([a-z0-9]+)$/i);
+  // period can be 'monthly', 'yearly', or 'yearly_earlybird'
+  const txRefMatch = tx_ref.match(/^sub_([a-z]+)_(monthly|yearly(?:_earlybird)?)_([0-9a-f-]{36})_([a-z0-9]+)$/i);
   if (!txRefMatch) {
     console.error("tx_ref format invalid:", tx_ref);
     return json({ error: "Invalid tx_ref format" }, 400);
   }
 
   let parsedTier = txRefMatch[1].toLowerCase();
-  const parsedPeriod = txRefMatch[2].toLowerCase() as "monthly" | "yearly";
+  const periodStr = txRefMatch[2].toLowerCase();
+  const isEarlyBird = periodStr.includes("earlybird");
+  const parsedPeriod = isEarlyBird ? "early_bird" : (periodStr as "monthly" | "yearly");
   const txRefUserId = txRefMatch[3];
 
   // Extra security: user_id in tx_ref must match authenticated user
@@ -140,7 +145,9 @@ serve(async (req) => {
   }
 
   // ── 4. Server-side amount validation against price book ─────────────────
-  const priceKey = `${parsedTier}_${parsedPeriod}_${verifiedCurrency}`;
+  const priceKey = isEarlyBird
+    ? `${parsedTier}_early_bird_${verifiedCurrency}`
+    : `${parsedTier}_${parsedPeriod}_${verifiedCurrency}`;
   const expectedAmount = PRICE_BOOK[priceKey];
 
   if (expectedAmount === undefined) {
@@ -150,8 +157,9 @@ serve(async (req) => {
     }, 400);
   }
 
+  const tolerance = getAmountTolerance(verifiedCurrency);
   const amountDiff = Math.abs(verifiedAmount - expectedAmount);
-  if (amountDiff > AMOUNT_TOLERANCE) {
+  if (amountDiff > tolerance) {
     console.error(
       `Amount mismatch for ${priceKey}: expected ${expectedAmount} ${verifiedCurrency}, got ${verifiedAmount} ${verifiedCurrency}`
     );

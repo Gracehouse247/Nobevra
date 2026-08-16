@@ -232,41 +232,47 @@ function LoginContent() {
     return (
         <div className="min-h-screen relative w-full overflow-y-auto overflow-x-hidden">
             {/* Ambient Background */}
-            <div className="fixed inset-0 w-full h-full z-0 noble-gradient-bg overflow-hidden bg-slate-50">
-                <div className="yolo-circle w-[600px] h-[600px] top-[-10%] left-[-10%] bg-noble-blue"></div>
-                <div className="yolo-circle w-[500px] h-[500px] bottom-[-10%] right-[-5%] bg-primary"></div>
-                <div className="absolute inset-0 bg-white/40 backdrop-blur-[100px]" />
+            <div className="fixed inset-0 w-full h-full z-0 overflow-hidden bg-[#0A192F]">
+                <Image
+                    src="/images/auth-bg.jpg"
+                    alt="Background"
+                    fill
+                    priority
+                    quality={90}
+                    className="object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-black/50 backdrop-blur-[2px]" />
             </div>
 
             <div className="relative z-10 min-h-screen w-full max-w-[1430px] mx-auto px-6 lg:px-16 flex flex-col lg:flex-row items-center justify-between py-12">
                 
                 <div className="w-full lg:w-1/2 flex flex-col justify-center mb-12 lg:mb-0 lg:pr-12">
                     <Link href="/" className="mb-8 self-start block">
-                        <Image src="/images/logo.png" alt="NobleInvoice" width={160} height={40} className="h-10 w-auto object-contain hover:opacity-80 transition-opacity" />
+                        <Image src="/images/logo.png" alt="NobleInvoice" width={160} height={40} className="h-10 w-auto object-contain hover:opacity-80 transition-opacity brightness-0 invert" />
                     </Link>
-                    <h1 className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-4 tracking-tighter">
+                    <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-4 tracking-tighter drop-shadow-md">
                         Welcome Back
                     </h1>
-                    <p className="text-slate-500 text-lg font-medium max-w-md leading-relaxed">
+                    <p className="text-white/80 text-lg font-medium max-w-md leading-relaxed drop-shadow">
                         Access your financial operating system securely with 2-Factor Authentication.
                     </p>
 
                     <div className="flex gap-8 mt-12">
                         <div>
-                            <p className="text-2xl font-black text-slate-900">Secure</p>
-                            <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mt-1">Processing</p>
+                            <p className="text-2xl font-black text-white drop-shadow-sm">Secure</p>
+                            <p className="text-white/60 text-[10px] font-black uppercase tracking-widest mt-1">Processing</p>
                         </div>
-                        <div className="w-px bg-slate-200"></div>
+                        <div className="w-px bg-white/20"></div>
                         <div>
-                            <p className="text-2xl font-black text-slate-900">180+</p>
-                            <p className="text-slate-400 text-[10px] font-black uppercase tracking-widest mt-1">Templates</p>
+                            <p className="text-2xl font-black text-white drop-shadow-sm">180+</p>
+                            <p className="text-white/60 text-[10px] font-black uppercase tracking-widest mt-1">Templates</p>
                         </div>
                     </div>
                 </div>
 
                 <div className="w-full lg:w-[420px] flex-shrink-0">
                     <div className="flex justify-end mb-4">
-                        <Link href="/register" className="px-6 py-2.5 bg-white hover:bg-slate-50 border border-slate-100 rounded-full text-[10px] font-black uppercase tracking-widest text-slate-900 transition-all shadow-xl shadow-slate-200/50">
+                        <Link href="/register" className="px-6 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md rounded-full text-[10px] font-black uppercase tracking-widest text-white transition-all shadow-xl shadow-black/10">
                             Sign Up
                         </Link>
                     </div>
@@ -275,7 +281,8 @@ function LoginContent() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
-                        className="bg-white rounded-3xl p-8 shadow-2xl w-full"
+                        className="relative bg-white/10 backdrop-blur-2xl border border-white/20 rounded-3xl p-8 shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] w-full overflow-hidden"
+                        style={{ boxShadow: '0 8px 32px 0 rgba(0,0,0,0.45), inset 0 0 0 1px rgba(255,255,255,0.15)' }}
                     >
                         {/* Google-only account hint — shown instead of generic error */}
                         {googleOnlyHint && (
@@ -338,14 +345,14 @@ function LoginContent() {
                                     exit={{ opacity: 0, x: -20 }}
                                 >
                                     <div className="text-center mb-6">
-                                        <h2 className="text-2xl font-black text-near-black mb-1">Sign In</h2>
-                                        <p className="text-near-black/50 text-xs font-medium">Continue to your account.</p>
+                                        <h2 className="text-2xl font-black text-white mb-1">Sign In</h2>
+                                        <p className="text-white/60 text-xs font-medium">Continue to your account.</p>
                                     </div>
 
                                     <button
                                         onClick={handleGoogle}
                                         disabled={googleLoading}
-                                        className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-near-black/10 bg-white hover:bg-near-black/5 transition-all font-bold text-sm text-near-black mb-5 shadow-sm disabled:opacity-50"
+                                        className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-white/25 bg-white/15 hover:bg-white/25 backdrop-blur-md transition-all font-bold text-sm text-white mb-5 shadow-sm disabled:opacity-50"
                                     >
                                         {googleLoading ? (
                                             <div className="w-4 h-4 border-2 border-near-black/30 border-t-noble-blue rounded-full animate-spin" />
@@ -361,9 +368,9 @@ function LoginContent() {
                                     </button>
 
                                     <div className="flex items-center gap-3 mb-5">
-                                        <div className="flex-1 h-px bg-near-black/5"></div>
-                                        <span className="text-[9px] font-black uppercase tracking-widest text-near-black/30">Or sign in with email</span>
-                                        <div className="flex-1 h-px bg-near-black/5"></div>
+                                        <div className="flex-1 h-px bg-white/20"></div>
+                                        <span className="text-[9px] font-black uppercase tracking-widest text-white/50">Or sign in with email</span>
+                                        <div className="flex-1 h-px bg-white/20"></div>
                                     </div>
 
                                     <form onSubmit={handlePasswordSubmit} className="space-y-4">
@@ -374,13 +381,13 @@ function LoginContent() {
                                             autoComplete="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="w-full bg-[#F8FAFC] border border-near-black/10 rounded-xl px-4 py-3 outline-none focus:border-noble-blue focus:ring-1 focus:ring-noble-blue/20 transition-all text-near-black placeholder:text-near-black/40 text-sm"
+                                            className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/40 text-sm backdrop-blur-sm"
                                             placeholder="Email Address"
                                         />
 
                                         <div className="space-y-1">
                                             <div className="flex justify-end px-1">
-                                                <Link href="/forgot-password" className="text-[10px] font-bold text-noble-blue hover:underline">Forgot password?</Link>
+                                            <Link href="/forgot-password" className="text-[10px] font-bold text-white/70 hover:text-white transition-colors">Forgot password?</Link>
                                             </div>
                                             <div className="relative">
                                                 <input 
@@ -389,13 +396,13 @@ function LoginContent() {
                                                     autoComplete="current-password"
                                                     value={password}
                                                     onChange={(e) => setPassword(e.target.value)}
-                                                    className="w-full bg-[#F8FAFC] border border-near-black/10 rounded-xl px-4 py-3 pr-12 outline-none focus:border-noble-blue focus:ring-1 focus:ring-noble-blue/20 transition-all text-near-black placeholder:text-near-black/40 text-sm"
+                                                    className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 pr-12 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/40 text-sm backdrop-blur-sm"
                                                     placeholder="Password"
                                                 />
                                                 <button
                                                     type="button"
                                                     onClick={() => setShowPassword(prev => !prev)}
-                                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-near-black/30 hover:text-near-black/60 transition-colors p-1"
+                                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors p-1"
                                                     tabIndex={-1}
                                                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                                                 >
@@ -428,23 +435,23 @@ function LoginContent() {
                                     exit={{ opacity: 0, x: 20 }}
                                 >
                                     <div className="text-center mb-6">
-                                        <div className="w-12 h-12 bg-blue-50 text-noble-blue rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <div className="w-12 h-12 bg-white/15 backdrop-blur-md text-white border border-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
                                             <ShieldCheck className="w-6 h-6" />
                                         </div>
-                                        <h2 className="text-2xl font-black text-near-black mb-1">
+                                        <h2 className="text-2xl font-black text-white mb-1">
                                             {mfaType === 'totp' ? 'Authenticator App' : 'Verify Login'}
                                         </h2>
-                                        <p className="text-near-black/50 text-xs font-medium px-4 leading-relaxed">
+                                        <p className="text-white/60 text-xs font-medium px-4 leading-relaxed">
                                             {mfaType === 'totp' 
                                                 ? 'Enter the 6-digit code from your authenticator app.'
-                                                : <span>For your security, we've sent an 8-digit code to <strong className="text-near-black">{email}</strong>.</span>
+                                                : <span>For your security, we&apos;ve sent an 8-digit code to <strong className="text-white">{email}</strong>.</span>
                                             }
                                         </p>
                                     </div>
 
                                     <form onSubmit={handleOtpSubmit} className="space-y-5">
                                         <div>
-                                            <label className="text-[10px] font-black text-near-black/40 uppercase tracking-widest ml-1 mb-2 block text-center">
+                                            <label className="text-[10px] font-black text-white/50 uppercase tracking-widest ml-1 mb-2 block text-center">
                                                 {mfaType === 'totp' ? 'Enter 6-Digit Code' : 'Enter 8-Digit Code'}
                                             </label>
                                             <input 
@@ -453,7 +460,7 @@ function LoginContent() {
                                                 maxLength={mfaType === 'totp' ? 6 : 8}
                                                 value={otp}
                                                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
-                                                className="w-full bg-[#F8FAFC] border border-near-black/10 rounded-xl px-4 py-4 outline-none focus:border-noble-blue focus:ring-1 focus:ring-noble-blue/20 transition-all text-near-black font-black text-2xl text-center tracking-[0.5em] placeholder:tracking-normal placeholder:font-medium placeholder:text-sm placeholder:text-near-black/30"
+                                                className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-4 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white font-black text-2xl text-center tracking-[0.5em] placeholder:tracking-normal placeholder:font-medium placeholder:text-sm placeholder:text-white/30 backdrop-blur-sm"
                                                 placeholder="••••••••"
                                                 autoComplete="one-time-code"
                                             />
@@ -478,7 +485,7 @@ function LoginContent() {
                                                     type="button"
                                                     onClick={handleResendOtp}
                                                     disabled={resendCooldown > 0 || loading}
-                                                    className="text-[10px] font-black text-noble-blue hover:text-noble-blue/80 uppercase tracking-widest transition-colors disabled:opacity-50"
+                                                    className="text-[10px] font-black text-white/70 hover:text-white uppercase tracking-widest transition-colors disabled:opacity-50"
                                                 >
                                                     {resendCooldown > 0 ? `Resend Code (${resendCooldown}s)` : 'Resend Code'}
                                                 </button>
@@ -486,7 +493,7 @@ function LoginContent() {
                                             <button 
                                                 type="button" 
                                                 onClick={() => { setStep(1); setOtp(''); }}
-                                                className="text-[10px] font-black text-near-black/40 hover:text-noble-blue uppercase tracking-widest transition-colors"
+                                                className="text-[10px] font-black text-white/40 hover:text-white uppercase tracking-widest transition-colors"
                                             >
                                                 Back to Sign In
                                             </button>
@@ -505,8 +512,8 @@ function LoginContent() {
 export default function LoginPage() {
     return (
         <Suspense fallback={
-            <div className="min-h-screen relative w-full bg-slate-50 flex items-center justify-center">
-                <div className="w-8 h-8 border-4 border-slate-200 border-t-noble-blue rounded-full animate-spin" />
+            <div className="min-h-screen relative w-full bg-[#0A192F] flex items-center justify-center">
+                <div className="w-8 h-8 border-4 border-white/20 border-t-white rounded-full animate-spin" />
             </div>
         }>
             <LoginContent />

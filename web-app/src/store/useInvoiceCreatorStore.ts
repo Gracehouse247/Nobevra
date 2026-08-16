@@ -88,6 +88,7 @@ export interface InvoiceCreatorState {
     updateItem: (id: number, field: keyof InvoiceItem, value: any) => void;
     handleSave: (user: any, draftId?: string | null, status?: 'draft' | 'pending') => Promise<void>;
     createAndSelectClient: (user: any, clientData: { name: string; email: string; company?: string; phone?: string; address?: string }) => Promise<void>;
+    resetStore: () => void;
 }
 
 export const useInvoiceCreatorStore = create<InvoiceCreatorState>((set, get) => ({
@@ -123,7 +124,7 @@ export const useInvoiceCreatorStore = create<InvoiceCreatorState>((set, get) => 
     setDueDate: (date) => set({ dueDate: date }),
     invoiceDate: new Date().toISOString().split('T')[0],
     setInvoiceDate: (date) => set({ invoiceDate: date }),
-    paymentTerms: 'Due on Receipt',
+    paymentTerms: 'On Receipt',
     setPaymentTerms: (terms) => set({ paymentTerms: terms }),
     items: [{ id: Date.now(), name: '', quantity: 1, price: 0 }],
     setItems: (items) => set({ items }),
@@ -205,19 +206,31 @@ export const useInvoiceCreatorStore = create<InvoiceCreatorState>((set, get) => 
 
     handleSave: async (user, draftId, status = 'pending') => {
         const state = get();
-        if (!state.selectedClientId) {
+        if (!state.selectedClientId && status !== 'draft') {
             toast.error('Please select a client');
             return;
         }
-        if (state.items.some(item => !item.name?.trim() || item.price < 0 || item.quantity <= 0)) {
+        if (state.items.some(item => !item.name?.trim() || item.price <= 0 || item.quantity <= 0)) {
             toast.error('Please complete all line items with valid quantities and prices');
             return;
         }
-        if (state.dueDate) {
+
+        // Calculate actual due date if a relative term was chosen and due date was not manually set
+        let finalDueDate = state.dueDate;
+        if (!finalDueDate) {
+            const issue = new Date(state.invoiceDate || Date.now());
+            if (state.paymentTerms === 'Net 15') issue.setDate(issue.getDate() + 15);
+            else if (state.paymentTerms === 'Net 30') issue.setDate(issue.getDate() + 30);
+            else if (state.paymentTerms === 'Net 60') issue.setDate(issue.getDate() + 60);
+            // Default to 'On Receipt' i.e. today
+            finalDueDate = issue.toISOString().split('T')[0];
+        }
+
+        if (finalDueDate) {
             const today = new Date();
             today.setHours(0, 0, 0, 0);
-            const due = new Date(state.dueDate);
-            if (due < today) {
+            const due = new Date(finalDueDate);
+            if (due < today && status !== 'draft') {
                 toast.error('Due date cannot be in the past');
                 return;
             }
@@ -227,10 +240,11 @@ export const useInvoiceCreatorStore = create<InvoiceCreatorState>((set, get) => 
             const invoiceData = {
                 team_id: state.teamData?.id || user?.id,
                 user_id: user?.id,
-                client_id: state.selectedClientId,
+                client_id: state.selectedClientId || null,
                 invoice_number: state.invoiceNumber,
                 invoice_type: state.invoiceType,
-                due_date: state.dueDate || new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
+                issue_date: state.invoiceDate,
+                due_date: finalDueDate,
                 items: state.items,
                 subtotal: state.getSubtotal(),
                 discount_type: state.discountType,
@@ -246,7 +260,11 @@ export const useInvoiceCreatorStore = create<InvoiceCreatorState>((set, get) => 
                 bank_name: state.bankName,
                 account_name: state.accountName,
                 account_number: state.accountNumber,
-                signature_url: state.signatureUrl
+                signature_url: state.signatureUrl,
+                metadata: {
+                    payment_terms: state.paymentTerms,
+                    accept_online_payments: state.acceptOnlinePayments
+                }
             };
 
             let savedInvoice;
@@ -265,5 +283,25 @@ export const useInvoiceCreatorStore = create<InvoiceCreatorState>((set, get) => 
             const errorMsg = error?.message || error?.details || error?.hint || (typeof error === 'object' ? JSON.stringify(error) : String(error));
             toast.error(`${draftId ? 'Failed to update invoice' : 'Failed to create invoice'}: ${errorMsg}`, { id: 'save-inv' });
         }
+    },
+    
+    resetStore: () => {
+        set({
+            step: 'select-type',
+            currentWizardStep: 0,
+            invoiceType: 'standard',
+            selectedClientId: '',
+            invoiceNumber: `INV-${typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID().split('-')[0].toUpperCase() : String(Math.floor(Math.random() * 100000)).padStart(5, '0')}`,
+            dueDate: '',
+            invoiceDate: new Date().toISOString().split('T')[0],
+            paymentTerms: 'On Receipt',
+            items: [{ id: Date.now(), name: '', quantity: 1, price: 0 }],
+            taxRate: 0,
+            taxType: 'exclusive',
+            discountType: 'none',
+            discountValue: 0,
+            notes: '',
+            issuedInvoiceData: null
+        });
     }
 }));

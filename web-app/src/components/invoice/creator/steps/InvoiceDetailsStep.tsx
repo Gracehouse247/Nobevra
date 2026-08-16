@@ -8,6 +8,17 @@ import { ToggleRow } from '@/components/ui/ToggleRow';
 import { useEntitlements } from '@/context/EntitlementsContext';
 import { useUpgradeModal } from '@/context/UpgradeModalContext';
 import PremiumBadge from '@/components/shared/PremiumBadge';
+import { COUNTRY_CURRENCY_MAP } from '@/lib/geo/countryToCurrency';
+
+const ALL_CURRENCIES = Array.from(new Set(Object.values(COUNTRY_CURRENCY_MAP))).sort();
+const CURRENCY_LABELS = ALL_CURRENCIES.map(code => {
+    try {
+        const name = new Intl.DisplayNames(['en'], { type: 'currency' }).of(code);
+        return { code, label: `${name} (${code})` };
+    } catch (e) {
+        return { code, label: code };
+    }
+}).sort((a, b) => a.label.localeCompare(b.label));
 
 const inputClass = `w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;
 const labelClass = "text-[11px] font-bold text-slate-500 mb-1 block uppercase tracking-wider font-[Inter,sans-serif]";
@@ -21,6 +32,7 @@ export const InvoiceDetailsStep = () => {
         invoiceNumber, setInvoiceNumber,
         invoiceDate, setInvoiceDate,
         paymentTerms, setPaymentTerms,
+        currencyCode, setCurrencyCode,
         acceptOnlinePayments, setAcceptOnlinePayments
     } = useInvoiceCreator();
     const [search, setSearch] = useState('');
@@ -117,6 +129,8 @@ export const InvoiceDetailsStep = () => {
                                             {filtered.map((client: any) => (
                                                 <button
                                                     key={client.id}
+                                                    role="option"
+                                                    aria-selected={String(client.id) === selectedClientId}
                                                     onMouseDown={() => { setSelectedClientId(String(client.id)); setSearch(''); setOpen(false); }}
                                                     className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-[#EBF7FD] text-left transition-colors"
                                                 >
@@ -177,24 +191,19 @@ export const InvoiceDetailsStep = () => {
                     </div>
                     <div>
                         <div className="flex items-center gap-2 mb-1">
-                            <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-[Inter,sans-serif]">Currency</label>
-                            {!canUse('wallet.multicurrency') && <PremiumBadge tier="pulse" iconOnly />}
+                            <label className="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-['Inter',sans-serif]">Currency</label>
                         </div>
                         <div className="relative">
                             <select 
                                 className={inputClass + ' appearance-none pr-8 cursor-pointer'}
-                                onChange={(e) => {
-                                    if (!canUse('wallet.multicurrency') && e.target.value !== 'NGN') {
-                                        openUpgradeModal({ featureName: 'Multi-Currency Invoicing', requiredPlan: 'pulse' });
-                                        e.target.value = 'NGN'; // Reset
-                                        return;
-                                    }
-                                }}
+                                value={currencyCode}
+                                onChange={(e) => setCurrencyCode(e.target.value)}
                             >
-                                <option value="NGN">NGN — Naira (₦)</option>
-                                <option value="USD">USD — Dollar ($)</option>
-                                <option value="GBP">GBP — Pound (£)</option>
-                                <option value="EUR">EUR — Euro (€)</option>
+                                {CURRENCY_LABELS.map(({ code, label }) => (
+                                    <option key={code} value={code}>
+                                        {label}
+                                    </option>
+                                ))}
                             </select>
                             <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                         </div>
@@ -206,10 +215,11 @@ export const InvoiceDetailsStep = () => {
                             tabIndex={0} 
                             aria-label="Add billing address" 
                             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') e.currentTarget.click(); }}
+                            onClick={() => toast('Client addresses are managed in the Clients tab.')}
                             className="h-10 border border-noble-border rounded-lg bg-slate-50 flex items-center justify-between px-3 hover:border-[#0599D5]/40 transition-colors cursor-pointer"
                         >
-                            <span className="text-[13px] text-slate-400 font-[Inter,sans-serif]">
-                                {selectedClient?.address || 'Click to add billing address'}
+                            <span className="text-[13px] text-slate-400 font-['Inter',sans-serif]">
+                                {selectedClient?.address || 'Click to view billing address info'}
                             </span>
                             <Plus className="w-3.5 h-3.5 text-[#0599D5]" />
                         </div>

@@ -68,8 +68,10 @@ const AVATAR_PALETTE = [
 ];
 
 export function ClientAvatar({ name }: { name: string }) {
-    const initials = (name || 'U').split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
-    const p = AVATAR_PALETTE[(name.charCodeAt(0) || 0) % AVATAR_PALETTE.length];
+    const safeName = name?.trim() || 'U';
+    const initials = safeName.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+    const charCode = safeName.charCodeAt(0) || 0;
+    const p = AVATAR_PALETTE[charCode % AVATAR_PALETTE.length] || AVATAR_PALETTE[0];
     return (
         <div
             className="w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-bold shrink-0"
