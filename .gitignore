@@ -61,7 +61,8 @@ Mobile\ App/.dart_tool/
 # -----------------------------------------------------------
 .supabase/
 supabase/.branches/
-supabase/.temp/
+**/supabase/.temp/
+Backend/supabase/.temp/
 
 # -----------------------------------------------------------
 # LOGS & OS FILES
