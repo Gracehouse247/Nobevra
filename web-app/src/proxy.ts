@@ -10,7 +10,8 @@ export async function proxy(request: NextRequest) {
   const isAppDomain = 
       hostname.includes('localhost') || 
       hostname.includes('noblesworld.com.ng') ||
-      hostname.includes('nobevra.noblesworld.com.ng');
+      hostname.includes('nobevra.noblesworld.com.ng') ||
+      hostname.includes('.vercel.app');
 
   if (!isAppDomain) {
       if (url.pathname === '/') {
