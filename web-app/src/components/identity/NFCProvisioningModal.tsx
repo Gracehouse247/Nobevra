@@ -14,17 +14,17 @@ interface NFCProvisioningModalProps {
 
 export const NFCProvisioningModal = ({ identityId, onClose }: NFCProvisioningModalProps) => {
     return (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-slate-900/60 backdrop-blur-xl">
+        <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-6 bg-slate-900/60 backdrop-blur-xl">
             <motion.div 
-                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                initial={{ opacity: 0, scale: 0.95, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                className="w-full max-w-lg bg-noble-surface rounded-[3rem] shadow-2xl overflow-hidden relative"
+                exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                className="w-full max-w-lg bg-noble-surface rounded-t-[2.5rem] sm:rounded-[3rem] shadow-2xl overflow-y-auto max-h-[90vh] sm:max-h-[85vh] relative"
             >
                 {/* Header */}
-                <div className="p-10 bg-noble-blue text-white relative overflow-hidden">
+                <div className="p-6 sm:p-10 pr-14 sm:pr-16 bg-noble-blue text-white relative overflow-hidden">
                     <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#fff 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
-                    <button onClick={onClose} className="absolute top-8 right-8 p-2 hover:bg-noble-surface/10 rounded-full transition-colors">
+                    <button onClick={onClose} className="absolute top-6 right-6 min-w-[44px] min-h-[44px] flex items-center justify-center hover:bg-noble-surface/10 rounded-full transition-colors z-10" aria-label="Close modal">
                         <X size={20} />
                     </button>
                     
