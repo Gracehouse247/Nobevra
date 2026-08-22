@@ -18,7 +18,7 @@ export default function PublicLayout({
     return (
         <div data-theme-force="light" className="flex flex-col min-h-screen bg-[#F8FAFC]">
             {!isAuthPage && <Navbar />}
-            <main className={`flex-1 ${!isAuthPage ? 'max-w-[1430px] mx-auto w-full' : ''}`}>
+            <main className="flex-1 w-full">
                 {children}
             </main>
             <CookieConsent />
