@@ -60,18 +60,19 @@ export function InvoiceTypeModal({ isOpen, onClose }: { isOpen: boolean, onClose
     };
 
     return (
-        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] flex items-center justify-center p-4 py-8">
-            <div className="bg-noble-surface rounded-3xl w-full max-w-2xl max-h-full overflow-y-auto relative animate-in fade-in zoom-in duration-200 shadow-2xl font-[Inter,sans-serif] custom-scrollbar">
+        <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4">
+            <div className="bg-noble-surface rounded-t-3xl sm:rounded-3xl w-full max-w-2xl max-h-[90vh] sm:max-h-[85vh] overflow-y-auto relative animate-in fade-in slide-in-from-bottom-5 sm:zoom-in duration-200 shadow-2xl font-[Inter,sans-serif] custom-scrollbar">
                 <button 
                     onClick={onClose}
-                    className="sticky top-5 right-5 float-right w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 transition-colors z-10"
+                    className="sticky top-4 right-4 float-right min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 transition-colors z-10"
+                    aria-label="Close modal"
                 >
-                    <X className="w-4 h-4" />
+                    <X className="w-5 h-5" />
                 </button>
                 
-                <div className="p-6 sm:p-8">
-                    <h2 className="text-2xl font-black text-noble-text tracking-tight mb-2">Select Document Type</h2>
-                    <p className="text-[14px] text-slate-500 font-medium mb-8">Choose the type of document you want to create for your client.</p>
+                <div className="p-5 sm:p-8 pr-14 sm:pr-16">
+                    <h2 className="text-xl sm:text-2xl font-black text-noble-text tracking-tight mb-1.5">Select Document Type</h2>
+                    <p className="text-xs sm:text-[14px] text-slate-500 font-medium mb-6 sm:mb-8">Choose the type of document you want to create for your client.</p>
                     
                     <div className="space-y-8">
                         {CATEGORIES.map((category) => (

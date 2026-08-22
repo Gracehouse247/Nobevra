@@ -77,7 +77,7 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
 
                     {/* Horizontal Tab Navigation */}
                     <div className="border-b border-noble-border">
-                        <nav className="flex items-center gap-8 overflow-x-auto hide-scrollbar">
+                        <nav className="flex items-center gap-5 sm:gap-8 overflow-x-auto no-scrollbar scroll-smooth py-1">
                             {visibleMenuItems.map((item) => {
                                 const isActive = pathname === item.path;
                                 const fid = item.featureId;

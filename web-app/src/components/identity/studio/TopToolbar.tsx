@@ -75,54 +75,55 @@ export const TopToolbar: React.FC = () => {
   };
 
   return (
-    <div className="h-16 bg-noble-surface/60 backdrop-blur-md border-b border-white/60 px-6 flex items-center justify-between shrink-0 z-20 shadow-sm relative">
-      <div className="flex items-center gap-4">
+    <div className="h-16 bg-noble-surface/60 backdrop-blur-md border-b border-white/60 px-3 sm:px-6 flex items-center justify-between shrink-0 z-20 shadow-sm relative overflow-x-auto no-scrollbar">
+      <div className="flex items-center gap-2 sm:gap-4 shrink-0">
         <button 
           onClick={() => window.location.href = '/dashboard'}
-          className="p-2 hover:bg-slate-100 rounded-lg transition-colors text-slate-500"
+          className="p-2.5 min-w-[44px] min-h-[44px] hover:bg-slate-100 rounded-xl transition-colors text-slate-500 flex items-center justify-center"
+          aria-label="Back to dashboard"
         >
           <ChevronLeft size={20} />
         </button>
-        <div className="h-6 w-px bg-slate-200 mx-2" />
-        <div className="flex flex-col">
-          <span className="font-semibold text-noble-text text-sm">
+        <div className="h-6 w-px bg-slate-200 hidden sm:block" />
+        <div className="flex flex-col min-w-0">
+          <span className="font-semibold text-noble-text text-xs sm:text-sm truncate max-w-[120px] sm:max-w-[200px]">
             {template?.name || 'Untitled Design'}
           </span>
-          <span className="text-[10px] text-slate-400 font-medium">NobleCard Studio Pro</span>
+          <span className="text-[9px] sm:text-[10px] text-slate-400 font-medium truncate">Studio Pro</span>
         </div>
       </div>
 
-      <div className="flex items-center gap-2">
-        <button className="p-2 text-slate-400 hover:bg-slate-100 rounded-lg transition-colors" title="Undo">
+      <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <button className="p-2.5 min-w-[44px] min-h-[44px] text-slate-400 hover:bg-slate-100 rounded-xl transition-colors flex items-center justify-center" title="Undo">
           <Undo size={18} />
         </button>
-        <button className="p-2 text-slate-400 hover:bg-slate-100 rounded-lg transition-colors" title="Redo">
+        <button className="p-2.5 min-w-[44px] min-h-[44px] text-slate-400 hover:bg-slate-100 rounded-xl transition-colors flex items-center justify-center" title="Redo">
           <Redo size={18} />
         </button>
-        <div className="h-6 w-px bg-slate-200 mx-2" />
+        <div className="h-6 w-px bg-slate-200 hidden sm:block" />
         
         <button 
           onClick={handleOpen3D}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-noble-surface border border-noble-border hover:bg-slate-50 rounded-lg transition-colors"
+          className="hidden sm:flex items-center gap-2 px-3 sm:px-4 py-2 min-h-[44px] text-xs sm:text-sm font-medium text-slate-700 bg-noble-surface border border-noble-border hover:bg-slate-50 rounded-xl transition-colors"
         >
           <Eye size={16} className="text-amber-500" />
-          Preview 3D
+          <span className="hidden md:inline">Preview 3D</span>
         </button>
 
         <button 
           onClick={handleExportPng}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-noble-surface border border-noble-border hover:bg-slate-50 rounded-lg transition-colors"
+          className="hidden sm:flex items-center gap-2 px-3 sm:px-4 py-2 min-h-[44px] text-xs sm:text-sm font-medium text-slate-700 bg-noble-surface border border-noble-border hover:bg-slate-50 rounded-xl transition-colors"
         >
           <Download size={16} />
-          High-Res PNG
+          <span className="hidden md:inline">PNG</span>
         </button>
 
         <button 
           onClick={handleExportPdf}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-slate-900 hover:bg-slate-800 rounded-lg shadow-md transition-colors ml-2"
+          className="hidden lg:flex items-center gap-2 px-3 sm:px-4 py-2 min-h-[44px] text-xs sm:text-sm font-medium text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-md transition-colors"
         >
           <Sparkles size={16} className="text-amber-400" />
-          Export PDF
+          <span>Export PDF</span>
         </button>
 
         <button 
@@ -137,7 +138,6 @@ export const TopToolbar: React.FC = () => {
               const tData = await teamService.getTeamByUserId(user.id);
               const teamId = tData?.id || user.id;
 
-              // Extract contact info from text elements in the template
               const textEls = template.elements.filter(el => el.type === 'text');
               const nameEl = textEls.find(el => (el.fontSize || 0) >= 28) || textEls[0];
               const titleEl = textEls.find(el => el.text?.toLowerCase().includes('ceo') || el.text?.toLowerCase().includes('founder') || el.text?.toLowerCase().includes('manager') || el.text?.toLowerCase().includes('director')) || textEls[1];
@@ -157,9 +157,9 @@ export const TopToolbar: React.FC = () => {
                   imageDataUrl: dataUrl,
                 }),
                 {
-                  loading: 'Publishing to your identity network...',
-                  success: 'Card synced! Available on all devices 🚀',
-                  error: 'Publish failed. Check your connection.'
+                  loading: 'Publishing card...',
+                  success: 'Card synced! 🚀',
+                  error: 'Publish failed.'
                 }
               );
             } catch (err) {
@@ -169,10 +169,10 @@ export const TopToolbar: React.FC = () => {
             }
           }}
           disabled={publishing}
-          className="flex items-center gap-2 px-5 py-2 text-sm font-bold text-white bg-[#166FBB] hover:bg-[#125A96] rounded-lg shadow-lg shadow-[#166FBB]/25 transition-all ml-2 disabled:opacity-60"
+          className="flex items-center gap-1.5 px-3 sm:px-5 py-2 min-h-[44px] text-xs sm:text-sm font-bold text-white bg-[#166FBB] hover:bg-[#125A96] rounded-xl shadow-md transition-all shrink-0 disabled:opacity-60"
         >
           {publishing ? <Loader2 size={16} className="animate-spin" /> : <CloudUpload size={16} />}
-          Publish & Sync
+          <span>Publish</span>
         </button>
       </div>
 

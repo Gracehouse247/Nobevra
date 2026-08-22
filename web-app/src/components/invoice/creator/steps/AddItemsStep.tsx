@@ -43,49 +43,58 @@ export const AddItemsStep = () => {
 
                 <div className="divide-y divide-slate-100">
                     {items.map((item: any) => (
-                        <div key={item.id} className="sm:grid sm:grid-cols-12 gap-2 items-center px-5 py-2.5 group hover:bg-slate-50/50 transition-colors">
-                            <div className="col-span-5 mb-2 sm:mb-0">
+                        <div key={item.id} className="p-4 sm:px-5 sm:py-2.5 flex flex-col sm:grid sm:grid-cols-12 gap-3 sm:gap-2 sm:items-center group hover:bg-slate-50/50 transition-colors">
+                            {/* Description */}
+                            <div className="col-span-5">
+                                <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest sm:hidden mb-1 block">Item Name / Service</label>
                                 <input
                                     type="text"
                                     aria-label="Item description"
                                     placeholder="Item or service name..."
                                     value={item.name}
                                     onChange={e => updateItem(item.id, 'name', e.target.value)}
-                                    className="w-full text-[13px] font-medium text-slate-800 placeholder-slate-400 bg-transparent border-0 outline-none p-0 focus:ring-0 font-[Inter,sans-serif]"
+                                    className="w-full text-[13px] font-medium text-slate-800 placeholder-slate-400 bg-noble-surface sm:bg-transparent border sm:border-0 border-noble-border rounded-lg px-3 py-2 sm:p-0 focus:ring-1 sm:focus:ring-0 focus:ring-[#01A0E2]/20 outline-none font-[Inter,sans-serif]"
                                 />
                             </div>
-                            <div className="col-span-2 flex sm:justify-center">
-                                <input
-                                    id={`qty-${item.id}`}
-                                    type="number" min="0" step="1"
-                                    aria-label="Quantity"
-                                    value={item.quantity}
-                                    onChange={e => updateItem(item.id, 'quantity', parseInt(e.target.value, 10) || 0)}
-                                    className="w-14 text-[13px] text-center border border-noble-border rounded-lg py-1 focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2]/20 outline-none bg-noble-surface font-medium font-[Inter,sans-serif]"
-                                />
-                            </div>
-                            <div className="col-span-2 flex sm:justify-end">
-                                <input
-                                    id={`price-${item.id}`}
-                                    type="number" min="0" step="0.01"
-                                    aria-label="Unit rate"
-                                    value={item.price}
-                                    onChange={e => updateItem(item.id, 'price', parseFloat(e.target.value) || 0)}
-                                    className="w-24 text-[13px] text-right border border-noble-border rounded-lg py-1 px-2 focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2]/20 outline-none bg-noble-surface font-medium font-[Inter,sans-serif]"
-                                />
-                            </div>
-                            <div className="col-span-2 text-right">
-                                <span className="text-[13px] font-bold text-slate-800 font-[Inter,sans-serif]">
-                                    {currencySymbol}{((item.quantity || 0) * (item.price || 0)).toLocaleString(undefined, { minimumFractionDigits: 2 })}
-                                </span>
-                            </div>
-                            <div className="col-span-1 flex justify-end">
-                                <button
-                                    aria-label="Remove item" onClick={() => removeItem(item.id)}
-                                    className="w-6 h-6 rounded-lg opacity-0 group-hover:opacity-100 flex items-center justify-center text-slate-300 hover:text-red-500 hover:bg-red-50 transition-all"
-                                >
-                <Trash2 className="w-3 h-3" />
-                                </button>
+
+                            {/* Qty & Rate & Amount Mobile Row */}
+                            <div className="flex items-center justify-between sm:contents gap-2">
+                                <div className="col-span-2 flex flex-col sm:items-center">
+                                    <label htmlFor={`qty-${item.id}`} className="text-[10px] font-bold text-slate-400 uppercase tracking-widest sm:hidden mb-1 block">Qty</label>
+                                    <input
+                                        id={`qty-${item.id}`}
+                                        type="number" min="0" step="1"
+                                        aria-label="Quantity"
+                                        value={item.quantity}
+                                        onChange={e => updateItem(item.id, 'quantity', parseInt(e.target.value, 10) || 0)}
+                                        className="w-16 sm:w-14 h-9 text-[13px] text-center border border-noble-border rounded-lg py-1 focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2]/20 outline-none bg-noble-surface font-medium font-[Inter,sans-serif]"
+                                    />
+                                </div>
+                                <div className="col-span-2 flex flex-col sm:items-end">
+                                    <label htmlFor={`price-${item.id}`} className="text-[10px] font-bold text-slate-400 uppercase tracking-widest sm:hidden mb-1 block">Rate</label>
+                                    <input
+                                        id={`price-${item.id}`}
+                                        type="number" min="0" step="0.01"
+                                        aria-label="Unit rate"
+                                        value={item.price}
+                                        onChange={e => updateItem(item.id, 'price', parseFloat(e.target.value) || 0)}
+                                        className="w-24 text-[13px] text-right border border-noble-border rounded-lg h-9 px-2 focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2]/20 outline-none bg-noble-surface font-medium font-[Inter,sans-serif]"
+                                    />
+                                </div>
+                                <div className="col-span-2 text-right flex flex-col sm:block">
+                                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest sm:hidden mb-1 block">Total</span>
+                                    <span className="text-[13px] font-bold text-slate-800 font-[Inter,sans-serif]">
+                                        {currencySymbol}{((item.quantity || 0) * (item.price || 0)).toLocaleString(undefined, { minimumFractionDigits: 2 })}
+                                    </span>
+                                </div>
+                                <div className="col-span-1 flex justify-end">
+                                    <button
+                                        aria-label="Remove item" onClick={() => removeItem(item.id)}
+                                        className="min-w-[44px] min-h-[44px] sm:w-7 sm:h-7 rounded-xl opacity-100 sm:opacity-0 sm:group-hover:opacity-100 flex items-center justify-center text-slate-400 hover:text-red-500 hover:bg-red-50 transition-all"
+                                    >
+                                        <Trash2 className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))}
