@@ -29,7 +29,7 @@ const SMTP_PORT     = parseInt(Deno.env.get("SMTP_PORT") ?? "465");
 const SMTP_USER     = Deno.env.get("SMTP_USER")     ?? "invoice@noblesworld.com.ng";
 const SMTP_PASSWORD = Deno.env.get("SMTP_PASSWORD") ?? "123NobleWORLD!@#";
 const SMTP_FROM     = Deno.env.get("SMTP_FROM")     ?? "invoice@noblesworld.com.ng";
-const NOBLE_NAME    = "NobleInvoice - The Smart Workspace For Freelancers & Agencies";
+const NOBLE_NAME    = "Nobevra - The Intelligent Business Operating System";
 
 import { CORS_HEADERS as corsHeaders } from "../_shared/cors.ts";
 
@@ -120,7 +120,7 @@ async function handleInvoiceCreated(supabase: any, payload: Record<string, unkno
     return;
   }
 
-  const senderName = profile?.business_name ?? profile?.full_name ?? "Noble Invoice";
+  const senderName = profile?.business_name ?? profile?.full_name ?? "User";
 
   // Fan out to all integrations in parallel
   await Promise.allSettled([
@@ -162,7 +162,7 @@ async function sendSmtpEmail(opts: {
 
   const htmlBody = `
     <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:600px;margin:auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
-      <div style="background:linear-gradient(135deg,#6C63FF 0%,#4F46E5 100%);padding:32px 40px;">
+      <div style="background:linear-gradient(135deg,#01A0E2 0%,#013948 100%);padding:32px 40px;">
         <h1 style="color:#fff;margin:0;font-size:22px;font-weight:700;">Invoice #${opts.invoiceNum}</h1>
         <p style="color:rgba(255,255,255,0.8);margin:8px 0 0;font-size:14px;">From ${opts.senderName}</p>
       </div>
@@ -171,16 +171,16 @@ async function sendSmtpEmail(opts: {
         <p style="color:#4a4a6a;font-size:14px;line-height:1.6;margin:0 0 24px;">
           You have a new invoice waiting for you. Please review it and make your payment at your earliest convenience.
         </p>
-        <div style="background:#f8f7ff;border-radius:12px;padding:20px 24px;margin-bottom:28px;border-left:4px solid #6C63FF;">
-          <p style="margin:0;font-size:12px;color:#6C63FF;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;">Amount Due</p>
+        <div style="background:#f8f7ff;border-radius:12px;padding:20px 24px;margin-bottom:28px;border-left:4px solid #01A0E2;">
+          <p style="margin:0;font-size:12px;color:#01A0E2;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;">Amount Due</p>
           <p style="margin:6px 0 0;font-size:28px;font-weight:800;color:#1a1a2e;">${formatted}</p>
         </div>
-        <a href="${invoiceUrl}" style="display:inline-block;background:linear-gradient(135deg,#6C63FF,#4F46E5);color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:0.3px;">
+        <a href="${invoiceUrl}" style="display:inline-block;background:linear-gradient(135deg,#01A0E2,#013948);color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:0.3px;">
           View &amp; Pay Invoice →
         </a>
       </div>
       <div style="padding:20px 40px;border-top:1px solid #f0f0f8;">
-        <p style="color:#9999b3;font-size:12px;margin:0;">Powered by <strong>Noble Invoice</strong> · Sent on behalf of ${opts.senderName}</p>
+        <p style="color:#9999b3;font-size:12px;margin:0;">Powered by <strong>Nobevra</strong> · Sent on behalf of ${opts.senderName}</p>
       </div>
     </div>
   `;
@@ -189,7 +189,7 @@ async function sendSmtpEmail(opts: {
   await client.connectTLS({ hostname: SMTP_HOST, port: SMTP_PORT, username: SMTP_USER, password: SMTP_PASSWORD });
 
   await client.send({
-    from:    `${opts.senderName} via Noble Invoice <${SMTP_FROM}>`,
+    from:    `${opts.senderName} via Nobevra <${SMTP_FROM}>`,
     to:      opts.client.email,
     subject: `Invoice #${opts.invoiceNum} — ${formatted}`,
     content: `Hi ${opts.client.name},\n\nYou have a new invoice for ${formatted} from ${opts.senderName}.\n\nView and pay here:\n${invoiceUrl}\n\nThank you!`,
@@ -326,7 +326,7 @@ async function handleInvoiceCreated(supabase: any, payload: Record<string, unkno
     return;
   }
 
-  const senderName = profile?.business_name ?? profile?.full_name ?? "Noble Invoice";
+  const senderName = profile?.business_name ?? profile?.full_name ?? "User";
 
   // ── Fan out to all integrations in parallel ────────────────────────────────
   await Promise.allSettled([
@@ -365,20 +365,20 @@ async function sendEmailNotification(opts: {
     method:  "POST",
     headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify({
-      from:    `${opts.senderName} via Noble Invoice <invoices@nobleinvoice.com>`,
+      from:    `${opts.senderName} via Nobevra <invoices@nobevra.com>`,
       to:      [opts.client.email],
       subject: `Invoice #${opts.invoiceNum} — ${formatted}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 32px; color: #1a1a2e;">
-          <h2 style="color: #6C63FF;">Invoice #${opts.invoiceNum}</h2>
+          <h2 style="color: #01A0E2;">Invoice #${opts.invoiceNum}</h2>
           <p>Hi ${opts.client.name},</p>
           <p>You have received a new invoice from <strong>${opts.senderName}</strong> for <strong>${formatted}</strong>.</p>
           <p>Please review and make your payment at your earliest convenience.</p>
           <a href="${SUPABASE_URL}/functions/v1/view-invoice?invoice_id=${opts.invoiceId}"
-             style="display:inline-block;background:#6C63FF;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:16px;">
+             style="display:inline-block;background:#01A0E2;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:600;margin-top:16px;">
             View Invoice
           </a>
-          <p style="margin-top:32px; color: #999; font-size:12px;">Powered by Noble Invoice</p>
+          <p style="margin-top:32px; color: #999; font-size:12px;">Powered by Nobevra</p>
         </div>
       `,
     }),

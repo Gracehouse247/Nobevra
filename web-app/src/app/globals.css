@@ -12,10 +12,11 @@
   --font-roboto: var(--font-roboto);
   --font-montserrat: var(--font-montserrat);
   
-  /* NobleInvoice Design Tokens - Premium Dashboard Suite */
+  /* Nobevra Design Tokens - Premium Dashboard Suite */
   --color-primary: #006970;
   --color-electric-cyan: #00F0FF;
-  --color-noble-blue: #0599D5;
+  --color-noble-blue: #01A0E2;
+  --color-nobevra-blue: #01A0E2;
   --color-near-black: #050B1A;
   --color-surface: #ffffff;
   --color-surface-container: #f3fbfb;
@@ -36,8 +37,8 @@
   --color-sidebar-label: rgba(255,255,255,0.28);
   --color-sidebar-item: rgba(255,255,255,0.65);
   --color-sidebar-item-hover: rgba(255,255,255,0.06);
-  --color-sidebar-active-bg: rgba(5,153,213,0.18);
-  --color-sidebar-active-border: #0599D5;
+  --color-sidebar-active-bg: rgba(1,160,226,0.18);
+  --color-sidebar-active-border: #01A0E2;
 
   /* Phase 1 & 2 Noble Variables — reference CSS vars so dark mode works */
   --color-noble-primary: var(--noble-primary);
@@ -65,8 +66,8 @@
   --color-noble-dropdown-bg: var(--noble-dropdown-bg);
   --color-noble-dropdown-text: var(--noble-dropdown-text);
   --color-noble-greeting-text: var(--noble-greeting-text);
-  --color-noble-invoice-type-bg: var(--noble-invoice-type-bg);
-  --color-noble-invoice-type-text: var(--noble-invoice-type-text);
+  --color-nobevra-type-bg: var(--nobevra-type-bg);
+  --color-nobevra-type-text: var(--nobevra-type-text);
   --color-noble-form-bg: var(--noble-form-bg);
   --color-noble-form-text: var(--noble-form-text);
 
@@ -86,7 +87,7 @@
   --primary: #006970;
   
   /* Noble Variables */
-  --noble-primary: #0599D5;
+  --noble-primary: #01A0E2;
   --noble-secondary: #006970;
   --noble-accent-alt: #4F46E5;
 
@@ -109,12 +110,12 @@
   
   --noble-greeting-text: #F8FAFC;
   
-  --noble-invoice-type-bg: #0A111F;
-  --noble-invoice-type-text: #F1F5F9;
+  --nobevra-type-bg: #0A111F;
+  --nobevra-type-text: #F1F5F9;
   
   --noble-form-bg: #0A111F;
   --noble-form-text: #F1F5F9;
-  --noble-gradient: linear-gradient(135deg, #006970, #0599D5);
+  --noble-gradient: linear-gradient(135deg, #006970, #01A0E2);
   --noble-bg: #F3F6FC;
   --noble-surface: #FFFFFF;
   --noble-border: #E2E8F0;
@@ -144,8 +145,8 @@
   
   --noble-greeting-text: #0F172A;
   
-  --noble-invoice-type-bg: #FFFFFF;
-  --noble-invoice-type-text: #0F172A;
+  --nobevra-type-bg: #FFFFFF;
+  --nobevra-type-text: #0F172A;
   
   --noble-form-bg: #FFFFFF;
   --noble-form-text: #0F172A;
@@ -164,7 +165,7 @@
   --noble-card:      #0D1625;
   --noble-sidebar:   #040C18;
   --noble-interactive-bg: rgba(255, 255, 255, 0.05);
-  --noble-gradient:  linear-gradient(to right, #006970, #0599D5);
+  --noble-gradient:  linear-gradient(to right, #006970, #01A0E2);
   --noble-accent-alt: #4F46E5;
 
   /* ─── New Global Tokens — Dark Mode ─────────────────────────── */
@@ -198,8 +199,8 @@
   --noble-greeting-text:      #F8FAFC;
 
   /* Invoice Type Selector & Forms */
-  --noble-invoice-type-bg:    #0D1625;
-  --noble-invoice-type-text:  #F1F5F9;
+  --nobevra-type-bg:    #0D1625;
+  --nobevra-type-text:  #F1F5F9;
   --noble-form-bg:            #0D1625;
   --noble-form-text:          #F1F5F9;
 }
@@ -352,7 +353,7 @@ html.dark body:not(:has([data-theme-force="light"])) {
 :root.dark:not(:has([data-theme-force="light"])) input:focus,
 :root.dark:not(:has([data-theme-force="light"])) select:focus,
 :root.dark:not(:has([data-theme-force="light"])) textarea:focus {
-  border-color: #0599D5 !important;
+  border-color: #01A0E2 !important;
   box-shadow: 0 0 0 3px rgba(5, 153, 213, 0.15) !important;
 }
 
@@ -465,7 +466,7 @@ html.dark body:not(:has([data-theme-force="light"])) {
 .yolo-circle {
     position: absolute;
     border-radius: 100%;
-    background: #0599D5;
+    background: #01A0E2;
     filter: blur(120px);
     opacity: 0.15;
     z-index: 0;
@@ -616,7 +617,7 @@ html.dark body:not(:has([data-theme-force="light"])) {
 
 /* ── Hero Stat Card Dark Gradient ── */
 .stat-card-hero {
-  background: linear-gradient(135deg, #006970 0%, #0599D5 60%, #00b4cc 100%);
+  background: linear-gradient(135deg, #006970 0%, #01A0E2 60%, #00b4cc 100%);
   box-shadow: 0 20px 60px rgba(5, 153, 213, 0.28), 0 4px 16px rgba(0, 105, 112, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
@@ -629,7 +630,7 @@ html.dark body:not(:has([data-theme-force="light"])) {
 
 .sidebar-item-active {
   background: rgba(5, 153, 213, 0.18);
-  border-left: 2px solid #0599D5;
+  border-left: 2px solid #01A0E2;
   color: #ffffff;
 }
 
@@ -662,7 +663,7 @@ html.dark body:not(:has([data-theme-force="light"])) {
 
 .noble-input:focus {
     background: rgba(255, 255, 255, 0.8);
-    border-color: #0599D5;
+    border-color: #01A0E2;
     box-shadow: 0 0 0 4px rgba(5, 153, 213, 0.1), 0 10px 30px -10px rgba(5, 153, 213, 0.15);
     outline: none;
     transform: translateY(-1px);
@@ -769,7 +770,7 @@ html.dark body:not(:has([data-theme-force="light"])) {
   box-shadow: 0 0 0 2px #94A3B8;
 }
 .avatar-ring-pulse {
-  box-shadow: 0 0 0 2px #0599D5;
+  box-shadow: 0 0 0 2px #01A0E2;
 }
 .avatar-ring-elite {
   box-shadow: 0 0 0 2px #F59E0B;
@@ -813,7 +814,7 @@ html.dark body:not(:has([data-theme-force="light"])) {
   align-items: center;
   gap: 6px;
   padding: 10px 18px;
-  background: linear-gradient(to right, #006970, #0599D5);
+  background: linear-gradient(to right, #006970, #01A0E2);
   color: #ffffff;
   font-size: 12px;
   font-weight: 700;
@@ -849,7 +850,7 @@ html.dark body:not(:has([data-theme-force="light"])) {
 }
 .btn-secondary:hover {
   border-color: rgba(5, 153, 213, 0.4);
-  color: #0599D5;
+  color: #01A0E2;
 }
 
 /* ── KPI Stat Card ── */
@@ -884,7 +885,7 @@ html.dark body:not(:has([data-theme-force="light"])) {
   top: 0;
   bottom: 0;
   width: 3px;
-  background: #0599D5;
+  background: #01A0E2;
   border-radius: 0 2px 2px 0;
   opacity: 0;
   transition: opacity 0.15s ease;

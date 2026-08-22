@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let blog = 'C:/Projects/NobleInvoice/web-app/src/app/(public)/blog/page.tsx';
+let blog = 'C:/Projects/Nobevra/web-app/src/app/(public)/blog/page.tsx';
 let c = fs.readFileSync(blog, 'utf8');
 
 c = c.replace("import { createClient } from '@supabase/supabase-js';", "import { createClient } from '@supabase/supabase-js';\nimport { unstable_cache } from 'next/cache';");

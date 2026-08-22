@@ -72,7 +72,7 @@ export default function BusinessForm({ onChange, initialData, onPreviewValueChan
             _file: fileUpload
         });
         
-        onPreviewValueChange(website || 'https://nobleinvoice.com/business');
+        onPreviewValueChange(website || 'https://nobevra.noblesworld.com.ng/business');
     }, [
         companyName, headline, website, openingHours, 
         street, city, postalCode, country, phone, email, fax, social, 

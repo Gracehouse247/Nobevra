@@ -5,37 +5,37 @@ import { ArrowRight, Calendar, User, Search } from 'lucide-react';
 import { createClient } from '@supabase/supabase-js';
 import { unstable_cache } from 'next/cache';
 
+import { brand } from '@/lib/brand';
+
 export const revalidate = 3600; // Revalidate every hour
 
+const BLOG_TITLE = `Blog — Invoice Tips, Business Card Guides & Billing Insights | ${brand.name}`;
+const BLOG_DESC = `${brand.name} blog: expert guides on how to make invoices for free, business card creation tips, QR code tutorials, and billing software comparisons for small businesses.`;
+
 export const metadata: Metadata = {
-    title: 'Blog — Invoice Tips, Business Card Guides & Billing Insights | NobleInvoice',
-    description: 'NobleInvoice blog: expert guides on how to make invoices for free, business card creation tips, QR code tutorials, and billing software comparisons for small businesses.',
+    title: BLOG_TITLE,
+    description: BLOG_DESC,
     openGraph: {
-        title: 'Blog — Invoice Tips, Business Card Guides & Billing Insights | NobleInvoice',
-        description: 'NobleInvoice blog: expert guides on how to make invoices for free, business card creation tips, QR code tutorials, and billing software comparisons for small businesses.',
+        title: BLOG_TITLE,
+        description: BLOG_DESC,
         type: 'website',
-        url: 'https://nobleinvoice.com/blog',
-        images: [
-            {
-                url: 'https://nobleinvoice.com/images/blog-og.jpg',
-                width: 1200,
-                height: 630,
-                alt: 'NobleInvoice Blog Open Graph Image',
-            }
-        ]
+        url: `${brand.urls.canonical}/blog`,
+        images: [brand.openGraph.image],
     },
     twitter: {
         card: 'summary_large_image',
-        site: '@nobleinvoice',
-        title: 'Blog — Invoice Tips, Business Card Guides & Billing Insights | NobleInvoice',
-        description: 'NobleInvoice blog: expert guides on how to make invoices for free, business card creation tips, QR code tutorials, and billing software comparisons for small businesses.',
+        site: brand.social.twitterHandle,
+        title: BLOG_TITLE,
+        description: BLOG_DESC,
     }
 };
 
 
 const getArticles = unstable_cache(
     async () => {
-        const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+        const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co';
+        const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build';
+        const supabase = createClient(url, key);
         const { data, error } = await supabase
             .from('seo_articles')
             .select('*')
@@ -83,15 +83,15 @@ export default async function BlogIndexPage() {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Blog",
-                        "url": "https://nobleinvoice.com/blog",
-                        "name": "NobleInvoice Blog",
+                        "url": "https://nobevra.noblesworld.com.ng/blog",
+                        "name": "Nobevra Blog",
                         "description": "Expert advice for small businesses and freelancers.",
                         "publisher": {
                             "@type": "Organization",
-                            "name": "NobleInvoice",
+                            "name": "Nobevra",
                             "logo": {
                                 "@type": "ImageObject",
-                                "url": "https://nobleinvoice.com/images/logo.png"
+                                "url": "https://nobevra.noblesworld.com.ng/images/logo.png"
                             }
                         }
                     })
@@ -140,7 +140,7 @@ export default async function BlogIndexPage() {
                                     <div className="flex items-center gap-4 text-xs font-bold text-[#64748B] mb-4">
                                         <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" /> {featuredPost.published_at ? formatDate(featuredPost.published_at) : 'Just now'}</span>
                                         <span>•</span>
-                                        <span className="flex items-center gap-1.5"><User className="w-4 h-4" /> NobleInvoice Team</span>
+                                        <span className="flex items-center gap-1.5"><User className="w-4 h-4" /> Nobevra Team</span>
                                     </div>
                                     <h3 className="text-3xl md:text-4xl font-black text-[#0F172A] leading-tight mb-4 group-hover:text-[#166FBB] transition-colors">
                                         {featuredPost.title}

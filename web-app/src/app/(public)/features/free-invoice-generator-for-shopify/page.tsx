@@ -31,7 +31,7 @@ import Footer from '@/components/shared/Footer';
    SEO METADATA
 ───────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Free Invoice Generator for Shopify | Get Paid in 2.4 Days | NobleInvoice',
+    title: 'Free Invoice Generator for Shopify | Get Paid in 2.4 Days | Nobevra',
     description: 'The best free Shopify invoice generator that embeds Apple Pay & Google Pay QR codes directly into your PDF. Stop waiting 14 days for B2B payments. Automate billing, reconciliation, and collections for your Shopify store.',
     keywords: [
         'invoice generator shopify',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         'shopify wholesale invoice',
     ],
     openGraph: {
-        title: 'Free Invoice Generator for Shopify | NobleInvoice',
+        title: 'Free Invoice Generator for Shopify | Nobevra',
         description: 'Embed Apple Pay & Google Pay QR codes in your Shopify invoices. Get paid in 2.4 days instead of 14.',
         type: 'website',
     },
@@ -63,7 +63,7 @@ const faqSchema = {
     mainEntity: [
         {
             '@type': 'Question',
-            name: 'Is NobleInvoice free?',
+            name: 'Is Nobevra free?',
             acceptedAnswer: {
                 '@type': 'Answer',
                 text: 'Yes. Our core invoicing platform is completely free to use. You only pay standard processing fees when a client uses our integrated QR payment gateway to pay you. There are no monthly subscription fees for the base invoicing features.',
@@ -74,7 +74,7 @@ const faqSchema = {
             name: 'Can I customize my Shopify invoice template?',
             acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Absolutely. NobleInvoice lets you add your brand colors, custom logo, business registration number, tax ID, payment terms, and custom line items. Every invoice is fully white-labeled so clients see your brand, not ours.',
+                text: 'Absolutely. Nobevra lets you add your brand colors, custom logo, business registration number, tax ID, payment terms, and custom line items. Every invoice is fully white-labeled so clients see your brand, not ours.',
             },
         },
         {
@@ -82,23 +82,23 @@ const faqSchema = {
             name: 'Do QR payment links expire?',
             acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'No. NobleInvoice creates permanent payment links. The QR code on your invoice remains valid and scannable until the specific invoice is settled in full, at which point it is automatically marked as paid in your dashboard.',
+                text: 'No. Nobevra creates permanent payment links. The QR code on your invoice remains valid and scannable until the specific invoice is settled in full, at which point it is automatically marked as paid in your dashboard.',
             },
         },
         {
             '@type': 'Question',
-            name: 'Does NobleInvoice work for B2C stores?',
+            name: 'Does Nobevra work for B2C stores?',
             acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'While NobleInvoice works perfectly for any transaction, it is explicitly designed for B2B, wholesale, and high-ticket sellers who need to send a formal invoice requesting payment. If you only do standard B2C storefront checkout where customers pay instantly on Shopify, you likely don\'t need dedicated invoicing software.',
+                text: 'While Nobevra works perfectly for any transaction, it is explicitly designed for B2B, wholesale, and high-ticket sellers who need to send a formal invoice requesting payment. If you only do standard B2C storefront checkout where customers pay instantly on Shopify, you likely don\'t need dedicated invoicing software.',
             },
         },
         {
             '@type': 'Question',
-            name: 'Is NobleInvoice compliant with EU VAT and GST requirements?',
+            name: 'Is Nobevra compliant with EU VAT and GST requirements?',
             acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Yes. NobleInvoice invoice templates are designed to include all fields required for tax compliance including VAT number, GST registration, business registration ID, itemized tax breakdowns, and invoice numbering sequences.',
+                text: 'Yes. Nobevra invoice templates are designed to include all fields required for tax compliance including VAT number, GST registration, business registration ID, itemized tax breakdowns, and invoice numbering sequences.',
             },
         },
     ],
@@ -157,7 +157,7 @@ const faqs = faqSchema.mainEntity;
 
 const testimonials = [
     {
-        quote: "We were manually exporting Shopify orders to spreadsheets to generate wholesale invoices. Switching to NobleInvoice completely automated the workflow. Our wholesale clients now scan the QR code and pay instantly.",
+        quote: "We were manually exporting Shopify orders to spreadsheets to generate wholesale invoices. Switching to Nobevra completely automated the workflow. Our wholesale clients now scan the QR code and pay instantly.",
         name: 'Ayasha Khan',
         role: 'Marketing Director, NobleMart',
         image: '/images/reviews/ayasha-khan-marketing-director-of-noblemart-marketplace-us-region.png',
@@ -166,7 +166,7 @@ const testimonials = [
         metricLabel: 'B2B payment collection',
     },
     {
-        quote: "Our EU clients require proper VAT invoices, not just receipts. NobleInvoice handles that automatically and the QR code payment link means I get paid the same week I send the invoice, not next month.",
+        quote: "Our EU clients require proper VAT invoices, not just receipts. Nobevra handles that automatically and the QR code payment link means I get paid the same week I send the invoice, not next month.",
         name: 'Beautrice Moreau',
         role: 'Operations Manager, Eagles Media',
         image: '/images/reviews/beautrice-moreau-operations-manager-at-eagles-media.png',
@@ -175,7 +175,7 @@ const testimonials = [
         metricLabel: 'invoice disputes since switching',
     },
     {
-        quote: "I run a Shopify store for custom manufacturing orders. Every order is different and requires a quote and formal invoice. NobleInvoice is the only tool that handles this workflow AND collects the payment.",
+        quote: "I run a Shopify store for custom manufacturing orders. Every order is different and requires a quote and formal invoice. Nobevra is the only tool that handles this workflow AND collects the payment.",
         name: 'David Okafor',
         role: 'Finance Lead, Spire Builds',
         image: '/images/reviews/ayasha-khan-marketing-director-of-noblemart-marketplace-us-region.png',
@@ -226,12 +226,12 @@ export default function ShopifyInvoiceGeneratorPage() {
                         </div>
 
                         <h1 className="font-inter text-near-black mb-6 text-[34px] md:text-[52px] lg:text-[58px] leading-[1.05] tracking-tight font-black">
-                            Free Invoice Generator for Shopify | NobleInvoice
+                            Free Invoice Generator for Shopify | Nobevra
                         </h1>
 
                         <p className="text-near-black/60 mb-8 leading-relaxed text-lg max-w-xl mx-auto lg:mx-0">
                             Sending a generic Shopify invoice template is costing you cash flow.
-                            NobleInvoice generates automated, professional invoices that embed{' '}
+                            Nobevra generates automated, professional invoices that embed{' '}
                             <strong className="text-near-black">Apple Pay and Google Pay QR codes</strong>{' '}
                             directly onto the PDF — so B2B clients pay in minutes, not weeks.
                         </p>
@@ -360,7 +360,7 @@ export default function ShopifyInvoiceGeneratorPage() {
                         <div className="relative rounded-[24px] border-4 border-white shadow-xl overflow-hidden">
                             <Image 
                                 src="/images/dashboard-desktop.png" 
-                                alt="NobleInvoice dashboard interface showing invoice tracking" 
+                                alt="Nobevra dashboard interface showing invoice tracking" 
                                 width={800} 
                                 height={600} 
                                 className="w-full h-auto object-cover"
@@ -371,14 +371,14 @@ export default function ShopifyInvoiceGeneratorPage() {
             </section>
 
             {/* ══════════════════════════════════════════════════════
-                SECTION 4 — HOW NOBLEINVOICE WORKS
+                SECTION 4 — HOW NOBEVRA WORKS
             ══════════════════════════════════════════════════════ */}
             <section className="py-24 bg-near-black text-white relative overflow-hidden" id="how-it-works">
                 <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-noble-blue/15 blur-[140px] rounded-full pointer-events-none" />
                 <div className="max-w-[1200px] mx-auto px-4 md:px-16 relative z-10">
                     <div className="text-center mb-16">
                         <h2 className="font-inter text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight mb-6">
-                            How NobleInvoice Works as Your{' '}
+                            How Nobevra Works as Your{' '}
                             <span className="text-electric-cyan">Shopify Invoice Generator</span>
                         </h2>
                     </div>
@@ -388,7 +388,7 @@ export default function ShopifyInvoiceGeneratorPage() {
                             {
                                 step: 'Step 1',
                                 title: 'Connect your Shopify store',
-                                desc: 'Link NobleInvoice to your Shopify store in one click. Your order data, customer details, and product line items sync automatically.',
+                                desc: 'Link Nobevra to your Shopify store in one click. Your order data, customer details, and product line items sync automatically.',
                                 img: '/images/app-step-1.png'
                             },
                             {
@@ -429,7 +429,7 @@ export default function ShopifyInvoiceGeneratorPage() {
             <section className="py-24 bg-white relative">
                 <div className="max-w-[1430px] mx-auto px-4 md:px-16">
                     <h2 className="font-inter text-4xl md:text-5xl font-black text-near-black leading-[1.1] tracking-tight mb-14 text-center">
-                        Key Features of NobleInvoice vs Standard Shopify Invoicing
+                        Key Features of Nobevra vs Standard Shopify Invoicing
                     </h2>
 
                     <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -438,7 +438,7 @@ export default function ShopifyInvoiceGeneratorPage() {
                                 {
                                     icon: <CreditCard className="w-6 h-6 text-noble-blue" />,
                                     title: 'QR payment-embedded invoices',
-                                    desc: '(unique to NobleInvoice). The only Shopify invoice tool that embeds Apple Pay and Google Pay QR codes directly onto the PDF. They scan and pay in two taps.',
+                                    desc: '(unique to Nobevra). The only Shopify invoice tool that embeds Apple Pay and Google Pay QR codes directly onto the PDF. They scan and pay in two taps.',
                                 },
                                 {
                                     icon: <FileText className="w-6 h-6 text-noble-blue" />,
@@ -469,7 +469,7 @@ export default function ShopifyInvoiceGeneratorPage() {
                         <div className="relative rounded-[32px] border-4 border-white shadow-xl overflow-hidden bg-slate-50">
                             <Image 
                                 src="/images/invoice-templates-showcase.png" 
-                                alt="NobleInvoice templates showcase" 
+                                alt="Nobevra templates showcase" 
                                 width={800} 
                                 height={600} 
                                 className="w-full h-auto object-cover"
@@ -485,26 +485,26 @@ export default function ShopifyInvoiceGeneratorPage() {
             <section className="py-24 bg-[#F8FAFC] border-y border-slate-100">
                 <div className="max-w-[1100px] mx-auto px-4 md:px-16">
                     <h2 className="font-inter text-3xl md:text-5xl font-black text-near-black leading-[1.1] tracking-tight mb-14 text-center">
-                        How NobleInvoice Compares to Other Shopify Invoice Generators
+                        How Nobevra Compares to Other Shopify Invoice Generators
                     </h2>
 
                     <div className="grid md:grid-cols-3 gap-6 mb-14">
                         <div className="bg-white rounded-[24px] p-6 border border-slate-200">
-                            <h3 className="font-black text-lg text-near-black mb-3">NobleInvoice vs Vify Order Printer</h3>
+                            <h3 className="font-black text-lg text-near-black mb-3">Nobevra vs Vify Order Printer</h3>
                             <p className="text-near-black/65 text-sm leading-relaxed">
-                                Vify focuses heavily on printing physical documents and receipts for standard orders. NobleInvoice focuses on the digital collection process for B2B and high-ticket orders with embedded digital payment links.
+                                Vify focuses heavily on printing physical documents and receipts for standard orders. Nobevra focuses on the digital collection process for B2B and high-ticket orders with embedded digital payment links.
                             </p>
                         </div>
                         <div className="bg-white rounded-[24px] p-6 border border-slate-200">
-                            <h3 className="font-black text-lg text-near-black mb-3">NobleInvoice vs Order Printer Pro</h3>
+                            <h3 className="font-black text-lg text-near-black mb-3">Nobevra vs Order Printer Pro</h3>
                             <p className="text-near-black/65 text-sm leading-relaxed">
-                                Order Printer Pro requires you to customize HTML/Liquid templates manually which is powerful but complex. NobleInvoice provides beautiful, converting templates out of the box with zero coding.
+                                Order Printer Pro requires you to customize HTML/Liquid templates manually which is powerful but complex. Nobevra provides beautiful, converting templates out of the box with zero coding.
                             </p>
                         </div>
                         <div className="bg-white rounded-[24px] p-6 border border-slate-200">
-                            <h3 className="font-black text-lg text-near-black mb-3">NobleInvoice vs Avada Invoice PDF</h3>
+                            <h3 className="font-black text-lg text-near-black mb-3">Nobevra vs Avada Invoice PDF</h3>
                             <p className="text-near-black/65 text-sm leading-relaxed">
-                                Avada provides simple PDF generation. NobleInvoice provides PDF generation plus a fully integrated payment collection engine, transforming your static PDF into a checkout terminal.
+                                Avada provides simple PDF generation. Nobevra provides PDF generation plus a fully integrated payment collection engine, transforming your static PDF into a checkout terminal.
                             </p>
                         </div>
                     </div>
@@ -516,7 +516,7 @@ export default function ShopifyInvoiceGeneratorPage() {
                                     <tr className="border-b border-slate-100">
                                         <th className="text-left p-5 font-black text-near-black text-sm w-[35%]">Feature</th>
                                         <th className="p-5 text-center bg-noble-blue/5 border-l border-r border-noble-blue/10">
-                                            <div className="font-black text-noble-blue text-sm">NobleInvoice</div>
+                                            <div className="font-black text-noble-blue text-sm">Nobevra</div>
                                             <div className="text-[10px] text-noble-blue/60 font-bold uppercase tracking-widest">Recommended</div>
                                         </th>
                                         <th className="p-5 text-center">
@@ -555,7 +555,7 @@ export default function ShopifyInvoiceGeneratorPage() {
             <section className="py-24 bg-white relative">
                 <div className="max-w-[1000px] mx-auto px-4 md:px-16 text-center">
                     <h2 className="font-inter text-3xl md:text-5xl font-black text-near-black leading-[1.1] tracking-tight mb-8">
-                        See NobleInvoice in Action
+                        See Nobevra in Action
                     </h2>
                     <p className="text-lg text-near-black/65 leading-relaxed max-w-3xl mx-auto mb-12">
                         Watch our 2-minute walkthrough to see exactly how you can connect your Shopify store and generate a payment-ready invoice.
@@ -577,7 +577,7 @@ export default function ShopifyInvoiceGeneratorPage() {
                     <div className="text-center mb-14">
                         <h2 className="font-inter text-3xl md:text-5xl font-black text-near-black leading-[1.1] tracking-tight mb-4">
                             Shopify Merchants Who{' '}
-                            <span className="text-noble-blue">Switched to NobleInvoice.</span>
+                            <span className="text-noble-blue">Switched to Nobevra.</span>
                         </h2>
                     </div>
                     <div className="grid md:grid-cols-3 gap-6">

@@ -94,7 +94,7 @@ class _QrSocialFormScreenState extends State<QrSocialFormScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Help people find you across the social web with a single NobleInvoice scan.',
+                  'Help people find you across the social web with a single Nobevra scan.',
                   style: AppTextStyles.bodyMedium.copyWith(color: AppColors.darkGrey, height: 1.5),
                 ),
                 const SizedBox(height: 40),
@@ -102,7 +102,7 @@ class _QrSocialFormScreenState extends State<QrSocialFormScreen> {
                 _buildLabel('Display Name', isRequired: true),
                 TextField(
                   controller: _displayNameController,
-                  decoration: const InputDecoration(hintText: 'e.g. John Doe / NobleInvoice'),
+                  decoration: const InputDecoration(hintText: 'e.g. John Doe / Nobevra'),
                 ),
                 const SizedBox(height: 32),
                 

@@ -5,7 +5,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import { Smartphone, RefreshCw, Download, QrCode } from 'lucide-react';
 
 export default function LiveQrPreview() {
-  const [url, setUrl] = useState('https://nobleinvoice.com/pay/demo');
+  const [url, setUrl] = useState('https://nobevra.noblesworld.com.ng/pay/demo');
   const [color, setColor] = useState('#0B1021'); // near-black
 
   return (
@@ -20,7 +20,7 @@ export default function LiveQrPreview() {
             Try the Live <span className="text-noble-blue">QR Code Generator.</span>
           </h2>
           <p className="text-lg text-near-black/60 max-w-2xl mx-auto">
-            Type a URL or message below and watch your QR code generate instantly. This is the exact technology powering NobleInvoice payments.
+            Type a URL or message below and watch your QR code generate instantly. This is the exact technology powering Nobevra payments.
           </p>
         </div>
 
@@ -46,7 +46,7 @@ export default function LiveQrPreview() {
                 QR Code Colour
               </label>
               <div className="flex gap-3">
-                {['#0B1021', '#166FBB', '#0599D5', '#10B981', '#F43F5E'].map((c) => (
+                {['#0B1021', '#166FBB', '#01A0E2', '#10B981', '#F43F5E'].map((c) => (
                   <button
                     key={c}
                     onClick={() => setColor(c)}
@@ -76,7 +76,7 @@ export default function LiveQrPreview() {
             
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 mb-6 transition-all">
               <QRCodeSVG
-                value={url || 'https://nobleinvoice.com'}
+                value={url || 'https://nobevra.noblesworld.com.ng'}
                 size={200}
                 fgColor={color}
                 bgColor="#FFFFFF"

@@ -7,7 +7,7 @@ import Script from 'next/script';
 import SavingsCalculator from '@/components/landing/SavingsCalculator';
 
 export const metadata: Metadata = {
-  title: 'What is Invoicing Software? | NobleInvoice CRM Engine',
+  title: 'What is Invoicing Software? | Nobevra CRM Engine',
   description: 'Wondering what is invoicing software? It is not just about PDFs. It is the CRM engine that drives your cash flow and client relationships. Learn more.',
   keywords: ['what is invoicing software', 'How do i make an invoice template', 'Create invoice online free PDF', 'Online invoice template', 'Free invoice maker app'],
 };
@@ -30,7 +30,7 @@ export default function CRMEnginePage() {
         "name": "How do I make an invoice template that looks professional?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The easiest way is to use a dedicated platform. NobleInvoice provides pre-designed layouts where you simply upload your logo and fill in your details. It eliminates formatting errors common in Word or Excel."
+          "text": "The easiest way is to use a dedicated platform. Nobevra provides pre-designed layouts where you simply upload your logo and fill in your details. It eliminates formatting errors common in Word or Excel."
         }
       },
       {
@@ -38,7 +38,7 @@ export default function CRMEnginePage() {
         "name": "Can I create an invoice online free as a PDF?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. NobleInvoice allows you to generate and download a professional PDF document instantly at no cost. You can send this file directly to your clients via email or WhatsApp."
+          "text": "Yes. Nobevra allows you to generate and download a professional PDF document instantly at no cost. You can send this file directly to your clients via email or WhatsApp."
         }
       }
     ]
@@ -80,7 +80,7 @@ export default function CRMEnginePage() {
           <div className="relative w-full rounded-[24px] overflow-hidden shadow-2xl border border-slate-200/50">
              <Image 
                  src="/images/crm-engine-hero.png" 
-                 alt="NobleInvoice CRM Engine Interface displaying the Invoices Ledger with statuses, totals, and advanced analytics for billing documents"
+                 alt="Nobevra CRM Engine Interface displaying the Invoices Ledger with statuses, totals, and advanced analytics for billing documents"
                  width={1200}
                  height={800}
                  className="w-full h-auto object-cover hover:scale-[1.03] transition-transform duration-700 ease-in-out"
@@ -101,7 +101,7 @@ export default function CRMEnginePage() {
               See the CRM Engine in action.
             </h2>
             <p className="text-lg text-near-black/60 max-w-2xl mx-auto">
-              Watch how NobleInvoice transforms a basic document into a tracking dashboard that guarantees faster payments.
+              Watch how Nobevra transforms a basic document into a tracking dashboard that guarantees faster payments.
             </p>
           </div>
           <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white bg-slate-900 max-w-4xl mx-auto">
@@ -173,7 +173,7 @@ export default function CRMEnginePage() {
         </div>
       </section>
 
-      {/* 5. NobleInvoice approach/framework (Information Gain) */}
+      {/* 5. Nobevra approach/framework (Information Gain) */}
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="max-w-[1430px] mx-auto px-4 md:px-16">
           <div className="text-center mb-16">
@@ -188,7 +188,7 @@ export default function CRMEnginePage() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="space-y-6">
               <p className="text-lg text-near-black/60 leading-relaxed">
-                Competitors treat billing as a math problem. We treat it as relationship management. NobleInvoice acts as a central ledger for every client interaction.
+                Competitors treat billing as a math problem. We treat it as relationship management. Nobevra acts as a central ledger for every client interaction.
               </p>
               <div className="space-y-6 pt-4">
                  <div className="flex gap-4">

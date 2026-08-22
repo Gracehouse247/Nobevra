@@ -42,8 +42,8 @@ export async function GET(req: NextRequest) {
     size: 'A4',
     margin: 0,
     info: {
-      Title: 'NobleInvoice — Proforma Invoice Template',
-      Author: 'NobleInvoice',
+      Title: 'Nobevra — Proforma Invoice Template',
+      Author: 'Nobevra',
       Subject: 'Professional Proforma Invoice Template',
       Keywords: 'proforma invoice template, business invoice',
     },
@@ -77,10 +77,10 @@ export async function GET(req: NextRequest) {
 
     // Company name / logo area
     doc.fontSize(22).font('Helvetica-Bold').fillColor('#FFFFFF')
-      .text('NobleInvoice', margin, 32, { lineBreak: false });
+      .text('Nobevra', margin, 32, { lineBreak: false });
 
     doc.fontSize(8).font('Helvetica').fillColor('rgba(255,255,255,0.65)')
-      .text('www.nobleinvoice.com', margin, 58, { lineBreak: false });
+      .text('www.nobevra.noblesworld.com.ng', margin, 58, { lineBreak: false });
 
     // PROFORMA INVOICE label (right side)
     doc.fontSize(9).font('Helvetica-Bold').fillColor('rgba(255,255,255,0.55)')
@@ -306,11 +306,11 @@ export async function GET(req: NextRequest) {
     doc.rect(0, footerY, W, 44).fill(NEAR_BLACK);
 
     doc.fontSize(8).font('Helvetica-Bold').fillColor('#FFFFFF')
-      .text('Generated with NobleInvoice', margin, footerY + 10, { lineBreak: false });
+      .text('Generated with Nobevra', margin, footerY + 10, { lineBreak: false });
     doc.fontSize(7).font('Helvetica').fillColor('rgba(255,255,255,0.45)')
       .text('This document is a proforma invoice and does NOT constitute a legally binding demand for payment.', margin, footerY + 24, { width: contentW - 120, lineBreak: false });
     doc.fontSize(8).font('Helvetica-Bold').fillColor(BRAND_BLUE)
-      .text('www.nobleinvoice.com', 0, footerY + 14, { align: 'right', width: W - margin, lineBreak: false });
+      .text('www.nobevra.noblesworld.com.ng', 0, footerY + 14, { align: 'right', width: W - margin, lineBreak: false });
 
     doc.end();
   });
@@ -321,7 +321,7 @@ export async function GET(req: NextRequest) {
     status: 200,
     headers: {
       'Content-Type': 'application/pdf',
-      'Content-Disposition': 'attachment; filename="NobleInvoice-Proforma-Template.pdf"',
+      'Content-Disposition': 'attachment; filename="Nobevra-Proforma-Template.pdf"',
       'Content-Length': pdfBuffer.length.toString(),
       'Cache-Control': 'no-store',
     },

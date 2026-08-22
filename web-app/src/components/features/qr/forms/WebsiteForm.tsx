@@ -9,7 +9,7 @@ export default function WebsiteForm({ onChange, initialData, onPreviewValueChang
 
     useEffect(() => {
         onChange({ url, title, description });
-        onPreviewValueChange(url || 'https://nobleinvoice.com');
+        onPreviewValueChange(url || 'https://nobevra.noblesworld.com.ng');
     }, [url, title, description]);
 
     return (
@@ -54,7 +54,7 @@ export default function WebsiteForm({ onChange, initialData, onPreviewValueChang
                 </div>
                 
                 <p className="text-[11px] italic text-[#94A3B8]">
-                    Note: Title and description are only visible within your NobleInvoice analytics dashboard.
+                    Note: Title and description are only visible within your Nobevra analytics dashboard.
                 </p>
             </div>
         </div>

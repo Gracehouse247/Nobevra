@@ -52,14 +52,15 @@ serve(async (req) => {
     });
 
     // 3. Determine Redirect URL
-    let targetUrl = "https://invoice.noblesworld.com.ng"; // Fallback
+    const appUrl = Deno.env.get("NEXT_PUBLIC_APP_URL") || Deno.env.get("NEXT_PUBLIC_SITE_URL") || "https://nobevra.noblesworld.com.ng";
+    let targetUrl = appUrl; // Fallback
     
     if (qr.type === "website") {
       targetUrl = qr.content.url;
     } else if (qr.type === "vcard" || qr.type === "business_card") {
       // For business cards, we might redirect to a digital profile page
       // For now, redirect to the asset_url (vCard file) if it exists
-      targetUrl = qr.asset_url || `https://invoice.noblesworld.com.ng/profile/${qr.user_id}`;
+      targetUrl = qr.asset_url || `${appUrl}/profile/${qr.user_id}`;
     } else if (qr.content.url) {
        targetUrl = qr.content.url;
     }

@@ -4,7 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 export function SectionBadge({ number }: { number: string }) {
   return (
     <span className="inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-black tracking-tight shrink-0"
-      style={{ background: "linear-gradient(135deg,#006970,#0599D5)", color: "#fff" }}>
+      style={{ background: "linear-gradient(135deg,#006970,#01A0E2)", color: "#fff" }}>
       {number}
     </span>
   );
@@ -14,13 +14,13 @@ export function SectionHeading({ id, number, icon: Icon, children }: { id: strin
   return (
     <div className="flex items-center gap-3 mb-6" id={id}>
       {number && <SectionBadge number={number} />}
-      <Icon className="w-6 h-6" style={{ color: "#0599D5" }} />
+      <Icon className="w-6 h-6" style={{ color: "#01A0E2" }} />
       <h2 id={id} className="text-3xl sm:text-4xl font-black mb-0 flex items-center gap-3" style={{ color: "#050B1A" }}>{children}</h2>
     </div>
   );
 }
 
-export function InfoCard({ icon: Icon, title, children, accent = "#0599D5" }: { icon: React.ElementType; title: string; children: React.ReactNode; accent?: string }) {
+export function InfoCard({ icon: Icon, title, children, accent = "#01A0E2" }: { icon: React.ElementType; title: string; children: React.ReactNode; accent?: string }) {
   return (
     <div className="rounded-2xl border p-5 mb-4" style={{ borderColor: `${accent}22`, background: `${accent}08` }}>
       <div className="flex items-center gap-2 mb-2">

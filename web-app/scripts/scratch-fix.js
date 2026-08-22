@@ -1,7 +1,7 @@
 const fs = require('fs');
 const files = [
-  'c:/Projects/NobleInvoice Web App Project/web-app/src/app/(public)/features/best-free-invoice-app/page.tsx',
-  'c:/Projects/NobleInvoice Web App Project/web-app/src/app/(public)/features/how-to-make-an-invoice-on-my-phone/page.tsx'
+  'c:/Projects/Nobevra Web App Project/web-app/src/app/(public)/features/best-free-invoice-app/page.tsx',
+  'c:/Projects/Nobevra Web App Project/web-app/src/app/(public)/features/how-to-make-an-invoice-on-my-phone/page.tsx'
 ];
 
 const H1 = 'text-[30px] md:text-[50px] leading-[1.05] tracking-tight font-black text-slate-900';

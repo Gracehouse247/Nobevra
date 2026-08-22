@@ -10,7 +10,7 @@ export default function CallForm({ onChange, initialData, onPreviewValueChange }
         // Format for Call: tel:phone
         const formattedStr = `tel:${phone}`;
         
-        onPreviewValueChange(phone ? formattedStr : 'https://nobleinvoice.com');
+        onPreviewValueChange(phone ? formattedStr : 'https://nobevra.noblesworld.com.ng');
     }, [phone]);
 
     return (

@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
-// A class to hold all the color constants for the NobleInvoice app,
+// A class to hold all the color constants for the Nobevra app,
 // derived directly from the brand logo for a consistent look and feel.
 class AppColors {
   // This class is not meant to be instantiated.
   AppColors._();
 
-  // --- Primary Brand Colors ---
-  static const Color primary = Color(0xFF00F0FF); // Electric Cyan
-  static const Color primaryDark = Color(0xFF00D1FF); 
-  static const Color primaryLight = Color(0xFFE0FCFF); 
+  // --- Primary Brand Colors (From Official Brand Guidelines & Web App) ---
+  static const Color primary = Color(0xFF01A0E2); // Noble Blue / Primary Brand Blue
+  static const Color primaryDark = Color(0xFF013948); // Deep Navy / Dark Teal
+  static const Color primaryOcean = Color(0xFF01779D); // Mid Blue / Ocean Teal
+  static const Color primaryLight = Color(0xFFE8F7FD); // Soft ice blue tint
+  static const Color cyanAccent = Color(0xFF00C7F2); // Vivid Cyan highlight
 
   // --- Secondary & Accent Colors ---
-  static const Color secondary = Color(0xFF050B1A); // Near-Black Navy
-  static const Color accent = Color(0xFFF59E0B);   // Warm amber
+  static const Color secondary = Color(0xFF013948); // Deep Navy
+  static const Color accent = Color(0xFF00C7F2);    // Brand Cyan accent
 
   // --- Neutral Colors ---
   static const Color black = Color(0xFF050B1A); // Consistent with brand navy

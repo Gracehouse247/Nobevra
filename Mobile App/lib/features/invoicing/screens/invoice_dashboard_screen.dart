@@ -148,16 +148,16 @@ class _InvoiceDashboardScreenState extends State<InvoiceDashboardScreen> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
-          color: isActive ? Colors.white : Colors.transparent,
+          color: isActive ? AppColors.primaryDark : Colors.transparent,
           borderRadius: BorderRadius.circular(12),
-          boxShadow: isActive ? [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 10, offset: const Offset(0, 4))] : [],
+          boxShadow: isActive ? [BoxShadow(color: Colors.black.withOpacity(0.08), blurRadius: 10, offset: const Offset(0, 4))] : [],
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(icon, size: 18, color: isActive ? AppColors.primary : AppColors.darkGrey),
+            Icon(icon, size: 18, color: isActive ? Colors.white : AppColors.darkGrey),
             const SizedBox(width: 8),
-            Text(label, style: TextStyle(fontWeight: FontWeight.w900, fontSize: 13, color: isActive ? AppColors.primary : AppColors.darkGrey)),
+            Text(label, style: TextStyle(fontWeight: FontWeight.w900, fontSize: 13, color: isActive ? Colors.white : AppColors.darkGrey)),
           ],
         ),
       ),

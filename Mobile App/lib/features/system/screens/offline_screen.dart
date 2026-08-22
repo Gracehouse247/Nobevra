@@ -103,7 +103,7 @@ class _OfflineScreenState extends State<OfflineScreen> {
               ),
               const SizedBox(height: 16),
               Text(
-                'It seems you\'re offline. Please check your internet connection to continue using NobleInvoice.',
+                'It seems you\'re offline. Please check your internet connection to continue using Nobevra.',
                 textAlign: TextAlign.center,
                 style: AppTextStyles.bodyLarge.copyWith(
                   color: AppColors.darkGrey,

@@ -383,7 +383,7 @@ export const BusinessCardEngine: React.FC<BusinessCardEngineProps> = ({
                 <h2 className="text-6xl font-black uppercase tracking-tight" style={{ color: contrastColor, fontFamily: data.fontFamily || undefined }}>{data.companyName}</h2>
                 <div className="bg-noble-surface p-4 rounded-3xl shadow-xl inline-block">
                     <img 
-                        src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobleinvoice.ai')}&color=${effectiveAccent.replace('#', '')}`} 
+                        src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(data.qrCodeUrl || 'https://nobevra.ai')}&color=${effectiveAccent.replace('#', '')}`} 
                         alt="QR" 
                         className="w-32 h-32"
                     />

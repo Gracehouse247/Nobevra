@@ -67,7 +67,7 @@ export default function InvoiceGeneratorPage() {
                         <div className="flex flex-wrap items-center gap-6 mb-10">
                             <div className="flex items-center gap-2">
                                 <div className="flex -space-x-2">
-                                    {[{ bg: 'bg-noble-blue', t: 'SJ' }, { bg: 'bg-[#0599D5]', t: 'MT' }, { bg: 'bg-emerald-500', t: 'ER' }, { bg: 'bg-violet-500', t: 'AK' }].map((a, i) => (
+                                    {[{ bg: 'bg-noble-blue', t: 'SJ' }, { bg: 'bg-[#01A0E2]', t: 'MT' }, { bg: 'bg-emerald-500', t: 'ER' }, { bg: 'bg-violet-500', t: 'AK' }].map((a, i) => (
                                         <div key={i} className={`w-8 h-8 rounded-full ${a.bg} border-2 border-white flex items-center justify-center text-white text-[9px] font-black shadow-sm`}>{a.t}</div>
                                     ))}
                                 </div>
@@ -343,7 +343,7 @@ export default function InvoiceGeneratorPage() {
                             {
                                 step: '3',
                                 title: 'Download and send',
-                                desc: "Click download to get a crisp PDF you can email to your client directly. Or, create a free NobleInvoice account to send it through our secure portal — and get a notification the moment your client opens the invoice.",
+                                desc: "Click download to get a crisp PDF you can email to your client directly. Or, create a free Nobevra account to send it through our secure portal — and get a notification the moment your client opens the invoice.",
                             },
                         ].map((s, i) => (
                             <div key={i} className="flex gap-6 items-start p-6 bg-[#F8FAFC] rounded-[28px] border border-slate-100 hover:border-noble-blue/30 transition-colors">
@@ -469,7 +469,7 @@ export default function InvoiceGeneratorPage() {
                     <div className="grid md:grid-cols-2 gap-8">
                         {[
                             {
-                                quote: `"Before NobleInvoice, I was chasing clients for weeks. Switching from a basic PDF generator to their full billing software cut my average collection time from 22 days to 6. Zero late payments in 3 months."`,
+                                quote: `"Before Nobevra, I was chasing clients for weeks. Switching from a basic PDF generator to their full billing software cut my average collection time from 22 days to 6. Zero late payments in 3 months."`,
                                 name: 'Alex K.',
                                 role: 'Creative Agency Founder',
                                 img: '/images/reviews/alex.jpg',
@@ -512,7 +512,7 @@ export default function InvoiceGeneratorPage() {
                         Ready for more than a generator?
                     </h2>
                     <p className="text-lg text-near-black/60 leading-relaxed mb-10">
-                        A free invoice generator is the right tool for one-off jobs. But as your business grows, you need <strong className="text-near-black">billing software</strong> that remembers your clients, automates reminders, and shows you who owes what at a glance. NobleInvoice Pro handles all of it — and it starts free.
+                        A free invoice generator is the right tool for one-off jobs. But as your business grows, you need <strong className="text-near-black">billing software</strong> that remembers your clients, automates reminders, and shows you who owes what at a glance. Nobevra Pro handles all of it — and it starts free.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
@@ -546,7 +546,7 @@ export default function InvoiceGeneratorPage() {
                             },
                             {
                                 q: 'What is the difference between this tool and billing software?',
-                                a: 'This generator creates a static PDF file. Billing software (like NobleInvoice Pro) saves your client history, tracks whether the invoice has been opened, sends automated payment reminders, and lets your clients pay by card directly on the invoice. The generator is perfect for occasional use — billing software is for growing businesses who invoice regularly.',
+                                a: 'This generator creates a static PDF file. Billing software (like Nobevra Pro) saves your client history, tracks whether the invoice has been opened, sends automated payment reminders, and lets your clients pay by card directly on the invoice. The generator is perfect for occasional use — billing software is for growing businesses who invoice regularly.',
                             },
                             {
                                 q: 'Can I add my company logo?',
@@ -558,7 +558,7 @@ export default function InvoiceGeneratorPage() {
                             },
                             {
                                 q: 'This may not be right for you if…',
-                                a: 'If you run a large enterprise with complex ERP integrations, multi-entity accounting, or bespoke approval workflows, this free generator is too lightweight. We built NobleInvoice for freelancers, solopreneurs, and growing small businesses — not 500-person finance departments.',
+                                a: 'If you run a large enterprise with complex ERP integrations, multi-entity accounting, or bespoke approval workflows, this free generator is too lightweight. We built Nobevra for freelancers, solopreneurs, and growing small businesses — not 500-person finance departments.',
                             },
                             {
                                 q: 'Can I use this internationally with different currencies?',

@@ -5,17 +5,17 @@ import { Smartphone, Zap, CheckCircle2, Clock, DollarSign, ArrowRight, ShieldChe
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'How to make an invoice on my phone | NobleInvoice',
+  title: 'How to make an invoice on my phone | Nobevra',
   description: 'Wondering how to make an invoice on my phone? Learn to use our app on iPhone, Samsung, or Android and get paid before leaving the job site.',
   keywords: ['how to make an invoice on my phone', 'How to make an invoice on my phone iphone', 'How to make an invoice on my phone samsung', 'How to make an invoice on my phone android', 'How to make an invoice on my phone for free', 'Create invoice online free'],
   alternates: {
-    canonical: 'https://nobleinvoice.com/features/how-to-make-an-invoice-on-my-phone',
+    canonical: '/features/how-to-make-an-invoice-on-my-phone',
   },
   openGraph: {
-    title: 'How to Make an Invoice on My Phone | NobleInvoice',
-    description: 'Get paid before you leave the job site. Create professional invoices on iPhone or Android in 60 seconds with NobleInvoice.',
-    url: 'https://nobleinvoice.com/features/how-to-make-an-invoice-on-my-phone',
-    siteName: 'NobleInvoice',
+    title: 'How to Make an Invoice on My Phone | Nobevra',
+    description: 'Get paid before you leave the job site. Create professional invoices on iPhone or Android in 60 seconds with Nobevra.',
+    url: '/features/how-to-make-an-invoice-on-my-phone',
+    siteName: 'Nobevra',
     type: 'website',
   },
 };
@@ -30,7 +30,7 @@ export default function ExpenseManagerPage() {
         "name": "How to make an invoice on my phone for free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Simply sign up for a NobleInvoice account. You can create an invoice online free and send it directly from your mobile browser or our app without hitting a paywall for basic functionality."
+          "text": "Simply sign up for a Nobevra account. You can create an invoice online free and send it directly from your mobile browser or our app without hitting a paywall for basic functionality."
         }
       },
       {
@@ -104,7 +104,7 @@ export default function ExpenseManagerPage() {
             {/* Real Screenshot — priority+fetchPriority drives LCP */}
             <Image
               src="/images/app-ui-dashboard.png"
-              alt="NobleInvoice App Dashboard – how to make an invoice on my phone"
+              alt="Nobevra App Dashboard – how to make an invoice on my phone"
               fill
               priority
               fetchPriority="high"
@@ -239,7 +239,7 @@ export default function ExpenseManagerPage() {
               {
                 step: '01',
                 title: 'Open the App',
-                desc: 'Tap the NobleInvoice icon. You do not need to sit at a desk. You just need an internet connection. Hit the big blue plus button.'
+                desc: 'Tap the Nobevra icon. You do not need to sit at a desk. You just need an internet connection. Hit the big blue plus button.'
               },
               {
                 step: '02',
@@ -409,7 +409,7 @@ export default function ExpenseManagerPage() {
               <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-bl-full" />
               <div className="flex items-center gap-3 mb-6 relative">
                 <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                <h3 className="text-2xl font-black tracking-tight">Using NobleInvoice</h3>
+                <h3 className="text-2xl font-black tracking-tight">Using Nobevra</h3>
               </div>
               <ul className="space-y-4 text-slate-600 relative">
                 <li>• Average time to send: <strong>45 seconds</strong></li>
@@ -464,7 +464,7 @@ export default function ExpenseManagerPage() {
                  <Quote className="w-12 h-12 text-white/20 mb-6" />
                  <div className="relative z-10 space-y-6">
                    <p className="text-xl md:text-2xl font-medium leading-relaxed italic">
-                     "I used to spend my Sunday evenings organizing bills. I switched to NobleInvoice, set up automated recurring profiles, and bought my weekends back."
+                     "I used to spend my Sunday evenings organizing bills. I switched to Nobevra, set up automated recurring profiles, and bought my weekends back."
                    </p>
                    <div className="flex items-center gap-4 pt-4">
                       <div className="w-12 h-12 rounded-full bg-slate-300 overflow-hidden shrink-0 relative">
@@ -523,7 +523,7 @@ export default function ExpenseManagerPage() {
             We might not be the right fit for you if...
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed">
-            If you run a massive enterprise requiring complex ERP integrations, hundreds of custom approval workflows, and legacy accounting system syncs, NobleInvoice isn't for you. 
+            If you run a massive enterprise requiring complex ERP integrations, hundreds of custom approval workflows, and legacy accounting system syncs, Nobevra isn't for you. 
           </p>
           <p className="text-lg text-slate-600 leading-relaxed mt-4">
             But if you are a freelancer, consultant, or agency owner who just wants a remarkably fast, dead-simple way to bill clients right from your phone and actually get paid on time? We are exactly what you've been looking for. Check out our <Link href="/pricing" className="text-blue-700 underline hover:text-blue-800 font-semibold">straightforward pricing</Link>.
@@ -545,7 +545,7 @@ export default function ExpenseManagerPage() {
             {[
               {
                 q: 'How to make an invoice on my phone for free?',
-                a: 'Simply sign up for a NobleInvoice account. You can create an invoice online free and send it directly from your mobile browser or our app without hitting a paywall for basic functionality.'
+                a: 'Simply sign up for a Nobevra account. You can create an invoice online free and send it directly from your mobile browser or our app without hitting a paywall for basic functionality.'
               },
               {
                 q: 'Does it work differently on iOS versus Android?',

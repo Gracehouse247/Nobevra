@@ -1,14 +1,16 @@
-name: Web App Next.js CI
+name: Nobevra Web App CI
 
 on:
   push:
     branches: [ "main" ]
     paths:
       - 'web-app/**'
+      - '.github/workflows/web-app.yml'
   pull_request:
     branches: [ "main" ]
     paths:
       - 'web-app/**'
+      - '.github/workflows/web-app.yml'
   workflow_dispatch:
 
 jobs:

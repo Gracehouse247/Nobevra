@@ -14,7 +14,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/', '/portal/', '/api/'],
       },
     ],
-    sitemap: 'https://nobleinvoice.com/sitemap.xml',
-    host: 'https://nobleinvoice.com',
+    sitemap: 'https://nobevra.noblesworld.com.ng/sitemap.xml',
+    host: 'https://nobevra.noblesworld.com.ng',
   }
 }

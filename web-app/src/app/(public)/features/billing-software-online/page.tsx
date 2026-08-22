@@ -31,7 +31,7 @@ export default function ClientPortalPage() {
         "name": "What is the best billing software online?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The best billing software online combines easy invoicing with a professional checkout experience. NobleInvoice leads the market by providing a secure, white-labeled client portal rather than just a basic PDF attachment."
+          "text": "The best billing software online combines easy invoicing with a professional checkout experience. Nobevra leads the market by providing a secure, white-labeled client portal rather than just a basic PDF attachment."
         }
       },
       {
@@ -55,7 +55,7 @@ export default function ClientPortalPage() {
         "name": "Is there billing software online free of hidden charges?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, NobleInvoice offers a genuinely free tier. Unlike other platforms that lock you out after 3 invoices, our free tier lets you bill clients without hidden transaction fee markups from us."
+          "text": "Yes, Nobevra offers a genuinely free tier. Unlike other platforms that lock you out after 3 invoices, our free tier lets you bill clients without hidden transaction fee markups from us."
         }
       },
       {
@@ -71,12 +71,12 @@ export default function ClientPortalPage() {
         "name": "What is the best invoice app free to download for mobile?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "NobleInvoice is fully optimized as a mobile web app. You can generate, send, and track payments directly from your smartphone without needing to download a bulky app from the app store."
+          "text": "Nobevra is fully optimized as a mobile web app. You can generate, send, and track payments directly from your smartphone without needing to download a bulky app from the app store."
         }
       },
       {
         "@type": "Question",
-        "name": "How does NobleInvoice compare to QuickBooks or FreshBooks?",
+        "name": "How does Nobevra compare to QuickBooks or FreshBooks?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "We are purpose-built for speed and client experience. Where legacy tools bloat your workflow with double-entry accounting features you don't need, we focus exclusively on making your brand look premium and getting you paid faster."
@@ -103,7 +103,7 @@ export default function ClientPortalPage() {
         "name": "Do I need accounting knowledge to use this?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not at all. NobleInvoice is designed for freelancers, creators, and business owners—not accountants. You can send your first professional invoice in under 60 seconds with zero financial training."
+          "text": "Not at all. Nobevra is designed for freelancers, creators, and business owners—not accountants. You can send your first professional invoice in under 60 seconds with zero financial training."
         }
       },
       {
@@ -166,7 +166,7 @@ export default function ClientPortalPage() {
             </h1>
             
             <p className="text-base md:text-lg text-near-black/60 max-w-xl mb-10 leading-relaxed">
-              Stop sending sketchy PDF attachments. NobleInvoice is the premier online billing software that gives your clients a secure, branded portal to review work and pay instantly. Command higher rates and get paid 2x faster.
+              Stop sending sketchy PDF attachments. Nobevra is the premier online billing software that gives your clients a secure, branded portal to review work and pay instantly. Command higher rates and get paid 2x faster.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -185,7 +185,7 @@ export default function ClientPortalPage() {
                 <div className="flex -space-x-3">
                     {[
                         { bg: 'bg-noble-blue', text: 'SJ' },
-                        { bg: 'bg-[#0599D5]', text: 'MT' },
+                        { bg: 'bg-[#01A0E2]', text: 'MT' },
                         { bg: 'bg-primary', text: 'ER' },
                     ].map((a, i) => (
                         <div
@@ -229,7 +229,7 @@ export default function ClientPortalPage() {
                     <div className="rounded-[16px] sm:rounded-[32px] overflow-hidden border border-slate-100/50 shadow-inner bg-slate-50 relative aspect-[4/3]">
                         <Image 
                             src="/images/dashboard-desktop.png" 
-                            alt="NobleInvoice Billing Software Online Dashboard" 
+                            alt="Nobevra Billing Software Online Dashboard" 
                             fill
                             className="object-cover object-top"
                             sizes="(max-width: 768px) 100vw, 50vw"
@@ -331,7 +331,7 @@ export default function ClientPortalPage() {
                     <div className="relative w-full h-[240px] rounded-2xl overflow-hidden border border-slate-100 shadow-md group-hover:scale-[1.03] transition-transform duration-500">
                         <Image 
                             src="/images/invoice-templates-showcase.png" 
-                            alt="NobleInvoice World-Class Invoice Templates" 
+                            alt="Nobevra World-Class Invoice Templates" 
                             fill
                             className="object-cover object-top"
                             sizes="(max-width: 768px) 100vw, 30vw"
@@ -415,7 +415,7 @@ export default function ClientPortalPage() {
               <div className="w-full h-full rounded-[38px] overflow-hidden relative bg-[#FAFBFD]">
                 <Image 
                     src="/images/dashboard-mobile.png" 
-                    alt="NobleInvoice Mobile Billing App Interface" 
+                    alt="Nobevra Mobile Billing App Interface" 
                     fill
                     className="object-cover object-top"
                     sizes="300px"
@@ -424,8 +424,8 @@ export default function ClientPortalPage() {
             </div>
           </div>
           <div className="order-1 lg:order-2 space-y-6">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0599D5]/10 border border-[#0599D5]/20 text-[#0599D5] font-bold text-[10px] uppercase tracking-widest mb-2">
-                <span className="w-2 h-2 rounded-full bg-[#0599D5] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#01A0E2]/10 border border-[#01A0E2]/20 text-[#01A0E2] font-bold text-[10px] uppercase tracking-widest mb-2">
+                <span className="w-2 h-2 rounded-full bg-[#01A0E2] animate-pulse" />
                 Mobile Workspace
             </div>
             <h2 className="font-inter text-4xl lg:text-5xl font-black text-near-black leading-[1.1] tracking-tight">
@@ -438,7 +438,7 @@ export default function ClientPortalPage() {
                 {[
                     { title: 'Optimized Mobile Checkouts', desc: 'Clients get a beautiful mobile-native payment screen to swipe and pay instantly.' },
                     { title: 'Real-time Payment Notifications', desc: 'Get notified via SMS/email the moment a client opens or pays an invoice.' },
-                    { title: 'Zero Setup App Shortcuts', desc: 'Add NobleInvoice to your home screen for a fast, native-feeling app experience.' }
+                    { title: 'Zero Setup App Shortcuts', desc: 'Add Nobevra to your home screen for a fast, native-feeling app experience.' }
                 ].map((item, idx) => (
                     <div key={idx} className="flex gap-4">
                         <CheckCircle2 className="w-5 h-5 text-cyan-500 shrink-0 mt-1" />
@@ -546,7 +546,7 @@ export default function ClientPortalPage() {
                   Reclaim <span className="text-noble-blue">20+ Hours</span> Every Month.
               </h2>
               <p className="text-base md:text-lg text-near-black/50 max-w-2xl mx-auto leading-relaxed">
-                  Most freelancers and small businesses lose money to manual billing and delayed payments. Calculate exactly how much you'll gain with NobleInvoice's automation.
+                  Most freelancers and small businesses lose money to manual billing and delayed payments. Calculate exactly how much you'll gain with Nobevra's automation.
               </p>
           </div>
           <div className="px-4 md:px-16 max-w-[1200px] mx-auto noble-card-shadow rounded-[32px]">
@@ -572,7 +572,7 @@ export default function ClientPortalPage() {
                        {[1,2,3,4,5].map(i => <span key={i} className="text-yellow-400 text-xl">★</span>)}
                    </div>
                    <p className="text-lg font-medium leading-relaxed mb-8">
-                       "Before NobleInvoice, I was chasing clients for weeks. Now, I send an invoice from the portal, they see my logo, they tap Apple Pay, and the money is in my account the same day. It literally saved my cash flow."
+                       "Before Nobevra, I was chasing clients for weeks. Now, I send an invoice from the portal, they see my logo, they tap Apple Pay, and the money is in my account the same day. It literally saved my cash flow."
                    </p>
                    <div className="flex items-center gap-4">
                        <div className="w-14 h-14 rounded-full bg-slate-300 overflow-hidden">
@@ -590,7 +590,7 @@ export default function ClientPortalPage() {
                        {[1,2,3,4,5].map(i => <span key={i} className="text-yellow-400 text-xl">★</span>)}
                    </div>
                    <p className="text-lg font-medium leading-relaxed mb-8">
-                       "I needed a reliable GST billing software online. NobleInvoice handles all the tax compliance flawlessly, and the automated recurring billing means I don't even have to think about invoicing my retainer clients anymore."
+                       "I needed a reliable GST billing software online. Nobevra handles all the tax compliance flawlessly, and the automated recurring billing means I don't even have to think about invoicing my retainer clients anymore."
                    </p>
                    <div className="flex items-center gap-4">
                        <div className="w-14 h-14 rounded-full bg-slate-300 overflow-hidden">
@@ -665,7 +665,7 @@ export default function ClientPortalPage() {
                       The 1% Choice
                   </div>
                   <h2 className="font-inter text-4xl lg:text-5xl font-black text-near-black leading-[1.1] tracking-tight">
-                      Compare NobleInvoice vs. Alternatives
+                      Compare Nobevra vs. Alternatives
                   </h2>
               </div>
 
@@ -675,7 +675,7 @@ export default function ClientPortalPage() {
                           <thead>
                               <tr className="bg-slate-50 border-b border-slate-100">
                                   <th className="p-6 font-bold text-slate-400 uppercase tracking-widest text-xs w-1/3">Feature</th>
-                                  <th className="p-6 font-black text-noble-blue text-xl border-x border-slate-100 bg-noble-blue/5 w-1/3">NobleInvoice</th>
+                                  <th className="p-6 font-black text-noble-blue text-xl border-x border-slate-100 bg-noble-blue/5 w-1/3">Nobevra</th>
                                   <th className="p-6 font-bold text-slate-500 text-lg w-1/3">Legacy Billing Software</th>
                               </tr>
                           </thead>

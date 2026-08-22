@@ -73,20 +73,23 @@ class SmartphoneMockup extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(18)),
               padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Container(width: double.infinity, height: 30, decoration: BoxDecoration(color: Colors.grey.shade50, borderRadius: BorderRadius.circular(6))),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Expanded(child: Container(height: 50, decoration: BoxDecoration(color: AppColors.primary.withOpacity(0.1), borderRadius: BorderRadius.circular(8)))),
-                      const SizedBox(width: 8),
-                      Expanded(child: Container(height: 50, decoration: BoxDecoration(color: Colors.grey.shade100, borderRadius: BorderRadius.circular(8)))),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Container(width: double.infinity, height: 80, decoration: BoxDecoration(color: Colors.grey.shade50, borderRadius: BorderRadius.circular(8))),
-                ],
+              child: SingleChildScrollView(
+                physics: const NeverScrollableScrollPhysics(),
+                child: Column(
+                  children: [
+                    Container(width: double.infinity, height: 30, decoration: BoxDecoration(color: Colors.grey.shade50, borderRadius: BorderRadius.circular(6))),
+                    const SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Expanded(child: Container(height: 40, decoration: BoxDecoration(color: AppColors.primary.withOpacity(0.1), borderRadius: BorderRadius.circular(8)))),
+                        const SizedBox(width: 8),
+                        Expanded(child: Container(height: 40, decoration: BoxDecoration(color: Colors.grey.shade100, borderRadius: BorderRadius.circular(8)))),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Container(width: double.infinity, height: 60, decoration: BoxDecoration(color: Colors.grey.shade50, borderRadius: BorderRadius.circular(8))),
+                  ],
+                ),
               ),
             ),
           ),

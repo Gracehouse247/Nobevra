@@ -40,7 +40,7 @@ export default function HeroSection() {
                                     <span className="material-symbols-outlined text-5xl text-noble-blue">play_arrow</span>
                                 </div>
                                 <div className="text-center">
-                                    <p className="text-noble-text font-black text-lg">NobleInvoice — 2-Minute Overview</p>
+                                    <p className="text-noble-text font-black text-lg">Nobevra — 2-Minute Overview</p>
                                     <p className="text-slate-400 text-sm mt-1 font-medium">Replace this placeholder with your Loom / YouTube embed</p>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@ export default function HeroSection() {
                             <div className="flex -space-x-3">
                                 {[
                                     { bg: 'bg-noble-blue', text: 'SJ' },
-                                    { bg: 'bg-[#0599D5]', text: 'MT' },
+                                    { bg: 'bg-[#01A0E2]', text: 'MT' },
                                     { bg: 'bg-primary', text: 'ER' },
                                     { bg: 'bg-[#166FBB]', text: 'AK' },
                                     { bg: 'bg-near-black', text: 'LB' },
@@ -241,7 +241,7 @@ export default function HeroSection() {
                             className="absolute -top-4 -right-4 lg:-right-6 bg-noble-surface rounded-2xl px-4 py-3 shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-near-black/5 z-20 flex items-center gap-2.5"
                         >
                             <div className="flex -space-x-2">
-                                {['bg-noble-blue','bg-[#0599D5]','bg-primary'].map((c, i) => (
+                                {['bg-noble-blue','bg-[#01A0E2]','bg-primary'].map((c, i) => (
                                     <div key={i} className={`w-6 h-6 rounded-full ${c} border-2 border-white`} />
                                 ))}
                             </div>

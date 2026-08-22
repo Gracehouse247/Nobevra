@@ -15,7 +15,7 @@ export default function Mp3Form({ onChange, initialData, onPreviewValueChange }:
             _file: fileUpload 
         });
         
-        onPreviewValueChange(fileUpload ? `https://nobleinvoice.com/hosted/${fileUpload.name}` : 'https://nobleinvoice.com');
+        onPreviewValueChange(fileUpload ? `https://nobevra.noblesworld.com.ng/hosted/${fileUpload.name}` : 'https://nobevra.noblesworld.com.ng');
     }, [trackName, artist, fileUpload]);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {

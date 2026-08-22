@@ -8,12 +8,13 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-
-const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
-    auth: { persistSession: false, autoRefreshToken: false }
-});
+function getAdminClient() {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co';
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build';
+    return createClient(supabaseUrl, supabaseServiceKey, {
+        auth: { persistSession: false, autoRefreshToken: false }
+    });
+}
 
 /**
  * DB-backed sliding-window rate limiter for Vercel Serverless/Edge functions.
@@ -33,7 +34,7 @@ export async function rateLimit(
     const windowSecs = Math.max(1, Math.floor(windowMs / 1000));
     
     // Call the atomic rate limiter RPC
-    const { data, error } = await supabaseAdmin.rpc('check_rate_limit', {
+    const { data, error } = await getAdminClient().rpc('check_rate_limit', {
         p_identifier: identifier,
         p_limit: limit,
         p_window_secs: windowSecs

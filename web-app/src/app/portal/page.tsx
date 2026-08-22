@@ -145,7 +145,7 @@ function PortalContent() {
   /* Dynamic page title */
   useEffect(() => {
     if (invoice) {
-      document.title = `Invoice ${invoice.invoice_number} | NobleInvoice`;
+      document.title = `Invoice ${invoice.invoice_number} | Nobevra`;
     }
   }, [invoice]);
 
@@ -226,9 +226,9 @@ function PortalContent() {
       <div className="min-h-screen bg-[#F0F4F8]">
         {/* ── Ambient Mesh Gradients ───────────────────────────────── */}
         <div className="pointer-events-none fixed inset-0 overflow-hidden">
-          <div className="absolute -left-60 -top-60 h-[700px] w-[700px] rounded-full bg-[#0599D5]/[0.06] blur-[140px]" />
+          <div className="absolute -left-60 -top-60 h-[700px] w-[700px] rounded-full bg-[#01A0E2]/[0.06] blur-[140px]" />
           <div className="absolute -right-40 top-1/3 h-[500px] w-[500px] rounded-full bg-[#00F0FF]/[0.05] blur-[120px]" />
-          <div className="absolute -bottom-40 left-1/3 h-[600px] w-[600px] rounded-full bg-[#0599D5]/[0.04] blur-[130px]" />
+          <div className="absolute -bottom-40 left-1/3 h-[600px] w-[600px] rounded-full bg-[#01A0E2]/[0.04] blur-[130px]" />
         </div>
 
         {/* ── Content ──────────────────────────────────────────────── */}
@@ -271,7 +271,7 @@ function PortalContent() {
                     className="h-14 w-14 rounded-2xl object-contain shadow-sm"
                   />
                 ) : (
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0599D5] to-[#00F0FF] shadow-lg">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-[#01A0E2] to-[#00F0FF] shadow-lg">
                     <Building className="h-7 w-7 text-white" />
                   </div>
                 )}
@@ -361,7 +361,7 @@ function PortalContent() {
             {/* ── Line Items Table ────────────────────────────────── */}
             <motion.div variants={itemVariants} className="px-8 py-8 sm:px-12">
               <div className="mb-4 flex items-center gap-2">
-                <FileText className="h-4 w-4 text-[#0599D5]" />
+                <FileText className="h-4 w-4 text-[#01A0E2]" />
                 <h2
                   className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-500"
                   style={{
@@ -513,7 +513,7 @@ function PortalContent() {
                   whileTap={{ scale: 0.95 }}
                   onClick={handlePayNow}
                   disabled={payingNow}
-                  className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#0599D5] px-8 py-3.5 text-[10px] font-black uppercase tracking-[0.2em] text-white shadow-[0_20px_40px_rgba(5,153,213,0.25)] transition-all hover:shadow-[0_24px_48px_rgba(5,153,213,0.35)] disabled:opacity-60 disabled:cursor-wait"
+                  className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-[#01A0E2] px-8 py-3.5 text-[10px] font-black uppercase tracking-[0.2em] text-white shadow-[0_20px_40px_rgba(5,153,213,0.25)] transition-all hover:shadow-[0_24px_48px_rgba(5,153,213,0.35)] disabled:opacity-60 disabled:cursor-wait"
                 >
                   {payingNow ? (
                     <>
@@ -553,10 +553,10 @@ function PortalContent() {
               href="/"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="text-sm font-black tracking-tight text-[#0599D5]/60 transition-colors hover:text-[#0599D5]"
+              className="text-sm font-black tracking-tight text-[#01A0E2]/60 transition-colors hover:text-[#01A0E2]"
               style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
             >
-              NobleInvoice
+              Nobevra
             </motion.a>
           </motion.div>
         </motion.div>

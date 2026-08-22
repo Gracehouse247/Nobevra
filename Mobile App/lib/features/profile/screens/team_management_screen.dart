@@ -58,7 +58,7 @@ class _TeamManagementScreenState extends State<TeamManagementScreen> {
             _buildSheetInput(
               label: 'EMAIL ADDRESS',
               controller: _emailCtrl,
-              hint: 'colleague@NobleInvoice.app',
+              hint: 'colleague@nobevra.com',
               icon: Icons.alternate_email_rounded,
             ),
             const SizedBox(height: 24),

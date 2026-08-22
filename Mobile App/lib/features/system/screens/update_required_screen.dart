@@ -8,10 +8,10 @@ class UpdateRequiredScreen extends StatelessWidget {
   const UpdateRequiredScreen({super.key});
 
   Future<void> _launchStore() async {
-    // These should be replaced with actual NobleInvoice store IDs/URLs
+    // These should be replaced with actual Nobevra store IDs/URLs
     final String url = Platform.isIOS
         ? 'https://apps.apple.com/app/idYOUR_APP_ID'
-        : 'https://play.google.com/store/apps/details?id=com.NobleInvoice.app';
+        : 'https://play.google.com/store/apps/details?id=com.noblesworld.nobevra';
 
     final Uri uri = Uri.parse(url);
     try {
@@ -62,7 +62,7 @@ class UpdateRequiredScreen extends StatelessWidget {
                         ),
                         const SizedBox(width: 8),
                         Text(
-                          'NobleInvoice',
+                          'Nobevra',
                           style: AppTextStyles.headlineSmall.copyWith(
                             fontWeight: FontWeight.w900,
                             letterSpacing: -0.5,
@@ -98,7 +98,7 @@ class UpdateRequiredScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      'We\'ve added new tools to help your business grow. Update now to continue using NobleInvoice.',
+                      'We\'ve added new tools to help your business grow. Update now to continue using Nobevra.',
                       textAlign: TextAlign.center,
                       style: AppTextStyles.bodyMedium.copyWith(
                         color: AppColors.darkGrey,

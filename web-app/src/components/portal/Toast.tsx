@@ -24,7 +24,7 @@ export function Toast({
       className="fixed bottom-8 left-1/2 z-[9998] -translate-x-1/2 rounded-2xl border border-white/60 bg-noble-surface/80 px-6 py-4 shadow-[0_20px_40px_rgba(0,0,0,0.1)] backdrop-blur-2xl"
     >
       <div className="flex items-center gap-3">
-        <Sparkles className="h-4 w-4 text-[#0599D5]" />
+        <Sparkles className="h-4 w-4 text-[#01A0E2]" />
         <p className="text-sm font-semibold text-slate-700">{message}</p>
       </div>
     </motion.div>

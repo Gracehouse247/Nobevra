@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: ProductPassportProps): Promis
         .single();
 
     if (!passport) {
-        return { title: 'Product Not Found | NobleInvoice' };
+        return { title: 'Product Not Found | Nobevra' };
     }
 
     const productData = Array.isArray(passport.products) ? passport.products[0] : passport.products;
@@ -160,7 +160,7 @@ export default async function ProductPassportPage({ params }: ProductPassportPro
             {/* Footer */}
             <footer className="bg-slate-900 py-8 px-6 text-center">
                 <div className="inline-flex items-center gap-2 text-slate-400 text-xs font-bold mb-2">
-                    <Activity className="w-4 h-4 text-noble-blue" /> Powered by NobleInvoice
+                    <Activity className="w-4 h-4 text-noble-blue" /> Powered by Nobevra
                 </div>
                 <p className="text-slate-500 text-[10px] uppercase tracking-widest">Digital Product Passport Engine</p>
             </footer>

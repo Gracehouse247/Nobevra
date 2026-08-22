@@ -207,7 +207,7 @@ function QrGeneratorForm() {
                                     <label className="text-xs font-bold text-[#64748B] uppercase tracking-widest">Include Center Logo</label>
                                     <div className="flex items-center h-[42px] px-4 bg-[#F8FAFC] dark:bg-[#060D1A] border border-[#E2E8F0] rounded-xl">
                                         <label className="relative inline-flex items-center cursor-pointer w-full justify-between">
-                                            <span className="text-sm font-bold text-[#0F172A]">NobleInvoice Icon</span>
+                                            <span className="text-sm font-bold text-[#0F172A]">Nobevra Icon</span>
                                             <input type="checkbox" className="sr-only peer" checked={includeLogo} onChange={(e) => setIncludeLogo(e.target.checked)} />
                                             <div className="w-9 h-5 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-noble-surface dark:bg-noble-card after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#166FBB]"></div>
                                         </label>

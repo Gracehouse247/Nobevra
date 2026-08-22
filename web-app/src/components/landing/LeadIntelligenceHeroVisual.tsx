@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { QrCode, CheckCircle2, Eye, Link as LinkIcon } from 'lucide-react';
 
 export default function LeadIntelligenceHeroVisual() {
-  const [url, setUrl] = useState('nobleinvoice.com/pay/inv-2024');
+  const [url, setUrl] = useState('nobevra.noblesworld.com.ng/pay/inv-2024');
 
   return (
     <div
@@ -40,7 +40,7 @@ export default function LeadIntelligenceHeroVisual() {
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
             <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
             <div className="ml-4 bg-noble-surface/60 px-3 py-1 rounded-md text-xs text-slate-500 font-medium flex-1 truncate">
-              {url || 'app.nobleinvoice.com/qr'}
+              {url || 'app.nobevra.noblesworld.com.ng/qr'}
             </div>
           </div>
           {/* QR Code Preview Visual */}

@@ -264,7 +264,7 @@ class _QrVideoFormScreenState extends State<QrVideoFormScreen> {
           SizedBox(width: 12),
           Expanded(
             child: Text(
-              'NobleInvoice optimizes videos for mobile playback. For the best experience, we recommend using YouTube or Vimeo links.',
+              'Nobevra optimizes videos for mobile playback. For the best experience, we recommend using YouTube or Vimeo links.',
               style: TextStyle(color: AppColors.darkGrey, fontSize: 12, height: 1.4, fontStyle: FontStyle.italic),
             ),
           ),

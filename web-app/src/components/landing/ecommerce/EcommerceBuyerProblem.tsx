@@ -59,7 +59,7 @@ export default function EcommerceBuyerProblem() {
                                 Every time you send an incomplete invoice, you trigger an email chain asking for corrections. This doesn't just annoy the buyer — it delays your payment by 2 to 4 weeks while the paperwork is sorted out.
                             </p>
                             <p className="text-near-black font-bold">
-                                NobleInvoice automatically formats every B2B invoice to AP standards before it ever hits their inbox. Get paid on time, the first time.
+                                Nobevra automatically formats every B2B invoice to AP standards before it ever hits their inbox. Get paid on time, the first time.
                             </p>
                         </div>
 

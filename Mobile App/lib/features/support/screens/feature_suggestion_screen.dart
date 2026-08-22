@@ -40,7 +40,7 @@ class _FeatureSuggestionScreenState extends State<FeatureSuggestionScreen> {
                 children: [
                   const Text('Shape the Future', style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900)),
                   const SizedBox(height: 8),
-                  const Text('Have an idea to make NobleInvoice better? We want to hear it!', style: TextStyle(color: Colors.grey, fontSize: 14)),
+                  const Text('Have an idea to make Nobevra better? We want to hear it!', style: TextStyle(color: Colors.grey, fontSize: 14)),
                   const SizedBox(height: 32),
                   
                   _buildSectionHeader('I HAVE AN IDEA FOR...'),

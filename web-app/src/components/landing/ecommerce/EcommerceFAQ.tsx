@@ -5,7 +5,7 @@ import { ChevronDown, AlertOctagon } from 'lucide-react';
 const faqs = [
     {
         q: 'How does the Shopify invoice generator work?',
-        a: 'You connect your Shopify store through our integration. Every time an order comes in, NobleInvoice automatically generates a branded PDF invoice and can email it directly to the buyer. You do not touch a single thing manually.',
+        a: 'You connect your Shopify store through our integration. Every time an order comes in, Nobevra automatically generates a branded PDF invoice and can email it directly to the buyer. You do not touch a single thing manually.',
     },
     {
         q: 'Is this a proper WooCommerce invoice plugin?',
@@ -21,7 +21,7 @@ const faqs = [
     },
     {
         q: 'What makes this better than the invoicing built into my ecommerce platform?',
-        a: 'Basic platform invoicing is generic. NobleInvoice gives you fully branded PDF invoices, automated sending, reminder sequences, bulk processing for wholesale orders, and revenue analytics — none of which are available in standard Shopify or WooCommerce.',
+        a: 'Basic platform invoicing is generic. Nobevra gives you fully branded PDF invoices, automated sending, reminder sequences, bulk processing for wholesale orders, and revenue analytics — none of which are available in standard Shopify or WooCommerce.',
     },
     {
         q: 'Can I use the bulk order billing tool for seasonal large orders?',

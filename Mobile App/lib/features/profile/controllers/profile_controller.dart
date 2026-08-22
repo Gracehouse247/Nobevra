@@ -104,7 +104,7 @@ class ProfileController extends ChangeNotifier {
         } catch (_) {}
 
         if (detectedCurrency != _profile?.preferredCurrency) {
-          _profile?.preferredCurrency = detectedCurrency;
+          _profile = _profile?.copyWith(preferredCurrency: detectedCurrency);
           await SupabaseService.client.from('profiles').update({
             'preferred_currency': detectedCurrency,
           }).eq('id', user.id);

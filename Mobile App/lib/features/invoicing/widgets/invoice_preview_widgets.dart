@@ -110,7 +110,7 @@ class PreviewBottomBar extends StatelessWidget {
               const SizedBox(width: 8),
               Expanded(flex: 2, child: ElevatedButton.icon(
                 onPressed: isGenerating ? null : onIssue,
-                style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary, padding: const EdgeInsets.symmetric(vertical: 16), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)), elevation: 0),
+                style: ElevatedButton.styleFrom(backgroundColor: AppColors.primaryDark, padding: const EdgeInsets.symmetric(vertical: 16), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(100)), elevation: 0),
                 icon: const Icon(Icons.send_rounded, color: Colors.white, size: 18),
                 label: const Text('Confirm & Issue', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 15)),
               )),
@@ -208,7 +208,7 @@ class _DefaultTemplate extends StatelessWidget with InvoiceTemplateHelpers {
     Expanded(child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
       Text('SCAN TO PAY', style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: accent, letterSpacing: 1.2)),
       const SizedBox(height: 4),
-      const Text('Your client can scan this QR code to view and pay this invoice instantly via the NobleInvoice portal.', style: TextStyle(fontSize: 11, color: AppColors.darkGrey, height: 1.4)),
+      const Text('Your client can scan this QR code to view and pay this invoice instantly via the Nobevra portal.', style: TextStyle(fontSize: 11, color: AppColors.darkGrey, height: 1.4)),
     ])),
   ]);
 }

@@ -4,8 +4,8 @@ import { Bot, AlertTriangle, ShieldAlert, ArrowLeft } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'AI Transparency Disclaimer — NobleInvoice AI Invoice Generator',
-  description: 'How NobleInvoice uses AI in our invoice generator. Full transparency on AI-powered features, data processing, and our commitment to responsible AI in billing software.',
+  title: 'AI Transparency Disclaimer — Nobevra AI Invoice Generator',
+  description: 'How Nobevra uses AI in our invoice generator. Full transparency on AI-powered features, data processing, and our commitment to responsible AI in billing software.',
   keywords: ['AI invoicing', 'artificial intelligence disclaimer', 'automated billing', 'AI invoice generator'],
 };
 
@@ -31,7 +31,7 @@ export default function AIDisclaimerPage() {
 
                 <div className="space-y-8 text-slate-300 leading-relaxed text-sm md:text-base selection:bg-[#006970]/30">
                     <p className="text-lg font-medium text-white p-6 bg-white/5 rounded-2xl border-l-4 border-l-indigo-500">
-                        NobleInvoice utilizes advanced Large Language Models and proprietary sequencing algorithms to synthesize Mind Maps, parse task notes, and schedule Focus blocks.
+                        Nobevra utilizes advanced Large Language Models and proprietary sequencing algorithms to synthesize Mind Maps, parse task notes, and schedule Focus blocks.
                     </p>
 
                     <section className="space-y-4">
@@ -51,7 +51,7 @@ export default function AIDisclaimerPage() {
                             <ShieldAlert className="w-5 h-5 text-[#006970]" /> 2. No Professional Advice
                         </h2>
                         <p>
-                            NobleInvoice's "Biological Prime Time" schedule optimization and Mastery path suggestions are productivity frameworks. They do not constitute medical, psychological, or professional health advice. If you are experiencing cognitive fatigue or burnout, please consult a healthcare professional.
+                            Nobevra's "Biological Prime Time" schedule optimization and Mastery path suggestions are productivity frameworks. They do not constitute medical, psychological, or professional health advice. If you are experiencing cognitive fatigue or burnout, please consult a healthcare professional.
                         </p>
                     </section>
 

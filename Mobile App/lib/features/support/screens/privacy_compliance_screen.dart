@@ -39,7 +39,7 @@ class PrivacyComplianceScreen extends StatelessWidget {
                   const SizedBox(height: 40),
                   _buildSection(
                     '2. Data Security & Storage',
-                    'NobleInvoice employs industry-standard AES-256 encryption for all data at rest. Our servers are located in highly secure, SOC2-compliant data centers.',
+                    'Nobevra employs industry-standard AES-256 encryption for all data at rest. Our servers are located in highly secure, SOC2-compliant data centers.',
                     Icons.security_rounded,
                     [],
                     hasTip: true,
@@ -112,12 +112,12 @@ class PrivacyComplianceScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text(
-          'NobleInvoice Data Commitment',
+          'Nobevra Data Commitment',
           style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, height: 1.1),
         ),
         const SizedBox(height: 16),
         const Text(
-          'At NobleInvoice, we believe privacy is a fundamental human right. This document outlines our transparent approach to data safety, compliance with international standards, and how we empower you to control your digital footprint.',
+          'At Nobevra, we believe privacy is a fundamental human right. This document outlines our transparent approach to data safety, compliance with international standards, and how we empower you to control your digital footprint.',
           style: TextStyle(color: Colors.grey, fontSize: 14, height: 1.6),
         ),
         const SizedBox(height: 16),

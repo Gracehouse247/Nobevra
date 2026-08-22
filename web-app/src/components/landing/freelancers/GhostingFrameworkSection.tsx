@@ -15,7 +15,7 @@ export default function GhostingFrameworkSection() {
                         The 3-Step Ghosting Framework: How to Follow Up <span className="text-red-500">Without Ruining the Relationship</span>
                     </h2>
                     <p className="text-lg text-near-black/60 leading-relaxed">
-                        The absolute worst part of independent contractor invoicing isn't making the bill—it's chasing down the cash. Here is the exact system NobleInvoice uses to handle overdue payments while keeping things strictly professional.
+                        The absolute worst part of independent contractor invoicing isn't making the bill—it's chasing down the cash. Here is the exact system Nobevra uses to handle overdue payments while keeping things strictly professional.
                     </p>
                 </div>
 
@@ -36,7 +36,7 @@ export default function GhostingFrameworkSection() {
                         {
                             day: 'Day 7',
                             title: 'The Final Notice',
-                            desc: 'A formal escalation. NobleInvoice can automatically apply your pre-set late fees, enforcing your payment terms without you having to be the bad guy.',
+                            desc: 'A formal escalation. Nobevra can automatically apply your pre-set late fees, enforcing your payment terms without you having to be the bad guy.',
                             icon: 'gavel'
                         }
                     ].map((step, idx) => (

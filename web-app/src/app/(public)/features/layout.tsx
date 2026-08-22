@@ -16,7 +16,7 @@ import type { Metadata } from 'next';
    Source           : Live SerpAPI data · Jul 2026
 ──────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Expense Tracking Software & Invoicing Features | NobleInvoice',
+    title: 'Expense Tracking Software & Invoicing Features | Nobevra',
     description: 'Explore all features: expense tracking software, invoice automation, recurring billing, and client management CRM all built into one platform.',
     keywords: [
         'expense tracking software',
@@ -31,12 +31,12 @@ export const metadata: Metadata = {
         'invoicing software features',
     ],
     alternates: {
-        canonical: 'https://nobleinvoice.com/features',
+        canonical: '/features',
     },
     openGraph: {
-        title: 'Platform Features | NobleInvoice',
+        title: 'Platform Features | Nobevra',
         description: 'Explore our full suite of expense tracking software, CRM tools, and invoice automation built for modern service businesses.',
-        url: 'https://nobleinvoice.com/features',
+        url: '/features',
         type: 'website',
     },
 };

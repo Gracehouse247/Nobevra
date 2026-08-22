@@ -14,7 +14,7 @@ export default function SEOQualifierFAQ() {
         },
         {
             q: 'What is the best billing software online?',
-            a: 'The best billing software online combines easy invoicing with a professional checkout experience. NobleInvoice leads the market by providing a secure, white-labeled client portal rather than just a basic PDF attachment.',
+            a: 'The best billing software online combines easy invoicing with a professional checkout experience. Nobevra leads the market by providing a secure, white-labeled client portal rather than just a basic PDF attachment.',
         },
         {
             q: 'Do my clients need an account to pay me?',
@@ -26,7 +26,7 @@ export default function SEOQualifierFAQ() {
         },
         {
             q: 'Is there billing software online free of hidden charges?',
-            a: 'Yes, NobleInvoice offers a genuinely free tier. Unlike other platforms that lock you out after 3 invoices, our free tier lets you bill clients without hidden transaction fee markups from us.',
+            a: 'Yes, Nobevra offers a genuinely free tier. Unlike other platforms that lock you out after 3 invoices, our free tier lets you bill clients without hidden transaction fee markups from us.',
         },
         {
             q: 'What is the difference between an invoice generator and billing software?',
@@ -34,10 +34,10 @@ export default function SEOQualifierFAQ() {
         },
         {
             q: 'What is the best invoice app free to download for mobile?',
-            a: 'NobleInvoice is fully optimized as a mobile web app. You can generate, send, and track payments directly from your smartphone without needing to download a bulky app from the app store.',
+            a: 'Nobevra is fully optimized as a mobile web app. You can generate, send, and track payments directly from your smartphone without needing to download a bulky app from the app store.',
         },
         {
-            q: 'How does NobleInvoice compare to QuickBooks or FreshBooks?',
+            q: 'How does Nobevra compare to QuickBooks or FreshBooks?',
             a: 'We are purpose-built for speed and client experience. Where legacy tools bloat your workflow with double-entry accounting features you don\'t need, we focus exclusively on making your brand look premium and getting you paid faster.',
         },
         {
@@ -50,7 +50,7 @@ export default function SEOQualifierFAQ() {
         },
         {
             q: 'Do I need accounting knowledge to use this?',
-            a: 'Not at all. NobleInvoice is designed for freelancers, creators, and business owners—not accountants. You can send your first professional invoice in under 60 seconds with zero financial training.',
+            a: 'Not at all. Nobevra is designed for freelancers, creators, and business owners—not accountants. You can send your first professional invoice in under 60 seconds with zero financial training.',
         },
         {
             q: 'Can I customize my invoice templates?',

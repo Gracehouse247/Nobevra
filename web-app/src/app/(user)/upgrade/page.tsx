@@ -101,12 +101,12 @@ function PlanCard({
         customer: {
             email: user?.email || '',
             phone_number: user?.phone || user?.user_metadata?.phone || '',
-            name: user?.user_metadata?.full_name || user?.user_metadata?.name || 'NobleInvoice User',
+            name: user?.user_metadata?.full_name || user?.user_metadata?.name || 'Nobevra User',
         },
         customizations: {
-            title: `NobleInvoice ${plan.name}`,
+            title: `Nobevra ${plan.name}`,
             description: `Subscription to ${plan.name} (${billingCycle})`,
-            logo: `${process.env.NEXT_PUBLIC_API_URL || 'https://invoice.noblesworld.com.ng'}/images/logo.png`,
+            logo: `${process.env.NEXT_PUBLIC_API_URL || 'https://nobevra.noblesworld.com.ng'}/images/logo.png`,
         },
         meta: {
             user_id: user?.id,
@@ -293,7 +293,7 @@ export default function UpgradePage() {
                         Upgrade your plan, unlock more possibilities
                     </h1>
                     <p className="text-[14px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium max-w-xl leading-relaxed">
-                        Join thousands of businesses using NobleInvoice to save time, get paid faster, and grow with confidence.
+                        Join thousands of businesses using Nobevra to save time, get paid faster, and grow with confidence.
                     </p>
 
                     {/* Billing Toggle */}
@@ -423,7 +423,7 @@ export default function UpgradePage() {
                         </div>
                         <div>
                             <p className="text-[12px] font-black text-noble-text leading-tight">Join 25,000+ businesses</p>
-                            <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500">from startups to enterprises trust NobleInvoice.</p>
+                            <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500">from startups to enterprises trust Nobevra.</p>
                         </div>
                     </div>
 

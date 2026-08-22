@@ -43,7 +43,7 @@ class FinalOnboardingSlide extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
               child: Center(
                 child: Text(
-                  'NobleInvoice',
+                  'Nobevra',
                   style: AppTextStyles.headlineSmall.copyWith(
                     fontSize: 12,
                     letterSpacing: 2,
@@ -82,7 +82,7 @@ class FinalOnboardingSlide extends StatelessWidget {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        "Join thousands of entrepreneurs scaling their ventures with NobleInvoice's smart toolkit.",
+                        "Join thousands of entrepreneurs scaling their ventures with Nobevra's smart toolkit.",
                         textAlign: TextAlign.center,
                         style: AppTextStyles.bodyLarge.copyWith(color: Colors.grey.shade500, height: 1.6, fontWeight: FontWeight.w500),
                       ),

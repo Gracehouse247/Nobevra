@@ -29,12 +29,21 @@ class DashboardHeader extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
-          begin: Alignment.topLeft, end: Alignment.bottomRight,
-          colors: [AppColors.primary, AppColors.primaryDark],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color(0xFF012836), // Deep Dark Teal Navy
+            Color(0xFF013948), // Nobevra Deep Navy
+            Color(0xFF016282), // Rich Ocean Navy Blue
+          ],
         ),
         borderRadius: BorderRadius.circular(28),
         boxShadow: [
-          BoxShadow(color: AppColors.primary.withOpacity(0.2), blurRadius: 25, offset: const Offset(0, 12)),
+          BoxShadow(
+            color: const Color(0xFF012836).withOpacity(0.35),
+            blurRadius: 25,
+            offset: const Offset(0, 12),
+          ),
         ],
       ),
       child: ClipRRect(

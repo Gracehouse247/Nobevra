@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const srcFile = 'C:\\Projects\\NobleInvoice Web App Project\\web-app\\src\\components\\invoice\\TemplateEngine.tsx';
-const outDir = 'C:\\Projects\\NobleInvoice Web App Project\\web-app\\src\\components\\invoice\\templates';
+const srcFile = 'C:\\Projects\\Nobevra Web App Project\\web-app\\src\\components\\invoice\\TemplateEngine.tsx';
+const outDir = 'C:\\Projects\\Nobevra Web App Project\\web-app\\src\\components\\invoice\\templates';
 
 if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });

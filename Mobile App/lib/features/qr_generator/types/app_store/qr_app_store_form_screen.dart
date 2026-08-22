@@ -89,7 +89,7 @@ class _QrAppStoreFormScreenState extends State<QrAppStoreFormScreen> {
                 _buildLabel('App Name', isRequired: true),
                 TextField(
                   controller: _nameController,
-                  decoration: const InputDecoration(hintText: 'e.g. NobleInvoice Express'),
+                  decoration: const InputDecoration(hintText: 'e.g. Nobevra Express'),
                 ),
                 const SizedBox(height: 32),
                 
@@ -203,7 +203,7 @@ class _QrAppStoreFormScreenState extends State<QrAppStoreFormScreen> {
                 const Text('Smart Routing', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 13)),
                 const SizedBox(height: 4),
                 Text(
-                  'NobleInvoice detects if the user is on an iPhone or Android and opens the correct store automatically.',
+                  'Nobevra detects if the user is on an iPhone or Android and opens the correct store automatically.',
                   style: TextStyle(color: Colors.grey[600], fontSize: 12, height: 1.4),
                 ),
               ],

@@ -137,31 +137,76 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent, // Let the Scaffold background show through
-        systemNavigationBarColor: AppColors.primary, // Match bottom nav bar
-        statusBarIconBrightness: Brightness.light,   // White status bar icons (Android)
-        statusBarBrightness: Brightness.dark,        // White status bar icons (iOS)
-        systemNavigationBarIconBrightness: Brightness.light, 
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor: Color(0xFF013948),
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
+        systemNavigationBarIconBrightness: Brightness.light,
       ),
       child: Scaffold(
-        backgroundColor: AppColors.primary, // The exact vibrant brand blue
+        backgroundColor: const Color(0xFF013948), // Deep Navy from design
       body: SizedBox(
         width: double.infinity,
         height: double.infinity,
-        child: Column(
+        child: Stack(
+          children: [
+            // Animated radial glow (mimics WebGL shader teal orb)
+            AnimatedBuilder(
+              animation: _animationController,
+              builder: (_, __) {
+                return Positioned.fill(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: RadialGradient(
+                        center: Alignment.center,
+                        radius: 0.75,
+                        colors: [
+                          const Color(0xFF01779D).withOpacity(0.35 * _fadeAnimation.value),
+                          Colors.transparent,
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+            // Dot-grid overlay
+            Positioned.fill(
+              child: CustomPaint(painter: _SplashDotGridPainter()),
+            ),
+            // Main content column
+            Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
             
-            // --- 3D Animated Logo ---
+            // --- Animated Logo ---
             FadeTransition(
               opacity: _fadeAnimation,
               child: ScaleTransition(
                 scale: _scaleAnimation,
-                child: Image.asset(
-                  'assets/images/nobleinvoice_logo.png',
-                  width: 160, // Scaled to match the mockup
-                  fit: BoxFit.contain,
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    // Glow behind logo
+                    AnimatedBuilder(
+                      animation: _fadeAnimation,
+                      builder: (_, __) => Container(
+                        width: 140,
+                        height: 140,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: const Color(0xFF01A0E2)
+                              .withOpacity(0.15 * _fadeAnimation.value),
+                        ),
+                      ),
+                    ),
+                    Image.asset(
+                      'assets/images/nobevra_app_icon.png',
+                      width: 120,
+                      fit: BoxFit.contain,
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -177,7 +222,7 @@ class _SplashScreenState extends State<SplashScreen>
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
-                      'NOBLEINVOICE',
+                      'NOBEVRA',
                       style: Theme.of(context).textTheme.displayLarge?.copyWith(
                             color: AppColors.white,
                             fontWeight: FontWeight.w900, // Very bold
@@ -188,11 +233,11 @@ class _SplashScreenState extends State<SplashScreen>
                     ),
                     const SizedBox(height: 4),
                     Text(
-                      'Business Card & QR Code Maker',
+                      'The Intelligent Business Operating System',
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                             color: AppColors.white,
                             fontWeight: FontWeight.w400,
-                            fontSize: 18,
+                            fontSize: 16,
                             letterSpacing: 0.5,
                           ),
                     ),
@@ -210,8 +255,10 @@ class _SplashScreenState extends State<SplashScreen>
             ),
           ],
         ),
-      ),
-    ));
+      ],
+    ),
+  ),
+));
   }
 
   Widget _buildTagline() {
@@ -264,3 +311,25 @@ class _SplashScreenState extends State<SplashScreen>
     );
   }
 }
+
+class _SplashDotGridPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = Colors.white.withOpacity(0.05)
+      ..strokeWidth = 1.2
+      ..style = PaintingStyle.fill;
+
+    const spacing = 24.0;
+    const radius = 1.0;
+    for (double x = spacing / 2; x < size.width; x += spacing) {
+      for (double y = spacing / 2; y < size.height; y += spacing) {
+        canvas.drawCircle(Offset(x, y), radius, paint);
+      }
+    }
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+

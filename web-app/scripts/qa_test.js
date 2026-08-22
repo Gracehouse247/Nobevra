@@ -214,7 +214,7 @@ async function run() {
   const warnings = results.filter(r => r.status === 'WARNING').length;
   const score = Math.round((passed / results.length) * 10);
 
-  let report = `# NobleInvoice QA Report\n\n`;
+  let report = `# Nobevra QA Report\n\n`;
   report += `**Date:** ${new Date().toISOString()}\n**Server:** ${BASE}\n\n`;
   report += `## Results\n\n| Test | Status | Notes |\n|---|---|---|\n`;
   for (const r of results) report += `| ${r.test} | **${r.status}** | ${r.notes} |\n`;

@@ -325,7 +325,7 @@ export default function AISeoAnalyzer({
                 <p className="aip-section-title mb-2">SERP Preview</p>
                 <div className="bg-noble-surface border border-noble-border rounded-lg p-3">
                   <p className="text-blue-600 text-sm font-medium leading-tight">{analysis.snippetPreview.title}</p>
-                  <p className="text-green-700 text-xs mt-0.5">nobleinvoice.com/{analysis.snippetPreview.url}</p>
+                  <p className="text-green-700 text-xs mt-0.5">nobevra.noblesworld.com.ng/{analysis.snippetPreview.url}</p>
                   <p className="text-slate-500 text-xs leading-relaxed mt-1 line-clamp-2">{analysis.snippetPreview.description}</p>
                 </div>
               </div>

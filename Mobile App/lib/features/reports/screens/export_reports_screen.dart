@@ -118,7 +118,7 @@ class _ExportReportsScreenState extends State<ExportReportsScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'NobleInvoice Analytics',
+                  'Nobevra Analytics',
                   style: TextStyle(color: AppColors.primary, fontWeight: FontWeight.bold, fontSize: 14),
                 ),
                 SizedBox(height: 4),

@@ -93,7 +93,7 @@ export default function AuthModal({ isOpen, onClose, defaultIsLogin = true }: Au
 
                             <div className="p-8 pb-6">
                                 <h2 className="text-2xl font-extrabold text-white font-manrope">
-                                    {isLogin ? 'Welcome Back' : 'Join NobleInvoice'}
+                                    {isLogin ? 'Welcome Back' : 'Join Nobevra'}
                                 </h2>
                                 <p className="text-slate-400 dark:text-slate-500 text-sm mt-2 font-medium">
                                     {isLogin 

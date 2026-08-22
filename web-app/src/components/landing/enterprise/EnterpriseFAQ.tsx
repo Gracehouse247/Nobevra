@@ -4,11 +4,11 @@ import { ChevronDown, AlertCircle } from 'lucide-react';
 const faqs = [
     {
         q: 'What makes this a true enterprise billing platform and not just invoicing software?',
-        a: 'Three things separate an enterprise billing platform from a standard invoice tool: API access to integrate with your existing systems, role-based team workspaces with audit trails, and multi-currency settlement at scale. NobleInvoice Elite covers all three out of the box.',
+        a: 'Three things separate an enterprise billing platform from a standard invoice tool: API access to integrate with your existing systems, role-based team workspaces with audit trails, and multi-currency settlement at scale. Nobevra Elite covers all three out of the box.',
     },
     {
         q: 'How does the API invoicing integration work with our existing ERP?',
-        a: 'Our RESTful API lets your developers connect NobleInvoice to any internal system. You can trigger invoice creation from your CRM, sync payment status back to your ERP, and stream all events via webhooks in real time.',
+        a: 'Our RESTful API lets your developers connect Nobevra to any internal system. You can trigger invoice creation from your CRM, sync payment status back to your ERP, and stream all events via webhooks in real time.',
     },
     {
         q: 'Can it handle enterprise accounts receivable software requirements?',
@@ -42,7 +42,7 @@ export default function EnterpriseFAQ() {
                         <div>
                             <h3 className="font-black text-2xl text-amber-900 mb-2">We may not be right for you if...</h3>
                             <p className="text-amber-700 leading-relaxed font-medium">
-                                We believe in transparent partnerships. NobleInvoice Enterprise is an incredibly powerful corporate billing solution, but it is not for everyone. You should probably look elsewhere if:
+                                We believe in transparent partnerships. Nobevra Enterprise is an incredibly powerful corporate billing solution, but it is not for everyone. You should probably look elsewhere if:
                             </p>
                         </div>
                     </div>

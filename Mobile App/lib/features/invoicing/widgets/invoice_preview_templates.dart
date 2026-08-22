@@ -167,7 +167,7 @@ mixin InvoiceTemplateHelpers {
       const SizedBox(height: 12),
       Row(mainAxisAlignment: MainAxisAlignment.center, children: [
         Icon(Icons.verified_rounded, size: 12, color: accent), const SizedBox(width: 4),
-        Text('Verified by NobleInvoice', style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: accent, letterSpacing: 1)),
+        Text('Verified by Nobevra', style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold, color: accent, letterSpacing: 1)),
       ]),
     ]);
   }

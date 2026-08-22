@@ -224,7 +224,7 @@ class _MaintenanceScreenState extends State<MaintenanceScreen> {
                       ),
                       const SizedBox(width: 6),
                       Text(
-                        'NobleInvoice',
+                        'Nobevra',
                         style: AppTextStyles.headlineSmall.copyWith(
                           fontSize: 14,
                           letterSpacing: -1,

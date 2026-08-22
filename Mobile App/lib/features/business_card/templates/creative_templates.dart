@@ -27,7 +27,7 @@ class GlassAlphaTemplate extends BusinessCardTemplate {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    info(Icons.link, 'NobleInvoice.me/${profile?.id ?? ''}', color: Colors.white),
+                    info(Icons.link, 'nobevra.com/${profile?.id ?? ''}', color: Colors.white),
                     qr(size: 35),
                   ],
                 ),
@@ -67,7 +67,7 @@ class OrganicWaveTemplate extends BusinessCardTemplate {
                 const SizedBox(height: 8),
                 Text('CREATIVE DIRECTOR', style: TextStyle(color: Colors.grey.shade400, fontSize: 9, letterSpacing: 2)),
                 const Spacer(),
-                info(Icons.web, 'www.NobleInvoice.app' ?? 'portfolio.design'),
+                info(Icons.web, 'www.nobevra.com' ?? 'portfolio.design'),
                 info(Icons.mail_outline, profile?.email ?? ''),
               ],
             ),

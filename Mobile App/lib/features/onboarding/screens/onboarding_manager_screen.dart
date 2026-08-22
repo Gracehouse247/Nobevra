@@ -30,7 +30,7 @@ class _OnboardingManagerScreenState extends State<OnboardingManagerScreen> {
 
   // Step 2 Data: Branding
   File? _logoPreview;
-  Color _primaryColor = const Color(0xFF2563EB);
+  Color _primaryColor = AppColors.primaryDark;
   Color _secondaryColor = const Color(0xFF1E293B);
   int _activeColorType = 0; // 0: primary, 1: secondary
   String _selectedVoice = 'Professional';
@@ -209,13 +209,13 @@ class _OnboardingManagerScreenState extends State<OnboardingManagerScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset('assets/images/nobleinvoice_logo.png', height: 28),
+              Image.asset('assets/images/nobevra_logo.png', height: 28),
               Text('STEP ${_currentStep + 1} OF 3', 
                 style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 11, letterSpacing: 1.2, color: AppColors.darkGrey)),
             ],
           ),
           const SizedBox(height: 16),
-          _ProgressBar(currentStep: _currentStep, activeColor: _primaryColor),
+          _ProgressBar(currentStep: _currentStep, activeColor: AppColors.primaryDark),
         ],
       ),
     );
@@ -244,11 +244,11 @@ class _OnboardingManagerScreenState extends State<OnboardingManagerScreen> {
             child: ElevatedButton(
               onPressed: _nextStep,
               style: ElevatedButton.styleFrom(
-                backgroundColor: _primaryColor,
+                backgroundColor: AppColors.primaryDark,
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                 elevation: 12,
-                shadowColor: _primaryColor.withOpacity(0.3),
+                shadowColor: AppColors.primaryDark.withOpacity(0.3),
               ),
               child: Text(
                 _currentStep == 2 ? 'FINALIZE SETUP' : 'CONTINUE',

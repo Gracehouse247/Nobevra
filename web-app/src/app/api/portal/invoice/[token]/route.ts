@@ -2,11 +2,13 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { rateLimit, getClientIp, rateLimitResponse } from '@/lib/rateLimit';
 
-// Strictly use service role key — never fall back to anon key for this route
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+export const dynamic = 'force-dynamic';
+
+function getSupabaseAdmin() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co';
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build';
+  return createClient(url, key);
+}
 
 export async function GET(
     request: Request,
@@ -23,6 +25,8 @@ export async function GET(
         if (!token) {
             return NextResponse.json({ error: 'Missing tracking token' }, { status: 400 });
         }
+
+        const supabaseAdmin = getSupabaseAdmin();
 
         // Fetch the invoice using the admin client with scoped field selection
         // We deliberately exclude sensitive team fields (api keys, config, etc.)

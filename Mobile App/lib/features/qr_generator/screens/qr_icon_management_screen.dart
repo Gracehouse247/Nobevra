@@ -42,7 +42,7 @@ class QrIconManagementScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('NobleInvoice QR TOOLKIT', style: TextStyle(color: AppColors.primary, fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1.5)),
+          Text('Nobevra QR TOOLKIT', style: TextStyle(color: AppColors.primary, fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1.5)),
           SizedBox(height: 8),
           Text('Custom Iconography', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, height: 1.1)),
           SizedBox(height: 12),

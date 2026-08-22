@@ -41,7 +41,7 @@ class GeminiService {
   /// Specialized method for Agentic actions
   Future<String> processAgentCommand(String command, String context) async {
     final prompt = '''
-You are the NobleInvoice AI Assistant. You help users manage their business, invoices, and CRM.
+You are the Nobevra AI Assistant. You help users manage their business, invoices, and CRM.
 Context: $context
 User Command: $command
 

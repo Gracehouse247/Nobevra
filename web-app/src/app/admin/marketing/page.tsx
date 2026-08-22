@@ -160,7 +160,7 @@ export default function MarketingBroadcastPage() {
                                             N
                                         </div>
                                         <div>
-                                            <div className="text-sm font-bold text-slate-900">NobleInvoice</div>
+                                            <div className="text-sm font-bold text-slate-900">Nobevra</div>
                                             <div className="text-xs text-slate-500 font-medium">to {`{name}`}</div>
                                         </div>
                                     </div>

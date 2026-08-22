@@ -28,17 +28,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const article = cat.articles.find(a => a.slug === resolvedParams.article);
     if (!article) return {};
     return {
-        title: `${article.title} | NobleInvoice Help Center`,
+        title: `${article.title} | Nobevra Help Center`,
         description: article.summary,
         keywords: article.keywords,
         alternates: {
-            canonical: `https://nobleinvoice.com/help-center/${resolvedParams.category}/${resolvedParams.article}`,
+            canonical: `https://nobevra.noblesworld.com.ng/help-center/${resolvedParams.category}/${resolvedParams.article}`,
         },
         openGraph: {
             title: article.title,
             description: article.summary,
             type: 'article',
-            url: `https://nobleinvoice.com/help-center/${resolvedParams.category}/${resolvedParams.article}`,
+            url: `https://nobevra.noblesworld.com.ng/help-center/${resolvedParams.category}/${resolvedParams.article}`,
         }
     };
 }
@@ -58,9 +58,9 @@ export default async function HelpArticlePage({ params }: Props) {
         "@type": "Article",
         "headline": article.title,
         "description": article.summary,
-        "author": { "@type": "Organization", "name": "NobleInvoice Support" },
-        "publisher": { "@type": "Organization", "name": "NobleInvoice" },
-        "url": `https://nobleinvoice.com/help-center/${resolvedParams.category}/${resolvedParams.article}`
+        "author": { "@type": "Organization", "name": "Nobevra Support" },
+        "publisher": { "@type": "Organization", "name": "Nobevra" },
+        "url": `https://nobevra.noblesworld.com.ng/help-center/${resolvedParams.category}/${resolvedParams.article}`
     };
 
     const faqSchema = article.content.filter(s => s.heading).map(section => ({
@@ -167,7 +167,7 @@ export default async function HelpArticlePage({ params }: Props) {
                         <div className="mt-10 p-8 bg-slate-50 rounded-2xl border border-slate-200">
                             <p className="font-black text-near-black mb-2">Still need help?</p>
                             <p className="text-slate-500 font-medium mb-5 text-sm">Our support team responds within 2 hours during business hours.</p>
-                            <Link href="/contact#contact-form" className="inline-flex items-center gap-2 text-white bg-noble-blue px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#0599D5] transition-colors">
+                            <Link href="/contact#contact-form" className="inline-flex items-center gap-2 text-white bg-noble-blue px-6 py-3 rounded-xl font-bold text-sm hover:bg-[#01A0E2] transition-colors">
                                 Contact Support <ArrowRight className="w-4 h-4" />
                             </Link>
                         </div>

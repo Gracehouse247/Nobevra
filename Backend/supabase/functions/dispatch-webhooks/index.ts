@@ -41,6 +41,8 @@ serve(async (req) => {
       try {
         const headers: Record<string, string> = {
           "Content-Type": "application/json",
+          "X-Nobevra-Event": event_type,
+          "X-Nobevra-Timestamp": timestamp,
           "X-NobleInvoice-Event": event_type,
           "X-NobleInvoice-Timestamp": timestamp,
         };
@@ -56,6 +58,7 @@ serve(async (req) => {
           );
           const signatureBuffer = await crypto.subtle.sign("HMAC", key, encoder.encode(payloadStr));
           const signature = Array.from(new Uint8Array(signatureBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+          headers["X-Nobevra-Signature"] = signature;
           headers["X-NobleInvoice-Signature"] = signature;
         }
 

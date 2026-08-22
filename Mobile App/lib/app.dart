@@ -6,8 +6,8 @@ import 'package:noble_invoice/features/profile/controllers/profile_controller.da
 import 'package:noble_invoice/core/services/notification_service.dart';
 import 'package:noble_invoice/core/arch/provider_registry.dart';
 
-class NobleInvoiceApp extends StatelessWidget {
-  const NobleInvoiceApp({super.key});
+class NobevraApp extends StatelessWidget {
+  const NobevraApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class NobleInvoiceApp extends StatelessWidget {
           return MaterialApp(
             navigatorKey: NotificationService.navigatorKey,
             scaffoldMessengerKey: NotificationService.messengerKey,
-            title: 'NobleInvoice',
+            title: 'Nobevra',
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             themeMode: ThemeMode.light,

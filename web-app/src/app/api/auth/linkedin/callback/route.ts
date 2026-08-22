@@ -2,12 +2,13 @@ import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 import { createClient } from '@supabase/supabase-js';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY! // Or Service Role if RLS enforces it
-);
+export const dynamic = 'force-dynamic';
 
 export async function GET(req: NextRequest) {
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build'
+  );
   const { searchParams } = new URL(req.url);
   const code = searchParams.get('code');
   const error = searchParams.get('error');
@@ -61,7 +62,7 @@ export async function GET(req: NextRequest) {
     return new NextResponse(`
       <html><body>
         <h2>LinkedIn Authenticated Successfully!</h2>
-        <p>Your NobleInvoice CMS can now post to LinkedIn.</p>
+        <p>Your Nobevra CMS can now post to LinkedIn.</p>
         <button onclick="window.close()">Close Window</button>
       </body></html>
     `, { headers: { 'Content-Type': 'text/html' }});

@@ -233,7 +233,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         delay: const Duration(milliseconds: 1000),
         child: FloatingActionButton.extended(
           onPressed: () => Navigator.pushNamed(context, AppRoutes.aiAssistant),
-          backgroundColor: AppColors.primary,
+          backgroundColor: AppColors.primaryDark,
           elevation: 4,
           icon: const Icon(Icons.auto_awesome_rounded, color: Colors.white),
           label: const Text('Ask Noble AI', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w900)),

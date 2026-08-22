@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:noble_invoice/core/theme/app_colors.dart';
-import 'package:noble_invoice/core/theme/app_text_styles.dart';
-import '../widgets/onboarding_slide_widget.dart';
-import '../widgets/final_onboarding_slide.dart';
+import 'package:flutter/services.dart';
+import 'package:noble_invoice/routes/app_routes.dart';
+import '../widgets/onboarding_page1.dart';
+import '../widgets/onboarding_page2.dart';
+import '../widgets/onboarding_page3.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -14,124 +15,183 @@ class OnboardingScreen extends StatefulWidget {
 class _OnboardingScreenState extends State<OnboardingScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
+  static const int _pageCount = 3;
 
-  final List<OnboardingSlideData> _slides = [
-    OnboardingSlideData(
-      title: 'Smart Business Toolkit',
-      highlightWord: 'Business',
-      subtitle: 'Generate & manage professional invoicing, QR codes, and Business cards in one powerful dashboard.',
-      color: AppColors.primary,
-    ),
-    OnboardingSlideData(
-      title: 'Invoicing Made Simple',
-      highlightWord: 'Simple',
-      subtitle: 'Create and send professional invoices in seconds. Stay organized with cloud-based tracking, designed for businesses.',
-      color: AppColors.primary,
-    ),
-    OnboardingSlideData(
-      title: 'Smart QR Codes',
-      highlightWord: 'Codes',
-      subtitle: 'Create versatile QR codes for your business. From digital cards to contactless menus, share info instantly.',
-      color: AppColors.primary,
-    ),
-  ];
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _goToNext() {
+    if (_currentPage < _pageCount - 1) {
+      _pageController.nextPage(
+        duration: const Duration(milliseconds: 450),
+        curve: Curves.easeOutCubic,
+      );
+    }
+  }
+
+  void _goBack() {
+    if (_currentPage > 0) {
+      _pageController.previousPage(
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.easeOutCubic,
+      );
+    }
+  }
+
+  void _skip() {
+    Navigator.pushReplacementNamed(context, AppRoutes.onboardingManager);
+  }
 
   @override
   Widget build(BuildContext context) {
-    bool isFinalSlide = _currentPage == 3;
-    
-    return Scaffold(
-      backgroundColor: isFinalSlide ? Colors.white : AppColors.background,
-      body: SafeArea(
-        child: isFinalSlide ? const FinalOnboardingSlide() : _buildNormalFlow(),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.light,
+      ),
+      child: Scaffold(
+        backgroundColor: const Color(0xFFF8FAFB),
+        body: SafeArea(
+          child: Column(
+            children: [
+              _buildHeader(),
+              Expanded(
+                child: PageView(
+                  controller: _pageController,
+                  onPageChanged: (i) => setState(() => _currentPage = i),
+                  children: const [
+                    _PagePadding(child: OnboardingPage1()),
+                    _PagePadding(child: OnboardingPage2()),
+                    _PagePadding(child: OnboardingPage3()),
+                  ],
+                ),
+              ),
+              // Bottom button — only visible on pages 0 and 1
+              if (_currentPage < 2) _buildBottomButton(),
+            ],
+          ),
+        ),
       ),
     );
   }
-  
-  Widget _buildNormalFlow() {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const SizedBox(width: 48),
-              Row(
-                children: [
-                  Container(
-                    width: 8, height: 8,
-                    decoration: const BoxDecoration(color: AppColors.primary, shape: BoxShape.circle),
-                  ),
-                  const SizedBox(width: 4),
-                  Text('NobleInvoice',
-                    style: AppTextStyles.headlineSmall.copyWith(
-                      fontSize: 12, letterSpacing: 2, color: AppColors.primary, fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                ],
+
+  Widget _buildHeader() {
+    return Container(
+      height: 56,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: const Color(0xFFF8FAFB).withOpacity(0.92),
+        border: const Border(
+          bottom: BorderSide(color: Color(0x08000000), width: 1),
+        ),
+      ),
+      child: Row(
+        children: [
+          // Back button (hidden on page 0)
+          SizedBox(
+            width: 44,
+            height: 44,
+            child: _currentPage > 0
+                ? IconButton(
+                    icon: const Icon(Icons.arrow_back_rounded,
+                        color: Color(0xFF191C1D)),
+                    onPressed: _goBack,
+                    padding: EdgeInsets.zero,
+                  )
+                : const SizedBox.shrink(),
+          ),
+
+          // Progress bar
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: _buildProgressBar(),
+            ),
+          ),
+
+          // Skip / page counter
+          SizedBox(
+            width: 44,
+            child: TextButton(
+              onPressed: _skip,
+              style: TextButton.styleFrom(padding: EdgeInsets.zero),
+              child: const Text(
+                'Skip',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 11,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xFF013948),
+                  letterSpacing: 0.05 * 11,
+                ),
               ),
-              TextButton(
-                onPressed: () => _pageController.animateToPage(3, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut),
-                child: Text('Skip', style: AppTextStyles.bodyMedium.copyWith(color: Colors.grey.shade400, fontWeight: FontWeight.bold)),
-              ),
-            ],
+            ),
           ),
-        ),
-        
-        Expanded(
-          child: PageView.builder(
-            controller: _pageController,
-            onPageChanged: (idx) => setState(() => _currentPage = idx),
-            itemCount: 4,
-            itemBuilder: (context, index) {
-              if (index == 3) return const SizedBox.shrink();
-              return OnboardingSlideWidget(data: _slides[index], index: index);
-            },
-          ),
-        ),
-        
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32.0),
-          child: Column(
-            children: [
-              const SizedBox(height: 10),
-              _PaginationIndicator(count: 4, activeIndex: _currentPage),
-              const SizedBox(height: 16),
-              _buildActionButton(),
-              const SizedBox(height: 24),
-            ],
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
-  Widget _buildActionButton() {
-    return SizedBox(
-      width: double.infinity,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(color: AppColors.primary.withOpacity(0.1), blurRadius: 20, offset: const Offset(0, 10)),
-          ],
-        ),
-        child: ElevatedButton(
-          onPressed: () => _pageController.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeOutCubic),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.primary,
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 20),
-            elevation: 0,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+  Widget _buildProgressBar() {
+    return Row(
+      children: List.generate(_pageCount, (i) {
+        final isFilled = i <= _currentPage;
+        return Expanded(
+          child: Padding(
+            padding: EdgeInsets.only(left: i == 0 ? 0 : 4),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              height: 4,
+              decoration: BoxDecoration(
+                color: isFilled
+                    ? const Color(0xFF88CEFF)
+                    : const Color(0xFFBEC8D1),
+                borderRadius: BorderRadius.circular(100),
+              ),
+            ),
           ),
-          child: const Row(
+        );
+      }),
+    );
+  }
+
+  Widget _buildBottomButton() {
+    final isPage1 = _currentPage == 0;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(20, 8, 20, 20),
+      child: SizedBox(
+        width: double.infinity,
+        height: 56,
+        child: ElevatedButton(
+          onPressed: _goToNext,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF013948),
+            foregroundColor: Colors.white,
+            elevation: 0,
+            shape: const StadiumBorder(),
+          ),
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('Continue', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              SizedBox(width: 8),
-              Icon(Icons.arrow_forward_rounded, size: 20),
+              Text(
+                isPage1 ? 'Next' : 'Continue',
+                style: const TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                ),
+              ),
+              const SizedBox(width: 8),
+              const Icon(
+                Icons.arrow_forward_rounded,
+                size: 18,
+                color: Colors.white,
+              ),
             ],
           ),
         ),
@@ -140,27 +200,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 }
 
-class _PaginationIndicator extends StatelessWidget {
-  final int count;
-  final int activeIndex;
-  const _PaginationIndicator({required this.count, required this.activeIndex});
+class _PagePadding extends StatelessWidget {
+  final Widget child;
+  const _PagePadding({required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(count, (index) {
-        bool active = activeIndex == index;
-        return AnimatedContainer(
-          duration: const Duration(milliseconds: 300),
-          margin: const EdgeInsets.symmetric(horizontal: 4),
-          width: active ? 24 : 6, height: 6,
-          decoration: BoxDecoration(
-            color: active ? AppColors.primary : Colors.grey.shade200,
-            borderRadius: BorderRadius.circular(100),
-          ),
-        );
-      }),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: child,
     );
   }
 }

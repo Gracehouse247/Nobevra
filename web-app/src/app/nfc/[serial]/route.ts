@@ -3,7 +3,7 @@ import { createClient } from '@supabase/supabase-js';
 
 // NFC Redirect endpoint
 // When a physical NFC card is tapped, the chip opens:
-//   https://invoice.noblesworld.com.ng/nfc/{serial}
+//   https://nobevra.noblesworld.com.ng/nfc/{serial}
 // This route resolves the serial number to the user's profile URL
 // and performs an instant 302 redirect.
 
@@ -37,7 +37,7 @@ export async function GET(
             );
         }
 
-        // Fast 302 Redirect → https://invoice.noblesworld.com.ng/nfc/{serial}
+        // Fast 302 Redirect → https://nobevra.noblesworld.com.ng/nfc/{serial}
         // will resolve to the user's stored profile_url
         return NextResponse.redirect(data.profile_url, { status: 302 });
     } catch (err) {

@@ -3,7 +3,7 @@ import { supabase } from '@/lib/supabase';
 import { convertToWebP } from '@/lib/imageUtils';
 
 // We keep the old API_BASE_URL for legacy endpoints like ops, support, etc.
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://nobleinvoice.noblesworld.com.ng/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://nobevra.noblesworld.com.ng/api';
 const ADMIN_EMAIL_KEY = 'ni_admin_email';
 
 export function getAdminEmail(): string | null {

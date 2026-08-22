@@ -5,19 +5,19 @@ import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Shield, QrCode, Smartphone, BarChart3, Trash2, XCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'How to Create a Business Card for Free | NobleInvoice Digital Identity',
+    title: 'How to Create a Business Card for Free | Nobevra Digital Identity',
     description: 'Stop printing dead paper cards. Learn how to create a business card for free online that instantly captures leads and routes them into your CRM.',
     openGraph: {
-        title: 'How to Create a Business Card for Free | NobleInvoice Digital Identity',
+        title: 'How to Create a Business Card for Free | Nobevra Digital Identity',
         description: 'Stop printing dead paper cards. Learn how to create a business card for free online that instantly captures leads and routes them into your CRM.',
-        url: 'https://nobleinvoice.com/features/professional-identity',
-        siteName: 'NobleInvoice',
+        url: '/features/professional-identity',
+        siteName: 'Nobevra',
         images: [
             {
                 url: '/images/og-professional-identity.png',
                 width: 1200,
                 height: 630,
-                alt: 'NobleInvoice Digital Business Card Maker',
+                alt: 'Nobevra Digital Business Card Maker',
             },
         ],
         locale: 'en_US',
@@ -35,7 +35,7 @@ export default function ProfessionalIdentityPage() {
                 "name": "How to create a business card for free online?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The fastest way to learn how to create a business card for free online is to sign up for NobleInvoice. You simply claim your profile URL, upload your photo, and your dynamic digital card is generated instantly without needing graphic design skills."
+                    "text": "The fastest way to learn how to create a business card for free online is to sign up for Nobevra. You simply claim your profile URL, upload your photo, and your dynamic digital card is generated instantly without needing graphic design skills."
                 }
             },
             {
@@ -59,7 +59,7 @@ export default function ProfessionalIdentityPage() {
                 "name": "Is there an AI business card generator free feature?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Our system includes an AI business card generator free feature that automatically pulls your existing NobleInvoice company data to instantly build your professional profile without manual data entry."
+                    "text": "Our system includes an AI business card generator free feature that automatically pulls your existing Nobevra company data to instantly build your professional profile without manual data entry."
                 }
             },
             {
@@ -187,7 +187,7 @@ export default function ProfessionalIdentityPage() {
                                 <div className="relative z-10">
                                     <p className="text-noble-blue font-bold text-sm uppercase tracking-widest mb-2">The Noble Way</p>
                                     <p className="text-slate-900 font-black text-xl mb-4">They scan your code.</p>
-                                    <p className="text-slate-500 text-sm font-medium">Result: Their phone saves your info, and they instantly drop into your NobleInvoice CRM as a hot lead.</p>
+                                    <p className="text-slate-500 text-sm font-medium">Result: Their phone saves your info, and they instantly drop into your Nobevra CRM as a hot lead.</p>
                                 </div>
                             </div>
                         </div>
@@ -330,7 +330,7 @@ export default function ProfessionalIdentityPage() {
                             <thead>
                                 <tr className="bg-slate-50 border-b border-slate-100">
                                     <th className="text-left px-6 py-4 font-black text-slate-900 w-1/4">Feature</th>
-                                    <th className="px-6 py-4 font-black text-noble-blue text-center">NobleInvoice Digital</th>
+                                    <th className="px-6 py-4 font-black text-noble-blue text-center">Nobevra Digital</th>
                                     <th className="px-6 py-4 font-black text-slate-500 text-center">Canva</th>
                                     <th className="px-6 py-4 font-black text-slate-500 text-center">Adobe Express</th>
                                     <th className="px-6 py-4 font-black text-slate-500 text-center">BrandCrowd</th>
@@ -381,7 +381,7 @@ export default function ProfessionalIdentityPage() {
                         </div>
                         <div className="space-y-8">
                             {[
-                                { step: '01', title: 'Claim URL', desc: 'Secure your custom nobleinvoice.com/your-name link. Our AI business card generator free tool sets up your profile instantly.' },
+                                { step: '01', title: 'Claim URL', desc: 'Secure your custom nobevra.noblesworld.com.ng/your-name link. Our AI business card generator free tool sets up your profile instantly.' },
                                 { step: '02', title: 'Add Details', desc: 'Upload your photo, link your socials, and list your services. No graphic design dragging-and-dropping required.' },
                                 { step: '03', title: 'Share & Track', desc: 'Show your auto-generated QR code at events. Watch your dashboard fill up with captured leads ready to be invoiced.' }
                             ].map((item, i) => (
@@ -411,7 +411,7 @@ export default function ProfessionalIdentityPage() {
                         {[
                             {
                                 img: '/images/reviews/celestine-nzubbychukwu-founder-of-mystaff-consulting-limited.png',
-                                quote: '"I stopped handing out paper. At my last conference, I just held out my QR code. I captured 14 leads directly into my NobleInvoice pipeline."',
+                                quote: '"I stopped handing out paper. At my last conference, I just held out my QR code. I captured 14 leads directly into my Nobevra pipeline."',
                                 name: 'Celestine Nzubbychukwu',
                                 role: 'Founder, MyStaff Consulting Limited',
                             },
@@ -496,10 +496,10 @@ export default function ProfessionalIdentityPage() {
 
                     <div className="space-y-4">
                         {[
-                            { q: "How to create a business card for free online?", a: "The fastest way to learn how to create a business card for free online is to sign up for NobleInvoice. You simply claim your profile URL, upload your photo, and your dynamic digital card is generated instantly without needing graphic design skills." },
+                            { q: "How to create a business card for free online?", a: "The fastest way to learn how to create a business card for free online is to sign up for Nobevra. You simply claim your profile URL, upload your photo, and your dynamic digital card is generated instantly without needing graphic design skills." },
                             { q: "Is this a visiting card maker online free tool?", a: "Yes. It functions as a powerful visiting card maker online free tool, but instead of outputting a static image, it generates a CRM-linked digital profile that you can share via QR code or NFC." },
                             { q: "Can I figure out how to create a business card for free pdf version?", a: "While you can generate and download a QR code to print on physical materials, we actively discourage learning how to create a business card for free pdf. Static PDFs cannot capture leads or sync with your invoicing software. Digital is the future." },
-                            { q: "Is there an AI business card generator free feature?", a: "Our system includes an AI business card generator free feature that automatically pulls your existing NobleInvoice company data to instantly build your professional profile without manual data entry." },
+                            { q: "Is there an AI business card generator free feature?", a: "Our system includes an AI business card generator free feature that automatically pulls your existing Nobevra company data to instantly build your professional profile without manual data entry." },
                             { q: "Can I use a 3d visiting card design online free template?", a: "Our digital profiles feature modern, interactive aesthetics that feel premium and responsive. While we don't focus on gimmicky 3d visiting card design online free templates, we provide sleek, high-converting interfaces." }
                         ].map((faq, i) => (
                             <div key={i} className="p-8 bg-white rounded-3xl border border-slate-100 hover:shadow-md transition-shadow">

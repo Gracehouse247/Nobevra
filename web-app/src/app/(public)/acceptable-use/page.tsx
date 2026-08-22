@@ -40,11 +40,11 @@ const CATEGORIES = [
 const content = `
 ### 1. OVERVIEW
 
-This Acceptable Use Policy ("AUP") describes what you may and may not do when using the NobleInvoice platform, including the website, web application, mobile applications, APIs, and all related services ("Service").
+This Acceptable Use Policy ("AUP") describes what you may and may not do when using the Nobevra platform, including the website, web application, mobile applications, APIs, and all related services ("Service").
 
-This AUP forms part of the NobleInvoice [Terms of Service](https://invoice.noblesworld.com.ng/terms). Capitalized terms not defined here have the meanings given to them in the Terms of Service.
+This AUP forms part of the Nobevra [Terms of Service](https://nobevra.noblesworld.com.ng/terms). Capitalized terms not defined here have the meanings given to them in the Terms of Service.
 
-**The purpose of this policy** is to ensure that NobleInvoice remains a safe, fair, and legally compliant environment for all users — freelancers, consultants, agencies, businesses, and their clients.
+**The purpose of this policy** is to ensure that Nobevra remains a safe, fair, and legally compliant environment for all users — freelancers, consultants, agencies, businesses, and their clients.
 
 By using the Service, you confirm that you have read and agree to comply with this AUP.
 
@@ -52,7 +52,7 @@ By using the Service, you confirm that you have read and agree to comply with th
 
 ### 2. PROHIBITED CONDUCT
 
-You must not use NobleInvoice to:
+You must not use Nobevra to:
 
 #### 2.1 Fraud and Financial Crime
 * Create, send, or store fraudulent invoices.
@@ -70,25 +70,25 @@ You must not use NobleInvoice to:
 * Create QR codes, digital business cards, or Digital Product Passports that direct users to illegal, harmful, or prohibited content.
 
 #### 2.3 Security Attacks and Technical Abuse
-* Probe, scan, or test the vulnerability of NobleInvoice's infrastructure without prior written authorization.
+* Probe, scan, or test the vulnerability of Nobevra's infrastructure without prior written authorization.
 * Attempt to gain unauthorized access to another user's Account, Workspace, or data.
 * Bypass, circumvent, or disable authentication, security controls, rate limits, or entitlement enforcement mechanisms.
 * Upload, transmit, or execute malware, ransomware, viruses, trojans, worms, or any other malicious code.
-* Conduct or facilitate distributed denial-of-service (DDoS) attacks against NobleInvoice or any third-party system.
+* Conduct or facilitate distributed denial-of-service (DDoS) attacks against Nobevra or any third-party system.
 * Use automated scripts, bots, or scrapers to access or extract data from the Service in ways not permitted by the Terms of Service.
 * Manipulate, reset, or falsify usage quotas, AI credit limits, or subscription entitlements.
 
 #### 2.4 Privacy and Data Violations
 * Collect, harvest, or process personal information about other users without a lawful basis.
-* Use client data stored in NobleInvoice's CRM for purposes outside the legitimate B2B relationship with that client.
+* Use client data stored in Nobevra's CRM for purposes outside the legitimate B2B relationship with that client.
 * Attempt to access, extract, or reverse-engineer other users' Business Data or Customer Data.
 * Use the Service to conduct phishing, social engineering, or identity theft.
 * Violate any applicable data-protection law, including the Nigeria Data Protection Act 2023 (NDPA), GDPR, or equivalent legislation.
 
 #### 2.5 Intellectual Property
 * Upload or transmit content that infringes another person's copyright, trademark, trade secret, patent, or other intellectual-property rights.
-* Use NobleInvoice's branding, name, or logos in an unauthorized manner.
-* Remove copyright or proprietary notices from any NobleInvoice materials.
+* Use Nobevra's branding, name, or logos in an unauthorized manner.
+* Remove copyright or proprietary notices from any Nobevra materials.
 
 #### 2.6 Spam and Messaging Abuse
 * Use the client portal, invoice messaging, or email features to send unsolicited bulk commercial messages (spam).
@@ -97,7 +97,7 @@ You must not use NobleInvoice to:
 
 #### 2.7 Subscription and Entitlement Abuse
 * Create multiple accounts to circumvent subscription limits, PAYG purchase rules, promotional offers, or free-tier restrictions.
-* Sell, resell, sublicense, or transfer NobleInvoice subscription access to unauthorized third parties.
+* Sell, resell, sublicense, or transfer Nobevra subscription access to unauthorized third parties.
 * Attempt to circumvent the Service's entitlement system to access features not included in your Plan.
 * Use the Service in a way that creates an unreasonable or disproportionate load on the platform's infrastructure.
 
@@ -120,10 +120,10 @@ Content that appears in invoices, client portals, digital business cards, QR cod
 
 ### 4. INVOICE AND PAYMENT MISUSE
 
-NobleInvoice's payment and invoicing features are intended for legitimate commercial transactions. You must not:
+Nobevra's payment and invoicing features are intended for legitimate commercial transactions. You must not:
 
 * Issue invoices for goods or services you do not intend to deliver.
-* Use NobleInvoice payment links to solicit payment from individuals under false pretences.
+* Use Nobevra payment links to solicit payment from individuals under false pretences.
 * Use the wallet or payout features for the movement of funds unrelated to legitimate business invoicing activity.
 * Attempt to reverse-engineer Flutterwave's or any payment provider's API in an unauthorized manner.
 * Submit false or inflated transaction amounts to a payment provider.
@@ -135,7 +135,7 @@ Payment misuse may result in immediate account suspension and reporting to relev
 
 ### 5. AI FEATURE USAGE
 
-NobleInvoice's AI features (AI assistant, AI voice invoice generation, receipt OCR extraction) are provided for legitimate business productivity purposes. You must not use AI features to:
+Nobevra's AI features (AI assistant, AI voice invoice generation, receipt OCR extraction) are provided for legitimate business productivity purposes. You must not use AI features to:
 
 * Generate fraudulent invoices, false business records, or fabricated receipts.
 * Submit inputs designed to manipulate or "jailbreak" the AI model.
@@ -149,14 +149,14 @@ AI-generated content must be reviewed by you before use. You are responsible for
 
 ### 6. QR CODES AND DIGITAL IDENTITIES
 
-QR codes and digital business cards created through NobleInvoice must not:
+QR codes and digital business cards created through Nobevra must not:
 
 * Direct users to phishing pages, malware, or prohibited content.
 * Impersonate another brand, business, or individual.
 * Be used to collect personal information from third parties without appropriate notice and lawful basis.
 * Direct users to content that violates this AUP or applicable law.
 
-NobleInvoice QR analytics may collect technical data about people who scan your QR codes. As the QR code owner, you are responsible for ensuring that any collection of such data is consistent with applicable privacy law and that you have provided appropriate notice to the individuals concerned, as described in the Privacy Policy.
+Nobevra QR analytics may collect technical data about people who scan your QR codes. As the QR code owner, you are responsible for ensuring that any collection of such data is consistent with applicable privacy law and that you have provided appropriate notice to the individuals concerned, as described in the Privacy Policy.
 
 ---
 
@@ -170,13 +170,13 @@ API access (available on Noble Elite) must be used in accordance with the follow
 * Integration with third-party services must comply with those services' terms of service.
 * Webhook endpoints you configure must not be used to facilitate prohibited activities.
 
-NobleInvoice may revoke API access immediately where abuse is detected, without prior notice.
+Nobevra may revoke API access immediately where abuse is detected, without prior notice.
 
 ---
 
 ### 8. TEAM WORKSPACES
 
-If you use NobleInvoice's team workspace features (Noble Elite):
+If you use Nobevra's team workspace features (Noble Elite):
 
 * Workspace administrators are responsible for the actions of team members they invite.
 * You must not invite individuals to a Workspace without their consent.
@@ -195,13 +195,13 @@ If you believe another user is violating this AUP — including fraudulent invoi
 
 Please include as much detail as possible, including the nature of the violation, the account or content involved, and any supporting evidence. We will investigate reports in good faith and take appropriate action.
 
-NobleInvoice is not able to confirm or disclose the outcome of investigations concerning other users' accounts.
+Nobevra is not able to confirm or disclose the outcome of investigations concerning other users' accounts.
 
 ---
 
 ### 10. ENFORCEMENT AND CONSEQUENCES
 
-NobleInvoice reserves the right to take the following actions in response to violations of this AUP:
+Nobevra reserves the right to take the following actions in response to violations of this AUP:
 
 * Issue a formal warning.
 * Temporarily restrict specific features or functionality.
@@ -238,7 +238,7 @@ export default function AcceptableUsePage() {
   return (
     <LegalLayout
       title="Acceptable Use Policy"
-      description="This policy describes what you may and may not do when using NobleInvoice — protecting all users, maintaining platform integrity, and ensuring legal compliance."
+      description="This policy describes what you may and may not do when using Nobevra — protecting all users, maintaining platform integrity, and ensuring legal compliance."
       categories={CATEGORIES}
     >
       <div className="prose prose-slate prose-a:text-blue-600 prose-headings:text-slate-900 max-w-none prose-h3:text-2xl prose-h3:font-black prose-h3:mt-12 prose-h3:scroll-mt-24 prose-h4:text-lg prose-h4:font-bold">

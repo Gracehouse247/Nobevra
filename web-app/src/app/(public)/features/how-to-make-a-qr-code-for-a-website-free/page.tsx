@@ -21,9 +21,9 @@ import LeadIntelligenceHeroVisual from '@/components/landing/LeadIntelligenceHer
 
 
 export const metadata: Metadata = {
-  title: 'How To Make A QR Code For A Website Free | NobleInvoice',
+  title: 'How To Make A QR Code For A Website Free | Nobevra',
   description:
-    'Learn how to make a QR code for a website in seconds — free, branded, and scannable. NobleInvoice generates QR codes that drive payments, leads, and business growth.',
+    'Learn how to make a QR code for a website in seconds — free, branded, and scannable. Nobevra generates QR codes that drive payments, leads, and business growth.',
   keywords: [
     'how to make a qr code for a website',
     'how to make a qr code for a website for free',
@@ -47,7 +47,7 @@ export default function LeadIntelligencePage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'You can make a QR code for your website for free in seconds using NobleInvoice. Enter your website URL, customize the design with your brand colors and logo, then download your code as a PNG or SVG. No account required for basic static codes.',
+            'You can make a QR code for your website for free in seconds using Nobevra. Enter your website URL, customize the design with your brand colors and logo, then download your code as a PNG or SVG. No account required for basic static codes.',
         },
       },
       {
@@ -65,7 +65,7 @@ export default function LeadIntelligencePage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Google Chrome has a built-in static QR code generator — right-click any page or use the share icon and select "Create QR Code." It is quick but offers no customization, no analytics, and no dynamic redirect. For professional use, NobleInvoice offers branded, dynamic QR codes with full scan tracking.',
+            'Google Chrome has a built-in static QR code generator — right-click any page or use the share icon and select "Create QR Code." It is quick but offers no customization, no analytics, and no dynamic redirect. For professional use, Nobevra offers branded, dynamic QR codes with full scan tracking.',
         },
       },
       {
@@ -74,7 +74,7 @@ export default function LeadIntelligencePage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Static QR codes never expire — the URL is baked in permanently. Dynamic QR codes depend on the platform. NobleInvoice dynamic codes stay live as long as your account is active, and you can update the destination URL any time.',
+            'Static QR codes never expire — the URL is baked in permanently. Dynamic QR codes depend on the platform. Nobevra dynamic codes stay live as long as your account is active, and you can update the destination URL any time.',
         },
       },
       {
@@ -92,7 +92,7 @@ export default function LeadIntelligencePage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Yes. QR codes have built-in error correction that allows up to 30% of the pattern to be obscured. NobleInvoice lets you add your logo to the center of any QR code without breaking scannability — as long as the logo stays within the safe zone.',
+            'Yes. QR codes have built-in error correction that allows up to 30% of the pattern to be obscured. Nobevra lets you add your logo to the center of any QR code without breaking scannability — as long as the logo stays within the safe zone.',
         },
       },
       {
@@ -101,16 +101,16 @@ export default function LeadIntelligencePage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            "You don't need an app. NobleInvoice is entirely browser-based. Open your account on any device, paste your URL, generate the code, and download. No app installs required.",
+            "You don't need an app. Nobevra is entirely browser-based. Open your account on any device, paste your URL, generate the code, and download. No app installs required.",
         },
       },
       {
         '@type': 'Question',
-        name: 'Does NobleInvoice track how many times a QR code is scanned?',
+        name: 'Does Nobevra track how many times a QR code is scanned?',
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Yes. Every dynamic QR code created in NobleInvoice comes with built-in scan analytics. You can see total scans, unique scans, device types, scan locations by city/country, and peak scan times — all in your Lead Intelligence dashboard.',
+            'Yes. Every dynamic QR code created in Nobevra comes with built-in scan analytics. You can see total scans, unique scans, device types, scan locations by city/country, and peak scan times — all in your Lead Intelligence dashboard.',
         },
       },
       {
@@ -119,7 +119,7 @@ export default function LeadIntelligencePage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Yes. NobleInvoice generates clean, watermark-free QR codes for free. Your downloaded code contains only your brand — no third-party logos, no watermarks, no hidden attribution.',
+            'Yes. Nobevra generates clean, watermark-free QR codes for free. Your downloaded code contains only your brand — no third-party logos, no watermarks, no hidden attribution.',
         },
       },
       {
@@ -128,7 +128,7 @@ export default function LeadIntelligencePage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Absolutely. NobleInvoice QR codes link directly to your secure payment portal. A client scans the code and lands on your branded checkout page where they can pay by card, Apple Pay, or Google Pay instantly. This is the fastest way to get paid in person or at events.',
+            'Absolutely. Nobevra QR codes link directly to your secure payment portal. A client scans the code and lands on your branded checkout page where they can pay by card, Apple Pay, or Google Pay instantly. This is the fastest way to get paid in person or at events.',
         },
       },
     ],
@@ -139,7 +139,7 @@ export default function LeadIntelligencePage() {
     '@type': 'HowTo',
     name: 'How to Make a QR Code for a Website',
     description:
-      'A step-by-step guide to creating a free, branded QR code for your website using NobleInvoice.',
+      'A step-by-step guide to creating a free, branded QR code for your website using Nobevra.',
     totalTime: 'PT2M',
     estimatedCost: {
       '@type': 'MonetaryAmount',
@@ -150,8 +150,8 @@ export default function LeadIntelligencePage() {
       {
         '@type': 'HowToStep',
         position: 1,
-        name: 'Open your NobleInvoice dashboard',
-        text: 'Log in to your NobleInvoice account and navigate to Lead Intelligence → QR Generator.',
+        name: 'Open your Nobevra dashboard',
+        text: 'Log in to your Nobevra account and navigate to Lead Intelligence → QR Generator.',
       },
       {
         '@type': 'HowToStep',
@@ -204,8 +204,8 @@ export default function LeadIntelligencePage() {
     },
     {
       icon: RefreshCw,
-      color: 'text-[#0599D5]',
-      bg: 'bg-[#0599D5]/10',
+      color: 'text-[#01A0E2]',
+      bg: 'bg-[#01A0E2]/10',
       title: 'Dynamic QR — Change URLs Anytime',
       desc: "Redirect links. Printed 500 business cards and then changed your website? Update the destination URL in your dashboard. Your physical codes stay working.",
     },
@@ -214,7 +214,7 @@ export default function LeadIntelligencePage() {
       color: 'text-purple-600',
       bg: 'bg-purple-50',
       title: 'QR Payments',
-      desc: 'Link your QR code directly to your NobleInvoice payment page. Clients scan and pay by card, Apple Pay, or Google Pay instantly — no invoice required.',
+      desc: 'Link your QR code directly to your Nobevra payment page. Clients scan and pay by card, Apple Pay, or Google Pay instantly — no invoice required.',
     },
     {
       icon: Globe,
@@ -301,7 +301,7 @@ export default function LeadIntelligencePage() {
 
   const testimonials = [
     {
-      quote: "Our marketplace generates hundreds of global leads daily. NobleInvoice's Lead Intelligence tools let us track intent perfectly, connecting marketing right to our revenue pipeline.",
+      quote: "Our marketplace generates hundreds of global leads daily. Nobevra's Lead Intelligence tools let us track intent perfectly, connecting marketing right to our revenue pipeline.",
       name: 'Ayasha Khan',
       role: 'Marketing Director, NobleMart',
       image: '/images/reviews/ayasha-khan-marketing-director-of-noblemart-marketplace-us-region.png',
@@ -348,7 +348,7 @@ export default function LeadIntelligencePage() {
             </h1>
 
             <p className="text-base md:text-lg text-near-black/60 max-w-xl mb-10 leading-relaxed">
-              Most free QR code generators give you a generic black-and-white square. NobleInvoice
+              Most free QR code generators give you a generic black-and-white square. Nobevra
               gives you a branded, dynamic, analytics-backed QR code that turns every scan into a
               tracked business interaction — and links directly to your payment page.
             </p>
@@ -381,7 +381,7 @@ export default function LeadIntelligencePage() {
               <div className="flex -space-x-3">
                 {[
                   { bg: 'bg-noble-blue', text: 'TA' },
-                  { bg: 'bg-[#0599D5]', text: 'PM' },
+                  { bg: 'bg-[#01A0E2]', text: 'PM' },
                   { bg: 'bg-primary', text: 'EK' },
                   { bg: 'bg-[#166FBB]', text: 'JR' },
                   { bg: 'bg-near-black', text: 'SO' },
@@ -538,20 +538,20 @@ export default function LeadIntelligencePage() {
         </div>
       </section>
 
-      {/* ── 5. FEATURES — The NobleInvoice Approach ── */}
+      {/* ── 5. FEATURES — The Nobevra Approach ── */}
       <section className="py-32 bg-white border-t border-near-black/5">
         <div className="max-w-[1430px] mx-auto px-4 md:px-16">
           <div className="text-center mb-20">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/8 border border-noble-blue/10 text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6">
               <span className="w-2 h-2 rounded-full bg-noble-blue animate-pulse" />
-              The NobleInvoice Difference
+              The Nobevra Difference
             </div>
             <h2 className="font-inter text-4xl lg:text-5xl font-black text-near-black leading-[1.1] tracking-tight mb-6">
               A free QR code generator that actually{' '}
               <span className="text-noble-blue">builds your business.</span>
             </h2>
             <p className="text-lg text-near-black/60 max-w-2xl mx-auto">
-              Every QR code you make in NobleInvoice is connected to your Lead Intelligence
+              Every QR code you make in Nobevra is connected to your Lead Intelligence
               dashboard — so it does not just link somewhere, it tracks, converts, and reports.
             </p>
           </div>
@@ -686,7 +686,7 @@ export default function LeadIntelligencePage() {
                       Capability
                     </th>
                     <th className="p-4 font-black text-noble-blue text-base border-x border-slate-100 bg-noble-blue/5 w-1/3">
-                      NobleInvoice
+                      Nobevra
                     </th>
                     <th className="p-4 font-bold text-slate-500 text-base w-1/3">
                       Google Chrome QR
@@ -730,8 +730,8 @@ export default function LeadIntelligencePage() {
       <section className="py-24 bg-white">
         <div className="max-w-[1430px] mx-auto px-4 md:px-16">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0599D5]/8 border border-[#0599D5]/10 text-[#0599D5] font-bold text-[10px] uppercase tracking-widest mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#0599D5] animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#01A0E2]/8 border border-[#01A0E2]/10 text-[#01A0E2] font-bold text-[10px] uppercase tracking-widest mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#01A0E2] animate-pulse" />
               QR Code Use Cases
             </div>
             <h2 className="font-inter text-4xl lg:text-5xl font-black text-near-black leading-[1.1] tracking-tight mb-6">
@@ -904,7 +904,7 @@ export default function LeadIntelligencePage() {
                   ))}
                 </div>
                 <div className="mt-6 bg-noble-blue/5 rounded-xl p-4 text-sm text-near-black/60">
-                  <strong className="text-noble-blue">NobleInvoice default:</strong> We use Level H
+                  <strong className="text-noble-blue">Nobevra default:</strong> We use Level H
                   automatically so your logo always fits without breaking scannability.
                 </div>
               </div>
@@ -963,7 +963,7 @@ export default function LeadIntelligencePage() {
               QR codes that turn scans into revenue.
             </h2>
             <p className="text-xl text-white/70 max-w-2xl mx-auto font-medium">
-              Real results from businesses using NobleInvoice QR codes to collect payments, capture
+              Real results from businesses using Nobevra QR codes to collect payments, capture
               leads, and grow their client base.
             </p>
           </div>
@@ -1053,7 +1053,7 @@ export default function LeadIntelligencePage() {
             </div>
             <div className="mt-8 pt-8 border-t border-slate-100">
               <p className="text-near-black/60 leading-relaxed">
-                NobleInvoice QR codes are built for businesses that move money — freelancers,
+                Nobevra QR codes are built for businesses that move money — freelancers,
                 agencies, consultants, and service providers who want every scan to either pay them
                 or inform their next decision. If that is you, let&apos;s go.
               </p>
@@ -1080,23 +1080,23 @@ export default function LeadIntelligencePage() {
             {[
               {
                 q: 'How do I make a QR code for my website for free?',
-                a: "Open NobleInvoice, go to Lead Intelligence → QR Generator, paste your URL, and download. Free static QR codes require no account. Dynamic codes with analytics are included in Pro.",
+                a: "Open Nobevra, go to Lead Intelligence → QR Generator, paste your URL, and download. Free static QR codes require no account. Dynamic codes with analytics are included in Pro.",
               },
               {
                 q: 'Can I use a free QR code generator without it expiring?',
-                a: "Static QR codes from NobleInvoice never expire — the URL is baked in permanently. Dynamic QR codes stay live as long as your account is active. We never delete or break your codes without notice.",
+                a: "Static QR codes from Nobevra never expire — the URL is baked in permanently. Dynamic QR codes stay live as long as your account is active. We never delete or break your codes without notice.",
               },
               {
                 q: 'How do I make a QR code for a website without an app?',
-                a: "NobleInvoice is fully browser-based. Open it on any phone, tablet, or computer, generate your QR code, and download. No app install needed.",
+                a: "Nobevra is fully browser-based. Open it on any phone, tablet, or computer, generate your QR code, and download. No app install needed.",
               },
               {
                 q: 'What is a Google QR code generator and can it track scans?',
-                a: "Google Chrome can generate a basic static QR code for any webpage via the share icon. It cannot track scans, customize the design, or link to a payment page. For business use, NobleInvoice gives you all of that.",
+                a: "Google Chrome can generate a basic static QR code for any webpage via the share icon. It cannot track scans, customize the design, or link to a payment page. For business use, Nobevra gives you all of that.",
               },
               {
                 q: 'Can I add a logo to my QR code without breaking it?',
-                a: "Yes. NobleInvoice uses Level H error correction by default, which allows up to 30% of the QR pattern to be covered by a logo. Your code remains fully scannable with a logo up to that size.",
+                a: "Yes. Nobevra uses Level H error correction by default, which allows up to 30% of the QR pattern to be covered by a logo. Your code remains fully scannable with a logo up to that size.",
               },
               {
                 q: 'Do I need a QR code scanner app?',
@@ -1104,7 +1104,7 @@ export default function LeadIntelligencePage() {
               },
               {
                 q: 'Can a QR code link directly to my payment page?',
-                a: "Yes. Every QR code you generate in NobleInvoice can link to any URL — including your secure payment portal. Clients scan and pay by card, Apple Pay, or Google Pay without needing an account.",
+                a: "Yes. Every QR code you generate in Nobevra can link to any URL — including your secure payment portal. Clients scan and pay by card, Apple Pay, or Google Pay without needing an account.",
               },
             ].map((faq, i) => (
               <details

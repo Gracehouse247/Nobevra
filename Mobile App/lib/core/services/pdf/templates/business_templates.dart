@@ -107,7 +107,7 @@ class BusinessTemplates {
           pw.SizedBox(height: 40),
           pw.Divider(color: PdfColors.grey300),
           pw.SizedBox(height: 12),
-          pw.Center(child: pw.Text(biz.footerText ?? 'NobleInvoice Enterprise Invoice Distribution', style: textStyle.copyWith(color: PdfColors.grey500))),
+          pw.Center(child: pw.Text(biz.footerText ?? 'Nobevra Invoice Distribution', style: textStyle.copyWith(color: PdfColors.grey500))),
           pw.SizedBox(height: 24),
           PdfWidgets.buildPaymentDetails(biz, font, bold),
         ]),

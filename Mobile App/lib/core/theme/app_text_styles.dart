@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:noble_invoice/core/theme/app_colors.dart';
 
-// A class to hold all the text styles for the NobleInvoice app.
+// A class to hold all the text styles for the Nobevra app.
 // This ensures a consistent typography system across the application.
 class AppTextStyles {
   // This class is not meant to be instantiated.

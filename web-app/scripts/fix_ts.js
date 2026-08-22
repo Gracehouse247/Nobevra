@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let route1 = 'C:/Projects/NobleInvoice/web-app/src/app/api/contracts/[id]/sign/route.ts';
+let route1 = 'C:/Projects/Nobevra/web-app/src/app/api/contracts/[id]/sign/route.ts';
 if (fs.existsSync(route1)) {
   let c1 = fs.readFileSync(route1, 'utf8');
   c1 = c1.replace(/{ params }: { params: { id: string } }/g, '{ params }: { params: Promise<{ id: string }> }');
@@ -9,7 +9,7 @@ if (fs.existsSync(route1)) {
   fs.writeFileSync(route1, c1);
 }
 
-let route2 = 'C:/Projects/NobleInvoice/web-app/src/app/nfc/[serial]/route.ts';
+let route2 = 'C:/Projects/Nobevra/web-app/src/app/nfc/[serial]/route.ts';
 if (fs.existsSync(route2)) {
   let c2 = fs.readFileSync(route2, 'utf8');
   c2 = c2.replace(/{ params }: { params: { serial: string } }/g, '{ params }: { params: Promise<{ serial: string }> }');
@@ -17,7 +17,7 @@ if (fs.existsSync(route2)) {
   fs.writeFileSync(route2, c2);
 }
 
-let postEd = 'C:/Projects/NobleInvoice/web-app/src/components/features/cms/PostEditor.tsx';
+let postEd = 'C:/Projects/Nobevra/web-app/src/components/features/cms/PostEditor.tsx';
 if (fs.existsSync(postEd)) {
   let c3 = fs.readFileSync(postEd, 'utf8');
   if (!c3.includes("import { Editor }")) {
@@ -27,14 +27,14 @@ if (fs.existsSync(postEd)) {
   fs.writeFileSync(postEd, c3);
 }
 
-let seo = 'C:/Projects/NobleInvoice/web-app/src/components/features/cms/AISeoAnalyzer.tsx';
+let seo = 'C:/Projects/Nobevra/web-app/src/components/features/cms/AISeoAnalyzer.tsx';
 if (fs.existsSync(seo)) {
   let c4 = fs.readFileSync(seo, 'utf8');
   c4 = c4.replace(/err: unknown\)/g, 'err: any)');
   fs.writeFileSync(seo, c4);
 }
 
-let soc = 'C:/Projects/NobleInvoice/web-app/src/components/features/cms/SocialPublishModal.tsx';
+let soc = 'C:/Projects/Nobevra/web-app/src/components/features/cms/SocialPublishModal.tsx';
 if (fs.existsSync(soc)) {
   let c5 = fs.readFileSync(soc, 'utf8');
   c5 = c5.replace(/err: unknown\)/g, 'err: any)');
@@ -42,7 +42,7 @@ if (fs.existsSync(soc)) {
 }
 
 ['CTABlock.tsx', 'NoticeBlock.tsx', 'PricingTableBlock.tsx'].forEach(file => {
-  let p = 'C:/Projects/NobleInvoice/web-app/src/components/features/cms/extensions/' + file;
+  let p = 'C:/Projects/Nobevra/web-app/src/components/features/cms/extensions/' + file;
   if (fs.existsSync(p)) {
     let c = fs.readFileSync(p, 'utf8');
     if (!c.includes('NodeViewProps')) {
@@ -52,7 +52,7 @@ if (fs.existsSync(soc)) {
   }
 });
 
-let blog = 'C:/Projects/NobleInvoice/web-app/src/app/(public)/blog/[slug]/page.tsx';
+let blog = 'C:/Projects/Nobevra/web-app/src/app/(public)/blog/[slug]/page.tsx';
 if (fs.existsSync(blog)) {
   let c6 = fs.readFileSync(blog, 'utf8');
   c6 = c6.replace(/\{ node, ordered, children, \.\.\.props \}/g, '{ node, children, ...props }');

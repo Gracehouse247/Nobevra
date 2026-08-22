@@ -77,7 +77,7 @@ function PaymentCallbackContent() {
           await supabase.auth.refreshSession();
 
           setStatus('success');
-          setMessage(`Welcome to NobleInvoice ${tier === 'pulse' ? 'Noble Pulse' : 'Noble Elite'}! Your plan is now active.`);
+          setMessage(`Welcome to Nobevra ${tier === 'pulse' ? 'Noble Pulse' : 'Noble Elite'}! Your plan is now active.`);
           setTimeout(() => {
             window.location.href = '/dashboard';
           }, 2500);

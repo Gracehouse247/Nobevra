@@ -4,13 +4,13 @@ import { Star } from 'lucide-react';
 
 const reviews = [
     {
-        quote: "NobleInvoice completely streamlined our logistics billing. With the API integrations, our high-volume transactions are processed flawlessly every single day. We re-allocated 4 developers back to our core product.",
+        quote: "Nobevra completely streamlined our logistics billing. With the API integrations, our high-volume transactions are processed flawlessly every single day. We re-allocated 4 developers back to our core product.",
         name: "McGerald Olfordile",
         role: "CEO, Rapidbox Limited",
         image: "/images/reviews/mcgerald-olfordile-ceo-of-rapidbox-limited.png",
     },
     {
-        quote: "Scaling our manufacturing operations required a robust enterprise invoice management system. NobleInvoice connects our client pipelines directly to our massive inventory ledgers effortlessly.",
+        quote: "Scaling our manufacturing operations required a robust enterprise invoice management system. Nobevra connects our client pipelines directly to our massive inventory ledgers effortlessly.",
         name: "Timileyin Oluwafemi",
         role: "CEO, Ceejee Foam",
         image: "/images/reviews/timileyin-oluwafemi-ceo-of-ceejee-foam.jpeg",

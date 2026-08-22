@@ -11,7 +11,7 @@ export default function ImageGalleryForm({ onChange, initialData, onPreviewValue
 
     useEffect(() => {
         onChange({ galleryName, description, allowDownloads, _files: files });
-        onPreviewValueChange(galleryName ? `Gallery: ${galleryName} (${files.length} images)` : 'https://nobleinvoice.com');
+        onPreviewValueChange(galleryName ? `Gallery: ${galleryName} (${files.length} images)` : 'https://nobevra.noblesworld.com.ng');
     }, [galleryName, description, allowDownloads, files]);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {

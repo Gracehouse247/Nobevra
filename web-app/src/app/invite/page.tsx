@@ -205,7 +205,7 @@ function InvitePageInner() {
                         <div className="w-10 h-10 rounded-[12px] bg-[#166FBB] flex items-center justify-center shadow-lg shadow-blue-500/25">
                             <Shield className="w-5 h-5 text-white" />
                         </div>
-                        <span className="text-xl font-black text-slate-900 tracking-tight">NobleInvoice</span>
+                        <span className="text-xl font-black text-slate-900 tracking-tight">Nobevra</span>
                     </div>
                 </div>
 
@@ -459,7 +459,7 @@ function InvitePageInner() {
                             </button>
 
                             <p className="text-center text-[12px] text-slate-500">
-                                New to NobleInvoice?{' '}
+                                New to Nobevra?{' '}
                                 <button type="button" onClick={() => { setStatus('new_user'); setError(''); }} className="text-[#166FBB] font-bold hover:underline">
                                     Create an account
                                 </button>
@@ -470,7 +470,7 @@ function InvitePageInner() {
 
                 {/* Footer */}
                 <p className="text-center text-[12px] text-slate-400 mt-6">
-                    © 2026 NobleInvoice. All rights reserved.
+                    © 2026 Nobevra. All rights reserved.
                 </p>
             </div>
         </div>

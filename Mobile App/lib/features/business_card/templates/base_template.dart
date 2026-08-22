@@ -30,7 +30,7 @@ abstract class BusinessCardTemplate {
   }
 
   Widget qr({String? profileId, double size = 40, bool dark = false, Color? border}) {
-    final String url = profileId != null ? 'https://NobleInvoice.app/card/$profileId' : 'https://NobleInvoice.app';
+    final String url = profileId != null ? 'https://nobevra.com/card/$profileId' : 'https://nobevra.com';
     
     return Container(
       padding: const EdgeInsets.all(6),

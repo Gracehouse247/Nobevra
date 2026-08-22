@@ -114,7 +114,8 @@ export function ActionBtn({ color, hoverColor, children, onClick, title, href, t
             rel={href && target === '_blank' ? 'noreferrer' : undefined}
             onClick={onClick}
             title={title}
-            className="w-[26px] h-[26px] rounded-md flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-sm"
+            aria-label={title}
+            className="relative w-[26px] h-[26px] rounded-md flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 shadow-sm sm:min-h-0 sm:min-w-0 min-h-[44px] min-w-[44px] sm:!min-h-0 sm:!min-w-0"
             style={{ backgroundColor: color }}
             onMouseEnter={(e: any) => (e.currentTarget.style.backgroundColor = hoverColor)}
             onMouseLeave={(e: any) => (e.currentTarget.style.backgroundColor = color)}

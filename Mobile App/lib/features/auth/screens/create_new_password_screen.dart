@@ -94,7 +94,7 @@ class _CreateNewPasswordScreenState extends State<CreateNewPasswordScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: Text(
-          'NobleInvoice',
+          'Nobevra',
           style: AppTextStyles.headlineSmall.copyWith(
             color: AppColors.darkGrey.withOpacity(0.4),
             fontWeight: FontWeight.w900,

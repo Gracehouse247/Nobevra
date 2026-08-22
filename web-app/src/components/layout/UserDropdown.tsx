@@ -21,7 +21,7 @@ function UserAvatar({
     const ringColor = plan === 'elite' 
         ? '0 0 0 2.5px #F59E0B' 
         : plan === 'pulse' 
-        ? '0 0 0 2.5px #0599D5' 
+        ? '0 0 0 2.5px #01A0E2' 
         : '0 0 0 2px #CBD5E1';
 
     return (
@@ -37,7 +37,7 @@ function UserAvatar({
                     onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
                 />
             ) : (
-                <div className="w-full h-full bg-gradient-to-br from-[#0599D5] to-[#006970] flex items-center justify-center">
+                <div className="w-full h-full bg-gradient-to-br from-[#01A0E2] to-[#006970] flex items-center justify-center">
                     <span className={`font-black text-white ${sizeMap[size].split(' ')[2]}`}>{initials}</span>
                 </div>
             )}
@@ -51,7 +51,7 @@ export default function UserDropdown() {
     const router = useRouter();
     const { userData: authUserData, user } = useAuth();
 
-    const displayName = authUserData?.name || user?.email?.split('@')[0] || 'Noble User';
+    const displayName = authUserData?.name || user?.email?.split('@')[0] || 'User';
     const displayEmail = authUserData?.email || user?.email || '';
     const displayPlan = authUserData?.plan || 'explorer';
     // Get avatar from Google OAuth or any set avatar URL
@@ -70,7 +70,7 @@ export default function UserDropdown() {
     const isPremium = isElite || isPulse || isSuperAdmin;
 
     const planLabel = isSuperAdmin ? 'Super Admin' : isElite ? 'Noble Elite' : isPulse ? 'Noble Pulse' : 'Free Tier';
-    const planColor = isSuperAdmin ? 'text-amber-500' : isElite ? 'text-amber-500' : isPulse ? 'text-[#0599D5]' : 'text-slate-400 dark:text-slate-500';
+    const planColor = isSuperAdmin ? 'text-amber-500' : isElite ? 'text-amber-500' : isPulse ? 'text-[#01A0E2]' : 'text-slate-400 dark:text-slate-500';
     const planBadgeBg = isSuperAdmin ? 'bg-amber-50 border-amber-100 dark:bg-amber-500/10 dark:border-amber-500/20' : isElite ? 'bg-amber-50 border-amber-100' : isPulse ? 'bg-blue-50 border-blue-100' : 'bg-slate-50 dark:bg-[#0D1B2E] border-slate-100 dark:border-noble-border';
 
     // Handle clicking outside to close
@@ -124,11 +124,11 @@ export default function UserDropdown() {
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center gap-2 mb-0.5">
                                         <h3 className="text-[14px] font-black text-noble-text truncate">{displayName}</h3>
-                                        {isPremium && <CheckCircle2 className="w-3.5 h-3.5 text-[#0599D5] flex-shrink-0" />}
+                                        {isPremium && <CheckCircle2 className="w-3.5 h-3.5 text-[#01A0E2] flex-shrink-0" />}
                                     </div>
                                     <p className="text-[11px] text-slate-400 dark:text-slate-500 font-medium truncate">{displayEmail}</p>
                                     <div className={`inline-flex items-center gap-1 mt-2 px-2 py-0.5 rounded-full border ${planBadgeBg}`}>
-                                        {(isElite || isSuperAdmin) ? <Crown className="w-2.5 h-2.5 text-amber-500" /> : <Sparkles className="w-2.5 h-2.5 text-[#0599D5]" />}
+                                        {(isElite || isSuperAdmin) ? <Crown className="w-2.5 h-2.5 text-amber-500" /> : <Sparkles className="w-2.5 h-2.5 text-[#01A0E2]" />}
                                         <span className={`text-[9px] font-black uppercase tracking-widest ${planColor}`}>{planLabel}</span>
                                     </div>
                                 </div>
@@ -138,10 +138,10 @@ export default function UserDropdown() {
                         {/* Upgrade / Plan Status Card */}
                         {!isPremium && (
                             <div className="px-3 pt-3">
-                                <div className="bg-gradient-to-br from-[#0599D5]/8 to-[#006970]/8 rounded-2xl p-4 border border-[#0599D5]/15">
+                                <div className="bg-gradient-to-br from-[#01A0E2]/8 to-[#006970]/8 rounded-2xl p-4 border border-[#01A0E2]/15">
                                     <div className="flex items-center gap-2 mb-2">
-                                        <div className="w-6 h-6 rounded-lg bg-[#0599D5]/15 flex items-center justify-center">
-                                            <Sparkles className="w-3 h-3 text-[#0599D5]" />
+                                        <div className="w-6 h-6 rounded-lg bg-[#01A0E2]/15 flex items-center justify-center">
+                                            <Sparkles className="w-3 h-3 text-[#01A0E2]" />
                                         </div>
                                         <p className="text-[11px] font-black text-slate-700 dark:text-slate-200">Unlock Full Power</p>
                                     </div>
@@ -151,7 +151,7 @@ export default function UserDropdown() {
                                     <Link 
                                         href="/upgrade"
                                         onClick={() => setIsOpen(false)}
-                                        className="flex items-center justify-center w-full py-2 bg-gradient-to-r from-[#006970] to-[#0599D5] rounded-xl text-[10px] font-black text-white uppercase tracking-widest hover:shadow-lg hover:shadow-[#0599D5]/20 hover:-translate-y-0.5 transition-all"
+                                        className="flex items-center justify-center w-full py-2 bg-gradient-to-r from-[#006970] to-[#01A0E2] rounded-xl text-[10px] font-black text-white uppercase tracking-widest hover:shadow-lg hover:shadow-[#01A0E2]/20 hover:-translate-y-0.5 transition-all"
                                     >
                                         Upgrade Now
                                     </Link>
@@ -162,7 +162,7 @@ export default function UserDropdown() {
                             <div className="px-3 pt-3">
                                 <div className={`rounded-2xl p-3 border ${planBadgeBg} flex items-center justify-between`}>
                                     <div className="flex items-center gap-2">
-                                        {isElite ? <Award className="w-4 h-4 text-amber-500" /> : <Shield className="w-4 h-4 text-[#0599D5]" />}
+                                        {isElite ? <Award className="w-4 h-4 text-amber-500" /> : <Shield className="w-4 h-4 text-[#01A0E2]" />}
                                         <p className={`text-[10px] font-black uppercase tracking-widest ${planColor}`}>
                                             {planLabel} — Active
                                         </p>

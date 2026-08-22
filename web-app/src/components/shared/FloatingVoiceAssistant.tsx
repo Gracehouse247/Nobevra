@@ -357,7 +357,7 @@ export default function FloatingVoiceAssistant() {
                             </div>
                             <h3 className="text-white text-lg font-bold text-center mb-2">Allow Microphone Access</h3>
                             <p className="text-slate-300 text-sm text-center mb-6">
-                                NobleInvoice AI needs your microphone to listen to your voice commands and create invoices automatically.
+                                Nobevra AI needs your microphone to listen to your voice commands and create invoices automatically.
                             </p>
                             <div className="flex gap-3">
                                 <button
@@ -390,7 +390,7 @@ export default function FloatingVoiceAssistant() {
                         <div className="p-5 border-b border-white/10 flex justify-between items-center bg-gradient-to-r from-noble-blue/20 to-transparent">
                             <div className="flex items-center gap-2">
                                 <Sparkles className="w-4 h-4 text-electric-cyan" />
-                                <h3 className="text-sm font-semibold text-white">NobleInvoice Assistant</h3>
+                                <h3 className="text-sm font-semibold text-white">Nobevra Assistant</h3>
                             </div>
                             <button onClick={() => setIsOpen(false)} className="text-slate-400 dark:text-slate-500 hover:text-white transition-colors">
                                 <X className="w-5 h-5" />
@@ -527,7 +527,7 @@ export default function FloatingVoiceAssistant() {
                     <div className="flex flex-col items-center justify-center gap-1">
                         <Sparkles className="w-5 h-5 text-white" />
                         <span className="text-white font-medium text-[10px] leading-tight text-center whitespace-nowrap flex items-center gap-1">
-                            NobleInvoice AI
+                            Nobevra AI
                             {!canUse('ai.voice') && <PremiumBadge tier="pulse" iconOnly />}
                         </span>
                     </div>

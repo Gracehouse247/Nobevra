@@ -11,7 +11,7 @@ import {
 
 /* ── SEO Metadata ───────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'AI Receipt Scanner — Automate Business Expenses | NobleInvoice',
+    title: 'AI Receipt Scanner — Automate Business Expenses | Nobevra',
     description: 'Snap a photo of any receipt. Our AI receipt scanner extracts data in seconds—automate business expenses, track spending, and eliminate manual entry.',
     keywords: [
         'AI receipt scanner',
@@ -22,9 +22,9 @@ export const metadata: Metadata = {
         'automated bookkeeping solutions'
     ],
     openGraph: {
-        title: 'AI Receipt Scanner — Automate Business Expenses | NobleInvoice',
+        title: 'AI Receipt Scanner — Automate Business Expenses | Nobevra',
         description: 'Snap a photo. Our AI does the rest. Extract, categorise, and track every business expense automatically.',
-        url: 'https://nobleinvoice.com/receipt-scanner',
+        url: '/receipt-scanner',
         type: 'website',
     },
 };
@@ -80,7 +80,7 @@ const features = [
         icon: Zap,
         title: 'Receipt to invoice in 2 taps',
         desc: 'Found a business expense? Convert it into a reimbursable invoice for a client immediately. The only business accounting app that connects scanning to billing.',
-        tag: 'Unique to NobleInvoice',
+        tag: 'Unique to Nobevra',
     },
 ];
 
@@ -118,7 +118,7 @@ const faqs = [
     },
     {
         q: "Is this just an expense tracker or a full business accounting app?",
-        a: "It's both — and more. NobleInvoice combines the receipt scanner with invoicing, CRM, payment collection, and financial reports. Think of it as the business accounting app that connects your income and your expenses in one place.",
+        a: "It's both — and more. Nobevra combines the receipt scanner with invoicing, CRM, payment collection, and financial reports. Think of it as the business accounting app that connects your income and your expenses in one place.",
     },
 ];
 
@@ -148,7 +148,7 @@ const generateSoftwareSchema = () => {
     return {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "NobleInvoice AI Receipt Scanner",
+        "name": "Nobevra AI Receipt Scanner",
         "operatingSystem": "Web, iOS, Android",
         "applicationCategory": "BusinessApplication",
         "aggregateRating": {
@@ -218,7 +218,7 @@ export default function ReceiptScannerPage() {
                                 <div className="flex -space-x-3">
                                     {[
                                         { bg: 'bg-noble-blue', text: 'BM' },
-                                        { bg: 'bg-[#0599D5]', text: 'GE' },
+                                        { bg: 'bg-[#01A0E2]', text: 'GE' },
                                         { bg: 'bg-primary', text: 'PS' },
                                         { bg: 'bg-[#166FBB]', text: 'RA' },
                                         { bg: 'bg-near-black', text: 'TK' },
@@ -519,7 +519,7 @@ export default function ReceiptScannerPage() {
                                 Most "AI receipt scanners" stop at extraction. They hand you a text file and leave the filing, categorisation, reporting, and invoicing to you. That's still manual work.
                             </p>
                             <p className="text-base text-near-black/60 leading-relaxed mb-8">
-                                NobleInvoice connects your expense tracker directly to your client invoices. If you spend $150 on supplies for a project, you can turn that receipt into a reimbursable client invoice in two taps.
+                                Nobevra connects your expense tracker directly to your client invoices. If you spend $150 on supplies for a project, you can turn that receipt into a reimbursable client invoice in two taps.
                             </p>
                             <div className="space-y-3">
                                 {[
@@ -541,7 +541,7 @@ export default function ReceiptScannerPage() {
                             <div className="grid grid-cols-3 bg-slate-900 text-white px-6 py-4">
                                 <div className="text-[11px] font-black uppercase tracking-wider">Feature</div>
                                 <div className="text-[11px] font-black uppercase tracking-wider text-center">Basic OCR Apps</div>
-                                <div className="text-[11px] font-black uppercase tracking-wider text-center text-noble-blue">NobleInvoice</div>
+                                <div className="text-[11px] font-black uppercase tracking-wider text-center text-noble-blue">Nobevra</div>
                             </div>
                             {[
                                 { feature: 'Receipt extraction', basic: '✓', noble: '✓' },
@@ -626,7 +626,7 @@ export default function ReceiptScannerPage() {
                             <p className="text-sm text-slate-500 font-medium">
                                 If none of those apply to you —{' '}
                                 <Link href="/register" className="text-noble-blue font-black hover:underline">
-                                    NobleInvoice is built for exactly what you need.
+                                    Nobevra is built for exactly what you need.
                                 </Link>
                             </p>
                         </div>

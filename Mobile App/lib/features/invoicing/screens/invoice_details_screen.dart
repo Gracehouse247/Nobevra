@@ -15,6 +15,7 @@ import 'package:noble_invoice/core/theme/glass_widgets.dart';
 import 'package:noble_invoice/features/expenses/controllers/expense_controller.dart';
 import 'package:noble_invoice/features/expenses/models/expense_model.dart';
 import 'package:noble_invoice/features/invoicing/controllers/invoice_controller.dart' as ctrl;
+import 'package:noble_invoice/features/invoicing/controllers/invoice_operations.dart';
 import 'package:noble_invoice/features/invoicing/models/business_info.dart';
 import 'package:noble_invoice/features/invoicing/models/invoice_model.dart' as model;
 import 'package:noble_invoice/features/invoicing/models/pdf_template.dart';
@@ -67,7 +68,6 @@ class _InvoiceDetailsScreenState extends State<InvoiceDetailsScreen> {
       discountValue: details.discountValue,
       currencyCode:  details.currencyCode ?? 'USD',
       metadata:      details.metadata,
-      trackingToken: details.trackingToken,
     );
   }
 
@@ -84,12 +84,11 @@ class _InvoiceDetailsScreenState extends State<InvoiceDetailsScreen> {
   BusinessInfo _getBusinessInfo() {
     final profile = context.read<ProfileController>().profile;
     return BusinessInfo(
-      name:    profile?.businessName ?? profile?.fullName ?? 'My Business',
-      address: profile?.address ?? '',
-      phone:   profile?.phone ?? '',
-      email:   profile?.email ?? '',
-      website: profile?.website ?? '',
-      logoUrl: profile?.logoUrl,
+      name:            profile?.businessName ?? profile?.displayName ?? 'My Business',
+      businessAddress: profile?.businessAddress ?? '',
+      businessPhone:   profile?.businessPhone ?? profile?.phone ?? '',
+      businessEmail:   profile?.businessEmail ?? profile?.email ?? '',
+      logoUrl:         profile?.brandLogoUrl,
     );
   }
 

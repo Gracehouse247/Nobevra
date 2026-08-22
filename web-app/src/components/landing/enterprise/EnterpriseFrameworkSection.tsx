@@ -15,7 +15,7 @@ export default function EnterpriseFrameworkSection() {
                 </h2>
                 
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto font-medium">
-                    NobleInvoice Elite is high volume invoicing software built around a closed-loop revenue framework. We ensure that every billable event in your product translates into cash in your bank account.
+                    Nobevra Elite is high volume invoicing software built around a closed-loop revenue framework. We ensure that every billable event in your product translates into cash in your bank account.
                 </p>
 
             </div>
@@ -32,7 +32,7 @@ export default function EnterpriseFrameworkSection() {
                         </div>
                         <h3 className="font-black text-xl text-near-black mb-3">1. Capture (API Integration)</h3>
                         <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                            Connect your app via our API invoicing integration. The moment a customer upgrades, hits a usage limit, or renews a contract, NobleInvoice instantly generates the bill. Zero manual data entry.
+                            Connect your app via our API invoicing integration. The moment a customer upgrades, hits a usage limit, or renews a contract, Nobevra instantly generates the bill. Zero manual data entry.
                         </p>
                     </div>
 

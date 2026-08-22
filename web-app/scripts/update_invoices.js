@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const file = 'C:/Projects/NobleInvoice/web-app/src/app/(user)/invoices/page.tsx';
+const file = 'C:/Projects/Nobevra/web-app/src/app/(user)/invoices/page.tsx';
 let content = fs.readFileSync(file, 'utf8');
 
 // Insert import

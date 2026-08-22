@@ -43,14 +43,14 @@ const CATEGORIES = [
 const content = `
 ### 1. ABOUT THIS LIST
 
-This Subprocessor List identifies the third-party companies ("subprocessors") that NobleInvoice engages to process personal data on behalf of users of the NobleInvoice platform.
+This Subprocessor List identifies the third-party companies ("subprocessors") that Nobevra engages to process personal data on behalf of users of the Nobevra platform.
 
-A **subprocessor** is a third-party service provider that may receive, store, or otherwise process personal data in the course of providing services to NobleInvoice. This list is maintained in accordance with Article 28 of the GDPR, applicable UK GDPR requirements, and the Nigeria Data Protection Act 2023 (NDPA).
+A **subprocessor** is a third-party service provider that may receive, store, or otherwise process personal data in the course of providing services to Nobevra. This list is maintained in accordance with Article 28 of the GDPR, applicable UK GDPR requirements, and the Nigeria Data Protection Act 2023 (NDPA).
 
 **Effective Date:** August 8, 2026  
 **Operated by:** The Noble's Technology Service (CAC-registered, Lagos, Nigeria)
 
-This list reflects the verified, current production state of the NobleInvoice platform. We update it when subprocessors change.
+This list reflects the verified, current production state of the Nobevra platform. We update it when subprocessors change.
 
 ---
 
@@ -93,7 +93,7 @@ Supabase and Vercel both operate on AWS infrastructure. Physical and environment
 |---|---|---|---|---|
 | **Flutterwave Technology Solutions Ltd** | Payment processing, card tokenization, subscription billing, payouts | Billing details, card tokens (last 4 digits, brand, expiry — not full card numbers), transaction records, bank account details for payouts | Nigeria + United States | Primary payment processor; PCI DSS compliant |
 
-NobleInvoice does not store raw card numbers. Full cardholder data is processed only within Flutterwave's PCI DSS-compliant environment and never transits NobleInvoice servers.
+Nobevra does not store raw card numbers. Full cardholder data is processed only within Flutterwave's PCI DSS-compliant environment and never transits Nobevra servers.
 
 ---
 
@@ -103,7 +103,7 @@ NobleInvoice does not store raw card numbers. Full cardholder data is processed 
 |---|---|---|---|---|
 | **Google LLC** (Gemini API) | AI assistant, voice invoice generation, receipt OCR, report insights | Message content (AI assistant), voice transcription, receipt images, aggregated financial metrics | United States | Per Google API terms: submitted data is not used to train general-purpose AI models |
 
-NobleInvoice does not use Groq, OpenAI, Anthropic, or any other AI provider in its current production environment.
+Nobevra does not use Groq, OpenAI, Anthropic, or any other AI provider in its current production environment.
 
 ---
 
@@ -132,7 +132,7 @@ GA4 is not loaded for users who have not consented or who have rejected analytic
 | **ip-api.com** | IP geolocation — mobile app currency detection | Raw IP address of mobile device | European Union | IP is sent to detect country for automatic currency selection on the mobile app. HTTPS only. |
 | **ipapi.co** | IP geolocation — web app currency detection (via server proxy) | Raw IP address of web visitor | United States | IP is proxied through a Next.js API route and sent to ipapi.co to detect country for currency selection. |
 
-Both services receive the user's IP address for the sole purpose of determining the user's country to pre-select an appropriate invoice currency. IP addresses are not stored by NobleInvoice beyond the API response.
+Both services receive the user's IP address for the sole purpose of determining the user's country to pre-select an appropriate invoice currency. IP addresses are not stored by Nobevra beyond the API response.
 
 ---
 
@@ -159,7 +159,7 @@ Social integrations are entirely optional. Connecting and disconnecting social a
 
 | Subprocessor | Role | Data Processed | Location | Notes |
 |---|---|---|---|---|
-| **Google LLC** (Firebase Cloud Messaging / FCM) | Mobile push notification delivery | FCM device token (associated with your user account), notification payload | United States | FCM device tokens are stored in the NobleInvoice database and used to deliver platform notifications to your mobile device. |
+| **Google LLC** (Firebase Cloud Messaging / FCM) | Mobile push notification delivery | FCM device token (associated with your user account), notification payload | United States | FCM device tokens are stored in the Nobevra database and used to deliver platform notifications to your mobile device. |
 
 FCM tokens are rotated on device re-registration and removed on sign-out.
 
@@ -167,7 +167,7 @@ FCM tokens are rotated on device re-registration and removed on sign-out.
 
 ### 13. DATA TRANSFER MECHANISMS
 
-NobleInvoice's primary infrastructure (Supabase) and most subprocessors are located in the United States. For users in the EEA, UK, or other jurisdictions with data-export restrictions, transfers are made pursuant to:
+Nobevra's primary infrastructure (Supabase) and most subprocessors are located in the United States. For users in the EEA, UK, or other jurisdictions with data-export restrictions, transfers are made pursuant to:
 
 * **Standard Contractual Clauses (SCCs)** — where Google LLC, Vercel, or other US-based processors have incorporated EU SCCs into their data processing terms.
 * **Contractual arrangements** — with Nigerian-based subprocessors, including data-protection obligations consistent with NDPA requirements.
@@ -179,7 +179,7 @@ Enterprise customers requiring specific data-transfer documentation (e.g., a sig
 
 ### 14. CHANGES TO SUBPROCESSORS
 
-NobleInvoice will update this list when we:
+Nobevra will update this list when we:
 
 * Engage a new subprocessor.
 * Terminate a subprocessor relationship.
@@ -202,7 +202,7 @@ export default function SubprocessorsPage() {
   return (
     <LegalLayout
       title="Subprocessor List"
-      description="A complete, verified list of third-party companies that process personal data on behalf of NobleInvoice users. Updated when subprocessors change."
+      description="A complete, verified list of third-party companies that process personal data on behalf of Nobevra users. Updated when subprocessors change."
       categories={CATEGORIES}
     >
       <div className="prose prose-slate prose-a:text-blue-600 prose-headings:text-slate-900 max-w-none prose-h3:text-2xl prose-h3:font-black prose-h3:mt-12 prose-h3:scroll-mt-24 prose-table:text-sm">

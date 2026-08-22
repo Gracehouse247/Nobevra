@@ -1,0 +1,54 @@
+name: 🐛 Bug Report
+description: Report an issue or unexpected behavior in Nobevra.
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for helping improve Nobevra! Please fill out the form below.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected Component
+      description: Which part of Nobevra did this occur in?
+      options:
+        - Web Application (web-app)
+        - Mobile Application (Mobile App)
+        - Backend & Database / Edge Functions
+        - Dynamic QR / Business Cards Engine
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Provide a clear and concise description of the bug.
+      placeholder: Describe what happened...
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: Step-by-step instructions to reproduce the issue.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment Info
+      description: Browser version, OS, Device, Flutter version, Node version, etc.
+      placeholder: "e.g. Chrome 125, macOS Sonoma, Android 14"

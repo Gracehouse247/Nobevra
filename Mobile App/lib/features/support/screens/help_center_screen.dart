@@ -165,7 +165,7 @@ class HelpCenterScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 32),
                     const Text(
-                      'NobleInvoice Support\nHow can we help you?',
+                      'Nobevra Support\nHow can we help you?',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 28,

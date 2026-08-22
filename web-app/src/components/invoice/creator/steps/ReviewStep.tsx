@@ -3,7 +3,7 @@ import { useInvoiceCreator } from '../InvoiceCreatorContext';
 
 const labelClass = "text-[11px] font-bold text-slate-500 mb-1 block uppercase tracking-wider font-[Inter,sans-serif]";
 const inputClass = `w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px]
-  focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10
+  focus:outline-none focus:border-[#01A0E2] focus:ring-2 focus:ring-[#01A0E2]/10
   transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;
 const cardClass = "bg-noble-surface rounded-xl border border-noble-border shadow-sm overflow-hidden mb-3";
 const cardHeaderClass = "px-5 py-3 border-b border-slate-100 bg-slate-50/50";
@@ -40,7 +40,7 @@ export const ReviewStep = () => {
                     ))}
                     <div className="flex justify-between items-center pt-2">
                         <span className="text-[13px] font-bold text-slate-700 font-[Inter,sans-serif]">Total Amount Due</span>
-                        <span className="text-2xl font-black text-[#0599D5] font-[Inter,sans-serif]">{currencySymbol}{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
+                        <span className="text-2xl font-black text-[#01A0E2] font-[Inter,sans-serif]">{currencySymbol}{total.toLocaleString(undefined, { minimumFractionDigits: 2 })}</span>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@ export const ReviewStep = () => {
                         value={notes}
                         onChange={e => setNotes(e.target.value)}
                         placeholder="e.g. Thank you for your business. Payment is due within the terms stated."
-                        className="w-full h-24 p-3 text-[13px] bg-slate-50 border border-noble-border rounded-xl focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 resize-none text-slate-800 placeholder-slate-400 font-medium transition-all font-[Inter,sans-serif]"
+                        className="w-full h-24 p-3 text-[13px] bg-slate-50 border border-noble-border rounded-xl focus:outline-none focus:border-[#01A0E2] focus:ring-2 focus:ring-[#01A0E2]/10 resize-none text-slate-800 placeholder-slate-400 font-medium transition-all font-[Inter,sans-serif]"
                     />
                 </div>
             </div>

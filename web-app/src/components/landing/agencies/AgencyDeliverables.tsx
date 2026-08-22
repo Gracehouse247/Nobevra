@@ -6,7 +6,7 @@ const features = [
         icon: Repeat,
         title: 'Retainer billing software',
         tag: 'Retainer Automation',
-        desc: 'Set your monthly retainer once and let the system handle the rest. NobleInvoice automatically generates and sends the invoice on your chosen billing date. It handles pro-rated first months and recurring overages flawlessly.',
+        desc: 'Set your monthly retainer once and let the system handle the rest. Nobevra automatically generates and sends the invoice on your chosen billing date. It handles pro-rated first months and recurring overages flawlessly.',
         bullets: ['Auto-generate monthly invoices', 'Prorated billing support', 'Recurring expense tracking'],
         color: 'bg-indigo-500/10 text-indigo-600 group-hover:bg-indigo-500 group-hover:text-white',
     },

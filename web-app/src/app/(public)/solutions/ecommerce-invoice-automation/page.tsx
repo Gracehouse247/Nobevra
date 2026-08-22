@@ -30,7 +30,7 @@ import EcommerceCTA from '@/components/landing/ecommerce/EcommerceCTA';
                        B2B wholesale sellers needing automated invoicing
 ──────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Ecommerce Invoice Automation | Shopify & B2B | NobleInvoice',
+    title: 'Ecommerce Invoice Automation | Shopify & B2B | Nobevra',
     description: 'Automate ecommerce invoice generation for Shopify, WooCommerce, and B2B wholesale orders. Generate bulk invoices, send automatically, and get paid faster.',
     keywords: [
         'ecommerce invoice automation',
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
         'ecommerce billing automation'
     ],
     openGraph: {
-        title: 'Ecommerce Invoice Automation | NobleInvoice',
+        title: 'Ecommerce Invoice Automation | Nobevra',
         description: 'Automate your Shopify, WooCommerce, or B2B wholesale invoicing. Generate and send invoices automatically with every order.',
-        url: 'https://nobleinvoice.com/solutions/ecommerce',
+        url: '/solutions/ecommerce',
         type: 'website',
     },
 };
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
 const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "NobleInvoice Ecommerce Invoicing",
+    "name": "Nobevra Ecommerce Invoicing",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "734" },

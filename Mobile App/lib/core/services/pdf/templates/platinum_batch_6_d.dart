@@ -62,7 +62,7 @@ class PlatinumBatch6D {
         pw.Spacer(),
         pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [
            pw.Text(biz.footerText?.toUpperCase() ?? 'FAST-PACED SOLUTIONS FOR MODERN BRANDS', style: pw.TextStyle(font: font, fontSize: 8, color: brandColor)),
-           pw.Text(biz.businessEmail?.toUpperCase() ?? 'WWW.NobleInvoice.APP', style: pw.TextStyle(font: bold, fontSize: 8)),
+           pw.Text(biz.businessEmail?.toUpperCase() ?? 'WWW.NOBEVRA.COM', style: pw.TextStyle(font: bold, fontSize: 8)),
         ]),
       ]),
     );
@@ -132,7 +132,7 @@ class PlatinumBatch6D {
         pw.SizedBox(height: 24),
         PdfWidgets.paymentButton(invoice, brandColor),
         pw.Spacer(),
-        pw.Center(child: pw.Text(biz.footerText?.toUpperCase() ?? 'CRAFTING EXPERIENCES WITH NobleInvoice', style: pw.TextStyle(font: font, fontSize: 8, color: brandColor, letterSpacing: 2))),
+        pw.Center(child: pw.Text(biz.footerText?.toUpperCase() ?? 'CRAFTING EXPERIENCES WITH NOBEVRA', style: pw.TextStyle(font: font, fontSize: 8, color: brandColor, letterSpacing: 2))),
       ]),
     );
   }

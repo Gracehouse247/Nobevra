@@ -149,12 +149,12 @@ function SectionIntroduction() {
     <section id="introduction" className="privacy-section mb-12 scroll-mt-6">
       <SectionHeading id="introduction-h" number="01" icon={ShieldCheck}>Introduction</SectionHeading>
       <p className="text-lg leading-8 mb-4" style={{ color: "#3b494b" }}>
-        NobleInvoice is a cross-platform business productivity and financial management platform operated by{" "}
+        Nobevra is a cross-platform business productivity and financial management platform operated by{" "}
         <strong style={{ color: "#050B1A" }}>The Noble's Technology Service</strong>, a company registered with the
         Corporate Affairs Commission (CAC) in Nigeria.
       </p>
       <InfoCard icon={CheckCircle2} title="Our Privacy Commitment" accent="#006970">
-        NobleInvoice does not sell your personal information. We do not make money by showing you third-party advertisements.
+        Nobevra does not sell your personal information. We do not make money by showing you third-party advertisements.
         We collect only what we need to provide the service you requested.
       </InfoCard>
       <p className="text-lg leading-8 mb-4" style={{ color: "#3b494b" }}>
@@ -179,7 +179,7 @@ function SectionController() {
         <div className="mt-3 flex flex-wrap gap-2">
           <a href="mailto:privacy@noblesworld.com.ng"
             className="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-xs font-bold transition-colors"
-            style={{ background: "#EFF6FF", color: "#0599D5" }}>
+            style={{ background: "#EFF6FF", color: "#01A0E2" }}>
             <Mail className="w-3 h-3" /> privacy@noblesworld.com.ng
           </a>
           <a href="mailto:invoice@noblesworld.com.ng"
@@ -189,9 +189,9 @@ function SectionController() {
           </a>
         </div>
       </div>
-      <InfoCard icon={AlertCircle} title="Controller vs. Processor" accent="#0599D5">
-        <strong>When you use NobleInvoice as a business</strong> and store your own customers' data (names, emails,
-        invoices), you are the <strong>data controller</strong> for that data — and NobleInvoice acts as your{" "}
+      <InfoCard icon={AlertCircle} title="Controller vs. Processor" accent="#01A0E2">
+        <strong>When you use Nobevra as a business</strong> and store your own customers' data (names, emails,
+        invoices), you are the <strong>data controller</strong> for that data — and Nobevra acts as your{" "}
         <strong>data processor</strong>. You are responsible for providing appropriate privacy notices to your customers.
       </InfoCard>
     </section>
@@ -208,12 +208,12 @@ function SectionWhatWeCollect() {
     <section id="what-we-collect" className="privacy-section mb-12 scroll-mt-6">
       <SectionHeading id="what-we-collect-h" number="03" icon={Database}>What We Collect</SectionHeading>
       <p className="text-lg leading-8 mb-5" style={{ color: "#3b494b" }}>
-        We collect different categories of information depending on how you use NobleInvoice. Here is a transparent
+        We collect different categories of information depending on how you use Nobevra. Here is a transparent
         breakdown of every category.
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {[
-          { title: "Account & Identity", items: accountData, accent: "#0599D5" },
+          { title: "Account & Identity", items: accountData, accent: "#01A0E2" },
           { title: "Business & Workspace", items: businessData, accent: "#006970" },
           { title: "Technical & Device", items: technicalData, accent: "#7C3AED" },
           { title: "Financial & Payment", items: financialData, accent: "#DC2626" },
@@ -226,8 +226,8 @@ function SectionWhatWeCollect() {
       </div>
       <div className="mt-5 rounded-2xl border p-4 text-sm" style={{ borderColor: "#FEE2E2", background: "#FFF7F7" }}>
         <strong style={{ color: "#DC2626" }}>Client CRM data (processor role):</strong>
-        <span style={{ color: "#3b494b" }}> If you store your clients' personal information inside NobleInvoice (names, emails, invoices), you
-          remain the controller of that data. NobleInvoice processes it on your instructions to provide the service.</span>
+        <span style={{ color: "#3b494b" }}> If you store your clients' personal information inside Nobevra (names, emails, invoices), you
+          remain the controller of that data. Nobevra processes it on your instructions to provide the service.</span>
       </div>
     </section>
   );
@@ -238,7 +238,7 @@ function SectionAI() {
     <section id="ai-features" className="privacy-section mb-12 scroll-mt-6">
       <SectionHeading id="ai-features-h" number="04" icon={Cpu}>AI Features</SectionHeading>
       <p className="text-lg leading-8 mb-4" style={{ color: "#3b494b" }}>
-        NobleInvoice uses AI to power the AI assistant, receipt/OCR scanning, and report insights.
+        Nobevra uses AI to power the AI assistant, receipt/OCR scanning, and report insights.
         All AI features use <strong style={{ color: "#050B1A" }}>Google Gemini</strong> (via the Generative Language API).
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-5">
@@ -261,7 +261,7 @@ function SectionAI() {
       </InfoCard>
       <InfoCard icon={AlertCircle} title="AI Output Disclaimer" accent="#DC2626">
         AI-generated invoices, financial classifications, and business recommendations may contain errors. You remain
-        responsible for reviewing all AI outputs. NobleInvoice is not a substitute for a qualified accountant, lawyer,
+        responsible for reviewing all AI outputs. Nobevra is not a substitute for a qualified accountant, lawyer,
         or financial adviser.
       </InfoCard>
     </section>
@@ -278,8 +278,8 @@ function SectionQR() {
           <span className="font-bold text-sm" style={{ color: "#D97706" }}>Third-Party Scan Data — Important</span>
         </div>
         <p className="text-lg leading-relaxed" style={{ color: "#3b494b" }}>
-          When someone (e.g. your customer) scans a QR code you created with NobleInvoice, our systems collect data
-          about <strong>that third party's device</strong>, even though they may have no relationship with NobleInvoice.
+          When someone (e.g. your customer) scans a QR code you created with Nobevra, our systems collect data
+          about <strong>that third party's device</strong>, even though they may have no relationship with Nobevra.
           As the QR code owner, you are responsible for ensuring this is consistent with applicable privacy laws and
           providing appropriate notice to those individuals.
         </p>
@@ -296,7 +296,7 @@ function SectionQR() {
       <div className="mt-5">
         <p className="text-lg font-bold mb-2" style={{ color: "#050B1A" }}>Contract Signatures</p>
         <p className="text-lg leading-relaxed mb-3" style={{ color: "#3b494b" }}>
-          When a contract is electronically signed through NobleInvoice, we capture the signer's{" "}
+          When a contract is electronically signed through Nobevra, we capture the signer's{" "}
           <strong>IP address and User-Agent</strong> at the moment of signing to create a legally valid audit trail.
           A <strong>SHA-256 cryptographic hash</strong> is generated and retained as part of the binding legal record.
         </p>
@@ -331,7 +331,7 @@ function SectionCookies() {
             anonymization is enabled. GA4 is <strong>only loaded after you click "Accept All"</strong> on the cookie banner.
           </p>
           <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs font-bold" style={{ color: "#0599D5" }}>
+            className="inline-flex items-center gap-1 text-xs font-bold" style={{ color: "#01A0E2" }}>
             Google Privacy Policy <ExternalLink className="w-3 h-3" />
           </a>
         </div>
@@ -358,16 +358,16 @@ function SectionSharing() {
     <section id="sharing-providers" className="privacy-section mb-12 scroll-mt-6">
       <SectionHeading id="sharing-providers-h" number="07" icon={Globe}>Sharing & Providers</SectionHeading>
       <InfoCard icon={CheckCircle2} title="We do not sell your data" accent="#006970">
-        NobleInvoice does not sell personal information as a business model. We do not share data with third-party
+        Nobevra does not sell personal information as a business model. We do not share data with third-party
         advertisers.
       </InfoCard>
       <p className="text-lg leading-8 mb-4" style={{ color: "#3b494b" }}>
-        We share information only with service providers that are necessary to operate NobleInvoice. Every provider
+        We share information only with service providers that are necessary to operate Nobevra. Every provider
         is contractually required to protect your data and use it only for the stated purpose.
       </p>
       <div className="space-y-3">
         {[
-          { label: "Cloud Infrastructure", detail: "Supabase (database, auth, storage) · Vercel (web hosting)", accent: "#0599D5" },
+          { label: "Cloud Infrastructure", detail: "Supabase (database, auth, storage) · Vercel (web hosting)", accent: "#01A0E2" },
           { label: "Authentication", detail: "Supabase Auth · Google OAuth (Google Sign-In)", accent: "#7C3AED" },
           { label: "Payments", detail: "Flutterwave (subscription billing, card tokenization, payouts)", accent: "#059669" },
           { label: "AI Processing", detail: "Google Gemini API (AI assistant, OCR, insights)", accent: "#DC2626" },
@@ -398,7 +398,7 @@ function SectionSubprocessors() {
     <section id="subprocessors" className="privacy-section mb-12 scroll-mt-6">
       <SectionHeading id="subprocessors-h" number="08" icon={FileText}>Subprocessors</SectionHeading>
       <p className="text-lg leading-8 mb-4" style={{ color: "#3b494b" }}>
-        This table reflects the verified, production state of the NobleInvoice platform. We update it when providers change.
+        This table reflects the verified, production state of the Nobevra platform. We update it when providers change.
       </p>
       <ProcessorTable />
     </section>
@@ -416,7 +416,7 @@ function SectionRights() {
       <div className="mt-5 space-y-3">
         <div className="rounded-2xl border p-5 text-lg" style={{ borderColor: "#e2e8f0" }}>
           <div className="font-bold mb-1" style={{ color: "#050B1A" }}>Nigerian Users — NDPA 2023</div>
-          <p style={{ color: "#64748b" }}>The Nigeria Data Protection Commission (NDPC) is the relevant supervisory authority. NobleInvoice processes personal data in accordance with the Nigeria Data Protection Act 2023 and applicable NDPC regulations.</p>
+          <p style={{ color: "#64748b" }}>The Nigeria Data Protection Commission (NDPC) is the relevant supervisory authority. Nobevra processes personal data in accordance with the Nigeria Data Protection Act 2023 and applicable NDPC regulations.</p>
         </div>
         <div className="rounded-2xl border p-5 text-lg" style={{ borderColor: "#e2e8f0" }}>
           <div className="font-bold mb-1" style={{ color: "#050B1A" }}>EEA / UK Users — GDPR / UK GDPR</div>
@@ -424,7 +424,7 @@ function SectionRights() {
         </div>
         <div className="rounded-2xl border p-5 text-lg" style={{ borderColor: "#e2e8f0" }}>
           <div className="font-bold mb-1" style={{ color: "#050B1A" }}>California Users — CCPA / CPRA</div>
-          <p style={{ color: "#64748b" }}>California residents have rights to access, delete, correct, and opt-out of the sale/sharing of personal information. NobleInvoice does not sell personal information.</p>
+          <p style={{ color: "#64748b" }}>California residents have rights to access, delete, correct, and opt-out of the sale/sharing of personal information. Nobevra does not sell personal information.</p>
         </div>
       </div>
     </section>
@@ -453,13 +453,13 @@ function SectionSecurity() {
           </div>
         ))}
       </div>
-      <InfoCard icon={Mail} title="Contact the Data Protection Officer" accent="#0599D5">
+      <InfoCard icon={Mail} title="Contact the Data Protection Officer" accent="#01A0E2">
         For privacy questions, data-subject requests, or complaints:
         <div className="mt-2 flex flex-col gap-1">
-          <a href="mailto:privacy@noblesworld.com.ng" className="font-bold hover:underline" style={{ color: "#0599D5" }}>
+          <a href="mailto:privacy@noblesworld.com.ng" className="font-bold hover:underline" style={{ color: "#01A0E2" }}>
             privacy@noblesworld.com.ng
           </a>
-          <a href="mailto:invoice@noblesworld.com.ng" className="font-bold hover:underline" style={{ color: "#0599D5" }}>
+          <a href="mailto:invoice@noblesworld.com.ng" className="font-bold hover:underline" style={{ color: "#01A0E2" }}>
             invoice@noblesworld.com.ng
           </a>
         </div>

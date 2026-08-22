@@ -10,7 +10,7 @@ const faqs = [
     },
     {
         question: "What should I include in a professional invoice for freelancers?",
-        answer: "Every freelance invoice should include: your contact info, the client's details, a unique invoice number, dates (issue and due date), an itemized breakdown of services, the total amount, and clear payment instructions. NobleInvoice pre-builds all these fields for you."
+        answer: "Every freelance invoice should include: your contact info, the client's details, a unique invoice number, dates (issue and due date), an itemized breakdown of services, the total amount, and clear payment instructions. Nobevra pre-builds all these fields for you."
     },
     {
         question: "When should I send my invoice?",
@@ -22,7 +22,7 @@ const faqs = [
     },
     {
         question: "Is there an invoice app for self-employed professionals?",
-        answer: "Yes! NobleInvoice is built specifically for independent contractors, solopreneurs, and freelancers. Unlike enterprise accounting software, our platform focuses purely on getting your invoices paid faster and managing your cash flow simply."
+        answer: "Yes! Nobevra is built specifically for independent contractors, solopreneurs, and freelancers. Unlike enterprise accounting software, our platform focuses purely on getting your invoices paid faster and managing your cash flow simply."
     }
 ];
 

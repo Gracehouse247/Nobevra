@@ -20,7 +20,7 @@ export default function WifiForm({ onChange, initialData, onPreviewValueChange }
         const hiddenFlag = isHidden ? 'true' : 'false';
         const formattedStr = `WIFI:S:${ssid};T:${encCode};P:${password};H:${hiddenFlag};;`;
         
-        onPreviewValueChange(ssid ? formattedStr : 'https://nobleinvoice.com');
+        onPreviewValueChange(ssid ? formattedStr : 'https://nobevra.noblesworld.com.ng');
     }, [ssid, encryption, password, isHidden]);
 
     return (

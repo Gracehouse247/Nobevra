@@ -122,7 +122,7 @@ class AppLandingPreviewScreen extends StatelessWidget {
                     children: [
                       Icon(Icons.qr_code_2_rounded, size: 16, color: Colors.grey.shade400),
                       const SizedBox(width: 4),
-                      Text('NobleInvoice', style: TextStyle(color: Colors.grey.shade400, fontWeight: FontWeight.bold, letterSpacing: 1.0)),
+                      Text('Nobevra', style: TextStyle(color: Colors.grey.shade400, fontWeight: FontWeight.bold, letterSpacing: 1.0)),
                     ],
                   ),
                 ],

@@ -22,7 +22,7 @@ class SideMenu extends StatelessWidget {
               child: Row(
                 children: [
                    Image.asset(
-                    'assets/images/nobleinvoice_logo.png',
+                    'assets/images/nobevra_logo.png',
                     height: 40, 
                   ),
                 ],

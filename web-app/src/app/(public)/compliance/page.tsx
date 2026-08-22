@@ -21,7 +21,7 @@ const CATEGORIES = [
     title: "Roles & Data",
     sections: [
       { id: "5-controller-and-processor-roles", label: "5. Controller & Processor Roles", icon: Users },
-      { id: "6-types-of-information-nobleinvoice-may-process", label: "6. Types of Information", icon: Database },
+      { id: "6-types-of-information-nobevra-may-process", label: "6. Types of Information", icon: Database },
       { id: "7-sensitive-information", label: "7. Sensitive Information", icon: AlertCircle },
       { id: "8-childrens-data", label: "8. Children's Data", icon: Users },
     ],
@@ -81,7 +81,7 @@ const CATEGORIES = [
       { id: "38-changes-to-this-compliance-framework", label: "38. Changes", icon: FileText },
       { id: "39-contact-and-compliance-requests", label: "39. Contact", icon: FileText },
       { id: "40-regulatory-authority-complaints", label: "40. Authority Complaints", icon: Scale },
-      { id: "41-relationship-with-other-nobleinvoice-policies", label: "41. Other Policies", icon: FileText },
+      { id: "41-relationship-with-other-nobevra-policies", label: "41. Other Policies", icon: FileText },
     ],
   },
 ];
@@ -89,9 +89,9 @@ const CATEGORIES = [
 const content = `
 ### 1. OUR COMMITMENT
 
-NobleInvoice is committed to operating its platform responsibly, securely and transparently.
+Nobevra is committed to operating its platform responsibly, securely and transparently.
 
-NobleInvoice provides a cross-platform business and productivity ecosystem that may allow users to create, store, process and manage:
+Nobevra provides a cross-platform business and productivity ecosystem that may allow users to create, store, process and manage:
 
 * invoices;
 * quotations;
@@ -114,7 +114,7 @@ NobleInvoice provides a cross-platform business and productivity ecosystem that 
 * AI-assisted workflows; and
 * other business records.
 
-Because these activities may involve personal data and commercially sensitive information, NobleInvoice maintains a compliance framework designed around applicable privacy, data-protection, security, consumer-protection and electronic-commerce requirements.
+Because these activities may involve personal data and commercially sensitive information, Nobevra maintains a compliance framework designed around applicable privacy, data-protection, security, consumer-protection and electronic-commerce requirements.
 
 Our compliance approach is based on the principles of:
 
@@ -124,9 +124,9 @@ Privacy by Design → Security by Design → Data Minimisation → Transparency 
 
 ### 2. IMPORTANT SCOPE STATEMENT
 
-NobleInvoice is designed for users in Nigeria, Africa and other international markets.
+Nobevra is designed for users in Nigeria, Africa and other international markets.
 
-However, NobleInvoice does not represent that a single compliance framework automatically makes the service compliant with every law in every country.
+However, Nobevra does not represent that a single compliance framework automatically makes the service compliant with every law in every country.
 
 Different jurisdictions impose different requirements depending on:
 
@@ -142,13 +142,13 @@ Different jurisdictions impose different requirements depending on:
 * applicable sector regulations; and
 * applicable contractual obligations.
 
-Where a particular jurisdiction imposes additional requirements, NobleInvoice will seek to apply appropriate controls where those requirements are applicable to our activities.
+Where a particular jurisdiction imposes additional requirements, Nobevra will seek to apply appropriate controls where those requirements are applicable to our activities.
 
 ---
 
 ### 3. PRINCIPAL COMPLIANCE FRAMEWORK
 
-NobleInvoice's compliance program is designed with reference to applicable requirements including, where applicable:
+Nobevra's compliance program is designed with reference to applicable requirements including, where applicable:
 
 **Nigeria**
 * Nigeria Data Protection Act 2023 (NDPA);
@@ -202,13 +202,13 @@ South Africa's Information Regulator provides compliance mechanisms and regulato
 
 **Other jurisdictions**
 
-NobleInvoice may also be subject to privacy, consumer-protection, electronic-commerce, cybersecurity, payment, tax or other requirements in other jurisdictions where it operates or targets users.
+Nobevra may also be subject to privacy, consumer-protection, electronic-commerce, cybersecurity, payment, tax or other requirements in other jurisdictions where it operates or targets users.
 
 ---
 
 ### 4. DATA PROTECTION PRINCIPLES
 
-NobleInvoice's privacy and data-processing practices are designed around internationally recognised data-protection principles.
+Nobevra's privacy and data-processing practices are designed around internationally recognised data-protection principles.
 
 **4.1 Lawfulness, Fairness and Transparency**
 We seek to process personal information only where we have an appropriate legal basis and provide appropriate information about such processing.
@@ -236,7 +236,7 @@ We implement reasonable technical and organizational safeguards designed to prot
 * other reasonably foreseeable security risks.
 
 **4.7 Accountability**
-NobleInvoice seeks to maintain appropriate documentation, controls and processes to demonstrate compliance with applicable data-protection obligations.
+Nobevra seeks to maintain appropriate documentation, controls and processes to demonstrate compliance with applicable data-protection obligations.
 
 These principles closely reflect the core GDPR principles recognized by the European Commission.
 
@@ -244,10 +244,10 @@ These principles closely reflect the core GDPR principles recognized by the Euro
 
 ### 5. CONTROLLER AND PROCESSOR ROLES
 
-Depending on how NobleInvoice is used, the legal role of NobleInvoice and its customer may differ.
+Depending on how Nobevra is used, the legal role of Nobevra and its customer may differ.
 
-**5.1 NobleInvoice as Controller**
-NobleInvoice may act as a data controller where it determines the purposes and means of processing personal information.
+**5.1 Nobevra as Controller**
+Nobevra may act as a data controller where it determines the purposes and means of processing personal information.
 
 Examples may include:
 * account registration;
@@ -261,16 +261,16 @@ Examples may include:
 * fraud prevention; and
 * platform administration.
 
-**5.2 NobleInvoice as Processor or Service Provider**
-A business customer may use NobleInvoice to store and process information about its own customers, employees, suppliers or business contacts.
+**5.2 Nobevra as Processor or Service Provider**
+A business customer may use Nobevra to store and process information about its own customers, employees, suppliers or business contacts.
 
-In those circumstances, the NobleInvoice customer may determine why the information is processed, while NobleInvoice processes that information to provide the requested service.
+In those circumstances, the Nobevra customer may determine why the information is processed, while Nobevra processes that information to provide the requested service.
 
-The customer remains responsible for ensuring that it has an appropriate legal basis and authority to provide such information to NobleInvoice.
+The customer remains responsible for ensuring that it has an appropriate legal basis and authority to provide such information to Nobevra.
 
 ---
 
-### 6. TYPES OF INFORMATION NOBLEINVOICE MAY PROCESS
+### 6. TYPES OF INFORMATION NOBEVRA MAY PROCESS
 
 Depending on the features used, information may include:
 
@@ -348,7 +348,7 @@ Where applicable:
 * workspace information.
 
 **AI Interaction Data**
-Where AI features are used, NobleInvoice may process information necessary to:
+Where AI features are used, Nobevra may process information necessary to:
 * generate invoices;
 * interpret user instructions;
 * process voice commands;
@@ -356,15 +356,15 @@ Where AI features are used, NobleInvoice may process information necessary to:
 * provide productivity assistance;
 * generate business content.
 
-NobleInvoice should clearly identify which AI features process user-provided content and which third-party AI providers, if any, are involved.
+Nobevra should clearly identify which AI features process user-provided content and which third-party AI providers, if any, are involved.
 
 ---
 
 ### 7. SENSITIVE INFORMATION
 
-NobleInvoice is not designed as a platform for intentionally collecting highly sensitive categories of personal information unless a specific feature expressly supports such processing.
+Nobevra is not designed as a platform for intentionally collecting highly sensitive categories of personal information unless a specific feature expressly supports such processing.
 
-Users should not intentionally upload sensitive personal information that is unnecessary for using NobleInvoice.
+Users should not intentionally upload sensitive personal information that is unnecessary for using Nobevra.
 
 This may include information relating to:
 * health;
@@ -378,17 +378,17 @@ This may include information relating to:
 * highly confidential credentials; or
 * other specially protected information.
 
-Where a business customer chooses to process regulated or sensitive information through NobleInvoice, that customer is responsible for ensuring that such processing is lawful and appropriate.
+Where a business customer chooses to process regulated or sensitive information through Nobevra, that customer is responsible for ensuring that such processing is lawful and appropriate.
 
 ---
 
 ### 8. CHILDREN'S DATA
 
-NobleInvoice is primarily intended for businesses, professionals, freelancers, agencies, consultants and organizations.
+Nobevra is primarily intended for businesses, professionals, freelancers, agencies, consultants and organizations.
 
 The service is not intentionally designed to collect personal information from children where prohibited by applicable law.
 
-If you believe a child has provided personal information to NobleInvoice without appropriate authorization, contact:
+If you believe a child has provided personal information to Nobevra without appropriate authorization, contact:
 
 invoice@noblesworld.com.ng
 
@@ -398,11 +398,11 @@ We will assess the request and take appropriate action where legally required.
 
 ### 9. INTERNATIONAL DATA TRANSFERS
 
-NobleInvoice may operate using infrastructure and service providers located in different countries.
+Nobevra may operate using infrastructure and service providers located in different countries.
 
 Consequently, personal information may potentially be processed outside the country in which the user resides.
 
-Where applicable law imposes restrictions on international transfers, NobleInvoice will seek to use a legally recognized transfer mechanism.
+Where applicable law imposes restrictions on international transfers, Nobevra will seek to use a legally recognized transfer mechanism.
 
 Depending on the applicable jurisdiction, this may include:
 * adequacy decisions;
@@ -416,13 +416,13 @@ International transfer requirements are jurisdiction-specific. For example, the 
 
 Brazil likewise has specific rules governing international transfers under its LGPD framework.
 
-NobleInvoice will not represent that all international transfers are automatically lawful solely because information is processed by a reputable cloud provider.
+Nobevra will not represent that all international transfers are automatically lawful solely because information is processed by a reputable cloud provider.
 
 ---
 
 ### 10. INFRASTRUCTURE AND SERVICE PROVIDERS
 
-NobleInvoice currently uses a cross-platform architecture including:
+Nobevra currently uses a cross-platform architecture including:
 
 **Frontend: Vercel**
 Used for hosting the web application's frontend and associated web infrastructure.
@@ -431,14 +431,14 @@ Used for hosting the web application's frontend and associated web infrastructur
 Used for backend infrastructure and database/storage functionality.
 
 **Mobile Applications**
-NobleInvoice's mobile applications are built using Flutter and connect to the NobleInvoice backend infrastructure.
+Nobevra's mobile applications are built using Flutter and connect to the Nobevra backend infrastructure.
 
 **Email**
-NobleInvoice currently uses SMTP/webmail infrastructure for email communications.
+Nobevra currently uses SMTP/webmail infrastructure for email communications.
 
-Additional third-party service providers may be introduced as NobleInvoice evolves.
+Additional third-party service providers may be introduced as Nobevra evolves.
 
-Before adding a third-party processor that handles personal information, NobleInvoice should evaluate:
+Before adding a third-party processor that handles personal information, Nobevra should evaluate:
 * the provider's security practices;
 * data-processing terms;
 * applicable transfer mechanisms;
@@ -453,7 +453,7 @@ Before adding a third-party processor that handles personal information, NobleIn
 
 ### 11. SECURITY FRAMEWORK
 
-NobleInvoice adopts a defense-in-depth approach to information security.
+Nobevra adopts a defense-in-depth approach to information security.
 
 Security controls may include:
 * authentication controls;
@@ -474,7 +474,7 @@ Security controls may include:
 * security updates;
 * vulnerability management.
 
-Security controls should be continuously reviewed as NobleInvoice's infrastructure and threat landscape evolve.
+Security controls should be continuously reviewed as Nobevra's infrastructure and threat landscape evolve.
 
 ---
 
@@ -491,7 +491,7 @@ Users are responsible for protecting:
 
 Users should immediately report suspected unauthorized access.
 
-NobleInvoice may suspend or restrict access where reasonably necessary to protect:
+Nobevra may suspend or restrict access where reasonably necessary to protect:
 * the user;
 * other users;
 * customer information;
@@ -503,7 +503,7 @@ NobleInvoice may suspend or restrict access where reasonably necessary to protec
 
 ### 13. TEAM AND ORGANIZATION ACCESS
 
-NobleInvoice may allow business owners to invite team members.
+Nobevra may allow business owners to invite team members.
 
 Organization administrators may control access to business resources through:
 * roles;
@@ -520,11 +520,11 @@ When a team member leaves an organization, administrators should promptly remove
 
 ### 14. FINANCIAL AND PAYMENT COMPLIANCE
 
-NobleInvoice provides business-management and invoicing functionality.
+Nobevra provides business-management and invoicing functionality.
 
 Depending on the feature and jurisdiction, the platform may facilitate integrations with payment providers.
 
-NobleInvoice should not be interpreted as:
+Nobevra should not be interpreted as:
 * a bank;
 * a deposit-taking institution;
 * an insurer;
@@ -534,7 +534,7 @@ NobleInvoice should not be interpreted as:
 * an accounting authority; or
 * a regulated financial institution,
 
-unless NobleInvoice expressly states otherwise and has obtained the required authorization.
+unless Nobevra expressly states otherwise and has obtained the required authorization.
 
 Where payment services are provided by third-party payment providers, the payment provider's own terms, privacy policies, licenses and compliance obligations may apply.
 
@@ -542,7 +542,7 @@ Where payment services are provided by third-party payment providers, the paymen
 
 ### 15. TAXES
 
-NobleInvoice may provide tools that assist users with:
+Nobevra may provide tools that assist users with:
 * invoice calculations;
 * tax fields;
 * tax rates;
@@ -550,7 +550,7 @@ NobleInvoice may provide tools that assist users with:
 * currency conversion;
 * business records.
 
-However, NobleInvoice does not guarantee that generated tax calculations or documents satisfy every country's tax requirements.
+However, Nobevra does not guarantee that generated tax calculations or documents satisfy every country's tax requirements.
 
 Tax laws differ between jurisdictions.
 
@@ -565,7 +565,7 @@ Users remain responsible for:
 
 ### 16. INVOICES AND LEGAL DOCUMENTS
 
-NobleInvoice provides tools for generating business documents.
+Nobevra provides tools for generating business documents.
 
 The existence of a document-generation feature does not mean that every generated document automatically satisfies the legal requirements of every jurisdiction.
 
@@ -584,7 +584,7 @@ satisfy applicable legal requirements.
 
 ### 17. ELECTRONIC SIGNATURES
 
-Where NobleInvoice provides electronic-signature functionality, users are responsible for ensuring that:
+Where Nobevra provides electronic-signature functionality, users are responsible for ensuring that:
 * the signer has authority;
 * appropriate consent is obtained;
 * the document is legally appropriate;
@@ -592,13 +592,13 @@ Where NobleInvoice provides electronic-signature functionality, users are respon
 
 Electronic-signature requirements vary significantly between jurisdictions.
 
-NobleInvoice does not guarantee that a particular signature method will have the same legal effect in every jurisdiction.
+Nobevra does not guarantee that a particular signature method will have the same legal effect in every jurisdiction.
 
 ---
 
 ### 18. AI GOVERNANCE
 
-NobleInvoice may provide AI-assisted functionality.
+Nobevra may provide AI-assisted functionality.
 
 AI features may be used for:
 * invoice creation;
@@ -621,13 +621,13 @@ Users should review AI-generated information before relying on it for:
 * contractual commitments;
 * other consequential decisions.
 
-NobleInvoice should not be treated as a substitute for qualified legal, accounting, tax or financial advice.
+Nobevra should not be treated as a substitute for qualified legal, accounting, tax or financial advice.
 
 ---
 
 ### 19. AUTOMATED DECISION-MAKING AND ANALYTICS
 
-Certain NobleInvoice features may use analytics or automated processing to provide:
+Certain Nobevra features may use analytics or automated processing to provide:
 * productivity insights;
 * usage statistics;
 * financial reports;
@@ -636,7 +636,7 @@ Certain NobleInvoice features may use analytics or automated processing to provi
 * fraud/security signals;
 * platform optimization.
 
-Where applicable law provides rights concerning automated decision-making or profiling, NobleInvoice will provide appropriate information and mechanisms required by that law.
+Where applicable law provides rights concerning automated decision-making or profiling, Nobevra will provide appropriate information and mechanisms required by that law.
 
 The GDPR, for example, recognizes rights concerning automated decision-making and profiling.
 
@@ -644,7 +644,7 @@ The GDPR, for example, recognizes rights concerning automated decision-making an
 
 ### 20. DATA RETENTION
 
-NobleInvoice applies retention principles designed to avoid unnecessarily retaining personal information.
+Nobevra applies retention principles designed to avoid unnecessarily retaining personal information.
 
 Retention periods may depend on:
 * account status;
@@ -666,7 +666,7 @@ Information may remain in secure backups for a limited additional period after d
 
 ### 21. ACCOUNT DELETION
 
-Users may request deletion of their NobleInvoice account subject to applicable law and legitimate retention requirements.
+Users may request deletion of their Nobevra account subject to applicable law and legitimate retention requirements.
 
 Deletion may involve:
 * account deactivation;
@@ -684,7 +684,7 @@ Certain information may need to be retained where required for:
 * dispute resolution;
 * regulatory compliance.
 
-NobleInvoice will not use account deletion mechanisms to unlawfully eliminate information that must legally be retained.
+Nobevra will not use account deletion mechanisms to unlawfully eliminate information that must legally be retained.
 
 ---
 
@@ -709,13 +709,13 @@ Other jurisdictions may provide similar or different rights.
 Requests should be submitted to:
 invoice@noblesworld.com.ng
 
-NobleInvoice may need to verify the identity of the requesting person before releasing or modifying information.
+Nobevra may need to verify the identity of the requesting person before releasing or modifying information.
 
 ---
 
 ### 23. DATA PROTECTION REQUESTS
 
-A request should include sufficient information to allow NobleInvoice to:
+A request should include sufficient information to allow Nobevra to:
 * identify the account;
 * understand the request;
 * verify the requester;
@@ -723,15 +723,15 @@ A request should include sufficient information to allow NobleInvoice to:
 
 We may request additional information where reasonably necessary to prevent unauthorized disclosure.
 
-Where applicable law establishes a statutory response period, NobleInvoice will seek to respond within that period.
+Where applicable law establishes a statutory response period, Nobevra will seek to respond within that period.
 
 ---
 
 ### 24. DATA BREACH MANAGEMENT
 
-NobleInvoice maintains processes designed to identify, investigate, contain and respond to security incidents.
+Nobevra maintains processes designed to identify, investigate, contain and respond to security incidents.
 
-Where a security incident constitutes a legally reportable personal-data breach, NobleInvoice will make notifications required by applicable law.
+Where a security incident constitutes a legally reportable personal-data breach, Nobevra will make notifications required by applicable law.
 
 Depending on the circumstances, notifications may be made to:
 * affected users;
@@ -746,7 +746,7 @@ Applicable notification obligations may vary depending on jurisdiction, the type
 
 ### 25. DATA PROTECTION IMPACT ASSESSMENTS
 
-Where processing presents potentially significant privacy risks, NobleInvoice may conduct a Data Protection Impact Assessment or equivalent privacy-risk assessment.
+Where processing presents potentially significant privacy risks, Nobevra may conduct a Data Protection Impact Assessment or equivalent privacy-risk assessment.
 
 This may be particularly relevant to:
 * AI systems;
@@ -763,7 +763,7 @@ This may be particularly relevant to:
 
 ### 26. PRIVACY BY DESIGN
 
-Privacy considerations should be incorporated into NobleInvoice's product-development lifecycle.
+Privacy considerations should be incorporated into Nobevra's product-development lifecycle.
 
 Engineering and product teams should consider:
 * data minimisation;
@@ -784,7 +784,7 @@ Privacy should not be treated solely as a documentation exercise.
 
 ### 27. THIRD-PARTY INTEGRATIONS
 
-NobleInvoice may integrate with third-party services.
+Nobevra may integrate with third-party services.
 
 Examples may include:
 * payment providers;
@@ -803,7 +803,7 @@ Users should review applicable third-party documentation where appropriate.
 
 ### 28. COOKIES AND TRACKING
 
-NobleInvoice may use:
+Nobevra may use:
 * essential cookies;
 * authentication technologies;
 * security technologies;
@@ -811,7 +811,7 @@ NobleInvoice may use:
 * preference storage;
 * marketing technologies where applicable.
 
-Where consent is legally required, NobleInvoice should obtain appropriate consent before deploying non-essential tracking technologies.
+Where consent is legally required, Nobevra should obtain appropriate consent before deploying non-essential tracking technologies.
 
 Users should be provided appropriate controls for managing consent where required.
 
@@ -819,7 +819,7 @@ Users should be provided appropriate controls for managing consent where require
 
 ### 29. MARKETING COMMUNICATIONS
 
-NobleInvoice may send:
+Nobevra may send:
 * transactional emails;
 * account notifications;
 * security alerts;
@@ -844,7 +844,7 @@ Some QR-code functionality may provide analytics such as:
 * referral information;
 * timestamps.
 
-Where location or similar information is collected, NobleInvoice should:
+Where location or similar information is collected, Nobevra should:
 * disclose the purpose;
 * minimise collection;
 * provide appropriate controls;
@@ -855,7 +855,7 @@ Where location or similar information is collected, NobleInvoice should:
 
 ### 31. BUSINESS CUSTOMER RESPONSIBILITIES
 
-NobleInvoice customers who use the platform to process their customers' information are responsible for:
+Nobevra customers who use the platform to process their customers' information are responsible for:
 * having a lawful basis for processing;
 * providing appropriate privacy notices;
 * obtaining consent where required;
@@ -865,13 +865,13 @@ NobleInvoice customers who use the platform to process their customers' informat
 * protecting account credentials;
 * complying with applicable industry regulations.
 
-NobleInvoice does not become responsible for a customer's unlawful collection or use of personal information merely because the information is stored or processed through NobleInvoice.
+Nobevra does not become responsible for a customer's unlawful collection or use of personal information merely because the information is stored or processed through Nobevra.
 
 ---
 
 ### 32. INTERNATIONAL PRIVACY FRAMEWORK
 
-NobleInvoice's objective is to maintain a privacy framework capable of supporting international customers while recognizing that compliance must be evaluated jurisdiction by jurisdiction.
+Nobevra's objective is to maintain a privacy framework capable of supporting international customers while recognizing that compliance must be evaluated jurisdiction by jurisdiction.
 
 The platform therefore seeks to maintain controls around:
 
@@ -901,7 +901,7 @@ This lifecycle approach is consistent with modern data-protection principles.
 
 ### 33. COMPLIANCE MONITORING
 
-NobleInvoice may periodically review:
+Nobevra may periodically review:
 * applicable laws;
 * regulatory guidance;
 * security controls;
@@ -919,22 +919,22 @@ The compliance framework may therefore be updated periodically.
 
 ### 34. REGULATORY COOPERATION
 
-Where legally required, NobleInvoice will cooperate with competent regulators and authorities.
+Where legally required, Nobevra will cooperate with competent regulators and authorities.
 
-Nothing in this framework limits NobleInvoice's legal obligations to respond to lawful:
+Nothing in this framework limits Nobevra's legal obligations to respond to lawful:
 * court orders;
 * subpoenas;
 * regulatory requests;
 * law-enforcement requests;
 * statutory obligations.
 
-Where legally permitted, NobleInvoice may seek to notify affected users about government or regulatory requests.
+Where legally permitted, Nobevra may seek to notify affected users about government or regulatory requests.
 
 ---
 
 ### 35. COMPLIANCE DOCUMENTATION
 
-NobleInvoice may maintain internal compliance documentation including, where applicable:
+Nobevra may maintain internal compliance documentation including, where applicable:
 * records of processing activities;
 * data maps;
 * vendor/subprocessor registers;
@@ -954,7 +954,7 @@ These internal records may not all be publicly available because some contain co
 
 ### 36. SECURITY AND COMPLIANCE CERTIFICATIONS
 
-NobleInvoice will not claim certification, accreditation or regulatory authorization unless it has actually obtained the relevant certification or authorization.
+Nobevra will not claim certification, accreditation or regulatory authorization unless it has actually obtained the relevant certification or authorization.
 
 Examples include:
 * ISO 27001;
@@ -964,13 +964,13 @@ Examples include:
 * regulatory licenses;
 * payment licenses.
 
-Where NobleInvoice obtains recognized certifications in the future, this page may be updated accordingly.
+Where Nobevra obtains recognized certifications in the future, this page may be updated accordingly.
 
 ---
 
 ### 37. COMPLIANCE LIMITATIONS
 
-NobleInvoice provides technology intended to help businesses manage their operations.
+Nobevra provides technology intended to help businesses manage their operations.
 
 It does not guarantee that use of the platform automatically makes a business:
 * tax compliant;
@@ -989,7 +989,7 @@ Compliance ultimately depends on how the customer uses the platform and the laws
 
 ### 38. CHANGES TO THIS COMPLIANCE FRAMEWORK
 
-NobleInvoice may update this framework when:
+Nobevra may update this framework when:
 * laws change;
 * regulatory guidance changes;
 * new features are introduced;
@@ -1006,12 +1006,12 @@ The Last Updated date will be changed whenever material revisions are made.
 
 For privacy, data protection and compliance questions:
 
-**NobleInvoice**
+**Nobevra**
 Powered by The Noble's Technology Service
 
 **Email:** invoice@noblesworld.com.ng
 
-**Website:** [https://invoice.noblesworld.com.ng](https://invoice.noblesworld.com.ng)
+**Website:** [https://nobevra.noblesworld.com.ng](https://nobevra.noblesworld.com.ng)
 
 ---
 
@@ -1023,38 +1023,38 @@ For example, EU individuals may have rights to lodge complaints with their natio
 
 For Nigerian processing, the relevant regulatory framework includes the Nigeria Data Protection Commission.
 
-NobleInvoice encourages users to contact us first so that we can investigate and attempt to resolve legitimate concerns, without limiting any statutory right to contact a regulator.
+Nobevra encourages users to contact us first so that we can investigate and attempt to resolve legitimate concerns, without limiting any statutory right to contact a regulator.
 
 ---
 
-### 41. RELATIONSHIP WITH OTHER NOBLEINVOICE POLICIES
+### 41. RELATIONSHIP WITH OTHER NOBEVRA POLICIES
 
 This Global Compliance Framework should be read together with:
 
 **[Privacy Policy](/privacy)**
-Explains how NobleInvoice collects, uses, stores, shares and protects personal information.
+Explains how Nobevra collects, uses, stores, shares and protects personal information.
 
 **[Terms of Service](/terms)**
-Defines the contractual rules governing use of NobleInvoice.
+Defines the contractual rules governing use of Nobevra.
 
 **[Cookie Policy](/cookies)**
 Explains cookies, tracking technologies and consent controls.
 
 **[Data Processing Addendum](/dpa)**
-Recommended for business/enterprise customers where NobleInvoice processes customer data on their behalf.
+Recommended for business/enterprise customers where Nobevra processes customer data on their behalf.
 
 **[Acceptable Use Policy](/acceptable-use)**
 Defines prohibited and abusive uses of the platform.
 
 **[Security Policy](/security)**
-Explains NobleInvoice's security commitments and controls.
+Explains Nobevra's security commitments and controls.
 `;
 
 export default function GlobalComplianceFrameworkPage() {
   return (
     <LegalLayout
       title="Global Compliance & Data Protection Framework"
-      description="The NobleInvoice Global Compliance Framework details our comprehensive approach to data protection, security, and global privacy standards including NDPA, GDPR, and other frameworks."
+      description="The Nobevra Global Compliance Framework details our comprehensive approach to data protection, security, and global privacy standards including NDPA, GDPR, and other frameworks."
       categories={CATEGORIES}
     >
       <div className="prose prose-slate prose-a:text-blue-600 prose-headings:text-slate-900 max-w-none prose-h3:text-2xl prose-h3:font-black prose-h3:mt-12 prose-h3:scroll-mt-24 prose-table:text-sm">

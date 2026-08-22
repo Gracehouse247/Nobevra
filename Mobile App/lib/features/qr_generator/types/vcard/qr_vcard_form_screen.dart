@@ -121,7 +121,7 @@ class _QrVCardFormScreenState extends State<QrVCardFormScreen> {
                           _buildLabel('Company'),
                           TextField(
                             controller: _companyController,
-                            decoration: const InputDecoration(hintText: 'e.g. NobleInvoice'),
+                            decoration: const InputDecoration(hintText: 'e.g. Nobevra'),
                           ),
                         ],
                       ),
@@ -152,7 +152,7 @@ class _QrVCardFormScreenState extends State<QrVCardFormScreen> {
                   controller: _emailController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: const InputDecoration(
-                    hintText: 'alexander@NobleInvoice.com',
+                    hintText: 'hello@nobevra.com',
                     prefixIcon: Icon(Icons.email_rounded, size: 20),
                   ),
                 ),
@@ -163,7 +163,7 @@ class _QrVCardFormScreenState extends State<QrVCardFormScreen> {
                   controller: _websiteController,
                   keyboardType: TextInputType.url,
                   decoration: const InputDecoration(
-                    hintText: 'https://NobleInvoice.com',
+                    hintText: 'https://nobevra.com',
                     prefixIcon: Icon(Icons.language_rounded, size: 20),
                   ),
                 ),

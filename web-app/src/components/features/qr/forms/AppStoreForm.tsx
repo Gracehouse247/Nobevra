@@ -12,7 +12,7 @@ export default function AppStoreForm({ onChange, initialData, onPreviewValueChan
         
         // This usually requires dynamic routing to work perfectly, 
         // fallback URL used for preview
-        onPreviewValueChange(fallbackUrl || iosUrl || androidUrl || 'https://nobleinvoice.com');
+        onPreviewValueChange(fallbackUrl || iosUrl || androidUrl || 'https://nobevra.noblesworld.com.ng');
     }, [appName, iosUrl, androidUrl, fallbackUrl]);
 
     return (
@@ -21,7 +21,7 @@ export default function AppStoreForm({ onChange, initialData, onPreviewValueChan
                 <label className="text-xs font-bold text-[#64748B] uppercase tracking-widest">App Name *</label>
                 <input 
                     type="text" 
-                    placeholder="e.g. NobleInvoice" 
+                    placeholder="e.g. Nobevra" 
                     value={appName}
                     onChange={(e) => setAppName(e.target.value)}
                     className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none transition-colors" 

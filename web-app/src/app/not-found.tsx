@@ -103,7 +103,7 @@ export default function NotFound() {
                 <div className="flex items-center justify-center gap-12 whitespace-nowrap animate-[marquee_30s_linear_infinite]">
                     {[...Array(8)].map((_, i) => (
                         <div key={i} className="flex items-center gap-4 text-[9px] font-black text-near-black/30 uppercase tracking-[0.5em]">
-                            <span>• NOBLEINVOICE OS</span>
+                            <span>• NOBEVRA OS</span>
                             <span>• VERSION 4.0.2</span>
                             <span>• STATUS: 404_NOT_FOUND</span>
                         </div>

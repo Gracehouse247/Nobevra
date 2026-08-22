@@ -15,7 +15,7 @@ export default function PdfForm({ onChange, initialData, onPreviewValueChange }:
             _file: fileUpload // Used by the master engine to upload to Supabase
         });
         
-        onPreviewValueChange(fileUpload ? `https://nobleinvoice.com/hosted/${fileUpload.name}` : 'https://nobleinvoice.com');
+        onPreviewValueChange(fileUpload ? `https://nobevra.noblesworld.com.ng/hosted/${fileUpload.name}` : 'https://nobevra.noblesworld.com.ng');
     }, [pdfName, description, fileUpload]);
 
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {

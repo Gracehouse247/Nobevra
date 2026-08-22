@@ -109,7 +109,7 @@ class _QrFoldersScreenState extends State<QrFoldersScreen> {
       leading: const Padding(
         padding: EdgeInsets.only(left: 20, top: 12),
         child: Text(
-          'NobleInvoice TOOLKIT',
+          'Nobevra TOOLKIT',
           style: TextStyle(color: AppColors.primary, fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1),
         ),
       ),

@@ -37,11 +37,11 @@ app.prepare().then(() => {
       
       res.statusCode = 500;
       res.setHeader('Content-Type', 'text/plain');
-      res.end(`Internal Server Error\n\nNobleInvoice: The request handler failed. This usually means the .next folder is incomplete.\nError: ${err.message}`);
+      res.end(`Internal Server Error\n\nNobevra: The request handler failed. This usually means the .next folder is incomplete.\nError: ${err.message}`);
     }
   }).listen(port, (err) => {
     if (err) throw err;
-    console.log(`> NobleInvoice Frontend Ready on http://${hostname}:${port}`);
+    console.log(`> Nobevra Frontend Ready on http://${hostname}:${port}`);
     console.log(`> Working Directory: ${process.cwd()}`);
   });
 }).catch(err => {

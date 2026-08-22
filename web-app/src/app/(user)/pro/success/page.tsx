@@ -71,7 +71,7 @@ function PaymentSuccessContent() {
                     <h2 className="text-2xl font-black text-red-500">Verification Failed</h2>
                     <p className="text-slate-400 dark:text-slate-500">We could not automatically verify your transaction. Please contact support.</p>
                     <button onClick={() => router.push('/support')} className="text-[#006970] hover:underline text-sm font-bold">
-                        Contact NobleInvoice Support
+                        Contact Nobevra Support
                     </button>
                 </div>
             )}

@@ -44,7 +44,7 @@ export default function SuggestFeaturePage() {
                     </div>
                     <div>
                         <h1 className="text-2xl md:text-3xl font-semibold text-noble-text">Suggest a Feature</h1>
-                        <p className="text-sm font-bold text-[#64748B]">Shape the future of NobleInvoice with your ideas.</p>
+                        <p className="text-sm font-bold text-[#64748B]">Shape the future of Nobevra with your ideas.</p>
                     </div>
                 </div>
 

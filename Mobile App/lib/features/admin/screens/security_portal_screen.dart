@@ -48,7 +48,7 @@ class _SecurityPortalScreenState extends State<SecurityPortalScreen> {
         ),
         const SizedBox(height: 24),
         const Text(
-          'NobleInvoice Admin Console',
+          'Nobevra Admin Console',
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, fontFamily: 'Montserrat'),
           textAlign: TextAlign.center,
         ),
@@ -68,7 +68,7 @@ class _SecurityPortalScreenState extends State<SecurityPortalScreen> {
       children: [
         _buildInputField(
           label: 'Administrator Email',
-          hint: 'admin@NobleInvoice.com',
+          hint: 'admin@nobevra.com',
           icon: Icons.mail_outline_rounded,
         ),
         const SizedBox(height: 20),
@@ -194,7 +194,7 @@ class _SecurityPortalScreenState extends State<SecurityPortalScreen> {
             const Icon(Icons.verified_user_rounded, color: Colors.grey, size: 14),
             const SizedBox(width: 8),
             Text(
-              'NobleInvoice Secure Infrastructure'.toUpperCase(),
+              'Nobevra Secure Infrastructure'.toUpperCase(),
               style: const TextStyle(color: Colors.grey, fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1),
             ),
           ],

@@ -9,6 +9,7 @@ import { MENU_GROUPS } from '@/lib/constants';
 import { UserData } from '@/types';
 import { useUpgradeModal } from '@/context/UpgradeModalContext';
 import { useEntitlements } from '@/context/EntitlementsContext';
+import { brand } from '@/lib/brand';
 
 interface SidebarProps {
     userData: UserData | null;
@@ -44,16 +45,16 @@ export default function Sidebar({
         }
     };
 
-    const displayName = userData?.name || 'Noble User';
+    const displayName = userData?.name || 'User';
     const initials = displayName
         .split(' ')
         .map((n: string) => n[0])
         .slice(0, 2)
         .join('')
-        .toUpperCase() || 'NU';
+        .toUpperCase() || 'US';
 
     const planLabel = isElite ? 'Elite' : plan === 'pulse' ? 'Pulse' : 'Free';
-    const planColor = isElite ? 'text-amber-400' : plan === 'pulse' ? 'text-[#0599D5]' : 'text-slate-400 dark:text-slate-500';
+    const planColor = isElite ? 'text-amber-400' : plan === 'pulse' ? 'text-[#01A0E2]' : 'text-slate-400 dark:text-slate-500';
 
     return (
         <aside
@@ -64,12 +65,12 @@ export default function Sidebar({
             {/* Logo Row */}
             <div className="flex items-center justify-between px-4 pt-6 pb-5 border-b border-white/[0.07] flex-shrink-0">
                 {!collapsed && (
-                    <Link href="/" className="flex items-center gap-2 group">
+                    <Link href="/" className="flex items-center gap-2 group" aria-label="Nobevra Home">
                         <div className="relative">
                             <img
-                                src="/images/logo.png"
-                                alt="NobleInvoice"
-                                className="h-8 w-auto object-contain brightness-0 invert"
+                                src={brand.assets.logo}
+                                alt="Nobevra"
+                                className="h-6.5 w-auto object-contain brightness-0 invert"
                             />
                             <div className="absolute -top-0.5 -right-1.5 w-2 h-2 bg-emerald-400 rounded-full ring-2 ring-[#0A1628]" />
                         </div>
@@ -77,8 +78,8 @@ export default function Sidebar({
                 )}
                 {collapsed && (
                     <div className="w-full flex justify-center">
-                        <div className="w-8 h-8 rounded-lg bg-[#0599D5]/20 border border-[#0599D5]/30 flex items-center justify-center">
-                            <Zap className="w-4 h-4 text-[#0599D5]" />
+                        <div className="w-8 h-8 rounded-lg bg-[#01A0E2]/20 border border-[#01A0E2]/30 flex items-center justify-center">
+                            <Zap className="w-4 h-4 text-[#01A0E2]" />
                         </div>
                     </div>
                 )}
@@ -87,6 +88,7 @@ export default function Sidebar({
                         onClick={() => setCollapsed(true)}
                         className="w-8 h-8 rounded-lg bg-white/10 border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:bg-white/20 transition-all flex-shrink-0"
                         title="Collapse sidebar"
+                        aria-label="Collapse sidebar"
                     >
                         <ChevronLeft className="w-4 h-4" />
                     </button>
@@ -100,6 +102,7 @@ export default function Sidebar({
                         onClick={() => setCollapsed(false)}
                         className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/20 transition-all shadow-sm"
                         title="Expand sidebar"
+                        aria-label="Expand sidebar"
                     >
                         <ChevronRight className="w-4 h-4" />
                     </button>
@@ -132,7 +135,7 @@ export default function Sidebar({
                                             'relative flex w-full items-center rounded-xl transition-all duration-150 group',
                                             collapsed ? 'justify-center h-10 w-10 mx-auto px-0' : 'px-3 py-2.5',
                                             isActive
-                                                ? 'bg-[#0599D5]/15 border-l-2 border-[#0599D5] text-white'
+                                                ? 'bg-[#01A0E2]/15 border-l-2 border-[#01A0E2] text-white'
                                                 : locked
                                                 ? 'text-white/50 hover:bg-white/[0.04] hover:text-white/70'
                                                 : 'text-white/60 hover:bg-white/[0.05] hover:text-white/90',
@@ -142,7 +145,7 @@ export default function Sidebar({
                                         <div className={`flex items-center flex-1 min-w-0 ${collapsed ? '' : 'gap-3'}`}>
                                             <div className={[
                                                 'flex items-center justify-center w-5 h-5 rounded flex-shrink-0 transition-colors',
-                                                isActive ? 'text-white' : locked ? 'text-white/25' : 'text-white/40 group-hover:text-[#0599D5]',
+                                                isActive ? 'text-white' : locked ? 'text-white/25' : 'text-white/40 group-hover:text-[#01A0E2]',
                                             ].join(' ')}>
                                                 <item.icon className="w-4 h-4" strokeWidth={isActive ? 2.5 : 2} />
                                             </div>
@@ -160,7 +163,7 @@ export default function Sidebar({
 
                                         {/* Active chevron — only when not locked */}
                                         {!collapsed && !locked && isActive && (
-                                            <ChevronRight className="w-3 h-3 text-[#0599D5]/70 flex-shrink-0 ml-1" />
+                                            <ChevronRight className="w-3 h-3 text-[#01A0E2]/70 flex-shrink-0 ml-1" />
                                         )}
                                     </button>
                                 );
@@ -174,7 +177,7 @@ export default function Sidebar({
             <div className="flex-shrink-0 border-t border-white/[0.07] p-3 space-y-3">
                 {/* Upgrade Banner — only for free users, only when not collapsed */}
                 {!isPremium && !collapsed && (
-                    <div className="rounded-2xl bg-gradient-to-br from-[#0599D5]/15 to-[#006970]/15 border border-[#0599D5]/20 p-3">
+                    <div className="rounded-2xl bg-gradient-to-br from-[#01A0E2]/15 to-[#006970]/15 border border-[#01A0E2]/20 p-3">
                         <div className="flex items-center gap-2 mb-2">
                             <PremiumBadge tier="pro" iconOnly className="w-5 h-5 drop-shadow-md" />
                             <p className="text-[11px] font-black text-white/80">Power Up</p>
@@ -184,7 +187,7 @@ export default function Sidebar({
                         </p>
                         <Link
                             href="/upgrade"
-                            className="flex items-center justify-center w-full py-2 bg-[#0599D5] hover:bg-[#0588c0] rounded-xl text-[10px] font-black text-white uppercase tracking-widest transition-colors shadow-lg shadow-[#0599D5]/20"
+                            className="flex items-center justify-center w-full py-2 bg-[#01A0E2] hover:bg-[#0588c0] rounded-xl text-[10px] font-black text-white uppercase tracking-widest transition-colors shadow-lg shadow-[#01A0E2]/20"
                         >
                             Upgrade Now
                         </Link>
@@ -201,8 +204,8 @@ export default function Sidebar({
                         title={collapsed ? displayName : undefined}
                     >
                         {/* Avatar */}
-                        <div className="relative flex-shrink-0 rounded-full" style={{ boxShadow: isElite ? '0 0 0 2px #F59E0B' : plan === 'pulse' ? '0 0 0 2px #0599D5' : '0 0 0 2px #94A3B8' }}>
-                            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#0599D5] to-[#006970] flex items-center justify-center shadow-lg shadow-[#0599D5]/20">
+                        <div className="relative flex-shrink-0 rounded-full" style={{ boxShadow: isElite ? '0 0 0 2px #F59E0B' : plan === 'pulse' ? '0 0 0 2px #01A0E2' : '0 0 0 2px #94A3B8' }}>
+                            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#01A0E2] to-[#006970] flex items-center justify-center shadow-lg shadow-[#01A0E2]/20">
                                 <span className="text-[11px] font-black text-white">{initials}</span>
                             </div>
                             <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full ring-1 ring-[#0A1628]" />

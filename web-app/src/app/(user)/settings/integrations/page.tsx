@@ -34,7 +34,7 @@ export default function IntegrationsPage() {
                         Third-Party <span className="text-noble-blue">Integrations</span>
                     </h1>
                     <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider text-xs max-w-xl leading-relaxed">
-                        Connect your existing knowledge bases and workflow engines to NobleInvoice's core.
+                        Connect your existing knowledge bases and workflow engines to Nobevra's core.
                     </p>
                 </div>
 
@@ -65,7 +65,7 @@ export default function IntegrationsPage() {
                         <div className="space-y-2">
                             <h4 className="text-xs font-black text-amber-700 uppercase tracking-wider">A Note on Security</h4>
                             <p className="text-[10px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wide leading-relaxed">
-                                NobleInvoice only requests the minimum necessary permissions to synchronize your data. We never store your third-party passwords. Your token is encrypted at rest using AES-256 standards.
+                                Nobevra only requests the minimum necessary permissions to synchronize your data. We never store your third-party passwords. Your token is encrypted at rest using AES-256 standards.
                             </p>
                         </div>
                     </div>

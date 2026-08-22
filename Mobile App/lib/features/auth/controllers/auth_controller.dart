@@ -91,7 +91,7 @@ class AuthController extends ChangeNotifier {
       
       // Check MFA requirement
       final aalResponse = await SupabaseService.client.auth.mfa.getAuthenticatorAssuranceLevel();
-      if (aalResponse.nextLevel == AuthenticatorAssuranceLevel.aal2) {
+      if (aalResponse.nextLevel?.toString().contains('aal2') == true) {
         // User needs to verify MFA (TOTP). We keep the AAL1 session active.
         _setSuccess();
         return 'mfa_required';

@@ -35,7 +35,7 @@ const MOCK_DATA = {
 };
 
 export const metadata: Metadata = {
-  title: 'How to Make an Invoice for Free | NobleInvoice',
+  title: 'How to Make an Invoice for Free | Nobevra',
   description: 'Learn how to make an invoice for free in seconds. Stop wasting time with DIY templates. Get paid 33% faster with our professional, automated invoice maker.',
   keywords: 'how to make an invoice for free, create invoice online free, free invoice maker app, simple invoice template, blank invoice PDF, invoice generator without watermark, how to write an invoice for services, invoice fields, types of invoices',
 };
@@ -201,7 +201,7 @@ export default function InvoiceGeneratorLandingPage() {
                 What Every Invoice Must Include
               </h2>
               <p className="text-xl text-near-black/60 font-medium mb-12 max-w-3xl mx-auto">
-                Skip any of these and you're giving clients an excuse to delay. Here's the complete field checklist — built directly into NobleInvoice so you can't miss one.
+                Skip any of these and you're giving clients an excuse to delay. Here's the complete field checklist — built directly into Nobevra so you can't miss one.
               </p>
               <div className="relative w-full rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
                 <Image src="/images/features/invoice-checklist-diagram.png" alt="Invoice Field Checklist Diagram" width={1024} height={1024} className="w-full h-auto object-cover" />
@@ -243,7 +243,7 @@ export default function InvoiceGeneratorLandingPage() {
                 {
                   number: "06",
                   field: "Subtotal, Taxes & Total Amount Due",
-                  why: "Subtotal before tax, any applicable tax rate, any discounts applied, then the final total. NobleInvoice calculates all of this automatically.",
+                  why: "Subtotal before tax, any applicable tax rate, any discounts applied, then the final total. Nobevra calculates all of this automatically.",
                   tip: "State the currency clearly — especially for international clients."
                 },
                 {
@@ -277,7 +277,7 @@ export default function InvoiceGeneratorLandingPage() {
 
             {/* Mid-Page CTA */}
             <div className="mt-16 text-center">
-              <p className="text-near-black/70 text-base font-medium mb-5">NobleInvoice auto-fills these fields so you never miss one.</p>
+              <p className="text-near-black/70 text-base font-medium mb-5">Nobevra auto-fills these fields so you never miss one.</p>
               <Link
                 href="/app/invoices/new"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-noble-blue text-white rounded-xl font-bold text-lg hover:bg-noble-blue/90 hover:shadow-xl transition-all group"
@@ -321,7 +321,7 @@ export default function InvoiceGeneratorLandingPage() {
                   icon: <RefreshCw className="w-7 h-7 text-emerald-500" />,
                   type: "Recurring Invoice",
                   when: "Monthly retainers or subscriptions",
-                  desc: "Set it once and NobleInvoice sends it automatically on your schedule. Ideal for ongoing clients — no more manual re-creation every month.",
+                  desc: "Set it once and Nobevra sends it automatically on your schedule. Ideal for ongoing clients — no more manual re-creation every month.",
                   color: "bg-emerald-50 border-emerald-100"
                 },
                 {
@@ -363,7 +363,7 @@ export default function InvoiceGeneratorLandingPage() {
             </h2>
 
             <div className="relative w-full rounded-[32px] overflow-hidden shadow-2xl shadow-noble-blue/10 border border-gray-200 mb-20 max-w-5xl mx-auto">
-              <Image src="/images/features/invoice-editor-mockup.png" alt="NobleInvoice App Editor UI Mockup" width={1024} height={600} className="w-full h-auto object-cover" />
+              <Image src="/images/features/invoice-editor-mockup.png" alt="Nobevra App Editor UI Mockup" width={1024} height={600} className="w-full h-auto object-cover" />
             </div>
 
             <div className="grid md:grid-cols-3 gap-12 relative max-w-5xl mx-auto">
@@ -371,7 +371,7 @@ export default function InvoiceGeneratorLandingPage() {
 
               {[
                 { step: '01', title: 'Enter Your Details', desc: 'Add your business info, your client\'s name, invoice number, and due date. Takes about 60 seconds.' },
-                { step: '02', title: 'Add Your Services', desc: 'Itemize your work line by line. Add rates, quantities, taxes, and discounts — NobleInvoice calculates everything instantly.' },
+                { step: '02', title: 'Add Your Services', desc: 'Itemize your work line by line. Add rates, quantities, taxes, and discounts — Nobevra calculates everything instantly.' },
                 { step: '03', title: 'Send & Get Paid', desc: 'Download as a pixel-perfect PDF or send via a secure, trackable payment link. Know the moment your client opens it.' }
               ].map((step, i) => (
                 <div key={i} className="relative z-10 flex flex-col items-center">
@@ -461,7 +461,7 @@ export default function InvoiceGeneratorLandingPage() {
                 },
                 {
                   mistake: "Formatting That Breaks on Mobile",
-                  detail: "50% of invoice approvals happen on a phone. If your Word document invoice renders as a garbled mess on mobile, the client mentally files it under 'sort this out later.' NobleInvoice PDFs are pixel-perfect on every screen."
+                  detail: "50% of invoice approvals happen on a phone. If your Word document invoice renders as a garbled mess on mobile, the client mentally files it under 'sort this out later.' Nobevra PDFs are pixel-perfect on every screen."
                 }
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-[20px] border border-gray-100 shadow-sm p-7 flex items-start gap-5 hover:shadow-md transition-all">
@@ -481,13 +481,13 @@ export default function InvoiceGeneratorLandingPage() {
                   <div className="absolute top-0 inset-x-0 h-6 bg-gray-900 z-10 rounded-t-[32px] flex justify-center pt-2">
                      <div className="w-16 h-1 bg-gray-800 rounded-full"></div>
                   </div>
-                  <Image src="/images/features/mobile-invoice-app.png" alt="NobleInvoice Mobile App UI" width={320} height={600} className="w-full h-auto object-cover rounded-[32px]" />
+                  <Image src="/images/features/mobile-invoice-app.png" alt="Nobevra Mobile App UI" width={320} height={600} className="w-full h-auto object-cover rounded-[32px]" />
                </div>
             </div>
 
             {/* Mid-Page CTA 2 */}
             <div className="mt-16 text-center">
-              <p className="text-near-black/70 text-base font-medium mb-5">NobleInvoice catches these mistakes before you hit send.</p>
+              <p className="text-near-black/70 text-base font-medium mb-5">Nobevra catches these mistakes before you hit send.</p>
               <Link
                 href="/app/invoices/new"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-noble-blue text-white rounded-xl font-bold text-lg hover:bg-noble-blue/90 hover:shadow-xl transition-all group"
@@ -521,14 +521,14 @@ export default function InvoiceGeneratorLandingPage() {
                         "A professional invoice signals premium service. How you bill is how you're valued."
                       </p>
                     </div>
-                    <p><strong>The Result:</strong> She switched to NobleInvoice. Her payment turnaround dropped to 12 days. Upgrading your billing workflow directly impacts your cash flow.</p>
+                    <p><strong>The Result:</strong> She switched to Nobevra. Her payment turnaround dropped to 12 days. Upgrading your billing workflow directly impacts your cash flow.</p>
                   </div>
                 </div>
                 <div className="relative h-full min-h-[400px] rounded-[32px] overflow-hidden bg-gradient-to-br from-noble-blue to-[#0f2a66] flex items-center justify-center shadow-2xl">
                   <div className="text-center p-8 relative z-10">
                     <div className="text-7xl font-black text-white mb-4 drop-shadow-lg">73%</div>
                     <p className="text-xl text-white/80 font-medium">Decrease in payment waiting time</p>
-                    <p className="text-xs text-white/40 mt-3 font-medium">NobleInvoice User Study, 2025</p>
+                    <p className="text-xs text-white/40 mt-3 font-medium">Nobevra User Study, 2025</p>
                   </div>
                   <div className="absolute top-10 left-10 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
                   <div className="absolute bottom-10 right-10 w-32 h-32 bg-electric-cyan/20 rounded-full blur-2xl"></div>
@@ -593,7 +593,7 @@ export default function InvoiceGeneratorLandingPage() {
                   initial: "K"
                 },
                 {
-                  quote: "NobleInvoice completely streamlined our logistics billing. With the API integrations, our high-volume transactions are processed flawlessly every single day.",
+                  quote: "Nobevra completely streamlined our logistics billing. With the API integrations, our high-volume transactions are processed flawlessly every single day.",
                   name: "McGerald Olfordile",
                   role: "CEO, Rapidbox Limited",
                   result: "Flawless daily processing",
@@ -651,7 +651,7 @@ export default function InvoiceGeneratorLandingPage() {
                 },
                 {
                   q: "What should be included in a professional invoice?",
-                  a: "Every invoice needs: your business name and contact details, the client's name and address, a unique invoice number, issue date and due date, an itemized list of services, subtotal and total (with applicable taxes), your payment terms, and preferred payment method. NobleInvoice has a field for every single one."
+                  a: "Every invoice needs: your business name and contact details, the client's name and address, a unique invoice number, issue date and due date, an itemized list of services, subtotal and total (with applicable taxes), your payment terms, and preferred payment method. Nobevra has a field for every single one."
                 },
                 {
                   q: "What's the difference between an invoice and a receipt?",
@@ -680,7 +680,7 @@ export default function InvoiceGeneratorLandingPage() {
                 <div className="flex items-start gap-4">
                   <AlertCircle className="w-6 h-6 text-near-black/30 shrink-0 mt-0.5" />
                   <div>
-                    <h3 className="text-xl font-bold mb-4 text-near-black">NobleInvoice may not be right for you if...</h3>
+                    <h3 className="text-xl font-bold mb-4 text-near-black">Nobevra may not be right for you if...</h3>
                     <p className="text-near-black/60 text-lg font-medium leading-relaxed">You're running a large enterprise that needs multi-department ERP integration, complex approval chains, or SAP connectivity. We're built for speed and agility — not corporate bureaucracy.</p>
                     <Link href="/pricing" className="inline-flex items-center gap-1.5 mt-4 text-noble-blue font-bold hover:underline text-base">
                       See full plan comparison <ChevronRight className="w-4 h-4" />

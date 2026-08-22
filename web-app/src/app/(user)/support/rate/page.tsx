@@ -30,7 +30,7 @@ export default function RateAppPage() {
                 </div>
                 <h1 className="text-3xl font-black tracking-tight">Transmission Received</h1>
                 <p className="text-slate-400 dark:text-slate-500 max-w-sm">
-                    Thank you for evolving NobleInvoice. Your feedback helps us recalibrate the cognitive engine.
+                    Thank you for evolving Nobevra. Your feedback helps us recalibrate the cognitive engine.
                 </p>
                 <div className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-8">Redirecting to Workspace...</div>
             </div>
@@ -48,7 +48,7 @@ export default function RateAppPage() {
                     </div>
                     <h1 className="text-4xl font-black text-white tracking-tight leading-tight">Rate Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-indigo-300">Cognitive Experience</span></h1>
                     <p className="text-slate-400 dark:text-slate-500 text-sm font-medium max-w-sm mx-auto">
-                        How has NobleInvoice impacted your productivity and mental whitespace?
+                        How has Nobevra impacted your productivity and mental whitespace?
                     </p>
                 </div>
 

@@ -99,7 +99,7 @@ export default function DeveloperSettings() {
                                 <h2 className="font-semibold text-noble-text">API Keys</h2>
                                 {!canUse('developer.api') && <PremiumBadge tier="elite" iconOnly />}
                             </div>
-                            <p className="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-500">Authenticate requests to the NobleInvoice API.</p>
+                            <p className="text-sm text-slate-500 dark:text-slate-400 dark:text-slate-500">Authenticate requests to the Nobevra API.</p>
                         </div>
                     </div>
                     <button 

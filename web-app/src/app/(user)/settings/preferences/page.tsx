@@ -249,7 +249,7 @@ export default function PreferencesPage() {
                     />
                     <PreferenceRow 
                         icon={Database} iconBg="bg-blue-50" iconColor="text-[#166FBB]"
-                        title="Allow AI to Use My Data" description="Help improve NobleInvoice with anonymous usage data."
+                        title="Allow AI to Use My Data" description="Help improve Nobevra with anonymous usage data."
                         checked={preferences.aiDataSharing} onChange={() => handleToggle('aiDataSharing')} disabled={saving} isLast
                     />
                 </div>

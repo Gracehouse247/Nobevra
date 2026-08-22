@@ -75,7 +75,7 @@ export interface SEOSettings {
 export const SEO_FEATURES: Record<string, SEOFeature> = {
   'ai-invoice-generator': {
     slug: 'ai-invoice-generator',
-    title: 'Best AI Invoice Generator Free — Create Invoices in Seconds | NobleInvoice',
+    title: 'Best AI Invoice Generator Free — Create Invoices in Seconds | Nobevra',
     metaDescription: 'The best AI invoice generator free online. Turn notes, PDFs, or voice into professional invoices instantly. Export AI invoice generator PDF. Try free — no card needed.',
     primaryKeyword: 'ai invoice generator',
     hero: {
@@ -103,7 +103,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
     ],
     socialProof: [
       {
-        quote: "I used to spend my Sunday evenings organizing bills. I switched to NobleInvoice, set up automated recurring profiles, and bought my weekends back.",
+        quote: "I used to spend my Sunday evenings organizing bills. I switched to Nobevra, set up automated recurring profiles, and bought my weekends back.",
         author: "Sarah T.",
         company: "Design Agency Founder"
       }
@@ -111,7 +111,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
     faqs: [
       {
         question: "Is the AI invoice generator free?",
-        answer: "Yes. NobleInvoice's AI invoice generator free plan lets you create up to 10 invoices per month at zero cost. No credit card needed to start."
+        answer: "Yes. Nobevra's AI invoice generator free plan lets you create up to 10 invoices per month at zero cost. No credit card needed to start."
       },
       {
         question: "Can I download my invoice as a PDF?",
@@ -121,8 +121,8 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'how-to-make-an-invoice-for-free': {
     slug: 'how-to-make-an-invoice-for-free',
-    title: 'How to Make an Invoice for Free — Free Invoice Generator Online | NobleInvoice',
-    metaDescription: 'Learn how to make an invoice for free with NobleInvoice. Create invoice online free PDF, use 180+ templates, and get paid faster with our best free invoice maker.',
+    title: 'How to Make an Invoice for Free — Free Invoice Generator Online | Nobevra',
+    metaDescription: 'Learn how to make an invoice for free with Nobevra. Create invoice online free PDF, use 180+ templates, and get paid faster with our best free invoice maker.',
     primaryKeyword: 'how to make an invoice for free',
     hero: {
       headline: 'Create Professional Invoices in Seconds',
@@ -149,7 +149,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
     ],
     socialProof: [
       {
-        quote: "NobleInvoice cut my billing time from 3 hours a week down to 10 minutes. The templates are gorgeous.",
+        quote: "Nobevra cut my billing time from 3 hours a week down to 10 minutes. The templates are gorgeous.",
         author: "Sarah J.",
         company: "Creative Agency Director"
       }
@@ -171,7 +171,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'client-portal': {
     slug: 'client-portal',
-    title: 'Billing Software Online — White-Label Client Portal | NobleInvoice',
+    title: 'Billing Software Online — White-Label Client Portal | Nobevra',
     metaDescription: 'Powerful billing software online for freelancers and small businesses. Give clients a branded portal to view invoices, track payments, and manage billing history — all free.',
     primaryKeyword: 'billing software online',
     hero: {
@@ -217,7 +217,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'digital-business-cards': {
     slug: 'digital-business-cards',
-    title: 'Free Business Card Creation — Digital NFC & QR Cards | NobleInvoice',
+    title: 'Free Business Card Creation — Digital NFC & QR Cards | Nobevra',
     metaDescription: 'Free business card creation online with QR codes and NFC technology. Design visiting cards, share your portfolio, and collect payments — all from one AI business card generator.',
     primaryKeyword: 'business card creation free',
     hero: {
@@ -263,8 +263,8 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'crm-engine': {
     slug: 'crm-engine',
-    title: 'What is Invoicing Software? — CRM & Client Management | NobleInvoice',
-    metaDescription: 'Discover what invoicing software is and how it transforms client management. NobleInvoice CRM Engine for small business offers invoicing for freelancers, contractors & agencies.',
+    title: 'What is Invoicing Software? — CRM & Client Management | Nobevra',
+    metaDescription: 'Discover what invoicing software is and how it transforms client management. Nobevra CRM Engine for small business offers invoicing for freelancers, contractors & agencies.',
     primaryKeyword: 'what is invoicing software',
     hero: {
       headline: 'The Command Center for Client Relationships',
@@ -291,7 +291,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
     ],
     socialProof: [
       {
-        quote: "NobleInvoice's CRM Engine completely streamlined how we onboard and retain our high-value corporate partners.",
+        quote: "Nobevra's CRM Engine completely streamlined how we onboard and retain our high-value corporate partners.",
         author: "Marcus T.",
         company: "B2B SaaS Founder"
       }
@@ -309,7 +309,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'shopify-invoice-generator': {
     slug: 'shopify-invoice-generator',
-    title: 'Free Invoice Generator for Shopify | NobleInvoice',
+    title: 'Free Invoice Generator for Shopify | Nobevra',
     metaDescription: 'Stop waiting 14 days for B2B payments. Use the best free invoice generator for Shopify to automate billing and get paid instantly via Apple Pay and Google Pay.',
     primaryKeyword: 'invoice generator shopify',
     hero: {
@@ -337,7 +337,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
     ],
     socialProof: [
       {
-        quote: "We were manually exporting Shopify orders to spreadsheets to generate wholesale invoices. Switching to NobleInvoice completely automated the workflow.",
+        quote: "We were manually exporting Shopify orders to spreadsheets to generate wholesale invoices. Switching to Nobevra completely automated the workflow.",
         author: "Ayasha Khan",
         company: "Marketing Director, NobleMart"
       }
@@ -349,14 +349,14 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
       },
       {
         question: "Do the QR payment links expire?",
-        answer: "No. NobleInvoice creates permanent payment links. The QR code on your invoice remains valid until the specific invoice is settled in full."
+        answer: "No. Nobevra creates permanent payment links. The QR code on your invoice remains valid until the specific invoice is settled in full."
       }
     ]
   },
   'best-free-invoice-app': {
     slug: 'best-free-invoice-app',
-    title: 'Best Free Invoice App — Global Multi-Currency Settlements | NobleInvoice',
-    metaDescription: 'Looking for the best free invoice app? NobleInvoice offers instant global settlements, multi-currency payouts, and a simple invoice app free for iPhone and Android.',
+    title: 'Best Free Invoice App — Global Multi-Currency Settlements | Nobevra',
+    metaDescription: 'Looking for the best free invoice app? Nobevra offers instant global settlements, multi-currency payouts, and a simple invoice app free for iPhone and Android.',
     primaryKeyword: 'what is the best free invoice app',
     hero: {
       headline: 'Global Commerce. Local Settlements.',
@@ -383,7 +383,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
     ],
     socialProof: [
       {
-        quote: "Settling USD invoices into our local currency used to take days. With NobleInvoice, it takes hours and saves us thousands in fees.",
+        quote: "Settling USD invoices into our local currency used to take days. With Nobevra, it takes hours and saves us thousands in fees.",
         author: "Elena R.",
         company: "Agency Finance Lead"
       }
@@ -401,7 +401,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'qr-business-cards': {
     slug: 'qr-business-cards',
-    title: 'How to Generate a QR Code — Free QR Code Generator | NobleInvoice',
+    title: 'How to Generate a QR Code — Free QR Code Generator | Nobevra',
     metaDescription: 'Learn how to generate a QR code for free. Create scannable QR codes for payments, invoices, and business cards. Works on iPhone & Android — no app needed.',
     primaryKeyword: 'how to generate a qr code',
     hero: {
@@ -436,7 +436,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
     ],
     faqs: [
       {
-        question: "Do clients need to install the NobleInvoice app to scan?",
+        question: "Do clients need to install the Nobevra app to scan?",
         answer: "No, clients simply use their native iOS or Android camera app to scan and execute their payment securely."
       },
       {
@@ -447,8 +447,8 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'how-to-make-an-invoice-on-my-phone': {
     slug: 'how-to-make-an-invoice-on-my-phone',
-    title: 'How to Make an Invoice on My Phone — Smart Expense Manager | NobleInvoice',
-    metaDescription: 'Learn how to make an invoice on your phone for free. NobleInvoice expense manager works on iPhone, Samsung & Android — create invoices, scan receipts, track expenses.',
+    title: 'How to Make an Invoice on My Phone — Smart Expense Manager | Nobevra',
+    metaDescription: 'Learn how to make an invoice on your phone for free. Nobevra expense manager works on iPhone, Samsung & Android — create invoices, scan receipts, track expenses.',
     primaryKeyword: 'how to make an invoice on my phone',
     hero: {
       headline: 'Automate Spending, Maximize Deductions',
@@ -475,7 +475,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
     ],
     socialProof: [
       {
-        quote: "No more shoe boxes full of receipts. I snap photos of bills as they come in, and NobleInvoice does all the logging.",
+        quote: "No more shoe boxes full of receipts. I snap photos of bills as they come in, and Nobevra does all the logging.",
         author: "Chidi N.",
         company: "Consulting Engineer"
       }
@@ -493,8 +493,8 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'team-workspace': {
     slug: 'team-workspace',
-    title: 'Best Invoice Maker — Elite Team Workspace & Collaboration | NobleInvoice',
-    metaDescription: 'What is the best invoice maker for small business? NobleInvoice team workspace offers multi-user collaboration, role-based permissions, and the best invoice app free.',
+    title: 'Best Invoice Maker — Elite Team Workspace & Collaboration | Nobevra',
+    metaDescription: 'What is the best invoice maker for small business? Nobevra team workspace offers multi-user collaboration, role-based permissions, and the best invoice app free.',
     primaryKeyword: 'what is the best invoice maker',
     hero: {
       headline: 'Unify Your Team, Scale Your Operations',
@@ -521,7 +521,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
     ],
     socialProof: [
       {
-        quote: "Managing roles across a 15-person finance team used to be an administrative nightmare. NobleInvoice solved this overnight.",
+        quote: "Managing roles across a 15-person finance team used to be an administrative nightmare. Nobevra solved this overnight.",
         author: "Amina Y.",
         company: "Fintech Controller"
       }
@@ -540,7 +540,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   
   'products-services': {
     slug: 'products-services',
-    title: 'How to Make a Proforma Invoice | NobleInvoice',
+    title: 'How to Make a Proforma Invoice | Nobevra',
     metaDescription: 'Learn how to make a proforma invoice online, in Word, or Excel. Use our free proforma invoice template and get paid faster — no spreadsheets needed.',
     primaryKeyword: 'how to make a proforma invoice',
     hero: {
@@ -586,12 +586,12 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'professional-identity': {
     slug: 'professional-identity',
-    title: 'How to Create a Business Card for Free — Professional Branding | NobleInvoice',
+    title: 'How to Create a Business Card for Free — Professional Branding | Nobevra',
     metaDescription: 'Learn how to create a business card for free online. Use our AI business card generator for visiting card designs, 3D cards, and professional branding — all free.',
     primaryKeyword: 'how to create a business card for free',
     hero: {
       headline: 'Your Brand. Front and Center.',
-      subheadline: 'Remove all NobleInvoice branding. Customize layout schemes, typography, domain routing, and emails to reflect your exact brand identity.',
+      subheadline: 'Remove all Nobevra branding. Customize layout schemes, typography, domain routing, and emails to reflect your exact brand identity.',
       ctaText: 'Elevate Your Brand',
       image: '/images/features/branding.png',
     },
@@ -632,8 +632,8 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'lead-intelligence': {
     slug: 'lead-intelligence',
-    title: 'How to Make a QR Code for a Website — Lead Intelligence | NobleInvoice',
-    metaDescription: 'Learn how to make a QR code for a website for free. Track prospects, score intent, and convert leads with NobleInvoice free QR code generator and lead intelligence.',
+    title: 'How to Make a QR Code for a Website — Lead Intelligence | Nobevra',
+    metaDescription: 'Learn how to make a QR code for a website for free. Track prospects, score intent, and convert leads with Nobevra free QR code generator and lead intelligence.',
     primaryKeyword: 'how to make a QR code for a website',
     hero: {
       headline: 'Turn Cold Prospects Into Cleared Funds',
@@ -678,7 +678,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'enterprise-scaling': {
     slug: 'enterprise-scaling',
-    title: 'Automated Invoicing Software — Enterprise Infrastructure | NobleInvoice',
+    title: 'Automated Invoicing Software — Enterprise Infrastructure | Nobevra',
     metaDescription: 'Best automated invoicing software for small business and enterprise. Free download, dedicated clusters, 99.99% uptime, and SOC2-compliant invoicing software.',
     primaryKeyword: 'automated invoicing software',
     hero: {
@@ -706,7 +706,7 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
     ],
     socialProof: [
       {
-        quote: "NobleInvoice's enterprise infrastructure comfortably manages our high-volume retail transactions with zero delay.",
+        quote: "Nobevra's enterprise infrastructure comfortably manages our high-volume retail transactions with zero delay.",
         author: "Theresa P.",
         company: "E-Retail Conglomerate VP"
       }
@@ -724,8 +724,8 @@ export const SEO_FEATURES: Record<string, SEOFeature> = {
   },
   'growth-reports': {
     slug: 'growth-reports',
-    title: 'How Do I Make an Invoice? — Data-Driven Growth Reports | NobleInvoice',
-    metaDescription: 'How do I make an invoice? Use NobleInvoice to create invoices online free, generate PDF templates, analyze cash flow trends, and visualize business growth reports.',
+    title: 'How Do I Make an Invoice? — Data-Driven Growth Reports | Nobevra',
+    metaDescription: 'How do I make an invoice? Use Nobevra to create invoices online free, generate PDF templates, analyze cash flow trends, and visualize business growth reports.',
     primaryKeyword: 'how do I make an invoice',
     hero: {
       headline: 'Visualize Cash Flow. Command Growth.',

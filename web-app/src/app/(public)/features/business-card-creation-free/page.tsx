@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Business Card Creation Free | NobleInvoice',
+  title: 'Business Card Creation Free | Nobevra',
   description:
     'Enjoy business card creation free of charge. Design stunning digital cards, track scans, and generate leads effortlessly today.',
   keywords: [
@@ -50,7 +50,7 @@ export default function DigitalBusinessCardsPage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Yes. NobleInvoice provides a free online business card creation tool. You can choose a professional template, customize your colors, add your logo, and generate your digital card without paying a dime.',
+            'Yes. Nobevra provides a free online business card creation tool. You can choose a professional template, customize your colors, add your logo, and generate your digital card without paying a dime.',
         },
       },
       {
@@ -59,7 +59,7 @@ export default function DigitalBusinessCardsPage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Creating a business card for free is simple: 1. Sign up for NobleInvoice. 2. Choose a free business card template. 3. Customize it with your logo and colors. 4. Connect your payment and calendar links. 5. Share via QR code, Apple Wallet, or Google Pay.',
+            'Creating a business card for free is simple: 1. Sign up for Nobevra. 2. Choose a free business card template. 3. Customize it with your logo and colors. 4. Connect your payment and calendar links. 5. Share via QR code, Apple Wallet, or Google Pay.',
         },
       },
       {
@@ -86,7 +86,7 @@ export default function DigitalBusinessCardsPage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text:
-            'Our AI business card generator pulls your NobleInvoice profile data and automatically formats it into a highly converting design. It suggests colors and layout options to maximize readability and professionalism instantly.',
+            'Our AI business card generator pulls your Nobevra profile data and automatically formats it into a highly converting design. It suggests colors and layout options to maximize readability and professionalism instantly.',
         },
       },
       {
@@ -103,7 +103,7 @@ export default function DigitalBusinessCardsPage() {
 
   const testimonials = [
     {
-      quote: "Our marketplace generates hundreds of global leads daily. NobleInvoice's Lead Intelligence and Digital Cards let us track intent perfectly, connecting marketing right to our revenue pipeline.",
+      quote: "Our marketplace generates hundreds of global leads daily. Nobevra's Lead Intelligence and Digital Cards let us track intent perfectly, connecting marketing right to our revenue pipeline.",
       name: 'Ayasha Khan',
       role: 'Marketing Director, NobleMart',
       image: '/images/reviews/ayasha-khan-marketing-director-of-noblemart-marketplace-us-region.png',
@@ -430,7 +430,7 @@ export default function DigitalBusinessCardsPage() {
             <div className="grid grid-cols-3 p-6 border-b border-white/10 bg-white/5">
               <div className="font-bold text-white/50 uppercase tracking-widest text-sm">Feature</div>
               <div className="font-black text-white text-lg flex items-center gap-2"><Printer className="w-5 h-5 text-slate-400" /> Paper Cards</div>
-              <div className="font-black text-electric-cyan text-lg flex items-center gap-2"><Smartphone className="w-5 h-5" /> NobleInvoice Digital</div>
+              <div className="font-black text-electric-cyan text-lg flex items-center gap-2"><Smartphone className="w-5 h-5" /> Nobevra Digital</div>
             </div>
             
             {[
@@ -462,7 +462,7 @@ export default function DigitalBusinessCardsPage() {
               Networking success stories.
             </h2>
             <p className="text-xl text-near-black/60 max-w-2xl mx-auto font-medium">
-              Real results from businesses using NobleInvoice digital business cards to capture leads and grow.
+              Real results from businesses using Nobevra digital business cards to capture leads and grow.
             </p>
           </div>
 
@@ -520,7 +520,7 @@ export default function DigitalBusinessCardsPage() {
             </div>
             <div className="mt-8 pt-8 border-t border-slate-100">
               <p className="text-near-black/80 font-medium leading-relaxed text-lg">
-                NobleInvoice digital cards are built for consultants, freelancers, and service businesses who want every networking event to directly feed their revenue pipeline.
+                Nobevra digital cards are built for consultants, freelancers, and service businesses who want every networking event to directly feed their revenue pipeline.
               </p>
             </div>
           </div>

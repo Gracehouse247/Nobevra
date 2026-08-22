@@ -14,7 +14,7 @@ export default function LocationForm({ onChange, initialData, onPreviewValueChan
         // Format for Geo URI: geo:lat,lng
         const formattedStr = `geo:${latitude},${longitude}`;
         
-        onPreviewValueChange(latitude && longitude ? formattedStr : 'https://nobleinvoice.com');
+        onPreviewValueChange(latitude && longitude ? formattedStr : 'https://nobevra.noblesworld.com.ng');
     }, [latitude, longitude]);
 
     const handleUseCurrentLocation = () => {

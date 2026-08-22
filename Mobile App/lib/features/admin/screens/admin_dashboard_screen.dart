@@ -39,7 +39,7 @@ class _AdminDashboardScreenState extends State<AdminDashboardScreen> {
         title: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('NobleInvoice Admin', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16)),
+            Text('Nobevra Admin', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16)),
             Text('PLATFORM SCALING PANEL', style: TextStyle(color: Colors.grey, fontSize: 8, fontWeight: FontWeight.w900, letterSpacing: 1.0)),
           ],
         ),

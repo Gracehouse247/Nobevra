@@ -66,7 +66,7 @@ class _DeleteAccountScreenState extends State<DeleteAccountScreen> {
             ),
             const SizedBox(height: 12),
             _buildRequirementRow(
-              'I confirm that I want to permanently delete my NobleInvoice account.',
+              'I confirm that I want to permanently delete my Nobevra account.',
               _understandLoss,
               (val) => setState(() => _understandLoss = val ?? false),
             ),

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const category = helpCategories.find(c => c.slug === categorySlug);
     if (!category) return {};
     return {
-        title: `${category.title} | Help Center | NobleInvoice`,
+        title: `${category.title} | Help Center | Nobevra`,
         description: category.desc,
     };
 }

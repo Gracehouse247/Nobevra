@@ -145,7 +145,7 @@ function WithdrawModal({
                     amount:         parsedAmount,
                     currency:       wallet.currency_code,
                     payout_method_id: form.payout_method_id,
-                    narration:      form.narration || `NobleInvoice Withdrawal`,
+                    narration:      form.narration || `Nobevra Withdrawal`,
                 }),
             });
 
@@ -1042,7 +1042,7 @@ export default function WalletPage() {
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <div className="w-5 h-5 rounded bg-blue-50 dark:bg-blue-500/10 text-noble-primary text-[11px] font-bold flex items-center justify-center">3</div>
-                                    <p className="text-[12px] font-medium text-noble-muted">Funds added to your NobleInvoice wallet</p>
+                                    <p className="text-[12px] font-medium text-noble-muted">Funds added to your Nobevra wallet</p>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <div className="w-5 h-5 rounded bg-blue-50 dark:bg-blue-500/10 text-noble-primary text-[11px] font-bold flex items-center justify-center">4</div>

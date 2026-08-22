@@ -3,9 +3,9 @@ const path = require('path');
 
 // Directories to sweep for a11y issues
 const dirsToSweep = [
-    'C:/Projects/NobleInvoice/web-app/src/components/invoice',
-    'C:/Projects/NobleInvoice/web-app/src/components/clients',
-    'C:/Projects/NobleInvoice/web-app/src/components/identity',
+    'C:/Projects/Nobevra/web-app/src/components/invoice',
+    'C:/Projects/Nobevra/web-app/src/components/clients',
+    'C:/Projects/Nobevra/web-app/src/components/identity',
 ];
 
 let totalFixed = 0;

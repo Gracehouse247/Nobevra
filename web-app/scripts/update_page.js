@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const file = 'c:\\Projects\\NobleInvoice Web App Project\\web-app\\src\\app\\(public)\\features\\lead-intelligence\\page.tsx';
+const file = 'c:\\Projects\\Nobevra Web App Project\\web-app\\src\\app\\(public)\\features\\lead-intelligence\\page.tsx';
 let content = fs.readFileSync(file, 'utf8');
 
 // 1. Add import

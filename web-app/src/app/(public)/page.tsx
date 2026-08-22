@@ -28,7 +28,7 @@ export default function LandingPage() {
             {/* The Problem (Contrarian Hook) */}
             <SEOProblemSection />
             
-            {/* The NobleInvoice Approach (Bento Grid) */}
+            {/* The Nobevra Approach (Bento Grid) */}
             <SEOSolutionSection />
             
             <FeaturesBento />
@@ -47,7 +47,7 @@ export default function LandingPage() {
                         Reclaim <span className="text-noble-blue">20+ Hours</span> Every Month.
                     </h2>
                     <p className="text-base md:text-lg text-near-black/50 max-w-2xl mx-auto leading-relaxed">
-                        Calculate exactly how much you're losing to manual billing and how much you'll gain with NobleInvoice.
+                        Calculate exactly how much you're losing to manual billing and how much you'll gain with Nobevra.
                     </p>
                 </div>
                 <div className="px-4 md:px-16">

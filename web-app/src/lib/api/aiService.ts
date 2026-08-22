@@ -1,7 +1,7 @@
 import apiClient from './apiClient';
 
 /**
- * Service for interacting with NobleInvoice AI backend features.
+ * Service for interacting with Nobevra AI backend features.
  */
 export const aiNoteService = {
     summarizeNote: async (content: string) => {

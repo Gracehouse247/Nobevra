@@ -163,7 +163,7 @@ export default function NewProductPage() {
                 <div className="mb-8">
                     <button 
                         onClick={() => router.back()}
-                        className="flex items-center gap-1.5 text-sm font-semibold text-[#0599D5] hover:text-[#006970] transition-colors mb-4"
+                        className="flex items-center gap-1.5 text-sm font-semibold text-[#01A0E2] hover:text-[#006970] transition-colors mb-4"
                     >
                         <ChevronLeft className="w-4 h-4" />
                         Back to Catalog
@@ -183,7 +183,7 @@ export default function NewProductPage() {
                         {/* 1. Basic Information */}
                         <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="w-7 h-7 rounded-lg bg-[#0599D5] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#0599D5]/30">
+                                <div className="w-7 h-7 rounded-lg bg-[#01A0E2] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#01A0E2]/30">
                                     1
                                 </div>
                                 <h2 className="text-lg font-bold text-noble-text">Basic Information</h2>
@@ -202,7 +202,7 @@ export default function NewProductPage() {
                                         <input 
                                             required
                                             type="text"
-                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all"
                                             placeholder="e.g. Web Design Package"
                                             value={formData.name}
                                             onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -220,7 +220,7 @@ export default function NewProductPage() {
                                             <Package className="h-4 w-4 text-slate-400 dark:text-slate-500" />
                                         </div>
                                         <select
-                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text appearance-none focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all cursor-pointer"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text appearance-none focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all cursor-pointer"
                                             value={formData.type}
                                             onChange={(e) => setFormData({...formData, type: e.target.value})}
                                         >
@@ -244,7 +244,7 @@ export default function NewProductPage() {
                                         </div>
                                         <input 
                                             type="text"
-                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all"
                                             placeholder="Select category"
                                             value={formData.category}
                                             onChange={(e) => setFormData({...formData, category: e.target.value})}
@@ -263,7 +263,7 @@ export default function NewProductPage() {
                                         </div>
                                         <input 
                                             type="text"
-                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all"
                                             placeholder="e.g. INV-001"
                                             value={formData.sku}
                                             onChange={(e) => setFormData({...formData, sku: e.target.value})}
@@ -281,7 +281,7 @@ export default function NewProductPage() {
                                             <Layers className="h-4 w-4 text-slate-400 dark:text-slate-500" />
                                         </div>
                                         <select
-                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text appearance-none focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all cursor-pointer"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text appearance-none focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all cursor-pointer"
                                             value={formData.unit}
                                             onChange={(e) => setFormData({...formData, unit: e.target.value})}
                                         >
@@ -305,7 +305,7 @@ export default function NewProductPage() {
                                     </label>
                                     <div className="relative">
                                         <select
-                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-2.5 text-[14px] font-semibold text-noble-text appearance-none focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all cursor-pointer"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-2.5 text-[14px] font-semibold text-noble-text appearance-none focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all cursor-pointer"
                                             value={formData.taxRate}
                                             onChange={(e) => setFormData({...formData, taxRate: e.target.value})}
                                         >
@@ -326,13 +326,13 @@ export default function NewProductPage() {
                         <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm">
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-7 h-7 rounded-lg bg-[#0599D5] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#0599D5]/30">
+                                    <div className="w-7 h-7 rounded-lg bg-[#01A0E2] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#01A0E2]/30">
                                         2
                                     </div>
                                     <h2 className="text-lg font-bold text-noble-text">Description</h2>
                                 </div>
                                 <div className="flex items-center gap-3 bg-slate-50 dark:bg-[#0D1B2E] px-4 py-2 rounded-xl border border-noble-border">
-                                    <Globe className="w-4 h-4 text-[#0599D5]" />
+                                    <Globe className="w-4 h-4 text-[#01A0E2]" />
                                     <div>
                                         <div className="flex items-center gap-2">
                                             <p className="text-[13px] font-bold text-slate-800 dark:text-slate-100">Digital Passport (SEO)</p>
@@ -349,7 +349,7 @@ export default function NewProductPage() {
                                             }
                                             setEnablePassport(!enablePassport);
                                         }}
-                                        className={`ml-2 w-10 h-5 rounded-full p-0.5 transition-colors ${enablePassport ? 'bg-[#0599D5]' : 'bg-slate-300'}`}
+                                        className={`ml-2 w-10 h-5 rounded-full p-0.5 transition-colors ${enablePassport ? 'bg-[#01A0E2]' : 'bg-slate-300'}`}
                                     >
                                         <motion.div 
                                             animate={{ x: enablePassport ? 20 : 0 }}
@@ -362,7 +362,7 @@ export default function NewProductPage() {
                             <div className="space-y-1.5">
                                 <p className="text-[12px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-2">Detailed description for the invoice...</p>
                                 <textarea 
-                                    className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl p-4 text-[14px] text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all min-h-[120px] resize-y"
+                                    className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl p-4 text-[14px] text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all min-h-[120px] resize-y"
                                     placeholder="Describe the item, its features, usage, or any important notes..."
                                     value={formData.description}
                                     onChange={(e) => setFormData({...formData, description: e.target.value})}
@@ -377,7 +377,7 @@ export default function NewProductPage() {
                         {/* 3. Pricing & Inventory */}
                         <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="w-7 h-7 rounded-lg bg-[#0599D5] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#0599D5]/30">
+                                <div className="w-7 h-7 rounded-lg bg-[#01A0E2] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#01A0E2]/30">
                                     3
                                 </div>
                                 <h2 className="text-lg font-bold text-noble-text">Pricing {isProduct && '& Inventory'}</h2>
@@ -389,7 +389,7 @@ export default function NewProductPage() {
                                     <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
                                         Unit Price <span className="text-red-500">*</span>
                                     </label>
-                                    <div className="flex bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl overflow-hidden focus-within:ring-1 focus-within:ring-[#0599D5] focus-within:border-[#0599D5] transition-all">
+                                    <div className="flex bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl overflow-hidden focus-within:ring-1 focus-within:ring-[#01A0E2] focus-within:border-[#01A0E2] transition-all">
                                         <div className="bg-slate-100 dark:bg-[#112030] border-r border-noble-border px-3 flex items-center text-[13px] font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500">
                                             {currencyCode}
                                         </div>
@@ -410,7 +410,7 @@ export default function NewProductPage() {
                                     <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200">
                                         Cost Price <span className="text-slate-400 dark:text-slate-500 font-normal">(Optional)</span>
                                     </label>
-                                    <div className="flex bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl overflow-hidden focus-within:ring-1 focus-within:ring-[#0599D5] focus-within:border-[#0599D5] transition-all">
+                                    <div className="flex bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl overflow-hidden focus-within:ring-1 focus-within:ring-[#01A0E2] focus-within:border-[#01A0E2] transition-all">
                                         <div className="bg-slate-100 dark:bg-[#112030] border-r border-noble-border px-3 flex items-center text-[13px] font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500">
                                             {currencyCode}
                                         </div>
@@ -433,7 +433,7 @@ export default function NewProductPage() {
                                         </label>
                                         <input 
                                             type="number"
-                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all"
                                             placeholder="0"
                                             value={formData.initialStock}
                                             onChange={(e) => setFormData({...formData, initialStock: e.target.value})}
@@ -454,7 +454,7 @@ export default function NewProductPage() {
                                                 </div>
                                                 <input 
                                                     type="number"
-                                                    className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                                    className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all"
                                                     placeholder="e.g. 5"
                                                     value={formData.minStockAlert}
                                                     onChange={(e) => setFormData({...formData, minStockAlert: e.target.value})}
@@ -473,7 +473,7 @@ export default function NewProductPage() {
                                                 </div>
                                                 <input 
                                                     type="number"
-                                                    className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                                    className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl pl-10 pr-4 py-2.5 text-[14px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all"
                                                     placeholder="e.g. 10"
                                                     value={formData.reorderLevel}
                                                     onChange={(e) => setFormData({...formData, reorderLevel: e.target.value})}
@@ -489,7 +489,7 @@ export default function NewProductPage() {
                         {/* 4. Additional Settings */}
                         <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm">
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="w-7 h-7 rounded-lg bg-[#0599D5] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#0599D5]/30">
+                                <div className="w-7 h-7 rounded-lg bg-[#01A0E2] text-white flex items-center justify-center font-bold text-sm shadow-sm shadow-[#01A0E2]/30">
                                     4
                                 </div>
                                 <h2 className="text-lg font-bold text-noble-text">Additional Settings <span className="text-slate-400 dark:text-slate-500 font-normal text-sm ml-1">(Optional)</span></h2>
@@ -501,7 +501,7 @@ export default function NewProductPage() {
                                     <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200 mb-2 block">Tags</label>
                                     <div className="flex flex-wrap gap-2 mb-3">
                                         {formData.tags.map(tag => (
-                                            <span key={tag} className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#0599D5]/10 text-[#0599D5] rounded-lg text-xs font-bold">
+                                            <span key={tag} className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#01A0E2]/10 text-[#01A0E2] rounded-lg text-xs font-bold">
                                                 {tag}
                                                 <button type="button" onClick={() => handleRemoveTag(tag)} className="hover:text-red-500 transition-colors">
                                                     &times;
@@ -512,7 +512,7 @@ export default function NewProductPage() {
                                     <div className="flex items-center gap-2">
                                         <input 
                                             type="text"
-                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-2 text-[13px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#0599D5] focus:ring-1 focus:ring-[#0599D5] transition-all"
+                                            className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-2 text-[13px] font-semibold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-[#01A0E2] focus:ring-1 focus:ring-[#01A0E2] transition-all"
                                             placeholder="Add Tag"
                                             value={tagInput}
                                             onChange={(e) => setTagInput(e.target.value)}
@@ -521,7 +521,7 @@ export default function NewProductPage() {
                                         <button 
                                             type="button"
                                             onClick={handleAddTag}
-                                            className="px-4 py-2 bg-slate-100 dark:bg-[#112030] hover:bg-slate-200 text-[#0599D5] font-bold rounded-xl text-sm transition-colors whitespace-nowrap"
+                                            className="px-4 py-2 bg-slate-100 dark:bg-[#112030] hover:bg-slate-200 text-[#01A0E2] font-bold rounded-xl text-sm transition-colors whitespace-nowrap"
                                         >
                                             + Add Tag
                                         </button>
@@ -531,8 +531,8 @@ export default function NewProductPage() {
                                 {/* Image Upload */}
                                 <div>
                                     <label className="text-[13px] font-bold text-slate-700 dark:text-slate-200 mb-2 block">Product Image</label>
-                                    <div onClick={() => document.getElementById('product-image-upload')?.click()} className="border-2 border-dashed border-noble-border rounded-2xl bg-slate-50 dark:bg-[#0D1B2E]/50 p-6 flex flex-col items-center justify-center text-center hover:border-[#0599D5]/50 transition-colors cursor-pointer group">
-                                        <div className="w-10 h-10 rounded-full bg-[#0599D5]/10 flex items-center justify-center text-[#0599D5] mb-3 group-hover:scale-110 transition-transform">
+                                    <div onClick={() => document.getElementById('product-image-upload')?.click()} className="border-2 border-dashed border-noble-border rounded-2xl bg-slate-50 dark:bg-[#0D1B2E]/50 p-6 flex flex-col items-center justify-center text-center hover:border-[#01A0E2]/50 transition-colors cursor-pointer group">
+                                        <div className="w-10 h-10 rounded-full bg-[#01A0E2]/10 flex items-center justify-center text-[#01A0E2] mb-3 group-hover:scale-110 transition-transform">
                                             <UploadCloud className="w-5 h-5" />
                                         </div>
                                         <p className="text-[13px] font-bold text-noble-text">Upload Image</p>
@@ -565,7 +565,7 @@ export default function NewProductPage() {
                                     type="button"
                                     onClick={(e) => handleSubmit(e, false)}
                                     disabled={loading}
-                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#0599D5] text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-[#0599D5]/30 transition-all disabled:opacity-50"
+                                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-8 py-3 bg-[#01A0E2] text-white rounded-xl font-bold text-sm hover:shadow-lg hover:shadow-[#01A0E2]/30 transition-all disabled:opacity-50"
                                 >
                                     <CheckCircle2 className="w-4 h-4" /> Save Item
                                 </button>
@@ -579,13 +579,13 @@ export default function NewProductPage() {
                         
                         {/* Item Preview */}
                         <div className="bg-noble-surface dark:bg-noble-card rounded-2xl border border-noble-border p-6 shadow-sm sticky top-6">
-                            <div className="flex items-center gap-2 mb-6 text-[#0599D5]">
+                            <div className="flex items-center gap-2 mb-6 text-[#01A0E2]">
                                 <Eye className="w-4 h-4" />
                                 <h3 className="font-bold text-sm">Item Preview</h3>
                             </div>
                             
                             <div className="bg-slate-50 dark:bg-[#0D1B2E] rounded-2xl p-6 border border-slate-100 dark:border-noble-border flex flex-col items-center text-center">
-                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-inner mb-4 ${isProduct ? 'bg-[#0599D5]/10 text-[#0599D5]' : 'bg-violet-100 text-violet-600'}`}>
+                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-inner mb-4 ${isProduct ? 'bg-[#01A0E2]/10 text-[#01A0E2]' : 'bg-violet-100 text-violet-600'}`}>
                                     {isProduct ? <Package className="w-8 h-8" /> : <Layers className="w-8 h-8" />}
                                 </div>
                                 <h4 className="text-xl font-black text-noble-text tracking-tight leading-tight mb-1">
@@ -596,7 +596,7 @@ export default function NewProductPage() {
                                     <span className="w-1 h-1 rounded-full bg-slate-300" />
                                     <span>{isProduct ? 'Product' : 'Service'}</span>
                                 </div>
-                                <div className="text-2xl font-black text-[#0599D5] mb-1">
+                                <div className="text-2xl font-black text-[#01A0E2] mb-1">
                                     {formatMoney(previewPrice)}
                                 </div>
                                 <div className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 mb-6">

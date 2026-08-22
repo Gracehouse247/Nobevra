@@ -38,7 +38,7 @@ export default function InvoiceDetailView() {
     if (loading) {
         return (
             <div className="h-[80vh] flex items-center justify-center">
-                <div className="w-10 h-10 border-4 border-[#0599D5] border-t-transparent rounded-full animate-spin" />
+                <div className="w-10 h-10 border-4 border-[#01A0E2] border-t-transparent rounded-full animate-spin" />
             </div>
         );
     }
@@ -49,7 +49,7 @@ export default function InvoiceDetailView() {
                 <AlertCircle className="w-16 h-16 text-slate-300 mb-4" />
                 <h2 className="text-2xl font-bold text-noble-text mb-2">Invoice Not Found</h2>
                 <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 mb-6">The invoice you are looking for does not exist or has been deleted.</p>
-                <button onClick={() => router.push('/invoices')} className="px-6 py-2.5 bg-[#0599D5] text-white rounded-xl font-semibold hover:bg-[#048bbf] transition-colors">
+                <button onClick={() => router.push('/invoices')} className="px-6 py-2.5 bg-[#01A0E2] text-white rounded-xl font-semibold hover:bg-[#048bbf] transition-colors">
                     Back to Invoices
                 </button>
             </div>
@@ -188,7 +188,7 @@ export default function InvoiceDetailView() {
                         href={invoice.pdf_url || `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/get-invoice-proxy?id=${invoice.id}&token=${invoice.tracking_token}`}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex items-center gap-1.5 px-4 py-2 bg-[#0599D5] text-white hover:bg-[#048bbf] rounded-xl text-xs font-bold transition-colors shadow-sm"
+                        className="flex items-center gap-1.5 px-4 py-2 bg-[#01A0E2] text-white hover:bg-[#048bbf] rounded-xl text-xs font-bold transition-colors shadow-sm"
                     >
                         <Download className="w-4 h-4" />
                         Download PDF
@@ -200,7 +200,7 @@ export default function InvoiceDetailView() {
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="bg-noble-surface dark:bg-noble-card rounded-[32px] shadow-sm border border-noble-border/60 overflow-hidden">
                 {/* Header Section */}
                 <div className="p-8 md:p-12 border-b border-slate-100 dark:border-noble-border relative overflow-hidden bg-slate-50 dark:bg-[#0D1B2E]/30">
-                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#0599D5]/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#01A0E2]/5 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/4 pointer-events-none" />
                     
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 relative z-10">
                         <div>
@@ -266,7 +266,7 @@ export default function InvoiceDetailView() {
                                     <div className="space-y-2 text-sm">
                                         <div className="flex justify-between"><span className="text-slate-500 dark:text-slate-400 dark:text-slate-500">Bank</span><span className="font-bold text-noble-text">{invoice.metadata.bank_name}</span></div>
                                         <div className="flex justify-between"><span className="text-slate-500 dark:text-slate-400 dark:text-slate-500">Account Name</span><span className="font-bold text-noble-text">{invoice.metadata.account_name}</span></div>
-                                        <div className="flex justify-between"><span className="text-slate-500 dark:text-slate-400 dark:text-slate-500">Account No.</span><span className="font-black text-[#0599D5] tracking-wider">{invoice.metadata.account_number}</span></div>
+                                        <div className="flex justify-between"><span className="text-slate-500 dark:text-slate-400 dark:text-slate-500">Account No.</span><span className="font-black text-[#01A0E2] tracking-wider">{invoice.metadata.account_number}</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -297,7 +297,7 @@ export default function InvoiceDetailView() {
                             )}
                             <div className="flex items-center justify-between pt-2">
                                 <span className="text-lg font-black text-noble-text uppercase tracking-tight">Total Amount</span>
-                                <span className="text-2xl font-black text-[#0599D5] tracking-tighter tabular-nums">{formatCurrency(invoice.total_amount || 0)}</span>
+                                <span className="text-2xl font-black text-[#01A0E2] tracking-tighter tabular-nums">{formatCurrency(invoice.total_amount || 0)}</span>
                             </div>
                         </div>
                     </div>

@@ -36,7 +36,7 @@ export const ToggleRow = ({ label, description, icon, iconBg, checked = false, o
                     <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-0.5 font-[Inter,sans-serif]">{description}</p>
                 </div>
             </div>
-            <div className={`relative w-10 h-5 rounded-full transition-all duration-200 ${checked ? 'bg-[#0599D5]' : 'bg-slate-200'}`}>
+            <div className={`relative w-10 h-5 rounded-full transition-all duration-200 ${checked ? 'bg-[#01A0E2]' : 'bg-slate-200'}`}>
                 <div className={`absolute top-0.5 w-4 h-4 bg-noble-surface dark:bg-noble-card rounded-full shadow-sm transition-all duration-200 ${checked ? 'left-5' : 'left-0.5'}`} />
             </div>
         </div>

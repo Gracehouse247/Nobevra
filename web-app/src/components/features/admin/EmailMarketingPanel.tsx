@@ -81,7 +81,7 @@ export default function EmailMarketingPanel() {
                     <div>
                         <label className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2 block">Subject Line</label>
                         <input value={subject} onChange={e => setSubject(e.target.value)} required
-                            placeholder="e.g. Exciting new features in NobleInvoice 2.0 🚀"
+                            placeholder="e.g. Exciting new features in Nobevra 2.0 🚀"
                             className="w-full bg-black/5  border border-black/5  rounded-2xl px-5 py-3 text-slate-200 focus:outline-none focus:ring-1 focus:ring-[#006970]/50" />
                     </div>
                     <div>

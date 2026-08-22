@@ -15,6 +15,7 @@ import LiveLedgerTicker from '@/components/shared/LiveLedgerTicker';
 import ConflictResolverModal from '@/components/shared/ConflictResolverModal';
 import FloatingVoiceAssistant from '@/components/shared/FloatingVoiceAssistant';
 import CookieConsent from '@/components/shared/CookieConsent';
+import { brand } from '@/lib/brand';
 
 /**
  * UserLayoutClient — interactive client island for the app shell.
@@ -95,10 +96,12 @@ export default function UserLayoutClient({ children }: { children: React.ReactNo
                         {/* Brand icon center */}
                         <div className="absolute inset-0 flex items-center justify-center">
                             <motion.div
-                                className="w-10 h-10 bg-gradient-to-br from-noble-secondary to-noble-primary rounded-xl shadow-[0_0_20px_rgba(5,153,213,0.4)]"
-                                animate={{ scale: [1, 1.1, 1] }}
+                                className="w-12 h-12 bg-white dark:bg-[#0A1628] rounded-2xl shadow-[0_0_30px_rgba(1,160,226,0.35)] border border-[#01A0E2]/20 flex items-center justify-center p-2"
+                                animate={{ scale: [1, 1.08, 1] }}
                                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                            />
+                            >
+                                <img src={brand.assets.icon} alt="Nobevra" className="w-full h-full object-contain" />
+                            </motion.div>
                         </div>
                     </motion.div>
 
@@ -111,7 +114,7 @@ export default function UserLayoutClient({ children }: { children: React.ReactNo
                             className="text-noble-text font-black tracking-tight text-4xl"
                             style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
                         >
-                            NobleInvoice
+                            {brand.shortName}
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0 }}
@@ -119,7 +122,7 @@ export default function UserLayoutClient({ children }: { children: React.ReactNo
                             transition={{ delay: 0.2, duration: 0.5 }}
                             className="text-noble-muted font-extrabold text-[10px] uppercase tracking-[0.3em]"
                         >
-                            Initializing Workspace
+                            {brand.tagline}
                         </motion.p>
                     </div>
                 </div>

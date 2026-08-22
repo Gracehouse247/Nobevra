@@ -86,7 +86,7 @@ export const OnboardingWizard = () => {
             
             {/* Header / Progress */}
             <div className="px-8 py-6 w-full max-w-4xl mx-auto flex items-center justify-between">
-                <div className="font-black text-xl text-noble-text tracking-tighter">NobleInvoice</div>
+                <div className="font-black text-xl text-noble-text tracking-tighter">Nobevra</div>
                 <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">
                     Step {currentStep + 1} of 3
                 </div>

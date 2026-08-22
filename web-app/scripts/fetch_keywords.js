@@ -63,7 +63,7 @@ async function fetchKeywords() {
     }
   }
   
-  fs.writeFileSync('c:\\Projects\\NobleInvoice Web App Project\\web-app\\serp_results.json', JSON.stringify(results, null, 2));
+  fs.writeFileSync('c:\\Projects\\Nobevra Web App Project\\web-app\\serp_results.json', JSON.stringify(results, null, 2));
   console.log('Done!');
 }
 

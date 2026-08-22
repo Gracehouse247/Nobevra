@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:noble_invoice/core/theme/app_colors.dart';
+import 'package:noble_invoice/core/widgets/country_picker_sheet.dart';
+import 'package:noble_invoice/core/widgets/industry_picker_sheet.dart';
 
 class IdentityStep extends StatelessWidget {
   final TextEditingController businessNameController;
@@ -48,21 +50,21 @@ class IdentityStep extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             
-            _buildStepDropdown(
+            _buildIndustrySelector(
+              context: context,
               label: 'Industry',
               value: selectedIndustry,
-              items: industries,
               onChanged: onIndustryChanged,
-              icon: Icons.category_rounded,
+              activeColor: activeColor,
             ),
             const SizedBox(height: 24),
             
-            _buildStepDropdown(
+            _buildCountrySelector(
+              context: context,
               label: 'Location',
               value: selectedCountry,
-              items: countries,
               onChanged: onCountryChanged,
-              icon: Icons.public_rounded,
+              activeColor: activeColor,
             ),
           ],
         ),
@@ -91,25 +93,144 @@ class IdentityStep extends StatelessWidget {
     );
   }
 
-  Widget _buildStepDropdown({required String label, required String value, required List<String> items, required void Function(String?) onChanged, required IconData icon}) {
+  Widget _buildIndustrySelector({
+    required BuildContext context,
+    required String label,
+    required String value,
+    required void Function(String?) onChanged,
+    required Color activeColor,
+  }) {
+    // Find matching industry data for category icon display
+    final match = IndustryPickerSheet.allIndustries.firstWhere(
+      (i) => i.name.toLowerCase() == value.toLowerCase(),
+      orElse: () => const IndustryData(name: '', icon: '🏢', materialIcon: Icons.business_rounded),
+    );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label.toUpperCase(), style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 11, letterSpacing: 1.2, color: AppColors.darkGrey)),
+        Text(
+          label.toUpperCase(),
+          style: const TextStyle(
+            fontWeight: FontWeight.w900,
+            fontSize: 11,
+            letterSpacing: 1.2,
+            color: AppColors.darkGrey,
+          ),
+        ),
         const SizedBox(height: 10),
         _StepGlassContainer(
-          child: DropdownButtonFormField<String>(
-            isExpanded: true,
-            value: value,
-            onChanged: onChanged,
-            items: items.map((i) => DropdownMenuItem(
-              value: i, 
-              child: Text(i, overflow: TextOverflow.ellipsis)
-            )).toList(),
-            decoration: InputDecoration(
-              prefixIcon: Icon(icon, size: 20, color: activeColor),
-              border: InputBorder.none,
-              contentPadding: const EdgeInsets.symmetric(horizontal: 16),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(20),
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                builder: (_) => IndustryPickerSheet(
+                  currentIndustry: value,
+                  onSelect: onChanged,
+                ),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              child: Row(
+                children: [
+                  Text(match.icon, style: const TextStyle(fontSize: 20)),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      value.isNotEmpty ? value : 'Select Industry / Field',
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF191C1D),
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    color: activeColor,
+                    size: 24,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCountrySelector({
+    required BuildContext context,
+    required String label,
+    required String value,
+    required void Function(String?) onChanged,
+    required Color activeColor,
+  }) {
+    // Find matching country data for flag emoji display
+    final match = CountryPickerSheet.allCountries.firstWhere(
+      (c) => c.name.toLowerCase() == value.toLowerCase(),
+      orElse: () => const CountryData(name: '', code: '', flag: '🌐'),
+    );
+    final flagStr = match.flag.isNotEmpty ? match.flag : '🌐';
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label.toUpperCase(),
+          style: const TextStyle(
+            fontWeight: FontWeight.w900,
+            fontSize: 11,
+            letterSpacing: 1.2,
+            color: AppColors.darkGrey,
+          ),
+        ),
+        const SizedBox(height: 10),
+        _StepGlassContainer(
+          child: InkWell(
+            borderRadius: BorderRadius.circular(20),
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                isScrollControlled: true,
+                backgroundColor: Colors.transparent,
+                builder: (_) => CountryPickerSheet(
+                  currentCountry: value,
+                  onSelect: onChanged,
+                ),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              child: Row(
+                children: [
+                  Text(flagStr, style: const TextStyle(fontSize: 20)),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      value.isNotEmpty ? value : 'Select Location',
+                      style: const TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 15,
+                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF191C1D),
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    color: activeColor,
+                    size: 24,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

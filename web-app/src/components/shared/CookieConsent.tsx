@@ -5,24 +5,37 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { Cookie } from 'lucide-react';
 
-// Initialises GA4 only after the user has explicitly accepted cookies.
-// Called both here (on accept) and by GoogleAnalyticsLoader on page load
-// when consent was previously stored.
-export function loadGoogleAnalytics() {
+// Initialises GA4 with Google Consent Mode v2 standards.
+export function loadGoogleAnalytics(consentState: 'granted' | 'denied' = 'granted') {
     if (typeof window === 'undefined') return;
-    if ((window as any).__gaLoaded) return; // guard against double-load
-    (window as any).__gaLoaded = true;
-
-    const script = document.createElement('script');
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6ME42JV7BJ';
-    script.async = true;
-    document.head.appendChild(script);
 
     (window as any).dataLayer = (window as any).dataLayer || [];
     function gtag(...args: any[]) { (window as any).dataLayer.push(args); }
     (window as any).gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-6ME42JV7BJ', { anonymize_ip: true });
+
+    // Google Consent Mode v2 default signal
+    gtag('consent', 'default', {
+        analytics_storage: consentState,
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+    });
+
+    if (consentState === 'granted') {
+        if ((window as any).__gaLoaded) return;
+        (window as any).__gaLoaded = true;
+
+        const script = document.createElement('script');
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6ME42JV7BJ';
+        script.async = true;
+        document.head.appendChild(script);
+
+        gtag('js', new Date());
+        gtag('config', 'G-6ME42JV7BJ', {
+            anonymize_ip: true,
+            product_identity: 'nobevra',
+        });
+    }
 }
 
 export default function CookieConsent() {
@@ -31,20 +44,27 @@ export default function CookieConsent() {
 
     useEffect(() => {
         setMounted(true);
-        const consent = localStorage.getItem('noble_cookie_consent');
+        // Check new key first, then fallback to historical legacy key
+        const consent = localStorage.getItem('nobevra_cookie_consent') || localStorage.getItem('noble_cookie_consent');
         if (!consent) {
             setIsVisible(true);
         } else if (consent === 'accepted') {
-            // Previously accepted — load GA on mount
-            loadGoogleAnalytics();
+            loadGoogleAnalytics('granted');
+        } else {
+            loadGoogleAnalytics('denied');
         }
     }, []);
 
     const handleConsent = (status: 'accepted' | 'declined') => {
+        localStorage.setItem('nobevra_cookie_consent', status);
         localStorage.setItem('noble_cookie_consent', status);
+        
         if (status === 'accepted') {
+            document.cookie = 'nobevra_consent=1; max-age=31536000; path=/; SameSite=Lax';
             document.cookie = 'noble_consent=1; max-age=31536000; path=/; SameSite=Lax';
-            loadGoogleAnalytics(); // Only load GA after explicit consent
+            loadGoogleAnalytics('granted');
+        } else {
+            loadGoogleAnalytics('denied');
         }
         setIsVisible(false);
     };
@@ -77,8 +97,8 @@ export default function CookieConsent() {
                             </div>
 
                             {/* Body */}
-                            <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 text-[11px] leading-relaxed mb-4">
-                                We use essential cookies to keep our platform secure and running smoothly. Optional analytics cookies (Google Analytics) help us improve performance. Manage your preferences anytime in our{' '}
+                            <p className="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed mb-4">
+                                We use essential cookies to keep Nobevra secure and running smoothly. Optional analytics cookies (Google Analytics) help us improve performance. Manage your preferences anytime in our{' '}
                                 <Link
                                     href="/privacy"
                                     className="text-noble-blue font-semibold hover:underline underline-offset-2"
@@ -92,7 +112,7 @@ export default function CookieConsent() {
                             <div className="flex items-center gap-2">
                                 <button
                                     onClick={() => handleConsent('declined')}
-                                    className="flex-1 py-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-[#112030] hover:bg-slate-200 rounded-lg transition-colors"
+                                    className="flex-1 py-1.5 text-[11px] font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-[#112030] hover:bg-slate-200 rounded-lg transition-colors"
                                 >
                                     Decline
                                 </button>

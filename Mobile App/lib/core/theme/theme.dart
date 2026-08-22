@@ -48,10 +48,10 @@ class AppTheme {
 
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primary,
-        foregroundColor: AppColors.black,
+        backgroundColor: AppColors.primaryDark,
+        foregroundColor: Colors.white,
         elevation: 0,
-        textStyle: AppTextStyles.button.copyWith(fontWeight: FontWeight.w900),
+        textStyle: AppTextStyles.button.copyWith(fontWeight: FontWeight.w900, color: Colors.white),
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),

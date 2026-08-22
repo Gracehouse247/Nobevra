@@ -20,7 +20,7 @@ export default function TemplateDownloadButton() {
       // Already logged in — download directly
       const link = document.createElement('a');
       link.href = '/api/download/proforma-template';
-      link.setAttribute('download', 'NobleInvoice-Proforma-Template.pdf');
+      link.setAttribute('download', 'Nobevra-Proforma-Template.pdf');
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

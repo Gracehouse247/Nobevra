@@ -214,7 +214,7 @@ export default function PublicContractView() {
                 </div>
                 
                 <div className="text-center text-slate-400 text-xs">
-                    Powered by NobleInvoice E-Signature Technology
+                    Powered by Nobevra E-Signature Technology
                 </div>
             </div>
         </div>

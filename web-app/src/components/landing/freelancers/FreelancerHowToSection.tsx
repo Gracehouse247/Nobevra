@@ -38,7 +38,7 @@ export default function FreelancerHowToSection() {
                                 The first step in establishing an effective freelance billing software workflow is setting up your business profile. You do not need a registered LLC to start—you can simply use your legal name.
                             </p>
                             <p className="text-near-black/70 leading-relaxed">
-                                Enter your contact details, upload a clean logo if you have one, and connect your bank account. A premium invoice app for self employed individuals, like NobleInvoice, will securely store this data so you never have to type it again.
+                                Enter your contact details, upload a clean logo if you have one, and connect your bank account. A premium invoice app for self employed individuals, like Nobevra, will securely store this data so you never have to type it again.
                             </p>
                         </motion.div>
                     </div>

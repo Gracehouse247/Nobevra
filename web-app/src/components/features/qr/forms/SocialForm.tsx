@@ -21,7 +21,7 @@ export default function SocialForm({ onChange, initialData, onPreviewValueChange
 
     useEffect(() => {
         onChange({ displayName, platform, handle });
-        onPreviewValueChange(handle ? `https://${platform.toLowerCase()}.com/${handle}` : 'https://nobleinvoice.com');
+        onPreviewValueChange(handle ? `https://${platform.toLowerCase()}.com/${handle}` : 'https://nobevra.noblesworld.com.ng');
     }, [displayName, platform, handle]);
 
     return (
@@ -30,7 +30,7 @@ export default function SocialForm({ onChange, initialData, onPreviewValueChange
                 <label className="text-xs font-bold text-[#64748B] uppercase tracking-widest">Display Name *</label>
                 <input 
                     type="text" 
-                    placeholder="e.g. John Doe / NobleInvoice" 
+                    placeholder="e.g. John Doe / Nobevra" 
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
                     className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none transition-colors" 

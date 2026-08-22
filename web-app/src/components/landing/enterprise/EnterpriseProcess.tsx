@@ -33,7 +33,7 @@ export default function EnterpriseProcess() {
                                 <div className="w-12 h-12 rounded-full bg-slate-800 text-white flex items-center justify-center font-black text-xl shrink-0">2</div>
                                 <div>
                                     <h3 className="font-bold text-xl mb-2">Parallel Processing</h3>
-                                    <p className="text-slate-400 text-sm leading-relaxed">We run NobleInvoice alongside your existing system in a sandbox environment to verify calculations, tax compliance, and multi-currency conversions.</p>
+                                    <p className="text-slate-400 text-sm leading-relaxed">We run Nobevra alongside your existing system in a sandbox environment to verify calculations, tax compliance, and multi-currency conversions.</p>
                                 </div>
                             </div>
 
@@ -60,13 +60,13 @@ export default function EnterpriseProcess() {
                             </div>
                             <div className="bg-noble-blue/20 rounded-2xl p-4 border border-noble-blue/30 flex justify-between items-center relative overflow-hidden">
                                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-noble-blue" />
-                                <span className="text-white font-bold ml-2">NobleInvoice Elite</span>
+                                <span className="text-white font-bold ml-2">Nobevra Elite</span>
                                 <span className="text-noble-blue font-mono text-sm font-bold">14 days</span>
                             </div>
                         </div>
                         
                         <p className="text-center text-sm text-slate-500 mt-8 italic">
-                            "We were terrified of moving off our legacy billing system. NobleInvoice migrated 4,000 active subscriptions in a weekend without a single missed invoice."
+                            "We were terrified of moving off our legacy billing system. Nobevra migrated 4,000 active subscriptions in a weekend without a single missed invoice."
                         </p>
                     </div>
 

@@ -11,7 +11,7 @@ interface RecentAssetsProps {
 }
 
 const CLIENT_COLORS = [
-    'from-[#0599D5] to-[#006970]',
+    'from-[#01A0E2] to-[#006970]',
     'from-purple-500 to-purple-700',
     'from-amber-500 to-orange-600',
     'from-emerald-500 to-teal-600',
@@ -30,7 +30,7 @@ function ClientAvatar({ name }: { name: string }) {
 
 const STATUS_CONFIG: Record<string, { dot: string; label: string; text: string; bg: string }> = {
     paid:    { dot: 'bg-emerald-400', label: 'Paid',    text: 'text-emerald-600', bg: 'bg-emerald-50' },
-    sent:    { dot: 'bg-[#0599D5]',  label: 'Sent',    text: 'text-[#0599D5]',  bg: 'bg-blue-50'    },
+    sent:    { dot: 'bg-[#01A0E2]',  label: 'Sent',    text: 'text-[#01A0E2]',  bg: 'bg-blue-50'    },
     unpaid:  { dot: 'bg-orange-400', label: 'Unpaid',  text: 'text-orange-600', bg: 'bg-orange-50'  },
     pending: { dot: 'bg-amber-400',  label: 'Pending', text: 'text-amber-600',  bg: 'bg-amber-50'   },
     overdue: { dot: 'bg-red-500',    label: 'Overdue', text: 'text-red-600',    bg: 'bg-red-50'     },
@@ -107,7 +107,7 @@ export default function RecentAssets({ invoices = [], currencyCode = 'NGN' }: Re
             {/* CTA */}
             <Link
                 href="/invoices"
-                className="mt-4 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-[#006970] to-[#0599D5] text-[10px] font-black text-white uppercase tracking-widest hover:shadow-lg hover:shadow-[#0599D5]/20 hover:-translate-y-0.5 transition-all duration-200"
+                className="mt-4 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-[#006970] to-[#01A0E2] text-[10px] font-black text-white uppercase tracking-widest hover:shadow-lg hover:shadow-[#01A0E2]/20 hover:-translate-y-0.5 transition-all duration-200"
             >
                 View All Transactions
                 <ArrowRight className="w-3 h-3" />

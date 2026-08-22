@@ -17,7 +17,7 @@ const stats = [
     {
         value: '40%',
         label: 'Reduction in late payments within the first 60 days of using automated reminders',
-        source: 'NobleInvoice user data',
+        source: 'Nobevra user data',
         icon: 'trending_down',
         color: 'text-noble-blue',
         bg: 'bg-blue-50',
@@ -116,7 +116,7 @@ export default function FreelancerROISection() {
                         >
                             <div className="absolute top-2 left-5 text-white/10 text-[80px] font-serif leading-none select-none">&ldquo;</div>
                             <p className="relative z-10 text-lg font-semibold leading-relaxed italic mb-4">
-                                "I was spending almost a full day every month just on invoicing and chasing payments. After switching to NobleInvoice, that entire process takes about 20 minutes total."
+                                "I was spending almost a full day every month just on invoicing and chasing payments. After switching to Nobevra, that entire process takes about 20 minutes total."
                             </p>
                             <div className="flex items-center gap-3 relative z-10">
                                 <div className="w-9 h-9 rounded-full bg-noble-surface/20 flex items-center justify-center font-black text-sm">JL</div>
@@ -234,7 +234,7 @@ export default function FreelancerROISection() {
                                     </div>
 
                                     <p className="text-white/40 text-[11px] leading-relaxed">
-                                        Based on 80% time reduction — the average NobleInvoice user result.
+                                        Based on 80% time reduction — the average Nobevra user result.
                                     </p>
                                 </div>
 

@@ -257,7 +257,7 @@ export default function AdminDashboard() {
                         )}
                     </AdminCard>
                     
-                    <div className="bg-gradient-to-br from-[#006970] to-[#0599D5] rounded-2xl p-6 text-white shadow-md relative overflow-hidden flex-1 flex flex-col justify-between">
+                    <div className="bg-gradient-to-br from-[#006970] to-[#01A0E2] rounded-2xl p-6 text-white shadow-md relative overflow-hidden flex-1 flex flex-col justify-between">
                         <div className="absolute -right-10 -top-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"></div>
                         <div className="absolute -left-10 -bottom-10 w-32 h-32 bg-[#00F0FF]/15 rounded-full blur-2xl"></div>
                         

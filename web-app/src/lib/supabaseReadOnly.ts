@@ -12,9 +12,10 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabaseReadUrl =
   process.env.NEXT_PUBLIC_SUPABASE_READ_REPLICA_URL ||
-  process.env.NEXT_PUBLIC_SUPABASE_URL!;
+  process.env.NEXT_PUBLIC_SUPABASE_URL ||
+  'https://cugomxoyeyeytyedgclj.supabase.co';
 
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build';
 
 export const supabaseReadOnly = createClient(supabaseReadUrl, supabaseAnonKey, {
   auth: {
@@ -23,7 +24,7 @@ export const supabaseReadOnly = createClient(supabaseReadUrl, supabaseAnonKey, {
   },
   global: {
     headers: {
-      'x-client-info': 'nobleinvoice-readonly',
+      'x-client-info': 'nobevra-readonly',
     },
   },
 });

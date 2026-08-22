@@ -7,21 +7,21 @@ import { motion } from 'framer-motion';
 
 const testimonials = [
     {
-        quote: "I used to spend my Sunday evenings organizing bills. I switched to NobleInvoice, set up automated recurring profiles, and bought my weekends back.",
+        quote: "I used to spend my Sunday evenings organizing bills. I switched to Nobevra, set up automated recurring profiles, and bought my weekends back.",
         name: "Sarah T.",
         role: "Design Agency Founder",
         image: "/images/reviews/ayasha-khan-marketing-director-of-noblemart-marketplace-us-region.png",
         featured: true
     },
     {
-        quote: "Our marketplace generates hundreds of global leads daily. NobleInvoice's Lead Intelligence tools let us track intent perfectly, connecting marketing right to our revenue pipeline.",
+        quote: "Our marketplace generates hundreds of global leads daily. Nobevra's Lead Intelligence tools let us track intent perfectly, connecting marketing right to our revenue pipeline.",
         name: "Ayasha Khan",
         role: "Marketing Director, NobleMart Marketplace US Region",
         image: "/images/reviews/ayasha-khan-marketing-director-of-noblemart-marketplace-us-region.png",
         featured: false
     },
     {
-        quote: "NobleInvoice's secure client portal has transformed how our law firm handles billings. The transparency it provides to our clients is invaluable.",
+        quote: "Nobevra's secure client portal has transformed how our law firm handles billings. The transparency it provides to our clients is invaluable.",
         name: "Barr Emma Duruigbo",
         role: "Founder, Ducex Solicitors Ltd.",
         image: "/images/reviews/barr-emma-duruigbo-founder-of-ducex-solicitors-ltd.png",
@@ -77,7 +77,7 @@ const testimonials = [
         featured: true
     },
     {
-        quote: "NobleInvoice completely streamlined our logistics billing. With the API integrations, our high-volume transactions are processed flawlessly every single day.",
+        quote: "Nobevra completely streamlined our logistics billing. With the API integrations, our high-volume transactions are processed flawlessly every single day.",
         name: "McGerald Olfordile",
         role: "CEO, Rapidbox Limited",
         image: "/images/reviews/mcgerald-olfordile-ceo-of-rapidbox-limited.png",
@@ -112,7 +112,7 @@ const testimonials = [
         featured: false
     },
     {
-        quote: "Scaling our manufacturing operations required a robust CRM. NobleInvoice connects our client pipelines directly to our massive inventory ledgers effortlessly.",
+        quote: "Scaling our manufacturing operations required a robust CRM. Nobevra connects our client pipelines directly to our massive inventory ledgers effortlessly.",
         name: "Timileyin Oluwafemi",
         role: "CEO, Ceejee Foam",
         image: "/images/reviews/timileyin-oluwafemi-ceo-of-ceejee-foam.jpeg",
@@ -125,7 +125,7 @@ export default function SEOStatsSection() {
         { value: '85%', label: 'Reduction in time spent drafting invoices', icon: 'schedule' },
         { value: '40%', label: 'Decrease in late payments within 60 days', icon: 'trending_up' },
         { value: '0 hrs', label: 'Spent manually reconciling paid invoices', icon: 'auto_mode' },
-        { value: 'Global', label: 'Businesses billing with NobleInvoice', icon: 'groups' },
+        { value: 'Global', label: 'Businesses billing with Nobevra', icon: 'groups' },
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -229,7 +229,7 @@ export default function SEOStatsSection() {
                                 ))}
                             </div>
                             <blockquote className="text-lg md:text-xl text-near-black/80 font-medium leading-relaxed mb-8 italic">
-                                &quot;I used to spend my Sunday evenings organizing bills. I switched to NobleInvoice, set up automated recurring profiles, and bought my weekends back.&quot;
+                                &quot;I used to spend my Sunday evenings organizing bills. I switched to Nobevra, set up automated recurring profiles, and bought my weekends back.&quot;
                             </blockquote>
                             <div className="flex items-center justify-center gap-4">
                                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-noble-blue/20 shadow-sm">

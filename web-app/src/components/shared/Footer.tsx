@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { brand } from '@/lib/brand';
 
 export default function Footer() {
     return (
@@ -12,10 +13,10 @@ export default function Footer() {
                     {/* Column 1: Brand */}
                     <div className="space-y-8">
                         <Link href="/" className="flex items-center gap-3 group">
-                            <Image src="/images/logo.png" alt="NobleInvoice Logo" width={155} height={64} className="h-14 w-auto object-contain group-hover:scale-105 transition-transform" priority />
+                            <Image src={brand.assets.logo} alt="Nobevra Logo" width={130} height={36} className="h-9 w-auto object-contain group-hover:scale-105 transition-transform" priority />
                         </Link>
                         <p className="text-near-black/40 text-base leading-relaxed font-medium">
-                            The world's most advanced invoicing and global settlement engine. Engineered for performance, designed for clarity, and built for the 1%.
+                            Nobevra is the intelligent all-in-one Business Operating System. Engineered for performance, clarity, and growth for modern businesses, freelancers, and enterprises.
                         </p>
                         
                         {/* Store Badges */}
@@ -122,14 +123,14 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center justify-between border-t border-near-black/5 pt-10 text-[10px] text-near-black/50 font-black uppercase tracking-[0.4em] gap-8">
-                    <p>© 2026 NOBLEINVOICE. ALL RIGHTS RESERVED.</p>
+                    <p>{brand.legal.copyright}</p>
                     <div className="flex items-center gap-6">
                         <div className="flex items-center gap-3">
                             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
                             <span>POWERED BY</span>
                         </div>
                         <div className="h-1 w-12 bg-near-black/5"></div>
-                        <span>The Noble's Technology Services</span>
+                        <span>{brand.parentCompany}</span>
                     </div>
                 </div>
             </div>

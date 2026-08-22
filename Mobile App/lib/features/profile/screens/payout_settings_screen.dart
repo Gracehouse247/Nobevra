@@ -160,7 +160,7 @@ class _PayoutSettingsScreenState extends State<PayoutSettingsScreen> {
                   child: OutlinedButton.icon(
                     onPressed: _linkFlutterwave,
                     icon: const Icon(Icons.link_rounded),
-                    label: const Text('Link to NobleInvoice Payments', style: TextStyle(fontWeight: FontWeight.bold)),
+                    label: const Text('Link to Nobevra Payments', style: TextStyle(fontWeight: FontWeight.bold)),
                     style: OutlinedButton.styleFrom(
                       foregroundColor: const Color(0xFFFB923C),
                       side: const BorderSide(color: Color(0xFFFB923C), width: 2),

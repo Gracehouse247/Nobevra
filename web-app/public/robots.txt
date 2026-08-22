@@ -20,4 +20,4 @@ Disallow: /portal/
 Disallow: /embed/
 Disallow: /q/
 
-Sitemap: https://nobleinvoice.noblesworld.com.ng/sitemap.xml
+Sitemap: https://nobevra.noblesworld.com.ng/sitemap.xml

@@ -359,7 +359,7 @@ const newReturnBlock = `return (
                         </div>
                         <h2 className="text-xl font-black text-slate-900 text-center mb-2">Import from Contacts</h2>
                         <p className="text-slate-500 text-center text-[13px] font-medium leading-relaxed mb-8">
-                            Native contact importing is an exclusive feature of the NobleInvoice Mobile App. Download the app to seamlessly sync your phone's address book.
+                            Native contact importing is an exclusive feature of the Nobevra Mobile App. Download the app to seamlessly sync your phone's address book.
                         </p>
                         <div className="space-y-3">
                             <button onClick={() => alert('App Store link coming soon!')} className="w-full h-11 bg-slate-900 text-white rounded-xl font-bold text-[13px] hover:bg-slate-800 transition-colors">Download on the App Store</button>

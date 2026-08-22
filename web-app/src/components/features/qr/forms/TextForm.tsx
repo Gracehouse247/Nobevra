@@ -6,7 +6,7 @@ export default function TextForm({ onChange, initialData, onPreviewValueChange }
 
     useEffect(() => {
         onChange({ text });
-        onPreviewValueChange(text || 'NobleInvoice');
+        onPreviewValueChange(text || 'Nobevra');
     }, [text]);
 
     return (

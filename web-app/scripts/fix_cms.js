@@ -28,11 +28,11 @@ function replaceAny(file) {
   fs.writeFileSync(file, content);
 }
 
-['C:/Projects/NobleInvoice/web-app/src/components/features/cms/AISeoAnalyzer.tsx',
- 'C:/Projects/NobleInvoice/web-app/src/components/features/cms/PostEditor.tsx',
- 'C:/Projects/NobleInvoice/web-app/src/components/features/cms/SocialPublishModal.tsx',
- 'C:/Projects/NobleInvoice/web-app/src/components/features/cms/extensions/CTABlock.tsx',
- 'C:/Projects/NobleInvoice/web-app/src/components/features/cms/extensions/NoticeBlock.tsx',
- 'C:/Projects/NobleInvoice/web-app/src/components/features/cms/extensions/PricingTableBlock.tsx'].forEach(replaceAny);
+['C:/Projects/Nobevra/web-app/src/components/features/cms/AISeoAnalyzer.tsx',
+ 'C:/Projects/Nobevra/web-app/src/components/features/cms/PostEditor.tsx',
+ 'C:/Projects/Nobevra/web-app/src/components/features/cms/SocialPublishModal.tsx',
+ 'C:/Projects/Nobevra/web-app/src/components/features/cms/extensions/CTABlock.tsx',
+ 'C:/Projects/Nobevra/web-app/src/components/features/cms/extensions/NoticeBlock.tsx',
+ 'C:/Projects/Nobevra/web-app/src/components/features/cms/extensions/PricingTableBlock.tsx'].forEach(replaceAny);
 
 console.log('Fixed cms any types');

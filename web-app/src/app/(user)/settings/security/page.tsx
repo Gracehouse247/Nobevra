@@ -179,25 +179,25 @@ export default function SecuritySettingsPage() {
         <div className="max-w-[900px] text-slate-800 dark:text-slate-100 pb-16">
             {/* Header Section */}
             <div className="flex items-center gap-5 mb-10">
-                <div className="p-3.5 bg-blue-50 rounded-2xl">
-                    <ShieldCheck className="w-6 h-6 text-[#166FBB]" strokeWidth={2} />
+                <div className="p-3.5 bg-blue-50 dark:bg-blue-500/10 rounded-2xl">
+                    <ShieldCheck className="w-6 h-6 text-[#166FBB] dark:text-[#01A0E2]" strokeWidth={2} />
                 </div>
                 <div>
                     <h1 className="text-[19px] font-black text-noble-text tracking-tight">
                         Access & Security
                     </h1>
-                    <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-1">
+                    <p className="text-[13px] text-slate-500 dark:text-slate-400 font-medium mt-1">
                         Manage passwords and active sessions to keep your account secure.
                     </p>
                 </div>
             </div>
 
             {!isEmailProvider ? (
-                <div className="p-6 bg-amber-50 border border-amber-200 rounded-3xl shadow-sm mb-10">
-                    <p className="text-xs font-black text-amber-700 flex items-center gap-2 uppercase tracking-wider">
+                <div className="p-6 bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 rounded-3xl shadow-sm mb-10">
+                    <p className="text-xs font-black text-amber-700 dark:text-amber-400 flex items-center gap-2 uppercase tracking-wider">
                         <ShieldAlert className="w-4 h-4" /> Social Sign-In Account
                     </p>
-                    <p className="text-[13px] text-slate-600 dark:text-slate-400 dark:text-slate-500 font-medium mt-2 leading-relaxed">
+                    <p className="text-[13px] text-slate-600 dark:text-slate-400 font-medium mt-2 leading-relaxed">
                         Your account is linked via Google or another OAuth provider. Password management is handled by your provider and cannot be changed here.
                     </p>
                 </div>
@@ -209,12 +209,12 @@ export default function SecuritySettingsPage() {
                         {/* Current Password Row */}
                         <div className="flex flex-col md:flex-row md:items-center justify-between p-6 border-b border-slate-100 dark:border-noble-border gap-4">
                             <div className="flex items-center gap-5">
-                                <div className="p-3 bg-cyan-50 rounded-2xl shrink-0">
-                                    <Lock className="w-5 h-5 text-cyan-600" strokeWidth={2.5} />
+                                <div className="p-3 bg-cyan-50 dark:bg-cyan-500/10 rounded-2xl shrink-0">
+                                    <Lock className="w-5 h-5 text-cyan-600 dark:text-cyan-400" strokeWidth={2.5} />
                                 </div>
                                 <div>
                                     <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100">Current Password</p>
-                                    <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-0.5">Your current password last changed on Jun 10, 2026.</p>
+                                    <p className="text-[12px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">Your current password last changed on Jun 10, 2026.</p>
                                 </div>
                             </div>
                             <input
@@ -222,7 +222,7 @@ export default function SecuritySettingsPage() {
                                 placeholder="Change Password"
                                 value={passwordData.current}
                                 onChange={e => setPasswordData(p => ({ ...p, current: e.target.value }))}
-                                className="w-full md:w-[240px] px-4 py-2.5 text-[13px] font-medium border border-noble-border rounded-xl focus:outline-none focus:border-[#166FBB] focus:ring-2 focus:ring-blue-100 placeholder:text-slate-500 dark:text-slate-400 dark:text-slate-500 text-noble-text"
+                                className="w-full md:w-[240px] px-4 py-2.5 text-[13px] font-medium border border-noble-border rounded-xl focus:outline-none focus:border-[#166FBB] focus:ring-2 focus:ring-blue-100 placeholder:text-slate-500 dark:text-slate-400 text-noble-text"
                                 required
                             />
                         </div>
@@ -230,12 +230,12 @@ export default function SecuritySettingsPage() {
                         {/* New Password Row */}
                         <div className="flex flex-col md:flex-row md:items-center justify-between p-6 border-b border-slate-100 dark:border-noble-border gap-4">
                             <div className="flex items-center gap-5">
-                                <div className="p-3 bg-emerald-50 rounded-2xl shrink-0">
-                                    <KeyRound className="w-5 h-5 text-emerald-500" strokeWidth={2.5} />
+                                <div className="p-3 bg-emerald-50 dark:bg-emerald-500/10 rounded-2xl shrink-0">
+                                    <KeyRound className="w-5 h-5 text-emerald-500 dark:text-emerald-400" strokeWidth={2.5} />
                                 </div>
                                 <div>
                                     <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100">New Password (min 8 characters)</p>
-                                    <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-0.5">Use a strong password to keep your account secure.</p>
+                                    <p className="text-[12px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">Use a strong password to keep your account secure.</p>
                                 </div>
                             </div>
                             <input
@@ -243,7 +243,7 @@ export default function SecuritySettingsPage() {
                                 placeholder="Set New Password"
                                 value={passwordData.new}
                                 onChange={e => setPasswordData(p => ({ ...p, new: e.target.value }))}
-                                className="w-full md:w-[240px] px-4 py-2.5 text-[13px] font-medium border border-noble-border rounded-xl focus:outline-none focus:border-[#166FBB] focus:ring-2 focus:ring-blue-100 placeholder:text-slate-500 dark:text-slate-400 dark:text-slate-500 text-noble-text"
+                                className="w-full md:w-[240px] px-4 py-2.5 text-[13px] font-medium border border-noble-border rounded-xl focus:outline-none focus:border-[#166FBB] focus:ring-2 focus:ring-blue-100 placeholder:text-slate-500 dark:text-slate-400 text-noble-text"
                                 required
                             />
                         </div>
@@ -251,12 +251,12 @@ export default function SecuritySettingsPage() {
                         {/* Confirm Password Row */}
                         <div className="flex flex-col md:flex-row md:items-center justify-between p-6 border-b border-slate-100 dark:border-noble-border gap-4">
                             <div className="flex items-center gap-5">
-                                <div className="p-3 bg-purple-50 rounded-2xl shrink-0">
-                                    <ShieldCheck className="w-5 h-5 text-purple-600" strokeWidth={2.5} />
+                                <div className="p-3 bg-purple-50 dark:bg-purple-500/10 rounded-2xl shrink-0">
+                                    <ShieldCheck className="w-5 h-5 text-purple-600 dark:text-purple-400" strokeWidth={2.5} />
                                 </div>
                                 <div>
                                     <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100">Confirm New Password</p>
-                                    <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-0.5">Re-enter your new password to confirm.</p>
+                                    <p className="text-[12px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">Re-enter your new password to confirm.</p>
                                 </div>
                             </div>
                             <input
@@ -264,7 +264,7 @@ export default function SecuritySettingsPage() {
                                 placeholder="Confirm Password"
                                 value={passwordData.confirm}
                                 onChange={e => setPasswordData(p => ({ ...p, confirm: e.target.value }))}
-                                className="w-full md:w-[240px] px-4 py-2.5 text-[13px] font-medium border border-noble-border rounded-xl focus:outline-none focus:border-[#166FBB] focus:ring-2 focus:ring-blue-100 placeholder:text-slate-500 dark:text-slate-400 dark:text-slate-500 text-noble-text"
+                                className="w-full md:w-[240px] px-4 py-2.5 text-[13px] font-medium border border-noble-border rounded-xl focus:outline-none focus:border-[#166FBB] focus:ring-2 focus:ring-blue-100 placeholder:text-slate-500 dark:text-slate-400 text-noble-text"
                                 required
                             />
                         </div>
@@ -274,7 +274,7 @@ export default function SecuritySettingsPage() {
                             <button
                                 type="button"
                                 onClick={() => setShowPasswords(v => !v)}
-                                className="flex items-center gap-2 text-[13px] font-bold text-slate-700 dark:text-slate-200 hover:text-[#166FBB] transition-colors"
+                                className="flex items-center gap-2 text-[13px] font-bold text-slate-700 dark:text-slate-200 hover:text-[#166FBB] dark:hover:text-[#01A0E2] transition-colors"
                             >
                                 {showPasswords ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                                 Show password
@@ -289,7 +289,7 @@ export default function SecuritySettingsPage() {
                                 {loading ? 'Updating...' : 'Update Password'}
                             </button>
 
-                            <div className="flex items-center gap-2 text-amber-600 text-[12px] font-bold bg-amber-50 border border-amber-200 px-4 py-2 rounded-xl">
+                            <div className="flex items-center gap-2 text-amber-600 dark:text-amber-400 text-[12px] font-bold bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 px-4 py-2 rounded-xl">
                                 <ShieldAlert className="w-4 h-4" /> Recommend strong password
                             </div>
                         </div>
@@ -302,10 +302,10 @@ export default function SecuritySettingsPage() {
                 <div className="mb-4 px-1 flex items-center justify-between">
                     <div>
                         <h2 className="text-[16px] font-black text-noble-text tracking-tight">Two-Factor Authentication (2FA)</h2>
-                        <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-1">Add an extra layer of security to your account.</p>
+                        <p className="text-[13px] text-slate-500 dark:text-slate-400 font-medium mt-1">Add an extra layer of security to your account.</p>
                     </div>
                     {mfaStatus === 'totp' && (
-                        <div className="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-xs font-bold flex items-center gap-1.5 border border-emerald-100">
+                        <div className="px-3 py-1 bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-full text-xs font-bold flex items-center gap-1.5 border border-emerald-100 dark:border-emerald-500/20">
                             <ShieldCheck className="w-3.5 h-3.5" />
                             Enabled
                         </div>
@@ -317,22 +317,22 @@ export default function SecuritySettingsPage() {
                     {/* Passkeys */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100 dark:border-noble-border">
                         <div className="flex items-center gap-5">
-                            <div className="p-3 bg-purple-50 rounded-2xl shrink-0">
-                                <KeyRound className="w-5 h-5 text-purple-600" strokeWidth={2.5} />
+                            <div className="p-3 bg-purple-50 dark:bg-purple-500/10 rounded-2xl shrink-0">
+                                <KeyRound className="w-5 h-5 text-purple-600 dark:text-purple-400" strokeWidth={2.5} />
                             </div>
                             <div>
                                 <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
                                     Passkeys 
-                                    <span className="px-2 py-0.5 bg-purple-100 text-purple-700 rounded-full text-[10px] uppercase tracking-widest">Recommended</span>
+                                    <span className="px-2 py-0.5 bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 rounded-full text-[10px] uppercase tracking-widest">Recommended</span>
                                 </p>
-                                <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-0.5">Sign in securely using Touch ID, Face ID, or Windows Hello.</p>
+                                <p className="text-[12px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">Sign in securely using Touch ID, Face ID, or Windows Hello.</p>
                             </div>
                         </div>
                         <button
                             type="button"
                             onClick={handleRegisterPasskey}
                             disabled={loadingPasskey}
-                            className="px-6 py-2.5 bg-noble-surface dark:bg-noble-card border border-purple-200 text-purple-700 hover:bg-purple-50 rounded-xl text-[13px] font-bold transition-all whitespace-nowrap disabled:opacity-50 flex items-center gap-2"
+                            className="px-6 py-2.5 bg-noble-surface dark:bg-noble-card border border-purple-200 dark:border-purple-500/30 text-purple-700 dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-500/10 rounded-xl text-[13px] font-bold transition-all whitespace-nowrap disabled:opacity-50 flex items-center gap-2"
                         >
                             {loadingPasskey ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
                             Register Passkey
@@ -342,19 +342,19 @@ export default function SecuritySettingsPage() {
                     {/* Authenticator App */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div className="flex items-center gap-5">
-                            <div className="p-3 bg-blue-50 rounded-2xl shrink-0">
-                                <Smartphone className="w-5 h-5 text-[#166FBB]" strokeWidth={2.5} />
+                            <div className="p-3 bg-blue-50 dark:bg-blue-500/10 rounded-2xl shrink-0">
+                                <Smartphone className="w-5 h-5 text-[#166FBB] dark:text-[#01A0E2]" strokeWidth={2.5} />
                             </div>
                             <div>
                                 <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100">Authenticator App (TOTP)</p>
-                                <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-0.5">Use an app like Google Authenticator or Authy to generate one-time codes.</p>
+                                <p className="text-[12px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">Use an app like Google Authenticator or Authy to generate one-time codes.</p>
                             </div>
                         </div>
                         {mfaStatus === 'totp' ? (
                             <button
                                 type="button"
                                 onClick={handleUnenrollMfa}
-                                className="px-6 py-2.5 bg-noble-surface dark:bg-noble-card border border-red-200 text-red-600 hover:bg-red-50 rounded-xl text-[13px] font-bold transition-all whitespace-nowrap"
+                                className="px-6 py-2.5 bg-noble-surface dark:bg-noble-card border border-red-200 dark:border-red-500/30 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-xl text-[13px] font-bold transition-all whitespace-nowrap"
                             >
                                 Disable 2FA
                             </button>
@@ -362,7 +362,7 @@ export default function SecuritySettingsPage() {
                             <button
                                 type="button"
                                 onClick={() => setShowMfaModal(true)}
-                                className="px-6 py-2.5 bg-noble-surface dark:bg-noble-card border border-[#166FBB]/30 text-[#166FBB] hover:bg-blue-50 rounded-xl text-[13px] font-bold transition-all whitespace-nowrap"
+                                className="px-6 py-2.5 bg-noble-surface dark:bg-noble-card border border-[#166FBB]/30 dark:border-[#01A0E2]/30 text-[#166FBB] dark:text-[#01A0E2] hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-xl text-[13px] font-bold transition-all whitespace-nowrap"
                             >
                                 Setup App
                             </button>
@@ -385,19 +385,19 @@ export default function SecuritySettingsPage() {
             <div className="mb-10">
                 <div className="mb-4 px-1">
                     <h2 className="text-[16px] font-black text-noble-text tracking-tight">Danger Zone</h2>
-                    <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-1">Irreversible actions that affect your account and data.</p>
+                    <p className="text-[13px] text-slate-500 dark:text-slate-400 font-medium mt-1">Irreversible actions that affect your account and data.</p>
                 </div>
                 
                 <div className="space-y-4">
                     {/* Global Sign Out */}
-                    <div className="flex flex-col md:flex-row md:items-center justify-between p-6 bg-[#FEF2F2] border border-red-100 rounded-[24px] gap-4">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between p-6 bg-red-500/5 dark:bg-red-500/10 border border-red-200/60 dark:border-red-500/20 rounded-[24px] gap-4">
                         <div className="flex items-center gap-5">
-                            <div className="p-3 bg-red-100 rounded-2xl shrink-0">
-                                <LogOut className="w-5 h-5 text-red-600" strokeWidth={2.5} />
+                            <div className="p-3 bg-red-100 dark:bg-red-500/20 rounded-2xl shrink-0">
+                                <LogOut className="w-5 h-5 text-red-600 dark:text-red-400" strokeWidth={2.5} />
                             </div>
                             <div>
                                 <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100">Global Sign Out</p>
-                                <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-0.5">Disconnect your account from all currently active sessions and devices immediately.</p>
+                                <p className="text-[12px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">Disconnect your account from all currently active sessions and devices immediately.</p>
                             </div>
                         </div>
                         <button
@@ -409,19 +409,19 @@ export default function SecuritySettingsPage() {
                     </div>
 
                     {/* Delete Account */}
-                    <div className="flex flex-col md:flex-row md:items-center justify-between p-6 bg-[#FEF2F2] border border-red-100 rounded-[24px] gap-4">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between p-6 bg-red-500/5 dark:bg-red-500/10 border border-red-200/60 dark:border-red-500/20 rounded-[24px] gap-4">
                         <div className="flex items-center gap-5">
-                            <div className="p-3 bg-red-100 rounded-2xl shrink-0">
-                                <Trash2 className="w-5 h-5 text-red-600" strokeWidth={2.5} />
+                            <div className="p-3 bg-red-100 dark:bg-red-500/20 rounded-2xl shrink-0">
+                                <Trash2 className="w-5 h-5 text-red-600 dark:text-red-400" strokeWidth={2.5} />
                             </div>
                             <div>
                                 <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100">Delete Account</p>
-                                <p className="text-[12px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-0.5">Permanently delete your account and all associated data. <span className="font-bold text-slate-700 dark:text-slate-200">This action is irreversible.</span></p>
+                                <p className="text-[12px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">Permanently delete your account and all associated data. <span className="font-bold text-slate-700 dark:text-slate-200">This action is irreversible.</span></p>
                             </div>
                         </div>
                         <button
                             onClick={() => setShowDeleteModal(true)}
-                            className="w-full md:w-auto px-6 py-2.5 bg-noble-surface dark:bg-noble-card border border-red-200 text-red-600 hover:bg-red-50 rounded-xl text-[13px] font-bold transition-all whitespace-nowrap"
+                            className="w-full md:w-auto px-6 py-2.5 bg-noble-surface dark:bg-noble-card border border-red-200 dark:border-red-500/30 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-xl text-[13px] font-bold transition-all whitespace-nowrap"
                         >
                             Delete Account
                         </button>
@@ -431,10 +431,10 @@ export default function SecuritySettingsPage() {
 
             {/* Keep Account Secure Info Footer */}
             <div className="bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-[24px] p-5 flex items-start gap-4">
-                <Info className="w-5 h-5 text-[#166FBB] shrink-0 mt-0.5" strokeWidth={2.5} />
+                <Info className="w-5 h-5 text-[#166FBB] dark:text-[#01A0E2] shrink-0 mt-0.5" strokeWidth={2.5} />
                 <div>
                     <p className="text-[14px] font-bold text-slate-800 dark:text-slate-100">Keep your account secure</p>
-                    <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium mt-0.5">Use a strong password, enable 2FA, and sign out from devices you don't recognize.</p>
+                    <p className="text-[13px] text-slate-500 dark:text-slate-400 font-medium mt-0.5">Use a strong password, enable 2FA, and sign out from devices you don't recognize.</p>
                 </div>
             </div>
 
@@ -443,7 +443,7 @@ export default function SecuritySettingsPage() {
                 <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
                     <div className="bg-noble-surface dark:bg-noble-card rounded-[32px] p-8 max-w-md w-full shadow-xl border border-slate-100 dark:border-noble-border animate-in fade-in zoom-in-95 duration-200">
                         <div className="flex items-center gap-4 mb-6">
-                            <div className="p-3 bg-red-50 rounded-2xl text-red-600 shrink-0">
+                            <div className="p-3 bg-red-50 dark:bg-red-500/10 rounded-2xl text-red-600 dark:text-red-400 shrink-0">
                                 <AlertTriangle className="w-6 h-6" />
                             </div>
                             <div>
@@ -452,28 +452,28 @@ export default function SecuritySettingsPage() {
                             </div>
                         </div>
 
-                        <p className="text-[14px] font-medium text-slate-600 dark:text-slate-400 dark:text-slate-500 mb-6 leading-relaxed">
-                            This will permanently erase your NobleInvoice account, all invoices, clients, billing history, and brand data. 
+                        <p className="text-[14px] font-medium text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                            This will permanently erase your Nobevra account, all invoices, clients, billing history, and brand data. 
                             <span className="font-bold text-noble-text"> Your data cannot be recovered after deletion.</span>
                         </p>
 
                         <div className="mb-6">
                             <label className="block text-[13px] font-bold text-slate-700 dark:text-slate-200 mb-2">
-                                Type <span className="text-red-600 select-none">DELETE</span> to confirm
+                                Type <span className="text-red-600 dark:text-red-400 select-none">DELETE</span> to confirm
                             </label>
                             <input
                                 type="text"
                                 value={deleteConfirmText}
                                 onChange={e => setDeleteConfirmText(e.target.value)}
                                 placeholder="DELETE"
-                                className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-3 text-[14px] font-bold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 transition-all"
+                                className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl px-4 py-3 text-[14px] font-bold text-noble-text placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:border-red-400 focus:ring-2 focus:ring-red-100 dark:focus:ring-red-950/30 transition-all"
                             />
                         </div>
 
                         <div className="flex gap-3">
                             <button
                                 onClick={() => { setShowDeleteModal(false); setDeleteConfirmText(''); }}
-                                className="flex-1 py-3 bg-noble-surface dark:bg-noble-card border border-noble-border text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E] rounded-xl text-[13px] font-bold transition-all"
+                                className="flex-1 py-3 bg-noble-surface dark:bg-noble-card border border-noble-border text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5 rounded-xl text-[13px] font-bold transition-all"
                             >
                                 Cancel
                             </button>

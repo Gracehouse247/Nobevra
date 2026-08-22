@@ -233,7 +233,7 @@ class _InvoiceBrandingScreenState extends State<InvoiceBrandingScreen> {
         // 3. Business Identity Section
         const _SectionHeader('BUSINESS IDENTITY'),
         const SizedBox(height: 12),
-        _Input(controller: _nameCtrl, label: 'Business Name', hint: 'e.g. NobleInvoice Tech LLC', icon: Icons.business_rounded),
+        _Input(controller: _nameCtrl, label: 'Business Name', hint: 'e.g. Acme Tech LLC', icon: Icons.business_rounded),
         _Input(controller: _addressCtrl, label: 'Address', hint: '123 Business St, Lagos, Nigeria', icon: Icons.location_on_rounded, maxLines: 2),
         _Input(controller: _emailCtrl, label: 'Business Email', hint: 'billing@mycompany.com', icon: Icons.email_rounded, keyboardType: TextInputType.emailAddress),
         _Input(controller: _phoneCtrl, label: 'Business Phone', hint: '+234 800 000 0000', icon: Icons.phone_rounded),

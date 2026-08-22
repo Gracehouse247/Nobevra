@@ -64,7 +64,7 @@ class PaymentManagementModule extends StatelessWidget {
             Text('SECURE FLUTTERWAVE GATEWAY', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 10, letterSpacing: 0.5, color: Colors.green)),
           ]),
           const SizedBox(height: 8),
-          const Text('When you issue this invoice, NobleInvoice will automatically request a unique payment URL from Flutterwave and embed it into the PDF.', style: TextStyle(fontSize: 12, color: AppColors.darkGrey)),
+          const Text('When you issue this invoice, Nobevra will automatically request a unique payment URL from Flutterwave and embed it into the PDF.', style: TextStyle(fontSize: 12, color: AppColors.darkGrey)),
         ],
       ],
     );

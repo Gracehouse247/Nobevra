@@ -51,7 +51,7 @@ export default function AgencyHeroSection() {
                     </h1>
 
                     <p className="text-base md:text-lg text-near-black/60 max-w-xl mb-10 leading-relaxed font-medium">
-                        Stop managing retainers in spreadsheets and sending PDFs over email. NobleInvoice is the agency billing software that automates monthly invoices, tracks project overages, and gets you paid 14 days faster through white-label client portals.
+                        Stop managing retainers in spreadsheets and sending PDFs over email. Nobevra is the agency billing software that automates monthly invoices, tracks project overages, and gets you paid 14 days faster through white-label client portals.
                     </p>
 
                     {/* Highlights */}

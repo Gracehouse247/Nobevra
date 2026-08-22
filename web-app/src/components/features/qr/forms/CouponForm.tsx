@@ -9,7 +9,7 @@ export default function CouponForm({ onChange, initialData, onPreviewValueChange
 
     useEffect(() => {
         onChange({ code, discount, validUntil, website });
-        onPreviewValueChange(website || 'https://nobleinvoice.com');
+        onPreviewValueChange(website || 'https://nobevra.noblesworld.com.ng');
     }, [code, discount, validUntil, website]);
 
     return (

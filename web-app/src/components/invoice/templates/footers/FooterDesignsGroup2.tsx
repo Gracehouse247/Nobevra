@@ -163,7 +163,7 @@ export const EmeraldNexusFooter = (props: SharedEngineProps) => {
   return (
     <div className="mt-auto relative h-32 overflow-hidden z-10 flex">
        <div className="w-[60%] bg-[#064E3B] h-full flex items-center px-16 text-white text-xs font-bold leading-relaxed">
-          <p className="max-w-[80%]">{data.notes || 'Please pay within 15 days. Subject to NobleInvoice terms.'}</p>
+          <p className="max-w-[80%]">{data.notes || 'Please pay within 15 days. Subject to Nobevra terms.'}</p>
        </div>
        <div className="flex-1 bg-[#F97316]" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
     </div>
@@ -189,7 +189,7 @@ export const BrickFooter = (props: SharedEngineProps) => {
        <div className="flex justify-between items-end">
           <div className="space-y-4">
              <h4 className="text-sm font-black text-noble-text uppercase tracking-widest">Terms & Conditions</h4>
-             <p className="text-xs font-bold text-slate-500 max-w-sm leading-relaxed">{data.notes || 'Remit payment within 15 days. Subject to NobleInvoice standards.'}</p>
+             <p className="text-xs font-bold text-slate-500 max-w-sm leading-relaxed">{data.notes || 'Remit payment within 15 days. Subject to Nobevra standards.'}</p>
           </div>
           <div className="flex flex-col items-center">
              {data.signatureUrl ? (
@@ -240,7 +240,7 @@ export const NavyRibbonFooter = (props: SharedEngineProps) => {
              <p className="text-xs font-black uppercase tracking-[0.3em] opacity-40">{sender?.full_name}</p>
              <p className="text-xs font-bold">{sender?.email}</p>
           </div>
-          <p className="text-[9px] font-black tracking-[0.8em] opacity-20">NOBLE INVOICE ENTERPRISE</p>
+          <p className="text-[9px] font-black tracking-[0.8em] opacity-20">NOBEVRA ENTERPRISE</p>
        </div>
     </div>
   );

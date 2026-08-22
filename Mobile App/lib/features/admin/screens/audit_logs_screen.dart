@@ -18,7 +18,7 @@ class AuditLogsScreen extends StatelessWidget {
         title: Column(
           children: [
             const Text('System Event Logs', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17)),
-            Text('NobleInvoice CONSOLE V6.4', style: TextStyle(color: Colors.grey.withOpacity(0.7), fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1.2)),
+            Text('Nobevra CONSOLE V6.4', style: TextStyle(color: Colors.grey.withOpacity(0.7), fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1.2)),
           ],
         ),
         centerTitle: true,

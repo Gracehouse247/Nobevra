@@ -1,4 +1,4 @@
-﻿import { createClient } from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
 import { NextResponse } from 'next/server';
 
 // ── Simple in-memory rate limiter (resets on cold start) ──────────────────────
@@ -45,18 +45,25 @@ export async function GET(request: Request) {
     }
 
     // ── Check via Admin API (server-side only — service role never sent to browser) ──
-    const adminClient = createClient(
-        process.env.NEXT_PUBLIC_SUPABASE_URL!,
-        process.env.SUPABASE_SERVICE_ROLE_KEY!,
-        { auth: { persistSession: false } }
-    );
+    const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 
-    const { data, error } = await adminClient.auth.admin.listUsers({ perPage: 1000 });
-    if (error) {
-        console.error('[check-email] Admin list error:', error.message);
-        // Fail open — don't block registration flow on API error
+    if (!serviceRoleKey || !supabaseUrl) {
         return NextResponse.json({ exists: false });
     }
+
+    try {
+        const adminClient = createClient(
+            supabaseUrl,
+            serviceRoleKey,
+            { auth: { persistSession: false } }
+        );
+
+        const { data, error } = await adminClient.auth.admin.listUsers({ perPage: 1000 });
+        if (error) {
+            console.error('[check-email] Admin list error:', error.message);
+            return NextResponse.json({ exists: false });
+        }
 
     const match = data?.users?.find((u) => u.email === email);
     if (!match) {
@@ -79,8 +86,12 @@ export async function GET(request: Request) {
     const context = searchParams.get('context');
     const providerHint = context === 'login' ? hint : undefined;
 
-    return NextResponse.json({
-        exists: true,
-        ...(providerHint ? { provider: providerHint } : {}),
-    });
+        return NextResponse.json({
+            exists: true,
+            ...(providerHint ? { provider: providerHint } : {}),
+        });
+    } catch (err) {
+        console.error('[check-email] Exception:', err);
+        return NextResponse.json({ exists: false });
+    }
 }

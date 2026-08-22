@@ -41,20 +41,20 @@ export const helpCategories: Category[] = [
         articles: [
             {
                 slug: 'create-your-account',
-                title: 'How to create your NobleInvoice account',
+                title: 'How to create your Nobevra account',
                 summary: 'A step-by-step guide to signing up and activating your account.',
                 readTime: '2 min read',
                 keywords: ['invoice software help center support guide', 'AI invoicing software', 'best software to use for invoicing'],
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'Creating a NobleInvoice account is free and takes less than 2 minutes. You can sign up with an email address or via Google OAuth.',
+                        body: 'Creating a Nobevra account is free and takes less than 2 minutes. You can sign up with an email address or via Google OAuth.',
                     },
                     {
                         heading: 'Step-by-step',
                         body: 'Follow these steps to create your account:',
                         steps: [
-                            'Go to nobleinvoice.com and click "Start Free Today" in the top navigation.',
+                            'Go to nobevra.noblesworld.com.ng and click "Start Free Today" in the top navigation.',
                             'Enter your full name, email address, and a secure password (minimum 8 characters).',
                             'Alternatively, click "Continue with Google" to skip the email/password step entirely.',
                             'Check your inbox for a verification email and click the confirm link.',
@@ -76,7 +76,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'Your invoice is often the last touchpoint a client has with you before paying. NobleInvoice lets you fully brand your invoices so they look like they were designed by an agency.',
+                        body: 'Your invoice is often the last touchpoint a client has with you before paying. Nobevra lets you fully brand your invoices so they look like they were designed by an agency.',
                     },
                     {
                         heading: 'Upload your logo',
@@ -91,7 +91,7 @@ export const helpCategories: Category[] = [
                     {
                         heading: 'Set brand colors',
                         body: 'Directly below the logo uploader, you will find the color picker. Enter your exact hex code (e.g., #166FBB) or use the visual color picker. This color is applied to invoice headers, accent lines, and CTA buttons in your client portal.',
-                        tip: 'Use your brand\'s primary color for maximum recognition. Your clients will associate the color with your business, not with NobleInvoice.',
+                        tip: 'Use your brand\'s primary color for maximum recognition. Your clients will associate the color with your business, not with Nobevra.',
                     },
                     {
                         heading: 'Choose an invoice template',
@@ -137,7 +137,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'NobleInvoice supports team collaboration with role-based access control. You can have unlimited team members on paid plans.',
+                        body: 'Nobevra supports team collaboration with role-based access control. You can have unlimited team members on paid plans.',
                     },
                     {
                         heading: 'Inviting a team member',
@@ -169,7 +169,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'NobleInvoice supports multiple payment methods. The faster you make it for a client to pay, the faster you get paid. We recommend setting up at least Stripe and a bank transfer option.',
+                        body: 'Nobevra supports multiple payment methods. The faster you make it for a client to pay, the faster you get paid. We recommend setting up at least Stripe and a bank transfer option.',
                     },
                     {
                         heading: 'Connecting Stripe',
@@ -178,7 +178,7 @@ export const helpCategories: Category[] = [
                             'Go to Settings > Payments.',
                             'Under "Stripe", click "Connect Stripe Account".',
                             'You will be redirected to Stripe\'s onboarding. Complete the identity verification and bank account details.',
-                            'Once verified, return to NobleInvoice. Stripe will appear as "Connected" and your clients can pay immediately.',
+                            'Once verified, return to Nobevra. Stripe will appear as "Connected" and your clients can pay immediately.',
                         ],
                         tip: 'Stripe deposits funds to your bank account within 2 business days for card payments and 1-3 business days for ACH.',
                     },
@@ -190,7 +190,7 @@ export const helpCategories: Category[] = [
                             'Enter your bank name, account number, routing/sort code, and any reference instructions.',
                             'Enable "Show on invoices". Your bank details will automatically appear in the invoice footer and in the client portal.',
                         ],
-                        warning: 'Never share bank details over chat or email outside of the secure NobleInvoice invoice. Clients should always pay through the secure portal link.',
+                        warning: 'Never share bank details over chat or email outside of the secure Nobevra invoice. Clients should always pay through the secure portal link.',
                     },
                 ],
             },
@@ -231,12 +231,12 @@ export const helpCategories: Category[] = [
             {
                 slug: 'set-up-recurring-retainer',
                 title: 'How to set up an automated monthly retainer',
-                summary: 'Configure NobleInvoice to auto-generate and send retainer invoices on the 1st of every month.',
+                summary: 'Configure Nobevra to auto-generate and send retainer invoices on the 1st of every month.',
                 readTime: '4 min read',
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'Retainer billing is one of the most powerful features in NobleInvoice. You configure a billing schedule once, and the system handles generation, sending, and reminders automatically every month.',
+                        body: 'Retainer billing is one of the most powerful features in Nobevra. You configure a billing schedule once, and the system handles generation, sending, and reminders automatically every month.',
                     },
                     {
                         heading: 'Creating a recurring retainer',
@@ -254,7 +254,7 @@ export const helpCategories: Category[] = [
                     },
                     {
                         heading: 'What happens automatically',
-                        body: 'On each billing date, NobleInvoice will: (1) Generate the invoice with the correct amounts and dates; (2) Send it to the client via email with a secure payment link; (3) If the client does not pay, send automated reminders based on your configured schedule.',
+                        body: 'On each billing date, Nobevra will: (1) Generate the invoice with the correct amounts and dates; (2) Send it to the client via email with a secure payment link; (3) If the client does not pay, send automated reminders based on your configured schedule.',
                     },
                     {
                         heading: 'Pausing or cancelling a retainer',
@@ -270,7 +270,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'Scope creep is the silent margin killer for service businesses. When clients request extra work, you should log it immediately. NobleInvoice can automatically include logged overages in the next month\'s retainer invoice.',
+                        body: 'Scope creep is the silent margin killer for service businesses. When clients request extra work, you should log it immediately. Nobevra can automatically include logged overages in the next month\'s retainer invoice.',
                     },
                     {
                         heading: 'Logging an overage',
@@ -290,12 +290,12 @@ export const helpCategories: Category[] = [
             {
                 slug: 'payment-reminders',
                 title: 'How to set up automated payment reminders',
-                summary: 'Configure a dunning schedule so NobleInvoice follows up on unpaid invoices for you.',
+                summary: 'Configure a dunning schedule so Nobevra follows up on unpaid invoices for you.',
                 readTime: '3 min read',
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'Chasing unpaid invoices manually is awkward and time-consuming. NobleInvoice\'s automated reminder system sends polite, professional follow-ups on a schedule you define, so you never have to be the bad guy.',
+                        body: 'Chasing unpaid invoices manually is awkward and time-consuming. Nobevra\'s automated reminder system sends polite, professional follow-ups on a schedule you define, so you never have to be the bad guy.',
                     },
                     {
                         heading: 'Setting up your reminder schedule',
@@ -321,7 +321,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'Late fees incentivize on-time payment and compensate you for the cash flow impact of late payments. NobleInvoice can apply them automatically.',
+                        body: 'Late fees incentivize on-time payment and compensate you for the cash flow impact of late payments. Nobevra can apply them automatically.',
                     },
                     {
                         heading: 'Configuring late fees',
@@ -377,7 +377,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'NobleInvoice supports 100+ currencies. You can set a default currency for your account and override it on a per-client basis for international contracts.',
+                        body: 'Nobevra supports 100+ currencies. You can set a default currency for your account and override it on a per-client basis for international contracts.',
                     },
                     {
                         heading: 'Setting a currency per client',
@@ -411,7 +411,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'The NobleInvoice client portal lets your clients log in to a fully branded experience hosted on your custom domain. They can view their invoice history, download PDFs, and pay outstanding balances. NobleInvoice is completely invisible.',
+                        body: 'The Nobevra client portal lets your clients log in to a fully branded experience hosted on your custom domain. They can view their invoice history, download PDFs, and pay outstanding balances. Nobevra is completely invisible.',
                     },
                     {
                         heading: 'Enabling the client portal',
@@ -425,12 +425,12 @@ export const helpCategories: Category[] = [
                     },
                     {
                         heading: 'Adding a custom domain',
-                        body: 'By default, your portal is at portal.nobleinvoice.com/yourname. To use your own domain:',
+                        body: 'By default, your portal is at portal.nobevra.noblesworld.com.ng/yourname. To use your own domain:',
                         steps: [
                             'In Settings > Client Portal > Custom Domain, enter your desired subdomain (e.g., billing.youragency.com).',
                             'Log into your DNS provider (e.g., Cloudflare, GoDaddy, Namecheap).',
-                            'Create a CNAME record: Name = billing, Value = portal.nobleinvoice.com.',
-                            'Return to NobleInvoice and click "Verify Domain". DNS changes can take up to 48 hours.',
+                            'Create a CNAME record: Name = billing, Value = portal.nobevra.noblesworld.com.ng.',
+                            'Return to Nobevra and click "Verify Domain". DNS changes can take up to 48 hours.',
                         ],
                         tip: 'Cloudflare users: ensure the DNS record is set to "DNS only" (grey cloud) during verification, then you can enable proxying afterwards.',
                     },
@@ -448,7 +448,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'Every client in NobleInvoice has a dedicated profile that stores their contact details, billing history, overages, notes, and active retainers. A complete client profile makes billing faster and more accurate.',
+                        body: 'Every client in Nobevra has a dedicated profile that stores their contact details, billing history, overages, notes, and active retainers. A complete client profile makes billing faster and more accurate.',
                     },
                     {
                         heading: 'Adding a new client',
@@ -475,7 +475,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'Invoice read receipts are one of the most practical features in NobleInvoice. Instead of guessing whether your client received the invoice, you get a real-time notification the moment they open it.',
+                        body: 'Invoice read receipts are one of the most practical features in Nobevra. Instead of guessing whether your client received the invoice, you get a real-time notification the moment they open it.',
                     },
                     {
                         heading: 'Enabling read receipts',
@@ -543,7 +543,7 @@ export const helpCategories: Category[] = [
     {
         slug: 'integrations-and-api',
         title: 'Integrations & API',
-        desc: 'Connect NobleInvoice to Stripe, Shopify, WooCommerce, Zapier, and your custom tools.',
+        desc: 'Connect Nobevra to Stripe, Shopify, WooCommerce, Zapier, and your custom tools.',
         icon: 'Plug',
         color: 'text-amber-600',
         bg: 'bg-amber-50 border-amber-100',
@@ -557,7 +557,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'Stripe is the recommended payment gateway for NobleInvoice. It handles credit cards, debit cards, ACH bank transfers, and many local payment methods globally. Connecting takes about 5 minutes.',
+                        body: 'Stripe is the recommended payment gateway for Nobevra. It handles credit cards, debit cards, ACH bank transfers, and many local payment methods globally. Connecting takes about 5 minutes.',
                     },
                     {
                         heading: 'Connecting your Stripe account',
@@ -568,13 +568,13 @@ export const helpCategories: Category[] = [
                             'Create a new Stripe account or log into an existing one.',
                             'Complete Stripe\'s identity verification (government ID + business details).',
                             'Add your bank account for payouts.',
-                            'Click "Authorize Access" to return to NobleInvoice.',
+                            'Click "Authorize Access" to return to Nobevra.',
                         ],
                         tip: 'Stripe verification usually takes 2-24 hours. You can still send invoices during this time; payments will be held and released once verification completes.',
                     },
                     {
                         heading: 'Stripe fees',
-                        body: 'Stripe charges a processing fee per transaction: 2.9% + $0.30 per card charge in the US, and 1.5% + €0.25 per card charge in Europe. ACH transfers are 0.8% capped at $5.00. These fees are deducted from your payouts by Stripe, not by NobleInvoice. NobleInvoice does not take a percentage of your transactions.',
+                        body: 'Stripe charges a processing fee per transaction: 2.9% + $0.30 per card charge in the US, and 1.5% + €0.25 per card charge in Europe. ACH transfers are 0.8% capped at $5.00. These fees are deducted from your payouts by Stripe, not by Nobevra. Nobevra does not take a percentage of your transactions.',
                     },
                 ],
             },
@@ -595,18 +595,18 @@ export const helpCategories: Category[] = [
                             'Enter your Shopify store URL (e.g., yourstore.myshopify.com).',
                             'Click "Connect Shopify". You will be redirected to Shopify to authorize the app.',
                             'Grant the required permissions: Read orders, Read customers.',
-                            'Return to NobleInvoice. Your store is now connected.',
+                            'Return to Nobevra. Your store is now connected.',
                         ],
                     },
                     {
                         heading: 'What happens for each new order',
-                        body: 'When a new order is placed in Shopify, NobleInvoice will automatically: (1) Create a new client profile (or match to an existing one) using the buyer\'s email; (2) Generate a branded PDF invoice for the order; (3) Send the invoice to the buyer via email with a payment link (for B2B net terms orders) or mark it as paid (for upfront card orders).',
+                        body: 'When a new order is placed in Shopify, Nobevra will automatically: (1) Create a new client profile (or match to an existing one) using the buyer\'s email; (2) Generate a branded PDF invoice for the order; (3) Send the invoice to the buyer via email with a payment link (for B2B net terms orders) or mark it as paid (for upfront card orders).',
                     },
                 ],
             },
             {
                 slug: 'connect-woocommerce',
-                title: 'How to connect WooCommerce to NobleInvoice',
+                title: 'How to connect WooCommerce to Nobevra',
                 summary: 'Automatically generate professional invoices for WooCommerce orders via the REST API.',
                 readTime: '4 min read',
                 content: [
@@ -620,48 +620,48 @@ export const helpCategories: Category[] = [
                         steps: [
                             'Go to WooCommerce > Settings > Advanced > REST API.',
                             'Click "Add key".',
-                            'Set Description to "NobleInvoice Integration", User to your admin account, and Permissions to "Read".',
+                            'Set Description to "Nobevra Integration", User to your admin account, and Permissions to "Read".',
                             'Click "Generate API Key".',
                             'Copy the Consumer Key and Consumer Secret — you will need these in the next step.',
                         ],
                         warning: 'The Consumer Secret is only shown once. Copy and store it securely before leaving the page.',
                     },
                     {
-                        heading: 'Connecting in NobleInvoice',
-                        body: 'Go to Settings > Integrations > WooCommerce. Enter your store URL, Consumer Key, and Consumer Secret, then click "Connect". NobleInvoice will verify the connection and begin syncing new orders automatically.',
+                        heading: 'Connecting in Nobevra',
+                        body: 'Go to Settings > Integrations > WooCommerce. Enter your store URL, Consumer Key, and Consumer Secret, then click "Connect". Nobevra will verify the connection and begin syncing new orders automatically.',
                     },
                 ],
             },
             {
                 slug: 'zapier-integration',
-                title: 'How to connect NobleInvoice to Zapier',
-                summary: 'Automate workflows between NobleInvoice and 7,000+ other apps using Zapier.',
+                title: 'How to connect Nobevra to Zapier',
+                summary: 'Automate workflows between Nobevra and 7,000+ other apps using Zapier.',
                 readTime: '3 min read',
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'Zapier lets you connect NobleInvoice to thousands of other tools without writing code. Common use cases: auto-create a NobleInvoice client when a new lead is added in your CRM, or send a Slack message when an invoice is paid.',
+                        body: 'Zapier lets you connect Nobevra to thousands of other tools without writing code. Common use cases: auto-create a Nobevra client when a new lead is added in your CRM, or send a Slack message when an invoice is paid.',
                     },
                     {
                         heading: 'Getting your API Key',
                         body: 'Go to Settings > Integrations > API & Zapier. Click "Generate API Key" and copy the key. You will enter this in Zapier when setting up the connection.',
                     },
                     {
-                        heading: 'Available NobleInvoice Zapier triggers and actions',
-                        body: 'Triggers (things NobleInvoice can watch for): Invoice Sent, Invoice Paid, Invoice Overdue, New Client Added. Actions (things NobleInvoice can do): Create Invoice, Create Client, Add Payment.',
-                        tip: 'A popular Zap for agencies: When a new project is created in Asana or Monday.com (Trigger), Create a new client and send a welcome invoice in NobleInvoice (Action).',
+                        heading: 'Available Nobevra Zapier triggers and actions',
+                        body: 'Triggers (things Nobevra can watch for): Invoice Sent, Invoice Paid, Invoice Overdue, New Client Added. Actions (things Nobevra can do): Create Invoice, Create Client, Add Payment.',
+                        tip: 'A popular Zap for agencies: When a new project is created in Asana or Monday.com (Trigger), Create a new client and send a welcome invoice in Nobevra (Action).',
                     },
                 ],
             },
             {
                 slug: 'api-documentation',
-                title: 'NobleInvoice REST API overview',
-                summary: 'Use the NobleInvoice API to programmatically create invoices, clients, and payments.',
+                title: 'Nobevra REST API overview',
+                summary: 'Use the Nobevra API to programmatically create invoices, clients, and payments.',
                 readTime: '5 min read',
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'The NobleInvoice REST API allows developers to build custom integrations. You can create invoices, manage clients, and query financial data programmatically. All API requests use standard HTTP methods and return JSON.',
+                        body: 'The Nobevra REST API allows developers to build custom integrations. You can create invoices, manage clients, and query financial data programmatically. All API requests use standard HTTP methods and return JSON.',
                     },
                     {
                         heading: 'Authentication',
@@ -682,7 +682,7 @@ export const helpCategories: Category[] = [
                             'POST /api/v1/clients — Create a new client.',
                             'GET /api/v1/payments — List all recorded payments.',
                         ],
-                        tip: 'The full API reference with request/response examples is available at nobleinvoice.com/api-docs.',
+                        tip: 'The full API reference with request/response examples is available at nobevra.noblesworld.com.ng/api-docs.',
                     },
                 ],
             },
@@ -700,7 +700,7 @@ export const helpCategories: Category[] = [
             {
                 slug: 'upgrade-downgrade-plan',
                 title: 'How to upgrade, downgrade, or cancel your subscription',
-                summary: 'Change your NobleInvoice plan or cancel at any time.',
+                summary: 'Change your Nobevra plan or cancel at any time.',
                 readTime: '3 min read',
                 content: [
                     {
@@ -785,7 +785,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'NobleInvoice can notify you about a range of events: invoice opens, payments received, failed payments, new client sign-ups to the portal, and team activity. You control exactly which ones you receive.',
+                        body: 'Nobevra can notify you about a range of events: invoice opens, payments received, failed payments, new client sign-ups to the portal, and team activity. You control exactly which ones you receive.',
                     },
                     {
                         heading: 'Managing notifications',
@@ -841,7 +841,7 @@ export const helpCategories: Category[] = [
                 content: [
                     {
                         heading: 'Overview',
-                        body: 'NobleInvoice offers a library of professionally designed invoice templates suited to different industries: clean modern designs for tech/SaaS, warm creative layouts for design agencies, and formal structured templates for legal/finance firms.',
+                        body: 'Nobevra offers a library of professionally designed invoice templates suited to different industries: clean modern designs for tech/SaaS, warm creative layouts for design agencies, and formal structured templates for legal/finance firms.',
                     },
                     {
                         heading: 'Browsing and selecting a template',

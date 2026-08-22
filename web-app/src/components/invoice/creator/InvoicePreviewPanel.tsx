@@ -63,7 +63,7 @@ export const InvoicePreviewPanel = ({ onOpenTemplateDialog }: InvoicePreviewPane
                             onClick={() => setActiveTab(id)}
                             className={`relative h-full px-4 flex items-center gap-2 text-[13px] font-semibold transition-colors border-b-2 font-[Inter,sans-serif] ${
                                 activeTab === id
-                                    ? 'text-[#0599D5] border-[#0599D5]'
+                                    ? 'text-[#01A0E2] border-[#01A0E2]'
                                     : 'text-slate-500 border-transparent hover:text-slate-800 hover:border-slate-300'
                             }`}
                         >
@@ -73,7 +73,7 @@ export const InvoicePreviewPanel = ({ onOpenTemplateDialog }: InvoicePreviewPane
                     ))}
                 </div>
                 <div className="pb-3">
-                    <button className="h-8 px-3 rounded-lg border border-dashed border-slate-300 text-slate-500 hover:border-[#0599D5] hover:text-[#0599D5] font-semibold text-xs flex items-center gap-1.5 transition-all font-[Inter,sans-serif]">
+                    <button className="h-8 px-3 rounded-lg border border-dashed border-slate-300 text-slate-500 hover:border-[#01A0E2] hover:text-[#01A0E2] font-semibold text-xs flex items-center gap-1.5 transition-all font-[Inter,sans-serif]">
                         <Maximize2 className="w-3.5 h-3.5" /> Fullscreen
                     </button>
                 </div>
@@ -134,7 +134,7 @@ export const InvoicePreviewPanel = ({ onOpenTemplateDialog }: InvoicePreviewPane
                                 <h4 className="text-[12px] font-bold text-slate-700 mb-3 uppercase tracking-wider font-[Inter,sans-serif]">Invoice Actions</h4>
                             </div>
                             <div className="p-4 space-y-2">
-                                <button className="w-full h-10 rounded-xl bg-[#0599D5] hover:bg-[#0482B5] active:scale-[0.98] text-white font-bold text-[13px] flex items-center justify-center gap-2 transition-all shadow-sm shadow-[#0599D5]/20 font-[Inter,sans-serif]">
+                                <button className="w-full h-10 rounded-xl bg-[#01A0E2] hover:bg-[#0482B5] active:scale-[0.98] text-white font-bold text-[13px] flex items-center justify-center gap-2 transition-all shadow-sm shadow-[#01A0E2]/20 font-[Inter,sans-serif]">
                                     <Send className="w-4 h-4" /> Send Invoice
                                 </button>
                                 <div className="grid grid-cols-2 gap-2">
@@ -164,7 +164,7 @@ export const InvoicePreviewPanel = ({ onOpenTemplateDialog }: InvoicePreviewPane
                         </div>
                         <button
                             onClick={() => onOpenTemplateDialog?.()}
-                            className="h-9 px-5 rounded-xl bg-[#0599D5] hover:bg-[#0482B5] text-white font-bold text-[13px] transition-all shadow-sm font-[Inter,sans-serif]">
+                            className="h-9 px-5 rounded-xl bg-[#01A0E2] hover:bg-[#0482B5] text-white font-bold text-[13px] transition-all shadow-sm font-[Inter,sans-serif]">
                             Browse Templates
                         </button>
                     </div>

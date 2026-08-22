@@ -55,7 +55,7 @@ class PlatinumBatch6C {
         pw.Spacer(),
         pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [
            pw.Text('Working with you is a pleasure!', style: pw.TextStyle(font: font, fontSize: 12, fontStyle: pw.FontStyle.italic, color: brandColor)),
-           pw.Text(biz.businessEmail?.toUpperCase() ?? 'WWW.NobleInvoice.APP', style: pw.TextStyle(font: bold, fontSize: 10, color: brandColor)),
+           pw.Text(biz.businessEmail?.toUpperCase() ?? 'WWW.NOBEVRA.COM', style: pw.TextStyle(font: bold, fontSize: 10, color: brandColor)),
         ]),
       ]),
     );

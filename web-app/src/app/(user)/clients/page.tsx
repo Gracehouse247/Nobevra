@@ -38,7 +38,7 @@ type SortDir   = 'asc' | 'desc';
 
 // ─── Avatar initials colour palette (deterministic from name) ────────────────
 const AVATAR_COLORS = [
-    { bg: 'rgba(5,153,213,0.12)',  text: '#0599D5' },
+    { bg: 'rgba(5,153,213,0.12)',  text: '#01A0E2' },
     { bg: 'rgba(0,105,112,0.12)',  text: '#006970' },
     { bg: 'rgba(99,102,241,0.12)', text: '#6366f1' },
     { bg: 'rgba(245,158,11,0.12)', text: '#d97706' },
@@ -148,7 +148,7 @@ function SortableTH({
 }
 
 // ─── Sparkline SVG ───────────────────────────────────────────────────────────
-function Sparkline({ color = '#0599D5' }: { color?: string }) {
+function Sparkline({ color = '#01A0E2' }: { color?: string }) {
     // A clean, jagged sparkline to mimic financial data
     return (
         <svg viewBox="0 0 100 30" className="w-full h-10" preserveAspectRatio="none">
@@ -190,7 +190,7 @@ function KpiCard({
                 </div>
             </div>
             <div className="mt-4 -mx-2 -mb-2 opacity-80">
-                <Sparkline color={sparkColor ?? '#0599D5'} />
+                <Sparkline color={sparkColor ?? '#01A0E2'} />
             </div>
         </motion.div>
     );
@@ -468,7 +468,7 @@ export default function ClientsPage() {
                     <div className="min-w-0">
                         <h1 className="text-[19px] font-black tracking-tight leading-tight flex items-center gap-2">
                             <span className="text-noble-text">Clients</span>
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#006970] to-[#0599D5]">Ledger</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#006970] to-[#01A0E2]">Ledger</span>
                         </h1>
                         <p className="text-[13px] text-slate-400 font-medium truncate mt-1">
                             Your complete customer relationship register
@@ -544,7 +544,7 @@ export default function ClientsPage() {
                         value={kpiTotal}
                         sub="In your ledger"
                         accent="bg-noble-blue/10 text-noble-blue"
-                        sparkColor="#0599D5"
+                        sparkColor="#01A0E2"
                     />
                     <KpiCard
                         icon={UserCheck}
@@ -874,7 +874,7 @@ export default function ClientsPage() {
                                                             whileTap={{ scale: 0.93 }}
                                                             onClick={e => { e.stopPropagation(); router.push(`/clients/${client.id}`); }}
                                                             title="View client profile"
-                                                            className="w-7 h-7 flex items-center justify-center rounded-lg bg-transparent border border-noble-border text-slate-400 hover:bg-black/5 dark:bg-white/5 hover:text-noble-text transition-all"
+                                                            className="w-7 h-7 min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0 flex items-center justify-center rounded-lg bg-transparent border border-noble-border text-slate-400 hover:bg-black/5 dark:bg-white/5 hover:text-noble-text transition-all"
                                                         >
                                                             <ArrowUpRight size={13} />
                                                         </motion.button>
@@ -885,7 +885,7 @@ export default function ClientsPage() {
                                                                 whileTap={{ scale: 0.93 }}
                                                                 onClick={e => { e.stopPropagation(); setOpenMenuId(isMenuOpen ? null : client.id); }}
                                                                 title="More options"
-                                                                className="w-7 h-7 flex items-center justify-center rounded-lg bg-transparent border border-transparent text-slate-400 hover:bg-black/5 dark:bg-white/5 hover:text-noble-text transition-all"
+                                                                className="w-7 h-7 min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0 flex items-center justify-center rounded-lg bg-transparent border border-transparent text-slate-400 hover:bg-black/5 dark:bg-white/5 hover:text-noble-text transition-all"
                                                             >
                                                                 <MoreHorizontal size={14} />
                                                             </motion.button>

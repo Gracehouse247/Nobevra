@@ -67,7 +67,7 @@ const faqs = [
     },
     {
         q: "How does the client management software connect to billing?",
-        a: "We believe billing software with CRM capabilities is essential. When you view a client in NobleInvoice, you don't just see their contact details. You see their lifetime value, outstanding balance, average payment time, and full invoice history in one place."
+        a: "We believe billing software with CRM capabilities is essential. When you view a client in Nobevra, you don't just see their contact details. You see their lifetime value, outstanding balance, average payment time, and full invoice history in one place."
     },
     {
         q: "Is it difficult to set up the recurring billing software?",
@@ -75,7 +75,7 @@ const faqs = [
     },
     {
         q: "Do I need separate invoice generator tools?",
-        a: "No. NobleInvoice is a complete invoice automation software suite. You can generate one-off invoices, recurring retainers, or bulk wholesale invoices natively. It replaces your standalone invoice generator tools completely."
+        a: "No. Nobevra is a complete invoice automation software suite. You can generate one-off invoices, recurring retainers, or bulk wholesale invoices natively. It replaces your standalone invoice generator tools completely."
     },
     {
         q: "Does this include online payment integration software?",
@@ -90,7 +90,7 @@ const faqs = [
 const schema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "NobleInvoice Expense Tracking & Billing",
+    "name": "Nobevra Expense Tracking & Billing",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
     "aggregateRating": {
@@ -162,7 +162,7 @@ export default function FeaturesPage() {
                                     <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
                                 </div>
                                 <div className="rounded-[16px] sm:rounded-[32px] overflow-hidden border border-slate-100/50 shadow-inner bg-slate-50">
-                                    <Image alt="NobleInvoice dashboard UI" className="w-full h-auto object-cover object-top" src="/images/hero-dashboard-actual.png" width={1366} height={1633} priority />
+                                    <Image alt="Nobevra dashboard UI" className="w-full h-auto object-cover object-top" src="/images/hero-dashboard-actual.png" width={1366} height={1633} priority />
                                 </div>
                             </div>
                         </div>
@@ -244,7 +244,7 @@ export default function FeaturesPage() {
                             Everything you need to <span className="text-noble-blue">Scan, Sync, and Settle.</span>
                         </h2>
                         <p className="text-slate-600 text-lg leading-relaxed">
-                            A complete directory of all 19 capabilities powering the NobleInvoice ecosystem.
+                            A complete directory of all 19 capabilities powering the Nobevra ecosystem.
                         </p>
                     </div>
 
@@ -319,7 +319,7 @@ export default function FeaturesPage() {
                     <div className="bg-slate-900 p-10 md:p-12 rounded-[40px] text-white shadow-2xl">
                         <h3 className="font-black text-3xl mb-6">We may not be right for you if...</h3>
                         <p className="text-slate-300 text-lg leading-relaxed mb-8">
-                            We believe in transparency. NobleInvoice is built for speed, automation, and getting paid. If you are a massive Fortune 500 corporation looking for a complex, 12-month implementation ERP system to replace SAP, this is not it.
+                            We believe in transparency. Nobevra is built for speed, automation, and getting paid. If you are a massive Fortune 500 corporation looking for a complex, 12-month implementation ERP system to replace SAP, this is not it.
                         </p>
                         <p className="text-slate-300 text-lg leading-relaxed">
                             However, if you want invoicing software features that prioritize revenue, client experience, and actual usability—without needing a finance degree—you are exactly who we built this for.
@@ -400,7 +400,7 @@ export default function FeaturesPage() {
                         Ready to automate your finances?
                     </h2>
                     <p className="text-lg text-slate-500 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
-                        Join the operators who use NobleInvoice to track expenses, manage clients, and collect payments automatically.
+                        Join the operators who use Nobevra to track expenses, manage clients, and collect payments automatically.
                     </p>
                     <Link href="/register" className="inline-flex items-center gap-3 text-white bg-[#166FBB] px-12 py-6 text-lg font-extrabold rounded-[24px] hover:opacity-90 hover:scale-[1.02] transition-all shadow-[0_20px_50px_rgba(22,111,187,0.3)]">
                         Start Free Today <ArrowRight className="w-6 h-6" />

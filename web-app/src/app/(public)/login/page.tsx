@@ -7,6 +7,7 @@ import { supabase } from '@/lib/supabase';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, EyeOff, ShieldCheck, Mail } from 'lucide-react';
+import { brand } from '@/lib/brand';
 
 const mapAuthError = (message: string) => {
     if (message.includes('User already registered') || message.includes('already exists')) return 'An account with this email already exists. Try logging in.';
@@ -120,10 +121,15 @@ function LoginContent() {
             // Password is correct. Sign out so they don't have dashboard access yet.
             await supabase.auth.signOut();
             
-            // Send the 2FA OTP
+            // Send the 2FA OTP / magic link
             const { error: otpError } = await supabase.auth.signInWithOtp({
                 email: email.trim().toLowerCase(),
-                options: { shouldCreateUser: false }
+                options: {
+                    shouldCreateUser: false,
+                    // Ensure the magic link in the email resolves to the correct server
+                    // (localhost:3000 in dev, production domain in prod)
+                    emailRedirectTo: `${window.location.origin}/api/auth/callback`
+                }
             });
             
             if (otpError) throw new Error('Password correct, but failed to send 2FA code: ' + otpError.message);
@@ -149,6 +155,11 @@ function LoginContent() {
         e.preventDefault();
         setLoading(true);
         setError('');
+
+        const safetyTimer = setTimeout(() => {
+            setLoading(false);
+            setError('Verification timed out. Please check your internet connection and try again.');
+        }, 15000);
         
         try {
             if (mfaType === 'totp') {
@@ -164,20 +175,52 @@ function LoginContent() {
                 
                 if (verifyError) throw verifyError;
             } else {
-                // Verify Email OTP
-                const { error: verifyError } = await supabase.auth.verifyOtp({
-                    email: email.trim().toLowerCase(),
-                    token: otp,
-                    type: 'email'
+                const sanitizedEmail = email.trim().toLowerCase();
+                const sanitizedToken = otp.trim();
+                
+                // Supabase signInWithOtp creates a 'magiclink' token internally.
+                // Depending on the project configuration, it may be accepted under 'magiclink' or 'email'.
+                // We try 'magiclink' first, then fallback to 'email' if needed.
+                let { data: verifyData, error: verifyError } = await supabase.auth.verifyOtp({
+                    email: sanitizedEmail,
+                    token: sanitizedToken,
+                    type: 'magiclink'
                 });
+
+                if (verifyError || !verifyData?.session) {
+                    console.log('Trying fallback OTP verification with type=email...');
+                    const fallbackRes = await supabase.auth.verifyOtp({
+                        email: sanitizedEmail,
+                        token: sanitizedToken,
+                        type: 'email'
+                    });
+                    if (!fallbackRes.error && fallbackRes.data?.session) {
+                        verifyData = fallbackRes.data;
+                        verifyError = null;
+                    } else if (verifyError) {
+                        // Keep original error if fallback also failed
+                    } else {
+                        verifyError = fallbackRes.error;
+                    }
+                }
                 
                 if (verifyError) throw verifyError;
+
+                if (!verifyData?.session) {
+                    const { data: { session: fallbackSession } } = await supabase.auth.getSession();
+                    if (!fallbackSession) {
+                        throw new Error('Authentication session could not be established. Please try logging in again.');
+                    }
+                }
             }
             
-            // Force a router refresh to bypass Next.js App Router cache cleanly
-            router.refresh();
-            router.push('/dashboard');
+            clearTimeout(safetyTimer);
+            // Small delay to allow Supabase auth tokens to commit to localStorage/cookies
+            await new Promise(resolve => setTimeout(resolve, 200));
+            // Force a clean hard navigation to bypass Next.js App Router prefetch cache
+            window.location.href = '/dashboard';
         } catch (err: unknown) {
+            clearTimeout(safetyTimer);
             const error = err as Error;
             console.error('OTP verify error:', error);
             setError(mapAuthError(error.message || 'Invalid or expired code.'));
@@ -196,6 +239,7 @@ function LoginContent() {
                 email: email.trim().toLowerCase(),
                 options: {
                     shouldCreateUser: false,
+                    emailRedirectTo: `${window.location.origin}/api/auth/callback`
                 }
             });
             if (error) throw error;
@@ -248,7 +292,7 @@ function LoginContent() {
                 
                 <div className="w-full lg:w-1/2 flex flex-col justify-center mb-12 lg:mb-0 lg:pr-12">
                     <Link href="/" className="mb-8 self-start block">
-                        <Image src="/images/logo.png" alt="NobleInvoice" width={160} height={40} className="h-10 w-auto object-contain hover:opacity-80 transition-opacity brightness-0 invert" />
+                        <Image src={brand.assets.logo} alt="Nobevra" width={160} height={40} className="h-10 w-auto object-contain hover:opacity-80 transition-opacity brightness-0 invert" />
                     </Link>
                     <h1 className="text-4xl md:text-5xl font-black text-white leading-tight mb-4 tracking-tighter drop-shadow-md">
                         Welcome Back
@@ -346,13 +390,14 @@ function LoginContent() {
                                 >
                                     <div className="text-center mb-6">
                                         <h2 className="text-2xl font-black text-white mb-1">Sign In</h2>
-                                        <p className="text-white/60 text-xs font-medium">Continue to your account.</p>
+                                        <p className="text-white/80 text-xs font-medium">Continue to your account.</p>
                                     </div>
 
                                     <button
                                         onClick={handleGoogle}
                                         disabled={googleLoading}
                                         className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-white/25 bg-white/15 hover:bg-white/25 backdrop-blur-md transition-all font-bold text-sm text-white mb-5 shadow-sm disabled:opacity-50"
+                                        aria-label="Continue with Google sign in"
                                     >
                                         {googleLoading ? (
                                             <div className="w-4 h-4 border-2 border-near-black/30 border-t-noble-blue rounded-full animate-spin" />
@@ -369,7 +414,7 @@ function LoginContent() {
 
                                     <div className="flex items-center gap-3 mb-5">
                                         <div className="flex-1 h-px bg-white/20"></div>
-                                        <span className="text-[9px] font-black uppercase tracking-widest text-white/50">Or sign in with email</span>
+                                        <span className="text-[9px] font-black uppercase tracking-widest text-white/70">Or sign in with email</span>
                                         <div className="flex-1 h-px bg-white/20"></div>
                                     </div>
 
@@ -381,13 +426,14 @@ function LoginContent() {
                                             autoComplete="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/40 text-sm backdrop-blur-sm"
+                                            aria-label="Email Address"
+                                            className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/60 text-sm backdrop-blur-sm"
                                             placeholder="Email Address"
                                         />
 
                                         <div className="space-y-1">
                                             <div className="flex justify-end px-1">
-                                            <Link href="/forgot-password" className="text-[10px] font-bold text-white/70 hover:text-white transition-colors">Forgot password?</Link>
+                                            <Link href="/forgot-password" className="text-[10px] font-bold text-white/80 hover:text-white transition-colors">Forgot password?</Link>
                                             </div>
                                             <div className="relative">
                                                 <input 
@@ -396,13 +442,14 @@ function LoginContent() {
                                                     autoComplete="current-password"
                                                     value={password}
                                                     onChange={(e) => setPassword(e.target.value)}
-                                                    className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 pr-12 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/40 text-sm backdrop-blur-sm"
+                                                    aria-label="Password"
+                                                    className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 pr-12 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/60 text-sm backdrop-blur-sm"
                                                     placeholder="Password"
                                                 />
                                                 <button
                                                     type="button"
                                                     onClick={() => setShowPassword(prev => !prev)}
-                                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors p-1"
+                                                    className="absolute right-3 top-1/2 -translate-y-1/2 text-white/60 hover:text-white transition-colors p-1"
                                                     tabIndex={-1}
                                                     aria-label={showPassword ? 'Hide password' : 'Show password'}
                                                 >
@@ -444,15 +491,15 @@ function LoginContent() {
                                         <p className="text-white/60 text-xs font-medium px-4 leading-relaxed">
                                             {mfaType === 'totp' 
                                                 ? 'Enter the 6-digit code from your authenticator app.'
-                                                : <span>For your security, we&apos;ve sent an 8-digit code to <strong className="text-white">{email}</strong>.</span>
+                                                : <span>We&apos;ve sent a verification code to <strong className="text-white">{email}</strong>. Enter the code below to complete sign-in.</span>
                                             }
                                         </p>
                                     </div>
 
                                     <form onSubmit={handleOtpSubmit} className="space-y-5">
                                         <div>
-                                            <label className="text-[10px] font-black text-white/50 uppercase tracking-widest ml-1 mb-2 block text-center">
-                                                {mfaType === 'totp' ? 'Enter 6-Digit Code' : 'Enter 8-Digit Code'}
+                                            <label className="text-[10px] font-black text-white/75 uppercase tracking-widest ml-1 mb-2 block text-center">
+                                                {mfaType === 'totp' ? 'Enter 6-Digit Code' : 'Enter Verification Code'}
                                             </label>
                                             <input 
                                                 type="text" 
@@ -460,15 +507,16 @@ function LoginContent() {
                                                 maxLength={mfaType === 'totp' ? 6 : 8}
                                                 value={otp}
                                                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
-                                                className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-4 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white font-black text-2xl text-center tracking-[0.5em] placeholder:tracking-normal placeholder:font-medium placeholder:text-sm placeholder:text-white/30 backdrop-blur-sm"
-                                                placeholder="••••••••"
+                                                className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-4 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white font-black text-2xl text-center tracking-[0.5em] placeholder:tracking-normal placeholder:font-medium placeholder:text-sm placeholder:text-white/55 backdrop-blur-sm"
+                                                placeholder={mfaType === 'totp' ? "••••••" : "••••••"}
                                                 autoComplete="one-time-code"
+                                                autoFocus
                                             />
                                         </div>
 
                                         <button 
                                             type="submit"
-                                            disabled={loading || otp.length < (mfaType === 'totp' ? 6 : 8)}
+                                            disabled={loading || otp.length < 6}
                                             className="w-full py-3 mt-2 rounded-xl text-white font-black text-xs uppercase tracking-widest transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-noble-blue/20 disabled:opacity-50 disabled:scale-100 bg-noble-blue"
                                         >
                                             {loading ? (
@@ -493,7 +541,7 @@ function LoginContent() {
                                             <button 
                                                 type="button" 
                                                 onClick={() => { setStep(1); setOtp(''); }}
-                                                className="text-[10px] font-black text-white/40 hover:text-white uppercase tracking-widest transition-colors"
+                                                className="text-[10px] font-black text-white/70 hover:text-white uppercase tracking-widest transition-colors"
                                             >
                                                 Back to Sign In
                                             </button>

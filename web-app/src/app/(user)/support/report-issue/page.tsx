@@ -44,7 +44,7 @@ export default function ReportIssuePage() {
                     </div>
                     <div>
                         <h1 className="text-2xl md:text-3xl font-semibold text-noble-text">Report a Bug</h1>
-                        <p className="text-sm font-bold text-[#64748B]">Help us perfect the NobleInvoice experience.</p>
+                        <p className="text-sm font-bold text-[#64748B]">Help us perfect the Nobevra experience.</p>
                     </div>
                 </div>
 

@@ -139,7 +139,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
         curve: Curves.easeOutBack,
         padding: EdgeInsets.symmetric(horizontal: isActive ? 12 : 6, vertical: 8),
         decoration: BoxDecoration(
-          color: isActive ? AppColors.primary.withOpacity(0.1) : Colors.transparent,
+          color: isActive ? AppColors.primaryDark : Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
@@ -147,8 +147,8 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           children: [
             Icon(
               icon,
-              color: isActive ? AppColors.primary : AppColors.darkGrey,
-              size: isActive ? 26 : 24,
+              color: isActive ? Colors.white : AppColors.darkGrey,
+              size: isActive ? 24 : 22,
             ),
             if (isActive) ...[
               const SizedBox(width: 6),
@@ -157,7 +157,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
                 style: AppTextStyles.bodyMedium.copyWith(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
-                  color: AppColors.primary,
+                  color: Colors.white,
                 ),
               ),
             ]
@@ -179,12 +179,12 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
           gradient: const LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [AppColors.primary, Color(0xFF1E40AF)],
+            colors: [AppColors.primaryDark, AppColors.primaryOcean],
           ),
           shape: BoxShape.circle,
           boxShadow: [
             BoxShadow(
-              color: AppColors.primary.withOpacity(0.3),
+              color: AppColors.primaryDark.withOpacity(0.35),
               blurRadius: 20,
               offset: const Offset(0, 10),
             ),

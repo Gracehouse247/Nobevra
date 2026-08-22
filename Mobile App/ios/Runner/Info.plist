@@ -2,21 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 	<dict>
-		<key>CFBundleURLTypes</key>
-		<array>
-			<dict>
-				<key>CFBundleTypeRole</key>
-				<string>Editor</string>
-				<key>CFBundleURLSchemes</key>
-				<array>
-					<string>com.googleusercontent.apps.940069461087-ii900j9h8e775dcge35gdu88gkhundqk</string>
-				</array>
-			</dict>
-		</array>
+		<key>CADisableMinimumFrameDurationOnPhone</key>
+		<true/>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>$(DEVELOPMENT_LANGUAGE)</string>
 		<key>CFBundleDisplayName</key>
-		<string>NobleInvoice</string>
+		<string>Nobevra</string>
 		<key>CFBundleExecutable</key>
 		<string>$(EXECUTABLE_NAME)</string>
 		<key>CFBundleIdentifier</key>
@@ -24,21 +15,82 @@
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
 		<key>CFBundleName</key>
-		<string>noble_invoice</string>
+		<string>nobevra</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
 		<key>CFBundleShortVersionString</key>
 		<string>$(FLUTTER_BUILD_NAME)</string>
 		<key>CFBundleSignature</key>
 		<string>????</string>
+		<key>CFBundleURLTypes</key>
+		<array>
+			<dict>
+				<key>CFBundleTypeRole</key>
+				<string>Editor</string>
+				<key>CFBundleURLSchemes</key>
+				<array>
+					<string>com.googleusercontent.apps.940069461087-co5bgv137gihmvj20r0rgq44ldela2hn</string>
+				</array>
+			</dict>
+		</array>
 		<key>CFBundleVersion</key>
 		<string>$(FLUTTER_BUILD_NUMBER)</string>
 		<key>LSRequiresIPhoneOS</key>
 		<true/>
+		<key>NSBluetoothAlwaysUsageDescription</key>
+		<string>Nobevra may use Bluetooth for certain device communication features.</string>
+		<key>NSCameraUsageDescription</key>
+		<string>Nobevra needs access to your camera so you can photograph receipts for expense scanning and capture images for invoices and business cards.</string>
+		<key>NSContactsUsageDescription</key>
+		<string>Nobevra needs access to your contacts so you can quickly import client details when creating invoices, estimates, and business cards.</string>
+		<key>NSFaceIDUsageDescription</key>
+		<string>Nobevra uses Face ID to protect your account and keep your financial data secure.</string>
+		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>Nobevra uses your approximate location to automatically set the correct currency for your region.</string>
+		<key>NSLocationWhenInUseUsageDescription</key>
+		<string>Nobevra uses your approximate location to automatically set the correct currency for your region.</string>
+		<key>NSMicrophoneUsageDescription</key>
+		<string>Nobevra needs microphone access to enable voice-assisted invoice creation so you can dictate invoice details hands-free.</string>
+		<key>NSPhotoLibraryAddUsageDescription</key>
+		<string>Nobevra needs permission to save exported invoices, QR codes, and business card images to your photo library.</string>
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>Nobevra needs access to your photo library so you can add your business logo, upload receipt images, and attach product photos.</string>
+		<key>NSSpeechRecognitionUsageDescription</key>
+		<string>Nobevra uses speech recognition to convert your voice into invoice data so you can create invoices faster using voice commands.</string>
+		<key>UIApplicationSceneManifest</key>
+		<dict>
+			<key>UIApplicationSupportsMultipleScenes</key>
+			<false/>
+			<key>UISceneConfigurations</key>
+			<dict>
+				<key>UIWindowSceneSessionRoleApplication</key>
+				<array>
+					<dict>
+						<key>UISceneClassName</key>
+						<string>UIWindowScene</string>
+						<key>UISceneConfigurationName</key>
+						<string>flutter</string>
+						<key>UISceneDelegateClassName</key>
+						<string>FlutterSceneDelegate</string>
+						<key>UISceneStoryboardFile</key>
+						<string>Main</string>
+					</dict>
+				</array>
+			</dict>
+		</dict>
+		<key>UIApplicationSupportsIndirectInputEvents</key>
+		<true/>
+		<key>UIBackgroundModes</key>
+		<array>
+			<string>fetch</string>
+			<string>remote-notification</string>
+		</array>
 		<key>UILaunchStoryboardName</key>
 		<string>LaunchScreen</string>
 		<key>UIMainStoryboardFile</key>
 		<string>Main</string>
+		<key>UIStatusBarHidden</key>
+		<false/>
 		<key>UISupportedInterfaceOrientations</key>
 		<array>
 			<string>UIInterfaceOrientationPortrait</string>
@@ -52,58 +104,5 @@
 			<string>UIInterfaceOrientationLandscapeLeft</string>
 			<string>UIInterfaceOrientationLandscapeRight</string>
 		</array>
-		<key>CADisableMinimumFrameDurationOnPhone</key>
-		<true/>
-		<key>UIApplicationSupportsIndirectInputEvents</key>
-		<true/>
-		<key>UIStatusBarHidden</key>
-		<false/>
-
-		<!-- ── Privacy Usage Description Strings (required by Apple) ──────────────
-		     Apple will reject any app that uses a protected framework without
-		     the matching NSxxxUsageDescription key in Info.plist.
-		     These strings are displayed to the user in the system permission dialog.
-		-->
-
-		<!-- Contacts — used by flutter_contacts to import client details -->
-		<key>NSContactsUsageDescription</key>
-		<string>NobleInvoice needs access to your contacts so you can quickly import client details when creating invoices, estimates, and business cards.</string>
-
-		<!-- Photo Library — used by image_picker to select logos, receipts, and product images -->
-		<key>NSPhotoLibraryUsageDescription</key>
-		<string>NobleInvoice needs access to your photo library so you can add your business logo, upload receipt images, and attach product photos.</string>
-
-		<!-- Camera — used by image_picker to capture receipts and document photos -->
-		<key>NSCameraUsageDescription</key>
-		<string>NobleInvoice needs access to your camera so you can photograph receipts for expense scanning and capture images for invoices and business cards.</string>
-
-		<!-- Microphone — required by speech_to_text for voice-assisted invoice creation -->
-		<key>NSMicrophoneUsageDescription</key>
-		<string>NobleInvoice needs microphone access to enable voice-assisted invoice creation so you can dictate invoice details hands-free.</string>
-
-		<!-- Speech Recognition — used by speech_to_text -->
-		<key>NSSpeechRecognitionUsageDescription</key>
-		<string>NobleInvoice uses speech recognition to convert your voice into invoice data so you can create invoices faster using voice commands.</string>
-
-		<!-- Location (When In Use) — used by geolocator for currency auto-detection -->
-		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>NobleInvoice uses your approximate location to automatically set the correct currency for your region. This improves the accuracy of invoices for international clients.</string>
-
-		<!-- Location (Always) — declared for completeness; actual usage is When In Use only -->
-		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-		<string>NobleInvoice uses your approximate location to automatically set the correct currency for your region.</string>
-
-		<!-- Face ID — used by local_auth for biometric app lock -->
-		<key>NSFaceIDUsageDescription</key>
-		<string>NobleInvoice uses Face ID to protect your account and keep your financial data secure.</string>
-
-		<!-- Bluetooth — required by some Flutter plugins; not actively used for user features -->
-		<key>NSBluetoothAlwaysUsageDescription</key>
-		<string>NobleInvoice may use Bluetooth for certain device communication features.</string>
-
-		<!-- Photo Library Additions — for saving exported documents and QR codes -->
-		<key>NSPhotoLibraryAddUsageDescription</key>
-		<string>NobleInvoice needs permission to save exported invoices, QR codes, and business card images to your photo library.</string>
-
 	</dict>
 </plist>

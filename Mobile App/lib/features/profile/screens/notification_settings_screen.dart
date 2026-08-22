@@ -63,7 +63,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
               child: Text(
-                'Get the most out of NobleInvoice with monthly AI-driven productivity insights.',
+                'Get the most out of Nobevra with monthly AI-driven productivity insights.',
                 style: TextStyle(color: Colors.grey.shade500, fontSize: 11, fontWeight: FontWeight.w500),
               ),
             ),
@@ -101,7 +101,7 @@ class _NotificationSettingsScreenState extends State<NotificationSettingsScreen>
             const SizedBox(width: 12),
             Expanded(
               child: Text(
-                'Control how NobleInvoice reaches you. These settings sync across all your mobile devices.',
+                'Control how Nobevra reaches you. These settings sync across all your mobile devices.',
                 style: TextStyle(color: Colors.grey.shade700, fontSize: 13, height: 1.4, fontWeight: FontWeight.w500),
               ),
             ),

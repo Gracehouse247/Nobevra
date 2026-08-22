@@ -62,7 +62,7 @@ class ReferralScreen extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Grow Together with NobleInvoice',
+            'Grow Together with Nobevra',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 28, fontWeight: FontWeight.w900, height: 1.1),
           ),

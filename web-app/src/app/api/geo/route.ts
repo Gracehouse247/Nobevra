@@ -24,7 +24,7 @@ export async function GET(request: Request) {
         }
 
         const geoRes = await fetch(`https://ipapi.co/${ip}/json/`, {
-            headers: { 'User-Agent': 'NobleInvoice/1.0' },
+            headers: { 'User-Agent': 'Nobevra/1.0' },
             next: { revalidate: 86400 } // Cache for 24h
         });
 

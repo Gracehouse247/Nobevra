@@ -10,22 +10,22 @@ export default function FreelancerQualifierFAQ() {
     const faqs = [
         {
             q: 'How do I invoice as a freelancer if I don\'t have a registered company?',
-            a: 'You don\'t need one. As a sole proprietor or independent contractor, your full legal name and address is all you need. NobleInvoice lets you set up your self-employed billing profile in under two minutes — no business registration required. Your invoices will still look completely professional to clients.',
+            a: 'You don\'t need one. As a sole proprietor or independent contractor, your full legal name and address is all you need. Nobevra lets you set up your self-employed billing profile in under two minutes — no business registration required. Your invoices will still look completely professional to clients.',
         },
         {
             q: 'What exactly should I include on a professional invoice for freelancers?',
-            a: 'At minimum: your name and contact details, the client\'s name and address, a unique invoice number, the date issued and the payment due date, an itemized list of the services you delivered (with rates and quantities), the total amount due, and clear payment instructions. NobleInvoice auto-fills most of this from your client CRM so you\'re not typing it out every single time.',
+            a: 'At minimum: your name and contact details, the client\'s name and address, a unique invoice number, the date issued and the payment due date, an itemized list of the services you delivered (with rates and quantities), the total amount due, and clear payment instructions. Nobevra auto-fills most of this from your client CRM so you\'re not typing it out every single time.',
         },
         {
             q: 'How do I get clients to pay faster?',
-            a: 'Three things move the needle the most: (1) Send your invoice the moment the work is done — not at the end of the month. (2) Make payment effortless with a one-click payment link instead of a PDF attachment. (3) Set payment terms clearly (e.g. Net 14). NobleInvoice handles all three out of the box, and our users typically see a 40% reduction in late payments within the first 60 days.',
+            a: 'Three things move the needle the most: (1) Send your invoice the moment the work is done — not at the end of the month. (2) Make payment effortless with a one-click payment link instead of a PDF attachment. (3) Set payment terms clearly (e.g. Net 14). Nobevra handles all three out of the box, and our users typically see a 40% reduction in late payments within the first 60 days.',
         },
         {
             q: 'What if a client goes quiet and doesn\'t pay?',
             a: 'This is the number one frustration in freelance billing. Our 3-Step Ghosting Framework handles it automatically: a polite 24-hour nudge, a firm Day 3 follow-up with a 1-click payment link, and a formal Day 7 notice with automated late fees applied. You never have to write an awkward email again — the system plays the bad cop while you stay professional.',
         },
         {
-            q: 'Can I use NobleInvoice as my freelancer billing app on mobile?',
+            q: 'Can I use Nobevra as my freelancer billing app on mobile?',
             a: 'Yes — it\'s built mobile-first. Whether you\'re on a job site, at a client meeting, or on the train home, you can create and send a professional invoice from your phone in under 60 seconds. No app download needed; it runs as a fully optimized mobile web app.',
         },
         {
@@ -34,11 +34,11 @@ export default function FreelancerQualifierFAQ() {
         },
         {
             q: 'How is this different from just using a Word or Excel template?',
-            a: 'A Word template creates a static PDF your client receives by email and then has to manually transfer money from. There is no tracking, no payment link, no reminders, and no read receipts. NobleInvoice turns your invoice into an interactive payment experience — your client clicks a link, sees a clean branded checkout, and pays in seconds. That single difference alone cuts average payment time from 30+ days to under 7.',
+            a: 'A Word template creates a static PDF your client receives by email and then has to manually transfer money from. There is no tracking, no payment link, no reminders, and no read receipts. Nobevra turns your invoice into an interactive payment experience — your client clicks a link, sees a clean branded checkout, and pays in seconds. That single difference alone cuts average payment time from 30+ days to under 7.',
         },
         {
             q: 'Do I need any accounting knowledge to use this?',
-            a: 'None at all. NobleInvoice is built for freelancers, creators, and independent contractors — not accountants. The interface is intentionally simple. If you can fill out a form, you can use it. Send your first professional invoice in under 60 seconds with zero financial training.',
+            a: 'None at all. Nobevra is built for freelancers, creators, and independent contractors — not accountants. The interface is intentionally simple. If you can fill out a form, you can use it. Send your first professional invoice in under 60 seconds with zero financial training.',
         },
         {
             q: 'Can I brand my invoices with my own logo and colors?',
@@ -50,7 +50,7 @@ export default function FreelancerQualifierFAQ() {
         },
         {
             q: 'Can I invoice international clients in their currency?',
-            a: 'Yes. NobleInvoice supports multi-currency invoicing. Bill a UK client in GBP, a German client in EUR, and a US client in USD — all from the same account. Our integrated payment gateways handle the currency conversion automatically.',
+            a: 'Yes. Nobevra supports multi-currency invoicing. Bill a UK client in GBP, a German client in EUR, and a US client in USD — all from the same account. Our integrated payment gateways handle the currency conversion automatically.',
         },
         {
             q: 'Can I set up recurring invoices for monthly retainer clients?',
@@ -84,7 +84,7 @@ export default function FreelancerQualifierFAQ() {
                         </h2>
                         <div className="text-base md:text-lg text-near-black/60 space-y-5 leading-relaxed">
                             <p>
-                                NobleInvoice is built for freelancers, independent contractors, and self-employed professionals who want to get paid faster without the complexity of enterprise accounting software.
+                                Nobevra is built for freelancers, independent contractors, and self-employed professionals who want to get paid faster without the complexity of enterprise accounting software.
                             </p>
                             <p>
                                 If you are a one-person operation doing a handful of invoices a year and you genuinely don't mind copy-pasting bank details into emails — a basic template works fine. You probably don't need us yet.

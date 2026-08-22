@@ -74,8 +74,8 @@ const SEO_TIPS = [
 
 const TIER_COLORS: Record<string, string> = {
   explorer: '#cbd5e1',
-  pulse:    '#0599D5',
-  pro:      '#0599D5',
+  pulse:    '#01A0E2',
+  pro:      '#01A0E2',
   elite:    '#f59e0b',
 };
 
@@ -92,7 +92,7 @@ const PRIORITY_STYLES: Record<string, string> = {
   low:    'bg-emerald-50 text-emerald-700 border border-emerald-200',
 };
 
-const TRAFFIC_COLORS = ['#006970', '#0599D5', '#33b8c8', '#80d4dc', '#b9cacb'];
+const TRAFFIC_COLORS = ['#006970', '#01A0E2', '#33b8c8', '#80d4dc', '#b9cacb'];
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -312,7 +312,7 @@ export default function AnalyticsPage() {
               Performance Intelligence
             </h1>
             <p className="text-sm font-medium text-slate-500">
-              Live metrics and growth opportunities for NobleInvoice.
+              Live metrics and growth opportunities for Nobevra.
             </p>
           </div>
 

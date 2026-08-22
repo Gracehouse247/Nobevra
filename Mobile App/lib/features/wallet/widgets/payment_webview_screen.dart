@@ -23,7 +23,7 @@ class PaymentResult {
 /// Premium in-app payment WebView.
 /// Renders the full Flutterwave or Paystack checkout page inside the app.
 /// Intercepts redirect URLs to detect success/failure without ever opening
-/// an external browser — keeping the user 100% within NobleInvoice.
+/// an external browser — keeping the user 100% within Nobevra.
 class PaymentWebViewScreen extends StatefulWidget {
   final String checkoutUrl;
   final String txRef;

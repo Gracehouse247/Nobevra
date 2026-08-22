@@ -17,7 +17,7 @@ export default function BitcoinForm({ onChange, initialData, onPreviewValueChang
         
         if (params.length > 0) uri += `?${params.join('&')}`;
         
-        onPreviewValueChange(address ? uri : 'https://nobleinvoice.com');
+        onPreviewValueChange(address ? uri : 'https://nobevra.noblesworld.com.ng');
     }, [address, amount, message]);
 
     return (

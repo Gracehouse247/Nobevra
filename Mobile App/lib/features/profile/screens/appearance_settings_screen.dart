@@ -60,7 +60,7 @@ class _AppearanceSettingsScreenState extends State<AppearanceSettingsScreen> {
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 40),
                 child: Text(
-                  'Language changes will be applied instantly across the entire NobleInvoice platform.',
+                  'Language changes will be applied instantly across the entire Nobevra platform.',
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.grey, fontSize: 11, fontWeight: FontWeight.w500, height: 1.5),
                 ),

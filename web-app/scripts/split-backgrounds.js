@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const project = new Project();
-const outDir = 'C:\\Projects\\NobleInvoice Web App Project\\web-app\\src\\components\\invoice\\templates\\backgrounds';
-const inputFile = 'C:\\Projects\\NobleInvoice Web App Project\\web-app\\src\\components\\invoice\\templates\\BackgroundRenderers.tsx';
+const outDir = 'C:\\Projects\\Nobevra Web App Project\\web-app\\src\\components\\invoice\\templates\\backgrounds';
+const inputFile = 'C:\\Projects\\Nobevra Web App Project\\web-app\\src\\components\\invoice\\templates\\BackgroundRenderers.tsx';
 
 if (!fs.existsSync(outDir)) {
   fs.mkdirSync(outDir, { recursive: true });

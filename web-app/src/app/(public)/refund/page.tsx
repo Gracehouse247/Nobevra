@@ -46,10 +46,10 @@ const CATEGORIES = [
 const content = `
 ### 1. OVERVIEW
 
-This Refund & Cancellation Policy explains when and how you may cancel your NobleInvoice subscription, and when you may be eligible to receive a refund. This policy forms part of the NobleInvoice Terms of Service.
+This Refund & Cancellation Policy explains when and how you may cancel your Nobevra subscription, and when you may be eligible to receive a refund. This policy forms part of the Nobevra Terms of Service.
 
 **Effective Date:** August 8, 2026  
-**Applies to:** All NobleInvoice subscription plans — Explorer (free), Pay-As-You-Go, Noble Pulse, and Noble Elite.
+**Applies to:** All Nobevra subscription plans — Explorer (free), Pay-As-You-Go, Noble Pulse, and Noble Elite.
 
 ---
 
@@ -75,7 +75,7 @@ You may cancel your subscription through any of the following methods:
 
 **By email:** Contact our support team at **invoice@noblesworld.com.ng** with the subject line "Cancel Subscription" and include your registered email address.
 
-NobleInvoice is committed to making cancellation at least as easy as sign-up. We will not require you to call a phone number, complete unnecessary steps, or navigate deliberately confusing flows to cancel.
+Nobevra is committed to making cancellation at least as easy as sign-up. We will not require you to call a phone number, complete unnecessary steps, or navigate deliberately confusing flows to cancel.
 
 We aim to process email cancellation requests within 2 business days. We will send a confirmation email once cancellation has been processed.
 
@@ -90,7 +90,7 @@ We aim to process email cancellation requests within 2 business days. We will se
 | Data after downgrade | Existing data retained; subject to Explorer plan limits |
 | Reactivation | You may resubscribe at any time from the upgrade page |
 
-Downgrading from Noble Elite to Explorer may make certain features (team workspace, API access, custom domain, unlimited estimates) unavailable. Data associated with those features may become read-only. NobleInvoice will make commercially reasonable efforts to warn you before any data becomes irreversibly inaccessible.
+Downgrading from Noble Elite to Explorer may make certain features (team workspace, API access, custom domain, unlimited estimates) unavailable. Data associated with those features may become read-only. Nobevra will make commercially reasonable efforts to warn you before any data becomes irreversibly inaccessible.
 
 ---
 
@@ -106,19 +106,19 @@ This general position is subject to the exceptions set out below and to mandator
 
 ### 6. ELIGIBLE REFUND SCENARIOS
 
-NobleInvoice will consider refund requests in the following circumstances:
+Nobevra will consider refund requests in the following circumstances:
 
 **A. Duplicate charge or billing error**
 If you were charged more than once for the same billing period, or if there was a clear billing system error, you are entitled to a full refund of the duplicate or erroneous charge. Please contact us within 30 days of the charge.
 
 **B. Charge after confirmed cancellation**
-If you were charged after a cancellation that was confirmed in writing by NobleInvoice, you are entitled to a full refund of that charge.
+If you were charged after a cancellation that was confirmed in writing by Nobevra, you are entitled to a full refund of that charge.
 
 **C. Service unavailability**
-If NobleInvoice was unavailable for a continuous period materially affecting your ability to use the Service during your paid billing period, and the unavailability was caused by NobleInvoice's systems rather than a third-party provider or circumstances beyond our control, we may, at our discretion, issue a proportionate credit or refund.
+If Nobevra was unavailable for a continuous period materially affecting your ability to use the Service during your paid billing period, and the unavailability was caused by Nobevra's systems rather than a third-party provider or circumstances beyond our control, we may, at our discretion, issue a proportionate credit or refund.
 
 **D. First-time subscriber — 7-day satisfaction request**
-First-time Noble Pulse or Noble Elite subscribers who cancel within 7 calendar days of their initial subscription payment may submit a goodwill refund request. Approval is at NobleInvoice's discretion. This applies only to the first subscription purchase by a given account and does not apply to renewals, upgrades, or accounts that have previously received a goodwill refund.
+First-time Noble Pulse or Noble Elite subscribers who cancel within 7 calendar days of their initial subscription payment may submit a goodwill refund request. Approval is at Nobevra's discretion. This applies only to the first subscription purchase by a given account and does not apply to renewals, upgrades, or accounts that have previously received a goodwill refund.
 
 **E. Mandatory statutory rights**
 Where applicable law grants you a mandatory right of withdrawal or refund — for example, statutory cooling-off rights under Nigerian consumer protection law (FCCPA 2018) or applicable EU/UK consumer regulations — those rights apply and are not excluded by this policy. Please contact us to exercise statutory rights.
@@ -171,7 +171,7 @@ If you believe a PAYG purchase was not delivered correctly, contact us at invoic
 
 If a subscription payment fails (for example, due to an expired card, insufficient funds, or a payment provider issue):
 
-1. NobleInvoice will attempt to retry the payment.
+1. Nobevra will attempt to retry the payment.
 2. If retry fails, a **grace period** may apply during which premium features remain accessible.
 3. If payment is not resolved within the grace period, premium features may be suspended and the account may be downgraded to the Explorer (free) plan.
 4. You will receive email notifications about failed payments and how to update your payment method.
@@ -182,7 +182,7 @@ You are not charged for the grace period if the subscription ultimately lapses. 
 
 ### 11. PRICE CHANGES
 
-NobleInvoice may change subscription prices from time to time. If prices change:
+Nobevra may change subscription prices from time to time. If prices change:
 
 * Existing subscribers will receive **at least 30 days' notice** before a price increase takes effect on their renewal.
 * Notice will be provided by email and/or in-app notification.
@@ -207,7 +207,7 @@ Where mandatory statutory rights apply to your transaction, they take precedence
 
 For cancellation requests, refund requests, billing questions, or to exercise consumer rights:
 
-**NobleInvoice Support**  
+**Nobevra Support**  
 Email: **invoice@noblesworld.com.ng**  
 Legal/Billing: **legal@noblesworld.com.ng**  
 Response time: 2–5 business days  
@@ -217,7 +217,7 @@ export default function RefundPage() {
   return (
     <LegalLayout
       title="Refund & Cancellation Policy"
-      description="This policy explains how to cancel your NobleInvoice subscription, when refunds are available, and how to request them. We are committed to making both sign-up and cancellation straightforward."
+      description="This policy explains how to cancel your Nobevra subscription, when refunds are available, and how to request them. We are committed to making both sign-up and cancellation straightforward."
       categories={CATEGORIES}
     >
       <div className="prose prose-slate prose-a:text-blue-600 prose-headings:text-slate-900 max-w-none prose-h3:text-2xl prose-h3:font-black prose-h3:mt-12 prose-h3:scroll-mt-24 prose-table:text-sm">

@@ -4,8 +4,8 @@ import { ShieldCheck, Eye, Lock, RefreshCcw, ArrowLeft } from 'lucide-react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Data Transparency Report — NobleInvoice Security',
-  description: 'NobleInvoice data transparency report. See how we handle your billing data, invoice records, and financial information with complete accountability and security.',
+  title: 'Data Transparency Report — Nobevra Security',
+  description: 'Nobevra data transparency report. See how we handle your billing data, invoice records, and financial information with complete accountability and security.',
   keywords: ['data transparency', 'privacy transparency', 'billing security', 'secure financial data'],
 };
 
@@ -31,7 +31,7 @@ export default function DataTransparencyPage() {
 
                 <div className="space-y-8 text-slate-300 leading-relaxed text-sm md:text-base selection:bg-emerald-500/30">
                     <p className="text-lg font-medium text-white border-b border-white/10 pb-6 mb-8">
-                        NobleInvoice relies on behavioral telemetry to synchronize your schedule with your biological rhythms. Because this requires personal workflow data, we believe in radical transparency regarding what is stored.
+                        Nobevra relies on behavioral telemetry to synchronize your schedule with your biological rhythms. Because this requires personal workflow data, we believe in radical transparency regarding what is stored.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6">

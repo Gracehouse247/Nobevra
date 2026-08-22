@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-let blogSlug = 'C:/Projects/NobleInvoice/web-app/src/app/(public)/blog/[slug]/page.tsx';
+let blogSlug = 'C:/Projects/Nobevra/web-app/src/app/(public)/blog/[slug]/page.tsx';
 let c = fs.readFileSync(blogSlug, 'utf8');
 
 if (!c.includes('unstable_cache')) {

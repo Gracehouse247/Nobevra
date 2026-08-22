@@ -44,7 +44,7 @@ export default function PremiumGate({
                     <Lock className="w-5 h-5" />
                 </div>
                 <h3 className="text-sm font-bold text-foreground  font-manrope">
-                    NobleInvoice {tier === 'elite' ? 'Elite' : 'Pro'} Feature
+                    Nobevra {tier === 'elite' ? 'Elite' : 'Pro'} Feature
                 </h3>
                 <p className="text-[11px] text-slate-500 dark:text-slate-400 dark:text-slate-500 max-w-[200px] mx-auto leading-relaxed">
                     Unlock {featureName} and deep cognitive insights with a {tier === 'elite' ? 'Elite' : 'Pro'} subscription.

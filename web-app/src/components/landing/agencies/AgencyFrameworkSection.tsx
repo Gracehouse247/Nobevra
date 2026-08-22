@@ -16,7 +16,7 @@ const steps = [
         icon: FileEdit,
         title: 'Bill (Automated Generation)',
         tag: 'Creative Agency Invoicing',
-        desc: 'On the 1st of the month, NobleInvoice automatically generates the invoice. It pulls in the base retainer amount AND automatically appends any out-of-scope overages logged during the month into a single, beautiful PDF.',
+        desc: 'On the 1st of the month, Nobevra automatically generates the invoice. It pulls in the base retainer amount AND automatically appends any out-of-scope overages logged during the month into a single, beautiful PDF.',
         color: 'bg-violet-100 text-violet-600',
         numBg: 'bg-violet-500',
     },
@@ -41,7 +41,7 @@ export default function AgencyFrameworkSection() {
                         The Proposal-to-Payment Flow
                     </div>
                     <h2 className="font-inter text-[32px] md:text-[48px] font-black text-near-black leading-[1.1] mb-6 tracking-tight">
-                        How NobleInvoice handles client billing for marketing agencies.
+                        How Nobevra handles client billing for marketing agencies.
                     </h2>
                     <p className="text-slate-600 text-lg font-medium leading-relaxed">
                         A single, automated flow that ensures every hour worked translates into cash collected.

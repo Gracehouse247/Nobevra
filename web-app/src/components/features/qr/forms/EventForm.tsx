@@ -15,7 +15,7 @@ export default function EventForm({ onChange, initialData, onPreviewValueChange 
         // Very simplified vEvent format for quick preview
         const formattedStr = `BEGIN:VEVENT\nSUMMARY:${title}\nLOCATION:${location}\nDTSTART:${date.replace(/[-:]/g, '')}T${time.replace(/[-:]/g, '')}00Z\nDESCRIPTION:${description}\nURL:${rsvpUrl}\nEND:VEVENT`;
         
-        onPreviewValueChange(title ? formattedStr : 'https://nobleinvoice.com');
+        onPreviewValueChange(title ? formattedStr : 'https://nobevra.noblesworld.com.ng');
     }, [title, location, date, time, description, rsvpUrl]);
 
     return (

@@ -13,7 +13,7 @@ export default function EnterpriseCTA() {
                 </h2>
                 
                 <p className="text-lg text-slate-300 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
-                    From 100 to 10,000 invoices a month. NobleInvoice Elite grows with your operation, without the usual enterprise pain.
+                    From 100 to 10,000 invoices a month. Nobevra Elite grows with your operation, without the usual enterprise pain.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row justify-center gap-4 items-center mb-8">

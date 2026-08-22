@@ -8,7 +8,7 @@ param (
 )
 
 $projectPath = "c:\Projects\NobleGo\Moble App"
-$appId = "com.noblesworld.noblego"
+$appId = "com.noblesworld.nobevra"
 $logFile = "$projectPath\agent_skills\build_log.txt"
 
 function Write-Log {

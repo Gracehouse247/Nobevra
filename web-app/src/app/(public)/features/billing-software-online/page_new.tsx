@@ -23,7 +23,7 @@ export default function ClientPortalPage() {
         "name": "What is the best billing software online?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The best billing software online is one that prioritizes your client's checkout experience. NobleInvoice provides a secure, white-labeled client portal that makes solo freelancers look like enterprise agencies, reducing payment friction."
+          "text": "The best billing software online is one that prioritizes your client's checkout experience. Nobevra provides a secure, white-labeled client portal that makes solo freelancers look like enterprise agencies, reducing payment friction."
         }
       },
       {
@@ -31,7 +31,7 @@ export default function ClientPortalPage() {
         "name": "Is there billing software online free of charge?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, you can start using NobleInvoice's billing software online free of charge. It allows you to set up your branded portal and send documents immediately without entering a credit card."
+          "text": "Yes, you can start using Nobevra's billing software online free of charge. It allows you to set up your branded portal and send documents immediately without entering a credit card."
         }
       },
       {
@@ -47,7 +47,7 @@ export default function ClientPortalPage() {
         "name": "What is the best invoice app free to download?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "NobleInvoice is highly rated as the best invoice app free for professionals who need an enterprise-grade client portal rather than just a basic PDF generator."
+          "text": "Nobevra is highly rated as the best invoice app free for professionals who need an enterprise-grade client portal rather than just a basic PDF generator."
         }
       },
       {
@@ -55,7 +55,7 @@ export default function ClientPortalPage() {
         "name": "Do I need accounting knowledge to use this billing software?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Not at all. NobleInvoice is designed specifically for business owners, not accountants. Our intuitive interface allows you to create and send your first professional invoice in under 60 seconds without any prior financial training."
+          "text": "Not at all. Nobevra is designed specifically for business owners, not accountants. Our intuitive interface allows you to create and send your first professional invoice in under 60 seconds without any prior financial training."
         }
       }
     ]
@@ -86,7 +86,7 @@ export default function ClientPortalPage() {
             </h1>
             
             <p className="text-base md:text-lg text-near-black/60 max-w-xl mb-10 leading-relaxed">
-              Stop sending sketchy PDF attachments. NobleInvoice is the premier online billing software that gives your clients a secure, branded portal to review work and pay instantly. Command higher rates and get paid 2x faster.
+              Stop sending sketchy PDF attachments. Nobevra is the premier online billing software that gives your clients a secure, branded portal to review work and pay instantly. Command higher rates and get paid 2x faster.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -105,7 +105,7 @@ export default function ClientPortalPage() {
                 <div className="flex -space-x-3">
                     {[
                         { bg: 'bg-noble-blue', text: 'SJ' },
-                        { bg: 'bg-[#0599D5]', text: 'MT' },
+                        { bg: 'bg-[#01A0E2]', text: 'MT' },
                         { bg: 'bg-primary', text: 'ER' },
                     ].map((a, i) => (
                         <div
@@ -375,7 +375,7 @@ export default function ClientPortalPage() {
                   Reclaim <span className="text-noble-blue">20+ Hours</span> Every Month.
               </h2>
               <p className="text-base md:text-lg text-near-black/50 max-w-2xl mx-auto leading-relaxed">
-                  Most freelancers and small businesses lose money to manual billing and delayed payments. Calculate exactly how much you'll gain with NobleInvoice's automation.
+                  Most freelancers and small businesses lose money to manual billing and delayed payments. Calculate exactly how much you'll gain with Nobevra's automation.
               </p>
           </div>
           <div className="px-4 md:px-16 max-w-[1200px] mx-auto noble-card-shadow rounded-[32px]">
@@ -420,7 +420,7 @@ export default function ClientPortalPage() {
                       The 1% Choice
                   </div>
                   <h2 className="font-inter text-4xl lg:text-5xl font-black text-near-black leading-[1.1] tracking-tight">
-                      Compare NobleInvoice vs. Alternatives
+                      Compare Nobevra vs. Alternatives
                   </h2>
               </div>
 
@@ -430,7 +430,7 @@ export default function ClientPortalPage() {
                           <thead>
                               <tr className="bg-slate-50 border-b border-slate-100">
                                   <th className="p-6 font-bold text-slate-400 uppercase tracking-widest text-xs w-1/3">Feature</th>
-                                  <th className="p-6 font-black text-noble-blue text-xl border-x border-slate-100 bg-noble-blue/5 w-1/3">NobleInvoice</th>
+                                  <th className="p-6 font-black text-noble-blue text-xl border-x border-slate-100 bg-noble-blue/5 w-1/3">Nobevra</th>
                                   <th className="p-6 font-bold text-slate-500 text-lg w-1/3">Legacy Billing Software</th>
                               </tr>
                           </thead>

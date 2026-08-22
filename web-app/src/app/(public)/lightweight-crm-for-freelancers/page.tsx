@@ -11,7 +11,7 @@ import {
 
 /* ── SEO Metadata ───────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Lightweight CRM for Freelancers | Ditch the Spreadsheets | NobleInvoice',
+    title: 'Lightweight CRM for Freelancers | Ditch the Spreadsheets | Nobevra',
     description: 'The simple client management software built specifically for solo founders. Stop fighting enterprise CRMs and organize your freelance client tracker today.',
     keywords: [
         'CRM for freelancers',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Lightweight CRM for Freelancers | Ditch the Spreadsheets',
         description: 'Organize your clients without the corporate bloat.',
-        url: 'https://nobleinvoice.com/freelance-crm',
+        url: '/freelance-crm',
         type: 'website',
     },
 };
@@ -78,7 +78,7 @@ const features = [
     {
         icon: Contact,
         title: 'Integrated Billing',
-        desc: 'Because NobleInvoice is fundamentally a financial engine, your CRM is directly wired to your invoices. Track exactly how much revenue each client generates.',
+        desc: 'Because Nobevra is fundamentally a financial engine, your CRM is directly wired to your invoices. Track exactly how much revenue each client generates.',
         tag: 'Solo Founder CRM',
     },
 ];
@@ -97,7 +97,7 @@ const faqs = [
     },
     {
         q: 'How is this different from HubSpot or Salesforce?',
-        a: "Those tools are built for massive sales teams. They require complex setup, pipeline configuration, and data entry rules. NobleInvoice's CRM is built specifically for freelancers—it acts as a quiet, powerful vault for your contacts and invoices without demanding constant maintenance.",
+        a: "Those tools are built for massive sales teams. They require complex setup, pipeline configuration, and data entry rules. Nobevra's CRM is built specifically for freelancers—it acts as a quiet, powerful vault for your contacts and invoices without demanding constant maintenance.",
     },
     {
         q: 'Can I import my existing clients from a spreadsheet?',
@@ -116,8 +116,8 @@ const faqs = [
         a: 'A solo founder CRM is built around the reality of running a one-person business. It has no user seats, no administrator roles, no complex permissions. Just you, your clients, and a clean interface. Ours is fully integrated with billing, so your CRM and invoicing software are never out of sync.',
     },
     {
-        q: 'Does NobleInvoice replace tools like Bonsai or Dubsado?',
-        a: 'For many freelancers, yes. Bonsai and Dubsado are powerful but expensive, often bundling features you will never use. NobleInvoice focuses on what makes you money: a clean client tracker, fast invoice generation, and real-time payment tracking—without the monthly fees for features you ignore.',
+        q: 'Does Nobevra replace tools like Bonsai or Dubsado?',
+        a: 'For many freelancers, yes. Bonsai and Dubsado are powerful but expensive, often bundling features you will never use. Nobevra focuses on what makes you money: a clean client tracker, fast invoice generation, and real-time payment tracking—without the monthly fees for features you ignore.',
     },
     {
         q: 'Is a spreadsheet enough to manage clients?',
@@ -131,7 +131,7 @@ const faqs = [
 
 const reviews = [
     {
-        quote: "I tried using a big-name CRM and spent more time configuring pipelines than doing actual work. NobleInvoice is the perfect freelance client tracker. It just works.",
+        quote: "I tried using a big-name CRM and spent more time configuring pipelines than doing actual work. Nobevra is the perfect freelance client tracker. It just works.",
         name: "David Chen",
         role: "Freelance Developer",
         image: "/images/reviews/david-chen-ceo-at-nexus-tech.png",
@@ -201,7 +201,7 @@ const generateSoftwareSchema = () => {
     return {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "NobleInvoice Freelance CRM",
+        "name": "Nobevra Freelance CRM",
         "operatingSystem": "Web, iOS, Android",
         "applicationCategory": "BusinessApplication",
         "aggregateRating": {
@@ -291,7 +291,7 @@ export default function FreelanceCRMPage() {
                             <div className="relative w-full rounded-[20px] overflow-hidden shadow-2xl border border-slate-200/50">
                                 <Image 
                                     src="/images/freelance-crm-hero.png" 
-                                    alt="NobleInvoice Client Ledger Interface displaying a lightweight CRM for freelancers with total clients, active VIP leads, and client score tracking"
+                                    alt="Nobevra Client Ledger Interface displaying a lightweight CRM for freelancers with total clients, active VIP leads, and client score tracking"
                                     width={1200}
                                     height={800}
                                     className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
@@ -381,7 +381,7 @@ export default function FreelanceCRMPage() {
                         {[
                             { title: 'The Configuration Sink', icon: ShieldCheck, desc: 'Corporate CRMs require hours of setup. You have to map custom fields, set up lead scoring, and build territory rules for a territory of... just you.' },
                             { title: 'The Friction Penalty', icon: Lock, desc: 'Every time you add a contact, you face 15 mandatory fields. The friction is so high that you end up bypassing the CRM entirely and going back to Apple Notes.' },
-                            { title: 'The Lightweight Antidote', icon: Zap, desc: 'NobleInvoice acts as a silent vault. Drop a name and an email, and you are done. The software gets out of your way so you can get back to billable work.' },
+                            { title: 'The Lightweight Antidote', icon: Zap, desc: 'Nobevra acts as a silent vault. Drop a name and an email, and you are done. The software gets out of your way so you can get back to billable work.' },
                         ].map((item, i) => (
                             <div key={item.title} className="p-8 rounded-[32px] bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
                                 <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
@@ -566,7 +566,7 @@ export default function FreelanceCRMPage() {
                 <div className="max-w-[1430px] mx-auto px-4 md:px-16">
                     <div className="text-center max-w-2xl mx-auto mb-16">
                         <h2 id="comparison-heading" className="font-inter font-black text-[28px] md:text-[44px] text-near-black leading-[1.1] tracking-tight mb-6">
-                            NobleInvoice vs. the alternatives
+                            Nobevra vs. the alternatives
                         </h2>
                         <p className="text-slate-500 text-base leading-relaxed">
                             A no-fluff comparison against the tools freelancers actually consider. See why a purpose-built <strong>lightweight CRM</strong> wins every time.
@@ -578,7 +578,7 @@ export default function FreelanceCRMPage() {
                             <thead>
                                 <tr className="bg-slate-900 text-white">
                                     <th className="text-left py-5 px-6 font-black text-sm rounded-tl-[28px]">Feature</th>
-                                    <th className="text-center py-5 px-4 font-black text-noble-blue bg-noble-blue/20">NobleInvoice</th>
+                                    <th className="text-center py-5 px-4 font-black text-noble-blue bg-noble-blue/20">Nobevra</th>
                                     <th className="text-center py-5 px-4 font-black text-slate-300">HubSpot</th>
                                     <th className="text-center py-5 px-4 font-black text-slate-300">Bonsai</th>
                                     <th className="text-center py-5 px-4 font-black text-slate-300 rounded-tr-[28px]">Dubsado</th>
@@ -637,7 +637,7 @@ export default function FreelanceCRMPage() {
                             <p className="text-sm text-slate-400 font-medium">
                                 If you just want a beautifully clean vault for your clients —{' '}
                                 <Link href="/register" className="text-cyan-400 font-black hover:underline">
-                                    NobleInvoice is built for you.
+                                    Nobevra is built for you.
                                 </Link>
                             </p>
                         </div>

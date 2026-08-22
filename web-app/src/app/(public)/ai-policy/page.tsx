@@ -12,7 +12,7 @@ const CATEGORIES = [
     title: "AI Overview",
     sections: [
       { id: "1-introduction", label: "Introduction", icon: Cpu },
-      { id: "2-ai-features-in-nobleinvoice", label: "AI Features", icon: Cpu },
+      { id: "2-ai-features-in-nobevra", label: "AI Features", icon: Cpu },
       { id: "3-ai-providers", label: "AI Providers", icon: Globe },
     ],
   },
@@ -47,26 +47,26 @@ const CATEGORIES = [
 const content = `
 ### 1. INTRODUCTION
 
-NobleInvoice integrates artificial intelligence to help users create invoices faster, scan receipts more efficiently, and gain insights into their business performance. We believe AI should be useful, transparent, and clearly bounded by human accountability.
+Nobevra integrates artificial intelligence to help users create invoices faster, scan receipts more efficiently, and gain insights into their business performance. We believe AI should be useful, transparent, and clearly bounded by human accountability.
 
 This AI & Responsible AI Policy explains:
-* Which AI features NobleInvoice provides.
+* Which AI features Nobevra provides.
 * Which AI providers power those features.
 * What data is submitted to AI systems.
 * How that data is handled.
 * The limitations of AI-generated outputs.
 * Your responsibilities when using AI features.
-* NobleInvoice's responsible AI principles.
+* Nobevra's responsible AI principles.
 
-This policy forms part of the NobleInvoice [Terms of Service](https://invoice.noblesworld.com.ng/terms) and should be read alongside the [Privacy Policy](https://invoice.noblesworld.com.ng/privacy).
+This policy forms part of the Nobevra [Terms of Service](https://nobevra.noblesworld.com.ng/terms) and should be read alongside the [Privacy Policy](https://nobevra.noblesworld.com.ng/privacy).
 
 **Effective Date:** August 8, 2026
 
 ---
 
-### 2. AI FEATURES IN NOBLEINVOICE
+### 2. AI FEATURES IN NOBEVRA
 
-NobleInvoice currently provides the following AI-powered features:
+Nobevra currently provides the following AI-powered features:
 
 | Feature | Description | Available On |
 |---|---|---|
@@ -81,7 +81,7 @@ Additional AI-powered features may be introduced from time to time. This policy 
 
 ### 3. AI PROVIDERS
 
-All current AI features in NobleInvoice are powered by:
+All current AI features in Nobevra are powered by:
 
 **Google Gemini API (Google LLC)**
 
@@ -97,7 +97,7 @@ Google LLC acts as a **data processor** with respect to data submitted through t
 Google's AI principles and practices: [ai.google/principles](https://ai.google/principles)  
 Google's privacy policy: [policies.google.com/privacy](https://policies.google.com/privacy)
 
-NobleInvoice does not use Groq, OpenAI, Anthropic, or any other AI provider in its current production environment. This policy will be updated if additional AI providers are integrated.
+Nobevra does not use Groq, OpenAI, Anthropic, or any other AI provider in its current production environment. This policy will be updated if additional AI providers are integrated.
 
 ---
 
@@ -121,8 +121,8 @@ The following data categories may be submitted to the Google Gemini API dependin
 
 ### 5. DATA RETENTION AND TRAINING
 
-**NobleInvoice's database:**
-* The **content** of AI sessions (messages, receipt images, voice inputs) is **not stored** in the NobleInvoice database.
+**Nobevra's database:**
+* The **content** of AI sessions (messages, receipt images, voice inputs) is **not stored** in the Nobevra database.
 * Only **usage counts** (how many AI operations you have used in the current billing period) are recorded in the database.
 * This design minimizes our data retention footprint for AI interactions.
 
@@ -132,7 +132,7 @@ Per Google's API Terms of Service for the Gemini API:
 * Google may retain submitted data for a limited period for safety and abuse monitoring purposes, subject to their data retention policies.
 * Enterprises using the API may have additional contractual protections available.
 
-NobleInvoice does not train, fine-tune, or use your data to improve its own AI models.
+Nobevra does not train, fine-tune, or use your data to improve its own AI models.
 
 ---
 
@@ -142,9 +142,9 @@ When you use AI features, data submitted may constitute personal data under the 
 
 **As controller:** You remain responsible for ensuring that any personal data you submit to AI features is processed in accordance with applicable data-protection law, including ensuring you have a lawful basis to share that data.
 
-**As processor:** NobleInvoice processes such data on your behalf to deliver the AI feature you have requested, as described in the Privacy Policy.
+**As processor:** Nobevra processes such data on your behalf to deliver the AI feature you have requested, as described in the Privacy Policy.
 
-**Data subject rights:** Where AI processing affects individuals' personal data, data-subject rights (access, correction, deletion) should be directed to NobleInvoice via privacy@noblesworld.com.ng. Where data has been transmitted to Google and you require deletion, we will coordinate with Google's applicable procedures.
+**Data subject rights:** Where AI processing affects individuals' personal data, data-subject rights (access, correction, deletion) should be directed to Nobevra via privacy@noblesworld.com.ng. Where data has been transmitted to Google and you require deletion, we will coordinate with Google's applicable procedures.
 
 ---
 
@@ -157,15 +157,15 @@ Specific limitations you should be aware of:
 * **Invoice generation:** AI-generated invoices may contain incorrect line items, prices, dates, tax calculations, client details, or formatting errors. You must review all AI-generated invoices before sending them to clients.
 * **Receipt OCR:** Extracted amounts, dates, vendor names, and line items may be incorrect due to image quality, unusual receipt formats, handwriting, or model limitations. Always verify extracted data against the source document.
 * **Report insights:** AI narrative summaries are based on your stored financial data and may reflect errors in that data. They are not a substitute for professional accounting analysis.
-* **AI assistant:** Responses may be outdated, incorrect, or not applicable to your specific jurisdiction or industry. NobleInvoice AI does not provide legal, tax, accounting, financial, investment, or medical advice.
+* **AI assistant:** Responses may be outdated, incorrect, or not applicable to your specific jurisdiction or industry. Nobevra AI does not provide legal, tax, accounting, financial, investment, or medical advice.
 
-**NobleInvoice is not liable for decisions made in reliance on unreviewed AI-generated content.**
+**Nobevra is not liable for decisions made in reliance on unreviewed AI-generated content.**
 
 ---
 
 ### 8. PROHIBITED AI USAGE
 
-You must not use NobleInvoice's AI features to:
+You must not use Nobevra's AI features to:
 
 * Generate fraudulent invoices, false business records, or fabricated receipts.
 * Create content designed to deceive, defraud, harass, or harm individuals.
@@ -179,10 +179,10 @@ You must not use NobleInvoice's AI features to:
 
 ### 9. HUMAN OVERSIGHT
 
-NobleInvoice is designed with human oversight in mind:
+Nobevra is designed with human oversight in mind:
 
 * AI features are assistive — they produce drafts or suggestions that you must review before use.
-* No AI feature in NobleInvoice automatically sends invoices, makes payments, or takes legally binding actions without your explicit confirmation.
+* No AI feature in Nobevra automatically sends invoices, makes payments, or takes legally binding actions without your explicit confirmation.
 * AI-generated invoice drafts must be manually reviewed and sent by you.
 * Receipt OCR extractions are presented for your review before being saved.
 * Report insights are advisory only and do not trigger automated financial actions.
@@ -193,26 +193,26 @@ You are the responsible decision-maker. AI is a tool, not an autonomous agent.
 
 ### 10. AI-GENERATED CONTENT
 
-Any content generated by AI features and saved or sent through NobleInvoice becomes your content, subject to the Terms of Service. You are responsible for:
+Any content generated by AI features and saved or sent through Nobevra becomes your content, subject to the Terms of Service. You are responsible for:
 
 * The accuracy of AI-generated invoices sent to clients.
 * Compliance with applicable consumer protection and trading standards laws regarding statements in invoices or product descriptions.
 * Reviewing OCR-extracted data before recording it as a business expense.
 * Not relying on AI-generated tax figures without independent verification.
 
-NobleInvoice is not liable for losses arising from your reliance on AI-generated content that you did not review.
+Nobevra is not liable for losses arising from your reliance on AI-generated content that you did not review.
 
 ---
 
 ### 11. RESPONSIBLE AI PRINCIPLES
 
-NobleInvoice's approach to AI is guided by the following principles:
+Nobevra's approach to AI is guided by the following principles:
 
 **Transparency**
 We clearly disclose which AI features we offer, which providers power them, and what data is submitted. We do not use AI in hidden or opaque ways that affect your account without your knowledge.
 
 **Human accountability**
-AI in NobleInvoice is always subject to human review. We do not use AI to make automated decisions that have significant legal or financial effects on you without human involvement.
+AI in Nobevra is always subject to human review. We do not use AI to make automated decisions that have significant legal or financial effects on you without human involvement.
 
 **Data minimization**
 We submit only the data necessary for each AI feature to function. We do not store AI session content in our database. We encourage users not to submit unnecessary personal data to AI features.
@@ -247,7 +247,7 @@ Attempting to circumvent quotas by creating multiple accounts or manipulating qu
 
 ### 13. CHANGES TO AI FEATURES
 
-AI technology evolves rapidly. NobleInvoice may:
+AI technology evolves rapidly. Nobevra may:
 
 * Add new AI features or models.
 * Switch AI providers.
@@ -271,7 +271,7 @@ export default function AIPolicyPage() {
   return (
     <LegalLayout
       title="AI & Responsible AI Policy"
-      description="This policy explains how NobleInvoice uses artificial intelligence, which AI providers we use, how your data is handled, and our commitment to responsible AI development."
+      description="This policy explains how Nobevra uses artificial intelligence, which AI providers we use, how your data is handled, and our commitment to responsible AI development."
       categories={CATEGORIES}
     >
       <div className="prose prose-slate prose-a:text-blue-600 prose-headings:text-slate-900 max-w-none prose-h3:text-2xl prose-h3:font-black prose-h3:mt-12 prose-h3:scroll-mt-24 prose-table:text-sm">

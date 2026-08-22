@@ -21,7 +21,7 @@ const features = [
     {
         icon: Code2,
         title: 'API invoicing integration',
-        desc: 'Build NobleInvoice directly into your proprietary ecosystem. Our robust RESTful API invoicing integration allows your developers to trigger invoice creation, track live payment statuses, and execute complex billing schedules directly from your CRM or custom SaaS backend. Stream events in real-time using secure webhooks to keep your databases perfectly synced.',
+        desc: 'Build Nobevra directly into your proprietary ecosystem. Our robust RESTful API invoicing integration allows your developers to trigger invoice creation, track live payment statuses, and execute complex billing schedules directly from your CRM or custom SaaS backend. Stream events in real-time using secure webhooks to keep your databases perfectly synced.',
         bullets: ['RESTful developer API', 'Real-time webhook event streams', 'Custom ERP integrations'],
         tag: 'API Integration',
         color: 'bg-violet-500/10 text-violet-600 group-hover:bg-violet-500 group-hover:text-white',

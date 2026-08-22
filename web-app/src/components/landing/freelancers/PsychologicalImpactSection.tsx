@@ -54,7 +54,7 @@ export default function PsychologicalImpactSection() {
                     className="relative"
                 >
                     <div className="bg-slate-50 border border-noble-border rounded-[32px] p-8 shadow-sm">
-                        <p className="text-center font-bold text-near-black/40 text-sm uppercase tracking-widest mb-6">Spreadsheet vs. NobleInvoice</p>
+                        <p className="text-center font-bold text-near-black/40 text-sm uppercase tracking-widest mb-6">Spreadsheet vs. Nobevra</p>
                         
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative">
                             {/* The old way */}
@@ -69,7 +69,7 @@ export default function PsychologicalImpactSection() {
                                 </div>
                             </div>
 
-                            {/* The NobleInvoice way */}
+                            {/* The Nobevra way */}
                             <div className="bg-noble-surface rounded-xl shadow-xl border border-slate-100 overflow-hidden h-[280px] transform scale-110 z-10 relative">
                                 <div className="h-2 bg-noble-blue w-full"></div>
                                 <div className="p-4">

@@ -64,7 +64,7 @@ class BusinessProfileRequiredScreen extends StatelessWidget {
 
                 // ── Description ──────────────────────────────────────────────
                 Text(
-                  'NobleInvoice provides professional, high-end invoice templates designed to help you get paid faster and look world-class.',
+                  'Nobevra provides professional, high-end invoice templates designed to help you get paid faster and look world-class.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.grey.shade600,

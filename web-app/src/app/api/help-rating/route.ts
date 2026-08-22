@@ -2,11 +2,13 @@ import { NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { rateLimit, getClientIp, rateLimitResponse } from '@/lib/rateLimit';
 
-// Use anon key — RLS policy controls public write access
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || '';
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
+export const dynamic = 'force-dynamic';
 
-const supabase = supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
+function getSupabaseClient() {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    return supabaseUrl && supabaseKey ? createClient(supabaseUrl, supabaseKey) : null;
+}
 
 export async function POST(req: Request) {
     // ── Rate Limiting (5 ratings per minute per IP) ───────────────────
@@ -21,6 +23,8 @@ export async function POST(req: Request) {
         if (!articleSlug || !categorySlug || typeof helpful !== 'boolean') {
             return NextResponse.json({ error: 'Missing or invalid parameters' }, { status: 400 });
         }
+
+        const supabase = getSupabaseClient();
 
         if (supabase) {
             const { error } = await supabase

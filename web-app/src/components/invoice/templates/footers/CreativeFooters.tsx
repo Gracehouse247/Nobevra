@@ -16,7 +16,7 @@ export const CreativeFooter = (props: SharedEngineProps) => {
       return (
         <div className="mt-auto relative h-32 overflow-hidden z-10 flex">
            <div className="w-[60%] bg-[#1E3A8A] h-full flex items-center px-16 text-white text-xs font-bold leading-relaxed">
-              <p className="max-w-[80%]">{data.notes || 'Subject to NobleInvoice standard terms.'}</p>
+              <p className="max-w-[80%]">{data.notes || 'Subject to Nobevra standard terms.'}</p>
            </div>
            <div className="flex-1 bg-[#3B82F6]" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
         </div>
@@ -88,7 +88,7 @@ export const CreativeFooter = (props: SharedEngineProps) => {
       return (
         <div className="mt-auto relative h-32 overflow-hidden z-10 flex">
            <div className="w-[60%] bg-[#002E5B] h-full flex items-center px-16 text-white text-xs font-bold leading-relaxed">
-              <p className="max-w-[80%]">{data.notes || 'Subject to NobleInvoice standard terms.'}</p>
+              <p className="max-w-[80%]">{data.notes || 'Subject to Nobevra standard terms.'}</p>
            </div>
            <div className="flex-1 bg-[#A3E635]" style={{ clipPath: 'polygon(20% 0, 100% 0, 100% 100%, 0% 100%)' }} />
         </div>

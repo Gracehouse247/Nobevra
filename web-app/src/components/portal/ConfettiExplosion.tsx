@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 const CONFETTI_COLORS = [
-  '#0599D5',
+  '#01A0E2',
   '#00F0FF',
   '#FFD700',
   '#FF6B6B',

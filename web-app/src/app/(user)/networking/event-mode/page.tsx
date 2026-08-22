@@ -74,7 +74,7 @@ export default function EventModePage() {
                     <div className="relative p-10 rounded-[4rem] bg-noble-surface dark:bg-noble-card shadow-[0_0_80px_rgba(22,111,187,0.3)] border border-white/20">
                         <div className="relative group">
                             <img 
-                                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://nobleinvoice.ai/identity/johndoe" 
+                                src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://nobevra.ai/identity/johndoe" 
                                 alt="Event QR"
                                 className="w-64 h-64 md:w-80 md:h-80"
                             />

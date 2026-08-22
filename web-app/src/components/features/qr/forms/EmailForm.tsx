@@ -12,7 +12,7 @@ export default function EmailForm({ onChange, initialData, onPreviewValueChange 
         // Format for QR generator: MATMSG:TO:email;SUB:subject;BODY:body;;
         const formattedStr = `MATMSG:TO:${email};SUB:${subject};BODY:${body};;`;
         
-        onPreviewValueChange(email ? formattedStr : 'https://nobleinvoice.com');
+        onPreviewValueChange(email ? formattedStr : 'https://nobevra.noblesworld.com.ng');
     }, [email, subject, body]);
 
     return (
@@ -21,7 +21,7 @@ export default function EmailForm({ onChange, initialData, onPreviewValueChange 
                 <label className="text-xs font-bold text-[#64748B] uppercase tracking-widest">Email Address *</label>
                 <input 
                     type="email" 
-                    placeholder="contact@nobleinvoice.com" 
+                    placeholder="contact@nobevra.noblesworld.com.ng" 
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none transition-colors" 

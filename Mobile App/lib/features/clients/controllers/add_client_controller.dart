@@ -253,10 +253,10 @@ class AddClientController extends ChangeNotifier {
         }
         
         notifyListeners();
-        _showSnack(context, '? Contact imported: \', isError: false);
+        _showSnack(context, 'Contact imported successfully', isError: false);
       }
     } catch (e) {
-      _showSnack(context, 'Could not import contact: \');
+      _showSnack(context, 'Could not import contact: $e');
     }
   }
 }

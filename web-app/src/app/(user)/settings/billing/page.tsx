@@ -218,7 +218,7 @@ export default function BillingPage() {
             payment_options: 'card',
             customer: {
                 email: user.email || '',
-                name: userData?.name || 'NobleInvoice User',
+                name: userData?.name || 'Nobevra User',
             },
             customizations: {
                 title: 'Save Payment Method',

@@ -20,7 +20,7 @@ const CURRENCY_LABELS = ALL_CURRENCIES.map(code => {
     }
 }).sort((a, b) => a.label.localeCompare(b.label));
 
-const inputClass = `w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;
+const inputClass = `w-full h-10 px-3 bg-noble-surface border border-noble-border rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#01A0E2] focus:ring-2 focus:ring-[#01A0E2]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;
 const labelClass = "text-[11px] font-bold text-slate-500 mb-1 block uppercase tracking-wider font-[Inter,sans-serif]";
 const cardClass = "bg-noble-surface rounded-xl border border-noble-border shadow-sm overflow-hidden mb-3";
 const cardHeaderClass = "px-5 py-3 border-b border-slate-100 bg-slate-50/50";
@@ -58,7 +58,7 @@ export const InvoiceDetailsStep = () => {
                 <div className={cardHeaderClass}>
                     <div className="flex items-center gap-2">
                         <div className="w-6 h-6 rounded-md bg-[#EBF7FD] flex items-center justify-center">
-                            <User className="w-3.5 h-3.5 text-[#0599D5]" />
+                            <User className="w-3.5 h-3.5 text-[#01A0E2]" />
                         </div>
                         <h3 className="text-[13px] font-bold text-slate-800 font-[Inter,sans-serif]">Customer</h3>
                     </div>
@@ -66,8 +66,8 @@ export const InvoiceDetailsStep = () => {
                 <div className="px-5 py-4">
                     <label className={labelClass}>Bill To <span className="text-red-500 normal-case">*</span></label>
                     {selectedClient ? (
-                        <div className="flex items-center gap-2.5 p-2.5 bg-[#EBF7FD] border border-[#0599D5]/20 rounded-xl">
-                            <div className="w-8 h-8 rounded-lg bg-[#0599D5] text-white flex items-center justify-center font-bold text-sm shrink-0">
+                        <div className="flex items-center gap-2.5 p-2.5 bg-[#EBF7FD] border border-[#01A0E2]/20 rounded-xl">
+                            <div className="w-8 h-8 rounded-lg bg-[#01A0E2] text-white flex items-center justify-center font-bold text-sm shrink-0">
                                 {selectedClient.name?.charAt(0).toUpperCase()}
                             </div>
                             <div className="flex-1 min-w-0">
@@ -103,7 +103,7 @@ export const InvoiceDetailsStep = () => {
                                 <button
                                     type="button"
                                     onClick={() => setIsNewClientModalOpen(true)}
-                                    className={`shrink-0 h-10 px-3 rounded-lg bg-[#0599D5] hover:bg-[#0482B5] text-white font-bold text-[12px] flex items-center gap-1.5 transition-all shadow-sm font-[Inter,sans-serif]`}
+                                    className={`shrink-0 h-10 px-3 rounded-lg bg-[#01A0E2] hover:bg-[#0482B5] text-white font-bold text-[12px] flex items-center gap-1.5 transition-all shadow-sm font-[Inter,sans-serif]`}
                                 >
                                     <Plus className="w-3.5 h-3.5" /> New
                                 </button>
@@ -119,7 +119,7 @@ export const InvoiceDetailsStep = () => {
                                             </p>
                                             <button
                                                 onMouseDown={() => { setOpen(false); setIsNewClientModalOpen(true); }}
-                                                className="mt-1.5 text-[12px] font-bold text-[#0599D5] hover:text-[#0482B5] font-[Inter,sans-serif]"
+                                                className="mt-1.5 text-[12px] font-bold text-[#01A0E2] hover:text-[#0482B5] font-[Inter,sans-serif]"
                                             >
                                                 + Create new client
                                             </button>
@@ -134,7 +134,7 @@ export const InvoiceDetailsStep = () => {
                                                     onMouseDown={() => { setSelectedClientId(String(client.id)); setSearch(''); setOpen(false); }}
                                                     className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-[#EBF7FD] text-left transition-colors"
                                                 >
-                                                    <div className="w-7 h-7 rounded-lg bg-[#0599D5]/10 text-[#0599D5] flex items-center justify-center font-bold text-sm shrink-0">
+                                                    <div className="w-7 h-7 rounded-lg bg-[#01A0E2]/10 text-[#01A0E2] flex items-center justify-center font-bold text-sm shrink-0">
                                                         {client.name?.charAt(0).toUpperCase()}
                                                     </div>
                                                     <div className="flex-1 min-w-0">
@@ -168,7 +168,7 @@ export const InvoiceDetailsStep = () => {
                         <label className={labelClass}>Invoice Number <span className="text-red-500 normal-case">*</span></label>
                         <div className="relative">
                             <input type="text" value={invoiceNumber} onChange={e => setInvoiceNumber(e.target.value)} className={inputClass + ' pr-9'} />
-                            <button type="button" aria-label="More options" className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#0599D5] transition-colors">
+                            <button type="button" aria-label="More options" className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[#01A0E2] transition-colors">
                                 <MoreHorizontal className="w-4 h-4" />
                             </button>
                         </div>
@@ -216,12 +216,12 @@ export const InvoiceDetailsStep = () => {
                             aria-label="Add billing address" 
                             onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') e.currentTarget.click(); }}
                             onClick={() => toast('Client addresses are managed in the Clients tab.')}
-                            className="h-10 border border-noble-border rounded-lg bg-slate-50 flex items-center justify-between px-3 hover:border-[#0599D5]/40 transition-colors cursor-pointer"
+                            className="h-10 border border-noble-border rounded-lg bg-slate-50 flex items-center justify-between px-3 hover:border-[#01A0E2]/40 transition-colors cursor-pointer"
                         >
                             <span className="text-[13px] text-slate-400 font-['Inter',sans-serif]">
                                 {selectedClient?.address || 'Click to view billing address info'}
                             </span>
-                            <Plus className="w-3.5 h-3.5 text-[#0599D5]" />
+                            <Plus className="w-3.5 h-3.5 text-[#01A0E2]" />
                         </div>
                     </div>
                 </div>

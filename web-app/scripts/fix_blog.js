@@ -1,5 +1,5 @@
 const fs = require('fs');
-const file = 'C:/Projects/NobleInvoice/web-app/src/app/(public)/blog/[slug]/page.tsx';
+const file = 'C:/Projects/Nobevra/web-app/src/app/(public)/blog/[slug]/page.tsx';
 let content = fs.readFileSync(file, 'utf8');
 
 content = content.replace(

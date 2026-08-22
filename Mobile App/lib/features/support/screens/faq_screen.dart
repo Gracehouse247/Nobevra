@@ -29,7 +29,7 @@ class FaqScreen extends StatelessWidget {
             const SizedBox(height: 40),
             _buildFaqSection('Identity & Branding', [
               _FaqItem('How do I design my physical cards?', 'Head to the Identity Studio in your Profile. You can select between Standard, Square, or Slim formats and apply your Brand Kit instantly.'),
-              _FaqItem('What is a Brand Kit?', 'The Brand Kit centralizes your logo, colors, and brand voice. Once set, NobleInvoice automatically applies them to all invoices and cards.'),
+              _FaqItem('What is a Brand Kit?', 'The Brand Kit centralizes your logo, colors, and brand voice. Once set, Nobevra automatically applies them to all invoices and cards.'),
             ]),
             const SizedBox(height: 32),
             _buildFaqSection('Advanced Invoicing', [
@@ -64,7 +64,7 @@ class FaqScreen extends StatelessWidget {
           SizedBox(height: 16),
           Text('How can we help?', style: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold)),
           SizedBox(height: 8),
-          Text('Search our most frequently asked questions about the NobleInvoice ecosystem.', 
+          Text('Search our most frequently asked questions about the Nobevra ecosystem.', 
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white70, fontSize: 13, height: 1.5)),
         ],
@@ -115,7 +115,7 @@ class FaqScreen extends StatelessWidget {
         children: [
           const Text('Still need help?', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
-          const Text("Can't find the answer? Connect with a NobleInvoice specialist.", textAlign: TextAlign.center, style: TextStyle(color: Colors.grey, fontSize: 13)),
+          const Text("Can't find the answer? Connect with a Nobevra specialist.", textAlign: TextAlign.center, style: TextStyle(color: Colors.grey, fontSize: 13)),
           const SizedBox(height: 24),
           ElevatedButton(
             onPressed: () => Navigator.pushNamed(context, AppRoutes.liveSupportChat),

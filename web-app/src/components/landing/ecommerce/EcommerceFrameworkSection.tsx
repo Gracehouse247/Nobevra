@@ -7,7 +7,7 @@ const steps = [
         icon: Zap,
         title: 'Capture (Order to Invoice)',
         tag: 'Ecommerce Billing Automation',
-        desc: 'The moment a buyer completes checkout on your Shopify store, WooCommerce shop, or B2B wholesale portal, NobleInvoice captures the order data automatically. No imports, no copy-paste — the invoice builds itself from the live order.',
+        desc: 'The moment a buyer completes checkout on your Shopify store, WooCommerce shop, or B2B wholesale portal, Nobevra captures the order data automatically. No imports, no copy-paste — the invoice builds itself from the live order.',
         color: 'bg-orange-100 text-orange-600',
         numBg: 'bg-orange-500',
     },
@@ -41,7 +41,7 @@ export default function EcommerceFrameworkSection() {
                         The Order-to-Cash System
                     </div>
                     <h2 className="font-inter text-[32px] md:text-[48px] font-black text-near-black leading-[1.1] mb-6 tracking-tight">
-                        How NobleInvoice closes the gap between a completed order and cash in your account.
+                        How Nobevra closes the gap between a completed order and cash in your account.
                     </h2>
                     <p className="text-slate-600 text-lg font-medium leading-relaxed">
                         Most ecommerce invoice software stops at sending a PDF. We close the entire order-to-cash cycle.

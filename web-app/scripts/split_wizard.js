@@ -1,12 +1,12 @@
 const fs = require('fs');
-const path = 'C:/Projects/NobleInvoice/web-app/src/components/invoice/creator/InvoiceWizardForm.tsx';
+const path = 'C:/Projects/Nobevra/web-app/src/components/invoice/creator/InvoiceWizardForm.tsx';
 let code = fs.readFileSync(path, 'utf8');
 
 const step1Match = code.match(/const InvoiceDetailsStep = \(\) => \{[\s\S]*?\n\};\n/);
 const step2Match = code.match(/const AddItemsStep = \(\) => \{[\s\S]*?\n\};\n/);
 
 if (step1Match) {
-    fs.writeFileSync('C:/Projects/NobleInvoice/web-app/src/components/invoice/creator/steps/InvoiceDetailsStep.tsx',
+    fs.writeFileSync('C:/Projects/Nobevra/web-app/src/components/invoice/creator/steps/InvoiceDetailsStep.tsx',
         '\'use client\';\nimport React, { useState } from \'react\';\nimport { Search, Plus, X, ChevronDown, User, FileCheck, MoreHorizontal, CreditCard, FileText } from \'lucide-react\';\nimport { useInvoiceCreator } from \'../InvoiceCreatorContext\';\nimport { NewClientForm } from \'@/components/clients/NewClientForm\';\n\n' +
         'const inputClass = `w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;\n' +
         'const labelClass = "text-[11px] font-bold text-slate-500 mb-1 block uppercase tracking-wider font-[Inter,sans-serif]";\n' +
@@ -18,7 +18,7 @@ if (step1Match) {
 }
 
 if (step2Match) {
-    fs.writeFileSync('C:/Projects/NobleInvoice/web-app/src/components/invoice/creator/steps/AddItemsStep.tsx',
+    fs.writeFileSync('C:/Projects/Nobevra/web-app/src/components/invoice/creator/steps/AddItemsStep.tsx',
         '\'use client\';\nimport React from \'react\';\nimport { FileText, Trash2, Plus, ChevronDown } from \'lucide-react\';\nimport { useInvoiceCreator } from \'../InvoiceCreatorContext\';\n\n' +
         'const inputClass = `w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-slate-800 text-[13px] focus:outline-none focus:border-[#0599D5] focus:ring-2 focus:ring-[#0599D5]/10 transition-all placeholder-slate-400 font-medium font-[Inter,sans-serif]`;\n' +
         'const labelClass = "text-[11px] font-bold text-slate-500 mb-1 block uppercase tracking-wider font-[Inter,sans-serif]";\n' +

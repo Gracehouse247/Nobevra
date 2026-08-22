@@ -348,7 +348,7 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
         ),
         const SizedBox(height: 16),
         Text(
-          'Your payment information is encrypted and securely stored by our PCI-compliant partners. NobleInvoice does not store your full card details.',
+          'Your payment information is encrypted and securely stored by our PCI-compliant partners. Nobevra does not store your full card details.',
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.grey.shade400, fontSize: 11, height: 1.5),
         ),

@@ -1004,7 +1004,7 @@ export default function NetworkIntelligencePage() {
                             </div>
                             <h3 className="text-[19px] font-bold text-noble-text mb-2">Ready to Pair</h3>
                             <p className="text-[13px] text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed mb-7">
-                                Hold your NobleInvoice NFC Card near the top-back of your iPhone, or the center-back of your Android device to link it to your digital identity.
+                                Hold your Nobevra NFC Card near the top-back of your iPhone, or the center-back of your Android device to link it to your digital identity.
                             </p>
                             <div className="w-full space-y-2.5">
                                 <button className="w-full py-3.5 bg-[#166FBB] text-white rounded-xl text-[14px] font-bold shadow-[0_4px_14px_rgba(22,111,187,0.25)] hover:bg-blue-600 transition-colors flex items-center justify-center gap-2">
@@ -1105,7 +1105,7 @@ export default function NetworkIntelligencePage() {
                     </div>
 
                     <div className="absolute bottom-8 flex items-center gap-2 text-white/25 text-[12px] font-semibold">
-                        <Lock size={12} /> NobleInvoice · End-to-end encrypted
+                        <Lock size={12} /> Nobevra · End-to-end encrypted
                     </div>
                 </div>
             )}

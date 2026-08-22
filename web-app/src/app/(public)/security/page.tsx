@@ -47,9 +47,9 @@ const CATEGORIES = [
 const content = `
 ### 1. OUR SECURITY COMMITMENT
 
-NobleInvoice is built on the principle that users who trust us with their business data deserve robust, transparent, and independently verifiable security practices.
+Nobevra is built on the principle that users who trust us with their business data deserve robust, transparent, and independently verifiable security practices.
 
-This Security Policy describes the technical and organizational measures NobleInvoice implements to protect the confidentiality, integrity, and availability of the Service and of Business Data entrusted to us.
+This Security Policy describes the technical and organizational measures Nobevra implements to protect the confidentiality, integrity, and availability of the Service and of Business Data entrusted to us.
 
 **Effective Date:** August 8, 2026  
 **This document reflects the security posture as of the effective date. Specific controls are subject to change as the platform evolves.**
@@ -58,12 +58,12 @@ This Security Policy describes the technical and organizational measures NobleIn
 
 ### 2. INFRASTRUCTURE SECURITY
 
-**Cloud infrastructure:** NobleInvoice's backend is hosted on Supabase, which runs on AWS infrastructure. Web application delivery is handled by Vercel's global edge network.
+**Cloud infrastructure:** Nobevra's backend is hosted on Supabase, which runs on AWS infrastructure. Web application delivery is handled by Vercel's global edge network.
 
-**Physical security:** NobleInvoice does not operate its own data centers. Physical security controls — including perimeter security, access controls, surveillance, and environmental controls — are managed by AWS and Vercel in accordance with their respective certifications (AWS SOC 2, ISO 27001, and related standards).
+**Physical security:** Nobevra does not operate its own data centers. Physical security controls — including perimeter security, access controls, surveillance, and environmental controls — are managed by AWS and Vercel in accordance with their respective certifications (AWS SOC 2, ISO 27001, and related standards).
 
 **Network security:**
-* All traffic between clients and NobleInvoice servers is encrypted using TLS 1.2 or higher.
+* All traffic between clients and Nobevra servers is encrypted using TLS 1.2 or higher.
 * Edge-layer DDoS protection and rate limiting are implemented via Supabase and Vercel's infrastructure.
 * Database and storage access is restricted to authorized server-side processes; the database is not publicly accessible.
 * Production systems are logically isolated from development and staging environments.
@@ -76,7 +76,7 @@ This Security Policy describes the technical and organizational measures NobleIn
 ### 3. ENCRYPTION
 
 **In transit:**
-* All connections between clients (browsers, mobile apps) and NobleInvoice servers use TLS 1.2+.
+* All connections between clients (browsers, mobile apps) and Nobevra servers use TLS 1.2+.
 * HTTP connections are automatically redirected to HTTPS.
 * Supabase database connections use encrypted connections.
 
@@ -115,7 +115,7 @@ This Security Policy describes the technical and organizational measures NobleIn
 
 ### 5. ROW-LEVEL SECURITY (RLS)
 
-NobleInvoice implements **Supabase Row-Level Security (RLS) policies** across all database tables containing user data.
+Nobevra implements **Supabase Row-Level Security (RLS) policies** across all database tables containing user data.
 
 RLS ensures that:
 * A user can only read, insert, update, or delete rows that belong to their own account or Workspace.
@@ -137,8 +137,8 @@ RLS is enforced at the database level, independent of application-level access c
 * Role-based access control (RBAC) limits what data each team member can view, create, or modify.
 * Administrators can remove members and revoke access at any time.
 
-**NobleInvoice staff access:**
-* NobleInvoice staff do not have routine access to user Business Data.
+**Nobevra staff access:**
+* Nobevra staff do not have routine access to user Business Data.
 * Access may be necessary for support, security investigations, or legal compliance, and is subject to internal access control policies.
 
 **API keys:**
@@ -161,18 +161,18 @@ RLS is enforced at the database level, independent of application-level access c
 **AI data handling:**
 * AI assistant, OCR, and report insight features use Google Gemini API.
 * Data submitted to the Gemini API is not used to train Google's general-purpose AI models (per Google's API terms).
-* The content of AI sessions is not stored in the NobleInvoice database — only usage counts are recorded.
+* The content of AI sessions is not stored in the Nobevra database — only usage counts are recorded.
 
 ---
 
 ### 8. PAYMENT CARD SECURITY
 
 **Tokenized-only architecture:**
-NobleInvoice uses a tokenized payment architecture designed to minimize exposure to cardholder data:
+Nobevra uses a tokenized payment architecture designed to minimize exposure to cardholder data:
 
-* Card numbers, CVVs, and full card details are submitted directly to Flutterwave's **PCI DSS-compliant hosted environment** and never transit NobleInvoice application servers.
-* NobleInvoice stores only the payment token returned by Flutterwave: last 4 digits, card brand, expiry reference, and transaction identifiers.
-* This architecture is designed to reduce NobleInvoice's PCI DSS scope.
+* Card numbers, CVVs, and full card details are submitted directly to Flutterwave's **PCI DSS-compliant hosted environment** and never transit Nobevra application servers.
+* Nobevra stores only the payment token returned by Flutterwave: last 4 digits, card brand, expiry reference, and transaction identifiers.
+* This architecture is designed to reduce Nobevra's PCI DSS scope.
 
 **Flutterwave PCI DSS compliance:** [https://flutterwave.com/us/compliance](https://flutterwave.com/us/compliance)
 
@@ -184,15 +184,15 @@ NobleInvoice uses a tokenized payment architecture designed to minimize exposure
 
 **File/document storage:** User-uploaded documents and files stored in Supabase Storage are protected by Supabase's storage infrastructure, including redundant storage.
 
-**User-initiated exports:** Where available, NobleInvoice provides data export functionality to allow users to maintain independent copies of their Business Data. We recommend using this functionality for critical business records.
+**User-initiated exports:** Where available, Nobevra provides data export functionality to allow users to maintain independent copies of their Business Data. We recommend using this functionality for critical business records.
 
-NobleInvoice's backup systems are designed for disaster recovery and are not a substitute for your own business continuity arrangements for critical financial records.
+Nobevra's backup systems are designed for disaster recovery and are not a substitute for your own business continuity arrangements for critical financial records.
 
 ---
 
 ### 10. MONITORING
 
-NobleInvoice implements the following monitoring controls:
+Nobevra implements the following monitoring controls:
 
 * **Error and performance monitoring:** Application errors, API failures, and performance anomalies are monitored.
 * **Authentication monitoring:** Failed sign-in attempts and unusual session patterns may trigger security alerts.
@@ -217,7 +217,7 @@ To report a suspected security incident or data breach: **privacy@noblesworld.co
 
 ### 12. VULNERABILITY MANAGEMENT
 
-NobleInvoice operates a responsible disclosure approach to security vulnerabilities:
+Nobevra operates a responsible disclosure approach to security vulnerabilities:
 
 **If you discover a security vulnerability:**
 * Please report it to **privacy@noblesworld.com.ng** with a description of the issue and steps to reproduce.
@@ -227,15 +227,15 @@ NobleInvoice operates a responsible disclosure approach to security vulnerabilit
 
 We will acknowledge your report promptly and aim to resolve confirmed vulnerabilities in a timely manner. We do not currently operate a formal bug bounty programme, but we genuinely appreciate responsible disclosure and will acknowledge researchers who help us improve security.
 
-**You must not conduct security testing against NobleInvoice systems without prior written authorization.**
+**You must not conduct security testing against Nobevra systems without prior written authorization.**
 
 ---
 
 ### 13. YOUR RESPONSIBILITIES
 
-Security is a shared responsibility. To protect your NobleInvoice Account:
+Security is a shared responsibility. To protect your Nobevra Account:
 
-* **Use a strong, unique password** for your NobleInvoice account that you do not reuse on other services.
+* **Use a strong, unique password** for your Nobevra account that you do not reuse on other services.
 * **Enable Google Sign-In or other available authentication methods** where they offer additional security.
 * **Protect your API keys** — do not commit them to public repositories or expose them in client-side code.
 * **Manage team access carefully** — remove former employees or contractors promptly.
@@ -243,7 +243,7 @@ Security is a shared responsibility. To protect your NobleInvoice Account:
 * **Report suspicious activity** immediately to invoice@noblesworld.com.ng.
 * **Maintain independent backups** of critical business records.
 
-NobleInvoice is not responsible for security incidents caused by your failure to follow reasonable security practices.
+Nobevra is not responsible for security incidents caused by your failure to follow reasonable security practices.
 
 ---
 
@@ -260,7 +260,7 @@ export default function SecurityPage() {
   return (
     <LegalLayout
       title="Security Policy"
-      description="This document describes the technical and organizational security measures NobleInvoice implements to protect your business data, financial records, and account information."
+      description="This document describes the technical and organizational security measures Nobevra implements to protect your business data, financial records, and account information."
       categories={CATEGORIES}
     >
       <div className="prose prose-slate prose-a:text-blue-600 prose-headings:text-slate-900 max-w-none prose-h3:text-2xl prose-h3:font-black prose-h3:mt-12 prose-h3:scroll-mt-24">

@@ -12,7 +12,7 @@ interface EmptyStateIllustrationProps {
 
 export function EmptyStateIllustration({
     icons,
-    primaryColor = 'text-[#0599D5]',
+    primaryColor = 'text-[#01A0E2]',
     secondaryColor = 'text-[#006970]'
 }: EmptyStateIllustrationProps) {
     if (!icons || icons.length === 0) return null;
@@ -21,14 +21,18 @@ export function EmptyStateIllustration({
 
     return (
         <div className="relative w-48 h-48 mx-auto flex items-center justify-center">
-            {/* Background elements */}
+            {/* Ambient Nobevra Electric Blue Glow */}
             <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, ease: 'easeOut' }}
-                className="absolute inset-0 bg-gradient-to-tr from-[#0599D5]/5 to-[#006970]/5 rounded-full blur-2xl"
+                className="absolute inset-0 bg-gradient-to-tr from-[#01A0E2]/20 via-[#00F0FF]/10 to-[#006970]/10 rounded-full blur-2xl pointer-events-none"
             />
             
+            {/* Brand Accent Dots */}
+            <div className="absolute top-3 right-5 w-2.5 h-2.5 rounded-full bg-[#01A0E2] ring-2 ring-white dark:ring-[#0A1628] animate-pulse z-20" />
+            <div className="absolute bottom-4 left-6 w-2 h-2 rounded-full bg-[#00F0FF] ring-2 ring-white dark:ring-[#0A1628] z-20" />
+
             {/* Primary Center Icon */}
             <motion.div
                 initial={{ y: 0 }}

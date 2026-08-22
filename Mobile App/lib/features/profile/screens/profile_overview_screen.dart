@@ -405,7 +405,7 @@ class _ProfileOverviewScreenState extends State<ProfileOverviewScreen> {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), elevation: 0),
         ),
         const SizedBox(height: 16),
-        const Text('NobleInvoice Business v1.0.0', style: TextStyle(color: Colors.grey, fontSize: 10, fontWeight: FontWeight.w500)),
+        const Text('Nobevra v1.0.0', style: TextStyle(color: Colors.grey, fontSize: 10, fontWeight: FontWeight.w500)),
       ]),
     );
   }

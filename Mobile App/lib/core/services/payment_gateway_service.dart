@@ -51,7 +51,7 @@ class PaymentGatewayService {
     // redirectUrl: where Flutterwave redirects the user's browser AFTER payment.
     // This is NOT the webhook. Must be a real URL or deep-link.
     // The webhook is separately configured in Flutterwave Dashboard -> Settings -> Webhooks.
-    const String redirectUrl = 'https://NobleInvoice.app/payment-callback';
+    const String redirectUrl = 'https://nobevra.com/payment-callback';
 
     final Flutterwave flutterwave = Flutterwave(
       publicKey: EnvConstants.flutterwavePublicKey,
@@ -62,7 +62,7 @@ class PaymentGatewayService {
       customer: customer,
       paymentOptions: 'card, banktransfer, ussd',
       customization: Customization(
-        title: 'NobleInvoice $planName',
+        title: 'Nobevra $planName',
         description: 'Professional Business Toolkit Subscription',
         logo: 'https://raw.githubusercontent.com/Noble-Go/brand/main/logo.png',
       ),

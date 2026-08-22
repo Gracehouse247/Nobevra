@@ -29,7 +29,7 @@ function DashboardContent() {
     const avatarUrl = user?.user_metadata?.avatar_url || userData?.avatar_url || null;
     const initials = firstName
         ? firstName.substring(0, 2).toUpperCase()
-        : 'NU';
+        : 'US';
 
     // Show a toast when Google account was just linked (redirected from OAuth callback)
     const searchParams = useSearchParams();
@@ -57,9 +57,9 @@ function DashboardContent() {
         return (
             <div className="min-h-full flex flex-col items-center justify-center p-10">
                 <div className="bg-noble-surface dark:bg-noble-card rounded-3xl shadow-xl p-10 max-w-md w-full text-center">
-                    <RefreshCw className="w-10 h-10 text-[#0599D5] mx-auto mb-4 opacity-60" />
+                    <RefreshCw className="w-10 h-10 text-[#01A0E2] mx-auto mb-4 opacity-60" />
                     <h2 className="text-xl font-black text-noble-text mb-2">Couldn't Load Dashboard</h2>
-                    <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 text-sm mb-6">{error}</p>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm mb-6">{error}</p>
                     <Button
                         onClick={() => window.location.reload()}
                         variant="primary"
@@ -75,7 +75,7 @@ function DashboardContent() {
     return (
         <div className="relative w-full h-full pb-24 lg:pb-10">
             {/* Ambient Background Glows */}
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#0599D5]/5 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3" />
+            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#01A0E2]/5 blur-[120px] rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3" />
             <div className="absolute top-1/4 left-0 w-[600px] h-[600px] bg-[#006970]/5 blur-[100px] rounded-full pointer-events-none -translate-x-1/2" />
             
             <div className="relative z-10 w-full">
@@ -86,7 +86,7 @@ function DashboardContent() {
                     <div className="flex items-center gap-5">
                         <div>
                             <h1 className="text-[19px] font-bold text-slate-800 dark:text-slate-100 tracking-tight">
-                                {timeGreeting}, <span className="font-bold text-noble-text">{firstName || 'Noble'}</span>
+                                {timeGreeting}, <span className="font-bold text-noble-text">{firstName || 'User'}</span>
                             </h1>
                             <p className="text-sm font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 mt-1">
                                 {pendingCount > 0 
@@ -122,7 +122,7 @@ function DashboardContent() {
                 {invoices.length === 0 && (!stats.clientsCount || stats.clientsCount === 0) ? (
                     <div className="mt-8">
                         <ProactiveEmptyState
-                            title="Welcome to NobleInvoice!"
+                            title="Welcome to Nobevra!"
                             description="You're just a few steps away from getting paid faster. Let's set up your account."
                             variant="onboarding"
                             illustrationIcons={[FileText, PenTool, Sparkles]}
@@ -150,7 +150,7 @@ function DashboardContent() {
                         badgeText="CLEARED" 
                         badgeType="positive"
                         iconBgColor="bg-blue-50"
-                        iconColor="text-[#0599D5]"
+                        iconColor="text-[#01A0E2]"
                         loading={loading}
                         trend={stats.revenueTrend}
                         sparklineData={stats.revenueSparkline}
@@ -184,7 +184,7 @@ function DashboardContent() {
                         badgeText={stats.strengthIndex >= 70 ? "OPTIMAL" : stats.strengthIndex >= 40 ? "FAIR" : "LOW"} 
                         badgeType={stats.strengthIndex >= 70 ? "positive" : stats.strengthIndex >= 40 ? "neutral" : "warning"}
                         iconBgColor="bg-blue-50"
-                        iconColor="text-[#0599D5]"
+                        iconColor="text-[#01A0E2]"
                         loading={loading}
                         trend={stats.strengthTrend}
                     />
@@ -227,7 +227,7 @@ export default function DashboardPage() {
     return (
         <Suspense fallback={
             <div className="min-h-screen flex items-center justify-center p-10">
-                <div className="w-8 h-8 border-4 border-noble-border border-t-[#0599D5] rounded-full animate-spin" />
+                <div className="w-8 h-8 border-4 border-noble-border border-t-[#01A0E2] rounded-full animate-spin" />
             </div>
         }>
             <DashboardContent />

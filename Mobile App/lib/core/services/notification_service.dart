@@ -50,7 +50,7 @@ class NotificationService {
         final notif = msg.notification;
         if (notif != null) {
           _showBanner(
-            title: notif.title ?? 'NobleInvoice',
+            title: notif.title ?? 'Nobevra',
             body:  notif.body  ?? '',
             data:  msg.data,
           );

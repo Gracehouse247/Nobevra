@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Free Invoice Generator — Create Professional Invoices Online | NobleInvoice',
+    title: 'Free Invoice Generator — Create Professional Invoices Online | Nobevra',
     description:
         'Use our free invoice generator to create invoice online in seconds. Download a polished PDF, add your logo, set payment terms, and get paid faster. Trusted by 2M+ businesses. No sign-up required.',
     keywords: [
@@ -17,18 +17,18 @@ export const metadata: Metadata = {
         title: 'Free Invoice Generator — Create Invoices Online in 30 Seconds',
         description:
             'The professional invoice maker trusted by 2,000,000+ freelancers. Create, download, and send invoices free. No sign-up required.',
-        url: 'https://nobleinvoice.com/invoice-generator',
-        siteName: 'NobleInvoice',
+        url: '/invoice-generator',
+        siteName: 'Nobevra',
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Free Invoice Generator | NobleInvoice',
+        title: 'Free Invoice Generator | Nobevra',
         description:
             'Create professional invoices online free. Download PDF instantly. No credit card needed.',
     },
     alternates: {
-        canonical: 'https://nobleinvoice.com/invoice-generator',
+        canonical: '/invoice-generator',
     },
     robots: {
         index: true,
@@ -88,15 +88,15 @@ const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nobleinvoice.com' },
-        { '@type': 'ListItem', position: 2, name: 'Free Invoice Generator', item: 'https://nobleinvoice.com/invoice-generator' },
+        { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nobevra.noblesworld.com.ng' },
+        { '@type': 'ListItem', position: 2, name: 'Free Invoice Generator', item: 'https://nobevra.noblesworld.com.ng/invoice-generator' },
     ],
 };
 
 const softwareAppSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'NobleInvoice Free Invoice Generator',
+    name: 'Nobevra Free Invoice Generator',
     applicationCategory: 'BusinessApplication',
     operatingSystem: 'Any',
     offers: {

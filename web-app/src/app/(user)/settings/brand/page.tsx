@@ -15,6 +15,7 @@ import { teamService } from '@/lib/services/supabaseService';
 import { useEntitlements } from '@/context/EntitlementsContext';
 import { useUpgradeModal } from '@/context/UpgradeModalContext';
 import { toast } from 'react-hot-toast';
+import { brand } from '@/lib/brand';
 import { ChooseTemplateDialog } from '@/components/invoice/ChooseTemplateDialog';
 import PremiumBadge from '@/components/shared/PremiumBadge';
 import { ToggleRow } from '@/components/ui/ToggleRow';
@@ -32,11 +33,11 @@ export default function WorkspaceSettingsPage() {
     const [brandColor, setBrandColor] = useState('#59ABF8');
     const [logoUrl, setLogoUrl] = useState('/images/logo.png');
     const [companyName, setCompanyName] = useState('NOBLE WORLD');
-    const [email, setEmail] = useState('support@nobleinvoice.com');
+    const [email, setEmail] = useState('support@nobevra.noblesworld.com.ng');
     const [phone, setPhone] = useState('+1 (555) 123-4567');
     const [address, setAddress] = useState('123 Innovation Drive\nSuite 400\nSan Francisco, CA 94103\nUnited States');
     const [taxId, setTaxId] = useState('');
-    const [website, setWebsite] = useState('https://nobleinvoice.com');
+    const [website, setWebsite] = useState('https://nobevra.noblesworld.com.ng');
     const [defaultTemplate, setDefaultTemplate] = React.useState('modern');
     const [removeWatermark, setRemoveWatermark] = React.useState(false);
     const [paymentTerms, setPaymentTerms] = useState('Please make payment within 14 days of receiving this invoice. Late payments may be subject to a 1.5% monthly fee.');
@@ -293,8 +294,8 @@ export default function WorkspaceSettingsPage() {
                             {/* Watermark Toggle */}
                             <div className="mt-10 pt-8 border-t border-slate-100 dark:border-noble-border">
                                 <ToggleRow
-                                    label="Remove NobleInvoice Watermark"
-                                    description="Remove the 'Powered by NobleInvoice' watermark from all your outgoing invoices."
+                                    label={brand.copy.watermarkLabel}
+                                    description={brand.copy.watermarkDescription}
                                     icon={<Shield className="w-3.5 h-3.5 text-blue-600" />}
                                     iconBg="bg-blue-50"
                                     checked={removeWatermark}

@@ -85,7 +85,7 @@ export default function AdminLogin() {
             {/* Ambient gradients */}
             <div className="pointer-events-none fixed inset-0 overflow-hidden">
                 <div className="absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#006970]/[0.05] blur-[120px]" />
-                <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#0599D5]/[0.04] blur-[100px]" />
+                <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#01A0E2]/[0.04] blur-[100px]" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-purple-500/[0.03] blur-[100px]" />
             </div>
 
@@ -105,10 +105,10 @@ export default function AdminLogin() {
                         className="text-3xl font-black text-slate-900 mb-2 tracking-tight"
                         style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
                     >
-                        NobleInvoice Admin
+                        Nobevra Admin
                     </h1>
                     <p className="text-slate-500 text-sm font-medium">
-                        Exclusive access for the NobleInvoice team
+                        Exclusive access for the Nobevra team
                     </p>
                 </div>
 
@@ -131,7 +131,7 @@ export default function AdminLogin() {
                                     <input
                                         type="email"
                                         required
-                                        placeholder="admin@nobleinvoice.ai"
+                                        placeholder="admin@nobevra.ai"
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         className="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl py-3.5 pl-12 pr-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#006970]/30 focus:border-[#006970] transition-all placeholder:text-slate-400 text-sm"

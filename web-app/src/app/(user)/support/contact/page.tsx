@@ -54,7 +54,7 @@ function SupportContactForm() {
                 </div>
                 <h3 className="text-2xl font-black text-white">Transmission Received</h3>
                 <p className="text-sm text-slate-400 dark:text-slate-500 max-w-sm">
-                    Your {form.type} report has been securely transmitted to the NobleInvoice engineering team.
+                    Your {form.type} report has been securely transmitted to the Nobevra engineering team.
                 </p>
                 <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-4">Redirecting...</p>
             </div>

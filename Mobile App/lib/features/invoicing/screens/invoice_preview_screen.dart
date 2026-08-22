@@ -154,7 +154,7 @@ class _InvoicePreviewScreenState extends State<InvoicePreviewScreen> {
   Future<void> _sendViaWhatsApp() async {
     final senderName = context.read<ProfileController>().profile?.businessName
         ?? context.read<ProfileController>().profile?.displayName
-        ?? 'Noble Invoice';
+        ?? 'Nobevra';
 
     final amount = _fmtMoney(inv.totalAmount);
     final clientName = inv.client.name.isNotEmpty ? inv.client.name : 'there';

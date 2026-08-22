@@ -19,8 +19,8 @@ export default function VideoForm({ onChange, initialData, onPreviewValueChange 
         });
         
         const previewLink = isUrlSource 
-            ? (videoUrl || 'https://nobleinvoice.com')
-            : (fileUpload ? `https://nobleinvoice.com/hosted/${fileUpload.name}` : 'https://nobleinvoice.com');
+            ? (videoUrl || 'https://nobevra.noblesworld.com.ng')
+            : (fileUpload ? `https://nobevra.noblesworld.com.ng/hosted/${fileUpload.name}` : 'https://nobevra.noblesworld.com.ng');
             
         onPreviewValueChange(previewLink);
     }, [videoTitle, videoUrl, isUrlSource, fileUpload]);
@@ -112,7 +112,7 @@ export default function VideoForm({ onChange, initialData, onPreviewValueChange 
             <div className="p-4 bg-amber-50 rounded-xl border border-amber-100 flex items-start gap-3 mt-2">
                 <span className="text-amber-500 font-bold text-lg leading-none">!</span>
                 <p className="text-xs font-medium text-amber-900 leading-relaxed">
-                    NobleInvoice optimizes videos for mobile playback. For the best experience, we recommend using YouTube or Vimeo links instead of uploading directly.
+                    Nobevra optimizes videos for mobile playback. For the best experience, we recommend using YouTube or Vimeo links instead of uploading directly.
                 </p>
             </div>
         </div>

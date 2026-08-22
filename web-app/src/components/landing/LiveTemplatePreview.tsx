@@ -25,7 +25,7 @@ const MOCK_DATA = {
     total: 22140,
     currencySymbol: "$",
     sender: {
-        company: "NobleInvoice Inc.",
+        company: "Nobevra Inc.",
         address: "7th Floor, Innovation Tower, London",
         brand_logo_url: "/images/logo.png"
     }

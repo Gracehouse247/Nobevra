@@ -37,10 +37,10 @@ class _QrPreviewScreenState extends State<QrPreviewScreen> {
         return 'BEGIN:VCARD\nVERSION:3.0\nN:${content['lastName']};${content['firstName']}\nFN:${content['firstName']} ${content['lastName']}\nORG:${content['organization']}\nTITLE:${content['jobTitle']}\nTEL;TYPE=CELL:${content['phone']}\nEMAIL:${content['email']}\nADR;TYPE=WORK:;;${content['address']}\nURL:${content['website']}\nEND:VCARD';
       case 'business':
         final slug = (content['name'] ?? 'business').toString().toLowerCase().trim().replaceAll(RegExp(r'\s+'), '-');
-        return 'https://go.noblesworld.com.ng/biz/$slug';
+        return 'https://nobevra.noblesworld.com.ng/biz/$slug';
       case 'menu':
         final restaurant = (content['restaurantName'] ?? 'restaurant').toString().toLowerCase().trim().replaceAll(RegExp(r'\s+'), '-');
-        return content['menuLink'] ?? 'https://go.noblesworld.com.ng/menu/$restaurant';
+        return content['menuLink'] ?? 'https://nobevra.noblesworld.com.ng/menu/$restaurant';
       case 'social_media':
         // If there's a primary link, use it, otherwise link to a social hub
         final platforms = content['platforms'] as List?;
@@ -48,7 +48,7 @@ class _QrPreviewScreenState extends State<QrPreviewScreen> {
           return platforms.first['link'] ?? '';
         }
         final username = content['username'] ?? 'user';
-        return 'https://go.noblesworld.com.ng/social/$username';
+        return 'https://nobevra.noblesworld.com.ng/social/$username';
       case 'event':
         return 'BEGIN:VEVENT\nSUMMARY:${content['title']}\nLOCATION:${content['location']}\nDTSTART:${content['startDate']}T${content['startTime']}00Z\nDESCRIPTION:${content['notes']}\nEND:VEVENT';
       case 'bitcoin':
@@ -64,7 +64,7 @@ class _QrPreviewScreenState extends State<QrPreviewScreen> {
       case 'text':
         return content['text'] ?? '';
       default:
-        return 'https://NobleInvoice.app';
+        return 'https://nobevra.com';
     }
   }
 
@@ -73,9 +73,9 @@ class _QrPreviewScreenState extends State<QrPreviewScreen> {
       final uint8list = await _screenshotController.capture();
       if (uint8list != null) {
         final tempDir = await getTemporaryDirectory();
-        final file = await File('${tempDir.path}/NobleInvoice_qr.png').create();
+        final file = await File('${tempDir.path}/nobevra_qr.png').create();
         await file.writeAsBytes(uint8list);
-        await Share.shareXFiles([XFile(file.path)], text: 'Check out my NobleInvoice QR code!');
+        await Share.shareXFiles([XFile(file.path)], text: 'Check out my Nobevra QR code!');
       }
     } catch (e) {
       debugPrint('Error sharing QR: $e');
@@ -89,7 +89,7 @@ class _QrPreviewScreenState extends State<QrPreviewScreen> {
         final result = await ImageGallerySaverPlus.saveImage(
           uint8list,
           quality: 100,
-          name: "NobleInvoice_qr_${DateTime.now().millisecondsSinceEpoch}",
+          name: "nobevra_qr_${DateTime.now().millisecondsSinceEpoch}",
         );
         if (result['isSuccess']) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -197,7 +197,7 @@ class _QrPreviewScreenState extends State<QrPreviewScreen> {
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        'Powered by NobleInvoice',
+                        'Powered by Nobevra',
                         style: TextStyle(color: Colors.grey[400], fontSize: 10, fontWeight: FontWeight.bold),
                       ),
                     ],

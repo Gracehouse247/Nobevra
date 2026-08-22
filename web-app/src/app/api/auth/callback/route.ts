@@ -1,4 +1,4 @@
-﻿import { createServerClient, type CookieOptions } from '@supabase/ssr';
+import { createServerClient, type CookieOptions } from '@supabase/ssr';
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 
@@ -53,6 +53,44 @@ export async function GET(request: Request) {
     }
 
     return response;
+  }
+
+  // Handle token_hash flow — used by Supabase {{ .ConfirmationURL }} email templates
+  // (magic link login, signup confirmation, password recovery, email change).
+  // These produce URLs with ?token_hash=<hash>&type=<magiclink|signup|recovery|email_change>
+  const tokenHash = searchParams.get('token_hash');
+  const type = searchParams.get('type') as 'magiclink' | 'signup' | 'recovery' | 'email_change' | null;
+
+  if (tokenHash && type) {
+    const response = NextResponse.redirect(`${origin}${next}`);
+    const cookieStore = await cookies();
+
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+      {
+        cookies: {
+          get(name: string) { return cookieStore.get(name)?.value; },
+          set(name: string, value: string, options: CookieOptions) {
+            response.cookies.set({ name, value, ...options });
+          },
+          remove(name: string, options: CookieOptions) {
+            response.cookies.delete({ name, ...options });
+          },
+        },
+      }
+    );
+
+    const { error } = await supabase.auth.verifyOtp({ token_hash: tokenHash, type });
+
+    if (!error) {
+      // For password recovery, send the user to the reset page
+      if (type === 'recovery') {
+        return NextResponse.redirect(`${origin}/reset-password`, { headers: response.headers });
+      }
+      return response;
+    }
+    // Fall through to error redirect if verification failed
   }
 
   // Return the user to an error page with instructions

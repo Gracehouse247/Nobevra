@@ -18,48 +18,55 @@ const inter = { variable: "font-sans" };
 const roboto = { variable: "font-sans" };
 const montserrat = { variable: "font-sans" };
 
+import { brand } from "@/lib/brand";
+import UTMClientLoader from "@/components/providers/UTMClientLoader";
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'https://nobleinvoice.noblesworld.com.ng'),
+  metadataBase: new URL(brand.urls.canonical),
   title: {
-    default: "Invoice Software Small Business | NobleInvoice",
-    template: "%s | NobleInvoice"
+    default: brand.seo.defaultTitle,
+    template: brand.seo.titleTemplate,
   },
-  description: "The best invoice software small business owners use to create professional invoices, accept global payments, and manage cash flow effortlessly for free.",
+  description: brand.seo.defaultDescription,
   manifest: '/manifest.webmanifest',
-  keywords: ["invoice software small business", "free invoice generator", "invoice maker app free", "AI invoice generator", "simple invoice generator", "invoice template", "online invoicing software", "billing software online", "business card creator", "QR code generator"],
-  authors: [{ name: "NobleInvoice Team" }],
-  creator: "NobleInvoice",
-  publisher: "NobleInvoice",
+  keywords: [...brand.seo.keywords],
+  authors: [{ name: `${brand.name} Team` }],
+  creator: brand.parentCompany,
+  publisher: brand.name,
   openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: process.env.NEXT_PUBLIC_APP_URL || 'https://nobleinvoice.noblesworld.com.ng',
-    siteName: "NobleInvoice",
-    title: "Invoice Software Small Business | NobleInvoice",
-    description: "The best invoice software small business owners use to create professional invoices, accept global payments, and manage cash flow effortlessly for free.",
-    images: [{
-      url: "/images/hero-dashboard-actual.png",
-      width: 1200,
-      height: 630,
-      alt: "invoice software small business"
-    }],
+    type: brand.openGraph.type,
+    locale: brand.openGraph.locale,
+    url: brand.urls.canonical,
+    siteName: brand.openGraph.siteName,
+    title: brand.openGraph.title,
+    description: brand.openGraph.description,
+    images: [brand.openGraph.image],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Invoice Software Small Business | NobleInvoice",
-    description: "The best invoice software small business owners use to create professional invoices, accept global payments, and manage cash flow effortlessly.",
-    images: ["/images/hero-dashboard-actual.png"],
-    creator: "@NobleInvoice"
+    title: brand.seo.defaultTitle,
+    description: brand.seo.defaultDescription,
+    images: [brand.assets.ogImage],
+    creator: brand.social.twitterHandle,
   },
   verification: {
     google: "KN-eXDFHjCqe3JiKGsnb0_-JCOXFAYPRs5eG-5zKQ9g",
+  },
+  icons: {
+    icon: [
+      { url: '/images/brand identies/icon.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/brand identies/icon.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+    ],
+    shortcut: '/images/brand identies/icon.png',
+    apple: '/images/brand identies/icon.png',
   },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0ea5e9",
+  themeColor: "#01A0E2",
 };
 
 export default function RootLayout({
@@ -71,7 +78,9 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <link rel="manifest" href="/manifest.webmanifest" />
-        <link rel="apple-touch-icon" href="/images/logo.png" />
+        <link rel="icon" href="/images/brand identies/icon.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/brand identies/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/brand identies/icon.png" />
         {/* Preconnect to Google Fonts for faster font loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -97,6 +106,7 @@ export default function RootLayout({
                     disableTransitionOnChange
                   >
                     <PWAClient />
+                    <UTMClientLoader />
                     <OfflineIndicator />
                     <SchemaOrg />
                     <CommandPalette />

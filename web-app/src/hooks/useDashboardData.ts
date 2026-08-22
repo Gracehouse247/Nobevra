@@ -106,7 +106,7 @@ export function useDashboardData() {
         }
     );
 
-    const firstName = userData?.name ? userData.name.split(' ')[0] : 'Noble';
+    const firstName = userData?.name ? userData.name.split(' ')[0] : 'Partner';
 
     const defaultStats = {
         totalRevenue: 0,

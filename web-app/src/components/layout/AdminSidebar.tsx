@@ -9,6 +9,7 @@ import {
     Plus, ImageIcon, Send, Star
 } from 'lucide-react';
 import { clearAdminSession } from '@/lib/cmsApi';
+import { brand } from '@/lib/brand';
 
 const SidebarItem = ({ 
     icon: Icon, 
@@ -73,8 +74,8 @@ export default function AdminSidebar({ isOpen = false, onClose = () => {} }: { i
             <div className="h-14 flex items-center px-6 border-b border-slate-100 dark:border-noble-border shrink-0">
                 <Link href="/admin/dashboard" className="flex items-center gap-3 group">
                     <img 
-                        src="/images/logo.png" 
-                        alt="NobleInvoice" 
+                        src={brand.assets.logo} 
+                        alt="Nobevra" 
                         className="h-6 w-auto object-contain" 
                     />
                 </Link>

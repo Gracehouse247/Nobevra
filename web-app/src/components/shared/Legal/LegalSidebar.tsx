@@ -78,11 +78,11 @@ export function LegalSidebar({
                       >
                         <section.icon
                           className="w-4 h-4 shrink-0 transition-colors"
-                          style={{ color: isActive ? "#0599D5" : "#64748b" }}
+                          style={{ color: isActive ? "#01A0E2" : "#64748b" }}
                         />
                         <span
                           className="text-sm font-medium transition-colors"
-                          style={{ color: isActive ? "#0599D5" : "#475569" }}
+                          style={{ color: isActive ? "#01A0E2" : "#475569" }}
                         >
                           {section.label}
                         </span>
@@ -153,7 +153,7 @@ export function LegalMobileTOC({
                     >
                       <section.icon
                         className="w-4 h-4 shrink-0"
-                        style={{ color: isActive ? "#0599D5" : "rgba(255,255,255,0.4)" }}
+                        style={{ color: isActive ? "#01A0E2" : "rgba(255,255,255,0.4)" }}
                       />
                       <span
                         className="text-sm font-medium"

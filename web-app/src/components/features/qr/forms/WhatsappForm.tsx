@@ -12,7 +12,7 @@ export default function WhatsappForm({ onChange, initialData, onPreviewValueChan
         const cleanPhone = phone.replace(/[^0-9]/g, '');
         const formattedStr = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`;
         
-        onPreviewValueChange(cleanPhone ? formattedStr : 'https://nobleinvoice.com');
+        onPreviewValueChange(cleanPhone ? formattedStr : 'https://nobevra.noblesworld.com.ng');
     }, [phone, message]);
 
     return (

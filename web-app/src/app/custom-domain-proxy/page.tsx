@@ -33,7 +33,7 @@ export default async function CustomDomainProxyPage({ searchParams }: { searchPa
                     </div>
                     <h1 className="text-2xl font-black text-slate-900 mb-3 tracking-tight">Domain Not Configured</h1>
                     <p className="text-slate-500 text-sm leading-relaxed mb-8">
-                        This custom domain is pointing to NobleInvoice but has not been fully verified or activated yet.
+                        This custom domain is pointing to Nobevra but has not been fully verified or activated yet.
                     </p>
                 </div>
             </div>
@@ -70,7 +70,7 @@ export default async function CustomDomainProxyPage({ searchParams }: { searchPa
             </div>
             
             <div className="mt-8 text-[10px] font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                Powered by <span className="text-slate-900">NobleInvoice</span>
+                Powered by <span className="text-slate-900">Nobevra</span>
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-# NobleInvoice QA Report
+# Nobevra QA Report
 
 **Date:** 2026-07-31T07:00:15.676Z
 **Server:** http://localhost:3000
@@ -7,7 +7,7 @@
 
 | Test | Status | Notes |
 |---|---|---|
-| Landing Page | **PASS** | Title: "Invoice Software Small Business | NobleInvoice" |
+| Landing Page | **PASS** | Title: "Invoice Software Small Business | Nobevra" |
 | Register | **WARNING** | Still on register page. URL: http://localhost:3000/register |
 | Login | **FAIL** | Stayed on login. URL: http://localhost:3000/login |
 | Dashboard | **FAIL** | Not authenticated — redirected to login |
@@ -24,4 +24,4 @@
 - ⚠️ Warnings: 1
 - **Health Score: 1/10**
 
-Screenshots: `C:\Projects\NobleInvoice\web-app\qa_screenshots`
+Screenshots: `C:\Projects\Nobevra\web-app\qa_screenshots`

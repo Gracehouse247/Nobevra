@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: feature.title,
     description: feature.metaDescription,
-    keywords: [feature.primaryKeyword, 'NobleInvoice', 'invoicing software'],
+    keywords: [feature.primaryKeyword, 'Nobevra', 'invoicing software'],
     openGraph: {
       title: feature.title,
       description: feature.metaDescription,
@@ -44,7 +44,7 @@ export default async function FeatureSEOPage({ params }: Props) {
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "NobleInvoice",
+    "name": "Nobevra",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "offers": {
@@ -78,7 +78,7 @@ export default async function FeatureSEOPage({ params }: Props) {
         <div className="flex-1 space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/10 text-noble-blue font-bold text-[10px] uppercase tracking-widest border border-noble-blue/5">
             <span className="w-2 h-2 rounded-full bg-noble-blue animate-pulse" />
-            NobleInvoice Feature
+            Nobevra Feature
           </div>
           <h1 className="text-[30px] md:text-[50px] leading-[1.05] tracking-tight font-black text-slate-900" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
             {feature.hero.headline}

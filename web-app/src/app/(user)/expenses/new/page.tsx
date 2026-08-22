@@ -486,7 +486,7 @@ export default function RecordExpensePage() {
                         {/* Smart Tips */}
                         <div className="bg-noble-surface dark:bg-noble-card rounded-xl border border-noble-border shadow-sm p-6">
                             <div className="flex items-center gap-2 mb-4">
-                                <Lightbulb className="w-4 h-4 text-[#0599D5]" />
+                                <Lightbulb className="w-4 h-4 text-[#01A0E2]" />
                                 <h2 className="text-[14px] font-bold text-noble-text">Smart Tips</h2>
                             </div>
                             <div className="space-y-3">

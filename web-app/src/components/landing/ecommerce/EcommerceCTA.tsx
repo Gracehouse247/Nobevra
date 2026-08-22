@@ -14,7 +14,7 @@ export default function EcommerceCTA() {
                     Every order deserves a proper invoice.
                 </h2>
                 <p className="text-lg text-slate-400 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
-                    Stop generating invoices manually. Connect your store and let NobleInvoice handle it from order to payment.
+                    Stop generating invoices manually. Connect your store and let Nobevra handle it from order to payment.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <Link href="/register" className="inline-flex items-center justify-center gap-3 text-white bg-[#166FBB] px-12 py-6 text-lg font-extrabold rounded-[24px] hover:opacity-90 hover:scale-[1.02] active:scale-95 transition-all shadow-[0_20px_50px_rgba(22,111,187,0.3)] w-full sm:w-auto">

@@ -69,7 +69,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 child: Column(
                   children: [
                     Image.asset(
-                      'assets/images/nobleinvoice_logo.png',
+                      'assets/images/nobevra_logo.png',
                       height: 80,
                     ),
                     const SizedBox(height: 24),

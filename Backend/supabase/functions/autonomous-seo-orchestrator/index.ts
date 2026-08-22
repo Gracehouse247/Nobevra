@@ -282,7 +282,7 @@ async function step2_brandVoiceWriter(
   const uniqueAngle = blueprint.unique_angle || "a fresh perspective not covered by competitors";
   const targetWordCount = blueprint.recommended_word_count || 2500;
 
-  const systemPrompt = `You are the official content strategist and SEO copywriter for NobleInvoice application.
+  const systemPrompt = `You are the official content strategist and SEO copywriter for Nobevra (The Intelligent Business Operating System).
 
 Your job is to write high-performing international SEO content that sounds human, persuasive, commercially intelligent, scan-friendly, emotionally engaging, and conversion-focused.
 
@@ -469,8 +469,8 @@ Return a JSON object with:
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "...",
-    "author": { "@type": "Organization", "name": "NobleInvoice" },
-    "publisher": { "@type": "Organization", "name": "NobleInvoice" },
+    "author": { "@type": "Organization", "name": "Nobevra" },
+    "publisher": { "@type": "Organization", "name": "Nobevra" },
     "datePublished": "...",
     "image": "..."
   },
@@ -507,7 +507,7 @@ async function step4_scannabilityOptimizer(
 1. Ensure all paragraphs are max 2 lines long (break up any longer ones)
 2. Ensure H2 headers appear every 200-350 words
 3. Add bold emphasis to key phrases, statistics, and important terms
-4. Add internal links where relevant using NobleInvoice URLs:
+4. Add internal links where relevant using Nobevra URLs:
    - [invoice generator](/features/invoice-generator)
    - [client portal](/features/client-portal)
    - [digital business cards](/features/digital-business-cards)

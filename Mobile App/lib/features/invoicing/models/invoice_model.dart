@@ -58,6 +58,10 @@ class Invoice {
 
   double get totalAmount => taxableAmount + taxAmount;
 
+  String? get trackingToken => metadata['tracking_token'] as String?;
+  String get invoiceNumber => metadata['invoice_number'] as String? ?? (id.length > 8 ? id.substring(0, 8) : id);
+  String get clientName => client.name;
+
   Invoice copyWith({
     String? id,
     Client? client,

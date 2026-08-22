@@ -35,7 +35,7 @@ export default function DisasterRecoveryPage() {
   return (
     <LegalLayout
       title="Business Continuity & Disaster Recovery"
-      description="Our architecture, processes, and metrics designed to ensure NobleInvoice remains operational during major disruptions."
+      description="Our architecture, processes, and metrics designed to ensure Nobevra remains operational during major disruptions."
       lastUpdated="August 9, 2026"
       categories={CATEGORIES}
       icon={<Server className="w-6 h-6 text-red-500" />}

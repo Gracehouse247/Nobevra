@@ -21,24 +21,24 @@ const CustomTooltip = ({ active, payload, label, currencyCode }: any) => {
         const netPositive = net >= 0;
         return (
             <div className="bg-noble-surface border border-noble-border rounded-2xl shadow-xl p-4 min-w-[160px]">
-                <p className="text-[10px] font-black text-noble-muted uppercase tracking-widest mb-3">{label}</p>
+                <p className="text-[10px] font-black text-slate-600 dark:text-slate-300 uppercase tracking-widest mb-3">{label}</p>
                 <div className="space-y-2">
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-1.5">
-                            <span className="w-2 h-2 rounded-full bg-[#0599D5]" />
-                            <span className="text-[11px] font-semibold text-slate-600">Revenue</span>
+                            <span className="w-2 h-2 rounded-full bg-[#01A0E2]" />
+                            <span className="text-[11px] font-bold text-slate-700 dark:text-slate-200">Revenue</span>
                         </div>
                         <span className="text-[11px] font-black text-noble-text">{currencyService.format(revenue, currencyCode, { decimals: 0 })}</span>
                     </div>
                     <div className="flex items-center justify-between gap-4">
                         <div className="flex items-center gap-1.5">
                             <span className="w-2 h-2 rounded-full bg-orange-400" />
-                            <span className="text-[11px] font-semibold text-slate-600">Expenses</span>
+                            <span className="text-[11px] font-bold text-slate-700 dark:text-slate-200">Expenses</span>
                         </div>
                         <span className="text-[11px] font-black text-noble-text">{currencyService.format(expenses, currencyCode, { decimals: 0 })}</span>
                     </div>
                     <div className="pt-2 border-t border-noble-card-border flex items-center justify-between gap-4">
-                        <span className="text-[11px] font-black text-slate-500">Net</span>
+                        <span className="text-[11px] font-black text-slate-600 dark:text-slate-300">Net</span>
                         <span className={`text-[11px] font-black ${netPositive ? 'text-emerald-600' : 'text-red-500'}`}>
                             {netPositive ? '+' : ''}{currencyService.format(net, currencyCode, { decimals: 0 })}
                         </span>
@@ -95,35 +95,22 @@ export default function CashFlowChart({ invoices = [], currencyCode = 'USD', exp
     const HealthIcon = healthConfig.icon;
 
     return (
-        <div className="bg-noble-card border border-noble-card-border rounded-[28px] p-6 shadow-[0_4px_24px_rgba(15,23,42,0.06)] h-full flex flex-col">
+        <div className="bg-noble-card border border-noble-card-border rounded-2xl p-6 shadow-[0_4px_24px_rgba(15,23,42,0.06)] h-full flex flex-col">
             {/* Header */}
             <div className="flex justify-between items-start mb-6">
                 <div>
-                    <div className="flex items-center gap-2.5 mb-1">
-                        <div className="w-7 h-7 rounded-lg bg-[#0599D5]/10 flex items-center justify-center">
-                            <Activity className="w-3.5 h-3.5 text-[#0599D5]" />
-                        </div>
-                        <h3 className="text-[15px] font-bold text-noble-text tracking-[-0.01em]">Cash Flow Analysis</h3>
-                        {hasData && (
-                            <div className={`flex items-center gap-1 px-2.5 py-1 rounded-full border ${healthConfig.bg} ${healthConfig.border}`}>
-                                <HealthIcon className={`w-3 h-3 ${healthConfig.color}`} />
-                                <span className={`text-[9px] font-black uppercase tracking-wide ${healthConfig.color}`}>{healthConfig.label}</span>
-                            </div>
-                        )}
-                    </div>
-                    <p className="text-[12px] text-noble-muted font-medium">Revenue &amp; expense velocity by month</p>
+                    <h3 className="text-lg font-bold text-noble-text tracking-tight">Cash Flow Trend</h3>
+                    <p className="text-xs font-medium text-slate-500 dark:text-slate-400 mt-0.5">Revenue vs. Expenses over time</p>
                 </div>
-
-                {/* Tab pills */}
-                <div className="flex items-center bg-slate-100 dark:bg-white/5 rounded-xl p-1 gap-0.5">
-                    {ranges.map(r => (
+                <div className="flex items-center gap-1.5 p-1 bg-noble-surface dark:bg-white/5 border border-noble-card-border rounded-xl">
+                    {ranges.map((r) => (
                         <button
                             key={r.value}
                             onClick={() => setSelectedRange(r)}
-                            className={`px-3 py-1.5 rounded-lg text-[11px] font-black transition-all ${
+                            className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
                                 selectedRange.value === r.value
-                                    ? 'bg-white dark:bg-white/10 text-noble-text shadow-sm'
-                                    : 'text-noble-muted hover:text-noble-text'
+                                    ? 'bg-[#01A0E2] text-white shadow-sm'
+                                    : 'text-slate-600 dark:text-slate-400 hover:text-noble-text'
                             }`}
                         >
                             {r.label}
@@ -135,12 +122,12 @@ export default function CashFlowChart({ invoices = [], currencyCode = 'USD', exp
             {/* Legend */}
             <div className="flex items-center gap-4 mb-4">
                 <div className="flex items-center gap-1.5">
-                    <span className="w-3 h-3 rounded-full bg-[#0599D5]" />
-                    <span className="text-[11px] font-semibold text-noble-muted">Revenue</span>
+                    <span className="w-3 h-3 rounded-full bg-[#01A0E2]" />
+                    <span className="text-[11px] font-bold text-slate-700 dark:text-slate-200">Revenue</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                     <span className="w-3 h-3 rounded-full bg-orange-400" />
-                    <span className="text-[11px] font-semibold text-noble-muted">Expenses</span>
+                    <span className="text-[11px] font-bold text-slate-700 dark:text-slate-200">Expenses</span>
                 </div>
             </div>
 
@@ -151,35 +138,35 @@ export default function CashFlowChart({ invoices = [], currencyCode = 'USD', exp
                         <div className="w-12 h-12 rounded-2xl bg-noble-icon-bg flex items-center justify-center mb-3">
                         <Activity className="w-5 h-5 text-noble-muted/50" />
                         </div>
-                        <h4 className="text-slate-600 font-bold mb-1 text-sm">No data yet</h4>
-                        <p className="text-xs text-noble-muted max-w-[200px] leading-relaxed">Mark invoices as paid to see your cash flow chart.</p>
+                        <h4 className="text-slate-700 dark:text-slate-200 font-bold mb-1 text-sm">No data yet</h4>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 max-w-[200px] leading-relaxed">Mark invoices as paid to see your cash flow chart.</p>
                     </div>
                 ) : (
                     <ResponsiveContainer width="100%" height="100%">
                         <AreaChart data={data} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                             <defs>
                                 <linearGradient id="revGrad" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="5%" stopColor="#0599D5" stopOpacity={0.25}/>
-                                    <stop offset="95%" stopColor="#0599D5" stopOpacity={0}/>
+                                    <stop offset="5%" stopColor="#01A0E2" stopOpacity={0.25}/>
+                                    <stop offset="95%" stopColor="#01A0E2" stopOpacity={0}/>
                                 </linearGradient>
                                 <linearGradient id="expGrad" x1="0" y1="0" x2="0" y2="1">
                                     <stop offset="5%" stopColor="#FB923C" stopOpacity={0.2}/>
                                     <stop offset="95%" stopColor="#FB923C" stopOpacity={0}/>
                                 </linearGradient>
                             </defs>
-                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
                             <XAxis
                                 dataKey="name"
                                 axisLine={false}
                                 tickLine={false}
-                                tick={{ fontSize: 10, fill: '#94a3b8', fontWeight: 600 }}
+                                tick={{ fontSize: 10, fill: '#475569', fontWeight: 700 }}
                                 dy={10}
                             />
                             <Tooltip content={<CustomTooltip currencyCode={currencyCode} />} cursor={{ stroke: '#cbd5e1', strokeWidth: 1, strokeDasharray: '4 4' }} />
                             <Area
                                 type="monotone"
                                 dataKey="revenue"
-                                stroke="#0599D5"
+                                stroke="#01A0E2"
                                 strokeWidth={2.5}
                                 fillOpacity={1}
                                 fill="url(#revGrad)"

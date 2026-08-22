@@ -148,7 +148,7 @@ export const TopToolbar: React.FC = () => {
                 identityService.saveIdentityWithDesign({
                   userId: user.id,
                   teamId,
-                  name: nameEl?.text || (tData as any)?.full_name || 'Noble User',
+                  name: nameEl?.text || (tData as any)?.full_name || 'User',
                   title: titleEl?.text || 'Professional',
                   email: emailEl?.text || (tData as any)?.business_email || '',
                   phone: phoneEl?.text || (tData as any)?.business_phone || '',

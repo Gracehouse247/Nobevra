@@ -255,7 +255,7 @@ export default function InvoicesPage() {
                                     >
                                         {tab}
                                         {tabCounts[tab] > 0 && (
-                                            <span className={`text-[9px] font-black px-1.5 py-px rounded-full leading-none ${activeTab === tab ? 'text-white' : 'bg-slate-200 text-slate-500 dark:text-slate-400 dark:text-slate-500'}`} style={activeTab === tab ? { backgroundColor: '#0599D5' } : {}}>
+                                            <span className={`text-[9px] font-black px-1.5 py-px rounded-full leading-none ${activeTab === tab ? 'text-white' : 'bg-slate-200 text-slate-500 dark:text-slate-400 dark:text-slate-500'}`} style={activeTab === tab ? { backgroundColor: '#01A0E2' } : {}}>
                                                 {tabCounts[tab]}
                                             </span>
                                         )}
@@ -276,7 +276,7 @@ export default function InvoicesPage() {
                                 <tr className="border-b border-slate-100 dark:border-noble-border bg-noble-table-header-bg">
                                     <th className="px-4 py-3 w-9">
                                         <button onClick={toggleAll} className="text-noble-muted hover:text-noble-primary transition-colors">
-                                            {allSelected ? <CheckSquare className="w-3.5 h-3.5 text-[#0599D5]" /> : someSelected ? <CheckSquare className="w-3.5 h-3.5 text-noble-muted" /> : <Square className="w-3.5 h-3.5" />}
+                                            {allSelected ? <CheckSquare className="w-3.5 h-3.5 text-[#01A0E2]" /> : someSelected ? <CheckSquare className="w-3.5 h-3.5 text-noble-muted" /> : <Square className="w-3.5 h-3.5" />}
                                         </button>
                                     </th>
                                     {['Invoice Number', 'Customer Name', 'Date', 'Total Amount', 'Total Discount', 'Status', 'Net Total', 'Action'].map(h => (
@@ -317,8 +317,8 @@ export default function InvoicesPage() {
                                         >
                                             {/* Checkbox */}
                                             <td className="px-4 py-3.5" onClick={e => { e.stopPropagation(); toggleOne(invoice.id); }}>
-                                                <button className="text-slate-300 hover:text-[#0599D5] transition-colors">
-                                                    {isSelected ? <CheckSquare className="w-3.5 h-3.5 text-[#0599D5]" /> : <Square className="w-3.5 h-3.5" />}
+                                                <button className="text-slate-300 hover:text-[#01A0E2] transition-colors">
+                                                    {isSelected ? <CheckSquare className="w-3.5 h-3.5 text-[#01A0E2]" /> : <Square className="w-3.5 h-3.5" />}
                                                 </button>
                                             </td>
 

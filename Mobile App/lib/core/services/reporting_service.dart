@@ -77,7 +77,7 @@ class ReportingService {
   }
 
   static String generateCsvReport(FiscalSummary summary, String teamName, DateTime start, DateTime end) {
-    String csv = "NobleInvoice Fiscal Report,$teamName\n";
+    String csv = "Nobevra Fiscal Report,$teamName\n";
     csv += "Period,${start.toLocal().toString().split(' ')[0]} to ${end.toLocal().toString().split(' ')[0]}\n\n";
     
     csv += "Overview\n";

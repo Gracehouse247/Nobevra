@@ -40,7 +40,7 @@ class OfflineConnectionScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               const Text(
-                'Please check your network settings and \ntry again to continue using NobleInvoice.',
+                'Please check your network settings and \ntry again to continue using Nobevra.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,

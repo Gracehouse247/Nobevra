@@ -129,6 +129,7 @@ class ProductController extends ChangeNotifier {
         _products[i] = Product(
           id: p.id,
           userId: p.userId,
+          teamId: p.teamId,
           name: p.name,
           unitPrice: p.unitPrice,
           stockQuantity: p.stockQuantity + amount,

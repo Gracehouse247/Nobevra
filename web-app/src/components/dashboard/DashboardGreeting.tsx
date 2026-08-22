@@ -105,7 +105,7 @@ export default function DashboardGreeting({ invoices, clientsLength }: Dashboard
                         <Link href={content.href}>
                             <button
                                 onClick={handleDismiss}
-                                className="flex items-center justify-center px-6 py-2.5 bg-[#0599D5] text-white rounded-xl font-semibold hover:bg-[#0599D5]/90 transition-all shadow-md group whitespace-nowrap"
+                                className="flex items-center justify-center px-6 py-2.5 bg-[#01A0E2] text-white rounded-xl font-semibold hover:bg-[#01A0E2]/90 transition-all shadow-md group whitespace-nowrap"
                             >
                                 {content.cta}
                                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

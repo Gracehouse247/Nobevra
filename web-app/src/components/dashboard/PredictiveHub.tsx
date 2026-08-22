@@ -42,12 +42,12 @@ export default function PredictiveHub({ invoices = [], currencyCode = 'USD' }: {
         {
             id: 'forecast',
             icon: TrendingUp,
-            iconBg: 'bg-[#0599D5]/10',
-            iconColor: 'text-[#0599D5]',
+            iconBg: 'bg-[#01A0E2]/10',
+            iconColor: 'text-[#01A0E2]',
             label: 'Revenue Forecast',
             value: projectedRevenue > 0 ? currencyService.format(projectedRevenue, currencyCode, { decimals: 0 }) : null,
             subtext: projectedRevenue > 0 ? `Projected income for ${nextMonthName}` : 'No invoices due next month yet',
-            accent: 'border-l-[#0599D5]',
+            accent: 'border-l-[#01A0E2]',
             emptyMsg: 'Send invoices due next month to unlock your forecast.',
         },
         {
@@ -80,13 +80,13 @@ export default function PredictiveHub({ invoices = [], currencyCode = 'USD' }: {
         <div className="flex flex-col h-full gap-4">
             {/* Header */}
             <div className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#0599D5]/20 to-[#006970]/20 flex items-center justify-center">
-                    <Sparkles className="w-3.5 h-3.5 text-[#0599D5]" />
+                <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#01A0E2]/20 to-[#006970]/20 flex items-center justify-center">
+                    <Sparkles className="w-3.5 h-3.5 text-[#01A0E2]" />
                 </div>
                 <h3 className="text-[11px] font-black text-noble-insight-text/70 uppercase tracking-widest">Intelligence Hub</h3>
-                <div className="ml-auto flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#0599D5]/10 border border-[#0599D5]/20">
-                    <Zap className="w-2.5 h-2.5 text-[#0599D5]" />
-                    <span className="text-[8px] font-black text-[#0599D5] uppercase tracking-widest">AI</span>
+                <div className="ml-auto flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#01A0E2]/10 border border-[#01A0E2]/20">
+                    <Zap className="w-2.5 h-2.5 text-[#01A0E2]" />
+                    <span className="text-[8px] font-black text-[#01A0E2] uppercase tracking-widest">AI</span>
                 </div>
             </div>
 

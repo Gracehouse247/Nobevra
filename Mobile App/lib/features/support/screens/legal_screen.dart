@@ -8,8 +8,8 @@ class LegalScreen extends StatelessWidget {
   const LegalScreen({super.key, required this.title});
 
   // Live hosted URLs — update these if domain changes
-  static const String _privacyUrl = 'https://go.noblesworld.com.ng/legal/privacy-policy.html';
-  static const String _termsUrl   = 'https://go.noblesworld.com.ng/legal/terms.html';
+  static const String _privacyUrl = 'https://nobevra.noblesworld.com.ng/privacy';
+  static const String _termsUrl   = 'https://nobevra.noblesworld.com.ng/terms';
 
   @override
   Widget build(BuildContext context) {
@@ -55,10 +55,11 @@ class LegalScreen extends StatelessWidget {
             else           ..._buildTermsSections(),
 
             const SizedBox(height: 40),
-            const Center(
+            Center(
               child: Text(
-                'NobleInvoice © 2026. All rights reserved.',
-                style: TextStyle(color: Colors.grey, fontSize: 12),
+                'Nobevra © ${DateTime.now().year}. A product of The Noble\'s Technology Services.',
+                textAlign: TextAlign.center,
+                style: const TextStyle(color: Colors.grey, fontSize: 12),
               ),
             ),
             const SizedBox(height: 80),
@@ -135,29 +136,29 @@ class LegalScreen extends StatelessWidget {
       'We share data only with: Paystack, Flutterwave, PayPal (payments), Google Gemini AI (captions), '
       'Firebase by Google (push notifications), and Google Sign-In (optional login). Each has its own privacy policy.'),
     _buildSection('4. Data Storage & Security',
-      'Your data is stored on a secure cPanel server. Passwords are bcrypt-hashed. All API communication '
+      'Your data is stored on secure, encrypted cloud infrastructure. Passwords are bcrypt-hashed. All API communication '
       'uses HTTPS/SSL. Authentication uses signed JWT tokens with expiry.'),
     _buildSection('5. Your Rights',
       'You may access, correct, or request deletion of your data at any time by contacting us at '
-      'go@noblesworld.com.ng or through the app settings. Account deletion removes all data within 30 days.'),
+      'support@nobevra.com or through the app settings. Account deletion removes all data within 30 days.'),
     _buildSection('6. Children\'s Privacy',
-      'NobleInvoice is not intended for children under 13. We do not knowingly collect data from children under 13.'),
+      'Nobevra is not intended for children under 13. We do not knowingly collect data from children under 13.'),
   ];
 
   // ── Terms of Service Sections ─────────────────────────────────────────────
   List<Widget> _buildTermsSections() => [
     _buildSection('1. Acceptance of Terms',
-      'By downloading, installing, or using the NobleInvoice mobile application, you agree to be bound by these Terms of Service. If you do not agree, do not use the app.'),
+      'By downloading, installing, or using the Nobevra mobile application, you agree to be bound by these Terms of Service. If you do not agree, do not use the app.'),
     _buildSection('2. Description of Service',
-      'NobleInvoice is an all-in-one business toolkit providing: QR Code Generator (19 types), Invoice Generator with PDF export, AI Social Media Caption Generator, Brand Kit management, and Asset Gallery.'),
+      'Nobevra is an all-in-one business toolkit providing: QR Code Generator (19 types), Invoice Generator with PDF export, AI Social Media Caption Generator, Brand Kit management, and Asset Gallery.'),
     _buildSection('3. Subscription Plans',
       'Free Plan: Standard features with usage limits. Pro Plan (₦4,999/month): Unlimited access to all features. '
       'Subscriptions renew monthly unless cancelled. No refunds for partial months.'),
     _buildSection('4. Acceptable Use',
-      'You agree not to use NobleInvoice for illegal or fraudulent content, to violate intellectual property rights, '
+      'You agree not to use Nobevra for illegal or fraudulent content, to violate intellectual property rights, '
       'to attempt hacking or reverse engineering, or to send unsolicited communications.'),
     _buildSection('5. Limitation of Liability',
-      'NobleInvoice is provided "as is". We are not liable for any indirect or consequential damages arising from '
+      'Nobevra is provided "as is". We are not liable for any indirect or consequential damages arising from '
       'your use of the app. Our liability is limited to the amount you paid in the last 3 months.'),
     _buildSection('6. Termination',
       'We may suspend accounts that violate these terms. You may delete your account at any time from Profile settings.'),

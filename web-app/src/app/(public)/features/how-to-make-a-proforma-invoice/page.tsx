@@ -36,7 +36,7 @@ export function generateMetadata(): Metadata {
       'how to make a proforma invoice online',
       'how to make a proforma invoice in excel',
       'proforma invoice vs invoice',
-      'NobleInvoice',
+      'Nobevra',
       'proforma generator'
     ],
     alternates: {
@@ -57,7 +57,7 @@ export default function ProformaInvoicePage() {
   const schemaMarkup = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "NobleInvoice",
+    "name": "Nobevra",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "offers": {
@@ -74,7 +74,7 @@ export default function ProformaInvoicePage() {
           "name": "What is the best free proforma invoice template?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "The best free proforma invoice template is one that is built into a dynamic invoicing software like NobleInvoice. Unlike static templates, it allows you to convert the proforma directly into a legally binding invoice once the client approves it, saving you from double data entry."
+            "text": "The best free proforma invoice template is one that is built into a dynamic invoicing software like Nobevra. Unlike static templates, it allows you to convert the proforma directly into a legally binding invoice once the client approves it, saving you from double data entry."
           }
         },
         {
@@ -90,7 +90,7 @@ export default function ProformaInvoicePage() {
           "name": "How to make a proforma invoice online for free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "You can make a proforma invoice online for free using NobleInvoice. Simply create an account, select the 'Proforma' document type, add your client's details and line items, and generate a secure link or PDF to send directly to your client."
+            "text": "You can make a proforma invoice online for free using Nobevra. Simply create an account, select the 'Proforma' document type, add your client's details and line items, and generate a secure link or PDF to send directly to your client."
           }
         },
         {
@@ -106,7 +106,7 @@ export default function ProformaInvoicePage() {
           "name": "Can I convert a proforma invoice to a final invoice?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, with NobleInvoice, you can convert a proforma invoice to a final commercial invoice with a single click once the client accepts the terms. The software automatically retains all line items and pricing, generating a new invoice number for accounting purposes."
+            "text": "Yes, with Nobevra, you can convert a proforma invoice to a final commercial invoice with a single click once the client accepts the terms. The software automatically retains all line items and pricing, generating a new invoice number for accounting purposes."
           }
         }
       ]
@@ -205,7 +205,7 @@ export default function ProformaInvoicePage() {
               Watch: Make a Proforma Invoice in 60 Seconds
             </h2>
             <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto">
-              See exactly how NobleInvoice instantly converts a formal estimate into a legally binding tax invoice with zero double data entry.
+              See exactly how Nobevra instantly converts a formal estimate into a legally binding tax invoice with zero double data entry.
             </p>
           </div>
           
@@ -463,11 +463,11 @@ export default function ProformaInvoicePage() {
         </div>
       </section>
 
-      {/* 6. NobleInvoice Approach */}
+      {/* 6. Nobevra Approach */}
       <section className="py-24 bg-white px-4 md:px-16 border-t border-slate-100">
         <div className="max-w-7xl mx-auto text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900 mb-6" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
-            How to Make a Proforma Invoice Online With NobleInvoice
+            How to Make a Proforma Invoice Online With Nobevra
           </h2>
           <p className="text-slate-500 font-medium max-w-2xl mx-auto text-lg">
             We built a dedicated Products & Services Catalog specifically to solve the friction of proforma generation.
@@ -494,7 +494,7 @@ export default function ProformaInvoicePage() {
                  <RefreshCcw className="w-8 h-8" />
               </div>
               <h3 className="text-2xl font-black tracking-tight text-slate-900">3. Seamless Conversion</h3>
-              <p className="text-slate-600">When the client approves, click "Convert". NobleInvoice generates a final, payable invoice immediately.</p>
+              <p className="text-slate-600">When the client approves, click "Convert". Nobevra generates a final, payable invoice immediately.</p>
            </div>
         </div>
 
@@ -569,7 +569,7 @@ export default function ProformaInvoicePage() {
                We May Not Be Right For You If...
             </h2>
             <p className="text-slate-600 font-medium leading-relaxed">
-               If you only send one or two quotes a year to local clients, you don't need us. A free Excel template will work perfectly fine. But if you are actively growing, dealing with international clients, sending multiple quotes a week, and losing time to manual data entry—NobleInvoice will change how you run your business.
+               If you only send one or two quotes a year to local clients, you don't need us. A free Excel template will work perfectly fine. But if you are actively growing, dealing with international clients, sending multiple quotes a week, and losing time to manual data entry—Nobevra will change how you run your business.
             </p>
          </div>
       </section>

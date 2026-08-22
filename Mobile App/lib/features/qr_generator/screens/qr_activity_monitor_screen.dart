@@ -18,7 +18,7 @@ class QrActivityMonitorScreen extends StatelessWidget {
         title: Column(
           children: [
             const Text('QR Monitor', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 17)),
-            Text('NobleInvoice ADMIN', style: TextStyle(color: Colors.grey.withOpacity(0.1), fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1.2)),
+            Text('Nobevra ADMIN', style: TextStyle(color: Colors.grey.withOpacity(0.1), fontSize: 10, fontWeight: FontWeight.w900, letterSpacing: 1.2)),
           ],
         ),
         centerTitle: true,

@@ -61,7 +61,7 @@ export default function AdminSEOPanel() {
 
   // Settings
   const [settings, setSettings] = useState({
-    default_meta_title: 'NobleInvoice - Premium Financial Management & CRM Platform',
+    default_meta_title: 'Nobevra - Premium Financial Management & CRM Platform',
     default_meta_description: 'Streamline your professional workflow, collect payments rapidly with Flutterwave, and leverage smart client portals.',
     auto_publish: true,
     cron_expression: '0 8 * * *'

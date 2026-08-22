@@ -11,7 +11,7 @@ const FAQS = [
     },
     { 
         q: 'How does the automatic tax calculation work?', 
-        a: 'NobleInvoice supports both inclusive and exclusive tax modes. You can set a global tax rate in Settings or adjust it per-invoice. The engine automatically calculates the total based on your taxable subtotal.' 
+        a: 'Nobevra supports both inclusive and exclusive tax modes. You can set a global tax rate in Settings or adjust it per-invoice. The engine automatically calculates the total based on your taxable subtotal.' 
     },
     { 
         q: 'Can I import my existing client list?', 
@@ -27,7 +27,7 @@ const FAQS = [
     },
     { 
         q: 'How do I accept online payments?', 
-        a: 'NobleInvoice integrates directly with Flutterwave. Once you link your account in Wallet & Payments, you can enable "Accept Online Payments" on any invoice to get paid via card or bank transfer.' 
+        a: 'Nobevra integrates directly with Flutterwave. Once you link your account in Wallet & Payments, you can enable "Accept Online Payments" on any invoice to get paid via card or bank transfer.' 
     }
 ];
 
@@ -53,7 +53,7 @@ export default function HelpCenterPage() {
                         How can we <span className="text-noble-blue">help?</span>
                     </h1>
                     <p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 font-bold max-w-lg mx-auto">
-                        Search our knowledge base or get in touch with the NobleInvoice Cognitive Team.
+                        Search our knowledge base or get in touch with the Nobevra Cognitive Team.
                     </p>
                     
                     <div className="relative max-w-2xl mx-auto mt-8">

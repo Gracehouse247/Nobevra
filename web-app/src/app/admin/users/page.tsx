@@ -186,7 +186,7 @@ export default function AdminUsersPage() {
         const blob = new Blob([csv], { type: 'text/csv' });
         const a = document.createElement('a');
         a.href = URL.createObjectURL(blob);
-        a.download = 'nobleinvoice_users.csv';
+        a.download = 'nobevra_users.csv';
         a.click();
     };
 

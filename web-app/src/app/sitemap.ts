@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://nobleinvoice.com'
+  const baseUrl = 'https://nobevra.noblesworld.com.ng'
   const now = new Date()
 
   return [

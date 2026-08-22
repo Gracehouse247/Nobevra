@@ -86,13 +86,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 // ── Header ───────────────────────────────────────────────────
                 Center(
                   child: Column(children: [
-                    Image.asset('assets/images/nobleinvoice_logo.png', height: 72),
+                    Image.asset('assets/images/nobevra_logo.png', height: 72),
                     const SizedBox(height: 12),
                     Text('Welcome Back',
                         style: AppTextStyles.headlineLarge.copyWith(
                             fontWeight: FontWeight.w900, fontSize: 26)),
                     const SizedBox(height: 4),
-                    Text('Sign in to continue to your NobleInvoice account.',
+                    Text('Sign in to continue to your Nobevra account.',
                         textAlign: TextAlign.center,
                         style: AppTextStyles.bodyMedium.copyWith(
                             color: AppColors.darkGrey, fontSize: 13)),

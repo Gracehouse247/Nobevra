@@ -60,7 +60,7 @@ Similar technologies — including local storage, session storage, pixel tags, a
 
 ### 2. HOW WE USE COOKIES
 
-NobleInvoice uses cookies and similar technologies to:
+Nobevra uses cookies and similar technologies to:
 
 * Keep you signed in to your Account across page loads and browser sessions.
 * Remember your preferences (currency, language, dark/light mode, cookie consent choice).
@@ -75,7 +75,7 @@ We do **not** use cookies to serve third-party advertising or sell your browsing
 
 ### 3. STRICTLY NECESSARY COOKIES
 
-Strictly necessary cookies are essential for NobleInvoice to function. They cannot be disabled. No consent is required for these cookies because they are necessary to provide the service you have requested.
+Strictly necessary cookies are essential for Nobevra to function. They cannot be disabled. No consent is required for these cookies because they are necessary to provide the service you have requested.
 
 | Cookie / Technology | Purpose | Duration |
 |---|---|---|
@@ -84,13 +84,13 @@ Strictly necessary cookies are essential for NobleInvoice to function. They cann
 | cookie_consent | Stores your cookie consent choice | 1 year |
 | sb-access-token / sb-refresh-token | JWT access and refresh tokens for API authentication | Session / rotating |
 
-These cookies are set by NobleInvoice's infrastructure (Supabase, hosted on AWS us-east-1) and are strictly limited to operating the authentication system.
+These cookies are set by Nobevra's infrastructure (Supabase, hosted on AWS us-east-1) and are strictly limited to operating the authentication system.
 
 ---
 
 ### 4. AUTHENTICATION AND SESSION
 
-When you sign in to NobleInvoice — whether via email and password or Google Sign-In (OAuth) — authentication tokens are issued by Supabase Auth and stored in your browser.
+When you sign in to Nobevra — whether via email and password or Google Sign-In (OAuth) — authentication tokens are issued by Supabase Auth and stored in your browser.
 
 * **JWT Access Token** — a short-lived token (typically 1 hour) used to authenticate API requests.
 * **JWT Refresh Token** — a longer-lived token used to issue new access tokens without requiring you to log in again.
@@ -105,7 +105,7 @@ If you sign out, your session token is immediately invalidated server-side.
 
 ### 5. PREFERENCE COOKIES
 
-Preference cookies remember your settings and choices to personalise your experience. These are set by NobleInvoice's own systems.
+Preference cookies remember your settings and choices to personalise your experience. These are set by Nobevra's own systems.
 
 | Cookie / Technology | Purpose | Duration |
 |---|---|---|
@@ -120,7 +120,7 @@ These cookies do not track you across other websites.
 
 ### 6. ANALYTICS COOKIES
 
-NobleInvoice uses **Google Analytics 4 (GA4)** to understand how visitors use the public website. GA4 is **only loaded after you explicitly accept analytics cookies** via the cookie consent banner. GA4 is never loaded for visitors who decline or have not yet made a consent choice.
+Nobevra uses **Google Analytics 4 (GA4)** to understand how visitors use the public website. GA4 is **only loaded after you explicitly accept analytics cookies** via the cookie consent banner. GA4 is never loaded for visitors who decline or have not yet made a consent choice.
 
 | Provider | Cookie | Purpose | Duration |
 |---|---|---|---|
@@ -133,7 +133,7 @@ NobleInvoice uses **Google Analytics 4 (GA4)** to understand how visitors use th
 
 **Data collected by GA4 (when consent is given):** anonymised page views, user interactions, device type, browser type, operating system, approximate country-level location (not city-level), and referral source.
 
-**IP anonymisation:** IP address truncation is enabled. Full IP addresses are not stored by Google Analytics in connection with NobleInvoice analytics data.
+**IP anonymisation:** IP address truncation is enabled. Full IP addresses are not stored by Google Analytics in connection with Nobevra analytics data.
 
 **Data processor:** Google LLC. Google's Privacy Policy: [https://policies.google.com/privacy](https://policies.google.com/privacy)
 
@@ -143,7 +143,7 @@ You may also opt out of GA4 across all websites using the [Google Analytics Opt-
 
 ### 7. MARKETING COOKIES
 
-NobleInvoice does **not** currently use cookies for advertising, retargeting, or behavioural marketing. We do not place advertising pixels or partner with ad networks that set tracking cookies on our website.
+Nobevra does **not** currently use cookies for advertising, retargeting, or behavioural marketing. We do not place advertising pixels or partner with ad networks that set tracking cookies on our website.
 
 If this changes, we will update this Cookie Policy and obtain appropriate consent before deploying any marketing cookies.
 
@@ -151,7 +151,7 @@ If this changes, we will update this Cookie Policy and obtain appropriate consen
 
 ### 8. THIRD-PARTY COOKIES
 
-Some features of NobleInvoice involve third-party services that may set their own cookies or use similar technologies.
+Some features of Nobevra involve third-party services that may set their own cookies or use similar technologies.
 
 | Third-Party Service | Why It May Set Cookies | Their Privacy Policy |
 |---|---|---|
@@ -160,23 +160,23 @@ Some features of NobleInvoice involve third-party services that may set their ow
 | Supabase | Database, authentication and API infrastructure | [supabase.com/privacy](https://supabase.com/privacy) |
 | Vercel | Web hosting, edge delivery and performance | [vercel.com/legal/privacy-policy](https://vercel.com/legal/privacy-policy) |
 
-NobleInvoice does not control third-party cookies. Their use is governed by the respective provider's own privacy and cookie policies.
+Nobevra does not control third-party cookies. Their use is governed by the respective provider's own privacy and cookie policies.
 
 ---
 
 ### 9. COOKIE DURATION
 
-Cookies on NobleInvoice fall into two duration categories:
+Cookies on Nobevra fall into two duration categories:
 
 **Session cookies** — deleted automatically when you close your browser. Used for CSRF tokens, short-lived authentication tokens, and temporary UI state.
 
-**Persistent cookies** — remain on your device for a defined period or until you delete them. Used for preference storage, consent records, and (when consented) analytics. Persistent cookies on NobleInvoice typically expire between 24 hours and 2 years, as detailed in the tables above.
+**Persistent cookies** — remain on your device for a defined period or until you delete them. Used for preference storage, consent records, and (when consented) analytics. Persistent cookies on Nobevra typically expire between 24 hours and 2 years, as detailed in the tables above.
 
 ---
 
 ### 10. CONSENT
 
-When you first visit the NobleInvoice website, a cookie consent banner is displayed. The banner offers the following choices:
+When you first visit the Nobevra website, a cookie consent banner is displayed. The banner offers the following choices:
 
 * **Accept All** — enables strictly necessary cookies and Google Analytics 4.
 * **Reject / Necessary Only** — enables only strictly necessary cookies. GA4 is not loaded.
@@ -209,7 +209,7 @@ All major browsers provide built-in controls to manage cookies:
 * **Safari:** Preferences → Privacy → Manage Website Data
 * **Microsoft Edge:** Settings → Privacy, search, and services → Cookies
 
-You may block all cookies through browser settings. Be aware that blocking strictly necessary cookies will prevent you from signing in to your NobleInvoice account, and some platform features will not function correctly.
+You may block all cookies through browser settings. Be aware that blocking strictly necessary cookies will prevent you from signing in to your Nobevra account, and some platform features will not function correctly.
 
 You may also use browser extensions such as Privacy Badger, uBlock Origin, or similar tools to manage third-party tracking.
 
@@ -219,7 +219,7 @@ You may also use browser extensions such as Privacy Badger, uBlock Origin, or si
 
 ### 13. DO NOT TRACK
 
-Some browsers include a "Do Not Track" (DNT) signal. NobleInvoice currently does not alter its data-collection practices in response to DNT signals because no universally accepted standard for DNT has been adopted. We apply our standard consent-based analytics approach regardless of DNT signals. You may use the consent banner or browser controls described above to limit analytics cookies.
+Some browsers include a "Do Not Track" (DNT) signal. Nobevra currently does not alter its data-collection practices in response to DNT signals because no universally accepted standard for DNT has been adopted. We apply our standard consent-based analytics approach regardless of DNT signals. You may use the consent banner or browser controls described above to limit analytics cookies.
 
 ---
 
@@ -235,7 +235,7 @@ We encourage you to review this policy periodically.
 
 If you have questions about our use of cookies or wish to exercise a data-subject right relating to data processed via cookies, please contact:
 
-**NobleInvoice Data Protection Officer**  
+**Nobevra Data Protection Officer**  
 Email: **privacy@noblesworld.com.ng**  
 General: invoice@noblesworld.com.ng
 
@@ -246,7 +246,7 @@ export default function CookiesPage() {
   return (
     <LegalLayout
       title="Cookie Policy"
-      description="This policy explains how NobleInvoice uses cookies and similar technologies on our website and applications, what choices you have, and how to control them."
+      description="This policy explains how Nobevra uses cookies and similar technologies on our website and applications, what choices you have, and how to control them."
       categories={CATEGORIES}
     >
       <div className="prose prose-slate prose-a:text-blue-600 prose-headings:text-slate-900 max-w-none prose-h3:text-2xl prose-h3:font-black prose-h3:mt-12 prose-h3:scroll-mt-24 prose-table:text-sm">

@@ -66,7 +66,7 @@ export default function DataBackupPage() {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
             a.href = url;
-            a.download = `nobleinvoice_archive_${Date.now()}.json`;
+            a.download = `nobevra_archive_${Date.now()}.json`;
             a.click();
             URL.revokeObjectURL(url);
             
@@ -215,7 +215,7 @@ export default function DataBackupPage() {
                                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-xl text-[13px] font-bold transition-colors shadow-sm disabled:opacity-50"
                             >
                                 {deleting ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
-                                Delete My NobleInvoice Account
+                                Delete My Nobevra Account
                             </button>
                         </div>
                     </motion.div>

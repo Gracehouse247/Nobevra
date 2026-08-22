@@ -43,7 +43,7 @@ serve(async (req) => {
     }
 
     // 2. Database Cleanup (if cascade delete is not setup)
-    // Note: Usually team_id is the primary key for NobleInvoice data.
+    // Note: Usually team_id is the primary key for Nobevra data.
     // If the user is the owner of a team, we might need to delete the team too.
     
     // For now, we assume the user is just being "soft-deleted" or purged.

@@ -2,7 +2,7 @@ import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
 /**
- * High-Resolution Export Engine for NobleInvoice Professional Identity
+ * High-Resolution Export Engine for Nobevra Professional Identity
  * Supports high-DPI image exports and print-ready PDFs (3.5" x 2")
  */
 export const exportService = {
@@ -92,7 +92,7 @@ export const exportService = {
             'VERSION:3.0',
             `FN:${data.fullName}`,
             `TITLE:${data.jobTitle}`,
-            `ORG:${data.companyName || 'NobleInvoice Identity'}`,
+            `ORG:${data.companyName || 'Nobevra Identity'}`,
             `EMAIL;TYPE=INTERNET;TYPE=WORK:${data.email}`,
             `TEL;TYPE=CELL:${data.phone}`,
             `URL:${data.website || ''}`,

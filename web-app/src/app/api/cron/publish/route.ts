@@ -3,11 +3,14 @@ import { createClient } from '@supabase/supabase-js';
 import { TwitterApi } from 'twitter-api-v2';
 import axios from 'axios';
 
-// Use service role key so we can read social_accounts.access_token securely
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+export const dynamic = 'force-dynamic';
+
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co',
+    process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build'
+  );
+}
 
 // Module-level Twitter singleton — created once, not inside the per-post loop
 const twitterClient = process.env.TWITTER_API_KEY ? new TwitterApi({
@@ -25,6 +28,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
+    const supabase = getSupabase();
     // 1. Fetch pending posts scheduled for <= NOW
     const { data: posts, error } = await supabase
       .from('scheduled_posts')

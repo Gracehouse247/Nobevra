@@ -30,7 +30,7 @@ export default function QrPreviewCard({ value, fgColor, bgColor, includeLogo, qr
     };
 
     // Standardize URL formatting based on type to ensure the preview updates correctly
-    const finalValue = value || 'https://nobleinvoice.com';
+    const finalValue = value || 'https://nobevra.noblesworld.com.ng';
 
     return (
         <div className="sticky top-8 space-y-6">

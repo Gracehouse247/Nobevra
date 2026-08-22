@@ -203,7 +203,7 @@ class _BrandKitScreenState extends State<BrandKitScreen> {
         ),
         const SizedBox(height: 8),
         Text(
-          'Define your business aesthetic once, and let NobleInvoice automate the rest.',
+          'Define your business aesthetic once, and let Nobevra automate the rest.',
           style: TextStyle(
             fontSize: 15,
             height: 1.5,

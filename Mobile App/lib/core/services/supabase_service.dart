@@ -1,6 +1,6 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-/// Central Supabase client wrapper for the NobleInvoice App.
+/// Central Supabase client wrapper for the Nobevra App.
 /// Replaces the legacy ApiService Node.js REST calls.
 class SupabaseService {
   // Expose the raw Supabase client

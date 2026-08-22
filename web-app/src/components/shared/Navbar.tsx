@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAuth } from '@/context/AuthContext';
 import { X, Menu, ChevronDown, ChevronRight, Zap, ExternalLink } from 'lucide-react';
+import { brand } from '@/lib/brand';
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -26,7 +27,7 @@ export default function Navbar() {
         return () => { document.body.style.overflow = ''; };
     }, [mobileOpen]);
 
-    // ── Features Mega Menu Data (NobleInvoice tools) ──
+    // ── Features Mega Menu Data (Nobevra tools) ──
     const featureCategories = [
         {
             category: "Invoicing & Billing",
@@ -186,7 +187,7 @@ export default function Navbar() {
         },
         {
             title: "Video Tutorials",
-            desc: "Learn how NobleInvoice works",
+            desc: "Learn how Nobevra works",
             icon: "play_circle",
             href: "#",
             external: false,
@@ -207,7 +208,7 @@ export default function Navbar() {
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="fixed top-0 left-0 right-0 z-[130] bg-gradient-to-r from-noble-blue via-[#0599D5] to-noble-blue overflow-hidden"
+                        className="fixed top-0 left-0 right-0 z-[130] bg-gradient-to-r from-noble-blue via-[#01A0E2] to-noble-blue overflow-hidden"
                     >
                         <div className="flex items-center justify-center gap-3 px-6 py-2.5 text-white text-xs font-bold relative">
                             <Zap className="w-3.5 h-3.5 text-electric-cyan shrink-0" />
@@ -241,7 +242,7 @@ export default function Navbar() {
                     {/* Logo */}
                     <div className="flex items-center">
                         <Link href="/">
-                            <Image src="/images/logo.png" alt="NobleInvoice Logo" width={130} height={48} className="h-11 w-auto object-contain" style={{ width: 'auto' }} priority />
+                            <Image src={brand.assets.logo} alt="Nobevra Logo" width={130} height={32} className="h-8 w-auto object-contain" style={{ width: 'auto' }} priority />
                         </Link>
                     </div>
 
@@ -500,7 +501,7 @@ export default function Navbar() {
                         >
                             {/* Drawer Header */}
                             <div className="flex items-center justify-between px-6 py-5 border-b border-near-black/5">
-                                <Image src="/images/logo.png" alt="NobleInvoice Logo" width={120} height={40} className="h-9 w-auto object-contain" priority />
+                                <Image src={brand.assets.logo} alt="Nobevra Logo" width={110} height={28} className="h-7 w-auto object-contain" priority />
                                 <button
                                     onClick={() => setMobileOpen(false)}
                                     className="w-9 h-9 flex items-center justify-center rounded-xl bg-near-black/5 text-near-black hover:bg-near-black/10 transition-colors"

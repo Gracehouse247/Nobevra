@@ -18,7 +18,7 @@ import {
    4. best small business billing software (1.9K)
 ──────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Best Small Business Invoicing Software | Get Paid Faster | NobleInvoice',
+    title: 'Best Small Business Invoicing Software | Get Paid Faster | Nobevra',
     description: 'The easiest small business invoicing software. Create professional invoices, scan receipts, and manage billing without complex accounting degrees. Start for free.',
     keywords: [
         'small business invoicing software',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
         'get paid online small business',
     ],
     openGraph: {
-        title: 'Small Business Invoicing Software | NobleInvoice',
+        title: 'Small Business Invoicing Software | Nobevra',
         description: 'Stop fighting enterprise tools. Get the best small business billing software that actually makes sense.',
-        url: 'https://nobleinvoice.com/solutions/small-businesses',
+        url: '/solutions/small-businesses',
         type: 'website',
     },
 };
@@ -86,7 +86,7 @@ const industries = [
     {
         icon: Wrench,
         title: 'Plumbers & Contractors',
-        desc: 'You are rarely at a desk. NobleInvoice lets you build an invoice from your truck in 60 seconds. Clients can pay by credit card on the spot, so you never have to chase payments down at the end of the month.',
+        desc: 'You are rarely at a desk. Nobevra lets you build an invoice from your truck in 60 seconds. Clients can pay by credit card on the spot, so you never have to chase payments down at the end of the month.',
         tag: 'Field Services'
     },
     {
@@ -142,7 +142,7 @@ const faqs = [
     },
     {
         q: 'How does it compare to standard SMB accounting software?',
-        a: 'Traditional SMB accounting software is powerful, but often bloated. You pay $40 a month for enterprise features you never touch. NobleInvoice is focused strictly on getting you paid online and organizing your receipts. It does fewer things, but it does them perfectly.',
+        a: 'Traditional SMB accounting software is powerful, but often bloated. You pay $40 a month for enterprise features you never touch. Nobevra is focused strictly on getting you paid online and organizing your receipts. It does fewer things, but it does them perfectly.',
     },
     {
         q: 'Can my clients pay me online?',
@@ -158,7 +158,7 @@ const faqs = [
     },
     {
         q: 'What if I am currently using spreadsheets?',
-        a: 'You are exactly who we built this for. Spreadsheets do not remind clients to pay you. They do not tell you your cash flow. Moving from Excel to NobleInvoice usually recovers about $1,000 in forgotten invoices in the first month.',
+        a: 'You are exactly who we built this for. Spreadsheets do not remind clients to pay you. They do not tell you your cash flow. Moving from Excel to Nobevra usually recovers about $1,000 in forgotten invoices in the first month.',
     },
     {
         q: 'Is this the best small business billing software for contractors?',
@@ -182,7 +182,7 @@ const faqs = [
 const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "NobleInvoice Small Business Invoicing",
+    "name": "Nobevra Small Business Invoicing",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1042" },
@@ -258,7 +258,7 @@ export default function SmallBusinessesSolutionPage() {
                                 </div>
                                 <div className="rounded-[16px] sm:rounded-[32px] overflow-hidden border border-slate-100/50 shadow-inner bg-slate-50">
                                     <Image
-                                        alt="NobleInvoice small business invoicing software dashboard showing the Invoices Ledger with billing statuses, totals, and payment tracking for small businesses"
+                                        alt="Nobevra small business invoicing software dashboard showing the Invoices Ledger with billing statuses, totals, and payment tracking for small businesses"
                                         className="w-full h-auto object-cover object-top"
                                         src="/images/crm-engine-hero.png"
                                         width={1200}
@@ -313,7 +313,7 @@ export default function SmallBusinessesSolutionPage() {
                             Built specifically for <span className="text-noble-blue">the way you work.</span>
                         </h2>
                         <p className="text-slate-500 text-lg leading-relaxed">
-                            A one-size-fits-all <strong>billing app for small business</strong> rarely fits anyone. We optimized NobleInvoice for the trades and services that actually drive the economy.
+                            A one-size-fits-all <strong>billing app for small business</strong> rarely fits anyone. We optimized Nobevra for the trades and services that actually drive the economy.
                         </p>
                     </div>
 
@@ -369,7 +369,7 @@ export default function SmallBusinessesSolutionPage() {
 
                                 <div>
                                     <div className="flex justify-between text-sm mb-2">
-                                        <span className="font-bold text-slate-900">NobleInvoice Pro Plan</span>
+                                        <span className="font-bold text-slate-900">Nobevra Pro Plan</span>
                                         <span className="font-black text-green-600">$15.00 flat</span>
                                     </div>
                                     <div className="w-full bg-slate-200 rounded-full h-3">
@@ -463,7 +463,7 @@ export default function SmallBusinessesSolutionPage() {
                                     <tr className="bg-slate-50 border-b border-slate-200">
                                         <th className="py-6 px-8 text-sm font-black text-slate-400 uppercase tracking-widest w-2/5">Feature Comparison</th>
                                         <th className="py-6 px-6 text-center w-1/5 bg-noble-blue/5 border-x border-noble-blue/10">
-                                            <span className="block text-xl font-black text-noble-blue mb-1">NobleInvoice</span>
+                                            <span className="block text-xl font-black text-noble-blue mb-1">Nobevra</span>
                                             <span className="block text-[10px] font-bold text-noble-blue/60 uppercase">Our Platform</span>
                                         </th>
                                         <th className="py-6 px-6 text-center text-sm font-black text-slate-900 w-1/5">QuickBooks</th>
@@ -532,7 +532,7 @@ export default function SmallBusinessesSolutionPage() {
                         We are probably not for you if...
                     </h2>
                     <p className="text-slate-600 text-lg leading-relaxed mb-10 max-w-2xl mx-auto">
-                        NobleInvoice is not for everyone. We intentionally built a focused, lightweight platform. You should stick with complex enterprise software if you need:
+                        Nobevra is not for everyone. We intentionally built a focused, lightweight platform. You should stick with complex enterprise software if you need:
                     </p>
                     
                     <div className="grid sm:grid-cols-2 gap-4 text-left max-w-2xl mx-auto">
@@ -586,7 +586,7 @@ export default function SmallBusinessesSolutionPage() {
                         Ready to drop the paperwork?
                     </h2>
                     <p className="text-lg md:text-xl text-slate-500 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
-                        Join the smart business owners who use NobleInvoice to save time, look professional, and take control of their money.
+                        Join the smart business owners who use Nobevra to save time, look professional, and take control of their money.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4 items-center">
                         <Link

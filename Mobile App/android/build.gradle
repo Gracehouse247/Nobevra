@@ -1,6 +1,6 @@
 
 buildscript {
-    ext.kotlin_version = '2.1.10' // Match settings.gradle
+    ext.kotlin_version = '2.2.20' // Match settings.gradle
     repositories {
         google()
         mavenCentral()
@@ -9,7 +9,7 @@ buildscript {
     dependencies {
         // NOTE: The Android Gradle Plugin version is now often managed in settings.gradle
         // but we can specify it here for clarity if needed.
-        classpath 'com.android.tools.build:gradle:8.7.3'
+        classpath 'com.android.tools.build:gradle:8.11.1'
         classpath 'com.google.gms:google-services:4.4.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
@@ -29,7 +29,7 @@ subprojects {
                 if (namespace == null) {
                     namespace project.group
                 }
-                compileSdk 35
+                compileSdk 36
                 compileOptions {
                     sourceCompatibility JavaVersion.VERSION_17
                     targetCompatibility JavaVersion.VERSION_17

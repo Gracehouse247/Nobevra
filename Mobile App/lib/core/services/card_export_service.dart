@@ -16,7 +16,12 @@ class CardExportService {
     required UserProfile profile,
     required String teamName,
   }) async {
-    final pdf = pw.Document();
+    final pdf = pw.Document(
+      title: '${profile.displayName ?? "Business Card"} - Nobevra',
+      author: profile.displayName ?? 'Nobevra',
+      creator: 'Nobevra',
+      producer: 'Nobevra Card Engine',
+    );
 
     // Convert inches to points
     final width = card.format.width * _dpi;
@@ -58,8 +63,8 @@ class CardExportService {
                       pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
-                          _buildInfoLine(PdfColors.grey700, 'T: +234 81 0000 0000'),
-                          _buildInfoLine(PdfColors.grey700, 'W: www.NobleInvoice.app'),
+                          _buildInfoLine(PdfColors.grey700, 'T: ${profile.phone ?? profile.businessPhone ?? "+234 81 0000 0000"}'),
+                          _buildInfoLine(PdfColors.grey700, 'W: www.nobevra.com'),
                         ],
                       ),
                       pw.Container(

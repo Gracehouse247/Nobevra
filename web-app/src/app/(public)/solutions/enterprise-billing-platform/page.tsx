@@ -23,7 +23,7 @@ import EnterpriseCTA from '@/components/landing/enterprise/EnterpriseCTA';
                       high volume invoicing software
 ──────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Enterprise Billing Platform | High-Volume Operations | NobleInvoice',
+    title: 'Enterprise Billing Platform | High-Volume Operations | Nobevra',
     description: 'The enterprise billing platform for high-volume operations. Automate enterprise billing, API invoicing integration, and multi currency invoicing software.',
     keywords: [
         'enterprise billing platform',
@@ -38,12 +38,12 @@ export const metadata: Metadata = {
         'high volume invoicing software',
     ],
     alternates: {
-        canonical: 'https://nobleinvoice.com/solutions/enterprise',
+        canonical: '/solutions/enterprise',
     },
     openGraph: {
-        title: 'Enterprise Billing Platform | NobleInvoice',
+        title: 'Enterprise Billing Platform | Nobevra',
         description: 'Scale your billing operations globally with automated enterprise billing, API integration, and multi-currency support.',
-        url: 'https://nobleinvoice.com/solutions/enterprise',
+        url: '/solutions/enterprise',
         type: 'website',
     },
 };
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
 const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "NobleInvoice Enterprise Billing Platform",
+    "name": "Nobevra Enterprise Billing Platform",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "612" },

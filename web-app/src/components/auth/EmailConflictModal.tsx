@@ -43,7 +43,7 @@ export default function EmailConflictModal({
                         aria-labelledby="conflict-modal-title"
                     >
                         {/* Top accent bar */}
-                        <div className="h-1.5 w-full bg-gradient-to-r from-noble-blue via-[#0599D5] to-noble-blue" />
+                        <div className="h-1.5 w-full bg-gradient-to-r from-noble-blue via-[#01A0E2] to-noble-blue" />
 
                         {/* Close */}
                         <button

@@ -142,7 +142,7 @@ serve(async (req) => {
           account_bank: fw_bank_code,
           account_number: provider_account_id,
           amount:       netAmount,   // User actually receives this (after FLW fee deduction)
-          narration:    narration || `NobleInvoice Payout`,
+          narration:    narration || `Nobevra Payout`,
           currency:     verifiedCurrency,
           reference:    transferRef,  // Idempotency key — FLW will reject duplicates with same ref
           callback_url: `${SUPABASE_URL}/functions/v1/flw-webhook`,

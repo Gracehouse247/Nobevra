@@ -1,6 +1,6 @@
 {
-  "name": "NobleInvoice",
-  "short_name": "NobleInvoice",
+  "name": "Nobevra",
+  "short_name": "Nobevra",
   "description": "Secure cross-platform invoicing and digital business cards.",
   "start_url": "/dashboard",
   "display": "standalone",

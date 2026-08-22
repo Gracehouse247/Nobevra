@@ -2553,9 +2553,9 @@ ALTER TABLE "public"."seo_keywords" OWNER TO "postgres";
 
 CREATE TABLE IF NOT EXISTS "public"."seo_settings" (
     "id" "uuid" DEFAULT "gen_random_uuid"() NOT NULL,
-    "default_meta_title" "text" DEFAULT 'NobleInvoice - Premium Financial Management & CRM Platform'::"text" NOT NULL,
+    "default_meta_title" "text" DEFAULT 'Nobevra - The Intelligent Business Operating System'::"text" NOT NULL,
     "default_meta_description" "text" DEFAULT 'Streamline your professional workflow, collect payments rapidly with Flutterwave, and leverage smart client portals.'::"text" NOT NULL,
-    "og_defaults" "jsonb" DEFAULT '{"og:type": "website", "og:locale": "en_US", "og:site_name": "NobleInvoice"}'::"jsonb" NOT NULL,
+    "og_defaults" "jsonb" DEFAULT '{"og:type": "website", "og:locale": "en_US", "og:site_name": "Nobevra"}'::"jsonb" NOT NULL,
     "auto_publish" boolean DEFAULT true NOT NULL,
     "cron_expression" "text" DEFAULT '0 8 * * *'::"text" NOT NULL,
     "brand_voice_config" "jsonb" DEFAULT '{"tone": "authoritative-yet-approachable", "banned_words": ["unlock", "leverage", "seamless", "world-class", "cutting-edge", "game-changer", "synergy"], "humanization_pass": true, "required_sections": ["real_case_study", "practical_framework", "contrarian_insight", "when_not_to_use"], "target_word_count": 2500, "max_paragraph_lines": 2, "pattern_interrupt_interval": [150, 250]}'::"jsonb" NOT NULL,

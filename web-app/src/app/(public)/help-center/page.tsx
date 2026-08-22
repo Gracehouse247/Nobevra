@@ -4,13 +4,13 @@ import Script from 'next/script';
 import HelpClientPage from '@/components/help/HelpClientPage';
 
 export const metadata: Metadata = {
-    title: 'Help Center | Customer Support | NobleInvoice',
-    description: 'Explore the NobleInvoice Help Center. Find setup guides, billing troubleshooting, integration help, and API documentation.',
-    keywords: ['help center', 'customer support', 'nobleinvoice help', 'setup guide', 'billing troubleshooting'],
+    title: 'Help Center | Customer Support | Nobevra',
+    description: 'Explore the Nobevra Help Center. Find setup guides, billing troubleshooting, integration help, and API documentation.',
+    keywords: ['help center', 'customer support', 'nobevra help', 'setup guide', 'billing troubleshooting'],
     openGraph: {
-        title: 'Help Center | NobleInvoice',
-        description: 'Find answers, setup guides, and best practices for using NobleInvoice.',
-        url: 'https://nobleinvoice.com/help-center',
+        title: 'Help Center | Nobevra',
+        description: 'Find answers, setup guides, and best practices for using Nobevra.',
+        url: '/help-center',
         type: 'website',
     },
 };
@@ -19,18 +19,18 @@ const helpCenterSchema = [
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "NobleInvoice Help Center",
-        "description": "Explore the NobleInvoice Help Center for setup guides, billing troubleshooting, integration help, and API documentation.",
-        "url": "https://nobleinvoice.com/help-center",
-        "publisher": { "@type": "Organization", "name": "NobleInvoice" }
+        "name": "Nobevra Help Center",
+        "description": "Explore the Nobevra Help Center for setup guides, billing troubleshooting, integration help, and API documentation.",
+        "url": "https://nobevra.noblesworld.com.ng/help-center",
+        "publisher": { "@type": "Organization", "name": "Nobevra" }
     },
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "url": "https://nobleinvoice.com/help-center",
+        "url": "https://nobevra.noblesworld.com.ng/help-center",
         "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://nobleinvoice.com/help-center?q={search_term_string}",
+            "target": "https://nobevra.noblesworld.com.ng/help-center?q={search_term_string}",
             "query-input": "required name=search_term_string"
         }
     }

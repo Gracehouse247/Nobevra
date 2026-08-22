@@ -25,7 +25,7 @@ class CEOEliteTemplate extends BusinessCardTemplate {
                 Row(
                   children: [
                     Expanded(child: info(Icons.phone, profile?.phone ?? '+234 800 000 0000', color: Colors.white70)),
-                    Expanded(child: info(Icons.public, 'www.NobleInvoice.app', color: Colors.white70)),
+                    Expanded(child: info(Icons.public, 'www.nobevra.com', color: Colors.white70)),
                   ],
                 ),
               ],

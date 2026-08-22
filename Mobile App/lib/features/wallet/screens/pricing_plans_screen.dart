@@ -308,4 +308,3 @@ class _PricingPlansScreenState extends State<PricingPlansScreen> {
     );
   }
 }
-}

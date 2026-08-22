@@ -74,7 +74,7 @@ serve(async (req) => {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice ${invoice.invoice_number} - ${biz.business_name || 'NobleInvoice'}</title>
+    <title>Invoice ${invoice.invoice_number} - ${biz.business_name || 'Nobevra'}</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -144,8 +144,8 @@ serve(async (req) => {
     <div class="container">
         <div class="header">
             <div class="business-info">
-                ${biz.brand_logo_url ? `<img src="${biz.brand_logo_url}" class="logo" alt="Logo">` : `<h2>${biz.business_name || 'NobleInvoice'}</h2>`}
-                <div class="info-text" style="margin-top: 16px;"><span class="info-bold">${biz.business_name || 'NobleInvoice'}</span></div>
+                ${biz.brand_logo_url ? `<img src="${biz.brand_logo_url}" class="logo" alt="Logo">` : `<h2>${biz.business_name || 'Nobevra'}</h2>`}
+                <div class="info-text" style="margin-top: 16px;"><span class="info-bold">${biz.business_name || 'Nobevra'}</span></div>
                 <div class="info-text">${biz.business_address || ''}</div>
                 <div class="info-text">${biz.business_email || ''}</div>
             </div>
@@ -247,7 +247,7 @@ serve(async (req) => {
 
         <div class="footer">
             <p>${biz.invoice_footer || 'Thank you for your business! We appreciate your partnership.'}</p>
-            <p style="opacity: 0.5; font-weight: 700; margin-top: 20px;">NobleInvoice Enterprise - Secure Client Portal</p>
+            <p style="opacity: 0.5; font-weight: 700; margin-top: 20px;">Nobevra Enterprise - Secure Client Portal</p>
         </div>
     </div>
 </body>

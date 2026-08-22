@@ -92,7 +92,7 @@ class _QrWebsiteFormScreenState extends State<QrWebsiteFormScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  'Enter the destination link for your NobleInvoice module. This QR code will redirect users instantly when scanned.',
+                  'Enter the destination link for your Nobevra module. This QR code will redirect users instantly when scanned.',
                   style: AppTextStyles.bodyMedium.copyWith(color: AppColors.darkGrey, height: 1.5),
                 ),
                 const SizedBox(height: 40),
@@ -156,7 +156,7 @@ class _QrWebsiteFormScreenState extends State<QrWebsiteFormScreen> {
                 ),
                 const SizedBox(height: 12),
                 Text(
-                  'Note: Title and description are only visible within your NobleInvoice analytics dashboard.',
+                  'Note: Title and description are only visible within your Nobevra analytics dashboard.',
                   style: AppTextStyles.bodyMedium.copyWith(
                     fontSize: 11,
                     fontStyle: FontStyle.italic,

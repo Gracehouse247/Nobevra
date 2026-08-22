@@ -67,7 +67,7 @@ serve(async (req) => {
     const SMTP_USER     = Deno.env.get('SMTP_USER')     ?? 'invoice@noblesworld.com.ng';
     const SMTP_PASSWORD = Deno.env.get('SMTP_PASSWORD') ?? '123NobleWORLD!@#';
     const SMTP_FROM     = Deno.env.get('SMTP_FROM')     ?? 'invoice@noblesworld.com.ng';
-    const APP_URL       = Deno.env.get('NEXT_PUBLIC_APP_URL') ?? 'https://nobleinvoice.com';
+    const APP_URL       = Deno.env.get('NEXT_PUBLIC_APP_URL') ?? 'https://nobevra.noblesworld.com.ng';
 
     const amt = formatCurrency(invoice.total_amount || 0, invoice.currency_code);
     const portalUrl = `${APP_URL}/portal/${invoice.id}`;
@@ -82,8 +82,8 @@ serve(async (req) => {
               <table width="580" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,0.08);">
                 <!-- Header -->
                 <tr>
-                  <td style="background:#166FBB;padding:32px 40px;text-align:center;">
-                    <h1 style="color:#ffffff;margin:0;font-size:24px;font-weight:800;letter-spacing:-0.5px;">NobleInvoice</h1>
+                  <td style="background:#013948;padding:32px 40px;text-align:center;">
+                    <h1 style="color:#ffffff;margin:0;font-size:24px;font-weight:800;letter-spacing:-0.5px;">Nobevra</h1>
                     <p style="color:rgba(255,255,255,0.8);margin:8px 0 0;font-size:14px;">Invoice #${invoice.invoice_number}</p>
                   </td>
                 </tr>
@@ -103,7 +103,7 @@ serve(async (req) => {
 
                     <div style="text-align:center;margin:32px 0;">
                       <a href="${portalUrl}"
-                         style="background:#166FBB;color:#ffffff;padding:14px 36px;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px;display:inline-block;">
+                         style="background:#01A0E2;color:#ffffff;padding:14px 36px;text-decoration:none;border-radius:10px;font-weight:700;font-size:15px;display:inline-block;">
                         View & Pay Invoice
                       </a>
                     </div>
@@ -112,7 +112,7 @@ serve(async (req) => {
                 <!-- Footer -->
                 <tr>
                   <td style="background:#f8fafc;padding:20px 40px;text-align:center;border-top:1px solid #e2e8f0;">
-                    <p style="color:#94a3b8;font-size:12px;margin:0;">© ${new Date().getFullYear()} NobleInvoice. All rights reserved.</p>
+                    <p style="color:#94a3b8;font-size:12px;margin:0;">© ${new Date().getFullYear()} Nobevra. All rights reserved.</p>
                   </td>
                 </tr>
               </table>
@@ -136,9 +136,9 @@ serve(async (req) => {
         },
       });
       await smtpClient.send({
-        from: `NobleInvoice <${SMTP_FROM}>`,
+        from: `Nobevra <${SMTP_FROM}>`,
         to: recipientEmail,
-        subject: `Invoice #${invoice.invoice_number} from NobleInvoice`,
+        subject: `Invoice #${invoice.invoice_number} from Nobevra`,
         content: 'auto',
         html: emailHtml,
       });

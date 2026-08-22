@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Where to make business cards? | NobleInvoice',
-    description: 'Wondering where to make business cards online? Stop using paper. Contact NobleInvoice to build a professional digital billing profile instead.',
+    title: 'Where to make business cards? | Nobevra',
+    description: 'Wondering where to make business cards online? Stop using paper. Contact Nobevra to build a professional digital billing profile instead.',
     keywords: [
         'where to make business cards',
         'where to make business cards near me',
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
         'Canva business cards'
     ],
     openGraph: {
-        title: 'Where to make business cards? | NobleInvoice',
-        description: 'Wondering where to make business cards online? Stop using paper. Contact NobleInvoice to build a professional digital billing profile instead.',
+        title: 'Where to make business cards? | Nobevra',
+        description: 'Wondering where to make business cards online? Stop using paper. Contact Nobevra to build a professional digital billing profile instead.',
         type: 'website',
     },
 };
@@ -32,7 +32,7 @@ const faqSchema = {
             "name": "Where to make business cards near me?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Local print shops are fine for paper, but a digital business card never runs out. Instead of searching locally, create a NobleInvoice profile that lives online and actually accepts payments."
+                "text": "Local print shops are fine for paper, but a digital business card never runs out. Instead of searching locally, create a Nobevra profile that lives online and actually accepts payments."
             }
         },
         {
@@ -40,7 +40,7 @@ const faqSchema = {
             "name": "Where to make business cards online?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "If you want physical paper, you can use Staples business cards or Vistaprint business cards. If you want a modern digital presence, NobleInvoice creates a professional billing profile that serves as your ultimate digital introduction."
+                "text": "If you want physical paper, you can use Staples business cards or Vistaprint business cards. If you want a modern digital presence, Nobevra creates a professional billing profile that serves as your ultimate digital introduction."
             }
         },
         {
@@ -48,7 +48,7 @@ const faqSchema = {
             "name": "Is there a business card design free tool?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. People often use Canva business cards for free DIY designs. But designing a card is only half the battle. A NobleInvoice account is permanently free and gives you a branded financial profile that looks better than any piece of paper."
+                "text": "Yes. People often use Canva business cards for free DIY designs. But designing a card is only half the battle. A Nobevra account is permanently free and gives you a branded financial profile that looks better than any piece of paper."
             }
         }
     ]
@@ -197,7 +197,7 @@ export default function ContactPage() {
                         />
                     </div>
                     <h3 className="text-2xl md:text-3xl font-black leading-tight text-near-black mb-6">
-                        &quot;I used to hand out expensive embossed cards at networking events and get zero callbacks. I switched to emailing a branded $1 &apos;consultation invoice&apos; via NobleInvoice. My conversion rate tripled because the perceived value skyrocketed.&quot;
+                        &quot;I used to hand out expensive embossed cards at networking events and get zero callbacks. I switched to emailing a branded $1 &apos;consultation invoice&apos; via Nobevra. My conversion rate tripled because the perceived value skyrocketed.&quot;
                     </h3>
                     <p className="font-bold text-near-black">Ayasha Khan</p>
                     <p className="text-sm text-near-black/50">Marketing Director</p>
@@ -252,7 +252,7 @@ export default function ContactPage() {
                             <h3 className="text-2xl font-black text-near-black mb-8">Send a Message</h3>
                             <form action="https://formsubmit.co/invoice@noblesworld.com.ng" method="POST" className="space-y-6">
                                 {/* FormSubmit configuration */}
-                                <input type="hidden" name="_subject" value="New Contact Request - NobleInvoice" />
+                                <input type="hidden" name="_subject" value="New Contact Request - Nobevra" />
                                 <input type="hidden" name="_template" value="table" />
                                 
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -295,8 +295,8 @@ export default function ContactPage() {
                     </h2>
                     <div className="space-y-4">
                         {[
-                            { q: "Where to make business cards near me?", a: "Local print shops are fine for small paper runs. But again, a digital business card never runs out. Create a NobleInvoice profile instead." },
-                            { q: "Where to make business cards online?", a: "If you want physical paper, you can use Staples business cards or Vistaprint business cards. If you want a modern digital presence, NobleInvoice creates a professional billing profile." },
+                            { q: "Where to make business cards near me?", a: "Local print shops are fine for small paper runs. But again, a digital business card never runs out. Create a Nobevra profile instead." },
+                            { q: "Where to make business cards online?", a: "If you want physical paper, you can use Staples business cards or Vistaprint business cards. If you want a modern digital presence, Nobevra creates a professional billing profile." },
                             { q: "What is the standard size of a business card?", a: "A standard physical card is 3.5 x 2 inches. It's tiny, easily lost, and hard to read. A digital billing profile is infinite, mobile-optimized, and lives securely on your client's phone." },
                             { q: "Is there a business card design free tool?", a: <React.Fragment>Yes, many people use Canva business cards for free DIY designs. But designing it is only half the battle. You still have to pay to print them. Our digital invoicing tools are permanently free on the <Link href="/pricing" className="text-noble-blue hover:underline font-bold">Starter plan</Link>.</React.Fragment> }
                         ].map((faq, i) => (

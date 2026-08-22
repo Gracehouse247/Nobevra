@@ -6,6 +6,7 @@ import 'package:noble_invoice/core/constants/env_constants.dart';
 class WebEngineView extends StatefulWidget {
   final String path; // e.g., "/embed/invoice/123" or "/embed/business-card"
   final String title; // Fallback title or AppBar title if needed
+  final bool showAppBar;
   final void Function(String message)? onMessageReceived;
 
   const WebEngineView({

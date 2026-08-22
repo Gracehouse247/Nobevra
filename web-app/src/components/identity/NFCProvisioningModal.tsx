@@ -71,7 +71,7 @@ export const NFCProvisioningModal = ({ identityId, onClose }: NFCProvisioningMod
                     </div>
 
                     <button 
-                        onClick={() => window.open(`https://nobleinvoice.ai/identity/${identityId}`, '_blank')}
+                        onClick={() => window.open(`https://nobevra.ai/identity/${identityId}`, '_blank')}
                         className="w-full py-5 bg-slate-900 text-white rounded-2xl flex items-center justify-center gap-3 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-slate-200"
                     >
                         <span className="text-xs font-bold uppercase tracking-[0.2em]">Preview Profile</span>

@@ -60,7 +60,7 @@ export function LegalLayout({
           className="h-full transition-all duration-150"
           style={{
             width: `${scrollProgress}%`,
-            background: "linear-gradient(90deg, #006970, #0599D5, #00F0FF)",
+            background: "linear-gradient(90deg, #006970, #01A0E2, #00F0FF)",
           }}
         />
       </div>
@@ -71,11 +71,11 @@ export function LegalLayout({
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 group transition-opacity hover:opacity-80">
             <div className="w-8 h-8 rounded-lg flex items-center justify-center"
-              style={{ background: "linear-gradient(135deg,#006970,#0599D5)" }}>
+              style={{ background: "linear-gradient(135deg,#006970,#01A0E2)" }}>
               <ShieldCheck className="w-5 h-5 text-white" />
             </div>
             <span className="font-black text-xl tracking-tight" style={{ color: "#050B1A" }}>
-              Noble<span style={{ color: "#0599D5" }}>Invoice</span>
+              Noble<span style={{ color: "#01A0E2" }}>Invoice</span>
             </span>
           </Link>
           <div className="flex items-center gap-4">
@@ -138,11 +138,11 @@ export function LegalLayout({
             {/* Footer note */}
             <div className="mt-8 pt-8 border-t text-center" style={{ borderColor: "#e2e8f0" }}>
               <div className="inline-flex items-center gap-2 mb-3">
-                <ShieldCheck className="w-5 h-5" style={{ color: "#0599D5" }} />
+                <ShieldCheck className="w-5 h-5" style={{ color: "#01A0E2" }} />
                 <span className="font-bold text-sm" style={{ color: "#050B1A" }}>The Noble's Technology Service</span>
               </div>
               <p className="text-xs" style={{ color: "#94a3b8" }}>
-                &copy; {new Date().getFullYear()} NobleInvoice. All rights reserved.
+                &copy; {new Date().getFullYear()} Nobevra. All rights reserved.
               </p>
             </div>
           </div>

@@ -18,9 +18,9 @@ const schemaMarkup = [
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-            { "@type": "Question", "name": "Is there completely free invoice software?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, many providers offer free invoicing software for small business free of charge. NobleInvoice offers an Explorer plan allowing up to 10 invoices per month at no cost." } },
+            { "@type": "Question", "name": "Is there completely free invoice software?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, many providers offer free invoicing software for small business free of charge. Nobevra offers an Explorer plan allowing up to 10 invoices per month at no cost." } },
             { "@type": "Question", "name": "How much does invoicing software cost per month?", "acceptedAnswer": { "@type": "Answer", "text": "Standard invoicing software costs anywhere from $9 to $50 per month depending on your business size and needed features. Our Pulse plan is $9.99/mo for unlimited CRM insights and premium templates." } },
-            { "@type": "Question", "name": "How much does invoicing software cost in Canada?", "acceptedAnswer": { "@type": "Answer", "text": "Invoicing software in Canada typically costs between CAD $12 and CAD $65 per month. NobleInvoice processes payments in over 135 currencies, meaning you pay flat global rates without localized markups." } },
+            { "@type": "Question", "name": "How much does invoicing software cost in Canada?", "acceptedAnswer": { "@type": "Answer", "text": "Invoicing software in Canada typically costs between CAD $12 and CAD $65 per month. Nobevra processes payments in over 135 currencies, meaning you pay flat global rates without localized markups." } },
             { "@type": "Question", "name": "Are there transaction fees for invoicing software?", "acceptedAnswer": { "@type": "Answer", "text": "While the software subscription is a flat rate, payment gateways (like Stripe or Flutterwave) charge a standard transaction fee, usually around 2.9% + 30¢ per paid invoice." } }
         ]
     }
@@ -128,9 +128,9 @@ function PlanCard({ plan, billingCycle, user, userData, index }: {
                     phone_number: '',
                 },
                 customizations: {
-                    title: `NobleInvoice ${plan.name}`,
+                    title: `Nobevra ${plan.name}`,
                     description: plan.tagline || 'Subscription Upgrade',
-                    logo: 'https://nobleinvoice.ai/images/logo.png',
+                    logo: 'https://nobevra.ai/images/logo.png',
                 },
                 callback: async (response: any) => {
                     if (response.status === 'successful') {
@@ -151,7 +151,7 @@ function PlanCard({ plan, billingCycle, user, userData, index }: {
                                 }
                             );
                             if (verifyRes.data.status === 'upgraded') {
-                                toast.success(`Welcome to NobleInvoice ${plan.name}!`);
+                                toast.success(`Welcome to Nobevra ${plan.name}!`);
                                 redirectTimer.current = setTimeout(() => { router.push('/dashboard'); }, 1500);
                             } else {
                                 toast.error('Payment verified but activation failed. Contact support.');
@@ -273,7 +273,7 @@ export default function PricingPage() {
     const [hours, setHours] = useState(3);
     const [rate, setRate] = useState(50);
     const [testimonial, setTestimonial] = useState({
-        quote: "I used to spend my Sunday evenings organizing bills. I switched to NobleInvoice, set up automated recurring profiles, and bought my weekends back. The flat pricing means I never worry about hitting a 'client cap' mid-month.",
+        quote: "I used to spend my Sunday evenings organizing bills. I switched to Nobevra, set up automated recurring profiles, and bought my weekends back. The flat pricing means I never worry about hitting a 'client cap' mid-month.",
         author: "Ayasha Khan",
         role: "Marketing Director, NobleMart"
     });
@@ -298,7 +298,7 @@ export default function PricingPage() {
 
     React.useEffect(() => {
         // Automatically set document title for SEO
-        document.title = "How Much Does Invoicing Software Cost? (2026) | NobleInvoice";
+        document.title = "How Much Does Invoicing Software Cost? (2026) | Nobevra";
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
             metaDesc.setAttribute("content", "Wondering how much does invoicing software cost? Find predictable flat-rate pricing, uncover hidden SaaS fees, and discover the best invoicing software for small business free.");
@@ -484,7 +484,7 @@ export default function PricingPage() {
                         <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100">
                             <h3 className="text-xl font-black mb-4">2. The "Per-User" Penalty</h3>
                             <p className="text-near-black/60 leading-relaxed">
-                                Need your accountant or a virtual assistant to log in? That will be an extra $10 per user, per month. It adds up fast. NobleInvoice Elite offers team access without individual seating fees.
+                                Need your accountant or a virtual assistant to log in? That will be an extra $10 per user, per month. It adds up fast. Nobevra Elite offers team access without individual seating fees.
                             </p>
                         </div>
                     </div>
@@ -509,7 +509,7 @@ export default function PricingPage() {
                                 </li>
                                 <li className="flex items-start gap-4">
                                     <Check className="w-6 h-6 text-electric-cyan shrink-0" />
-                                    <p className="text-white/80"><strong>The NobleInvoice Shift:</strong> For $9.99/month, our AI generator creates invoices in seconds. You reclaim those hours immediately. It is an investment that pays a massive return.</p>
+                                    <p className="text-white/80"><strong>The Nobevra Shift:</strong> For $9.99/month, our AI generator creates invoices in seconds. You reclaim those hours immediately. It is an investment that pays a massive return.</p>
                                 </li>
                             </ul>
                         </div>
@@ -539,7 +539,7 @@ export default function PricingPage() {
                                         <span className="font-bold text-red-400 text-lg">~${hours * rate * 4}</span>
                                     </div>
                                     <div className="flex justify-between items-center bg-electric-cyan/10 p-4 rounded-xl border border-electric-cyan/20">
-                                        <span className="text-white font-bold">NobleInvoice Pulse</span>
+                                        <span className="text-white font-bold">Nobevra Pulse</span>
                                         <span className="font-black text-electric-cyan text-xl">$9.99<span className="text-sm text-electric-cyan/60">/mo</span></span>
                                     </div>
                                 </div>
@@ -595,7 +595,7 @@ export default function PricingPage() {
                         </div>
                         <div className="bg-white p-6 rounded-2xl border border-slate-100">
                             <h3 className="font-black text-lg mb-2">We may not be right for you if...</h3>
-                            <p className="text-near-black/60 leading-relaxed">If you are a massive enterprise requiring multi-departmental ERP integration, NobleInvoice might be too streamlined. We are built for speed and clarity, primarily serving freelancers, agencies, and small-to-medium teams.</p>
+                            <p className="text-near-black/60 leading-relaxed">If you are a massive enterprise requiring multi-departmental ERP integration, Nobevra might be too streamlined. We are built for speed and clarity, primarily serving freelancers, agencies, and small-to-medium teams.</p>
                         </div>
                     </div>
                 </div>
@@ -633,7 +633,7 @@ export default function PricingPage() {
 
                     <h3 className="text-2xl font-black mb-4 mt-12 text-near-black">1. What Are Transaction Fees?</h3>
                     <p className="text-lg text-near-black/70 leading-relaxed mb-6">
-                        Even if you use a "free" tier, getting paid online comes with hidden costs. Payment gateways like Stripe, PayPal, or Flutterwave typically charge an industry-standard fee—often around <strong>2.9% + 30¢ per transaction</strong>. Some invoicing platforms secretly add an extra 1% markup on top of this. NobleInvoice never marks up your transaction fees. You only pay the direct gateway cost.
+                        Even if you use a "free" tier, getting paid online comes with hidden costs. Payment gateways like Stripe, PayPal, or Flutterwave typically charge an industry-standard fee—often around <strong>2.9% + 30¢ per transaction</strong>. Some invoicing platforms secretly add an extra 1% markup on top of this. Nobevra never marks up your transaction fees. You only pay the direct gateway cost.
                     </p>
                     
                     <div className="my-8 flex justify-center">

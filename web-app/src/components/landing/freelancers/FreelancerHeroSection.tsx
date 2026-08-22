@@ -75,7 +75,7 @@ export default function FreelancerHeroSection() {
                         </h1>
 
                         <p className="text-body-lg text-near-black/60 max-w-xl mb-10 leading-relaxed">
-                            Stop chasing payments and wasting your weekends reconciling spreadsheets. Our premium freelance billing software is built for the self-employed to create a professional invoice in seconds and secure your cash flow. If you have been searching for the perfect freelancer billing app or reliable invoicing software for freelancers, NobleInvoice is your all-in-one solution.
+                            Stop chasing payments and wasting your weekends reconciling spreadsheets. Our premium freelance billing software is built for the self-employed to create a professional invoice in seconds and secure your cash flow. If you have been searching for the perfect freelancer billing app or reliable invoicing software for freelancers, Nobevra is your all-in-one solution.
                         </p>
 
                         {/* Social Proof Avatars */}
@@ -83,7 +83,7 @@ export default function FreelancerHeroSection() {
                             <div className="flex -space-x-3">
                                 {[
                                     { bg: 'bg-noble-blue', text: 'SJ' },
-                                    { bg: 'bg-[#0599D5]', text: 'MT' },
+                                    { bg: 'bg-[#01A0E2]', text: 'MT' },
                                     { bg: 'bg-primary', text: 'ER' },
                                     { bg: 'bg-[#166FBB]', text: 'AK' },
                                     { bg: 'bg-near-black', text: 'LB' },

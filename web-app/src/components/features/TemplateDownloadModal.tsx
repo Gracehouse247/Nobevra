@@ -45,7 +45,7 @@ export default function TemplateDownloadModal({ isOpen, onClose }: Props) {
   const triggerDownload = () => {
     const link = document.createElement('a');
     link.href = '/api/download/proforma-template';
-    link.setAttribute('download', 'NobleInvoice-Proforma-Template.pdf');
+    link.setAttribute('download', 'Nobevra-Proforma-Template.pdf');
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -177,7 +177,7 @@ export default function TemplateDownloadModal({ isOpen, onClose }: Props) {
                     />
                     <div className="flex items-center gap-2 mt-4 text-sm font-bold text-slate-400">
                       <Download className="w-4 h-4" />
-                      NobleInvoice-Proforma-Template.pdf
+                      Nobevra-Proforma-Template.pdf
                     </div>
                   </motion.div>
                 )}

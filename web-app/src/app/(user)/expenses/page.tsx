@@ -454,7 +454,7 @@ export default function ExpensesPage() {
                                                             <div className="relative">
                                                                 <button 
                                                                     onClick={() => setActiveDropdown(activeDropdown === expense.id ? null : expense.id)}
-                                                                    className="text-noble-muted hover:text-noble-primary transition-colors p-1.5 rounded-lg hover:bg-noble-interactive-bg"
+                                                                    className="text-noble-muted hover:text-noble-primary transition-colors p-1.5 rounded-lg hover:bg-noble-interactive-bg min-h-[44px] min-w-[44px] sm:min-h-0 sm:min-w-0 flex items-center justify-center"
                                                                 >
                                                                     <MoreHorizontal className="w-5 h-5" />
                                                                 </button>

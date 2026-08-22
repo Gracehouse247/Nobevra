@@ -112,7 +112,7 @@ export default function HelpClientPage() {
                         <h2 className="font-inter text-3xl md:text-4xl font-black text-near-black tracking-tight mb-4">
                             Browse by Category
                         </h2>
-                        <p className="text-slate-500 text-lg font-medium">Find the exact resources you need to master NobleInvoice.</p>
+                        <p className="text-slate-500 text-lg font-medium">Find the exact resources you need to master Nobevra.</p>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -193,7 +193,7 @@ export default function HelpClientPage() {
                             <p className="text-lg text-slate-400 font-medium mb-10 leading-relaxed">
                                 Our support team is made up of real humans who know the product inside out. We typically respond within 2 hours.
                             </p>
-                            <Link href="/contact#contact-form" className="inline-flex items-center justify-center gap-3 text-white bg-noble-blue px-10 py-5 text-base font-extrabold rounded-2xl hover:bg-[#0599D5] hover:scale-[1.02] transition-all shadow-[0_20px_50px_rgba(22,111,187,0.3)]">
+                            <Link href="/contact#contact-form" className="inline-flex items-center justify-center gap-3 text-white bg-noble-blue px-10 py-5 text-base font-extrabold rounded-2xl hover:bg-[#01A0E2] hover:scale-[1.02] transition-all shadow-[0_20px_50px_rgba(22,111,187,0.3)]">
                                 Contact Support
                                 <ChevronRight className="w-5 h-5" />
                             </Link>

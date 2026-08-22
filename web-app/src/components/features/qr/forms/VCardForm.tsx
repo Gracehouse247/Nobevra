@@ -17,7 +17,7 @@ export default function VCardForm({ onChange, initialData, onPreviewValueChange 
         // Format vCard string
         const vcardStr = `BEGIN:VCARD\nVERSION:3.0\nN:${lastName};${firstName};;;\nFN:${firstName} ${lastName}\nORG:${organization}\nTITLE:${jobTitle}\nTEL;TYPE=CELL:${phone}\nEMAIL;TYPE=WORK:${email}\nURL:${website}\nADR;TYPE=WORK:;;${address};;;;\nEND:VCARD`;
         
-        onPreviewValueChange((firstName || lastName) ? vcardStr : 'https://nobleinvoice.com');
+        onPreviewValueChange((firstName || lastName) ? vcardStr : 'https://nobevra.noblesworld.com.ng');
     }, [firstName, lastName, jobTitle, organization, phone, email, website, address]);
 
     return (
@@ -40,7 +40,7 @@ export default function VCardForm({ onChange, initialData, onPreviewValueChange 
                 </div>
                 <div className="space-y-2">
                     <label className="text-xs font-bold text-[#64748B] uppercase tracking-widest">Organization</label>
-                    <input type="text" value={organization} onChange={(e) => setOrganization(e.target.value)} placeholder="NobleInvoice" className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none" />
+                    <input type="text" value={organization} onChange={(e) => setOrganization(e.target.value)} placeholder="Nobevra" className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none" />
                 </div>
             </div>
 
@@ -51,12 +51,12 @@ export default function VCardForm({ onChange, initialData, onPreviewValueChange 
 
             <div className="space-y-2">
                 <label className="text-xs font-bold text-[#64748B] uppercase tracking-widest">Email Address</label>
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="alexander@nobleinvoice.com" className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none" />
+                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="alexander@nobevra.noblesworld.com.ng" className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none" />
             </div>
 
             <div className="space-y-2">
                 <label className="text-xs font-bold text-[#64748B] uppercase tracking-widest">Website</label>
-                <input type="url" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://nobleinvoice.com" className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none" />
+                <input type="url" value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://nobevra.noblesworld.com.ng" className="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-4 py-3 text-sm font-medium focus:border-[#166FBB] outline-none" />
             </div>
 
             <div className="space-y-2">

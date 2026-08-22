@@ -48,7 +48,7 @@ export default function AgencyClientPortal() {
                                 Premium clients expect a premium billing experience. A raw PDF attached to an email feels outdated and adds friction to the payment process.
                             </p>
                             <p>
-                                With NobleInvoice, your clients log into a secure portal hosted on your custom domain, featuring your logo and exact brand colors. We are completely invisible.
+                                With Nobevra, your clients log into a secure portal hosted on your custom domain, featuring your logo and exact brand colors. We are completely invisible.
                             </p>
                             <p className="text-near-black font-bold">
                                 They can view their entire invoice history, manage their saved payment methods, and settle new retainer invoices in seconds.

@@ -42,7 +42,7 @@ class InvoicePdfService {
     final bytes = await generateBytes(invoice, template: template, business: business);
     final file  = await _saveToTemp(invoice.id, bytes);
     await SharePlus.instance.share(
-      ShareParams(files: [XFile(file.path)], text: 'Invoice ${invoice.id} from ${business?.name ?? "NobleInvoice"}'),
+      ShareParams(files: [XFile(file.path)], text: 'Invoice ${invoice.id} from ${business?.name ?? "Nobevra"}'),
     );
   }
 
@@ -57,7 +57,13 @@ class InvoicePdfService {
       } catch (_) {}
     }
 
-    final doc    = pw.Document();
+    final doc = pw.Document(
+      title: 'Invoice #${invoice.id} - ${biz.name}',
+      author: biz.name.isNotEmpty ? biz.name : 'Nobevra',
+      creator: 'Nobevra',
+      producer: 'Nobevra PDF Engine',
+      subject: 'Commercial Invoice #${invoice.id}',
+    );
     final font      = await PdfWidgets.loadFont('Roboto-Regular.ttf');
     final bold      = await PdfWidgets.loadFont('Roboto-Bold.ttf');
 
@@ -205,7 +211,8 @@ class InvoicePdfService {
 
   static Future<File> _saveToTemp(String invoiceId, Uint8List bytes) async {
     final dir = await getTemporaryDirectory();
-    final file = File('${dir.path}/Invoice_$invoiceId.pdf');
+    final sanitizedId = invoiceId.replaceAll(RegExp(r'[^\w\-]'), '_');
+    final file = File('${dir.path}/Invoice_$sanitizedId.pdf');
     await file.writeAsBytes(bytes);
     return file;
   }

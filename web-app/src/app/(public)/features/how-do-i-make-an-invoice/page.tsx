@@ -9,8 +9,8 @@ import {
 import Footer from '@/components/shared/Footer';
 
 export const metadata: Metadata = {
-  title: 'How Do I Make an Invoice? — Invoice Pro Guide | NobleInvoice',
-  description: 'How do I make an invoice? Create invoice online free PDF with NobleInvoice. Use our free invoice maker app, online invoice templates, and get paid faster.',
+  title: 'How Do I Make an Invoice? — Invoice Pro Guide | Nobevra',
+  description: 'How do I make an invoice? Create invoice online free PDF with Nobevra. Use our free invoice maker app, online invoice templates, and get paid faster.',
   keywords: [
     'how do I make an invoice',
     'how do i make an invoice template',
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     'professional invoice',
   ],
   alternates: {
-    canonical: 'https://nobleinvoice.com/features/growth-reports',
+    canonical: '/features/growth-reports',
   },
   openGraph: {
-    title: 'How Do I Make an Invoice? — Step-by-Step Invoice Pro Guide | NobleInvoice',
-    description: 'Stop Googling how to make an invoice. NobleInvoice creates it for you in 60 seconds — with payment collection built right in.',
-    url: 'https://nobleinvoice.com/features/growth-reports',
-    siteName: 'NobleInvoice',
+    title: 'How Do I Make an Invoice? — Step-by-Step Invoice Pro Guide | Nobevra',
+    description: 'Stop Googling how to make an invoice. Nobevra creates it for you in 60 seconds — with payment collection built right in.',
+    url: '/features/growth-reports',
+    siteName: 'Nobevra',
     type: 'website',
   },
 };
@@ -35,11 +35,11 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: 'How do I make an invoice for the first time?',
-    a: 'Sign up for a free NobleInvoice account, click "New Invoice", add your client\'s details and the work you completed, then hit Send. Your client gets a professional PDF with a pay button built in — all in under 60 seconds.',
+    a: 'Sign up for a free Nobevra account, click "New Invoice", add your client\'s details and the work you completed, then hit Send. Your client gets a professional PDF with a pay button built in — all in under 60 seconds.',
   },
   {
     q: 'How do I make an invoice template I can reuse?',
-    a: 'In NobleInvoice, every invoice you create becomes a reusable template. Add your logo, standard line items, and payment terms once. From then on, duplicating it for new clients takes about 10 seconds.',
+    a: 'In Nobevra, every invoice you create becomes a reusable template. Add your logo, standard line items, and payment terms once. From then on, duplicating it for new clients takes about 10 seconds.',
   },
   {
     q: 'Can I create an invoice online free and export a PDF?',
@@ -47,15 +47,15 @@ const faqs = [
   },
   {
     q: 'What is the best free invoice maker app?',
-    a: 'It depends on what you need. If you send fewer than 10 invoices a month and want a simple, beautiful tool with zero learning curve, NobleInvoice\'s free plan is genuinely hard to beat. If you need advanced accounting, you may want a full ERP system — and that\'s fine too.',
+    a: 'It depends on what you need. If you send fewer than 10 invoices a month and want a simple, beautiful tool with zero learning curve, Nobevra\'s free plan is genuinely hard to beat. If you need advanced accounting, you may want a full ERP system — and that\'s fine too.',
   },
   {
     q: 'Does an online invoice template look professional enough for corporate clients?',
-    a: 'Yes — if you use the right one. NobleInvoice templates are designed by professional brand designers. Corporate finance teams regularly receive and approve invoices generated from our platform.',
+    a: 'Yes — if you use the right one. Nobevra templates are designed by professional brand designers. Corporate finance teams regularly receive and approve invoices generated from our platform.',
   },
   {
     q: 'How long does it take to get paid after sending an invoice?',
-    a: 'Businesses using NobleInvoice with payment links embedded report an average 14-day reduction in payment time compared to PDF-only invoices. When your client can pay directly from the invoice email, they usually do.',
+    a: 'Businesses using Nobevra with payment links embedded report an average 14-day reduction in payment time compared to PDF-only invoices. When your client can pay directly from the invoice email, they usually do.',
   },
 ];
 
@@ -129,7 +129,7 @@ const testimonials = [
     revenue: "$8,200/mo",
   },
   {
-    quote: "We onboarded 14 new clients in one quarter. The billing never became a bottleneck because NobleInvoice scales with you.",
+    quote: "We onboarded 14 new clients in one quarter. The billing never became a bottleneck because Nobevra scales with you.",
     name: "Kofi A.",
     role: "Creative Agency Founder",
     revenue: "₦4.8M/mo",
@@ -153,7 +153,7 @@ export default function GrowthReportsPage() {
       },
       {
         "@type": "SoftwareApplication",
-        "name": "NobleInvoice",
+        "name": "Nobevra",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web, iOS, Android",
         "offers": {
@@ -329,7 +329,7 @@ export default function GrowthReportsPage() {
               Watch: How to make an invoice in 60 seconds
             </h2>
             <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto">
-              See exactly how NobleInvoice transforms billing from a 30-minute chore into a 60-second reflex.
+              See exactly how Nobevra transforms billing from a 30-minute chore into a 60-second reflex.
             </p>
           </div>
           
@@ -343,7 +343,7 @@ export default function GrowthReportsPage() {
             
             <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
                <div className="text-white font-bold text-lg">Invoice Masterclass: Step-by-Step Tutorial</div>
-               <div className="text-white/70 text-sm">1:04 • NobleInvoice Academy</div>
+               <div className="text-white/70 text-sm">1:04 • Nobevra Academy</div>
             </div>
           </div>
         </div>
@@ -543,7 +543,7 @@ export default function GrowthReportsPage() {
                   <tr className="border-b border-white/10">
                     <th className="p-5 text-left text-slate-400 font-black text-sm uppercase tracking-widest">Feature</th>
                     <th className="p-5 text-center text-red-400 font-black text-sm uppercase tracking-widest">Word / Excel</th>
-                    <th className="p-5 text-center text-emerald-400 font-black text-sm uppercase tracking-widest">NobleInvoice</th>
+                    <th className="p-5 text-center text-emerald-400 font-black text-sm uppercase tracking-widest">Nobevra</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -652,7 +652,7 @@ export default function GrowthReportsPage() {
               ))}
             </div>
             <p className="text-slate-600 font-medium text-sm border-t border-amber-200 pt-6">
-              If none of the above apply, NobleInvoice will almost certainly work for you. And given the free plan exists, there's no risk in finding out.
+              If none of the above apply, Nobevra will almost certainly work for you. And given the free plan exists, there's no risk in finding out.
             </p>
           </div>
         </div>
@@ -723,7 +723,7 @@ export default function GrowthReportsPage() {
           {/* Trust badges */}
           <div className="flex flex-wrap items-center justify-center gap-8 pt-8 border-t border-slate-100">
             {[
-              { icon: <Users className="w-5 h-5 text-noble-blue" />, label: '40,000+ businesses trust NobleInvoice' },
+              { icon: <Users className="w-5 h-5 text-noble-blue" />, label: '40,000+ businesses trust Nobevra' },
               { icon: <ShieldCheck className="w-5 h-5 text-emerald-600" />, label: 'Bank-grade encryption' },
               { icon: <Globe className="w-5 h-5 text-slate-500" />, label: '40+ currencies supported' },
             ].map(({ icon, label }) => (

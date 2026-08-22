@@ -30,7 +30,7 @@ const features = [
         icon: FileText,
         title: 'WooCommerce invoice plugin',
         tag: 'WooCommerce Integration',
-        desc: 'NobleInvoice connects directly to your WooCommerce store and generates professional PDF invoices the moment an order status changes to "Processing" or "Completed." Customers can download their invoices from the My Account area — no support ticket required.',
+        desc: 'Nobevra connects directly to your WooCommerce store and generates professional PDF invoices the moment an order status changes to "Processing" or "Completed." Customers can download their invoices from the My Account area — no support ticket required.',
         bullets: ['Status-triggered auto generation', 'Customer self-service downloads', 'Multi-tax region support'],
         color: 'bg-purple-500/10 text-purple-600 group-hover:bg-purple-500 group-hover:text-white',
     },

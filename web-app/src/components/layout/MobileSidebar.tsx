@@ -44,8 +44,8 @@ export default function MobileSidebar({
         }
     };
 
-    const displayName = userData?.name || 'Noble User';
-    const initials = displayName.split(' ').map((n: string) => n[0]).slice(0, 2).join('').toUpperCase() || 'NU';
+    const displayName = userData?.name || 'User';
+    const initials = displayName.split(' ').map((n: string) => n[0]).slice(0, 2).join('').toUpperCase() || 'US';
     const planLabel = plan === 'elite' ? 'Elite' : plan === 'pulse' ? 'Pulse' : 'Free';
 
     return (
@@ -70,17 +70,18 @@ export default function MobileSidebar({
                     >
                         {/* Top: logo + close */}
                         <div className="flex items-center justify-between px-5 pt-5 pb-4 border-b border-white/[0.07] flex-shrink-0">
-                            <Link href="/" onClick={onClose} className="flex items-center gap-2">
-                                <div className="w-7 h-7 rounded-lg bg-[#0599D5]/20 border border-[#0599D5]/30 flex items-center justify-center">
-                                    <Zap className="w-4 h-4 text-[#0599D5]" />
+                            <Link href="/" onClick={onClose} className="flex items-center gap-2" aria-label="Nobevra Home">
+                                <div className="w-7 h-7 rounded-lg bg-[#01A0E2]/20 border border-[#01A0E2]/30 flex items-center justify-center">
+                                    <Zap className="w-4 h-4 text-[#01A0E2]" />
                                 </div>
-                                <span className="text-sm font-black text-white">NobleInvoice</span>
+                                <span className="text-sm font-black text-white">Nobevra</span>
                             </Link>
                             <button
                                 onClick={onClose}
-                                className="w-8 h-8 rounded-xl bg-noble-surface dark:bg-noble-card/[0.06] border border-white/[0.08] flex items-center justify-center text-white/50 hover:text-white transition-colors"
+                                className="w-10 h-10 rounded-xl bg-noble-surface dark:bg-noble-card/[0.06] border border-white/[0.08] flex items-center justify-center text-white/70 hover:text-white transition-colors"
+                                aria-label="Close menu"
                             >
-                                <X className="w-4 h-4" />
+                                <X className="w-5 h-5" />
                             </button>
                         </div>
 
@@ -90,7 +91,7 @@ export default function MobileSidebar({
                                 <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
                                 <input
                                     placeholder="Search workspace..."
-                                    className="w-full bg-noble-surface dark:bg-noble-card/[0.06] border border-white/[0.08] rounded-xl py-2.5 pl-10 pr-4 text-[12px] text-white/70 placeholder:text-white/25 focus:outline-none focus:border-[#0599D5]/50 transition-colors"
+                                    className="w-full bg-noble-surface dark:bg-noble-card/[0.06] border border-white/[0.08] rounded-xl py-2.5 pl-10 pr-4 text-[12px] text-white/70 placeholder:text-white/25 focus:outline-none focus:border-[#01A0E2]/50 transition-colors"
                                 />
                             </div>
                         </div>
@@ -114,7 +115,7 @@ export default function MobileSidebar({
                                                     className={[
                                                         'flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all',
                                                         isActive
-                                                            ? 'bg-[#0599D5]/15 border-l-2 border-[#0599D5] text-white'
+                                                            ? 'bg-[#01A0E2]/15 border-l-2 border-[#01A0E2] text-white'
                                                             : locked
                                                             ? 'text-white/50 hover:bg-noble-surface dark:bg-noble-card/[0.04] hover:text-white/70'
                                                             : 'text-white/60 hover:bg-noble-surface dark:bg-noble-card/[0.05] hover:text-white/90',
@@ -143,7 +144,7 @@ export default function MobileSidebar({
                         <div className="flex-shrink-0 border-t border-white/[0.07] p-3 space-y-3">
                             {/* Upgrade banner — free users only */}
                             {!isPremium && (
-                                <div className="rounded-2xl bg-gradient-to-br from-[#0599D5]/15 to-[#006970]/15 border border-[#0599D5]/20 p-3">
+                                <div className="rounded-2xl bg-gradient-to-br from-[#01A0E2]/15 to-[#006970]/15 border border-[#01A0E2]/20 p-3">
                                     <div className="flex items-center gap-2 mb-2">
                                         <PremiumBadge tier="pro" iconOnly className="w-5 h-5 drop-shadow-md" />
                                         <p className="text-[11px] font-black text-white/80">Unlock Full Power</p>
@@ -151,7 +152,7 @@ export default function MobileSidebar({
                                     <Link
                                         href="/upgrade"
                                         onClick={onClose}
-                                        className="flex items-center justify-center w-full py-2 bg-[#0599D5] rounded-xl text-[10px] font-black text-white uppercase tracking-widest"
+                                        className="flex items-center justify-center w-full py-2 bg-[#01A0E2] rounded-xl text-[10px] font-black text-white uppercase tracking-widest"
                                     >
                                         Upgrade Now
                                     </Link>
@@ -161,12 +162,12 @@ export default function MobileSidebar({
                             {/* User + logout */}
                             {mounted && (
                                 <div className="flex items-center gap-3 px-2 py-2">
-                                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#0599D5] to-[#006970] flex items-center justify-center shadow-md flex-shrink-0">
+                                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#01A0E2] to-[#006970] flex items-center justify-center shadow-md flex-shrink-0">
                                         <span className="text-[11px] font-black text-white">{initials}</span>
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <p className="text-[12px] font-bold text-white/80 truncate">{displayName}</p>
-                                        <p className="text-[9px] font-black text-[#0599D5] uppercase tracking-widest">{planLabel}</p>
+                                        <p className="text-[9px] font-black text-[#01A0E2] uppercase tracking-widest">{planLabel}</p>
                                     </div>
                                     <Link
                                         href="/logout"

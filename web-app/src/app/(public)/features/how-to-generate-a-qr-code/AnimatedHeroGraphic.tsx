@@ -38,7 +38,7 @@ export default function AnimatedHeroGraphic() {
               transition={{ delay: 1.5, duration: 1 }}
               className="absolute top-1/2 left-1/2 w-[135%] h-[135%] -translate-x-1/2 -translate-y-1/2 z-10"
               src="https://www.youtube.com/embed/Li5WGrxMgMw?autoplay=1&mute=1&loop=1&playlist=Li5WGrxMgMw&controls=0&modestbranding=1&rel=0&disablekb=1&fs=0&iv_load_policy=3&playsinline=1"
-              title="NobleInvoice Animated Illustration"
+              title="Nobevra Animated Illustration"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen

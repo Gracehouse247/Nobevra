@@ -5,19 +5,19 @@ import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Shield, Settings, Activity, Server, Users, Zap, XCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Automated Invoicing Software for Scaling Teams | NobleInvoice',
-    description: 'Stop relying on probabilistic AI that requires human verification. NobleInvoice offers deterministic automated invoicing software built for true enterprise scale.',
+    title: 'Automated Invoicing Software for Scaling Teams | Nobevra',
+    description: 'Stop relying on probabilistic AI that requires human verification. Nobevra offers deterministic automated invoicing software built for true enterprise scale.',
     openGraph: {
-        title: 'Automated Invoicing Software for Scaling Teams | NobleInvoice',
-        description: 'Stop relying on probabilistic AI that requires human verification. NobleInvoice offers deterministic automated invoicing software built for true enterprise scale.',
-        url: 'https://nobleinvoice.com/features/enterprise-scaling',
-        siteName: 'NobleInvoice',
+        title: 'Automated Invoicing Software for Scaling Teams | Nobevra',
+        description: 'Stop relying on probabilistic AI that requires human verification. Nobevra offers deterministic automated invoicing software built for true enterprise scale.',
+        url: '/features/enterprise-scaling',
+        siteName: 'Nobevra',
         images: [
             {
                 url: '/images/og-enterprise.png',
                 width: 1200,
                 height: 630,
-                alt: 'NobleInvoice Enterprise Scaling Automation',
+                alt: 'Nobevra Enterprise Scaling Automation',
             },
         ],
         locale: 'en_US',
@@ -35,7 +35,7 @@ export default function EnterpriseScalingPage() {
                 "name": "Is there automated invoicing software free download available?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "NobleInvoice is a cloud-based web application, meaning there is no automated invoicing software free download required. You simply access the full enterprise suite through your browser on any device."
+                    "text": "Nobevra is a cloud-based web application, meaning there is no automated invoicing software free download required. You simply access the full enterprise suite through your browser on any device."
                 }
             },
             {
@@ -43,7 +43,7 @@ export default function EnterpriseScalingPage() {
                 "name": "What makes this the best automated invoicing software for agencies?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "The best automated invoicing software relies on deterministic rules, not probabilistic AI. NobleInvoice guarantees that if Condition A is met, Action B happens instantly. This eliminates the need for human verification on recurring retainers."
+                    "text": "The best automated invoicing software relies on deterministic rules, not probabilistic AI. Nobevra guarantees that if Condition A is met, Action B happens instantly. This eliminates the need for human verification on recurring retainers."
                 }
             },
             {
@@ -250,7 +250,7 @@ export default function EnterpriseScalingPage() {
                             <thead>
                                 <tr className="bg-slate-50 border-b border-slate-100">
                                     <th className="text-left px-6 py-4 font-black text-slate-900 w-1/4">Feature</th>
-                                    <th className="px-6 py-4 font-black text-noble-blue text-center">NobleInvoice</th>
+                                    <th className="px-6 py-4 font-black text-noble-blue text-center">Nobevra</th>
                                     <th className="px-6 py-4 font-black text-slate-500 text-center">NetSuite</th>
                                     <th className="px-6 py-4 font-black text-slate-500 text-center">Coupa</th>
                                     <th className="px-6 py-4 font-black text-slate-500 text-center">QuickBooks Ent.</th>
@@ -313,7 +313,7 @@ export default function EnterpriseScalingPage() {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
-                            { step: '01', title: 'Define Logic', desc: 'Input your deterministic billing cycles, retainer amounts, and contractor payout rules into the NobleInvoice engine.' },
+                            { step: '01', title: 'Define Logic', desc: 'Input your deterministic billing cycles, retainer amounts, and contractor payout rules into the Nobevra engine.' },
                             { step: '02', title: 'Route Approvals', desc: 'Set up strict permission gateways. If an invoice exceeds $10k, it automatically pauses for director approval before sending.' },
                             { step: '03', title: 'Scale Revenue', desc: 'Watch your cash flow operate autonomously. Your finance team moves from data entry clerks to strategic revenue analysts.' }
                         ].map((item, i) => (
@@ -340,7 +340,7 @@ export default function EnterpriseScalingPage() {
                         />
                     </div>
                     <h3 className="text-2xl md:text-3xl font-black leading-tight text-slate-900 mb-8" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
-                        "We run a 40-person agency. Transitioning from a generic free tool to NobleInvoice's automated system saved us literally 40 hours a month in manual reconciliation. It's the most reliable invoicing software for contractors and full-time staff we've ever used."
+                        "We run a 40-person agency. Transitioning from a generic free tool to Nobevra's automated system saved us literally 40 hours a month in manual reconciliation. It's the most reliable invoicing software for contractors and full-time staff we've ever used."
                     </h3>
                     <p className="font-bold text-slate-900">Michael C.</p>
                     <p className="text-sm text-slate-500 mt-1">Founder, Nexus Dev Agency</p>
@@ -360,7 +360,7 @@ export default function EnterpriseScalingPage() {
                         {[
                             {
                                 img: '/images/reviews/barr-emma-duruigbo-founder-of-ducex-solicitors-ltd.png',
-                                quote: '"Our previous software guessed the wrong client entity twice. NobleInvoice\'s strict rules mean we never make that mistake again."',
+                                quote: '"Our previous software guessed the wrong client entity twice. Nobevra\'s strict rules mean we never make that mistake again."',
                                 name: 'Barr. Emma Duruigbo',
                                 role: 'Founder, Ducex Solicitors Ltd',
                                 link: '/pricing',
@@ -420,14 +420,14 @@ export default function EnterpriseScalingPage() {
                             <h3 className="text-lg font-black text-slate-900">We may not be right for you if...</h3>
                         </div>
                         <p className="text-slate-600 font-medium leading-relaxed">
-                            If you only send 3 invoices a month, our system is overkill. You can find a basic automated invoicing software free tool online for that. But if you have contractors to pay, retainers to collect, and a growing team that needs role-based access, you need NobleInvoice.
+                            If you only send 3 invoices a month, our system is overkill. You can find a basic automated invoicing software free tool online for that. But if you have contractors to pay, retainers to collect, and a growing team that needs role-based access, you need Nobevra.
                         </p>
                     </div>
 
                     <div className="space-y-4">
                         {[
-                            { q: "Is there automated invoicing software free download available?", a: "NobleInvoice is a cloud-based web application, meaning there is no automated invoicing software free download required. You simply access the full enterprise suite through your browser on any device." },
-                            { q: "What makes this the best automated invoicing software for agencies?", a: "The best automated invoicing software relies on deterministic rules, not probabilistic AI. NobleInvoice guarantees that if Condition A is met, Action B happens instantly. This eliminates the need for human verification on recurring retainers." },
+                            { q: "Is there automated invoicing software free download available?", a: "Nobevra is a cloud-based web application, meaning there is no automated invoicing software free download required. You simply access the full enterprise suite through your browser on any device." },
+                            { q: "What makes this the best automated invoicing software for agencies?", a: "The best automated invoicing software relies on deterministic rules, not probabilistic AI. Nobevra guarantees that if Condition A is met, Action B happens instantly. This eliminates the need for human verification on recurring retainers." },
                             { q: "Is there automated invoicing software free for startups?", a: <>Yes. While we build for enterprise scale, we offer an <Link href="/pricing" className="text-noble-blue font-bold hover:underline">automated invoicing software free tier</Link> that allows early-stage teams to set up foundational automation rules before they hit high volume.</> },
                             { q: "Can this be used as invoicing software for contractors?", a: "Absolutely. It operates flawlessly as invoicing software for contractors who manage multiple sub-contractors, offering unified billing and automated payment routing for complex project structures." },
                             { q: "Is this automated invoicing software for small business?", a: "It is designed for businesses of all sizes that are experiencing scaling pains. If you are a solo operator, you might just need a basic PDF generator. But if you are hiring, we provide the automated invoicing software for small business teams looking to act like enterprises." }

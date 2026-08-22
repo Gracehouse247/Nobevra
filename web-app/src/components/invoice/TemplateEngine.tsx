@@ -4,6 +4,7 @@ import { renderFooterExt } from './templates/FooterRenderers';
 import React from 'react';
 import { TemplateDefinition } from '@/lib/templates/templateRegistry';
 import { Mail, Phone, Globe, MapPin, User, Calendar, FileText, Diamond, Building2, CheckCircle2, Star, ShieldCheck, Signature } from 'lucide-react';
+import { brand as nobevra } from '@/lib/brand';
 
 interface TemplateEngineProps {
   template: TemplateDefinition;
@@ -461,7 +462,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
                 </div>
              </div>
           </div>
-                {/* LOGO PLACEHOLDER IN BODY (NobleInvoice Rule: Show if not in Header) */}
+                {/* LOGO PLACEHOLDER IN BODY (Nobevra Rule: Show if not in Header) */}
                 {!headerHandlesLogo && (
                   <div className="mt-8 pt-8 border-t border-slate-100 flex justify-end">
                      {renderLogo("w-20 h-20")}
@@ -482,7 +483,7 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
               <h3 className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em]">Terms & Policy</h3>
             </div>
             <p className="text-slate-500 text-[9px] font-bold leading-relaxed italic pr-2">
-              {data.notes || 'Remit payment to the specified account. Direct all billing inquiries to our finance department. Subject to NobleInvoice standard terms.'}
+              {data.notes || 'Remit payment to the specified account. Direct all billing inquiries to our finance department. Subject to Nobevra standard terms.'}
             </p>
           </div>
           
@@ -515,10 +516,11 @@ export const TemplateEngine: React.FC<TemplateEngineProps> = ({ template, data }
         </div>
       </div>
 
-      {/* Powered by NobleInvoice Watermark */}
+      {/* Powered by Nobevra Watermark */}
       {!data.canRemoveWatermark && (
         <div className="absolute bottom-6 right-8 z-[100] text-[9px] font-black uppercase tracking-widest text-slate-300 pointer-events-none">
-          Powered by <span className="text-[#0599D5]">NobleInvoice</span>
+          {nobevra.copy.watermarkText.split('Nobevra')[0]}
+          <span className="text-[#01A0E2]">{nobevra.shortName}</span>
         </div>
       )}
       {renderFooter()}

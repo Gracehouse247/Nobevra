@@ -22,10 +22,10 @@ interface EntitlementsContextType {
 // ─────────────────────────────────────────────────────────────────────────────
 
 /**
- * EXPLORER (Free) — Core utility. Enough to build their business on NobleInvoice.
+ * EXPLORER (Free) — Core utility. Enough to build their business on Nobevra.
  * Strategy: let free users accept Flutterwave payments (earn on transaction fees),
  * unlimited invoices & clients, and access every core workflow.
- * The "Trojan Horse": a "Powered by NobleInvoice" watermark is the upgrade motivator.
+ * The "Trojan Horse": a "Powered by Nobevra" watermark is the upgrade motivator.
  */
 function getFreeEntitlements(): EntitlementsData {
   return {
@@ -83,7 +83,7 @@ function getPulseEntitlements(): EntitlementsData {
     'invoice.recurring':  null,  // Recurring / subscription invoices
 
     // Branding (the primary upgrade motivator from free)
-    'brand.whitelabel': null,   // Remove "Powered by NobleInvoice" watermark
+    'brand.whitelabel': null,   // Remove "Powered by Nobevra" watermark
     'brand.studio': null,       // Professional Identity Studio
 
     // Multi-Currency (moved from Elite — common freelancer need)

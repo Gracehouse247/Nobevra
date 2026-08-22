@@ -45,7 +45,7 @@ export default function FreelancerComparisonSection() {
                         </ul>
                     </motion.div>
 
-                    {/* The NobleInvoice Way */}
+                    {/* The Nobevra Way */}
                     <motion.div 
                         initial={{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -55,7 +55,7 @@ export default function FreelancerComparisonSection() {
                         <div className="absolute top-0 right-0 p-6 text-white/10">
                             <span className="material-symbols-outlined text-6xl">rocket_launch</span>
                         </div>
-                        <h3 className="text-2xl font-black text-white mb-6">NobleInvoice App</h3>
+                        <h3 className="text-2xl font-black text-white mb-6">Nobevra App</h3>
                         <ul className="space-y-4 relative z-10">
                             {[
                                 "Client CRM auto-fills details instantly.",

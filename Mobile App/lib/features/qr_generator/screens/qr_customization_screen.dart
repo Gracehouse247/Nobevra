@@ -12,7 +12,7 @@ class QrCustomizationScreen extends StatefulWidget {
 }
 
 class _QrCustomizationScreenState extends State<QrCustomizationScreen> {
-  final TextEditingController _dataController = TextEditingController(text: 'https://NobleInvoice.app/p/summer-sale');
+  final TextEditingController _dataController = TextEditingController(text: 'https://nobevra.com/p/summer-sale');
   Color _selectedColor = AppColors.primary;
   String _selectedFrame = 'Modern';
 
@@ -170,7 +170,7 @@ class _QrCustomizationScreenState extends State<QrCustomizationScreen> {
               Navigator.pop(context);
               Navigator.pushNamed(context, AppRoutes.pricingPlans);
             },
-            style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.primaryDark, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
             child: const Text('View Plans', style: TextStyle(color: Colors.white)),
           ),
         ],

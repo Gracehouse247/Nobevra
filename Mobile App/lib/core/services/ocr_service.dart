@@ -29,7 +29,7 @@ class OcrService {
         'amount': data['amount'],
         'date': data['expense_date'] != null ? DateTime.tryParse(data['expense_date']) : null,
         'merchant': data['vendor'],
-        'rawText': 'Parsed via NobleInvoice AI',
+        'rawText': 'Parsed via Nobevra AI',
       };
     } catch (e) {
       print('OCR Service Error: $e');

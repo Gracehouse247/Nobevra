@@ -25,7 +25,7 @@ export const SidebarLibrary: React.FC = () => {
   const { user } = useAuth();
 
   // QR Engine State
-  const [qrUrl, setQrUrl] = useState('https://nobleinvoice.com/p/noble-user');
+  const [qrUrl, setQrUrl] = useState('https://nobevra.noblesworld.com.ng/p/noble-user');
   const [qrColor, setQrColor] = useState('#0f172a');
 
   // Uploaded assets state

@@ -202,8 +202,8 @@ export default function ProductsPage() {
             value: products.length,
             sub: `${totalProductItems} products · ${totalServices} services`,
             icon: Boxes,
-            iconBg: 'bg-[#0599D5]/10',
-            iconColor: 'text-[#0599D5]',
+            iconBg: 'bg-[#01A0E2]/10',
+            iconColor: 'text-[#01A0E2]',
         },
         {
             label: 'Low Stock',
@@ -247,7 +247,7 @@ export default function ProductsPage() {
     return (
         <div className="min-h-full bg-noble-bg pb-24 lg:pb-10">
             {/* Ambient glows */}
-            <div className="fixed top-0 right-0 w-[700px] h-[700px] bg-[#0599D5]/4 blur-[120px] rounded-full pointer-events-none z-0 -translate-y-1/3 translate-x-1/3" />
+            <div className="fixed top-0 right-0 w-[700px] h-[700px] bg-[#01A0E2]/4 blur-[120px] rounded-full pointer-events-none z-0 -translate-y-1/3 translate-x-1/3" />
             <div className="fixed top-1/3 left-0 w-[500px] h-[500px] bg-[#006970]/4 blur-[100px] rounded-full pointer-events-none z-0 -translate-x-1/2" />
 
             <div className="max-w-[1600px] mx-auto px-5 md:px-8 py-8 relative z-10">
@@ -276,7 +276,7 @@ export default function ProductsPage() {
                                 }
                                 router.push('/products/new');
                             }}
-                            className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#006970] to-[#0599D5] text-white rounded-xl text-sm font-bold hover:shadow-lg hover:shadow-[#0599D5]/25 hover:-translate-y-0.5 transition-all"
+                            className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-[#006970] to-[#01A0E2] text-white rounded-xl text-sm font-bold hover:shadow-lg hover:shadow-[#01A0E2]/25 hover:-translate-y-0.5 transition-all"
                         >
                             <Plus className="w-4 h-4" strokeWidth={2.5} />
                             Add New Item
@@ -391,7 +391,7 @@ export default function ProductsPage() {
                                     value={searchQuery}
                                     onChange={e => setSearchQuery(e.target.value)}
                                     placeholder="Search items..."
-                                    className="pl-9 pr-4 py-2 bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl text-sm text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#0599D5]/20 focus:border-[#0599D5]/40 transition-all w-48 lg:w-64"
+                                    className="pl-9 pr-4 py-2 bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl text-sm text-slate-700 dark:text-slate-200 placeholder:text-slate-400 dark:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#01A0E2]/20 focus:border-[#01A0E2]/40 transition-all w-48 lg:w-64"
                                 />
                             </div>
                             {activeTab !== 'Inventory' && (
@@ -403,14 +403,14 @@ export default function ProductsPage() {
                                     <div className="flex items-center bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border rounded-xl overflow-hidden">
                                         <button
                                             onClick={() => setViewMode('grid')}
-                                            className={`p-2 transition-all ${viewMode === 'grid' ? 'bg-[#0599D5] text-white' : 'text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030]'}`}
+                                            className={`p-2 transition-all ${viewMode === 'grid' ? 'bg-[#01A0E2] text-white' : 'text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030]'}`}
                                             title="Grid view"
                                         >
                                             <Grid3X3 className="w-4 h-4" />
                                         </button>
                                         <button
                                             onClick={() => setViewMode('table')}
-                                            className={`p-2 transition-all ${viewMode === 'table' ? 'bg-[#0599D5] text-white' : 'text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030]'}`}
+                                            className={`p-2 transition-all ${viewMode === 'table' ? 'bg-[#01A0E2] text-white' : 'text-slate-500 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030]'}`}
                                             title="List view"
                                         >
                                             <List className="w-4 h-4" />
@@ -433,7 +433,7 @@ export default function ProductsPage() {
                                         // But for now these are visual sub-filters applied in the render below
                                         setSearchQuery(f === 'All' ? '' : searchQuery);
                                     }}
-                                    className="px-3 py-1 rounded-lg text-[12px] font-semibold border transition-all bg-noble-surface dark:bg-noble-card border-noble-border text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:border-[#0599D5]/40 hover:text-[#0599D5]"
+                                    className="px-3 py-1 rounded-lg text-[12px] font-semibold border transition-all bg-noble-surface dark:bg-noble-card border-noble-border text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:border-[#01A0E2]/40 hover:text-[#01A0E2]"
                                 >
                                     {f}
                                     {f === 'Low Stock' && lowStockItems > 0 && (
@@ -450,7 +450,7 @@ export default function ProductsPage() {
                     {/* Loading */}
                     {loading ? (
                         <div className="flex flex-col items-center justify-center py-32 gap-4">
-                            <Loader2 className="w-8 h-8 text-[#0599D5] animate-spin" />
+                            <Loader2 className="w-8 h-8 text-[#01A0E2] animate-spin" />
                             <p className="text-sm text-slate-400 dark:text-slate-500 font-medium">Loading your catalog...</p>
                         </div>
                     ) : displayedProducts.length === 0 ? (
@@ -494,12 +494,12 @@ export default function ProductsPage() {
                                                     initial={{ opacity: 0 }}
                                                     animate={{ opacity: 1 }}
                                                     transition={{ delay: i * 0.03 }}
-                                                    className="group hover:bg-[#0599D5]/[0.02] transition-colors"
+                                                    className="group hover:bg-[#01A0E2]/[0.02] transition-colors"
                                                 >
                                                     <td className="px-6 py-4">
                                                         <div className="flex items-center gap-3">
-                                                            <div className="w-9 h-9 rounded-xl bg-[#0599D5]/10 flex items-center justify-center flex-shrink-0">
-                                                                <Package className="w-4 h-4 text-[#0599D5]" />
+                                                            <div className="w-9 h-9 rounded-xl bg-[#01A0E2]/10 flex items-center justify-center flex-shrink-0">
+                                                                <Package className="w-4 h-4 text-[#01A0E2]" />
                                                             </div>
                                                             <div>
                                                                 <p className="text-sm font-semibold text-slate-800 dark:text-slate-100 leading-tight">{product.name}</p>
@@ -538,7 +538,7 @@ export default function ProductsPage() {
                                                     <td className="px-4 py-4 text-right">
                                                         <button
                                                             onClick={() => handleOpenAdjustment(product)}
-                                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-noble-surface dark:bg-noble-card border border-noble-border text-slate-700 dark:text-slate-200 text-[12px] font-bold rounded-lg hover:border-[#0599D5]/40 hover:text-[#0599D5] transition-all shadow-sm ml-auto"
+                                                            className="flex items-center gap-1.5 px-3 py-1.5 bg-noble-surface dark:bg-noble-card border border-noble-border text-slate-700 dark:text-slate-200 text-[12px] font-bold rounded-lg hover:border-[#01A0E2]/40 hover:text-[#01A0E2] transition-all shadow-sm ml-auto"
                                                         >
                                                             <ArrowRightLeft className="w-3.5 h-3.5" /> Adjust
                                                         </button>
@@ -558,7 +558,7 @@ export default function ProductsPage() {
                                     <thead>
                                         <tr className="border-b border-slate-100 dark:border-noble-border bg-slate-50 dark:bg-[#0D1B2E]/60">
                                             <th className="w-10 px-6 py-3">
-                                                <input type="checkbox" className="rounded border-slate-300 text-[#0599D5]" />
+                                                <input type="checkbox" className="rounded border-slate-300 text-[#01A0E2]" />
                                             </th>
                                             <th className="px-4 py-3 text-[11px] font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500 uppercase tracking-wider">Item</th>
                                             <th className="px-4 py-3 text-[11px] font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500 uppercase tracking-wider">Type</th>
@@ -583,19 +583,19 @@ export default function ProductsPage() {
                                                         initial={{ opacity: 0 }}
                                                         animate={{ opacity: 1 }}
                                                         transition={{ delay: i * 0.03 }}
-                                                        className="group hover:bg-[#0599D5]/[0.02] transition-colors"
+                                                        className="group hover:bg-[#01A0E2]/[0.02] transition-colors"
                                                     >
                                                         {/* Checkbox */}
                                                         <td className="px-6 py-4">
-                                                            <input type="checkbox" className="rounded border-slate-300 text-[#0599D5]" />
+                                                            <input type="checkbox" className="rounded border-slate-300 text-[#01A0E2]" />
                                                         </td>
 
                                                         {/* Item */}
                                                         <td className="px-4 py-4">
                                                             <div className="flex items-center gap-3">
-                                                                <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${isProduct ? 'bg-[#0599D5]/10' : 'bg-violet-100'}`}>
+                                                                <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 ${isProduct ? 'bg-[#01A0E2]/10' : 'bg-violet-100'}`}>
                                                                     {isProduct
-                                                                        ? <Package className="w-4 h-4 text-[#0599D5]" />
+                                                                        ? <Package className="w-4 h-4 text-[#01A0E2]" />
                                                                         : <Wrench className="w-4 h-4 text-violet-600" />
                                                                     }
                                                                 </div>
@@ -621,7 +621,7 @@ export default function ProductsPage() {
                                                         <td className="px-4 py-4">
                                                             <span className={`inline-flex items-center px-2.5 py-1 rounded-lg text-[11px] font-semibold ${
                                                                 isProduct
-                                                                    ? 'bg-[#0599D5]/10 text-[#0599D5]'
+                                                                    ? 'bg-[#01A0E2]/10 text-[#01A0E2]'
                                                                     : 'bg-violet-100 text-violet-700'
                                                             }`}>
                                                                 {isProduct ? 'Product' : 'Service'}
@@ -660,7 +660,7 @@ export default function ProductsPage() {
                                                                     <button
                                                                         onClick={() => handleOpenAdjustment(product)}
                                                                         title="Adjust stock"
-                                                                        className="opacity-0 group-hover:opacity-100 p-1 rounded-md text-slate-400 dark:text-slate-500 hover:text-[#0599D5] hover:bg-[#0599D5]/10 transition-all"
+                                                                        className="opacity-0 group-hover:opacity-100 p-1 rounded-md text-slate-400 dark:text-slate-500 hover:text-[#01A0E2] hover:bg-[#01A0E2]/10 transition-all"
                                                                     >
                                                                         <ArrowRightLeft className="w-3 h-3" />
                                                                     </button>
@@ -766,7 +766,7 @@ export default function ProductsPage() {
                                                     onClick={() => setCurrentPage(page)}
                                                     className={`w-8 h-8 rounded-lg text-sm font-semibold transition-all ${
                                                         currentPage === page
-                                                            ? 'bg-[#0599D5] text-white shadow-sm shadow-[#0599D5]/30'
+                                                            ? 'bg-[#01A0E2] text-white shadow-sm shadow-[#01A0E2]/30'
                                                             : 'text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-noble-surface dark:bg-noble-card hover:shadow-sm border border-transparent hover:border-noble-border'
                                                     }`}
                                                 >
@@ -802,8 +802,8 @@ export default function ProductsPage() {
                                             className="bg-noble-surface dark:bg-noble-card border border-slate-100 dark:border-noble-border rounded-2xl p-4 hover:shadow-md hover:border-noble-border transition-all group"
                                         >
                                             <div className="flex items-start justify-between mb-3">
-                                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${isProduct ? 'bg-[#0599D5]/10' : 'bg-violet-100'}`}>
-                                                    {isProduct ? <Package className="w-5 h-5 text-[#0599D5]" /> : <Wrench className="w-5 h-5 text-violet-600" />}
+                                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${isProduct ? 'bg-[#01A0E2]/10' : 'bg-violet-100'}`}>
+                                                    {isProduct ? <Package className="w-5 h-5 text-[#01A0E2]" /> : <Wrench className="w-5 h-5 text-violet-600" />}
                                                 </div>
                                                 <div className="flex items-center gap-1.5">
                                                     <div className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-emerald-500' : 'bg-slate-300'}`} />
@@ -818,7 +818,7 @@ export default function ProductsPage() {
                                             )}
                                             <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-100 dark:border-noble-border">
                                                 <span className="text-sm font-bold text-noble-text">{formatMoney(product.unit_price || 0)}</span>
-                                                <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-lg ${isProduct ? 'bg-[#0599D5]/10 text-[#0599D5]' : 'bg-violet-100 text-violet-700'}`}>
+                                                <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-lg ${isProduct ? 'bg-[#01A0E2]/10 text-[#01A0E2]' : 'bg-violet-100 text-violet-700'}`}>
                                                     {isProduct ? 'Product' : 'Service'}
                                                 </span>
                                             </div>
@@ -828,7 +828,7 @@ export default function ProductsPage() {
                                                     {isProduct && (
                                                         <button
                                                             onClick={() => handleOpenAdjustment(product)}
-                                                            className="p-1 rounded-lg text-slate-300 hover:text-[#0599D5] hover:bg-[#0599D5]/10 transition-all opacity-0 group-hover:opacity-100"
+                                                            className="p-1 rounded-lg text-slate-300 hover:text-[#01A0E2] hover:bg-[#01A0E2]/10 transition-all opacity-0 group-hover:opacity-100"
                                                             title="Adjust stock"
                                                         >
                                                             <ArrowRightLeft className="w-3.5 h-3.5" />
@@ -872,7 +872,7 @@ export default function ProductsPage() {
                             {/* Modal Header */}
                             <div className="flex items-center justify-between p-6 border-b border-slate-100 dark:border-noble-border bg-slate-50 dark:bg-[#0D1B2E]/60">
                                 <div>
-                                    <p className="text-[11px] font-bold text-[#0599D5] uppercase tracking-widest mb-0.5">Inventory Action</p>
+                                    <p className="text-[11px] font-bold text-[#01A0E2] uppercase tracking-widest mb-0.5">Inventory Action</p>
                                     <h3 className="text-[17px] font-bold text-noble-text">Adjust Stock Level</h3>
                                 </div>
                                 <button
@@ -902,7 +902,7 @@ export default function ProductsPage() {
                                             onClick={() => setAdjustType('add')}
                                             className={`py-3 px-4 rounded-xl text-[12px] font-bold border transition-all ${
                                                 adjustType === 'add'
-                                                    ? 'bg-[#0599D5]/10 border-[#0599D5] text-[#0599D5]'
+                                                    ? 'bg-[#01A0E2]/10 border-[#01A0E2] text-[#01A0E2]'
                                                     : 'bg-slate-50 dark:bg-[#0D1B2E] border-noble-border text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030]'
                                             }`}
                                         >
@@ -913,7 +913,7 @@ export default function ProductsPage() {
                                             onClick={() => setAdjustType('set')}
                                             className={`py-3 px-4 rounded-xl text-[12px] font-bold border transition-all ${
                                                 adjustType === 'set'
-                                                    ? 'bg-[#0599D5]/10 border-[#0599D5] text-[#0599D5]'
+                                                    ? 'bg-[#01A0E2]/10 border-[#01A0E2] text-[#01A0E2]'
                                                     : 'bg-slate-50 dark:bg-[#0D1B2E] border-noble-border text-slate-600 dark:text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-white/5 dark:bg-[#112030]'
                                             }`}
                                         >
@@ -933,7 +933,7 @@ export default function ProductsPage() {
                                         value={adjustQty}
                                         onChange={e => setAdjustQty(e.target.value)}
                                         placeholder={adjustType === 'add' ? 'e.g. 10 or -5' : 'e.g. 50'}
-                                        className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border focus:border-[#0599D5] rounded-xl py-3 px-4 text-[15px] font-bold text-noble-text outline-none transition-colors focus:ring-2 focus:ring-[#0599D5]/20"
+                                        className="w-full bg-slate-50 dark:bg-[#0D1B2E] border border-noble-border focus:border-[#01A0E2] rounded-xl py-3 px-4 text-[15px] font-bold text-noble-text outline-none transition-colors focus:ring-2 focus:ring-[#01A0E2]/20"
                                     />
                                     <p className="text-[11px] text-slate-400 dark:text-slate-500 font-medium">
                                         {adjustType === 'add'
@@ -954,7 +954,7 @@ export default function ProductsPage() {
                                     <button
                                         type="submit"
                                         disabled={adjusting}
-                                        className="flex-1 py-3 bg-[#0599D5] hover:bg-[#0480b5] text-white font-bold text-[13px] rounded-xl transition-all shadow-md disabled:opacity-50 flex items-center justify-center gap-2"
+                                        className="flex-1 py-3 bg-[#01A0E2] hover:bg-[#0480b5] text-white font-bold text-[13px] rounded-xl transition-all shadow-md disabled:opacity-50 flex items-center justify-center gap-2"
                                     >
                                         {adjusting ? (
                                             <><Loader2 className="w-4 h-4 animate-spin" /> Saving...</>

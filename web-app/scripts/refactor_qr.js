@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dir = 'C:\\Projects\\NobleInvoice\\web-app\\src\\components\\identity\\templates\\cards\\';
+const dir = 'C:\\Projects\\Nobevra\\web-app\\src\\components\\identity\\templates\\cards\\';
 const files = fs.readdirSync(dir);
 
 for (const file of files) {

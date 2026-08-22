@@ -108,7 +108,7 @@ class PaymentSelectionModal extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _summaryRow('NobleInvoice Pro (Monthly)', '\$${price.toStringAsFixed(2)}'),
+          _summaryRow('Nobevra Pro (Monthly)', '\$${price.toStringAsFixed(2)}'),
           const SizedBox(height: 12),
           Divider(color: AppColors.primary.withOpacity(0.15)),
           const SizedBox(height: 12),

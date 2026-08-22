@@ -17,7 +17,7 @@ const faqs = [
     },
     {
         q: 'Does it really support a white-label client portal?',
-        a: 'Yes. You can set your custom domain, upload your logo, and choose your exact brand colors. Your clients see a fully branded experience. NobleInvoice is invisible to them.',
+        a: 'Yes. You can set your custom domain, upload your logo, and choose your exact brand colors. Your clients see a fully branded experience. Nobevra is invisible to them.',
     },
     {
         q: 'What makes this better than other invoicing software for agencies?',

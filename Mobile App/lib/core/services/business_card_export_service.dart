@@ -73,7 +73,12 @@ class BusinessCardExportService {
     );
 
     // 4. Generate PDF
-    final pdf = pw.Document();
+    final pdf = pw.Document(
+      title: 'Business Card - ${profile.displayName ?? "Nobevra"}',
+      author: profile.displayName ?? 'Nobevra',
+      creator: 'Nobevra',
+      producer: 'Nobevra Card Engine',
+    );
     
     // PDF page size in points (72 points per inch)
     final pdfPageFormat = PdfPageFormat(format.width * 72.0, format.height * 72.0, marginAll: 0);

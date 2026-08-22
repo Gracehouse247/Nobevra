@@ -44,25 +44,25 @@ export default function BottomNav() {
                         onClick={(e) => handleItemClick(e, item)}
                         className={`relative flex flex-col items-center justify-center w-14 h-14 rounded-2xl transition-all duration-200 ${
                             isActive
-                                ? 'text-[#0599D5]'
+                                ? 'text-[#01A0E2]'
                                 : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500'
                         }`}
                     >
                         {/* Active indicator dot above icon */}
                         {isActive && (
-                            <span className="absolute top-1.5 w-1 h-1 rounded-full bg-[#0599D5]" />
+                            <span className="absolute top-1.5 w-1 h-1 rounded-full bg-[#01A0E2]" />
                         )}
                         <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${
-                            isActive ? 'bg-[#0599D5]/10' : 'bg-transparent'
+                            isActive ? 'bg-[#01A0E2]/10' : 'bg-transparent'
                         }`}>
                             <item.icon className="w-5 h-5" strokeWidth={isActive ? 2.5 : 1.8} />
                         </div>
                         <span className={`text-[8px] uppercase tracking-widest mt-0.5 font-black truncate max-w-[44px] text-center ${
-                            isActive ? 'text-[#0599D5]' : 'text-slate-400 dark:text-slate-500'
+                            isActive ? 'text-[#01A0E2]' : 'text-slate-400 dark:text-slate-500'
                         }`}>{item.name.split(' ')[0]}</span>
                         {locked && (
                             <div className={`absolute top-1 right-1.5 flex items-center justify-center w-3.5 h-3.5 rounded-full shadow-sm ${
-                                (item as any).requiredPlan === 'elite' ? 'bg-amber-100 text-amber-600' : 'bg-blue-100 text-[#0599D5]'
+                                (item as any).requiredPlan === 'elite' ? 'bg-amber-100 text-amber-600' : 'bg-blue-100 text-[#01A0E2]'
                             }`}>
                                 {(item as any).requiredPlan === 'elite' ? <Crown className="w-2 h-2" /> : <Lock className="w-2 h-2" />}
                             </div>

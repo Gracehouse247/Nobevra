@@ -10,7 +10,7 @@ import {
 
 /* ── SEO Metadata ───────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Free Digital Business Card Maker | NFC & QR Business Cards | NobleInvoice',
+    title: 'Free Digital Business Card Maker | NFC & QR Business Cards | Nobevra',
     description: 'Create a stunning digital business card in minutes. Share via NFC tap, QR code, or link. No printing required. Free digital business card maker with custom branding.',
     keywords: [
         'digital business card maker',
@@ -23,13 +23,13 @@ export const metadata: Metadata = {
         'paperless business card'
     ],
     openGraph: {
-        title: 'Free Digital Business Card Maker | NFC & QR | NobleInvoice',
+        title: 'Free Digital Business Card Maker | NFC & QR | Nobevra',
         description: 'Create a stunning digital business card and share it instantly via NFC, QR code, or a single link. Free forever.',
-        url: 'https://nobleinvoice.noblesworld.com.ng/business-card-maker',
+        url: '/business-card-maker',
         type: 'website',
     },
     alternates: {
-        canonical: 'https://nobleinvoice.noblesworld.com.ng/business-card-maker'
+        canonical: '/business-card-maker'
     }
 };
 
@@ -57,7 +57,7 @@ const steps = [
         step: '04',
         icon: Zap,
         title: 'Get Paid Faster',
-        desc: 'Your digital card links directly to your NobleInvoice payment page. Turn a handshake into a paid invoice in one smooth flow.',
+        desc: 'Your digital card links directly to your Nobevra payment page. Turn a handshake into a paid invoice in one smooth flow.',
     },
 ];
 
@@ -92,7 +92,7 @@ const stats = [
     { value: '88%', label: 'Cards thrown away', sublabel: 'Of physical business cards within a week' },
     { value: '10x', label: 'More shares', sublabel: 'Digital vs. physical card sharing rates' },
     { value: '27B', label: 'Cards printed yearly', sublabel: 'Generating 7.2M lbs of landfill waste' },
-    { value: '$0', label: 'Cost to create', sublabel: 'Forever free with NobleInvoice' },
+    { value: '$0', label: 'Cost to create', sublabel: 'Forever free with Nobevra' },
 ];
 
 const faqs = [
@@ -117,7 +117,7 @@ const faqs = [
         a: 'You can share it in multiple ways: download the QR code image and add it to your email signature, print it on physical materials, display it on your phone screen for in-person meetings, or share your unique card link directly on social media.',
     },
     {
-        q: 'Does it integrate with NobleInvoice invoicing?',
+        q: 'Does it integrate with Nobevra invoicing?',
         a: 'Yes, seamlessly. Your digital business card can link directly to your public payment and invoice page. When a new contact scans your card, they can hire you and receive a professional invoice — all in the same session.',
     },
     {
@@ -126,13 +126,13 @@ const faqs = [
     },
     {
         q: 'Can I have multiple business cards?',
-        a: 'Yes. You can create separate cards for different roles or contexts — a personal brand card, a company card, and an event-specific card — all managed from your single NobleInvoice account.',
+        a: 'Yes. You can create separate cards for different roles or contexts — a personal brand card, a company card, and an event-specific card — all managed from your single Nobevra account.',
     },
 ];
 
 const reviews = [
     {
-        quote: "I was handing out paper cards at a conference and a colleague showed me their digital card. I signed up for NobleInvoice that evening. Haven't printed a single card since.",
+        quote: "I was handing out paper cards at a conference and a colleague showed me their digital card. I signed up for Nobevra that evening. Haven't printed a single card since.",
         name: 'Emeka Obi',
         role: 'UX Consultant',
         rating: 5,
@@ -166,7 +166,7 @@ const comparisonRows = [
 const generateSoftwareSchema = () => ({
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'NobleInvoice Digital Business Card Maker',
+    name: 'Nobevra Digital Business Card Maker',
     operatingSystem: 'Web, iOS, Android',
     applicationCategory: 'BusinessApplication',
     aggregateRating: {
@@ -281,10 +281,10 @@ export default function BusinessCardMakerPage() {
                                 {/* Glow */}
                                 <div className="absolute inset-0 bg-noble-blue/10 blur-[60px] rounded-full scale-110 pointer-events-none" />
                                 {/* Card preview */}
-                                <div className="relative bg-gradient-to-br from-[#0599D5] to-[#006970] rounded-[32px] p-8 shadow-[0_40px_80px_rgba(5,153,213,0.3)] text-white">
+                                <div className="relative bg-gradient-to-br from-[#01A0E2] to-[#006970] rounded-[32px] p-8 shadow-[0_40px_80px_rgba(5,153,213,0.3)] text-white">
                                     <div className="flex justify-between items-start mb-8">
                                         <div>
-                                            <p className="text-xs font-black uppercase tracking-widest text-white/60 mb-1">NobleInvoice</p>
+                                            <p className="text-xs font-black uppercase tracking-widest text-white/60 mb-1">Nobevra</p>
                                             <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                                                 <CreditCard className="w-5 h-5 text-white" />
                                             </div>
@@ -296,12 +296,12 @@ export default function BusinessCardMakerPage() {
                                     </div>
                                     <div className="mb-6">
                                         <h2 className="text-2xl font-black tracking-tight">Noble World</h2>
-                                        <p className="text-white/70 text-sm mt-1">Founder & CEO, NobleInvoice</p>
+                                        <p className="text-white/70 text-sm mt-1">Founder & CEO, Nobevra</p>
                                     </div>
                                     <div className="border-t border-white/20 pt-5 flex justify-between items-center">
                                         <div className="space-y-1">
-                                            <p className="text-xs text-white/60">hello@nobleinvoice.com</p>
-                                            <p className="text-xs text-white/60">nobleinvoice.com</p>
+                                            <p className="text-xs text-white/60">hello@nobevra.noblesworld.com.ng</p>
+                                            <p className="text-xs text-white/60">nobevra.noblesworld.com.ng</p>
                                         </div>
                                         <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
                                             <QrCode className="w-8 h-8 text-noble-blue" />
@@ -404,7 +404,7 @@ export default function BusinessCardMakerPage() {
             <section className="py-24" aria-label="Competitor Comparison">
                 <div className="max-w-[1100px] mx-auto px-4 md:px-16">
                     <div className="text-center mb-12">
-                        <p className="text-xs font-black text-noble-blue uppercase tracking-widest mb-3">Why NobleInvoice</p>
+                        <p className="text-xs font-black text-noble-blue uppercase tracking-widest mb-3">Why Nobevra</p>
                         <h2 className="text-3xl md:text-4xl font-black text-near-black">
                             We Win Where It Matters
                         </h2>
@@ -414,7 +414,7 @@ export default function BusinessCardMakerPage() {
                             <thead>
                                 <tr className="border-b border-slate-100">
                                     <th className="text-left p-5 font-black text-near-black">Feature</th>
-                                    <th className="p-5 font-black text-noble-blue bg-noble-blue/5">NobleInvoice</th>
+                                    <th className="p-5 font-black text-noble-blue bg-noble-blue/5">Nobevra</th>
                                     <th className="p-5 font-bold text-slate-400">Moo</th>
                                     <th className="p-5 font-bold text-slate-400">HiHello</th>
                                     <th className="p-5 font-bold text-slate-400">Popl</th>

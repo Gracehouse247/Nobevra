@@ -117,7 +117,7 @@ export const gamificationService = {
                     return {
                         id: d.user_id,
                         email: '',
-                        name: prof?.display_name || 'Noble User',
+                        name: prof?.display_name || 'User',
                         photoUrl: prof?.brand_logo_url || undefined,
                         gamification: {
                             uid: d.user_id,

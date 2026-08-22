@@ -117,13 +117,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 // ── Header ───────────────────────────────────────────────────
                 Center(
                   child: Column(children: [
-                    Image.asset('assets/images/nobleinvoice_logo.png', height: 68),
+                    Image.asset('assets/images/nobevra_logo.png', height: 68),
                     const SizedBox(height: 10),
                     Text('Create Account',
                         style: AppTextStyles.headlineLarge
                             .copyWith(fontWeight: FontWeight.w900, fontSize: 24)),
                     const SizedBox(height: 3),
-                    Text('Join NobleInvoice and simplify your business.',
+                    Text('Join Nobevra and simplify your business.',
                         textAlign: TextAlign.center,
                         style: AppTextStyles.bodyMedium
                             .copyWith(color: AppColors.darkGrey, fontSize: 13)),

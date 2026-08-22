@@ -39,8 +39,8 @@ class _TotpSetupScreenState extends State<TotpSetupScreen> {
       final response = await _supabase.auth.mfa.enroll(factorType: FactorType.totp);
       setState(() {
         _factorId = response.id;
-        _qrCodeUri = response.totp.uri;
-        _secret = response.totp.secret;
+        _qrCodeUri = response.totp?.uri ?? '';
+        _secret = response.totp?.secret ?? '';
         _step = 2;
       });
     } catch (e) {

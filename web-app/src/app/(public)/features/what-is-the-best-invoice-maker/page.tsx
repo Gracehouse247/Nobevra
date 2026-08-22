@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'What is the best invoice maker? | NobleInvoice Team Workspace',
+    title: 'What is the best invoice maker? | Nobevra Team Workspace',
     description: 'Wondering what is the best invoice maker for your small business? Discover why a unified team workspace beats simple solo freelancer tools.',
     keywords: [
         'what is the best invoice maker',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
         'best free invoice app for Android'
     ],
     openGraph: {
-        title: 'What is the best invoice maker? | NobleInvoice Team Workspace',
+        title: 'What is the best invoice maker? | Nobevra Team Workspace',
         description: 'Wondering what is the best invoice maker for your small business? Discover why a unified team workspace beats simple solo freelancer tools.',
         type: 'website',
     },
@@ -31,7 +31,7 @@ const faqSchema = {
             "name": "What is the best invoice maker free?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "For freelancers, basic free tools exist. But when you build a team, the best invoice maker free option is NobleInvoice's Starter Plan, which allows foundational multi-user access without paying enterprise fees."
+                "text": "For freelancers, basic free tools exist. But when you build a team, the best invoice maker free option is Nobevra's Starter Plan, which allows foundational multi-user access without paying enterprise fees."
             }
         },
         {
@@ -39,7 +39,7 @@ const faqSchema = {
             "name": "What is the best invoice maker for small business?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The best invoice maker for small business is one that scales with you. NobleInvoice transitions smoothly from a solo founder tool into a unified team workspace for your account managers and accountants."
+                "text": "The best invoice maker for small business is one that scales with you. Nobevra transitions smoothly from a solo founder tool into a unified team workspace for your account managers and accountants."
             }
         },
         {
@@ -47,7 +47,7 @@ const faqSchema = {
             "name": "What is the best invoice maker reddit?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "If you ask 'what is the best invoice maker reddit', you'll see users complaining about decision paralysis. Redditors generally recommend avoiding bloated accounting software if you only need a streamlined team billing workspace like NobleInvoice."
+                "text": "If you ask 'what is the best invoice maker reddit', you'll see users complaining about decision paralysis. Redditors generally recommend avoiding bloated accounting software if you only need a streamlined team billing workspace like Nobevra."
             }
         },
         {
@@ -63,7 +63,7 @@ const faqSchema = {
             "name": "Best free invoice app for Android?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "NobleInvoice is fully responsive and operates perfectly on mobile. It is considered the best free invoice app for Android if you need to manage your team's billing directly from your smartphone."
+                "text": "Nobevra is fully responsive and operates perfectly on mobile. It is considered the best free invoice app for Android if you need to manage your team's billing directly from your smartphone."
             }
         }
     ]
@@ -124,7 +124,7 @@ export default function TeamWorkspacePage() {
                     <div className="relative w-full rounded-[24px] overflow-hidden shadow-2xl border border-slate-200/50">
                         <Image 
                             src="/images/Team Management.png" 
-                            alt="NobleInvoice Team Management Workspace Interface"
+                            alt="Nobevra Team Management Workspace Interface"
                             width={1200}
                             height={800}
                             className="w-full h-auto object-cover hover:scale-[1.03] transition-transform duration-700 ease-in-out"
@@ -219,7 +219,7 @@ export default function TeamWorkspacePage() {
                                 <div className="flex gap-4">
                                     <div className="w-8 h-8 rounded-full bg-noble-blue/10 text-noble-blue flex items-center justify-center shrink-0">✓</div>
                                     <div>
-                                        <p className="font-bold text-slate-900">NobleInvoice Team Workspace</p>
+                                        <p className="font-bold text-slate-900">Nobevra Team Workspace</p>
                                         <p className="text-sm mt-1 text-slate-500">Role-based access, individual logins, shared client pipelines, one unified revenue source.</p>
                                     </div>
                                 </div>
@@ -288,7 +288,7 @@ export default function TeamWorkspacePage() {
                             <thead>
                             <tr className="bg-slate-50 border-b border-slate-100">
                                     <th className="text-left px-6 py-4 font-black text-slate-900 w-1/5">Feature</th>
-                                    <th className="px-6 py-4 font-black text-noble-blue text-center">NobleInvoice</th>
+                                    <th className="px-6 py-4 font-black text-noble-blue text-center">Nobevra</th>
                                     <th className="px-6 py-4 font-black text-slate-500 text-center">Invoice Simple</th>
                                     <th className="px-6 py-4 font-black text-slate-500 text-center">Wave</th>
                                     <th className="px-6 py-4 font-black text-slate-500 text-center">FreshBooks</th>
@@ -351,7 +351,7 @@ export default function TeamWorkspacePage() {
                             </div>
                             <h3 className="text-xl font-black text-slate-900 mb-3" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Payment Integration</h3>
                             <p className="text-slate-500 font-medium leading-relaxed">
-                                Your clients should be able to pay directly from the invoice via card, bank transfer, or mobile wallet. Tools like QuickBooks and Zoho offer this — so does NobleInvoice, with no transaction markup.
+                                Your clients should be able to pay directly from the invoice via card, bank transfer, or mobile wallet. Tools like QuickBooks and Zoho offer this — so does Nobevra, with no transaction markup.
                             </p>
                         </div>
                         <div className="p-8 bg-[#F8FAFC] rounded-[32px] border border-slate-100">
@@ -360,7 +360,7 @@ export default function TeamWorkspacePage() {
                             </div>
                             <h3 className="text-xl font-black text-slate-900 mb-3" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>Mobile Access</h3>
                             <p className="text-slate-500 font-medium leading-relaxed">
-                                The best free invoice app for Android or iOS should let every team member create, send, and track invoices from anywhere. NobleInvoice works as a full PWA across all devices.
+                                The best free invoice app for Android or iOS should let every team member create, send, and track invoices from anywhere. Nobevra works as a full PWA across all devices.
                             </p>
                         </div>
                     </div>
@@ -401,7 +401,7 @@ export default function TeamWorkspacePage() {
 
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
-                            { step: '01', title: 'Invite Your Team', desc: 'Send direct email invitations to your staff right from the NobleInvoice dashboard.' },
+                            { step: '01', title: 'Invite Your Team', desc: 'Send direct email invitations to your staff right from the Nobevra dashboard.' },
                             { step: '02', title: 'Set Granular Permissions', desc: 'Lock down sensitive financial data while giving your team exactly the tools they need to execute.' },
                             { step: '03', title: 'Bill as One Entity', desc: 'Present a massive, unified front to your clients regardless of who physically hits the "send" button.' }
                         ].map((item, i) => (
@@ -428,7 +428,7 @@ export default function TeamWorkspacePage() {
                         />
                     </div>
                     <h3 className="text-2xl md:text-3xl font-black leading-tight text-slate-900 mb-8" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>
-                        "We used to have three different tools for our sales team to generate quotes, our account managers to send invoices, and our accountant to track payments. Moving to a single NobleInvoice Team Workspace eliminated 15 hours of redundant administrative work every week."
+                        "We used to have three different tools for our sales team to generate quotes, our account managers to send invoices, and our accountant to track payments. Moving to a single Nobevra Team Workspace eliminated 15 hours of redundant administrative work every week."
                     </h3>
                     <p className="font-bold text-slate-900">Ayasha Khan</p>
                     <p className="text-sm text-slate-500 mt-1">Marketing Director & Agency Lead</p>
@@ -464,7 +464,7 @@ export default function TeamWorkspacePage() {
                             },
                             {
                                 img: '/images/reviews/david-rodriguez-region-director-for-surebricks-real-estate.png',
-                                quote: '"I spent a week looking for the best free invoice app for Android that handles multiple agents. NobleInvoice was the only one that actually worked."',
+                                quote: '"I spent a week looking for the best free invoice app for Android that handles multiple agents. Nobevra was the only one that actually worked."',
                                 name: 'David Rodriguez',
                                 role: 'Regional Director, Surebricks Real Estate',
                                 link: '/about',
@@ -503,12 +503,12 @@ export default function TeamWorkspacePage() {
                     </h2>
                     <div className="space-y-4">
                         {[
-                            { q: "What is the best invoice maker free?", a: <React.Fragment>For solo freelancers, basic free tools exist. But when you build a team, the best invoice maker free option is NobleInvoice&apos;s <Link href="/pricing" className="text-noble-blue font-bold hover:underline">Starter Plan</Link>, which allows multi-user foundational access without the bloated enterprise fees.</React.Fragment> },
-                            { q: "Does the best invoice maker track expenses?", a: "Yes. The best invoice maker for small business tracks expenses against client projects, letting you attach receipts and deduct costs before generating the final invoice. NobleInvoice handles this natively for your whole team." },
-                            { q: "What is the best invoice maker for small business?", a: "The best invoice maker for small business is one that scales. NobleInvoice transitions effortlessly from a solo founder tool into a unified team workspace for your growing staff." },
+                            { q: "What is the best invoice maker free?", a: <React.Fragment>For solo freelancers, basic free tools exist. But when you build a team, the best invoice maker free option is Nobevra&apos;s <Link href="/pricing" className="text-noble-blue font-bold hover:underline">Starter Plan</Link>, which allows multi-user foundational access without the bloated enterprise fees.</React.Fragment> },
+                            { q: "Does the best invoice maker track expenses?", a: "Yes. The best invoice maker for small business tracks expenses against client projects, letting you attach receipts and deduct costs before generating the final invoice. Nobevra handles this natively for your whole team." },
+                            { q: "What is the best invoice maker for small business?", a: "The best invoice maker for small business is one that scales. Nobevra transitions effortlessly from a solo founder tool into a unified team workspace for your growing staff." },
                             { q: "What is the best invoice maker reddit?", a: "If you search 'what is the best invoice maker reddit', you'll see founders complaining about decision paralysis. Redditors generally recommend avoiding heavy accounting software if you strictly need a collaborative team billing workspace." },
                             { q: "What is the best invoice maker online?", a: <React.Fragment>The best invoice maker online handles far more than PDF generation. It acts as a digital revenue hub where your entire team can track pipeline, send bills, and monitor payments in real-time. See how <Link href="/features/how-to-make-an-invoice-for-free" className="text-noble-blue font-bold hover:underline">our invoice engine works</Link>.</React.Fragment> },
-                            { q: "Best free invoice app for Android?", a: "NobleInvoice is a fully responsive Progressive Web App that operates flawlessly on mobile — considered the best free invoice app for Android if you need to manage your team's billing from your smartphone." }
+                            { q: "Best free invoice app for Android?", a: "Nobevra is a fully responsive Progressive Web App that operates flawlessly on mobile — considered the best free invoice app for Android if you need to manage your team's billing from your smartphone." }
                         ].map((faq, i) => (
                             <div key={i} className="p-8 bg-[#F8FAFC] rounded-3xl border border-slate-100 hover:shadow-md transition-shadow">
                                 <h3 className="font-black text-slate-900 mb-3">{faq.q}</h3>

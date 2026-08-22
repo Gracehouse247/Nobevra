@@ -49,7 +49,7 @@ export function useDashboardGreeting({ invoices, clientsLength }: UseDashboardGr
         switch (s) {
             case 'brand_new':
                 return {
-                    title: `Welcome to NobleInvoice, ${name}!`,
+                    title: `Welcome to Nobevra, ${name}!`,
                     sub: 'Everything you need to run your business is right here. Let\'s get you set up to send your first invoice.',
                     cta: 'Create First Invoice',
                     href: '/invoices/new',

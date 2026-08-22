@@ -11,8 +11,8 @@ import {
 
 /* ── SEO Metadata ───────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Gamified Invoicing Software — Make Billing Fun | NobleInvoice',
-    description: 'Stop dreading your billing day. NobleInvoice turns invoicing into an XP-driven game. Hit business financial goals, earn badges, and get paid faster.',
+    title: 'Gamified Invoicing Software — Make Billing Fun | Nobevra',
+    description: 'Stop dreading your billing day. Nobevra turns invoicing into an XP-driven game. Hit business financial goals, earn badges, and get paid faster.',
     keywords: [
         'gamified invoicing',
         'make billing fun',
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
         'startup tracking'
     ],
     openGraph: {
-        title: 'Gamified Invoicing Software — Make Billing Fun | NobleInvoice',
+        title: 'Gamified Invoicing Software — Make Billing Fun | Nobevra',
         description: 'Level up your cash flow. Earn XP and badges for every invoice sent and paid.',
-        url: 'https://nobleinvoice.com/gamified-invoicing',
+        url: '/gamified-invoicing',
         type: 'website',
     },
 };
@@ -113,7 +113,7 @@ const faqs = [
     },
     {
         q: 'Is my financial data secure while using these features?',
-        a: 'Yes. NobleInvoice uses bank-grade 256-bit AES encryption and is strictly compliant with global financial data standards. The gamification layer sits safely on top of an enterprise-grade ledger.',
+        a: 'Yes. Nobevra uses bank-grade 256-bit AES encryption and is strictly compliant with global financial data standards. The gamification layer sits safely on top of an enterprise-grade ledger.',
     },
 ];
 
@@ -143,7 +143,7 @@ const generateSoftwareSchema = () => {
     return {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "NobleInvoice Gamified Invoicing",
+        "name": "Nobevra Gamified Invoicing",
         "operatingSystem": "Web, iOS, Android",
         "applicationCategory": "BusinessApplication",
         "aggregateRating": {
@@ -506,7 +506,7 @@ export default function GamifiedInvoicingPage() {
                             <p className="text-sm text-slate-400 font-medium">
                                 If you want to make billing fun and engaging —{' '}
                                 <Link href="/register" className="text-amber-400 font-black hover:underline">
-                                    NobleInvoice is built for you.
+                                    Nobevra is built for you.
                                 </Link>
                             </p>
                         </div>

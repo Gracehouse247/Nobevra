@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         console.error('Failed to generate metadata for portal:', err);
     }
 
-    const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://nobleinvoice.com';
+    const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://nobevra.noblesworld.com.ng';
 
     return {
         title: ogTitle,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title: ogTitle,
             description: ogDescription,
             url: `${appUrl}/portal/${token}`,
-            siteName: 'NobleInvoice',
+            siteName: 'Nobevra',
             images: [
                 {
                     url: `${appUrl}/api/og?title=${encodeURIComponent(ogTitle)}&desc=${encodeURIComponent(ogDescription)}`,

@@ -148,7 +148,7 @@ class _CreateInvoiceScreenBodyState extends State<_CreateInvoiceScreenBody> {
           TextButton(onPressed: () => Navigator.pop(ctx), child: const Text('Keep')),
           ElevatedButton(
             onPressed: () { Navigator.pop(ctx); controller.convertItemsCurrency(targetCurrency); },
-            style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary, foregroundColor: Colors.white),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.primaryDark, foregroundColor: Colors.white),
             child: Text('Use $targetCurrency'),
           ),
         ],
@@ -251,7 +251,7 @@ class _CreateInvoiceScreenBodyState extends State<_CreateInvoiceScreenBody> {
       status: status,
       ic: ic,
       sub: sub,
-      showSnack: (msg, {isError}) => _showSnack(msg, isError: isError ?? false),
+      showSnack: (msg, {bool isError = false}) => _showSnack(msg, isError: isError),
       initialInvoice: widget.initialInvoice,
     );
 

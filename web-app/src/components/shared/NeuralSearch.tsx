@@ -189,7 +189,7 @@ export default function NeuralSearch({ isOpen, onClose }: NeuralSearchProps) {
                                 </div>
                                 <div className="mt-8 flex items-center justify-center gap-4 text-slate-700 dark:text-slate-200">
                                     <Sparkles className="w-4 h-4" />
-                                    <p className="text-[10px] font-black uppercase tracking-[0.2em]">NobleInvoice Neural Search</p>
+                                    <p className="text-[10px] font-black uppercase tracking-[0.2em]">Nobevra Neural Search</p>
                                     <Sparkles className="w-4 h-4" />
                                 </div>
                             </div>

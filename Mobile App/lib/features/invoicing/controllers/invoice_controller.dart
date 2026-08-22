@@ -98,6 +98,7 @@ class InvoiceController extends ChangeNotifier {
   AgingSummary          get agingSummary    => _agingSummary;
   List<InvoiceListItem> get invoices        => _invoices;
   InvoiceDetails?       get currentInvoice  => _currentInvoice;
+  InvoiceDetails?       get currentDetails  => _currentInvoice;
   String                get currencyCode    => _currencyCode;
   String                get errorMessage    => _errorMessage;
   String                get filterStatus    => _filterStatus;
@@ -156,27 +157,21 @@ class InvoiceController extends ChangeNotifier {
     _syncChannel?.unsubscribe();
     
     _syncChannel = SupabaseService.client
-      .channel('public:sync:${_activeTeamId}')
-      .on(
-        'postgres_changes',
-        const RealtimeBlock(
-          event: '*',
-          schema: 'public',
-          table: 'invoices',
-        ),
-        (payload, [ref]) {
+      .channel('public:sync:$_activeTeamId')
+      .onPostgresChanges(
+        event: PostgresChangeEvent.all,
+        schema: 'public',
+        table: 'invoices',
+        callback: (payload) {
           debugPrint('Realtime: Invoices changed on remote. Refreshing...');
           loadDashboard();
         },
       )
-      .on(
-        'postgres_changes',
-        const RealtimeBlock(
-          event: '*',
-          schema: 'public',
-          table: 'clients',
-        ),
-        (payload, [ref]) {
+      .onPostgresChanges(
+        event: PostgresChangeEvent.all,
+        schema: 'public',
+        table: 'clients',
+        callback: (payload) {
           debugPrint('Realtime: Clients changed on remote. Refreshing...');
           loadDashboard();
         },

@@ -60,7 +60,7 @@ export async function GET(request: Request) {
         // Return as a downloadable JSON file
         const headers = new Headers();
         headers.set('Content-Type', 'application/json');
-        headers.set('Content-Disposition', `attachment; filename="nobleinvoice_export_${user.id}.json"`);
+        headers.set('Content-Disposition', `attachment; filename="nobevra_export_${user.id}.json"`);
 
         return new NextResponse(JSON.stringify(exportData, null, 2), { status: 200, headers });
     } catch (error: any) {

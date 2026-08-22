@@ -46,7 +46,7 @@ export default function EcommerceHeroSection() {
                     </h1>
 
                     <p className="text-base md:text-lg text-near-black/60 max-w-xl mb-10 leading-relaxed font-medium">
-                        Whether you run a Shopify store, a WooCommerce shop, or sell wholesale to B2B buyers — NobleInvoice is the ecommerce invoice software that handles the paperwork so you can handle the growth.
+                        Whether you run a Shopify store, a WooCommerce shop, or sell wholesale to B2B buyers — Nobevra is the ecommerce invoice software that handles the paperwork so you can handle the growth.
                     </p>
 
                     {/* Platform pills */}

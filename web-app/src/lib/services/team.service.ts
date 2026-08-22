@@ -25,7 +25,7 @@ export const teamService = {
         if (!profile) {
             return {
                 id: userId,
-                display_name: 'Noble User',
+                display_name: 'User',
                 brand_color: '#166FBB',
                 ...(team || {})
             };

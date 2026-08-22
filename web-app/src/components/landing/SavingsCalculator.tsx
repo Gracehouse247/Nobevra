@@ -16,7 +16,7 @@ export default function SavingsCalculator() {
     });
 
     useEffect(() => {
-        // Assume NobleInvoice reduces time by 80%
+        // Assume Nobevra reduces time by 80%
         const currentTotalMinutes = invoices * timePerInvoice;
         const newTotalMinutes = currentTotalMinutes * 0.2;
         const savedMinutes = currentTotalMinutes - newTotalMinutes;

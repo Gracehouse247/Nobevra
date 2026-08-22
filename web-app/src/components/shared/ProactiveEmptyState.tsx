@@ -69,7 +69,7 @@ export default function ProactiveEmptyState({
                     {Array.from({ length: stepIndicator.total }).map((_, i) => (
                         <div key={i} className="flex items-center gap-2">
                             <div className={`h-2 rounded-full transition-all duration-500 ${
-                                i < stepIndicator.current ? 'w-8 bg-[#0599D5]' : 
+                                i < stepIndicator.current ? 'w-8 bg-[#01A0E2]' : 
                                 i === stepIndicator.current ? 'w-12 bg-slate-200' : 'w-2 bg-slate-100 dark:bg-[#112030]'
                             }`} />
                         </div>
@@ -82,7 +82,7 @@ export default function ProactiveEmptyState({
                 <div className="mb-10">
                     <EmptyStateIllustration 
                         icons={illustrationIcons} 
-                        primaryColor={isCelebration ? 'text-emerald-500' : 'text-[#0599D5]'}
+                        primaryColor={isCelebration ? 'text-emerald-500' : 'text-[#01A0E2]'}
                         secondaryColor={isCelebration ? 'text-emerald-400' : 'text-[#006970]'}
                     />
                 </div>
@@ -113,7 +113,7 @@ export default function ProactiveEmptyState({
                     {features.map((feature, i) => (
                         <div key={i} className="p-5 rounded-2xl bg-noble-empty-bg border border-slate-100 dark:border-noble-border hover:shadow-md transition-shadow">
                             <div className="w-10 h-10 rounded-xl bg-noble-surface dark:bg-noble-card shadow-sm flex items-center justify-center mb-4">
-                                <feature.icon className="w-5 h-5 text-[#0599D5]" />
+                                <feature.icon className="w-5 h-5 text-[#01A0E2]" />
                             </div>
                             <h4 className="font-semibold text-noble-card-text mb-1">{feature.title}</h4>
                             <p className="text-sm text-noble-empty-text">{feature.description}</p>
@@ -135,9 +135,9 @@ export default function ProactiveEmptyState({
                             className={`px-8 py-3.5 rounded-xl font-bold text-sm transition-all hover:-translate-y-0.5 shadow-sm ${
                                 action.variant === 'secondary'
                                     ? 'bg-noble-surface dark:bg-noble-card border border-noble-border text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/5 dark:bg-[#0D1B2E]'
-                                    : 'text-white shadow-[#0599D5]/20 hover:shadow-lg'
+                                    : 'text-white shadow-[#01A0E2]/20 hover:shadow-lg'
                             }`}
-                            style={action.variant !== 'secondary' ? { background: 'linear-gradient(135deg, #006970, #0599D5)' } : {}}
+                            style={action.variant !== 'secondary' ? { background: 'linear-gradient(135deg, #006970, #01A0E2)' } : {}}
                         >
                             {action.label}
                         </button>

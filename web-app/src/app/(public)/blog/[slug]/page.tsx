@@ -15,11 +15,15 @@ type Props = { params: Promise<{ slug: string }> };
 
 export const revalidate = 3600; // Revalidate every hour
 
-const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+function getSupabaseClient() {
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co';
+    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build';
+    return createClient(url, key);
+}
 
 const getPostBySlug = unstable_cache(
     async (slug: string) => {
-        const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+        const supabase = getSupabaseClient();
         const { data } = await supabase.from('seo_articles').select('*').eq('slug', slug).single();
         return data;
     },
@@ -29,7 +33,7 @@ const getPostBySlug = unstable_cache(
 
 const getRelatedPosts = unstable_cache(
     async (slug: string) => {
-        const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+        const supabase = getSupabaseClient();
         const { data } = await supabase.from('seo_articles').select('id, title, slug, meta_description, published_at, featured_image_url').eq('status', 'published').neq('slug', slug).order('published_at', { ascending: false }).limit(3);
         return data;
     },
@@ -73,7 +77,7 @@ const markdownComponents: Components = {
         const id = text.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-');
         return (
             <h2 id={id} className="group relative scroll-mt-28 text-[1.6rem] font-bold text-[#0F172A] leading-tight tracking-tight mt-16 mb-4 font-montserrat" {...props}>
-                <span className="absolute -left-5 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-[#166FBB] to-[#0599D5] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="absolute -left-5 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-[#166FBB] to-[#01A0E2] rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
                 {children}
             </h2>
         );
@@ -100,7 +104,7 @@ const markdownComponents: Components = {
     ),
     li: ({ node, ordered, children, ...props }: any) => (
         <li className="flex gap-3 text-[1.0625rem] leading-relaxed text-[#374151] font-roboto" {...props}>
-            <span className="flex-shrink-0 mt-1 w-5 h-5 rounded-full bg-gradient-to-br from-[#166FBB]/20 to-[#0599D5]/20 flex items-center justify-center">
+            <span className="flex-shrink-0 mt-1 w-5 h-5 rounded-full bg-gradient-to-br from-[#166FBB]/20 to-[#01A0E2]/20 flex items-center justify-center">
                 <CheckCircle2 className="w-3 h-3 text-[#166FBB]" />
             </span>
             <span>{children}</span>
@@ -108,7 +112,7 @@ const markdownComponents: Components = {
     ),
     blockquote: ({ node, children, ...props }) => (
         <div className="relative my-10 overflow-hidden rounded-2xl border border-[#166FBB]/20 bg-gradient-to-br from-[#EFF6FF] to-[#F0F9FF] #1E3A5F]/20 #0F172A] p-8">
-            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#166FBB] to-[#0599D5] rounded-l-2xl" />
+            <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-[#166FBB] to-[#01A0E2] rounded-l-2xl" />
             <div className="absolute top-4 right-4 text-6xl text-[#166FBB]/10 font-serif leading-none select-none">"</div>
             <div className="relative text-[1.2rem] italic font-medium leading-relaxed text-[#1E40AF] font-roboto pl-2">
                 {children}
@@ -173,6 +177,7 @@ const markdownComponents: Components = {
 
 // ─── METADATA & STATIC PARAMS ───────────────────────────────────────────────────
 export async function generateStaticParams() {
+    const supabase = getSupabaseClient();
     const { data: posts } = await supabase
         .from('seo_articles')
         .select('slug')
@@ -187,18 +192,18 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
     const { slug } = await params;
     const post = await getPostBySlug(slug);
-    if (!post) return { title: 'Post Not Found | NobleInvoice Blog' };
+    if (!post) return { title: 'Post Not Found | Nobevra Blog' };
     return {
-        title: `${post.meta_title || post.title} | NobleInvoice Blog`,
+        title: `${post.meta_title || post.title} | Nobevra Blog`,
         description: post.meta_description,
         openGraph: {
             title: post.meta_title || post.title,
             description: post.meta_description,
             type: 'article',
             publishedTime: post.published_at || new Date().toISOString(),
-            authors: ['NobleInvoice Team'],
-            url: `https://nobleinvoice.com/blog/${slug}`,
-            images: [{ url: getImageUrl(post.featured_image_url) || `https://nobleinvoice.com/images/og-blog.jpg`, width: 1200, height: 630, alt: post.title }]
+            authors: ['Nobevra Team'],
+            url: `https://nobevra.noblesworld.com.ng/blog/${slug}`,
+            images: [{ url: getImageUrl(post.featured_image_url) || `https://nobevra.noblesworld.com.ng/images/og-blog.jpg`, width: 1200, height: 630, alt: post.title }]
         },
         twitter: { card: 'summary_large_image', title: post.meta_title || post.title, description: post.meta_description },
     };
@@ -215,7 +220,7 @@ export default async function BlogPostPage({ params }: Props) {
 
     const readTime = Math.max(1, Math.ceil(countWords(post.content_markdown || '') / 200));
     const toc = extractHeadings(post.content_markdown || '');
-    const schemaMarkup = post.schema_markup?.article || { "@context": "https://schema.org", "@type": "Article", "headline": post.title, "datePublished": post.published_at, "author": { "@type": "Organization", "name": "NobleInvoice Team" },
+    const schemaMarkup = post.schema_markup?.article || { "@context": "https://schema.org", "@type": "Article", "headline": post.title, "datePublished": post.published_at, "author": { "@type": "Organization", "name": "Nobevra Team" },
     };
 
     return (
@@ -248,10 +253,10 @@ export default async function BlogPostPage({ params }: Props) {
                             {/* Meta row */}
                             <div className="flex flex-wrap items-center gap-5 text-sm text-[#64748B] mb-8 border-b border-[#E2E8F0] pb-6">
                                 <div className="flex items-center gap-2.5">
-                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#166FBB] to-[#0599D5] flex items-center justify-center">
+                                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#166FBB] to-[#01A0E2] flex items-center justify-center">
                                         <User className="w-4 h-4 text-white" />
                                     </div>
-                                    <span className="font-semibold text-[#374151] ">NobleInvoice Team</span>
+                                    <span className="font-semibold text-[#374151] ">Nobevra Team</span>
                                 </div>
                                 <div className="flex items-center gap-1.5">
                                     <Calendar className="w-4 h-4" />
@@ -272,7 +277,7 @@ export default async function BlogPostPage({ params }: Props) {
 
                             {/* Intro excerpt card */}
                             {post.meta_description && (
-                                <div className="mb-12 p-8 rounded-2xl bg-gradient-to-br from-[#EFF6FF] to-[#F0F9FF] #166FBB]/10 #0599D5]/5 border border-[#BFDBFE] #166FBB]/20">
+                                <div className="mb-12 p-8 rounded-2xl bg-gradient-to-br from-[#EFF6FF] to-[#F0F9FF] #166FBB]/10 #01A0E2]/5 border border-[#BFDBFE] #166FBB]/20">
                                     <p className="text-[1.2rem] leading-relaxed font-medium text-[#1E40AF] font-roboto m-0">
                                         {post.meta_description}
                                     </p>
@@ -288,18 +293,18 @@ export default async function BlogPostPage({ params }: Props) {
                                 </div>
 
                                 {/* Inline product CTA mid-article */}
-                                <div className="mx-8 md:mx-14 mb-14 rounded-2xl overflow-hidden relative bg-gradient-to-r from-[#0F172A] to-[#1E293B] #166FBB]/20 #0599D5]/10 border border-white/10 p-8 flex flex-col md:flex-row items-center gap-6">
+                                <div className="mx-8 md:mx-14 mb-14 rounded-2xl overflow-hidden relative bg-gradient-to-r from-[#0F172A] to-[#1E293B] #166FBB]/20 #01A0E2]/10 border border-white/10 p-8 flex flex-col md:flex-row items-center gap-6">
                                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(22,111,187,0.3)_0%,_transparent_60%)]" />
                                     <div className="relative z-10 flex-1">
                                         <div className="flex items-center gap-2 mb-3">
                                             <Zap className="w-4 h-4 text-[#38BDF8]" />
-                                            <span className="text-xs font-black uppercase tracking-widest text-[#38BDF8]">NobleInvoice</span>
+                                            <span className="text-xs font-black uppercase tracking-widest text-[#38BDF8]">Nobevra</span>
                                         </div>
                                         <h3 className="text-xl font-black text-white mb-2 font-montserrat">Stop chasing payments. Start automating them.</h3>
                                         <p className="text-sm text-slate-400 leading-relaxed">Send professional invoices, track payments in real time, and get paid 2x faster — completely free to start.</p>
                                     </div>
                                     <div className="relative z-10 flex-shrink-0">
-                                        <Link href="/register" className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#166FBB] to-[#0599D5] hover:from-[#1259A0] hover:to-[#0489BD] text-white font-bold text-sm rounded-xl shadow-lg shadow-[#166FBB]/30 transition-all whitespace-nowrap">
+                                        <Link href="/register" className="inline-flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-[#166FBB] to-[#01A0E2] hover:from-[#1259A0] hover:to-[#0489BD] text-white font-bold text-sm rounded-xl shadow-lg shadow-[#166FBB]/30 transition-all whitespace-nowrap">
                                             Start Free Trial
                                             <ArrowRight className="w-4 h-4" />
                                         </Link>
@@ -310,22 +315,22 @@ export default async function BlogPostPage({ params }: Props) {
 
                             {/* ── AUTHOR BOX ──────────────────────────── */}
                             <div className="mt-12 p-8 rounded-3xl bg-white #0F172A] border border-[#E2E8F0] .06] shadow-sm flex gap-6 items-start">
-                                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-[#166FBB] to-[#0599D5] flex items-center justify-center shadow-lg shadow-[#166FBB]/20">
+                                <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-[#166FBB] to-[#01A0E2] flex items-center justify-center shadow-lg shadow-[#166FBB]/20">
                                     <span className="text-2xl font-black text-white font-montserrat">N</span>
                                 </div>
                                 <div>
                                     <div className="flex items-center gap-2 mb-1">
-                                        <h4 className="font-black text-[#0F172A] font-montserrat">NobleInvoice Team</h4>
+                                        <h4 className="font-black text-[#0F172A] font-montserrat">Nobevra Team</h4>
                                         <span className="px-2 py-0.5 text-[10px] font-black uppercase tracking-widest rounded-full bg-[#EFF6FF] #166FBB]/20 text-[#166FBB] border border-[#BFDBFE] #166FBB]/30">Staff</span>
                                     </div>
                                     <p className="text-sm text-[#64748B] leading-relaxed font-roboto">
-                                        The NobleInvoice editorial team shares practical guides on business finance, invoicing best practices, and growth strategies for agencies and freelancers worldwide.
+                                        The Nobevra editorial team shares practical guides on business finance, invoicing best practices, and growth strategies for agencies and freelancers worldwide.
                                     </p>
                                 </div>
                             </div>
 
                             {/* ── SHARE + NEWSLETTER ──────────────────── */}
-                            <div className="mt-8 rounded-3xl overflow-hidden relative bg-gradient-to-br from-[#006970] via-[#0599D5] to-[#166FBB] p-10 text-center">
+                            <div className="mt-8 rounded-3xl overflow-hidden relative bg-gradient-to-br from-[#006970] via-[#01A0E2] to-[#166FBB] p-10 text-center">
                                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.05)_0%,_transparent_70%)]" />
                                 <div className="relative z-10">
                                     <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center mx-auto mb-6">
@@ -390,14 +395,14 @@ export default async function BlogPostPage({ params }: Props) {
                                 <div className="rounded-2xl overflow-hidden relative bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] border border-white/[0.06] shadow-xl p-7 text-center">
                                     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(22,111,187,0.4)_0%,_transparent_60%)]" />
                                     <div className="relative z-10">
-                                        <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-[#166FBB] to-[#0599D5] flex items-center justify-center shadow-lg shadow-[#166FBB]/30 mb-5">
+                                        <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-br from-[#166FBB] to-[#01A0E2] flex items-center justify-center shadow-lg shadow-[#166FBB]/30 mb-5">
                                             <PlayCircle className="w-7 h-7 text-white" />
                                         </div>
                                         <h4 className="font-black text-white text-lg mb-2 font-montserrat">Get Paid 2× Faster</h4>
                                         <p className="text-sm text-slate-400 mb-6 leading-relaxed font-roboto">
-                                            Automate invoices, reminders, and payments. Join 10,000+ businesses already growing with NobleInvoice.
+                                            Automate invoices, reminders, and payments. Join 10,000+ businesses already growing with Nobevra.
                                         </p>
-                                        <Link href="/register" className="block w-full py-3.5 bg-gradient-to-r from-[#166FBB] to-[#0599D5] text-white font-black text-sm rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-[#166FBB]/30 font-montserrat">
+                                        <Link href="/register" className="block w-full py-3.5 bg-gradient-to-r from-[#166FBB] to-[#01A0E2] text-white font-black text-sm rounded-xl hover:opacity-90 transition-opacity shadow-lg shadow-[#166FBB]/30 font-montserrat">
                                             Start Free — No Card Needed
                                         </Link>
                                         <div className="mt-4 flex items-center justify-center gap-4 text-xs text-slate-500">
@@ -410,7 +415,7 @@ export default async function BlogPostPage({ params }: Props) {
                                 {/* Lead Magnet */}
                                 <div className="rounded-2xl bg-white #0F172A] border border-[#E2E8F0] .06] shadow-sm p-5 group cursor-pointer hover:border-[#166FBB]/40 hover:shadow-lg transition-all">
                                     <div className="flex items-start gap-4">
-                                        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#EFF6FF] to-[#DBEAFE] #166FBB]/20 #0599D5]/10 flex items-center justify-center flex-shrink-0 group-hover:from-[#DBEAFE] transition-colors">
+                                        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#EFF6FF] to-[#DBEAFE] #166FBB]/20 #01A0E2]/10 flex items-center justify-center flex-shrink-0 group-hover:from-[#DBEAFE] transition-colors">
                                             <Download className="w-5 h-5 text-[#166FBB]" />
                                         </div>
                                         <div>
@@ -474,7 +479,7 @@ export default async function BlogPostPage({ params }: Props) {
             {/* ── FOOTER CTA ────────────────────────────────────────────── */}
             <section className="bg-[#0A0F1E] relative overflow-hidden py-24 px-6">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:64px_64px]" />
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#166FBB]/20 to-[#0599D5]/20 rounded-full blur-3xl" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-r from-[#166FBB]/20 to-[#01A0E2]/20 rounded-full blur-3xl" />
                 <div className="relative z-10 max-w-3xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#166FBB]/10 border border-[#166FBB]/30 text-[#38BDF8] text-xs font-bold uppercase tracking-widest mb-8">
                         <Zap className="w-3 h-3" />
@@ -484,10 +489,10 @@ export default async function BlogPostPage({ params }: Props) {
                         The smartest invoicing decision you will make this year
                     </h2>
                     <p className="text-lg text-slate-400 mb-10 leading-relaxed max-w-xl mx-auto font-roboto">
-                        NobleInvoice handles invoicing, payment reminders, and client management. You handle growth.
+                        Nobevra handles invoicing, payment reminders, and client management. You handle growth.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/register" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#166FBB] to-[#0599D5] text-white font-black text-base rounded-2xl shadow-xl shadow-[#166FBB]/30 hover:shadow-[#166FBB]/50 hover:scale-105 transition-all font-montserrat">
+                        <Link href="/register" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-[#166FBB] to-[#01A0E2] text-white font-black text-base rounded-2xl shadow-xl shadow-[#166FBB]/30 hover:shadow-[#166FBB]/50 hover:scale-105 transition-all font-montserrat">
                             Start Free Trial
                             <ArrowRight className="w-5 h-5" />
                         </Link>

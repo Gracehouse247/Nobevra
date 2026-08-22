@@ -10,7 +10,7 @@ export async function proxy(request: NextRequest) {
   const isAppDomain = 
       hostname.includes('localhost') || 
       hostname.includes('noblesworld.com.ng') ||
-      hostname.includes('nobleinvoice.com');
+      hostname.includes('nobevra.noblesworld.com.ng');
 
   if (!isAppDomain) {
       if (url.pathname === '/') {

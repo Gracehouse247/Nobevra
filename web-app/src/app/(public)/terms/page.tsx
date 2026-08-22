@@ -12,7 +12,7 @@ const CATEGORIES = [
   {
     title: "General",
     sections: [
-      { id: "1-about-nobleinvoice", label: "About NobleInvoice", icon: ShieldCheck },
+      { id: "1-about-nobevra", label: "About Nobevra", icon: ShieldCheck },
       { id: "2-definitions", label: "Definitions", icon: FileText },
       { id: "3-eligibility", label: "Eligibility", icon: ShieldCheck },
       { id: "4-account-registration", label: "Account Registration", icon: ShieldCheck },
@@ -66,7 +66,7 @@ export default function TermsPage() {
   return (
     <LegalLayout
       title="Terms of Service"
-      description="These Terms of Service govern your access to and use of the NobleInvoice website, web application, mobile applications, APIs, software, services, and related products."
+      description="These Terms of Service govern your access to and use of the Nobevra website, web application, mobile applications, APIs, software, services, and related products."
       categories={CATEGORIES}
     >
       <div className="prose prose-slate prose-a:text-blue-600 prose-headings:text-slate-900 max-w-none prose-h3:text-2xl prose-h3:font-black prose-h3:mt-12 prose-h3:scroll-mt-24">

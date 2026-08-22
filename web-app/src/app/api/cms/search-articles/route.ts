@@ -2,14 +2,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { rateLimit, getClientIp, rateLimitResponse } from '@/lib/rateLimit';
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const supabase = createClient(supabaseUrl, supabaseKey);
+export const dynamic = 'force-dynamic';
 
 // Cap query length to prevent expensive wildcard abuse
 const MAX_QUERY_LENGTH = 200;
 
 export async function GET(req: NextRequest) {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co';
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build';
+  const supabase = createClient(supabaseUrl, supabaseKey);
   // ── Rate Limiting (20 searches per minute per IP) ─────────────────
   const ip = getClientIp(req);
   const { allowed, resetMs } = await rateLimit(`search-articles:${ip}`, 20, 60_000);

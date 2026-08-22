@@ -36,7 +36,7 @@ class ClientDetailsSheets {
                 await crm.addNote(clientId, ctrl.text.trim());
                 if (ctx.mounted) Navigator.pop(ctx);
               },
-              style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)), elevation: 0),
+              style: ElevatedButton.styleFrom(backgroundColor: AppColors.primaryDark, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)), elevation: 0),
               child: const Text('Save Note', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
             )),
           ]),

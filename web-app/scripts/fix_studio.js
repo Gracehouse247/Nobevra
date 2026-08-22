@@ -12,7 +12,7 @@ function fixStudio(file) {
   fs.writeFileSync(file, content);
 }
 
-['C:/Projects/NobleInvoice/web-app/src/components/identity/studio/PropertiesPanel.tsx',
- 'C:/Projects/NobleInvoice/web-app/src/components/identity/studio/SidebarLibrary.tsx'].forEach(fixStudio);
+['C:/Projects/Nobevra/web-app/src/components/identity/studio/PropertiesPanel.tsx',
+ 'C:/Projects/Nobevra/web-app/src/components/identity/studio/SidebarLibrary.tsx'].forEach(fixStudio);
 
 console.log('Fixed studio any types');

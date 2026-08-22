@@ -40,7 +40,7 @@ class AppUpdateRequiredScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               const Text(
-                'A new version of NobleInvoice is available. Please update the app to continue enjoying the latest features and security improvements.',
+                'A new version of Nobevra is available. Please update the app to continue enjoying the latest features and security improvements.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 16,

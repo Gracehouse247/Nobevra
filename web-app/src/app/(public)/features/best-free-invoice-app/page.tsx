@@ -5,8 +5,8 @@ import { Smartphone, Zap, CheckCircle2, Clock, DollarSign, ArrowRight, ShieldChe
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'What Is the Best Free Invoice App? (2026 Guide) | NobleInvoice',
-  description: 'Looking for the best free invoice app? Compare the top options for iOS and Android. See why NobleInvoice is the top choice for global multi-currency settlements.',
+  title: 'What Is the Best Free Invoice App? (2026 Guide) | Nobevra',
+  description: 'Looking for the best free invoice app? Compare the top options for iOS and Android. See why Nobevra is the top choice for global multi-currency settlements.',
   keywords: ['what is the best free invoice app', 'What is the best free invoice app for iphone', 'What is the best free invoice app for android', 'Free invoice app download', 'Zoho Invoice app', 'What is the best free invoice app ios', 'Zoho Invoice free'],
 };
 
@@ -20,7 +20,7 @@ export default function BestFreeInvoiceAppPage() {
         "name": "What is the best free invoice app for iPhone?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For iPhone users, the best free invoice app integrates seamlessly with FaceID and Apple Pay. NobleInvoice offers a native iOS experience that allows you to generate PDFs and collect global payments instantly."
+          "text": "For iPhone users, the best free invoice app integrates seamlessly with FaceID and Apple Pay. Nobevra offers a native iOS experience that allows you to generate PDFs and collect global payments instantly."
         }
       },
       {
@@ -28,7 +28,7 @@ export default function BestFreeInvoiceAppPage() {
         "name": "What is the best free invoice app for Android?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The top choice for Android is an app that leverages Google Pay and local file management. NobleInvoice provides a lightning-fast Android app that makes creating and sending invoices completely free and effortless."
+          "text": "The top choice for Android is an app that leverages Google Pay and local file management. Nobevra provides a lightning-fast Android app that makes creating and sending invoices completely free and effortless."
         }
       },
       {
@@ -36,7 +36,7 @@ export default function BestFreeInvoiceAppPage() {
         "name": "Is Zoho Invoice really free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Zoho Invoice is free for basic usage, but for businesses needing automated global settlements and advanced multi-currency payouts without heavy manual reconciliation, NobleInvoice is the superior choice."
+          "text": "Zoho Invoice is free for basic usage, but for businesses needing automated global settlements and advanced multi-currency payouts without heavy manual reconciliation, Nobevra is the superior choice."
         }
       },
       {
@@ -44,7 +44,7 @@ export default function BestFreeInvoiceAppPage() {
         "name": "Where can I find a free invoice app download?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can download the NobleInvoice app for free directly from the Apple App Store or Google Play Store. It takes less than 60 seconds to set up and send your first invoice."
+          "text": "You can download the Nobevra app for free directly from the Apple App Store or Google Play Store. It takes less than 60 seconds to set up and send your first invoice."
         }
       }
     ]
@@ -103,7 +103,7 @@ export default function BestFreeInvoiceAppPage() {
                <Image src="/placeholder-phone-invoice.png" alt="what is the best free invoice app" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
             </div>
             {/* Real Screenshot */}
-            <Image src="/images/app-ui-dashboard.png" alt="NobleInvoice App Dashboard showing global settlements" fill priority className="object-cover rounded-[32px] opacity-90" sizes="(max-width: 768px) 100vw, 50vw" />
+            <Image src="/images/app-ui-dashboard.png" alt="Nobevra App Dashboard showing global settlements" fill priority className="object-cover rounded-[32px] opacity-90" sizes="(max-width: 768px) 100vw, 50vw" />
             
             <div className="absolute inset-0 flex flex-col items-center justify-center text-slate-400 p-8 text-center space-y-6 bg-white/20 backdrop-blur-sm z-10 pointer-events-none">
               <div className="w-full h-16 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center px-4">
@@ -198,7 +198,7 @@ export default function BestFreeInvoiceAppPage() {
                     <Globe className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <strong className="block text-white">The NobleInvoice Approach</strong>
+                    <strong className="block text-white">The Nobevra Approach</strong>
                     <span className="text-slate-400 text-sm">We provide local payment rails in 40+ countries. Your client pays locally, and you get settled locally. Zero wire fees.</span>
                   </div>
                 </li>
@@ -215,7 +215,7 @@ export default function BestFreeInvoiceAppPage() {
         </div>
       </section>
 
-      {/* 4. Comparison Table (NobleInvoice vs Competitors) */}
+      {/* 4. Comparison Table (Nobevra vs Competitors) */}
       <section className="py-24 bg-white px-4 md:px-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
@@ -232,7 +232,7 @@ export default function BestFreeInvoiceAppPage() {
                 <thead>
                    <tr className="bg-slate-50">
                       <th className="p-6 font-black text-slate-900 border-b border-slate-200 w-1/4">Feature</th>
-                      <th className="p-6 font-black text-slate-900 border-b border-slate-200 border-l w-1/4 bg-blue-50/50">NobleInvoice</th>
+                      <th className="p-6 font-black text-slate-900 border-b border-slate-200 border-l w-1/4 bg-blue-50/50">Nobevra</th>
                       <th className="p-6 font-black text-slate-900 border-b border-slate-200 border-l w-1/4">Wave</th>
                       <th className="p-6 font-black text-slate-900 border-b border-slate-200 border-l w-1/4">Zoho Invoice</th>
                    </tr>
@@ -297,7 +297,7 @@ export default function BestFreeInvoiceAppPage() {
                 className="text-white px-10 py-5 text-base font-extrabold rounded-2xl hover:opacity-90 transition-all inline-flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(22,111,187,0.3)] hover:scale-[1.02] active:scale-95"
                 style={{ backgroundColor: '#166FBB' }}
             >
-                Start Using NobleInvoice <ArrowRight className="w-5 h-5" />
+                Start Using Nobevra <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>
@@ -311,7 +311,7 @@ export default function BestFreeInvoiceAppPage() {
               The Best Free Invoice App for Your Device
             </h2>
             <p className="text-xl text-slate-600">
-              Your workflow depends on your operating system. Here is how NobleInvoice optimizes for both ecosystems.
+              Your workflow depends on your operating system. Here is how Nobevra optimizes for both ecosystems.
             </p>
           </div>
 
@@ -323,7 +323,7 @@ export default function BestFreeInvoiceAppPage() {
                 </div>
                 <h3 className="text-2xl font-black tracking-tight mb-4">What is the best free invoice app for iPhone?</h3>
                 <p className="text-slate-600 mb-4">
-                   For iOS users, the best free invoice app ios must integrate deeply with Apple's native features. NobleInvoice connects securely with FaceID for fast login and allows your clients to pay you instantly using Apple Pay.
+                   For iOS users, the best free invoice app ios must integrate deeply with Apple's native features. Nobevra connects securely with FaceID for fast login and allows your clients to pay you instantly using Apple Pay.
                 </p>
                 <p className="text-slate-600">
                    You can generate beautiful PDF invoices and drop them directly into iMessage or Airdrop them to clients in the same room.
@@ -337,7 +337,7 @@ export default function BestFreeInvoiceAppPage() {
                 </div>
                 <h3 className="text-2xl font-black tracking-tight mb-4">What is the best free invoice app for Android?</h3>
                 <p className="text-slate-600 mb-4">
-                   If you are running a Pixel or Samsung galaxy, you want an app that feels fast and respects Android's material design. NobleInvoice is recognized as a top-tier choice for Android users.
+                   If you are running a Pixel or Samsung galaxy, you want an app that feels fast and respects Android's material design. Nobevra is recognized as a top-tier choice for Android users.
                 </p>
                 <p className="text-slate-600">
                    It syncs flawlessly with Google Contacts so you never have to type a client's email address twice, and supports instant checkout via Google Pay.
@@ -398,7 +398,7 @@ export default function BestFreeInvoiceAppPage() {
                  <Quote className="w-12 h-12 text-white/20 mb-6" />
                  <div className="relative z-10 space-y-6">
                    <p className="text-xl md:text-2xl font-medium leading-relaxed italic">
-                     "I used to spend my Sunday evenings organizing bills. I switched to NobleInvoice, set up automated recurring profiles, and bought my weekends back."
+                     "I used to spend my Sunday evenings organizing bills. I switched to Nobevra, set up automated recurring profiles, and bought my weekends back."
                    </p>
                    <div className="flex items-center gap-4 pt-4">
                       <div className="w-12 h-12 rounded-full bg-slate-300 overflow-hidden shrink-0 relative">
@@ -416,7 +416,7 @@ export default function BestFreeInvoiceAppPage() {
                   {/* Testimonial 2 */}
                   <div className="bg-slate-50 border border-slate-200 rounded-[32px] p-8">
                      <p className="text-slate-600 font-medium italic mb-6">
-                        "Settling USD invoices into our local currency used to take days. With NobleInvoice, it takes hours and saves us thousands in fees. Best business decision we've made."
+                        "Settling USD invoices into our local currency used to take days. With Nobevra, it takes hours and saves us thousands in fees. Best business decision we've made."
                      </p>
                      <div className="flex items-center gap-4">
                         <div className="w-10 h-10 rounded-full bg-slate-200 overflow-hidden shrink-0 relative">
@@ -441,7 +441,7 @@ export default function BestFreeInvoiceAppPage() {
             We might not be the right fit for you if...
           </h2>
           <p className="text-lg text-slate-600 leading-relaxed">
-            If you run a massive enterprise requiring complex ERP integrations, hundreds of custom approval workflows, and legacy accounting system syncs, NobleInvoice isn't for you. You should look at heavy, expensive enterprise software.
+            If you run a massive enterprise requiring complex ERP integrations, hundreds of custom approval workflows, and legacy accounting system syncs, Nobevra isn't for you. You should look at heavy, expensive enterprise software.
           </p>
           <p className="text-lg text-slate-600 leading-relaxed mt-4">
             But if you are a freelancer, consultant, or agency owner who just wants a remarkably fast, dead-simple way to bill clients right from your phone and actually get paid on time globally? We are exactly what you've been looking for. Check out our <Link href="/pricing" className="text-blue-700 underline hover:text-blue-800 font-semibold">straightforward pricing</Link>.
@@ -463,19 +463,19 @@ export default function BestFreeInvoiceAppPage() {
             {[
               {
                 q: 'What is the best free invoice app for iPhone?',
-                a: 'For iPhone users, the best free invoice app integrates seamlessly with FaceID and Apple Pay. NobleInvoice offers a native iOS experience that allows you to generate PDFs and collect global payments instantly.'
+                a: 'For iPhone users, the best free invoice app integrates seamlessly with FaceID and Apple Pay. Nobevra offers a native iOS experience that allows you to generate PDFs and collect global payments instantly.'
               },
               {
                 q: 'What is the best free invoice app for Android?',
-                a: 'The top choice for Android is an app that leverages Google Pay and local file management. NobleInvoice provides a lightning-fast Android app that makes creating and sending invoices completely free and effortless.'
+                a: 'The top choice for Android is an app that leverages Google Pay and local file management. Nobevra provides a lightning-fast Android app that makes creating and sending invoices completely free and effortless.'
               },
               {
                 q: 'Is Zoho Invoice really free?',
-                a: 'Zoho Invoice is free for basic usage, but for businesses needing automated global settlements and advanced multi-currency payouts without heavy manual reconciliation, NobleInvoice is the superior choice.'
+                a: 'Zoho Invoice is free for basic usage, but for businesses needing automated global settlements and advanced multi-currency payouts without heavy manual reconciliation, Nobevra is the superior choice.'
               },
               {
                 q: 'Where can I find a free invoice app download?',
-                a: 'You can download the NobleInvoice app for free directly from the Apple App Store or Google Play Store. It takes less than 60 seconds to set up and send your first invoice.'
+                a: 'You can download the Nobevra app for free directly from the Apple App Store or Google Play Store. It takes less than 60 seconds to set up and send your first invoice.'
               }
             ].map((faq, idx) => (
               <div key={idx} className="p-6 md:p-8 rounded-3xl bg-white border border-slate-100 shadow-sm">
@@ -502,7 +502,7 @@ export default function BestFreeInvoiceAppPage() {
                 className="text-white px-10 py-5 text-base font-extrabold rounded-2xl hover:opacity-90 transition-all inline-flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(22,111,187,0.3)] hover:scale-[1.02] active:scale-95"
                 style={{ backgroundColor: '#166FBB' }}
             >
-                Download NobleInvoice Free <ArrowRight className="w-5 h-5" />
+                Download Nobevra Free <ArrowRight className="w-5 h-5" />
             </Link>
           </div>
         </div>

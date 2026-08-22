@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Eye, EyeOff, ShieldCheck } from 'lucide-react';
 import { OnboardingFlow } from '@/components/onboarding/OnboardingFlow';
+import { brand } from '@/lib/brand';
 import { getPasswordStrength, STRENGTH_CONFIG } from '@/lib/utils/passwordStrength';
 import EmailConflictModal from '@/components/auth/EmailConflictModal';
 
@@ -43,7 +44,7 @@ export default function RegisterPage() {
     // preventing a layout flicker where the form renders then immediately redirects.
     const [checking, setChecking] = useState(true);
     const [testimonial, setTestimonial] = useState({
-        quote: "Before NobleInvoice, chasing down late payments was a full-time job. Now, our clients pay us twice as fast, and our branding looks perfectly professional on every single invoice we send out. It's an absolute game-changer for our agency.",
+        quote: "Before Nobevra, chasing down late payments was a full-time job. Now, our clients pay us twice as fast, and our branding looks perfectly professional on every single invoice we send out. It's an absolute game-changer for our agency.",
         author: "Marcus Chen",
         role: "Founder, Elevate Design",
         initials: "M"
@@ -312,7 +313,7 @@ export default function RegisterPage() {
                 
                 <div className="w-full lg:w-1/2 flex flex-col justify-center mb-12 lg:mb-0 lg:pr-12">
                     <Link href="/" className="mb-8 self-start block">
-                        <Image src="/images/logo.png" alt="NobleInvoice" width={160} height={40} className="h-10 w-auto object-contain hover:opacity-80 transition-opacity brightness-0 invert" />
+                        <Image src={brand.assets.logo} alt="Nobevra" width={160} height={40} className="h-10 w-auto object-contain hover:opacity-80 transition-opacity brightness-0 invert" />
                     </Link>
                     <AnimatePresence mode="wait">
                         {step === 3 ? (
@@ -351,7 +352,7 @@ export default function RegisterPage() {
                                     Your ultimate workspace
                                 </h1>
                                 <p className="text-white/80 text-lg font-medium max-w-md leading-relaxed drop-shadow">
-                                    Join modern businesses using NobleInvoice to get paid faster and grow smarter.
+                                    Join modern businesses using Nobevra to get paid faster and grow smarter.
                                 </p>
                                 <div className="flex gap-8 mt-12">
                                     <div>
@@ -407,13 +408,14 @@ export default function RegisterPage() {
                                 >
                                     <div className="text-center mb-6">
                                         <h2 className="text-2xl font-black text-white mb-1">Get Started</h2>
-                                        <p className="text-white/60 text-xs font-medium">Create your free account.</p>
+                                        <p className="text-white/80 text-xs font-medium">Create your free account.</p>
                                     </div>
 
                                     <button
                                         onClick={handleGoogle}
                                         disabled={googleLoading}
                                         className="w-full flex items-center justify-center gap-3 py-3 rounded-xl border border-white/25 bg-white/15 hover:bg-white/25 backdrop-blur-md transition-all font-bold text-sm text-white mb-5 shadow-sm disabled:opacity-50"
+                                        aria-label="Continue with Google sign up"
                                     >
                                         {googleLoading ? (
                                             <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -430,7 +432,7 @@ export default function RegisterPage() {
 
                                     <div className="flex items-center gap-3 mb-5">
                                         <div className="flex-1 h-px bg-white/20"></div>
-                                        <span className="text-[9px] font-black uppercase tracking-widest text-white/50">Or use email</span>
+                                        <span className="text-[9px] font-black uppercase tracking-widest text-white/70">Or use email</span>
                                         <div className="flex-1 h-px bg-white/20"></div>
                                     </div>
 
@@ -441,7 +443,8 @@ export default function RegisterPage() {
                                             autoComplete="name"
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
-                                            className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/40 text-sm backdrop-blur-sm"
+                                            aria-label="Full Name or Company Name"
+                                            className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/60 text-sm backdrop-blur-sm"
                                             placeholder="Full Name / Company Name"
                                         />
                                         
@@ -451,7 +454,7 @@ export default function RegisterPage() {
                                             autoComplete="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/40 text-sm backdrop-blur-sm"
+                                            className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/60 text-sm backdrop-blur-sm"
                                             placeholder="Email Address"
                                         />
 
@@ -462,13 +465,13 @@ export default function RegisterPage() {
                                                 autoComplete="new-password"
                                                 value={password}
                                                 onChange={(e) => setPassword(e.target.value)}
-                                                className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 pr-12 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/40 text-sm backdrop-blur-sm"
+                                                className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-3 pr-12 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white placeholder:text-white/60 text-sm backdrop-blur-sm"
                                                 placeholder="Password (min. 8 characters)"
                                             />
                                             <button
                                                 type="button"
                                                 onClick={() => setShowPassword(prev => !prev)}
-                                                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/80 transition-colors p-1"
+                                                className="absolute right-3 top-1/2 -translate-y-1/2 text-white/65 hover:text-white/90 transition-colors p-1"
                                                 tabIndex={-1}
                                                 aria-label={showPassword ? 'Hide password' : 'Show password'}
                                             >
@@ -479,7 +482,7 @@ export default function RegisterPage() {
                                         {password.length > 0 && (
                                             <div className="space-y-2">
                                                 <div className="flex items-center justify-between px-1">
-                                                    <span className="text-[10px] font-black uppercase tracking-widest text-white/50">
+                                                    <span className="text-[10px] font-black uppercase tracking-widest text-white/75">
                                                         Security Level
                                                     </span>
                                                     <span 
@@ -517,7 +520,7 @@ export default function RegisterPage() {
                                                                     </svg>
                                                                 )}
                                                             </div>
-                                                            <span className={`text-[10px] font-bold transition-colors ${met ? 'text-emerald-400' : 'text-white/30'}`}>
+                                                            <span className={`text-[10px] font-bold transition-colors ${met ? 'text-emerald-400' : 'text-white/55'}`}>
                                                                 {label}
                                                             </span>
                                                         </div>
@@ -540,7 +543,7 @@ export default function RegisterPage() {
                                         </button>
                                     </form>
                                     
-                                    <p className="text-center text-[10px] text-white/40 mt-5 leading-relaxed font-medium">
+                                    <p className="text-center text-[10px] text-white/70 mt-5 leading-relaxed font-medium">
                                         By signing up, you agree to our <Link href="/terms" className="underline hover:text-white/80 transition-colors">Terms</Link> &amp; <Link href="/privacy" className="underline hover:text-white/80 transition-colors">Privacy Policy</Link>
                                     </p>
                                 </motion.div>
@@ -563,7 +566,7 @@ export default function RegisterPage() {
 
                                     <form onSubmit={handleOtpSubmit} className="space-y-5">
                                         <div>
-                                            <label className="text-[10px] font-black text-white/50 uppercase tracking-widest ml-1 mb-2 block text-center">
+                                            <label className="text-[10px] font-black text-white/75 uppercase tracking-widest ml-1 mb-2 block text-center">
                                                 Enter 8-Digit Code
                                             </label>
                                             <input 
@@ -572,7 +575,7 @@ export default function RegisterPage() {
                                                 maxLength={8}
                                                 value={otp}
                                                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
-                                                className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-4 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white font-black text-2xl text-center tracking-[0.5em] placeholder:tracking-normal placeholder:font-medium placeholder:text-sm placeholder:text-white/30 backdrop-blur-sm"
+                                                className="w-full bg-white/10 border border-white/25 rounded-xl px-4 py-4 outline-none focus:border-white/60 focus:ring-1 focus:ring-white/20 focus:bg-white/15 transition-all text-white font-black text-2xl text-center tracking-[0.5em] placeholder:tracking-normal placeholder:font-medium placeholder:text-sm placeholder:text-white/55 backdrop-blur-sm"
                                                 placeholder="••••••••"
                                                 autoComplete="one-time-code"
                                             />
@@ -580,7 +583,7 @@ export default function RegisterPage() {
 
                                         <button 
                                             type="submit"
-                                            disabled={loading || otp.length < 8}
+                                            disabled={loading || otp.length < 6}
                                             className="w-full py-3 mt-2 rounded-xl text-white font-black text-xs uppercase tracking-widest transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-noble-blue/20 disabled:opacity-50 disabled:scale-100 bg-noble-blue"
                                         >
                                             {loading ? (
@@ -603,7 +606,7 @@ export default function RegisterPage() {
                                             <button 
                                                 type="button" 
                                                 onClick={() => { setStep(1); setOtp(''); }}
-                                                className="text-[10px] font-black text-white/40 hover:text-white uppercase tracking-widest transition-colors"
+                                                className="text-[10px] font-black text-white/70 hover:text-white uppercase tracking-widest transition-colors"
                                             >
                                                 Back to Sign Up
                                             </button>

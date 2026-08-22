@@ -19,11 +19,11 @@ import FreelancerROISection from '@/components/landing/freelancers/FreelancerROI
 
 // SEO Metadata matching SEO_BEST_PRACTICES.md
 export const metadata: Metadata = {
-    title: 'Simple Invoicing for Freelancers | NobleInvoice',
+    title: 'Simple Invoicing for Freelancers | Nobevra',
     description: 'Discover simple invoicing for freelancers. Create professional invoices, automate reminders, and get paid faster with our freelance billing software.',
     keywords: 'simple invoicing for freelancers, invoice tool for freelancers, self-employed billing, Freelance billing software, professional invoice for freelancers, invoice app for self employed',
     alternates: {
-        canonical: 'https://nobleinvoice.com/solutions/simple-invoicing-for-freelancers',
+        canonical: '/solutions/simple-invoicing-for-freelancers',
     },
 };
 

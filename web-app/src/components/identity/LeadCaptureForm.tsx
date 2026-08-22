@@ -132,7 +132,7 @@ export const LeadCaptureForm: React.FC<LeadCaptureFormProps> = ({
         
         <div className="flex items-center justify-center gap-2 text-[8px] text-slate-400 font-black uppercase tracking-[0.3em]">
            <Shield size={12} />
-           Secure Lead Capture by NobleInvoice
+           Secure Lead Capture by Nobevra
         </div>
       </div>
     </div>

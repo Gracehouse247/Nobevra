@@ -77,7 +77,7 @@ export default function StatCard({
 
     if (isHero) {
         return (
-            <div className="bg-gradient-to-br from-[#006970] via-[#0599D5] to-[#00b4cc] shadow-[0_12px_40px_rgba(5,153,213,0.22)] border border-white/15 rounded-[20px] p-4 flex flex-col justify-between relative overflow-hidden hover:shadow-[0_20px_60px_rgba(5,153,213,0.32)] transition-all duration-300 group">
+            <div className="bg-gradient-to-br from-[#006970] via-[#01A0E2] to-[#00b4cc] shadow-[0_12px_40px_rgba(1,160,226,0.22)] border border-white/15 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden hover:shadow-[0_20px_60px_rgba(1,160,226,0.32)] transition-all duration-300 group">
                 {/* Background mesh pattern */}
                 <div className="absolute inset-0 opacity-10" style={{
                     backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)',
@@ -130,13 +130,13 @@ export default function StatCard({
 
     // Default variant
     return (
-        <div className="bg-noble-card border border-noble-card-border rounded-[18px] p-4 shadow-[0_2px_12px_rgba(15,23,42,0.05)] dark:shadow-none flex flex-col justify-between hover:shadow-[0_8px_30px_rgba(15,23,42,0.08)] dark:hover:shadow-none hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group">
+        <div className="bg-noble-card border border-noble-card-border rounded-2xl p-4 shadow-[0_2px_12px_rgba(15,23,42,0.05)] dark:shadow-none flex flex-col justify-between hover:shadow-[0_8px_30px_rgba(15,23,42,0.08)] dark:hover:shadow-none hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden group">
             {/* Sparkline background */}
             {sparkData.length > 0 && (
                 <div className="absolute bottom-0 right-0 w-20 h-10 opacity-15">
                     <ResponsiveContainer width="100%" height="100%">
                         <LineChart data={sparkData}>
-                            <Line type="monotone" dataKey="v" stroke="#0599D5" strokeWidth={1.5} dot={false} />
+                            <Line type="monotone" dataKey="v" stroke="#01A0E2" strokeWidth={1.5} dot={false} />
                         </LineChart>
                     </ResponsiveContainer>
                 </div>

@@ -29,7 +29,7 @@ import AgencyCTA from '@/components/landing/agencies/AgencyCTA';
                        white-label, automated retainer billing
 ──────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Agency Billing Platform | Retainer Invoicing | NobleInvoice',
+    title: 'Agency Billing Platform | Retainer Invoicing | Nobevra',
     description: 'The agency billing platform built for retainers, creative teams, and marketing agencies. Automate monthly client invoicing, manage white-label portals, and get paid on time. Free to start.',
     keywords: [
         'agency billing platform',
@@ -44,9 +44,9 @@ export const metadata: Metadata = {
         'client billing for marketing agencies',
     ],
     openGraph: {
-        title: 'Agency Billing Platform | NobleInvoice',
+        title: 'Agency Billing Platform | Nobevra',
         description: 'Automate retainer billing, manage clients, and look premium doing it. Built for agencies.',
-        url: 'https://nobleinvoice.com/solutions/agencies',
+        url: '/solutions/agencies',
         type: 'website',
     },
 };
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
 const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "NobleInvoice Agency Billing",
+    "name": "Nobevra Agency Billing",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
     "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "863" },

@@ -61,7 +61,7 @@ class WelcomeScreen extends StatelessWidget {
                   Column(
                     children: [
                       Image.asset(
-                        'assets/images/nobleinvoice_logo.png',
+                        'assets/images/nobevra_logo.png',
                         height: 120,
                       ),
                       const SizedBox(height: 8),
@@ -114,13 +114,13 @@ class WelcomeScreen extends StatelessWidget {
                           onPressed: () => Navigator.pushNamed(context, AppRoutes.login),
                           style: OutlinedButton.styleFrom(
                             padding: const EdgeInsets.symmetric(vertical: 20),
-                            side: BorderSide(color: AppColors.primary.withOpacity(0.3), width: 2),
+                            side: const BorderSide(color: AppColors.primaryDark, width: 2),
                             shape: const StadiumBorder(),
                           ),
                           child: Text(
                             'Sign In',
                             style: AppTextStyles.button.copyWith(
-                              color: AppColors.primary,
+                              color: AppColors.primaryDark,
                               fontSize: 18,
                             ),
                           ),

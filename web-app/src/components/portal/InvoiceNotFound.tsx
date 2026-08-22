@@ -7,7 +7,7 @@ export function InvoiceNotFound() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#F0F4F8] p-6">
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
-        <div className="absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#0599D5]/[0.07] blur-[120px]" />
+        <div className="absolute -left-40 -top-40 h-[600px] w-[600px] rounded-full bg-[#01A0E2]/[0.07] blur-[120px]" />
         <div className="absolute -bottom-40 -right-40 h-[500px] w-[500px] rounded-full bg-[#00F0FF]/[0.06] blur-[100px]" />
       </div>
       <motion.div
@@ -33,9 +33,9 @@ export function InvoiceNotFound() {
           href="/"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.95 }}
-          className="mt-2 rounded-2xl bg-[#0599D5] px-8 py-3.5 text-[10px] font-black uppercase tracking-[0.2em] text-white shadow-[0_20px_40px_rgba(5,153,213,0.25)] transition-all"
+          className="mt-2 rounded-2xl bg-[#01A0E2] px-8 py-3.5 text-[10px] font-black uppercase tracking-[0.2em] text-white shadow-[0_20px_40px_rgba(5,153,213,0.25)] transition-all"
         >
-          Go to NobleInvoice
+          Go to Nobevra
         </motion.a>
       </motion.div>
     </div>

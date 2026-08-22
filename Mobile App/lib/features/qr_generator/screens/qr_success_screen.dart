@@ -33,17 +33,17 @@ class _QrSuccessScreenState extends State<QrSuccessScreen> {
         return 'BEGIN:VCARD\nVERSION:3.0\nN:${content['lastName']};${content['firstName']}\nFN:${content['firstName']} ${content['lastName']}\nORG:${content['organization']}\nTITLE:${content['jobTitle']}\nTEL;TYPE=CELL:${content['phone']}\nEMAIL:${content['email']}\nADR;TYPE=WORK:;;${content['address']}\nURL:${content['website']}\nEND:VCARD';
       case 'business':
         final slug = (content['name'] ?? 'business').toString().toLowerCase().trim().replaceAll(RegExp(r'\s+'), '-');
-        return 'https://go.noblesworld.com.ng/biz/$slug';
+        return 'https://nobevra.noblesworld.com.ng/biz/$slug';
       case 'menu':
         final restaurant = (content['restaurantName'] ?? 'restaurant').toString().toLowerCase().trim().replaceAll(RegExp(r'\s+'), '-');
-        return content['menuLink'] ?? 'https://go.noblesworld.com.ng/menu/$restaurant';
+        return content['menuLink'] ?? 'https://nobevra.noblesworld.com.ng/menu/$restaurant';
       case 'social_media':
         final platforms = content['platforms'] as List?;
         if (platforms != null && platforms.isNotEmpty) {
           return platforms.first['link'] ?? '';
         }
         final username = content['username'] ?? 'user';
-        return 'https://go.noblesworld.com.ng/social/$username';
+        return 'https://nobevra.noblesworld.com.ng/social/$username';
       case 'event':
         return 'BEGIN:VEVENT\nSUMMARY:${content['title']}\nLOCATION:${content['location']}\nDTSTART:${content['startDate']}T${content['startTime']}00Z\nDESCRIPTION:${content['notes']}\nEND:VEVENT';
       case 'bitcoin':
@@ -59,7 +59,7 @@ class _QrSuccessScreenState extends State<QrSuccessScreen> {
       case 'text':
         return content['text'] ?? '';
       default:
-        return 'https://NobleInvoice.app';
+        return 'https://nobevra.com';
     }
   }
 
@@ -85,7 +85,7 @@ class _QrSuccessScreenState extends State<QrSuccessScreen> {
         final result = await ImageGallerySaverPlus.saveImage(
           uint8list,
           quality: 100,
-          name: "NobleInvoice_qr_${DateTime.now().millisecondsSinceEpoch}",
+          name: "nobevra_qr_${DateTime.now().millisecondsSinceEpoch}",
         );
         if (mounted && result['isSuccess']) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -112,9 +112,9 @@ class _QrSuccessScreenState extends State<QrSuccessScreen> {
       final uint8list = await _screenshotController.capture();
       if (uint8list != null) {
         final tempDir = await getTemporaryDirectory();
-        final file = await File('${tempDir.path}/NobleInvoice_qr.png').create();
+        final file = await File('${tempDir.path}/nobevra_qr.png').create();
         await file.writeAsBytes(uint8list);
-        await Share.shareXFiles([XFile(file.path)], text: 'Check out my NobleInvoice QR code!');
+        await Share.shareXFiles([XFile(file.path)], text: 'Check out my Nobevra QR code!');
       }
     } catch (e) {
       if (mounted) {
@@ -176,7 +176,7 @@ class _QrSuccessScreenState extends State<QrSuccessScreen> {
               ),
               const SizedBox(height: 8),
               Text(
-                'Scan it to preview your NobleInvoice experience or share it with your audience.',
+                'Scan it to preview your Nobevra experience or share it with your audience.',
                 textAlign: TextAlign.center,
                 style: AppTextStyles.bodyMedium.copyWith(
                   color: AppColors.textBlack.withOpacity(0.1), 

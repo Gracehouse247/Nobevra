@@ -155,9 +155,9 @@ class _ContactSupportScreenState extends State<ContactSupportScreen> {
       children: [
         const Text('OTHER WAYS TO CONNECT', style: TextStyle(color: Colors.grey, fontSize: 11, fontWeight: FontWeight.w900, letterSpacing: 1.5)),
         const SizedBox(height: 20),
-        _buildContactRow(Icons.email_outlined, 'support@NobleInvoice.co', '24/7 Email Support'),
+        _buildContactRow(Icons.email_outlined, 'support@nobevra.com', '24/7 Email Support'),
         const SizedBox(height: 16),
-        _buildContactRow(Icons.phone_outlined, '+1 (888) NobleInvoice', 'Mon-Fri, 9am - 6pm EST'),
+        _buildContactRow(Icons.phone_outlined, '+1 (888) NOBEVRA', 'Mon-Fri, 9am - 6pm EST'),
       ],
     );
   }

@@ -6,7 +6,7 @@ export const runtime = 'edge';
 export async function GET(req: NextRequest) {
     try {
         const { searchParams } = new URL(req.url);
-        const title = searchParams.get('title') || 'NobleInvoice Portal';
+        const title = searchParams.get('title') || 'Nobevra Portal';
         const desc = searchParams.get('desc') || 'Secure Digital Billing and Invoicing.';
 
         return new ImageResponse(

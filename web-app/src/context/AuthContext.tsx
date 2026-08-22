@@ -80,7 +80,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             setUserData({
                 uid: currentUser.id,
                 email: currentUser.email || '',
-                name: profile?.display_name || profile?.business_name || 'Noble User',
+                name: profile?.display_name || profile?.business_name || 'User',
                 photoUrl: profile?.brand_logo_url || undefined,
                 subscriptionStatus: isSuperAdmin ? 'active' : (
                     ['active', 'past_due'].includes(profile?.subscription_status || '')

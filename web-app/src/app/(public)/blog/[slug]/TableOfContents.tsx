@@ -32,7 +32,7 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
     return (
         <nav aria-label="Table of contents">
             <div className="flex items-center gap-2 mb-5">
-                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#166FBB] to-[#0599D5] flex items-center justify-center">
+                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-[#166FBB] to-[#01A0E2] flex items-center justify-center">
                     <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" /></svg>
                 </div>
                 <span className="text-xs font-black uppercase tracking-[0.18em] text-[#0F172A] ">Contents</span>
@@ -61,7 +61,7 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
                         >
                             {/* Active indicator on the rail */}
                             {isActive && (
-                                <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#166FBB] to-[#0599D5] rounded-full" />
+                                <span className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-[#166FBB] to-[#01A0E2] rounded-full" />
                             )}
                             <span className={`text-[12px] leading-tight transition-colors duration-200 ${
                                 isActive

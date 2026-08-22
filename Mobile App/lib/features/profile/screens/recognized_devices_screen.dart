@@ -177,7 +177,7 @@ class _RecognizedDevicesScreenState extends State<RecognizedDevicesScreen> {
       builder: (context) => AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         title: const Text('Revoke Session?'),
-        content: Text('This will log you out from ${session.deviceName}. You will need to sign in again to use NobleInvoice on that device.'),
+        content: Text('This will log you out from ${session.deviceName}. You will need to sign in again to use Nobevra on that device.'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),

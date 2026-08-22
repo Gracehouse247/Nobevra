@@ -161,29 +161,234 @@ class BrandingStep extends StatelessWidget {
   }
 
   Widget _buildVoicePicker() {
+    final personas = const [
+      _VoicePersona(
+        name: 'Professional',
+        tagline: 'Formal & Authoritative',
+        emoji: '💼',
+        preview: 'Please find attached Invoice #1042 for your review. Payment is due within 14 business days.',
+      ),
+      _VoicePersona(
+        name: 'Modern',
+        tagline: 'Clean & Tech-First',
+        emoji: '🚀',
+        preview: 'Your invoice is ready! Let’s keep building great things together.',
+      ),
+      _VoicePersona(
+        name: 'Friendly',
+        tagline: 'Warm & Approachable',
+        emoji: '👋',
+        preview: 'Thanks a bunch for working with us! Here is your quick invoice summary.',
+      ),
+      _VoicePersona(
+        name: 'Luxury',
+        tagline: 'Elegant & Refined',
+        emoji: '💎',
+        preview: 'It is our distinct honor to serve you. Your statement of account is enclosed.',
+      ),
+      _VoicePersona(
+        name: 'Bold',
+        tagline: 'Direct & High-Energy',
+        emoji: '⚡',
+        preview: 'Invoice ready. Let’s hit our targets and make moves!',
+      ),
+      _VoicePersona(
+        name: 'Caring',
+        tagline: 'Thoughtful & Supportive',
+        emoji: '🤝',
+        preview: 'We truly appreciate your partnership. Please reach out if you have any questions.',
+      ),
+      _VoicePersona(
+        name: 'Minimal',
+        tagline: 'Concise & No-Clutter',
+        emoji: '🎯',
+        preview: 'Invoice #1042 attached. Due net 14 days.',
+      ),
+      _VoicePersona(
+        name: 'Expert',
+        tagline: 'Insightful & Data-Driven',
+        emoji: '🎓',
+        preview: 'Enclosed is the comprehensive breakdown of deliverables for Q3.',
+      ),
+    ];
+
+    final activePersona = personas.firstWhere(
+      (p) => p.name.toLowerCase() == selectedVoice.toLowerCase(),
+      orElse: () => personas.first,
+    );
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('BRAND VOICE', style: TextStyle(fontWeight: FontWeight.w900, fontSize: 11, letterSpacing: 1.2)),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              'BRAND VOICE & COMMUNICATION STYLE',
+              style: TextStyle(
+                fontFamily: 'Inter',
+                fontWeight: FontWeight.w900,
+                fontSize: 11,
+                letterSpacing: 1.2,
+                color: Color(0xFF64748B),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+              decoration: BoxDecoration(
+                color: const Color(0xFFE8F7FD),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Text(
+                'AI Config',
+                style: TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 10,
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xFF013948),
+                ),
+              ),
+            ),
+          ],
+        ),
         const SizedBox(height: 12),
-        Wrap(
-          spacing: 8, runSpacing: 8,
-          children: ['Professional', 'Friendly', 'Modern', 'Caring'].map((v) {
-            final isSelected = selectedVoice == v;
-            return ChoiceChip(
-              label: Text(v),
-              selected: isSelected,
-              onSelected: (s) => onVoiceChanged(v),
-              selectedColor: primaryColor.withOpacity(0.1),
-              side: BorderSide(color: isSelected ? primaryColor : Colors.grey.shade200),
-              labelStyle: TextStyle(color: isSelected ? primaryColor : Colors.grey.shade700, fontWeight: FontWeight.bold),
-              backgroundColor: Colors.white,
+
+        // Persona Cards Grid
+        GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 2.3,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+          ),
+          itemCount: personas.length,
+          itemBuilder: (context, index) {
+            final p = personas[index];
+            final isSelected = selectedVoice.toLowerCase() == p.name.toLowerCase();
+
+            return InkWell(
+              borderRadius: BorderRadius.circular(16),
+              onTap: () => onVoiceChanged(p.name),
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 250),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                decoration: BoxDecoration(
+                  color: isSelected ? const Color(0xFF013948) : Colors.white,
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: isSelected ? const Color(0xFF013948) : const Color(0xFFE2E8F0),
+                    width: isSelected ? 2 : 1,
+                  ),
+                  boxShadow: [
+                    if (isSelected)
+                      BoxShadow(
+                        color: const Color(0xFF013948).withValues(alpha: 0.2),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
+                      ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Text(p.emoji, style: const TextStyle(fontSize: 22)),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            p.name,
+                            style: TextStyle(
+                              fontFamily: 'Inter',
+                              fontSize: 13,
+                              fontWeight: FontWeight.w800,
+                              color: isSelected ? Colors.white : const Color(0xFF191C1D),
+                            ),
+                          ),
+                          Text(
+                            p.tagline,
+                            style: TextStyle(
+                              fontFamily: 'Inter',
+                              fontSize: 10,
+                              fontWeight: FontWeight.w500,
+                              color: isSelected ? Colors.white70 : const Color(0xFF64748B),
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+                    ),
+                    if (isSelected)
+                      const Icon(Icons.check_circle_rounded, color: Colors.white, size: 16),
+                  ],
+                ),
+              ),
             );
-          }).toList(),
+          },
+        ),
+        const SizedBox(height: 16),
+
+        // Live Quote Sample Preview Box (Dual-Coding Theory UX)
+        Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: const Color(0xFFF8FAFC),
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: const Color(0xFFE2E8F0)),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Icon(Icons.auto_awesome_rounded, size: 16, color: Color(0xFF013948)),
+                  const SizedBox(width: 6),
+                  Text(
+                    'LIVE CLIENT EMAIL PREVIEW (${activePersona.name.toUpperCase()})',
+                    style: const TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 10,
+                      fontWeight: FontWeight.w900,
+                      letterSpacing: 0.8,
+                      color: Color(0xFF013948),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Text(
+                '"${activePersona.preview}"',
+                style: const TextStyle(
+                  fontFamily: 'Inter',
+                  fontSize: 13,
+                  fontStyle: FontStyle.italic,
+                  height: 1.4,
+                  color: Color(0xFF334155),
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
   }
+}
+
+class _VoicePersona {
+  final String name;
+  final String tagline;
+  final String emoji;
+  final String preview;
+
+  const _VoicePersona({
+    required this.name,
+    required this.tagline,
+    required this.emoji,
+    required this.preview,
+  });
 }
 
 class _StepGlassContainer extends StatelessWidget {

@@ -75,14 +75,14 @@ export default function SEOCashFlowSection() {
                                 </div>
                             </div>
 
-                            {/* NobleInvoice Method */}
+                            {/* Nobevra Method */}
                             <div className="bg-gradient-to-br from-noble-blue/20 to-electric-cyan/10 backdrop-blur-md border border-electric-cyan/20 rounded-[24px] p-6 md:p-8 shadow-lg shadow-noble-blue/10">
                                 <div className="flex items-center gap-3 mb-5">
                                     <div className="w-10 h-10 rounded-xl bg-green-400/20 flex items-center justify-center border border-green-400/20">
                                         <span className="material-symbols-outlined text-green-400 text-lg">bolt</span>
                                     </div>
                                     <div>
-                                        <p className="text-white/90 font-black text-sm">NobleInvoice</p>
+                                        <p className="text-white/90 font-black text-sm">Nobevra</p>
                                         <p className="text-white/30 text-xs font-bold">One-click payment links</p>
                                     </div>
                                 </div>

@@ -5,6 +5,27 @@ import 'package:http/http.dart' as http;
 class LocationService {
   static const String defaultCurrency = 'USD';
 
+  static const List<String> worldCountries = [
+    'United States', 'United Kingdom', 'Canada', 'Nigeria', 'Ghana', 'Kenya', 'South Africa',
+    'Australia', 'Germany', 'France', 'India', 'United Arab Emirates', 'Singapore', 'China',
+    'Japan', 'Brazil', 'Mexico', 'Spain', 'Italy', 'Netherlands', 'Switzerland', 'Sweden',
+    'Norway', 'Denmark', 'Ireland', 'New Zealand', 'Saudi Arabia', 'Egypt', 'Rwanda', 'Uganda',
+    'Other'
+  ];
+
+  static Future<String?> detectUserCountry() async {
+    try {
+      final response = await http.get(Uri.parse('https://ip-api.com/json')).timeout(const Duration(seconds: 5));
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        return data['country'] as String?;
+      }
+    } catch (e) {
+      debugPrint('[LocationService] Country detection failed: $e');
+    }
+    return null;
+  }
+
   static const Map<String, String> countryCurrencyMap = {
     // Africa
     'NG': 'NGN', 'GH': 'GHS', 'ZA': 'ZAR', 'KE': 'KES', 'UG': 'UGX', 'TZ': 'TZS',

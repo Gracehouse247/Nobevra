@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const srcFile = 'C:\\Projects\\NobleInvoice Web App Project\\web-app\\src\\components\\invoice\\TemplateEngine.tsx';
+const srcFile = 'C:\\Projects\\Nobevra Web App Project\\web-app\\src\\components\\invoice\\TemplateEngine.tsx';
 let content = fs.readFileSync(srcFile, 'utf8');
 
 const findFunctionBounds = (funcName) => {

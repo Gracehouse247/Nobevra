@@ -684,7 +684,7 @@ export default function PostEditor({ initialData = {}, onSaved }: PostFormProps)
                       <div className="mt-2 bg-noble-surface border border-noble-border rounded-md p-3">
                         <p className="text-[9px] font-bold uppercase tracking-widest text-slate-400 mb-1">SERP Preview</p>
                         <p className="text-blue-600 text-xs font-medium leading-tight truncate">{metaTitle || title || 'Post Title'}</p>
-                        <p className="text-green-700 text-[10px]">nobleinvoice.com/{slug || toSlug(title) || 'post-slug'}</p>
+                        <p className="text-green-700 text-[10px]">nobevra.noblesworld.com.ng/{slug || toSlug(title) || 'post-slug'}</p>
                         <p className="text-slate-500 text-[10px] leading-relaxed line-clamp-2">{metaDesc || 'Meta description will appear here…'}</p>
                       </div>
                     </div>

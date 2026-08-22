@@ -13,7 +13,7 @@ const newFeatures = `
     primaryKeyword: "client crm software",
     hero: {
       headline: "Know Exactly Who Pays On Time",
-      subheadline: "A CRM built entirely around your revenue. Stop digging through emails—see every client interaction, outstanding balance, and project history in one command center.",
+      subheadline: "A CRM built entirely around your revenue. Stop digging through emailsâ€”see every client interaction, outstanding balance, and project history in one command center.",
       ctaText: "Start Managing Clients",
       image: "/images/features/crm.png",
     },
@@ -128,7 +128,7 @@ const newFeatures = `
     ],
     socialProof: [
       {
-        quote: "Switching to NobleInvoice cut our international payment delays from weeks to minutes.",
+        quote: "Switching to Nobevra cut our international payment delays from weeks to minutes.",
         author: "James W.",
         company: "Software Exporter"
       }
@@ -174,7 +174,7 @@ const newFeatures = `
     ],
     socialProof: [
       {
-        quote: "Tax season used to be a nightmare of shoebox receipts. Now I just hand my accountant the NobleInvoice expense export.",
+        quote: "Tax season used to be a nightmare of shoebox receipts. Now I just hand my accountant the Nobevra expense export.",
         author: "Linda K.",
         company: "Freelance Designer"
       }
@@ -434,7 +434,7 @@ const newFeatures = `
     benefits: [
       {
         title: "Developer API",
-        description: "Integrate NobleInvoice directly into your custom SaaS application or internal ERP systems.",
+        description: "Integrate Nobevra directly into your custom SaaS application or internal ERP systems.",
         icon: "Zap"
       },
       {
@@ -450,7 +450,7 @@ const newFeatures = `
     ],
     socialProof: [
       {
-        quote: "We needed a billing engine that could handle 10,000 monthly transactions without breaking. NobleInvoice delivered.",
+        quote: "We needed a billing engine that could handle 10,000 monthly transactions without breaking. Nobevra delivered.",
         author: "Amanda S.",
         company: "SaaS Platform CTO"
       }

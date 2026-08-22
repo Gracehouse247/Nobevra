@@ -1,5 +1,5 @@
 name: noble_invoice
-description: "An all-in-one business toolkit app."
+description: "Nobevra - Intelligent Business Operating System."
 # Prevent accidental publishing to pub.dev.
 publish_to: 'none'
 
@@ -129,12 +129,14 @@ flutter:
 flutter_launcher_icons:
   android: "ic_launcher"
   ios: true
-  image_path: "assets/images/App icon.png"
-  min_sdk_android: 21 # android@default:21
+  remove_alpha_ios: true
+  image_path: "assets/images/nobevra_app_icon.png"
+  min_sdk_android: 21
 
 flutter_native_splash:
-  color: "#2563EB"
-  
+  color: "#050B1A"
+  image: "assets/images/nobevra_app_icon.png"
   android_12:
-    color: "#2563EB"
+    color: "#050B1A"
+    image: "assets/images/nobevra_app_icon.png"
 

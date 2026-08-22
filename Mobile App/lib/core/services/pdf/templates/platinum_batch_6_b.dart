@@ -72,7 +72,7 @@ class PlatinumBatch6B {
           pw.Divider(color: brandColor),
           pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [
              pw.Text(biz.footerText ?? 'THANK YOU FOR YOUR BUSINESS', style: pw.TextStyle(font: bold, fontSize: 9, letterSpacing: 1.5)),
-             pw.Text('NobleInvoice.APP', style: pw.TextStyle(font: bold, fontSize: 9, color: brandColor)),
+             pw.Text('NOBEVRA', style: pw.TextStyle(font: bold, fontSize: 9, color: brandColor)),
           ]),
         ]),
       ),
@@ -226,7 +226,7 @@ class PlatinumBatch6B {
           pw.Row(mainAxisAlignment: pw.MainAxisAlignment.spaceBetween, children: [
             pw.Text(biz.businessEmail ?? '', style: pw.TextStyle(font: font, fontSize: 9, color: PdfColors.grey500)),
             pw.Text(biz.businessPhone ?? '', style: pw.TextStyle(font: font, fontSize: 9, color: PdfColors.grey500)),
-            pw.Text('NobleInvoice.APP', style: pw.TextStyle(font: bold, fontSize: 10, color: brandColor)),
+            pw.Text('NOBEVRA', style: pw.TextStyle(font: bold, fontSize: 10, color: brandColor)),
           ]),
         ]),
       )),

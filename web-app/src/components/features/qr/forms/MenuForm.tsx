@@ -19,7 +19,7 @@ export default function MenuForm({ onChange, initialData, onPreviewValueChange }
             _file: fileUpload 
         });
         
-        const previewUrl = menuLink || (fileUpload ? `https://nobleinvoice.com/hosted/menu/${fileUpload.name}` : 'https://nobleinvoice.com');
+        const previewUrl = menuLink || (fileUpload ? `https://nobevra.noblesworld.com.ng/hosted/menu/${fileUpload.name}` : 'https://nobevra.noblesworld.com.ng');
         onPreviewValueChange(previewUrl);
     }, [restaurantName, menuLink, categories, fileUpload]);
 

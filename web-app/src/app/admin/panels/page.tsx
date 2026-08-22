@@ -38,7 +38,7 @@ export default function AdminPanelsHub() {
                         <span className="text-foreground  font-bold text-xl font-sans">N</span>
                     </div>
                     <div>
-                        <span className="text-xl font-bold font-sans text-foreground  block">NobleInvoice</span>
+                        <span className="text-xl font-bold font-sans text-foreground  block">Nobevra</span>
                         <span className="text-[10px] text-[#006970] font-bold uppercase tracking-widest">Admin Suite</span>
                     </div>
                 </div>

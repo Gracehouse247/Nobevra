@@ -439,7 +439,7 @@ class _BusinessCardDesignerScreenState extends State<BusinessCardDesignerScreen>
     final profile = context.read<ProfileController>().profile;
     if (profile == null) return;
 
-    final String profileUrl = 'https://NobleInvoice.app/card/${profile.id}';
+    final String profileUrl = 'https://nobevra.com/card/${profile.id}';
 
     NfcService.instance.writeUrlToTag(
       url: profileUrl,

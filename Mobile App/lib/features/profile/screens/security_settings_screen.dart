@@ -143,7 +143,7 @@ class _SecuritySettingsScreenState extends State<SecuritySettingsScreen> {
           const Text('Account Protection', style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
           const SizedBox(height: 8),
           Text(
-            'Keep your NobleInvoice business account secure with industry-standard encryption and security protocols.',
+            'Keep your Nobevra business account secure with industry-standard encryption and security protocols.',
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.grey.shade500, fontWeight: FontWeight.w500, height: 1.4),
           ),

@@ -97,7 +97,7 @@ export default function FreelancerFeaturesBento() {
                                     <h3 className="text-xl font-black text-near-black tracking-tight">Client Memory</h3>
                                 </div>
                                 <p className="text-slate-500 text-sm leading-relaxed mb-5 font-medium">
-                                    NobleInvoice remembers every client detail. Repeat jobs take seconds — not re-typing the same address for the 10th time.
+                                    Nobevra remembers every client detail. Repeat jobs take seconds — not re-typing the same address for the 10th time.
                                 </p>
                                 <div className="flex flex-col gap-2">
                                     {['Sarah @ Acme Corp', 'David @ Mediavine', 'Priya @ StartupLab'].map((c, i) => (

@@ -59,7 +59,7 @@ export async function GET(
                 
             case 'wifi':
                 // Native QR readers handle WiFi automatically if generating raw WiFi string.
-                // However, since this is dynamic, the user scans a URL (nobleinvoice.com/q/uuid).
+                // However, since this is dynamic, the user scans a URL (nobevra.noblesworld.com.ng/q/uuid).
                 // Thus, we must show them a page with the WiFi details.
                 return NextResponse.redirect(new URL(`/qr/view/${id}`, request.url));
                 

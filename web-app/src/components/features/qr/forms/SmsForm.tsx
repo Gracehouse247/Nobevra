@@ -11,7 +11,7 @@ export default function SmsForm({ onChange, initialData, onPreviewValueChange }:
         // Format for QR generator: smsto:phone:message
         const formattedStr = `smsto:${phone}:${message}`;
         
-        onPreviewValueChange(phone ? formattedStr : 'https://nobleinvoice.com');
+        onPreviewValueChange(phone ? formattedStr : 'https://nobevra.noblesworld.com.ng');
     }, [phone, message]);
 
     return (

@@ -113,9 +113,9 @@ function EmbedInvoiceContent() {
         name: invoice.clients?.name || 'Valued Client',
       },
       customizations: {
-        title: invoice.teams?.business_name || invoice.teams?.name || 'NobleInvoice Payment',
+        title: invoice.teams?.business_name || invoice.teams?.name || 'Nobevra Payment',
         description: `Payment for Invoice #${invoice.invoice_number}`,
-        logo: 'https://invoice.noblesworld.com.ng/images/logo.png',
+        logo: 'https://nobevra.noblesworld.com.ng/images/logo.png',
       },
       callback: async (data: any) => {
         if (data.status === 'successful' || data.charge_response_code === '00') {
@@ -156,7 +156,7 @@ function EmbedInvoiceContent() {
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center p-8 bg-white/80 rounded-2xl border border-slate-100 min-h-[300px]">
-        <div className="w-8 h-8 border-[3px] border-slate-200 border-t-[#0599D5] rounded-full animate-spin mb-3" />
+        <div className="w-8 h-8 border-[3px] border-slate-200 border-t-[#01A0E2] rounded-full animate-spin mb-3" />
         <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Loading invoice...</span>
       </div>
     );
@@ -216,7 +216,7 @@ function EmbedInvoiceContent() {
             className="
               pointer-events-none absolute -inset-[1px] rounded-[25px] opacity-0
               group-hover:opacity-100 transition-opacity duration-500
-              bg-[linear-gradient(135deg,#0599D5_0%,#00F0FF_50%,#0599D5_100%)]
+              bg-[linear-gradient(135deg,#01A0E2_0%,#00F0FF_50%,#01A0E2_100%)]
               -z-10
             "
           />
@@ -227,7 +227,7 @@ function EmbedInvoiceContent() {
             {/* Business Header */}
             <div className="flex items-center justify-between mb-5">
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#0599D5] to-[#00F0FF] flex items-center justify-center flex-shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-[#01A0E2] to-[#00F0FF] flex items-center justify-center flex-shrink-0">
                   <FileText className="w-4 h-4 text-white" strokeWidth={2.5} />
                 </div>
                 <span
@@ -299,7 +299,7 @@ function EmbedInvoiceContent() {
                   w-full py-3.5 px-6 rounded-2xl font-extrabold text-xs text-white uppercase tracking-wider
                   transition-all duration-300 flex items-center justify-center gap-2
                   ${flutterwaveReady 
-                    ? 'bg-[#0599D5] hover:bg-[#0484b8] shadow-md shadow-[#0599D5]/10 hover:-translate-y-0.5 active:translate-y-0' 
+                    ? 'bg-[#01A0E2] hover:bg-[#0484b8] shadow-md shadow-[#01A0E2]/10 hover:-translate-y-0.5 active:translate-y-0' 
                     : 'bg-slate-200 cursor-not-allowed text-slate-400'
                   }
                 `}
@@ -317,7 +317,7 @@ function EmbedInvoiceContent() {
                 rel="noopener noreferrer"
                 className="
                   inline-flex items-center gap-1.5 text-[11px] font-bold
-                  text-slate-400 hover:text-[#0599D5] transition-colors
+                  text-slate-400 hover:text-[#01A0E2] transition-colors
                 "
               >
                 View Full Invoice Details
@@ -329,7 +329,7 @@ function EmbedInvoiceContent() {
             <div className="mt-5 pt-4 border-t border-slate-100/60 flex items-center justify-center">
               <span className="text-[9px] font-bold text-slate-300 uppercase tracking-[0.15em]">
                 Powered by{' '}
-                <span className="text-slate-400 font-extrabold">NobleInvoice</span>
+                <span className="text-slate-400 font-extrabold">Nobevra</span>
               </span>
             </div>
 
@@ -346,7 +346,7 @@ export default function EmbedInvoicePage() {
   return (
     <Suspense fallback={
       <div className="flex flex-col items-center justify-center p-8 bg-white/80 rounded-2xl border border-slate-100 min-h-[300px]">
-        <div className="w-8 h-8 border-[3px] border-slate-200 border-t-[#0599D5] rounded-full animate-spin mb-3" />
+        <div className="w-8 h-8 border-[3px] border-slate-200 border-t-[#01A0E2] rounded-full animate-spin mb-3" />
         <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Initialising Secure Portal...</span>
       </div>
     }>

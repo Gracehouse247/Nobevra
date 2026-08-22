@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-    title: 'Free Invoice Maker App | About NobleInvoice',
-    description: 'NobleInvoice is the best free invoice maker app for iPhone, Android & PC. Growing businesses trust our simple invoice app. Start free today.',
+    title: 'Free Invoice Maker App | About Nobevra',
+    description: 'Nobevra is the best free invoice maker app for iPhone, Android & PC. Growing businesses trust our simple invoice app. Start free today.',
     keywords: [
         'invoice maker app free',
         'best invoice maker app free',
@@ -16,8 +16,8 @@ export const metadata: Metadata = {
         'free invoice maker app for Android',
     ],
     openGraph: {
-        title: 'Free Invoice Maker App | About NobleInvoice',
-        description: 'NobleInvoice is the best free invoice maker app for iPhone, Android & PC. Growing businesses trust our simple invoice app.',
+        title: 'Free Invoice Maker App | About Nobevra',
+        description: 'Nobevra is the best free invoice maker app for iPhone, Android & PC. Growing businesses trust our simple invoice app.',
         type: 'website',
     },
 };
@@ -28,7 +28,7 @@ const faqSchema = {
     "mainEntity": [
         {
             "@type": "Question",
-            "name": "Is NobleInvoice really a free invoice maker app?",
+            "name": "Is Nobevra really a free invoice maker app?",
             "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "Yes. Our Starter plan is permanently free. You can create up to 10 invoices per month, manage 5 active clients, and export professional PDFs at zero cost. No trial period. No credit card required."
@@ -39,7 +39,7 @@ const faqSchema = {
             "name": "Is there a free invoice maker app for iPhone?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. NobleInvoice is fully optimized as a progressive web app (PWA) for iPhone and Safari. Add it to your home screen and get the full invoice maker app free for iPhone experience without an App Store download."
+                "text": "Yes. Nobevra is fully optimized as a progressive web app (PWA) for iPhone and Safari. Add it to your home screen and get the full invoice maker app free for iPhone experience without an App Store download."
             }
         },
         {
@@ -55,15 +55,15 @@ const faqSchema = {
             "name": "Can I do an invoice maker app free download for PC?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. You can install NobleInvoice as a Progressive Web App on Windows and Mac. From Chrome or Edge, click Install in the address bar and get the full invoice maker app free download for PC — no setup wizard, no bloat."
+                "text": "Yes. You can install Nobevra as a Progressive Web App on Windows and Mac. From Chrome or Edge, click Install in the address bar and get the full invoice maker app free download for PC — no setup wizard, no bloat."
             }
         },
         {
             "@type": "Question",
-            "name": "What makes NobleInvoice the best invoice maker app free?",
+            "name": "What makes Nobevra the best invoice maker app free?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Most free invoice tools give you a PDF and nothing else. NobleInvoice gives you a client-facing payment portal, automated reminders, branded templates, real-time payment tracking, and a CRM — all on the free plan. That is why growing businesses call it the best invoice maker app free."
+                "text": "Most free invoice tools give you a PDF and nothing else. Nobevra gives you a client-facing payment portal, automated reminders, branded templates, real-time payment tracking, and a CRM — all on the free plan. That is why growing businesses call it the best invoice maker app free."
             }
         },
         {
@@ -84,10 +84,10 @@ const faqSchema = {
         },
         {
             "@type": "Question",
-            "name": "Can I use NobleInvoice as my regular invoice maker app?",
+            "name": "Can I use Nobevra as my regular invoice maker app?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Thousands of freelancers, consultants, and small business owners use NobleInvoice as their primary invoice maker app every day. It handles clients, expenses, recurring invoices, and payment reminders — everything you need in one place."
+                "text": "Yes. Thousands of freelancers, consultants, and small business owners use Nobevra as their primary invoice maker app every day. It handles clients, expenses, recurring invoices, and payment reminders — everything you need in one place."
             }
         },
         {
@@ -111,13 +111,13 @@ const faqSchema = {
 
 const reviews = [
     {
-        quote: "I used to spend my Sunday evenings organizing bills. I switched to NobleInvoice, set up automated recurring profiles, and bought my weekends back.",
+        quote: "I used to spend my Sunday evenings organizing bills. I switched to Nobevra, set up automated recurring profiles, and bought my weekends back.",
         name: "Sarah T.",
         role: "Design Agency Founder",
         image: "/images/reviews/ayasha-khan-marketing-director-of-noblemart-marketplace-us-region.png",
     },
     {
-        quote: "NobleInvoice's secure client portal has transformed how our law firm handles billings. The transparency it provides to our clients is invaluable.",
+        quote: "Nobevra's secure client portal has transformed how our law firm handles billings. The transparency it provides to our clients is invaluable.",
         name: "Barr Emma Duruigbo",
         role: "Founder, Ducex Solicitors Ltd.",
         image: "/images/reviews/barr-emma-duruigbo-founder-of-ducex-solicitors-ltd.png",
@@ -204,7 +204,7 @@ const platforms = [
         icon: '🍎',
         title: 'iPhone & iPad',
         subtitle: 'Invoice maker app free for iPhone',
-        desc: 'Add NobleInvoice to your iOS home screen. Works on Safari. Full app experience — no App Store.',
+        desc: 'Add Nobevra to your iOS home screen. Works on Safari. Full app experience — no App Store.',
         badge: 'iOS Ready',
         color: 'from-slate-900 to-slate-700',
     },
@@ -220,15 +220,15 @@ const platforms = [
         icon: '🖥️',
         title: 'Windows & Mac',
         subtitle: 'Invoice maker app free download for PC',
-        desc: 'Install NobleInvoice as a PWA on your desktop. No setup wizard. No admin rights needed.',
+        desc: 'Install Nobevra as a PWA on your desktop. No setup wizard. No admin rights needed.',
         badge: 'PC & Mac Ready',
-        color: 'from-noble-blue to-[#0599D5]',
+        color: 'from-noble-blue to-[#01A0E2]',
     },
     {
         icon: '🌐',
         title: 'Any Browser',
         subtitle: 'My invoice maker app — everywhere',
-        desc: 'Open your browser, go to app.nobleinvoice.com, and start billing. Zero installation required.',
+        desc: 'Open your browser, go to app.nobevra.noblesworld.com.ng, and start billing. Zero installation required.',
         badge: 'Web Ready',
         color: 'from-violet-700 to-violet-500',
     },
@@ -237,7 +237,7 @@ const platforms = [
 const steps = [
     { number: '01', title: 'Create', desc: 'Pick from 180+ templates. Add your client name and the amount. Customize colors and logo in 30 seconds.' },
     { number: '02', title: 'Send', desc: 'Hit send. Your client gets a professional invoice with a one-click payment link — no account required on their end.' },
-    { number: '03', title: 'Track & Get Paid', desc: 'Watch real-time opens. Payment lands in your account, NobleInvoice marks it paid, and sends a receipt automatically.' },
+    { number: '03', title: 'Track & Get Paid', desc: 'Watch real-time opens. Payment lands in your account, Nobevra marks it paid, and sends a receipt automatically.' },
 ];
 
 export default function AboutPage() {
@@ -271,7 +271,7 @@ export default function AboutPage() {
                         </h1>
 
                         <p className="text-lg md:text-xl text-near-black/60 leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
-                            You got into business to do the work you love — not to spend Sundays chasing unpaid invoices. NobleInvoice is the simple invoice app free that handles your billing, so you can get back to building.
+                            You got into business to do the work you love — not to spend Sundays chasing unpaid invoices. Nobevra is the simple invoice app free that handles your billing, so you can get back to building.
                         </p>
 
                         {/* CTAs */}
@@ -357,7 +357,7 @@ export default function AboutPage() {
                                     One client sat on a $4,200 invoice for 47 days. Not because they didn&apos;t want to pay. Because the process was clunky. They forgot. The follow-up felt awkward. The payment link didn&apos;t work on mobile.
                                 </p>
                                 <p>
-                                    That was the moment we started building NobleInvoice — not as another accounting tool, but as a <strong className="text-near-black font-black">revenue engine</strong> that makes getting paid feel as easy as sending a text message.
+                                    That was the moment we started building Nobevra — not as another accounting tool, but as a <strong className="text-near-black font-black">revenue engine</strong> that makes getting paid feel as easy as sending a text message.
                                 </p>
                                 <p className="text-near-black font-bold">
                                     The best invoice maker app free should do more than generate a PDF. It should run your entire billing operation.
@@ -420,7 +420,7 @@ export default function AboutPage() {
                     </div>
 
                     {/* Information Gain: The 14-day gap */}
-                    <div className="mt-12 bg-gradient-to-r from-noble-blue to-[#0599D5] rounded-3xl p-10 text-white flex flex-col md:flex-row items-center gap-8">
+                    <div className="mt-12 bg-gradient-to-r from-noble-blue to-[#01A0E2] rounded-3xl p-10 text-white flex flex-col md:flex-row items-center gap-8">
                         <div className="text-center md:text-left md:flex-1">
                             <div className="text-[56px] md:text-[72px] font-black leading-none mb-2" style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}>14</div>
                             <div className="text-lg font-black uppercase tracking-widest text-white/70 mb-1">Days</div>
@@ -430,7 +430,7 @@ export default function AboutPage() {
                         <div className="md:flex-[2] space-y-3">
                             <p className="text-lg font-black leading-snug">Most businesses accept this as normal. It is not.</p>
                             <p className="text-white/70 leading-relaxed font-medium">
-                                With automated reminders, one-click payment links, and real-time tracking, NobleInvoice users report average payment in <strong className="text-white">under 48 hours</strong>. That is not a small improvement. That is a different business.
+                                With automated reminders, one-click payment links, and real-time tracking, Nobevra users report average payment in <strong className="text-white">under 48 hours</strong>. That is not a small improvement. That is a different business.
                             </p>
                             <Link href="/register" className="inline-flex items-center gap-2 mt-2 text-white font-black text-sm border-b border-white/40 hover:border-white transition-colors pb-0.5">
                                 Start getting paid faster
@@ -482,7 +482,7 @@ export default function AboutPage() {
                             </div>
                             <div className="rounded-[20px] overflow-hidden border border-slate-100/50">
                                 <Image
-                                    alt="invoice maker app free — NobleInvoice dashboard"
+                                    alt="invoice maker app free — Nobevra dashboard"
                                     src="/images/hero-dashboard-actual.png"
                                     width={1366}
                                     height={768}
@@ -539,7 +539,7 @@ export default function AboutPage() {
                             Invoice Maker App Free Download — Any Device
                         </h2>
                         <p className="text-white/50 text-lg font-medium max-w-2xl mx-auto leading-relaxed">
-                            One account. Every device. Whether you&apos;re invoicing from your phone between meetings or from your desktop at the end of the day — NobleInvoice moves with you.
+                            One account. Every device. Whether you&apos;re invoicing from your phone between meetings or from your desktop at the end of the day — Nobevra moves with you.
                         </p>
                     </div>
 
@@ -624,7 +624,7 @@ export default function AboutPage() {
                 <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-noble-blue/5 blur-[150px] rounded-full pointer-events-none" />
                 <div className="max-w-[1430px] mx-auto px-4 md:px-16 relative z-10">
                     <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-100 shadow-xl overflow-hidden">
-                        <div className="bg-gradient-to-r from-noble-blue to-[#0599D5] p-8 md:p-12 text-white">
+                        <div className="bg-gradient-to-r from-noble-blue to-[#01A0E2] p-8 md:p-12 text-white">
                             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-white font-bold text-[10px] uppercase tracking-widest border border-white/20 mb-6">
                                 Case Study
                             </div>
@@ -652,7 +652,7 @@ export default function AboutPage() {
                                     Sarah was spending roughly three hours every Sunday organizing client invoices, chasing late payments, and manually recording what had been paid versus what was still outstanding.
                                 </p>
                                 <p>
-                                    After switching to NobleInvoice, she set up automated recurring invoices for her three retainer clients, enabled one-click payment links, and configured three-day reminder emails. Her average payment time dropped from 29 days to under 48 hours within the first billing cycle.
+                                    After switching to Nobevra, she set up automated recurring invoices for her three retainer clients, enabled one-click payment links, and configured three-day reminder emails. Her average payment time dropped from 29 days to under 48 hours within the first billing cycle.
                                 </p>
                                 <p className="text-near-black font-bold">
                                     &quot;I got my weekends back. And I&apos;m getting paid three weeks faster. That is two wins from one decision.&quot;
@@ -668,7 +668,7 @@ export default function AboutPage() {
                                 />
                                 <div>
                                     <p className="font-black text-near-black">Sarah T.</p>
-                                    <p className="text-xs text-near-black/40 font-medium">Design Agency Founder · NobleInvoice user since 2023</p>
+                                    <p className="text-xs text-near-black/40 font-medium">Design Agency Founder · Nobevra user since 2023</p>
                                 </div>
                             </div>
                         </div>

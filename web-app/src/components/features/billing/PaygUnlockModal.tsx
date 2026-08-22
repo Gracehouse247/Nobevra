@@ -83,12 +83,12 @@ export default function PaygUnlockModal({
             currency: currency,
             payment_options: 'card, banktransfer, ussd, mobilemoney',
             customer: {
-                email: user.email || 'customer@nobleinvoice.com',
-                name: (user as any).displayName || (user as any).name || 'NobleInvoice User',
+                email: user.email || 'customer@nobevra.noblesworld.com.ng',
+                name: (user as any).displayName || (user as any).name || 'Nobevra User',
                 phone_number: '',
             },
             customizations: {
-                title: 'NobleInvoice PAYG Bundle',
+                title: 'Nobevra PAYG Bundle',
                 description: `Unlock premium features without subscription`,
                 logo: 'https://iyvikdxzcpcjivmbiwik.supabase.co/storage/v1/object/public/assets/logo.png',
             },

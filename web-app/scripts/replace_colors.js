@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const directoryPath = 'C:\\Projects\\NobleInvoice Web App Project\\web-app\\src';
+const directoryPath = 'C:\\Projects\\Nobevra Web App Project\\web-app\\src';
 
 const replacements = {
   'bg-indigo-50': 'bg-[#f0fafa]',
