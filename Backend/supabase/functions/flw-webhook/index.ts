@@ -78,7 +78,7 @@ serve(async (req) => {
 
   // ── 1. Signature Verification ─────────────────────────────────────────────
   const signature = req.headers.get("verif-hash");
-  const secretHash = Deno.env.get("FLUTTERWAVE_SECRET_HASH") || "NobleInvoice_Secure_2026";
+  const secretHash = Deno.env.get("FLUTTERWAVE_SECRET_HASH") || "Nobevra_Secure_2026";
 
   if (!signature || signature !== secretHash) {
     console.error("Invalid webhook signature. Got:", signature);
