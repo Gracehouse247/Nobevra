@@ -194,25 +194,40 @@ export const brand = {
     },
   },
 
-  // ─── Legal & Copyright ─────────────────────────────────────────────────────
-
   legal: {
     /**
-     * Returns the current year copyright string.
-     * @example "© 2026 NOBEVRA. ALL RIGHTS RESERVED."
+     * Entity ownership statement.
+     */
+    entityName: "The Noble's Technology Services",
+
+    /**
+     * Standard legal relationship declaration.
+     */
+    ownershipStatement: "Nobevra is a business software platform owned and operated by The Noble's Technology Services.",
+
+    /**
+     * Full copyright attribution string for footers.
+     * @example "© 2026 Nobevra. A product of The Noble's Technology Services. All rights reserved."
+     */
+    get fullCopyright() {
+      return `© ${new Date().getFullYear()} Nobevra. A product of The Noble's Technology Services. All rights reserved.`;
+    },
+
+    /**
+     * Compact copyright string.
      */
     get copyright() {
-      return `© ${new Date().getFullYear()} NOBEVRA. ALL RIGHTS RESERVED.`;
+      return `© ${new Date().getFullYear()} Nobevra. All rights reserved.`;
     },
 
     /** Legal footer attribution line. */
     get poweredBy() {
-      return `Powered by ${brand.parentCompany}`;
+      return `A product of ${brand.parentCompany}`;
     },
 
     /** Email footer legal line for transactional emails. */
     get emailFooter() {
-      return `© ${new Date().getFullYear()} Nobevra. All rights reserved.`;
+      return `© ${new Date().getFullYear()} Nobevra. A product of ${brand.parentCompany}. All rights reserved.`;
     },
   },
 

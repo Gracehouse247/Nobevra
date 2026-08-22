@@ -4,7 +4,7 @@ export const termsMarkdown = `
 **Effective Date:** August 8, 2026  
 **Last Updated:** August 8, 2026
 
-These Terms of Service ("Terms") constitute a legally binding agreement between you ("you," "your," "User," or "Customer") and The Noble's Technology Service, a company duly registered with the Corporate Affairs Commission (CAC) in Nigeria and operating the Nobevra platform ("Nobevra," "we," "us," or "our").
+These Terms of Service ("Terms") constitute a legally binding agreement between you ("you," "your," "User," or "Customer") and The Noble's Technology Services, a company duly registered with the Corporate Affairs Commission (CAC) in Nigeria and operating the Nobevra platform ("Nobevra," "we," "us," or "our").
 
 These Terms govern your access to and use of the Nobevra website, web application, mobile applications, APIs, software, services, features, content, and related products.
 
@@ -468,7 +468,7 @@ Where permitted by law, Nobevra's aggregate liability relating to the Service sh
 
 ### 52. INDEMNIFICATION
 
-To the extent permitted by law, you agree to defend, indemnify, and hold harmless Nobevra, The Noble's Technology Service, its officers, employees, contractors, affiliates, and service providers from claims arising from: your unlawful use of Nobevra; your violation of these Terms; your Business Data; infringement caused by your content; fraudulent activity; misuse of payment functionality; or violation of another person's rights.
+To the extent permitted by law, you agree to defend, indemnify, and hold harmless Nobevra, The Noble's Technology Services, its officers, employees, contractors, affiliates, and service providers from claims arising from: your unlawful use of Nobevra; your violation of these Terms; your Business Data; infringement caused by your content; fraudulent activity; misuse of payment functionality; or violation of another person's rights.
 
 ---
 
@@ -607,7 +607,7 @@ If there is a conflict between these Terms and a separate written agreement sign
 ### 75. CONTACT INFORMATION
 
 **Service:** Nobevra  
-**Legal Entity:** The Noble's Technology Service  
+**Legal Entity:** The Noble's Technology Services  
 **Website:** [https://nobevra.noblesworld.com.ng](https://nobevra.noblesworld.com.ng)  
 **Email:** invoice@noblesworld.com.ng  
 **Legal inquiries:** legal@noblesworld.com.ng  

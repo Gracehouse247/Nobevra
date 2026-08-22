@@ -123,11 +123,11 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-col md:flex-row items-center justify-between border-t border-near-black/5 pt-10 text-[10px] text-near-black/50 font-black uppercase tracking-[0.4em] gap-8">
-                    <p>{brand.legal.copyright}</p>
+                    <p>{brand.legal.fullCopyright}</p>
                     <div className="flex items-center gap-6">
                         <div className="flex items-center gap-3">
                             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
-                            <span>POWERED BY</span>
+                            <span>A PRODUCT OF</span>
                         </div>
                         <div className="h-1 w-12 bg-near-black/5"></div>
                         <span>{brand.parentCompany}</span>

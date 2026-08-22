@@ -1007,7 +1007,7 @@ The Last Updated date will be changed whenever material revisions are made.
 For privacy, data protection and compliance questions:
 
 **Nobevra**
-Powered by The Noble's Technology Service
+Powered by The Noble's Technology Services
 
 **Email:** invoice@noblesworld.com.ng
 

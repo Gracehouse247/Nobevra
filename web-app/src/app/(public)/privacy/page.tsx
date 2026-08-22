@@ -150,7 +150,7 @@ function SectionIntroduction() {
       <SectionHeading id="introduction-h" number="01" icon={ShieldCheck}>Introduction</SectionHeading>
       <p className="text-lg leading-8 mb-4" style={{ color: "#3b494b" }}>
         Nobevra is a cross-platform business productivity and financial management platform operated by{" "}
-        <strong style={{ color: "#050B1A" }}>The Noble's Technology Service</strong>, a company registered with the
+        <strong style={{ color: "#050B1A" }}>The Noble's Technology Services</strong>, a company registered with the
         Corporate Affairs Commission (CAC) in Nigeria.
       </p>
       <InfoCard icon={CheckCircle2} title="Our Privacy Commitment" accent="#006970">
@@ -174,7 +174,7 @@ function SectionController() {
     <section id="controller" className="privacy-section mb-12 scroll-mt-6">
       <SectionHeading id="controller-h" number="02" icon={Users}>Who Controls Your Data</SectionHeading>
       <div className="rounded-2xl border p-5 mb-5" style={{ borderColor: "#b9cacb" }}>
-        <div className="font-black text-base mb-1" style={{ color: "#050B1A" }}>The Noble's Technology Service</div>
+        <div className="font-black text-base mb-1" style={{ color: "#050B1A" }}>The Noble's Technology Services</div>
         <div className="text-sm" style={{ color: "#64748b" }}>CAC-Registered · Lagos, Nigeria</div>
         <div className="mt-3 flex flex-wrap gap-2">
           <a href="mailto:privacy@noblesworld.com.ng"

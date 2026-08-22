@@ -48,7 +48,7 @@ This Subprocessor List identifies the third-party companies ("subprocessors") th
 A **subprocessor** is a third-party service provider that may receive, store, or otherwise process personal data in the course of providing services to Nobevra. This list is maintained in accordance with Article 28 of the GDPR, applicable UK GDPR requirements, and the Nigeria Data Protection Act 2023 (NDPA).
 
 **Effective Date:** August 8, 2026  
-**Operated by:** The Noble's Technology Service (CAC-registered, Lagos, Nigeria)
+**Operated by:** The Noble's Technology Services (CAC-registered, Lagos, Nigeria)
 
 This list reflects the verified, current production state of the Nobevra platform. We update it when subprocessors change.
 
@@ -111,7 +111,7 @@ Nobevra does not use Groq, OpenAI, Anthropic, or any other AI provider in its cu
 
 | Subprocessor | Role | Data Processed | Location | Notes |
 |---|---|---|---|---|
-| **Self-hosted SMTP** (mail.noblesworld.com.ng) | Transactional email delivery (invoice emails, reminders, account notifications) | Client name, client email address, invoice details, account notification content | Nigeria | Operated by The Noble's Technology Service |
+| **Self-hosted SMTP** (mail.noblesworld.com.ng) | Transactional email delivery (invoice emails, reminders, account notifications) | Client name, client email address, invoice details, account notification content | Nigeria | Operated by The Noble's Technology Services |
 
 ---
 

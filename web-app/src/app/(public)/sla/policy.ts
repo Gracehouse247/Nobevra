@@ -5,7 +5,7 @@ export const slaMarkdown = `
 **Last Updated:** August 9, 2026
 
 ## 1. APPLICABILITY
-This Service Level Agreement ("SLA") is applicable solely to customers subscribed to the **Noble Elite** plan (Enterprise customers). It forms part of the Terms of Service between you and The Noble's Technology Service ("Nobevra," "we," "our"). It outlines our commitments regarding the availability of the Nobevra platform.
+This Service Level Agreement ("SLA") is applicable solely to customers subscribed to the **Noble Elite** plan (Enterprise customers). It forms part of the Terms of Service between you and The Noble's Technology Services ("Nobevra," "we," "our"). It outlines our commitments regarding the availability of the Nobevra platform.
 
 This SLA does not apply to users on the Free (Starter), Pay-As-You-Go, or Noble Pulse plans.
 

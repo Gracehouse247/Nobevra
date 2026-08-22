@@ -5,7 +5,7 @@ export const dataRetentionMarkdown = `
 **Last Updated:** August 9, 2026
 
 ## 1. PURPOSE AND SCOPE
-This Data Retention & Deletion Policy outlines how long The Noble's Technology Service ("Nobevra," "we," "our") retains personal data, business data, and system logs, and the processes by which such data is securely deleted or anonymized.
+This Data Retention & Deletion Policy outlines how long The Noble's Technology Services ("Nobevra," "we," "our") retains personal data, business data, and system logs, and the processes by which such data is securely deleted or anonymized.
 
 This policy applies to all users of the Nobevra platform, across all our services (Web, Android, iOS, APIs). It forms part of our Global Compliance Framework and ensures our adherence to the Nigeria Data Protection Act (NDPA), GDPR, and other applicable global standards.
 

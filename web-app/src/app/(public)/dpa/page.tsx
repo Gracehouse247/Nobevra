@@ -54,7 +54,7 @@ const content = `
 This Data Processing Addendum ("DPA") is entered into between:
 
 * **Controller:** The business, organization, or individual ("Customer," "you," "Controller") that has agreed to the Nobevra Terms of Service and uses the Nobevra platform to process personal data.
-* **Processor:** The Noble's Technology Service, CAC-registered, Lagos, Nigeria, operating the Nobevra platform ("Nobevra," "we," "Processor").
+* **Processor:** The Noble's Technology Services, CAC-registered, Lagos, Nigeria, operating the Nobevra platform ("Nobevra," "we," "Processor").
 
 This DPA applies where Nobevra processes **personal data on behalf of the Customer** as a data processor, specifically the personal data of the Customer's clients, contacts, employees, or other data subjects that the Customer uploads, stores, or processes through the Nobevra platform ("Customer Personal Data").
 

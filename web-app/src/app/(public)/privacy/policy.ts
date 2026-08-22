@@ -6,7 +6,7 @@ export const privacyPolicyMarkdown = `
 
 ## 1. INTRODUCTION
 Welcome to Nobevra.
-Nobevra is a cross-platform business productivity and financial management platform operated by The Noble's Technology Service, a company duly registered with the Corporate Affairs Commission (CAC) in Nigeria.
+Nobevra is a cross-platform business productivity and financial management platform operated by The Noble's Technology Services, a company duly registered with the Corporate Affairs Commission (CAC) in Nigeria.
 Nobevra provides tools and services including invoicing, quotations and estimates, client relationship management, expenses and receipt management, products and services management, inventory management, payment functionality, digital business cards, QR-code generation, digital identity tools, productivity tools, analytics, team collaboration, AI-assisted functionality and related business-management services.
 
 Our website is: Nobevra
@@ -27,9 +27,9 @@ By using Nobevra, you acknowledge that you have read and understood this Privacy
 
 ## 2. WHO IS RESPONSIBLE FOR YOUR INFORMATION?
 For purposes of applicable data-protection laws, the relevant Nobevra entity is:
-**The Noble's Technology Service**
+**The Noble's Technology Services**
 A company registered with the Corporate Affairs Commission (CAC), Nigeria.
-Nobevra is the product/platform operated by The Noble's Technology Service.
+Nobevra is the product/platform operated by The Noble's Technology Services.
 
 **Contact**  
 General privacy contact: invoice@noblesworld.com.ng  
@@ -475,7 +475,7 @@ Nobevra uses the following third-party providers. Each provider acts as a data p
 - **Google Gemini API** (Google LLC, US): Used for AI-assisted features including the AI assistant, receipt OCR/scanning, and report insights. Content submitted to AI features (such as receipt images, financial metrics, and messages) is transmitted to Google's Gemini API. Per Google API terms, data is not used for AI training.
 
 **Email**
-- **Self-hosted SMTP** (mail.noblesworld.com.ng, operated by The Noble's Technology Service): Used to send transactional emails including invoice delivery, invoice reminders, and team invitation emails. Invoice and client details are included in outbound emails as necessary to deliver the relevant email.
+- **Self-hosted SMTP** (mail.noblesworld.com.ng, operated by The Noble's Technology Services): Used to send transactional emails including invoice delivery, invoice reminders, and team invitation emails. Invoice and client details are included in outbound emails as necessary to deliver the relevant email.
 
 **Analytics**
 - **Google Analytics 4** (Google LLC, US): Used for web analytics on our public website and web application (analytics cookies only load after consent — see Section 18).
@@ -632,7 +632,7 @@ We may update this Privacy Policy periodically. When material changes are made, 
 
 ## 45. CONTACT US
 For privacy questions, requests or complaints:
-**The Noble's Technology Service**
+**The Noble's Technology Services**
 Nobevra
 Email: invoice@noblesworld.com.ng / privacy@noblesworld.com.ng
 Website: https://nobevra.noblesworld.com.ng
