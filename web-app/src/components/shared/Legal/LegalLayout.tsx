@@ -75,7 +75,7 @@ export function LegalLayout({
               <ShieldCheck className="w-5 h-5 text-white" />
             </div>
             <span className="font-black text-xl tracking-tight" style={{ color: "#050B1A" }}>
-              Noble<span style={{ color: "#01A0E2" }}>Invoice</span>
+              Nobevra
             </span>
           </Link>
           <div className="flex items-center gap-4">
@@ -137,12 +137,12 @@ export function LegalLayout({
             
             {/* Footer note */}
             <div className="mt-8 pt-8 border-t text-center" style={{ borderColor: "#e2e8f0" }}>
-              <div className="inline-flex items-center gap-2 mb-3">
+              <div className="inline-flex items-center gap-2 mb-2">
                 <ShieldCheck className="w-5 h-5" style={{ color: "#01A0E2" }} />
-                <span className="font-bold text-sm" style={{ color: "#050B1A" }}>The Noble's Technology Service</span>
+                <span className="font-bold text-sm" style={{ color: "#050B1A" }}>The Noble's Technology Services</span>
               </div>
-              <p className="text-xs" style={{ color: "#94a3b8" }}>
-                &copy; {new Date().getFullYear()} Nobevra. All rights reserved.
+              <p className="text-xs text-slate-500 font-medium">
+                &copy; {new Date().getFullYear()} Nobevra. A product of The Noble's Technology Services. All rights reserved.
               </p>
             </div>
           </div>
