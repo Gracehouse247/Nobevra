@@ -98,7 +98,7 @@ export default function TemplateShowcase({
             <div className="max-w-[1430px] mx-auto px-4 md:px-16 relative z-10">
                 <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-20">
                     <div className="max-w-2xl">
-                        <h2 className="font-inter text-4xl md:text-6xl font-black text-near-black mb-6 leading-[1.1] tracking-tighter">
+                        <h2 className="font-inter text-3xl sm:text-4xl md:text-5xl font-black text-near-black mb-4 leading-[1.15] tracking-tight">
                             {title}
                         </h2>
                         <p className="text-body-lg text-near-black/70 font-medium">
