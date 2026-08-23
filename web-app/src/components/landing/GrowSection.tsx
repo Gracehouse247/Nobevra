@@ -17,7 +17,7 @@ const GROW_FEATURES = [
         icon: 'insights',
         title: 'Growth Reports & Insights',
         description: 'Real-time revenue analytics, cash flow tracking, expense leak alerts, and client lifetime value metrics at a glance.',
-        link: '/features',
+        link: '/business-management-software',
         tag: 'Real-Time Stats',
         tagColor: 'bg-emerald-500/10 text-emerald-700',
     },

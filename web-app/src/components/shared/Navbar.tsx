@@ -464,7 +464,7 @@ export default function Navbar() {
                             className="text-white px-7 py-3 rounded-xl font-extrabold text-sm hover:shadow-xl transition-all flex items-center gap-2 scale-100 hover:scale-105 active:scale-95 shadow-lg shadow-noble-blue/30"
                             style={{ backgroundColor: '#166FBB' }}
                         >
-                            Start Free Today
+                            Start Free
                             <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
                         </Link>
                     </div>
@@ -699,7 +699,7 @@ export default function Navbar() {
                                     className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl text-white font-extrabold text-sm shadow-lg shadow-noble-blue/30 hover:opacity-90 transition-all active:scale-95"
                                     style={{ backgroundColor: '#166FBB' }}
                                 >
-                                    Start Free Today
+                                    Start Free
                                     <span className="material-symbols-outlined text-base">arrow_forward</span>
                                 </Link>
                                 <Link

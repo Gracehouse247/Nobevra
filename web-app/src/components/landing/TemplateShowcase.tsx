@@ -222,14 +222,22 @@ export default function TemplateShowcase({
                     </button>
                 </div>
 
-                {/* View All CTA */}
-                <div className="mt-20 text-center">
+                {/* CTA Group */}
+                <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
                     <Link 
-                        href="/features/templates"
-                        className="inline-flex items-center gap-3 px-12 py-6 bg-near-black text-white rounded-2xl font-extrabold hover:bg-noble-blue hover:scale-105 transition-all shadow-2xl group"
+                        href="/register"
+                        className="w-full sm:w-auto px-10 py-5 bg-noble-blue text-white rounded-2xl font-extrabold hover:bg-noble-blue/90 hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-noble-blue/25 flex items-center justify-center gap-3"
                     >
-                        View All 180+ Templates
-                        <span className="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_right_alt</span>
+                        Start Free
+                        <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
+                    </Link>
+
+                    <Link 
+                        href="/invoicing"
+                        className="w-full sm:w-auto px-8 py-5 bg-white border border-slate-200 text-near-black rounded-2xl font-bold hover:border-noble-blue hover:text-noble-blue transition-all flex items-center justify-center gap-2 shadow-sm"
+                    >
+                        <span className="material-symbols-outlined text-sm" aria-hidden="true">visibility</span>
+                        Explore Invoicing Platform
                     </Link>
                 </div>
             </div>
