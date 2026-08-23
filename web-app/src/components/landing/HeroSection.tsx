@@ -65,9 +65,7 @@ export default function HeroSection() {
                     </h1>
 
                     <p className="text-base md:text-lg text-near-black/60 max-w-xl mb-10 leading-relaxed">
-                        Nobevra brings invoicing, CRM, expenses, payments, products,
-                        AI, business identity and team collaboration together in one
-                        connected platform. Built for founders. Optimized for growth.
+                        Nobevra is the intelligent business operating system that brings invoicing, CRM, expenses, payments, products, AI, business identity and team collaboration together in one connected platform.
                     </p>
 
                     {/* CTA Group */}
