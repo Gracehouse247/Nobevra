@@ -27,7 +27,7 @@ export default function FeaturesBento() {
                         className="md:col-span-8 md:row-span-2"
                     >
                         <Link 
-                            href="/features/how-to-make-an-invoice-for-free"
+                            href="/invoicing"
                             className="block h-full w-full bg-gradient-to-br from-[#E6F5FB] to-white rounded-[40px] p-12 group overflow-hidden relative border border-white shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
                         >
                             <MagneticCard strength={15} className="h-full w-full">
@@ -62,7 +62,7 @@ export default function FeaturesBento() {
                         className="md:col-span-4 md:row-span-1"
                     >
                         <Link 
-                            href="/features/crm-engine"
+                            href="/crm"
                             className="block h-full w-full bg-gradient-to-br from-blue-50 to-white rounded-[40px] p-10 overflow-hidden relative group hover:scale-[1.02] transition-transform shadow-xl border border-white cursor-pointer"
                         >
                             <MagneticCard strength={20} className="h-full w-full">
@@ -95,23 +95,23 @@ export default function FeaturesBento() {
                         </Link>
                     </motion.div>
 
-                    {/* Bento Card 3: Shopify Invoice Generator */}
+                    {/* Bento Card 3: Products & Inventory Hub */}
                     <Link 
-                        href="/features/shopify-invoice-generator"
+                        href="/products-inventory"
                         className="md:col-span-4 md:row-span-1 bg-gradient-to-br from-[#E6F5FB] to-white rounded-[40px] p-10 flex flex-col justify-between border border-white shadow-xl hover:shadow-2xl transition-all group overflow-hidden cursor-pointer"
                     >
                         <div className="relative z-10">
                             <div className="flex items-center justify-between mb-8">
                                 <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-3xl text-primary">shopping_bag</span>
+                                    <span className="material-symbols-outlined text-3xl text-primary">inventory_2</span>
                                 </div>
                                 <div className="text-right">
-                                    <div className="text-[10px] font-black text-near-black/30 uppercase tracking-widest">Shopify App</div>
-                                    <div className="text-lg font-black text-near-black">Pro</div>
+                                    <div className="text-[10px] font-black text-near-black/30 uppercase tracking-widest">Inventory Hub</div>
+                                    <div className="text-lg font-black text-near-black">Real-Time</div>
                                 </div>
                             </div>
-                            <h3 className="text-2xl font-bold mb-2">Shopify Invoices</h3>
-                            <p className="text-near-black/50 text-sm leading-relaxed mb-6">Automated B2B billing with embedded Apple Pay and Google Pay.</p>
+                            <h3 className="text-2xl font-bold mb-2">Products & Stock</h3>
+                            <p className="text-near-black/50 text-sm leading-relaxed mb-6">Real-time SKU catalog and automated stock deduction per invoice.</p>
                             
                             <div className="space-y-3 opacity-60 group-hover:opacity-100 transition-opacity">
                                 <div className="flex items-center justify-between p-3 rounded-2xl bg-noble-surface/50 border border-white">
@@ -129,7 +129,7 @@ export default function FeaturesBento() {
 
                     {/* Bento Card 4: Digital Cards */}
                     <Link 
-                        href="/features/digital-business-cards"
+                        href="/digital-business-card"
                         className="md:col-span-4 md:row-span-1 bg-gradient-to-br from-[#E6F5FB] to-white rounded-[40px] p-10 flex flex-col overflow-hidden relative group hover:scale-[1.02] transition-transform shadow-xl border border-white cursor-pointer"
                     >
                         <div className="relative z-30 mb-auto">
@@ -164,7 +164,7 @@ export default function FeaturesBento() {
 
                     {/* Bento Card 5: International Payments */}
                     <Link 
-                        href="/features/settlements"
+                        href="/payments"
                         className="md:col-span-8 md:row-span-1 bg-gradient-to-br from-indigo-50 to-white rounded-[40px] p-12 flex items-center gap-12 overflow-hidden relative group hover:shadow-2xl transition-all cursor-pointer shadow-xl border border-white"
                     >
                         <div className="absolute top-0 right-0 w-80 h-80 bg-noble-blue/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>

@@ -9,7 +9,7 @@ const GROW_FEATURES = [
         icon: 'psychology',
         title: 'Gemini AI Intelligence',
         description: 'Get automated financial narrative summaries, receipt data extraction via Gemini, and smart cash flow recommendations.',
-        link: '/ai-receipt-scanner',
+        link: '/ai-business-assistant',
         tag: 'Gemini AI',
         tagColor: 'bg-electric-cyan/15 text-noble-blue',
     },

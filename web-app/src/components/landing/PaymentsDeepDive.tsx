@@ -62,15 +62,15 @@ export default function PaymentsDeepDive() {
                                 href="/register"
                                 className="w-full sm:w-auto px-7 py-3.5 bg-slate-900 text-white font-black text-xs rounded-xl hover:bg-near-black transition-all flex items-center justify-center gap-2"
                             >
-                                Start Accepting Payments
+                                Start Free
                                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
                             </Link>
 
                             <Link
-                                href="/pricing"
+                                href="/payments"
                                 className="w-full sm:w-auto px-7 py-3.5 bg-noble-surface border border-slate-200 text-near-black font-bold text-xs rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center"
                             >
-                                View Payment Gateway Details
+                                Explore Payments Platform
                             </Link>
                         </div>
                     </motion.div>

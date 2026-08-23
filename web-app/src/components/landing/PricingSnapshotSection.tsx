@@ -18,7 +18,7 @@ const PLANS = [
             'Standard QR code generator',
             'Single user workspace',
         ],
-        cta: 'Get Started Free',
+        cta: 'Start Free',
         ctaLink: '/register',
     },
     {

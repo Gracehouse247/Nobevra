@@ -63,18 +63,18 @@ export default function CRMDeepDive() {
                         {/* What should the user do next? */}
                         <div className="flex flex-col sm:flex-row items-center gap-4">
                             <Link
-                                href="/crm"
+                                href="/register"
                                 className="w-full sm:w-auto px-7 py-3.5 bg-violet-600 text-white font-black text-xs rounded-xl hover:bg-violet-700 transition-all flex items-center justify-center gap-2 shadow-md shadow-violet-500/20"
                             >
-                                Explore CRM Features
+                                Start Free
                                 <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
                             </Link>
 
                             <Link
-                                href="/register"
+                                href="/crm"
                                 className="w-full sm:w-auto px-7 py-3.5 bg-noble-surface border border-slate-200 text-near-black font-bold text-xs rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center"
                             >
-                                Try CRM Free
+                                Explore CRM Platform
                             </Link>
                         </div>
                     </motion.div>

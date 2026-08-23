@@ -58,10 +58,10 @@ export default function ExpensesProductsDeepDive() {
                             </p>
                         </div>
                         <Link
-                            href="/ai-receipt-scanner"
+                            href="/expense-management"
                             className="inline-flex items-center gap-2 text-xs font-black text-emerald-700 hover:underline uppercase tracking-wider"
                         >
-                            Try AI Receipt Scanner
+                            Explore Expense Management
                             <span className="material-symbols-outlined text-sm">arrow_forward</span>
                         </Link>
                     </motion.div>
@@ -95,7 +95,7 @@ export default function ExpensesProductsDeepDive() {
                             </p>
                         </div>
                         <Link
-                            href="/features"
+                            href="/products-inventory"
                             className="inline-flex items-center gap-2 text-xs font-black text-violet-700 hover:underline uppercase tracking-wider"
                         >
                             Explore Inventory Engine

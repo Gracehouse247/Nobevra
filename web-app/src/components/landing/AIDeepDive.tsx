@@ -63,18 +63,18 @@ export default function AIDeepDive() {
 
                         <div className="flex flex-col sm:flex-row items-center gap-4">
                             <Link
-                                href="/ai-receipt-scanner"
+                                href="/register"
                                 className="w-full sm:w-auto px-7 py-3.5 bg-[#166FBB] text-white font-black text-xs rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30"
                             >
-                                Try AI Assistant
+                                Start Free
                                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
                             </Link>
 
                             <Link
-                                href="/pricing"
+                                href="/ai-business-assistant"
                                 className="w-full sm:w-auto px-7 py-3.5 bg-white/10 border border-white/15 text-white font-bold text-xs rounded-xl hover:bg-white/15 transition-all flex items-center justify-center"
                             >
-                                View AI Capabilities
+                                Explore AI Platform
                             </Link>
                         </div>
                     </motion.div>

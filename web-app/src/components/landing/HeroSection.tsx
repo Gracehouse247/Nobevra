@@ -83,8 +83,8 @@ export default function HeroSection() {
                             href="/#run"
                             className="flex items-center justify-center gap-3 px-8 py-4 text-base font-bold rounded-2xl border-2 border-near-black/10 text-near-black hover:border-noble-blue hover:text-noble-blue hover:bg-noble-blue/5 transition-all"
                         >
-                            <span className="material-symbols-outlined text-sm" aria-hidden="true">play_arrow</span>
-                            See How It Works
+                            <span className="material-symbols-outlined text-sm" aria-hidden="true">visibility</span>
+                            Explore Platform
                         </Link>
                     </div>
 

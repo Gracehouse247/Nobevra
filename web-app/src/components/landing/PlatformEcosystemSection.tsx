@@ -73,7 +73,7 @@ export default function PlatformEcosystemSection() {
                                 href="/register"
                                 className="px-8 py-4 bg-[#166FBB] text-white font-extrabold rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(22,111,187,0.4)]"
                             >
-                                Get Started Free
+                                Start Free
                                 <span className="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
                             </Link>
 
@@ -81,7 +81,7 @@ export default function PlatformEcosystemSection() {
                                 href="/pricing"
                                 className="px-8 py-4 bg-white/10 hover:bg-white/15 text-white font-bold rounded-2xl border border-white/15 transition-all flex items-center justify-center"
                             >
-                                View Plans & Features
+                                Explore Platform Plans
                             </Link>
                         </div>
                     </motion.div>

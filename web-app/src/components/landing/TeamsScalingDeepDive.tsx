@@ -59,18 +59,18 @@ export default function TeamsScalingDeepDive() {
 
                         <div className="flex flex-col sm:flex-row items-center gap-4">
                             <Link
-                                href="/pricing"
+                                href="/register"
                                 className="w-full sm:w-auto px-7 py-3.5 bg-noble-blue text-white font-black text-xs rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-md shadow-blue-500/20"
                             >
-                                Compare Team Plans
+                                Start Free
                                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
                             </Link>
 
                             <Link
-                                href="/register"
+                                href="/pricing"
                                 className="w-full sm:w-auto px-7 py-3.5 bg-noble-surface border border-slate-200 text-near-black font-bold text-xs rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center"
                             >
-                                Create Free Workspace
+                                Explore Team Plans
                             </Link>
                         </div>
                     </motion.div>
