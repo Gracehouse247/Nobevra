@@ -20,7 +20,7 @@ export default function CRMDeepDive() {
                         viewport={{ once: true, margin: '-80px' }}
                         transition={{ duration: 0.6 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 text-violet-700 font-bold text-[10px] uppercase tracking-widest mb-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/8 border border-noble-blue/15 text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6">
                             <span className="material-symbols-outlined text-sm" aria-hidden="true">diversity_3</span>
                             Lightweight Client CRM
                         </div>
@@ -28,7 +28,7 @@ export default function CRMDeepDive() {
                         {/* What is this? & Why does it matter? */}
                         <h2 className="font-inter text-3xl sm:text-4xl lg:text-5xl font-black text-near-black leading-[1.15] tracking-tight mb-6">
                             Turn Client Interactions into{' '}
-                            <span className="text-violet-600">Paid Revenue.</span>
+                            <span className="text-noble-blue italic">Paid Revenue.</span>
                         </h2>
 
                         {/* What problem does it solve? */}

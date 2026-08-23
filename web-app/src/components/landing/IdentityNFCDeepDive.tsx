@@ -13,14 +13,14 @@ export default function IdentityNFCDeepDive() {
         >
             <div className="max-w-[1430px] mx-auto px-4 md:px-16 relative z-10">
                 <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 text-violet-700 font-bold text-[10px] uppercase tracking-widest mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/8 border border-noble-blue/15 text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6">
                         <span className="material-symbols-outlined text-sm" aria-hidden="true">badge</span>
                         Business Identity & Smart Connect
                     </div>
 
                     <h2 className="font-inter text-3xl sm:text-4xl lg:text-5xl font-black text-near-black leading-[1.15] tracking-tight mb-4">
                         Make Every First Impression{' '}
-                        <span className="text-violet-600">Unforgettable.</span>
+                        <span className="text-noble-blue italic">Unforgettable.</span>
                     </h2>
 
                     <p className="text-base text-near-black/50 leading-relaxed">

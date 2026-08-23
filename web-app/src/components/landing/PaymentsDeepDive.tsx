@@ -20,14 +20,14 @@ export default function PaymentsDeepDive() {
                         viewport={{ once: true, margin: '-80px' }}
                         transition={{ duration: 0.6 }}
                     >
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 text-amber-700 font-bold text-[10px] uppercase tracking-widest mb-6">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/8 border border-noble-blue/15 text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6">
                             <span className="material-symbols-outlined text-sm" aria-hidden="true">payments</span>
                             Payments & Wallet
                         </div>
 
                         <h2 className="font-inter text-3xl sm:text-4xl lg:text-5xl font-black text-near-black leading-[1.15] tracking-tight mb-6">
                             Get Paid Faster with{' '}
-                            <span className="text-amber-600">Zero Checkout Friction.</span>
+                            <span className="text-noble-blue italic">Zero Checkout Friction.</span>
                         </h2>
 
                         <div className="text-base text-near-black/60 space-y-4 mb-8 leading-relaxed">
