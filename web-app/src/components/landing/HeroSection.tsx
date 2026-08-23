@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const TRUST_ITEMS = [
     {
@@ -28,10 +28,14 @@ const TRUST_ITEMS = [
     },
 ];
 
+type PillarTab = 'run' | 'connect' | 'grow';
+
 export default function HeroSection() {
+    const [activeTab, setActiveTab] = useState<PillarTab>('run');
+
     return (
         <section
-            className="relative min-h-screen flex items-center pt-12 pb-32 overflow-hidden"
+            className="relative min-h-screen flex items-center pt-12 pb-28 md:pb-36 overflow-hidden"
             aria-label="Nobevra — Intelligent Business Operating System"
         >
             {/* Background glows */}
@@ -107,73 +111,209 @@ export default function HeroSection() {
                     </div>
                 </motion.div>
 
-                {/* ── Right: Product Visual ── */}
+                {/* ── Right: Interactive 3-Pillar UI Showcase ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 48 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.9, ease: 'easeOut', delay: 0.15 }}
-                    className="relative flex justify-center items-center lg:pl-10"
-                    style={{ perspective: '1200px' }}
+                    className="relative flex flex-col items-center lg:pl-6"
                 >
-                    <motion.div
-                        animate={{ y: [0, -12, 0] }}
-                        transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                        className="relative group z-10 w-full transition-transform duration-700 ease-out hover:rotate-0 hover:scale-105"
-                        style={{ transform: 'rotateY(-12deg) rotateX(4deg) scale(1.02)' }}
-                    >
-                        <div className="absolute -inset-4 bg-gradient-to-tr from-noble-blue/20 to-electric-cyan/20 blur-2xl rounded-[40px] opacity-50 group-hover:opacity-80 transition-opacity duration-700" aria-hidden="true" />
-                        <div className="relative bg-noble-surface/50 backdrop-blur-sm p-3 sm:p-4 rounded-[24px] sm:rounded-[40px] shadow-[0_50px_100px_rgba(0,0,0,0.15)] border border-white/80 overflow-hidden">
-                            {/* Browser chrome mockup */}
-                            <div className="flex items-center gap-1.5 px-2 pb-3 pt-1" aria-hidden="true">
-                                <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
-                                <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
-                            </div>
-                            <div className="rounded-[16px] sm:rounded-[32px] overflow-hidden border border-slate-100/50 shadow-inner bg-slate-50">
-                                <Image
-                                    alt="Nobevra Business Operating System — dashboard showing invoicing, CRM, expenses and business intelligence"
-                                    className="w-full h-auto object-cover object-top"
-                                    src="/images/hero-dashboard-actual.png"
-                                    width={1366}
-                                    height={1633}
-                                    priority
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                />
-                            </div>
-                        </div>
-                    </motion.div>
+                    {/* Interactive Tab Switcher */}
+                    <div className="flex items-center gap-2 p-1.5 bg-slate-100/90 backdrop-blur-md rounded-2xl border border-slate-200/80 mb-6 shadow-sm z-20">
+                        <button
+                            onClick={() => setActiveTab('run')}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black transition-all ${
+                                activeTab === 'run'
+                                    ? 'bg-noble-blue text-white shadow-md'
+                                    : 'text-slate-600 hover:text-near-black'
+                            }`}
+                        >
+                            <span className="material-symbols-outlined text-sm">receipt_long</span>
+                            1. RUN
+                        </button>
 
-                    {/* Floating badge — paid invoice */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.9, duration: 0.5 }}
-                        className="absolute -bottom-4 -left-4 lg:-left-8 bg-noble-surface rounded-2xl px-5 py-3.5 shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-near-black/5 z-20 flex items-center gap-3"
-                        aria-hidden="true"
-                    >
-                        <div className="w-9 h-9 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
-                            <span className="material-symbols-outlined text-emerald-500 text-base">check_circle</span>
-                        </div>
-                        <div>
-                            <p className="text-[10px] font-black text-near-black uppercase tracking-wider">Invoice Paid</p>
-                            <p className="text-base font-black text-emerald-700">+₦450,000</p>
-                        </div>
-                    </motion.div>
+                        <button
+                            onClick={() => setActiveTab('connect')}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black transition-all ${
+                                activeTab === 'connect'
+                                    ? 'bg-violet-600 text-white shadow-md'
+                                    : 'text-slate-600 hover:text-near-black'
+                            }`}
+                        >
+                            <span className="material-symbols-outlined text-sm">hub</span>
+                            2. CONNECT
+                        </button>
 
-                    {/* Floating badge — platform */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 1.1, duration: 0.5 }}
-                        className="absolute -top-4 -right-4 lg:-right-6 bg-noble-surface rounded-2xl px-4 py-3 shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-near-black/5 z-20 flex items-center gap-2.5"
-                        aria-hidden="true"
-                    >
-                        <span className="material-symbols-outlined text-noble-blue text-xl">hub</span>
-                        <div>
-                            <p className="text-[9px] font-black text-near-black/60 uppercase tracking-widest">Platform Active</p>
-                            <p className="text-[11px] font-bold text-near-black">Run · Connect · Grow</p>
+                        <button
+                            onClick={() => setActiveTab('grow')}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black transition-all ${
+                                activeTab === 'grow'
+                                    ? 'bg-emerald-600 text-white shadow-md'
+                                    : 'text-slate-600 hover:text-near-black'
+                            }`}
+                        >
+                            <span className="material-symbols-outlined text-sm">trending_up</span>
+                            3. GROW
+                        </button>
+                    </div>
+
+                    {/* Interactive Showcase Card */}
+                    <div className="relative w-full max-w-lg">
+                        <div className="absolute -inset-4 bg-gradient-to-tr from-noble-blue/20 to-electric-cyan/20 blur-2xl rounded-[40px] opacity-60 pointer-events-none" />
+
+                        <div className="relative bg-noble-surface rounded-[32px] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.12)] border border-slate-100 min-h-[380px] flex flex-col justify-between overflow-hidden">
+                            <AnimatePresence mode="wait">
+                                {activeTab === 'run' && (
+                                    <motion.div
+                                        key="tab-run"
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="space-y-4"
+                                    >
+                                        <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                                            <div className="flex items-center gap-2.5">
+                                                <div className="w-8 h-8 rounded-xl bg-noble-blue/10 flex items-center justify-center text-noble-blue">
+                                                    <span className="material-symbols-outlined text-base">receipt</span>
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs font-black text-near-black">Invoice #INV-2026-042</p>
+                                                    <p className="text-[10px] text-slate-400">Client: Ducex Solicitors Ltd</p>
+                                                </div>
+                                            </div>
+                                            <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 font-bold text-[10px] uppercase">
+                                                Paid Online
+                                            </span>
+                                        </div>
+
+                                        <div className="bg-slate-50 rounded-2xl p-3.5 space-y-2">
+                                            <div className="flex justify-between text-xs font-semibold text-slate-600">
+                                                <span>Brand Strategy & Systems Retainer</span>
+                                                <span className="font-bold text-near-black">₦350,000</span>
+                                            </div>
+                                            <div className="flex justify-between text-xs font-semibold text-slate-600">
+                                                <span>Custom Identity Portal Setup</span>
+                                                <span className="font-bold text-near-black">₦100,000</span>
+                                            </div>
+                                            <div className="border-t border-slate-200/60 pt-2 flex justify-between text-xs font-black text-near-black">
+                                                <span>Total Settled (Flutterwave)</span>
+                                                <span className="text-noble-blue font-black text-sm">₦450,000.00</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-center justify-between text-[11px] text-slate-500 font-medium pt-1">
+                                            <span className="flex items-center gap-1 text-emerald-600 font-bold">
+                                                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                                                Viewed 2 mins ago · Receipt Sent
+                                            </span>
+                                            <Link href="/free-invoice-generator" className="text-noble-blue font-bold hover:underline">
+                                                Try Invoicing →
+                                            </Link>
+                                        </div>
+                                    </motion.div>
+                                )}
+
+                                {activeTab === 'connect' && (
+                                    <motion.div
+                                        key="tab-connect"
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="space-y-4"
+                                    >
+                                        <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                                            <div className="flex items-center gap-2.5">
+                                                <div className="w-8 h-8 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-600">
+                                                    <span className="material-symbols-outlined text-base">badge</span>
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs font-black text-near-black">Smart Business Card & NFC</p>
+                                                    <p className="text-[10px] text-slate-400">Active Node: nobevra.ai/id/noble</p>
+                                                </div>
+                                            </div>
+                                            <span className="px-3 py-1 rounded-full bg-violet-500/10 text-violet-700 font-bold text-[10px] uppercase">
+                                                Live CRM Linked
+                                            </span>
+                                        </div>
+
+                                        <div className="bg-gradient-to-br from-violet-500/10 via-white to-violet-500/5 rounded-2xl p-4 border border-violet-100 flex items-center justify-between">
+                                            <div>
+                                                <p className="text-xs font-black text-near-black mb-1">NFC Tap Detected</p>
+                                                <p className="text-[10px] text-slate-500">Contact saved vCard & submitted lead query</p>
+                                            </div>
+                                            <div className="w-10 h-10 rounded-xl bg-violet-600 text-white flex items-center justify-center font-bold text-xs shadow-md">
+                                                <span className="material-symbols-outlined text-lg">contact_phone</span>
+                                            </div>
+                                        </div>
+
+                                        <div className="flex items-center justify-between text-[11px] text-slate-500 font-medium pt-1">
+                                            <span className="flex items-center gap-1 text-violet-700 font-bold">
+                                                <span className="w-2 h-2 rounded-full bg-violet-600 animate-pulse" />
+                                                +12 Leads captured this week
+                                            </span>
+                                            <Link href="/digital-business-card" className="text-violet-700 font-bold hover:underline">
+                                                View Card Studio →
+                                            </Link>
+                                        </div>
+                                    </motion.div>
+                                )}
+
+                                {activeTab === 'grow' && (
+                                    <motion.div
+                                        key="tab-grow"
+                                        initial={{ opacity: 0, x: 20 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        exit={{ opacity: 0, x: -20 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="space-y-4"
+                                    >
+                                        <div className="flex items-center justify-between border-b border-slate-100 pb-3">
+                                            <div className="flex items-center gap-2.5">
+                                                <div className="w-8 h-8 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-600">
+                                                    <span className="material-symbols-outlined text-base">psychology</span>
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs font-black text-near-black">Gemini AI Financial Intelligence</p>
+                                                    <p className="text-[10px] text-slate-400">Automated Cash Flow Projection</p>
+                                                </div>
+                                            </div>
+                                            <span className="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-700 font-bold text-[10px] uppercase">
+                                                +28% MoM
+                                            </span>
+                                        </div>
+
+                                        <div className="bg-slate-900 text-white rounded-2xl p-4 space-y-2">
+                                            <div className="flex items-center justify-between text-xs">
+                                                <span className="text-slate-400">Net Monthly Revenue</span>
+                                                <span className="font-mono font-bold text-emerald-400">₦2,840,000.00</span>
+                                            </div>
+                                            <p className="text-[10px] text-slate-300 leading-relaxed">
+                                                <strong className="text-emerald-400">AI Insight:</strong> All invoices paid within 48h. Operating margin improved by 14% after automated reminders.
+                                            </p>
+                                        </div>
+
+                                        <div className="flex items-center justify-between text-[11px] text-slate-500 font-medium pt-1">
+                                            <span className="flex items-center gap-1 text-emerald-600 font-bold">
+                                                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                                                Live real-time telemetry active
+                                            </span>
+                                            <Link href="/ai-receipt-scanner" className="text-emerald-700 font-bold hover:underline">
+                                                Explore AI Radar →
+                                            </Link>
+                                        </div>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+
+                            {/* Bottom Platform Proof Strip */}
+                            <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+                                <span>PostgreSQL RLS Security</span>
+                                <span>Multi-Tenant Isolated</span>
+                            </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </motion.div>
             </div>
         </section>
