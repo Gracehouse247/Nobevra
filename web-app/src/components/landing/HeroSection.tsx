@@ -58,7 +58,7 @@ export default function HeroSection() {
                     </div>
 
                     {/* H1 */}
-                    <h1 className="font-inter text-near-black mb-6 text-[32px] md:text-[52px] lg:text-[58px] leading-[1.05] tracking-tight font-black">
+                    <h1 className="font-inter text-near-black mb-6 text-[28px] xs:text-[32px] sm:text-[40px] md:text-[52px] lg:text-[58px] leading-[1.08] tracking-tight font-black break-words">
                         Run Your Business.{' '}
                         <span className="text-noble-blue">Connect Everything.</span>{' '}
                         Grow Without Limits.
@@ -72,7 +72,7 @@ export default function HeroSection() {
                     <div className="flex flex-col sm:flex-row gap-4 mb-8">
                         <Link
                             href="/register"
-                            className="text-white px-10 py-4 text-base font-extrabold rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(22,111,187,0.3)] hover:scale-[1.02] active:scale-95"
+                            className="text-white px-8 sm:px-10 py-4 text-base font-extrabold rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(22,111,187,0.3)] hover:scale-[1.02] active:scale-95 text-center"
                             style={{ backgroundColor: '#166FBB' }}
                         >
                             Start Free
@@ -81,7 +81,7 @@ export default function HeroSection() {
 
                         <Link
                             href="/#run"
-                            className="flex items-center justify-center gap-3 px-8 py-4 text-base font-bold rounded-2xl border-2 border-near-black/10 text-near-black hover:border-noble-blue hover:text-noble-blue hover:bg-noble-blue/5 transition-all"
+                            className="flex items-center justify-center gap-3 px-6 sm:px-8 py-4 text-base font-bold rounded-2xl border-2 border-near-black/10 text-near-black hover:border-noble-blue hover:text-noble-blue hover:bg-noble-blue/5 transition-all text-center"
                         >
                             <span className="material-symbols-outlined text-sm" aria-hidden="true">visibility</span>
                             Explore Platform
@@ -109,15 +109,15 @@ export default function HeroSection() {
                     </div>
                 </motion.div>
 
-                {/* ── Right: Interactive 3-Pillar UI Showcase ── */}
+                {/* ── Right: Dynamic Interactive Pillar Showcase ── */}
                 <motion.div
-                    initial={{ opacity: 0, y: 48 }}
+                    initial={{ opacity: 0, y: 32 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.9, ease: 'easeOut', delay: 0.15 }}
-                    className="relative flex flex-col items-center lg:pl-6"
+                    className="relative flex flex-col items-center lg:pl-6 w-full overflow-hidden"
                 >
                     {/* Interactive Tab Switcher */}
-                    <div className="flex items-center gap-2 p-1.5 bg-slate-100/90 backdrop-blur-md rounded-2xl border border-slate-200/80 mb-6 shadow-sm z-20">
+                    <div className="flex items-center justify-center flex-wrap gap-1.5 sm:gap-2 p-1.5 bg-slate-100/90 backdrop-blur-md rounded-2xl border border-slate-200/80 mb-6 shadow-sm z-20 max-w-full">
                         <button
                             onClick={() => setActiveTab('run')}
                             className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black transition-all focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none ${
