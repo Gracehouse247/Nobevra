@@ -51,8 +51,8 @@ const FEATURES = [
         accent: '#8B5CF6',
         accentBg: 'from-[#F5F0FF] to-white',
         accentBadge: 'bg-violet-500/10 text-violet-700',
-        image: '/images/crm-engine.png',
-        imageAlt: 'Nobevra CRM client pipeline and relationship management',
+        image: '/images/crm-clients-ledger.jpg',
+        imageAlt: 'Nobevra Clients Ledger — full CRM pipeline with client scoring, active status, and revenue tracking',
         stat: { value: '40%', label: 'Faster deal closure' },
     },
     {
@@ -74,8 +74,8 @@ const FEATURES = [
         accent: '#10B981',
         accentBg: 'from-[#EDFAF5] to-white',
         accentBadge: 'bg-emerald-500/10 text-emerald-700',
-        image: '/images/cashflow-dashboard.png',
-        imageAlt: 'Nobevra AI-powered expense tracking and receipt scanning',
+        image: '/images/expenses-manager-hub.jpg',
+        imageAlt: 'Nobevra Expense Manager Hub — live expense analytics, receipt vault, category breakdowns, and smart cash flow insights',
         stat: { value: '0 hrs', label: 'Manual reconciliation' },
     },
     {
