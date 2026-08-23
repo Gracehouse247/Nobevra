@@ -97,8 +97,8 @@ const FEATURES = [
         accent: '#F59E0B',
         accentBg: 'from-[#FFFBEB] to-white',
         accentBadge: 'bg-amber-500/10 text-amber-700',
-        image: '/images/hero-dashboard-actual.png',
-        imageAlt: 'Nobevra global payments via Flutterwave PCI-DSS gateway',
+        image: '/images/wallet-payments-hub.png',
+        imageAlt: 'Nobevra Wallet and Payments Hub — live balance, automated payouts, Flutterwave payment gateway integration, and transaction history',
         stat: { value: '30+', label: 'Countries supported' },
     },
     {
