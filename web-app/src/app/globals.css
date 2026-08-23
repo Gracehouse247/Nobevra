@@ -892,3 +892,40 @@ html.dark body:not(:has([data-theme-force="light"])) {
 }
 .ledger-row:hover::before { opacity: 0.6; }
 .ledger-row.selected::before { opacity: 1; }
+
+/* ── Accessibility & Reduced Motion Support (WCAG 2.2 / AAA) ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Screen reader helper utilities */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.focus\:not-sr-only:focus,
+.focus\:not-sr-only:focus-visible {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: 0.75rem 1.5rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}

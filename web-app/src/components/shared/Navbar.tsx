@@ -230,12 +230,21 @@ export default function Navbar() {
                 )}
             </AnimatePresence>
 
+            {/* Skip to main content link for keyboard and screen reader accessibility */}
+            <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-6 focus:py-3 focus:bg-noble-blue focus:text-white focus:font-black focus:rounded-xl focus:shadow-2xl focus:outline-none focus:ring-2 focus:ring-white"
+            >
+                Skip to main content
+            </a>
+
             {/* ── Main Navbar ── */}
             <nav
                 className={`fixed left-0 right-0 z-[120] transition-all duration-500 ${announcementVisible ? 'top-[38px]' : 'top-0'} ${
                     isScrolled ? 'bg-noble-surface dark:bg-noble-card/90 backdrop-blur-md border-b border-near-black/5 shadow-sm' : 'bg-transparent'
                 }`}
                 onMouseLeave={() => setActiveMenu(null)}
+                aria-label="Main Navigation"
             >
                 <div className="max-w-[1430px] mx-auto flex justify-between items-center px-4 md:px-16 h-[80px] w-full relative">
 
@@ -472,10 +481,11 @@ export default function Navbar() {
                     {/* Mobile Hamburger */}
                     <button
                         onClick={() => setMobileOpen(true)}
-                        className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-near-black/5 text-near-black hover:bg-near-black/10 transition-colors"
-                        aria-label="Open menu"
+                        className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-near-black/5 text-near-black hover:bg-near-black/10 transition-colors focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none"
+                        aria-label="Open navigation menu"
+                        aria-expanded={mobileOpen}
                     >
-                        <Menu className="w-5 h-5" />
+                        <Menu className="w-5 h-5" aria-hidden="true" />
                     </button>
                 </div>
             </nav>
@@ -504,10 +514,10 @@ export default function Navbar() {
                                 <Image src={brand.assets.logo} alt="Nobevra Logo" width={110} height={28} className="h-7 w-auto object-contain" priority />
                                 <button
                                     onClick={() => setMobileOpen(false)}
-                                    className="w-9 h-9 flex items-center justify-center rounded-xl bg-near-black/5 text-near-black hover:bg-near-black/10 transition-colors"
-                                    aria-label="Close menu"
+                                    className="w-9 h-9 flex items-center justify-center rounded-xl bg-near-black/5 text-near-black hover:bg-near-black/10 transition-colors focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none"
+                                    aria-label="Close navigation menu"
                                 >
-                                    <X className="w-5 h-5" />
+                                    <X className="w-5 h-5" aria-hidden="true" />
                                 </button>
                             </div>
 
