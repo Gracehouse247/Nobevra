@@ -75,7 +75,7 @@ export default function ConnectSection() {
                     transition={{ duration: 0.6 }}
                     className="mb-16 md:mb-20"
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/8 border border-violet-500/10 text-violet-700 font-bold text-[10px] uppercase tracking-widest mb-6">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/8 border border-noble-blue/15 text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6">
                         <span className="material-symbols-outlined text-sm" aria-hidden="true">hub</span>
                         PILLAR 2: CONNECT
                     </div>

@@ -64,7 +64,8 @@ export default function CRMDeepDive() {
                         <div className="flex flex-col sm:flex-row items-center gap-4">
                             <Link
                                 href="/register"
-                                className="w-full sm:w-auto px-7 py-3.5 bg-violet-600 text-white font-black text-xs rounded-xl hover:bg-violet-700 transition-all flex items-center justify-center gap-2 shadow-md shadow-violet-500/20"
+                                className="w-full sm:w-auto px-7 py-3.5 text-white font-black text-xs rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 shadow-md"
+                                style={{ backgroundColor: '#166FBB', boxShadow: '0 8px 24px rgba(22,111,187,0.30)' }}
                             >
                                 Start Free
                                 <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
@@ -72,9 +73,10 @@ export default function CRMDeepDive() {
 
                             <Link
                                 href="/crm"
-                                className="w-full sm:w-auto px-7 py-3.5 bg-noble-surface border border-slate-200 text-near-black font-bold text-xs rounded-xl hover:bg-slate-50 transition-all flex items-center justify-center"
+                                className="w-full sm:w-auto px-7 py-3.5 bg-noble-surface border border-noble-blue/20 text-noble-blue font-bold text-xs rounded-xl hover:bg-noble-blue/5 transition-all flex items-center justify-center gap-2 focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none"
                             >
                                 Explore CRM Platform
+                                <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
                             </Link>
                         </div>
                     </motion.div>
