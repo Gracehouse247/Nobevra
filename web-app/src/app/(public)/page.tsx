@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Footer from '@/components/shared/Footer';
 
-// Core Landing Components
+// 19-Section Information Architecture Components
 import HeroSection from '@/components/landing/HeroSection';
 import PartnersMarquee from '@/components/landing/PartnersMarquee';
 import SEOProblemSection from '@/components/landing/SEOProblemSection';
@@ -12,6 +12,12 @@ import GrowSection from '@/components/landing/GrowSection';
 import PlatformEcosystemSection from '@/components/landing/PlatformEcosystemSection';
 import FeaturesBento from '@/components/landing/FeaturesBento';
 import TemplateShowcase from '@/components/landing/TemplateShowcase';
+import CRMDeepDive from '@/components/landing/CRMDeepDive';
+import ExpensesProductsDeepDive from '@/components/landing/ExpensesProductsDeepDive';
+import PaymentsDeepDive from '@/components/landing/PaymentsDeepDive';
+import AIDeepDive from '@/components/landing/AIDeepDive';
+import IdentityNFCDeepDive from '@/components/landing/IdentityNFCDeepDive';
+import TeamsScalingDeepDive from '@/components/landing/TeamsScalingDeepDive';
 import SEOStatsSection from '@/components/landing/SEOStatsSection';
 import SecurityTrustSection from '@/components/landing/SecurityTrustSection';
 import PricingSnapshotSection from '@/components/landing/PricingSnapshotSection';
@@ -49,49 +55,65 @@ export const metadata: Metadata = {
 export default function LandingPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased selection:bg-electric-cyan/30 overflow-x-hidden pt-[118px]">
-            {/* 1. Hero Section */}
+            {/* 1. Hero */}
             <HeroSection />
 
-            {/* 2. Brand & Ecosystem Marquee */}
+            {/* 2. Immediate Platform Value & Architecture */}
             <PartnersMarquee />
 
-            {/* 3. The Business Fragmentation Problem */}
+            {/* 2b. The Business Fragmentation Problem */}
             <SEOProblemSection />
 
-            {/* 4. RUN Pillar — Invoicing, Expenses, Products, Payments */}
+            {/* 3. RUN Pillar Overview */}
             <RunSection />
 
-            {/* 5. CONNECT Pillar — CRM, Client Portal, Business Identity, QR, Teams */}
+            {/* 4. CONNECT Pillar Overview */}
             <ConnectSection />
 
-            {/* 6. GROW Pillar — AI Intelligence, Reports, Lead Analytics */}
+            {/* 5. GROW Pillar Overview */}
             <GrowSection />
 
-            {/* 7. Unified Ecosystem — Web + Android + iOS Cross-Device Platform */}
+            {/* 6. Unified Ecosystem Visualization */}
             <PlatformEcosystemSection />
 
-            {/* 8. Feature Deep Dive Bento Grid */}
+            {/* 7. Invoicing Acquisition Section */}
             <FeaturesBento />
-
-            {/* 9. Template Engine Showcase */}
             <TemplateShowcase />
 
-            {/* 10. Customer Proof & Testimonials */}
+            {/* 8. CRM Section */}
+            <CRMDeepDive />
+
+            {/* 9. Expenses and Products Section */}
+            <ExpensesProductsDeepDive />
+
+            {/* 10. Payments Section */}
+            <PaymentsDeepDive />
+
+            {/* 11. AI Section */}
+            <AIDeepDive />
+
+            {/* 12. Business Identity / QR / NFC */}
+            <IdentityNFCDeepDive />
+
+            {/* 13. Teams and Enterprise Scaling */}
+            <TeamsScalingDeepDive />
+
+            {/* 14. Customer Social Proof */}
             <SEOStatsSection />
 
-            {/* 11. Security, Data Privacy & Trust */}
+            {/* 15. Security and Trust */}
             <SecurityTrustSection />
 
-            {/* 12. Transparent Pricing Snapshot */}
+            {/* 16. Pricing */}
             <PricingSnapshotSection />
 
-            {/* 13. Comprehensive FAQ */}
+            {/* 17. FAQ */}
             <SEOQualifierFAQ />
 
-            {/* 14. Final Conversion Call To Action */}
+            {/* 18. Final CTA */}
             <FinalCTA />
 
-            {/* 15. Standardized Footer */}
+            {/* 19. Footer */}
             <Footer />
         </div>
     );
