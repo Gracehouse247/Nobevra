@@ -1,69 +1,97 @@
-'use client';
-
 import React from 'react';
-import SavingsCalculator from '@/components/landing/SavingsCalculator';
-import TemplateShowcase from '@/components/landing/TemplateShowcase';
+import type { Metadata } from 'next';
 import Footer from '@/components/shared/Footer';
 
-// Extracted Components
+// Core Landing Components
 import HeroSection from '@/components/landing/HeroSection';
 import PartnersMarquee from '@/components/landing/PartnersMarquee';
+import SEOProblemSection from '@/components/landing/SEOProblemSection';
+import RunSection from '@/components/landing/RunSection';
+import ConnectSection from '@/components/landing/ConnectSection';
+import GrowSection from '@/components/landing/GrowSection';
+import PlatformEcosystemSection from '@/components/landing/PlatformEcosystemSection';
 import FeaturesBento from '@/components/landing/FeaturesBento';
-import LandingCRM from '@/components/landing/LandingCRM';
+import TemplateShowcase from '@/components/landing/TemplateShowcase';
+import SEOStatsSection from '@/components/landing/SEOStatsSection';
+import SecurityTrustSection from '@/components/landing/SecurityTrustSection';
+import PricingSnapshotSection from '@/components/landing/PricingSnapshotSection';
+import SEOQualifierFAQ from '@/components/landing/SEOQualifierFAQ';
 import FinalCTA from '@/components/landing/FinalCTA';
 
-// SEO Optimized Sections
-import SEOProblemSection from '@/components/landing/SEOProblemSection';
-import SEOSolutionSection from '@/components/landing/SEOSolutionSection';
-import SEOCashFlowSection from '@/components/landing/SEOCashFlowSection';
-import SEOStatsSection from '@/components/landing/SEOStatsSection';
-import SEOQualifierFAQ from '@/components/landing/SEOQualifierFAQ';
+export const metadata: Metadata = {
+    title: 'Nobevra — Intelligent Business Operating System | Invoicing, CRM & More',
+    description: 'Run your business from one intelligent platform. Nobevra combines invoicing, CRM, expenses, payments, AI, business identity, teams and business intelligence. Start free.',
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng',
+    },
+    openGraph: {
+        title: 'Nobevra — The Intelligent Business Operating System',
+        description: 'Everything your business needs. One intelligent platform. Run. Connect. Grow.',
+        url: 'https://nobevra.noblesworld.com.ng',
+        siteName: 'NOBEVRA',
+        images: [
+            {
+                url: '/images/Nobevra1.png',
+                width: 1536,
+                height: 1024,
+                alt: 'Nobevra — The Intelligent Business Operating System',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Nobevra — Intelligent Business Operating System',
+        description: 'Run your business from one intelligent platform. Invoicing, CRM, expenses, payments, AI & more.',
+        images: ['/images/Nobevra1.png'],
+    },
+};
 
 export default function LandingPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased selection:bg-electric-cyan/30 overflow-x-hidden pt-[118px]">
+            {/* 1. Hero Section */}
             <HeroSection />
-            <PartnersMarquee />
-            
-            {/* The Problem (Contrarian Hook) */}
-            <SEOProblemSection />
-            
-            {/* The Nobevra Approach (Bento Grid) */}
-            <SEOSolutionSection />
-            
-            <FeaturesBento />
-            <TemplateShowcase />
-            
-            {/* 14-Day Cash Flow Gap (Information Gain) */}
-            <SEOCashFlowSection />
-            
-            {/* Savings Calculator Section */}
-            <section className="py-24 md:py-32 relative overflow-hidden">
-                <div className="max-w-[1430px] mx-auto px-4 md:px-16 relative z-10 text-center mb-16 md:mb-20">
-                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/10 text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6">
-                        Return on Investment
-                    </div>
-                    <h2 className="font-inter text-4xl md:text-5xl lg:text-6xl font-black text-near-black leading-[1.1] mb-6 tracking-tight">
-                        Reclaim <span className="text-noble-blue">20+ Hours</span> Every Month.
-                    </h2>
-                    <p className="text-base md:text-lg text-near-black/50 max-w-2xl mx-auto leading-relaxed">
-                        Calculate exactly how much you're losing to manual billing and how much you'll gain with Nobevra.
-                    </p>
-                </div>
-                <div className="px-4 md:px-16">
-                    <SavingsCalculator />
-                </div>
-            </section>
 
-            {/* Stats & Featured Social Proof */}
+            {/* 2. Brand & Ecosystem Marquee */}
+            <PartnersMarquee />
+
+            {/* 3. The Business Fragmentation Problem */}
+            <SEOProblemSection />
+
+            {/* 4. RUN Pillar — Invoicing, Expenses, Products, Payments */}
+            <RunSection />
+
+            {/* 5. CONNECT Pillar — CRM, Client Portal, Business Identity, QR, Teams */}
+            <ConnectSection />
+
+            {/* 6. GROW Pillar — AI Intelligence, Reports, Lead Analytics */}
+            <GrowSection />
+
+            {/* 7. Unified Ecosystem — Web + Android + iOS Cross-Device Platform */}
+            <PlatformEcosystemSection />
+
+            {/* 8. Feature Deep Dive Bento Grid */}
+            <FeaturesBento />
+
+            {/* 9. Template Engine Showcase */}
+            <TemplateShowcase />
+
+            {/* 10. Customer Proof & Testimonials */}
             <SEOStatsSection />
 
-            <LandingCRM />
-            
-            {/* Not For You & FAQ */}
+            {/* 11. Security, Data Privacy & Trust */}
+            <SecurityTrustSection />
+
+            {/* 12. Transparent Pricing Snapshot */}
+            <PricingSnapshotSection />
+
+            {/* 13. Comprehensive FAQ */}
             <SEOQualifierFAQ />
-            
+
+            {/* 14. Final Conversion Call To Action */}
             <FinalCTA />
+
+            {/* 15. Standardized Footer */}
             <Footer />
         </div>
     );
