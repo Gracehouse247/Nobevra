@@ -8,49 +8,49 @@ const CONNECT_FEATURES = [
     {
         icon: 'diversity_3',
         title: 'Lightweight CRM',
-        description: 'Track every client interaction, know when invoices are viewed, and manage your entire customer relationship from one intelligent hub.',
-        link: '/lightweight-crm-for-freelancers',
-        tag: 'Live',
+        description: 'Track client profiles, view interaction histories, and monitor exact moments when invoices are viewed by your customers.',
+        link: '/crm',
+        tag: 'CRM Pipeline',
         tagColor: 'bg-emerald-500/10 text-emerald-700',
     },
     {
         icon: 'open_in_browser',
-        title: 'Client Portal',
-        description: 'Give every client a branded, secure web portal to view invoices, download documents, and pay online — no account needed on their end.',
+        title: 'Branded Client Portal',
+        description: 'Provide clients a secure, white-labeled web portal to review documents, access invoices, and pay online with zero login required.',
         link: '/features/client-portal',
-        tag: 'Branded',
+        tag: 'Frictionless',
         tagColor: 'bg-noble-blue/10 text-noble-blue',
     },
     {
         icon: 'badge',
-        title: 'Business Identity',
-        description: 'Design a stunning digital business card, share your profile via QR or NFC, and make every first impression count.',
-        link: '/business-card-maker',
+        title: 'Business Identity & NFC',
+        description: 'Create customized digital business cards with tap-to-share NFC technology and instant vCard phone contact saving.',
+        link: '/digital-business-card',
         tag: 'NFC Ready',
         tagColor: 'bg-violet-500/10 text-violet-700',
     },
     {
         icon: 'qr_code_2',
-        title: 'QR Code Engine',
-        description: 'Generate dynamic QR codes for URLs, payment links, vCards, WiFi, and more — with real-time scan analytics.',
-        link: '/features/qr-business-cards',
-        tag: 'Dynamic',
+        title: 'Dynamic QR Engine',
+        description: 'Generate dynamic high-resolution QR codes for websites, payment links, and vCards with real-time scan telemetry.',
+        link: '/qr-code-generator',
+        tag: 'Dynamic QR',
         tagColor: 'bg-amber-500/10 text-amber-700',
     },
     {
         icon: 'group',
-        title: 'Team Workspace',
-        description: 'Collaborate with your team in a shared, role-based workspace with multi-tenant data isolation and fine-grained permissions.',
+        title: 'Team Workspaces',
+        description: 'Collaborate with team members in a shared workspace with strict multi-tenant Row-Level Security and granular roles.',
         link: '/features/team-workspace',
-        tag: 'Multi-tenant',
+        tag: 'Multi-Tenant',
         tagColor: 'bg-slate-200 text-slate-700',
     },
     {
-        icon: 'description',
-        title: 'Contracts & Signatures',
-        description: 'Send legally-binding digital contracts for client signature and store signed agreements securely alongside your invoices.',
+        icon: 'mail',
+        title: 'Client Communication',
+        description: 'Automate professional payment reminder emails, status notifications, and verified digital transaction receipts.',
         link: '/features',
-        tag: 'Digital',
+        tag: 'Automated Email',
         tagColor: 'bg-rose-500/10 text-rose-700',
     },
 ];
@@ -77,14 +77,14 @@ export default function ConnectSection() {
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/8 border border-violet-500/10 text-violet-700 font-bold text-[10px] uppercase tracking-widest mb-6">
                         <span className="material-symbols-outlined text-sm" aria-hidden="true">hub</span>
-                        CONNECT
+                        PILLAR 2: CONNECT
                     </div>
                     <h2 className="font-inter text-4xl md:text-5xl font-black text-near-black leading-[1.1] tracking-tight mb-4 max-w-2xl">
                         Build relationships that{' '}
                         <span className="text-violet-600 italic">actually convert.</span>
                     </h2>
                     <p className="text-base md:text-lg text-near-black/50 max-w-2xl leading-relaxed">
-                        From the first handshake to the signed contract — Nobevra gives you every tool to connect with clients, build your identity, and scale your network.
+                        Lightweight CRM, branded client portals, NFC smart business cards, dynamic QR codes, automated communications, and team collaboration.
                     </p>
                 </motion.div>
 

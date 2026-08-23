@@ -7,34 +7,34 @@ import { motion } from 'framer-motion';
 const GROW_FEATURES = [
     {
         icon: 'psychology',
-        title: 'AI Business Intelligence',
-        description: 'Get automated financial narrative reports, AI receipt data extraction via Gemini, and smart business recommendations.',
+        title: 'Gemini AI Intelligence',
+        description: 'Get automated financial narrative summaries, receipt data extraction via Gemini, and smart cash flow recommendations.',
         link: '/ai-receipt-scanner',
         tag: 'Gemini AI',
         tagColor: 'bg-electric-cyan/15 text-noble-blue',
     },
     {
         icon: 'insights',
-        title: 'Financial & Growth Reports',
-        description: 'Real-time revenue analytics, cash flow tracking, expense breakdown, and client lifetime value metrics at a glance.',
+        title: 'Growth Reports & Insights',
+        description: 'Real-time revenue analytics, cash flow tracking, expense leak alerts, and client lifetime value metrics at a glance.',
         link: '/features',
-        tag: 'Real-time',
+        tag: 'Real-Time Stats',
         tagColor: 'bg-emerald-500/10 text-emerald-700',
     },
     {
         icon: 'trending_up',
         title: 'Lead Intelligence & Pipelines',
-        description: 'Track lead engagement, monitor digital business card views, and turn new network contacts into paid invoices seamlessly.',
-        link: '/lightweight-crm-for-freelancers',
-        tag: 'CRM Linked',
+        description: 'Monitor digital card scans, track QR campaign conversions, and convert new network leads into paid client invoices.',
+        link: '/crm',
+        tag: 'Pipeline Radar',
         tagColor: 'bg-violet-500/10 text-violet-700',
     },
     {
         icon: 'language',
-        title: 'Autonomous SEO Content',
-        description: 'Built-in CMS engine with autonomous SEO orchestration to help your business rank organically and acquire customers.',
-        link: '/blog',
-        tag: 'SEO Hub',
+        title: 'SEO Capabilities & Scalable Plans',
+        description: 'Built-in CMS engine with automated SEO indexing to help your business rank organically and scale from Starter to Elite.',
+        link: '/pricing',
+        tag: 'Scalable Plans',
         tagColor: 'bg-amber-500/10 text-amber-700',
     },
 ];
@@ -61,14 +61,14 @@ export default function GrowSection() {
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/8 border border-emerald-500/10 text-emerald-700 font-bold text-[10px] uppercase tracking-widest mb-6">
                         <span className="material-symbols-outlined text-sm" aria-hidden="true">trending_up</span>
-                        GROW
+                        PILLAR 3: GROW
                     </div>
                     <h2 className="font-inter text-4xl md:text-5xl font-black text-near-black leading-[1.1] tracking-tight mb-4 max-w-2xl">
                         Turn your data into{' '}
                         <span className="text-emerald-600 italic">scalable revenue.</span>
                     </h2>
                     <p className="text-base md:text-lg text-near-black/50 max-w-2xl leading-relaxed">
-                        Stop guessing your financial health. Nobevra continuously analyzes your invoices, expenses, and client interactions to reveal growth opportunities.
+                        Financial intelligence, AI assistants, growth reports, scan telemetry analytics, business insights, and scalable plans.
                     </p>
                 </motion.div>
 
