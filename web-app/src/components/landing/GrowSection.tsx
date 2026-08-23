@@ -65,7 +65,7 @@ export default function GrowSection() {
                     </div>
                     <h2 className="font-inter text-4xl md:text-5xl font-black text-near-black leading-[1.1] tracking-tight mb-4 max-w-2xl">
                         Turn your data into{' '}
-                        <span className="text-emerald-600 italic">scalable revenue.</span>
+                        <span className="text-noble-blue italic">scalable revenue.</span>
                     </h2>
                     <p className="text-base md:text-lg text-near-black/50 max-w-2xl leading-relaxed">
                         Financial intelligence, AI assistants, growth reports, scan telemetry analytics, business insights, and scalable plans.

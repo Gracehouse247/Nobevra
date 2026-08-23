@@ -81,7 +81,7 @@ export default function ConnectSection() {
                     </div>
                     <h2 className="font-inter text-4xl md:text-5xl font-black text-near-black leading-[1.1] tracking-tight mb-4 max-w-2xl">
                         Build relationships that{' '}
-                        <span className="text-violet-600 italic">actually convert.</span>
+                        <span className="text-noble-blue italic">actually convert.</span>
                     </h2>
                     <p className="text-base md:text-lg text-near-black/50 max-w-2xl leading-relaxed">
                         Lightweight CRM, branded client portals, NFC smart business cards, dynamic QR codes, automated communications, and team collaboration.
