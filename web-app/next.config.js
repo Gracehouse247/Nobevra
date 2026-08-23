@@ -53,6 +53,9 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion', 'react-hot-toast'],
+  },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
   },
