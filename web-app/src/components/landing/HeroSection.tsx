@@ -17,9 +17,9 @@ const TRUST_ITEMS = [
         sub: 'Secure gateway',
     },
     {
-        icon: 'verified',
-        label: 'CAC Registered',
-        sub: "The Noble's Technology Services",
+        icon: 'verified_user',
+        label: '100% Data Ownership',
+        sub: 'Export CSV & JSON anytime',
     },
     {
         icon: 'devices',

@@ -40,11 +40,11 @@ const TRUST_PILLARS = [
         verifiedBadge: 'Full Data Portability',
     },
     {
-        icon: 'gavel',
-        category: 'Legal Registration',
-        title: 'Registered Legal Entity',
-        description: 'Nobevra is developed, owned, and operated by The Noble\'s Technology Services, an officially registered entity adhering to transparent business and privacy practices.',
-        verifiedBadge: 'The Noble\'s Technology Services',
+        icon: 'admin_panel_settings',
+        category: 'Workspace Security',
+        title: 'Granular Roles & Access Controls',
+        description: 'Enforce strict role-based permissions across team members, accountants, and workspace managers with complete audit trails and isolated member sessions.',
+        verifiedBadge: 'Role-Based Access Control',
     },
 ];
 
@@ -144,9 +144,9 @@ export default function SecurityTrustSection() {
                     </div>
 
                     <div className="shrink-0 flex items-center gap-3">
-                        <span className="text-xs font-bold text-slate-500">Legal Entity:</span>
+                        <span className="text-xs font-bold text-slate-500">Architecture:</span>
                         <span className="px-3 py-1.5 rounded-xl bg-slate-100 font-bold text-xs text-near-black font-mono">
-                            The Noble&apos;s Technology Services
+                            Zero Ad Tracking · Privacy-First
                         </span>
                     </div>
                 </motion.div>

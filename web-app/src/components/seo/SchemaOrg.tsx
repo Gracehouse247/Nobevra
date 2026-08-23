@@ -31,7 +31,7 @@ export default function SchemaOrg() {
         'name': brand.parentCompany,
         'legalName': brand.parentCompany,
         'alternateName': 'Nobevra',
-        'description': 'The Noble\'s Technology Services is the CAC-registered legal entity that owns and operates Nobevra, the Intelligent Business Operating System.',
+        'description': 'Nobevra is the Intelligent Business Operating System that provides invoicing, CRM, expense tracking, payments, AI, and digital business identity for global businesses.',
         'url': base,
         'logo': {
           '@type': 'ImageObject',
@@ -49,7 +49,7 @@ export default function SchemaOrg() {
           'height': 1024,
         },
         'foundingDate': '2024',
-        'areaServed': 'NG',
+        'areaServed': 'Worldwide',
         'knowsAbout': [
           'Business Management Software',
           'Invoice Software',
