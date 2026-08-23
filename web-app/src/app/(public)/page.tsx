@@ -26,9 +26,15 @@ import FinalCTA from '@/components/landing/FinalCTA';
 
 export const metadata: Metadata = {
     title: 'Nobevra — Intelligent Business Operating System | Invoicing, CRM & More',
-    description: 'Run your business from one intelligent platform. Nobevra combines invoicing, CRM, expenses, payments, AI, business identity, teams and business intelligence. Start free.',
+    description: 'Run your business from one intelligent platform. Nobevra combines invoicing, CRM, expenses, payments, AI, business identity, teams and business intelligence.',
     alternates: {
         canonical: 'https://nobevra.noblesworld.com.ng',
+        languages: {
+            'en': 'https://nobevra.noblesworld.com.ng',
+            'en-US': 'https://nobevra.noblesworld.com.ng',
+            'en-NG': 'https://nobevra.noblesworld.com.ng',
+            'x-default': 'https://nobevra.noblesworld.com.ng',
+        },
     },
     openGraph: {
         title: 'Nobevra — The Intelligent Business Operating System',
