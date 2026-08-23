@@ -120,7 +120,7 @@ export default function HeroSection() {
                     <div className="flex items-center gap-2 p-1.5 bg-slate-100/90 backdrop-blur-md rounded-2xl border border-slate-200/80 mb-6 shadow-sm z-20">
                         <button
                             onClick={() => setActiveTab('run')}
-                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black transition-all ${
+                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black transition-all focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none ${
                                 activeTab === 'run'
                                     ? 'bg-noble-blue text-white shadow-md'
                                     : 'text-slate-600 hover:text-near-black'
@@ -132,7 +132,7 @@ export default function HeroSection() {
 
                         <button
                             onClick={() => setActiveTab('connect')}
-                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black transition-all ${
+                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black transition-all focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:outline-none ${
                                 activeTab === 'connect'
                                     ? 'bg-violet-600 text-white shadow-md'
                                     : 'text-slate-600 hover:text-near-black'
@@ -144,7 +144,7 @@ export default function HeroSection() {
 
                         <button
                             onClick={() => setActiveTab('grow')}
-                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black transition-all ${
+                            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-black transition-all focus-visible:ring-2 focus-visible:ring-emerald-600 focus-visible:outline-none ${
                                 activeTab === 'grow'
                                     ? 'bg-emerald-600 text-white shadow-md'
                                     : 'text-slate-600 hover:text-near-black'

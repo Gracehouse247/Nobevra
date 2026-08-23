@@ -106,7 +106,7 @@ export default function PricingSnapshotSection() {
                     <div className="inline-flex items-center gap-3 p-1.5 bg-slate-100/80 rounded-2xl border border-slate-200/80">
                         <button
                             onClick={() => setBillingCycle('monthly')}
-                            className={`px-5 py-2 rounded-xl text-xs font-black transition-all ${
+                            className={`px-5 py-2 rounded-xl text-xs font-black transition-all focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none ${
                                 billingCycle === 'monthly'
                                     ? 'bg-noble-surface text-near-black shadow-sm'
                                     : 'text-near-black/50 hover:text-near-black'
@@ -116,7 +116,7 @@ export default function PricingSnapshotSection() {
                         </button>
                         <button
                             onClick={() => setBillingCycle('yearly')}
-                            className={`px-5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 ${
+                            className={`px-5 py-2 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none ${
                                 billingCycle === 'yearly'
                                     ? 'bg-noble-blue text-white shadow-sm'
                                     : 'text-near-black/50 hover:text-near-black'

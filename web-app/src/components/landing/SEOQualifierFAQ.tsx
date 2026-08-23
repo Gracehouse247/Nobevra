@@ -75,7 +75,7 @@ export default function SEOQualifierFAQ() {
                                 <button
                                     onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
                                     aria-expanded={isOpen}
-                                    className="w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 font-black text-near-black text-lg md:text-xl"
+                                    className="w-full text-left p-6 md:p-8 flex items-center justify-between gap-4 font-black text-near-black text-lg md:text-xl focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none transition-colors"
                                 >
                                     <span>{faq.q}</span>
                                     <span
