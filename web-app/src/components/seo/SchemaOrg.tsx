@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import { brand } from '@/lib/brand';
 
 /**
@@ -260,10 +259,8 @@ export default function SchemaOrg() {
   };
 
   return (
-    <Script
-      id="schema-org"
+    <script
       type="application/ld+json"
-      strategy="beforeInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 0) }}
     />
   );

@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import { brand } from '@/lib/brand';
 
 interface BreadcrumbItem {
@@ -45,10 +44,8 @@ export default function BreadcrumbSchema({ crumbs, pageId }: BreadcrumbSchemaPro
   };
 
   return (
-    <Script
-      id={`schema-breadcrumb-${pageId}`}
+    <script
       type="application/ld+json"
-      strategy="beforeInteractive"
       dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );

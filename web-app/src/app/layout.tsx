@@ -5,7 +5,6 @@ import { EntitlementsProvider } from "@/context/EntitlementsContext";
 import { CurrencyProvider } from "@/context/CurrencyContext";
 import { GamificationProvider } from "@/context/GamificationContext";
 import { Toaster } from "react-hot-toast";
-import Script from "next/script";
 import PWAClient from "@/components/providers/PWAClient";
 import SchemaOrg from "@/components/seo/SchemaOrg";
 import CommandPalette from "@/components/shared/CommandPalette";
