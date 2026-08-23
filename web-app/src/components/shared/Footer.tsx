@@ -21,18 +21,18 @@ export default function Footer() {
                         
                         {/* Store Badges */}
                         <div className="flex flex-wrap items-center gap-3 pt-2">
-                            <a href="#" className="hover:scale-105 transition-transform duration-300">
-                                <img src="/images/badges/app-store.png" alt="Download on the App Store" className="h-8 w-auto object-contain" />
+                            <a href="#" aria-label="Download Nobevra on the App Store" className="hover:scale-105 transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none rounded-lg">
+                                <Image src="/images/badges/app-store.png" alt="Download on the App Store" width={120} height={36} className="h-8 w-auto object-contain" />
                             </a>
-                            <a href="#" className="hover:scale-105 transition-transform duration-300">
-                                <img src="/images/badges/play-store.png" alt="Get it on Google Play" className="h-[36px] w-auto object-contain" />
+                            <a href="#" aria-label="Get Nobevra on Google Play" className="hover:scale-105 transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none rounded-lg">
+                                <Image src="/images/badges/play-store.png" alt="Get it on Google Play" width={135} height={40} className="h-[36px] w-auto object-contain" />
                             </a>
                         </div>
 
                         {/* Social Links */}
                         <div className="flex gap-6 items-center">
                             {['X', 'LinkedIn', 'Instagram'].map((social) => (
-                                <a key={social} href="#" className="text-[10px] font-black uppercase tracking-[0.3em] text-near-black/60 hover:text-noble-blue transition-colors">
+                                <a key={social} href="#" aria-label={`Visit our ${social} page`} className="text-[10px] font-black uppercase tracking-[0.3em] text-near-black/60 hover:text-noble-blue transition-colors focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none rounded-sm">
                                     {social}
                                 </a>
                             ))}
@@ -86,17 +86,26 @@ export default function Footer() {
                         
                         {/* Newsletter */}
                         <div>
-                            <p className="text-[10px] font-black text-near-black uppercase tracking-[0.3em] mb-4">Stay Noble</p>
-                            <div className="relative group">
+                            <p className="text-[10px] font-black text-near-black uppercase tracking-[0.3em] mb-4">Stay Connected</p>
+                            <form onSubmit={(e) => e.preventDefault()} className="relative group">
+                                <label htmlFor="footer-newsletter-email" className="sr-only">
+                                    Email address for product updates
+                                </label>
                                 <input 
+                                    id="footer-newsletter-email"
                                     type="email" 
-                                    placeholder="Enter email"
-                                    className="w-full bg-noble-surface dark:bg-noble-card border border-near-black/5 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-noble-blue/20 transition-all"
+                                    placeholder="Enter your email"
+                                    aria-label="Enter your email address"
+                                    className="w-full bg-noble-surface dark:bg-noble-card border border-near-black/5 rounded-xl px-4 py-2.5 text-sm font-medium focus:ring-2 focus:ring-noble-blue/20 focus:outline-none transition-all"
                                 />
-                                <button className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-near-black text-white flex items-center justify-center hover:bg-noble-blue transition-colors">
-                                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                                <button 
+                                    type="submit"
+                                    aria-label="Subscribe to updates"
+                                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-near-black text-white flex items-center justify-center hover:bg-noble-blue transition-colors focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none"
+                                >
+                                    <span className="material-symbols-outlined text-sm" aria-hidden="true">arrow_forward</span>
                                 </button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
