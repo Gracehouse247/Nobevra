@@ -11,7 +11,7 @@ export default function FeaturesBento() {
         <section id="features" className="py-32 relative">
             <div className="max-w-[1430px] mx-auto px-4 md:px-16 relative z-10">
                 <div className="mb-24 text-center">
-                    <h2 className="font-inter text-h1 text-near-black mb-6">
+                    <h2 className="font-inter text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-near-black leading-[1.1] tracking-tight mb-6">
                         One Platform. <span className="italic text-noble-blue underline decoration-electric-cyan/30">Every Tool You Need.</span>
                     </h2>
                     <p className="text-body-lg text-near-black/50 max-w-2xl mx-auto">A world-class suite of financial tools engineered to replace your entire back-office stack.</p>

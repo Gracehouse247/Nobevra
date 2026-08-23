@@ -72,7 +72,7 @@ interface TemplateShowcaseProps {
 export default function TemplateShowcase({ 
     title = (
         <>
-            World-Class <span className="text-noble-blue">Invoice Design</span><br />For The 1%.
+            World-Class <span className="text-noble-blue">Invoice Design</span><br />Engineered for Authority.
         </>
     ),
     subtitle = "Every template is a masterpiece of financial clarity and brand authority. Choose a palette and watch your professional identity transform."
