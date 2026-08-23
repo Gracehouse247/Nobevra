@@ -6,15 +6,16 @@ import { motion } from 'framer-motion';
 
 const PLANS = [
     {
-        name: 'Starter',
-        tagline: 'For freelancers & solo founders starting out',
-        priceMonthly: '$0',
-        priceYearly: '$0',
-        period: 'forever',
+        id: 'explorer',
+        name: 'Explorer (Starter)',
+        tagline: 'For freelancers getting started',
+        priceMonthly: 0,
+        priceYearly: 0,
         highlight: false,
         features: [
             'Up to 50 invoices per month',
             '5 active client profiles',
+            '3 estimates per month',
             '10 invoice templates',
             '100 MB document storage',
             'Instant payment link generation',
@@ -26,20 +27,21 @@ const PLANS = [
         ctaLink: '/register',
     },
     {
+        id: 'pulse',
         name: 'Noble Pulse',
-        tagline: 'For growing businesses needing automation',
-        priceMonthly: '$9.99',
-        priceYearly: '$8.25',
-        period: 'month',
-        billedYearlyText: '$99.00 billed annually',
+        tagline: 'For growing businesses',
+        priceMonthly: 9.99,
+        priceYearly: 99.00,
         highlight: true,
+        popular: true,
         features: [
+            'Everything in Explorer, plus:',
             'Unlimited invoices & clients',
             '180+ premium invoice templates',
-            'Automated recurring billing & auto-reminders',
-            'Client portal & live view telemetry',
+            'Recurring invoices & auto-reminders',
+            'Client portal & Live Chat view telemetry',
             'Inventory & product catalog management',
-            'Digital business cards (NFC & QR)',
+            'Digital Business Cards (NFC & QR)',
             'Gemini AI receipt scanning & reports',
             'Priority customer support',
         ],
@@ -47,20 +49,20 @@ const PLANS = [
         ctaLink: '/pricing',
     },
     {
+        id: 'elite',
         name: 'Noble Elite',
-        tagline: 'For scaling enterprises & high-volume teams',
-        priceMonthly: '$24.99',
-        priceYearly: '$20.00',
-        period: 'month',
-        billedYearlyText: '$240.00 billed annually',
+        tagline: 'For scaling enterprises',
+        priceMonthly: 24.99,
+        priceYearly: 240.00,
+        earlyBirdYearlyPrice: 200.99,
         highlight: false,
         features: [
             'Everything in Pulse, plus:',
             'Multi-user team workspaces with RLS',
-            'Unlimited estimates & custom contracts',
+            'Unlimited estimates & contracts',
             'Advanced tax & compliance reporting',
-            '15 AI Voice + Receipt actions / month',
-            'API access & webhook integrations',
+            '15 AI Voice + Receipt uses / month',
+            'Vendor management & API access',
             'Custom domain & white-label branding',
             'Dedicated account manager',
         ],
@@ -122,7 +124,7 @@ export default function PricingSnapshotSection() {
                         >
                             Annual Billing
                             <span className="px-1.5 py-0.5 rounded-md bg-emerald-500 text-white text-[9px] font-black uppercase">
-                                Save 20%
+                                Save 33%
                             </span>
                         </button>
                     </div>
@@ -130,11 +132,17 @@ export default function PricingSnapshotSection() {
 
                 <div className="grid md:grid-cols-3 gap-8 items-stretch">
                     {PLANS.map((plan, idx) => {
-                        const displayPrice = billingCycle === 'yearly' ? plan.priceYearly : plan.priceMonthly;
+                        const isFree = plan.id === 'explorer';
+                        const earlyBird = billingCycle === 'yearly' && plan.earlyBirdYearlyPrice;
+                        const finalPrice = isFree
+                            ? 0
+                            : billingCycle === 'monthly'
+                                ? plan.priceMonthly
+                                : (earlyBird ? plan.earlyBirdYearlyPrice : plan.priceYearly);
 
                         return (
                             <motion.div
-                                key={plan.name}
+                                key={plan.id}
                                 initial={{ opacity: 0, y: 24 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: '-60px' }}
@@ -160,17 +168,32 @@ export default function PricingSnapshotSection() {
                                     </p>
 
                                     <div className="flex items-baseline gap-2 mb-2">
-                                        <span className={`text-4xl font-black ${plan.highlight ? 'text-white' : 'text-near-black'}`}>
-                                            {displayPrice}
-                                        </span>
-                                        <span className={`text-xs font-bold ${plan.highlight ? 'text-white/60' : 'text-near-black/40'}`}>
-                                            /{plan.period}
-                                        </span>
+                                        {isFree ? (
+                                            <span className={`text-4xl font-black ${plan.highlight ? 'text-white' : 'text-near-black'}`}>
+                                                Free
+                                            </span>
+                                        ) : (
+                                            <>
+                                                <span className={`text-4xl font-black ${plan.highlight ? 'text-white' : 'text-near-black'}`}>
+                                                    ${finalPrice}
+                                                </span>
+                                                <span className={`text-xs font-bold uppercase ${plan.highlight ? 'text-white/60' : 'text-near-black/40'}`}>
+                                                    / {billingCycle === 'monthly' ? 'mo' : 'yr'}
+                                                </span>
+                                            </>
+                                        )}
                                     </div>
 
-                                    {billingCycle === 'yearly' && plan.billedYearlyText && (
-                                        <p className={`text-[10px] font-bold mb-6 ${plan.highlight ? 'text-white/70' : 'text-near-black/40'}`}>
-                                            {plan.billedYearlyText}
+                                    {/* Early Bird / Normal Pricing Note */}
+                                    {billingCycle === 'yearly' && earlyBird && (
+                                        <p className="text-[10px] font-bold text-amber-300 italic mb-4">
+                                            *Special launch price. Normal: ${plan.priceYearly}/yr
+                                        </p>
+                                    )}
+
+                                    {billingCycle === 'yearly' && !earlyBird && !isFree && (
+                                        <p className={`text-[10px] font-bold mb-4 ${plan.highlight ? 'text-white/70' : 'text-near-black/40'}`}>
+                                            Billed annually (${finalPrice}/yr)
                                         </p>
                                     )}
 
