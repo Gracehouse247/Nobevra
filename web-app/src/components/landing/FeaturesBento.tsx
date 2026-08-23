@@ -1,213 +1,444 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import MagneticCard from '@/components/shared/MagneticCard';
+import { motion, AnimatePresence } from 'framer-motion';
+
+// ─────────────────────────────────────────────
+// FEATURE REGISTRY — Single source of truth
+// ─────────────────────────────────────────────
+const FEATURES = [
+    {
+        id: 'invoicing',
+        tab: 'Invoicing',
+        icon: 'receipt_long',
+        category: 'Core Engine',
+        headline: 'Precision Invoicing',
+        subheading: '180+ Professional Templates',
+        description: 'Generate pixel-perfect invoices that command immediate payment. Track opens in real time, automate recurring billing, and send instant payment links — all without switching tools.',
+        bullets: [
+            { icon: 'bolt', text: 'Instant payment link generation' },
+            { icon: 'visibility', text: 'Real-time invoice view tracking' },
+            { icon: 'autorenew', text: 'Automated recurring billing & reminders' },
+            { icon: 'palette', text: '180+ customizable brand templates' },
+        ],
+        href: '/invoicing',
+        cta: 'Explore Invoicing',
+        accent: '#01A0E2',
+        accentBg: 'from-[#EBF7FF] to-white',
+        accentBadge: 'bg-noble-blue/10 text-noble-blue',
+        image: '/images/precision-invoicing.png',
+        imageAlt: 'Nobevra precision invoicing with 180+ premium templates',
+        stat: { value: '85%', label: 'Less time drafting' },
+    },
+    {
+        id: 'crm',
+        tab: 'CRM',
+        icon: 'hub',
+        category: 'Client Management',
+        headline: 'Lightweight CRM',
+        subheading: 'Full Lifecycle Client Intelligence',
+        description: 'Track every deal from first contact to final payment. Know exactly when a client opens your invoice, assign pipeline stages, and build relationships that compound revenue over time.',
+        bullets: [
+            { icon: 'timeline', text: 'Full deal lifecycle pipeline stages' },
+            { icon: 'notification_important', text: 'Invoice open & view notifications' },
+            { icon: 'group', text: 'Unified client contact vault' },
+            { icon: 'insights', text: 'Lifetime value & revenue analytics' },
+        ],
+        href: '/crm',
+        cta: 'Explore CRM',
+        accent: '#8B5CF6',
+        accentBg: 'from-[#F5F0FF] to-white',
+        accentBadge: 'bg-violet-500/10 text-violet-700',
+        image: '/images/crm-engine.png',
+        imageAlt: 'Nobevra CRM client pipeline and relationship management',
+        stat: { value: '40%', label: 'Faster deal closure' },
+    },
+    {
+        id: 'expenses',
+        tab: 'Expenses',
+        icon: 'account_balance_wallet',
+        category: 'Financial Control',
+        headline: 'Smart Expense Manager',
+        subheading: 'AI-Powered Receipt Intelligence',
+        description: "Photograph a receipt and Nobevra's Gemini AI extracts vendor, amount, category, and date instantly. Stop losing tax-deductible expenses to forgotten receipts and disorganized spreadsheets.",
+        bullets: [
+            { icon: 'photo_camera', text: 'Gemini AI OCR receipt scanning' },
+            { icon: 'category', text: 'Automatic expense categorization' },
+            { icon: 'picture_as_pdf', text: 'One-click expense reports (PDF/CSV)' },
+            { icon: 'group_work', text: 'Multi-user team expense tracking' },
+        ],
+        href: '/expense-management',
+        cta: 'Explore Expenses',
+        accent: '#10B981',
+        accentBg: 'from-[#EDFAF5] to-white',
+        accentBadge: 'bg-emerald-500/10 text-emerald-700',
+        image: '/images/cashflow-dashboard.png',
+        imageAlt: 'Nobevra AI-powered expense tracking and receipt scanning',
+        stat: { value: '0 hrs', label: 'Manual reconciliation' },
+    },
+    {
+        id: 'payments',
+        tab: 'Payments',
+        icon: 'payments',
+        category: 'Global Settlement',
+        headline: 'International Payments',
+        subheading: 'Powered by Flutterwave PCI-DSS',
+        description: 'Accept card payments, bank transfers, and mobile money from clients in 30+ countries with real-time settlement. Your clients pay in seconds — no logins, no friction, no raw card data stored.',
+        bullets: [
+            { icon: 'language', text: '30+ country payment acceptance' },
+            { icon: 'lock', text: 'PCI-DSS Level 1 certified processing' },
+            { icon: 'qr_code', text: 'QR code & contactless payment links' },
+            { icon: 'sync', text: 'Real-time settlement & reconciliation' },
+        ],
+        href: '/payments',
+        cta: 'Explore Payments',
+        accent: '#F59E0B',
+        accentBg: 'from-[#FFFBEB] to-white',
+        accentBadge: 'bg-amber-500/10 text-amber-700',
+        image: '/images/hero-dashboard-actual.png',
+        imageAlt: 'Nobevra global payments via Flutterwave PCI-DSS gateway',
+        stat: { value: '30+', label: 'Countries supported' },
+    },
+    {
+        id: 'inventory',
+        tab: 'Inventory',
+        icon: 'inventory_2',
+        category: 'Stock Control',
+        headline: 'Products & Inventory Hub',
+        subheading: 'Real-Time SKU Catalog',
+        description: 'Build your full product and service catalog. Stock counts automatically decrement with every invoice sent, so you always know what is available, what is running low, and what drives the most revenue.',
+        bullets: [
+            { icon: 'qr_code_scanner', text: 'Product catalog with SKU management' },
+            { icon: 'trending_down', text: 'Auto stock deduction per invoice' },
+            { icon: 'notifications_active', text: 'Low stock threshold alerts' },
+            { icon: 'bar_chart', text: 'Top-selling product analytics' },
+        ],
+        href: '/products-inventory',
+        cta: 'Explore Inventory',
+        accent: '#0F172A',
+        accentBg: 'from-[#F1F5F9] to-white',
+        accentBadge: 'bg-slate-800/10 text-slate-700',
+        image: '/images/product and service.png',
+        imageAlt: 'Nobevra real-time inventory and product catalog management',
+        stat: { value: 'Live', label: 'Stock tracking' },
+    },
+    {
+        id: 'identity',
+        tab: 'Identity',
+        icon: 'badge',
+        category: 'Professional Identity',
+        headline: 'Digital Business Cards',
+        subheading: 'NFC 3.0 + Dynamic QR',
+        description: "Share your full professional profile, portfolio, and instant payment link in a single tap on NFC-enabled devices or a QR scan. Turn every introduction into a qualified lead with built-in capture analytics.",
+        bullets: [
+            { icon: 'tap_and_play', text: 'NFC tap-to-share on any device' },
+            { icon: 'qr_code_2', text: 'Dynamic QR codes with live telemetry' },
+            { icon: 'link', text: 'Instant payment link embedded' },
+            { icon: 'analytics', text: 'Card view & scan analytics' },
+        ],
+        href: '/digital-business-card',
+        cta: 'Explore Identity',
+        accent: '#01A0E2',
+        accentBg: 'from-[#EBF7FF] to-white',
+        accentBadge: 'bg-noble-blue/10 text-noble-blue',
+        image: '/images/Organization Identity Hub.png',
+        imageAlt: 'Nobevra NFC digital business card and QR code generator',
+        stat: { value: 'NFC', label: 'Tap to share' },
+    },
+];
+
+const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.07 } },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 16 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.45 } },
+};
+
+const slideVariants = {
+    enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 40 : -40 }),
+    center: { opacity: 1, x: 0 },
+    exit: (dir: number) => ({ opacity: 0, x: dir > 0 ? -40 : 40 }),
+};
 
 export default function FeaturesBento() {
+    const [activeIdx, setActiveIdx] = useState(0);
+    const [direction, setDirection] = useState(1);
+    const active = FEATURES[activeIdx];
+
+    const handleTabChange = (idx: number) => {
+        setDirection(idx > activeIdx ? 1 : -1);
+        setActiveIdx(idx);
+    };
+
     return (
-        <section id="features" className="py-32 relative">
+        <section
+            id="features"
+            className="py-24 md:py-32 relative overflow-hidden bg-white"
+            aria-label="Nobevra Platform Features"
+        >
+            {/* Restrained background accent */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50/40 to-white pointer-events-none" />
+
             <div className="max-w-[1430px] mx-auto px-4 md:px-16 relative z-10">
-                <div className="mb-24 text-center">
-                    <h2 className="font-inter text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-near-black leading-[1.1] tracking-tight mb-6">
-                        One Platform. <span className="italic text-noble-blue underline decoration-electric-cyan/30">Every Tool You Need.</span>
-                    </h2>
-                    <p className="text-body-lg text-near-black/50 max-w-2xl mx-auto">A world-class suite of financial tools engineered to replace your entire back-office stack.</p>
-                </div>
-                
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-8 auto-rows-[340px]">
-                    
-                    {/* Bento Card 1: Precision Invoicing */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="md:col-span-8 md:row-span-2"
-                    >
-                        <Link 
-                            href="/invoicing"
-                            className="block h-full w-full bg-gradient-to-br from-[#E6F5FB] to-white rounded-[40px] p-12 group overflow-hidden relative border border-white shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer"
+
+                {/* ── SECTION HEADER ──────────────────────────────────────── */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-80px' }}
+                    className="text-center max-w-3xl mx-auto mb-16 md:mb-20"
+                >
+                    <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/8 border border-noble-blue/10 text-noble-blue font-bold text-[10px] uppercase tracking-widest mb-6">
+                        <span className="material-symbols-outlined text-sm" aria-hidden="true">grid_view</span>
+                        The Complete Business Operating System
+                    </motion.div>
+
+                    <motion.h2 variants={itemVariants} className="font-inter text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-near-black leading-[1.08] tracking-tight mb-5">
+                        One Platform.{' '}
+                        <span className="text-noble-blue italic">Every Tool You Need.</span>
+                    </motion.h2>
+
+                    <motion.p variants={itemVariants} className="text-base md:text-lg text-near-black/55 leading-relaxed max-w-2xl mx-auto">
+                        Six interconnected modules that replace your entire back-office stack — invoicing, CRM, expenses, payments, inventory, and professional identity — all sharing one unified data layer.
+                    </motion.p>
+                </motion.div>
+
+                {/* ── TAB NAVIGATION ──────────────────────────────────────── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                    className="flex items-center justify-center gap-2 flex-wrap mb-12"
+                    role="tablist"
+                    aria-label="Platform features"
+                >
+                    {FEATURES.map((f, idx) => (
+                        <button
+                            key={f.id}
+                            role="tab"
+                            aria-selected={activeIdx === idx}
+                            aria-controls={`feature-panel-${f.id}`}
+                            onClick={() => handleTabChange(idx)}
+                            className={`relative flex items-center gap-2 px-5 py-3 rounded-2xl text-xs font-black transition-all duration-300 focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none ${
+                                activeIdx === idx
+                                    ? 'bg-near-black text-white shadow-lg'
+                                    : 'bg-slate-100/80 text-near-black/60 hover:bg-slate-200/80 hover:text-near-black'
+                            }`}
                         >
-                            <MagneticCard strength={15} className="h-full w-full">
-                                <div className="relative z-10">
-                                    <span className="text-primary font-bold uppercase text-[10px] tracking-widest mb-4 block">Core Engine</span>
-                                    <h3 className="text-4xl font-extrabold mb-6 max-w-md tracking-tight">Precision Invoicing with 180+ Templates</h3>
-                                    <p className="text-near-black/50 max-w-sm mb-8 leading-relaxed font-medium">Generate pixel-perfect documents that command respect and reinforce your brand's prestige.</p>
-                                    <div className="flex items-center gap-2 font-black text-sm text-near-black group-hover:gap-4 transition-all">
-                                        Explore Engine <span className="material-symbols-outlined text-noble-blue">arrow_right_alt</span>
+                            <span
+                                className={`material-symbols-outlined text-base transition-colors ${activeIdx === idx ? 'text-white' : 'text-near-black/50'}`}
+                                aria-hidden="true"
+                            >
+                                {f.icon}
+                            </span>
+                            {f.tab}
+                            {/* Active pill */}
+                            {activeIdx === idx && (
+                                <motion.span
+                                    layoutId="tab-pill"
+                                    className="absolute inset-0 rounded-2xl bg-near-black -z-10"
+                                    transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+                                />
+                            )}
+                        </button>
+                    ))}
+                </motion.div>
+
+                {/* ── MAIN FEATURE PANEL ──────────────────────────────────── */}
+                <div
+                    id={`feature-panel-${active.id}`}
+                    role="tabpanel"
+                    aria-labelledby={`tab-${active.id}`}
+                >
+                    <AnimatePresence mode="wait" custom={direction}>
+                        <motion.div
+                            key={active.id}
+                            custom={direction}
+                            variants={slideVariants}
+                            initial="enter"
+                            animate="center"
+                            exit="exit"
+                            transition={{ duration: 0.4, ease: 'easeOut' }}
+                            className={`rounded-[40px] bg-gradient-to-br ${active.accentBg} border border-slate-100/80 shadow-xl overflow-hidden`}
+                        >
+                            <div className="grid lg:grid-cols-2 gap-0 min-h-[540px]">
+
+                                {/* LEFT — Copy Panel */}
+                                <div className="flex flex-col justify-between p-8 md:p-12 lg:p-16">
+                                    <div>
+                                        {/* Category & Stat badges */}
+                                        <div className="flex items-center gap-3 mb-8 flex-wrap">
+                                            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${active.accentBadge}`}>
+                                                <span className="material-symbols-outlined text-xs" aria-hidden="true">{active.icon}</span>
+                                                {active.category}
+                                            </span>
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-near-black/5 border border-near-black/8 text-near-black/60 text-[10px] font-bold">
+                                                <span className="font-black text-near-black">{active.stat.value}</span>
+                                                {active.stat.label}
+                                            </span>
+                                        </div>
+
+                                        {/* Heading */}
+                                        <h3 className="font-inter text-3xl sm:text-4xl md:text-5xl font-black text-near-black tracking-tight leading-[1.1] mb-3">
+                                            {active.headline}
+                                        </h3>
+                                        <p className="text-sm font-bold text-near-black/40 uppercase tracking-widest mb-6">
+                                            {active.subheading}
+                                        </p>
+
+                                        {/* Description */}
+                                        <p className="text-base md:text-lg text-near-black/65 leading-relaxed mb-8 max-w-lg">
+                                            {active.description}
+                                        </p>
+
+                                        {/* Feature Bullets */}
+                                        <ul className="space-y-3 mb-10" aria-label={`Key features of ${active.headline}`}>
+                                            {active.bullets.map((b) => (
+                                                <li key={b.text} className="flex items-center gap-3">
+                                                    <span
+                                                        className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0"
+                                                        style={{ backgroundColor: `${active.accent}18` }}
+                                                    >
+                                                        <span
+                                                            className="material-symbols-outlined text-sm"
+                                                            style={{ color: active.accent }}
+                                                            aria-hidden="true"
+                                                        >
+                                                            {b.icon}
+                                                        </span>
+                                                    </span>
+                                                    <span className="text-sm font-semibold text-near-black/75">
+                                                        {b.text}
+                                                    </span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* CTA Row */}
+                                    <div className="flex items-center gap-4 flex-wrap">
+                                        <Link
+                                            href={active.href}
+                                            className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-sm font-black text-white transition-all hover:opacity-90 hover:scale-[1.02] active:scale-95 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none shadow-lg"
+                                            style={{
+                                                backgroundColor: active.accent,
+                                                boxShadow: `0 12px 40px ${active.accent}40`,
+                                            }}
+                                        >
+                                            {active.cta}
+                                            <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+                                        </Link>
+                                        <Link
+                                            href="/register"
+                                            className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-sm font-black text-near-black bg-white border border-slate-200 hover:border-slate-300 hover:shadow-md transition-all focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none"
+                                        >
+                                            Start Free
+                                        </Link>
                                     </div>
                                 </div>
-                                <div className="absolute right-0 bottom-0 w-[65%] transform translate-x-12 translate-y-12 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-700">
-                                    <Image 
-                                        src="/images/precision-invoicing.png" 
-                                        alt="Invoice Preview — Precision Invoicing with 180+ templates"
-                                        className="w-full h-full object-contain object-bottom"
-                                        width={512}
-                                        height={512}
-                                        sizes="(max-width: 768px) 100vw, 33vw"
+
+                                {/* RIGHT — Visual Panel */}
+                                <div className="relative flex items-end justify-center lg:justify-end overflow-hidden min-h-[300px] lg:min-h-0 p-8 lg:p-0">
+                                    {/* Glow accent */}
+                                    <div
+                                        className="absolute inset-0 opacity-20 pointer-events-none"
+                                        style={{
+                                            background: `radial-gradient(ellipse at 60% 40%, ${active.accent}40 0%, transparent 70%)`,
+                                        }}
                                     />
-                                </div>
-                            </MagneticCard>
-                        </Link>
-                    </motion.div>
 
-                    {/* Bento Card 2: Unified CRM */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.1 }}
-                        className="md:col-span-4 md:row-span-1"
-                    >
-                        <Link 
-                            href="/crm"
-                            className="block h-full w-full bg-gradient-to-br from-blue-50 to-white rounded-[40px] p-10 overflow-hidden relative group hover:scale-[1.02] transition-transform shadow-xl border border-white cursor-pointer"
-                        >
-                            <MagneticCard strength={20} className="h-full w-full">
-                                <div className="absolute top-0 right-0 p-8 opacity-[0.03] rotate-12 group-hover:rotate-0 transition-transform duration-500">
-                                    <span className="material-symbols-outlined text-[120px] text-noble-blue">diversity_3</span>
-                                </div>
-                                <div className="relative z-10">
-                                    <div className="flex items-center gap-3 mb-6">
-                                        <div className="w-10 h-10 rounded-xl bg-noble-blue/10 flex items-center justify-center">
-                                            <span className="material-symbols-outlined text-noble-blue">hub</span>
-                                        </div>
-                                        <div className="px-3 py-1 rounded-full bg-noble-surface border border-slate-100 text-[10px] font-black text-noble-blue uppercase tracking-widest shadow-sm">
-                                            Pipeline Live
-                                        </div>
-                                    </div>
-                                    <h3 className="text-2xl font-black mb-2 text-noble-text tracking-tight">Unified CRM</h3>
-                                    <p className="text-slate-500 text-sm leading-relaxed mb-6 font-medium">Full lifecycle client management from lead to final settlement.</p>
-                                    
-                                    <div className="space-y-3 opacity-70 group-hover:opacity-100 transition-opacity">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-8 h-8 rounded-full bg-noble-surface border border-slate-100 shadow-sm overflow-hidden flex items-center justify-center">
-                                                <span className="text-[10px] font-black text-slate-400">AN</span>
-                                            </div>
-                                            <div className="h-2 w-24 bg-slate-100 rounded-full"></div>
-                                            <div className="ml-auto px-3 py-1 rounded-full bg-green-50 text-green-600 text-[9px] font-black uppercase tracking-tighter border border-green-100">Qualified</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </MagneticCard>
-                        </Link>
-                    </motion.div>
-
-                    {/* Bento Card 3: Products & Inventory Hub */}
-                    <Link 
-                        href="/products-inventory"
-                        className="md:col-span-4 md:row-span-1 bg-gradient-to-br from-[#E6F5FB] to-white rounded-[40px] p-10 flex flex-col justify-between border border-white shadow-xl hover:shadow-2xl transition-all group overflow-hidden cursor-pointer"
-                    >
-                        <div className="relative z-10">
-                            <div className="flex items-center justify-between mb-8">
-                                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
-                                    <span className="material-symbols-outlined text-3xl text-primary">inventory_2</span>
-                                </div>
-                                <div className="text-right">
-                                    <div className="text-[10px] font-black text-near-black/30 uppercase tracking-widest">Inventory Hub</div>
-                                    <div className="text-lg font-black text-near-black">Real-Time</div>
+                                    {/* Feature Image */}
+                                    <motion.div
+                                        key={`img-${active.id}`}
+                                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                                        transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
+                                        className="relative w-full max-w-[480px] lg:max-w-none lg:w-full h-full lg:absolute lg:bottom-0 lg:right-0 lg:w-[90%]"
+                                    >
+                                        <Image
+                                            src={active.image}
+                                            alt={active.imageAlt}
+                                            className="w-full h-full object-contain object-bottom lg:object-right-bottom drop-shadow-2xl"
+                                            width={600}
+                                            height={480}
+                                            sizes="(max-width: 1024px) 100vw, 50vw"
+                                            priority={activeIdx === 0}
+                                        />
+                                    </motion.div>
                                 </div>
                             </div>
-                            <h3 className="text-2xl font-bold mb-2">Products & Stock</h3>
-                            <p className="text-near-black/50 text-sm leading-relaxed mb-6">Real-time SKU catalog and automated stock deduction per invoice.</p>
-                            
-                            <div className="space-y-3 opacity-60 group-hover:opacity-100 transition-opacity">
-                                <div className="flex items-center justify-between p-3 rounded-2xl bg-noble-surface/50 border border-white">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-8 h-8 rounded-lg bg-noble-blue/10 flex items-center justify-center text-noble-blue">
-                                            <span className="material-symbols-outlined text-sm">package_2</span>
-                                        </div>
-                                        <span className="text-[11px] font-bold">Standard License</span>
-                                    </div>
-                                    <span className="text-[9px] font-black text-green-600 uppercase">In Stock</span>
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
-
-                    {/* Bento Card 4: Digital Cards */}
-                    <Link 
-                        href="/digital-business-card"
-                        className="md:col-span-4 md:row-span-1 bg-gradient-to-br from-[#E6F5FB] to-white rounded-[40px] p-10 flex flex-col overflow-hidden relative group hover:scale-[1.02] transition-transform shadow-xl border border-white cursor-pointer"
-                    >
-                        <div className="relative z-30 mb-auto">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-noble-blue/10 border border-noble-blue/10 text-noble-blue font-black text-[9px] uppercase tracking-widest mb-6">
-                                <span className="w-1.5 h-1.5 rounded-full bg-noble-blue animate-pulse"></span>
-                                NFC 3.0 Ready
-                            </div>
-                            <h3 className="text-2xl font-bold mb-2 text-near-black">Digital Cards</h3>
-                            <p className="text-near-black/50 text-sm leading-relaxed max-w-[280px]">NFC-enabled networking with built-in instant payment links.</p>
-                        </div>
-
-                        <div className="relative h-[150px] w-full flex justify-center items-center z-20 mt-4">
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-noble-blue/20 blur-[60px] rounded-full"></div>
-                            <div className="relative w-[260px] h-[150px] bg-noble-blue rounded-2xl border border-white/30 overflow-hidden shadow-2xl flex flex-col p-5 rotate-[-6deg] group-hover:rotate-0 group-hover:scale-110 transition-all duration-700 pointer-events-none translate-y-2 group-hover:translate-y-[-5px]">
-                                <div className="absolute inset-0 bg-gradient-to-tr from-near-black/20 via-transparent to-white/30"></div>
-                                <div className="flex justify-between items-start relative z-10">
-                                    <div className="flex flex-col gap-1">
-                                        <div className="w-6 h-6 bg-noble-surface/20 backdrop-blur-md rounded-md flex items-center justify-center border border-white/20">
-                                            <span className="material-symbols-outlined text-white text-[14px]">diamond</span>
-                                        </div>
-                                        <div className="text-[6px] font-black text-white/40 uppercase tracking-[0.3em]">Noble Protocol</div>
-                                    </div>
-                                </div>
-                                <div className="mt-auto relative z-10">
-                                    <div className="text-sm font-black text-white tracking-tight mb-0.5">ALEXANDER NOBLE</div>
-                                    <div className="text-[7px] font-bold text-white/60 uppercase tracking-[0.3em] mb-3">Principal Designer</div>
-                                </div>
-                                <div className="absolute top-0 left-[-150%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent group-hover:left-[150%] transition-all duration-1500"></div>
-                            </div>
-                        </div>
-                    </Link>
-
-                    {/* Bento Card 5: International Payments */}
-                    <Link 
-                        href="/payments"
-                        className="md:col-span-8 md:row-span-1 bg-gradient-to-br from-indigo-50 to-white rounded-[40px] p-12 flex items-center gap-12 overflow-hidden relative group hover:shadow-2xl transition-all cursor-pointer shadow-xl border border-white"
-                    >
-                        <div className="absolute top-0 right-0 w-80 h-80 bg-noble-blue/5 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-                        
-                        <div className="flex-1 relative z-10">
-                            <span className="text-noble-blue font-black uppercase text-[10px] tracking-widest mb-4 block">Global Settlement</span>
-                            <h3 className="text-4xl font-extrabold mb-4 tracking-tight text-noble-text">International Payments. <span className="text-noble-blue">Simplified.</span></h3>
-                            <p className="text-slate-500 font-medium max-w-sm mb-8">Accept payments globally with real-time settlement in 50+ currencies. Powered by Flutterwave.</p>
-                            <div className="flex items-center gap-2 font-black text-sm text-noble-text group-hover:gap-4 transition-all">
-                                Configure Gateway <span className="material-symbols-outlined text-noble-blue">arrow_right_alt</span>
-                            </div>
-                        </div>
-
-                        {/* Redesigned Visual: Currency Converter Mock */}
-                        <div className="hidden lg:flex flex-col gap-4 w-[300px] relative z-10">
-                            <div className="bg-noble-surface rounded-2xl p-5 border border-slate-100 shadow-2xl transform rotate-2 group-hover:rotate-0 transition-transform duration-500">
-                                <div className="flex justify-between items-center mb-4">
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-black text-noble-text">US</div>
-                                        <span className="text-xs font-bold text-noble-text">USD</span>
-                                    </div>
-                                    <span className="text-lg font-black text-noble-text">$4,500.00</span>
-                                </div>
-                                <div className="flex justify-center mb-4">
-                                    <div className="w-8 h-8 rounded-full bg-noble-blue flex items-center justify-center text-white shadow-lg">
-                                        <span className="material-symbols-outlined text-sm font-black">sync</span>
-                                    </div>
-                                </div>
-                                <div className="flex justify-between items-center">
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-6 h-6 rounded-full bg-green-50 flex items-center justify-center text-[10px] font-black text-green-600">NG</div>
-                                        <span className="text-xs font-bold text-noble-text">NGN</span>
-                                    </div>
-                                    <span className="text-lg font-black text-noble-blue">₦7,200,000.00</span>
-                                </div>
-                            </div>
-                            <div className="bg-noble-surface rounded-xl p-3 border border-slate-50 flex items-center justify-between shadow-sm">
-                                <span className="text-[10px] font-black text-slate-300 uppercase tracking-widest">Rate</span>
-                                <span className="text-[10px] font-bold text-noble-blue">1 USD = 1,600 NGN</span>
-                            </div>
-                        </div>
-                    </Link>
+                        </motion.div>
+                    </AnimatePresence>
                 </div>
+
+                {/* ── BOTTOM MINI-CARD GRID — Quick Glance All Modules ─── */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-60px' }}
+                    className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mt-12"
+                >
+                    {FEATURES.map((f, idx) => (
+                        <motion.button
+                            key={f.id}
+                            variants={itemVariants}
+                            onClick={() => handleTabChange(idx)}
+                            className={`group p-5 rounded-3xl border text-left transition-all duration-300 focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none ${
+                                activeIdx === idx
+                                    ? 'bg-near-black border-near-black shadow-xl'
+                                    : 'bg-noble-surface border-slate-100 hover:border-slate-200 hover:shadow-lg'
+                            }`}
+                            aria-label={`View ${f.headline} feature`}
+                        >
+                            <div
+                                className={`w-10 h-10 rounded-2xl flex items-center justify-center mb-4 transition-all ${
+                                    activeIdx === idx ? 'bg-white/15' : 'bg-slate-100 group-hover:bg-slate-200'
+                                }`}
+                            >
+                                <span
+                                    className={`material-symbols-outlined text-lg transition-colors ${activeIdx === idx ? 'text-white' : 'text-near-black/60'}`}
+                                    aria-hidden="true"
+                                >
+                                    {f.icon}
+                                </span>
+                            </div>
+                            <p className={`text-xs font-black leading-tight mb-1 ${activeIdx === idx ? 'text-white' : 'text-near-black'}`}>
+                                {f.tab}
+                            </p>
+                            <p className={`text-[10px] font-bold ${activeIdx === idx ? 'text-white/60' : 'text-near-black/40'}`}>
+                                {f.stat.value} {f.stat.label}
+                            </p>
+                        </motion.button>
+                    ))}
+                </motion.div>
+
+                {/* ── BOTTOM CTA BAR ───────────────────────────────────────── */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left"
+                >
+                    <p className="text-sm text-near-black/50 font-medium max-w-md">
+                        Every module is deeply interconnected — your invoice, expense, client, and inventory data share one unified layer.
+                    </p>
+                    <Link
+                        href="/register"
+                        className="shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-black text-white bg-noble-blue hover:bg-noble-blue/90 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-noble-blue/25 focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:ring-offset-2 focus-visible:outline-none"
+                    >
+                        Start Free — No Credit Card
+                        <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+                    </Link>
+                </motion.div>
             </div>
         </section>
     );
