@@ -94,31 +94,31 @@ export default function RootLayout({
         className={`${inter.variable} ${roboto.variable} ${montserrat.variable} antialiased bg-background text-foreground selection:bg-primary/30 font-inter`}
         suppressHydrationWarning
       >
-        <main id="main-content" tabIndex={-1} className="relative z-10 min-h-screen focus:outline-none">
-          <AuthProvider>
-            <EntitlementsProvider>
-              <CurrencyProvider>
-                <GamificationProvider>
-                  <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange
-                  >
-                    <PWAClient />
-                    <UTMClientLoader />
-                    <OfflineIndicator />
-                    <SchemaOrg />
-                    <CommandPalette />
-                    <CookieConsent />
+        <AuthProvider>
+          <EntitlementsProvider>
+            <CurrencyProvider>
+              <GamificationProvider>
+                <ThemeProvider
+                  attribute="class"
+                  defaultTheme="light"
+                  enableSystem={false}
+                  disableTransitionOnChange
+                >
+                  <PWAClient />
+                  <UTMClientLoader />
+                  <OfflineIndicator />
+                  <SchemaOrg />
+                  <CommandPalette />
+                  <CookieConsent />
+                  <main id="main-content" tabIndex={-1} className="relative z-10 min-h-screen focus:outline-none">
                     {children}
-                    <Toaster position="bottom-right" reverseOrder={false} />
-                  </ThemeProvider>
-                </GamificationProvider>
-              </CurrencyProvider>
-            </EntitlementsProvider>
-          </AuthProvider>
-        </main>
+                  </main>
+                  <Toaster position="bottom-right" reverseOrder={false} />
+                </ThemeProvider>
+              </GamificationProvider>
+            </CurrencyProvider>
+          </EntitlementsProvider>
+        </AuthProvider>
       </body>
     </html>
   );
