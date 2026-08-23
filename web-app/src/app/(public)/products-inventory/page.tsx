@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Footer from '@/components/shared/Footer';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import {
     Package, Boxes, ArrowRight, CheckCircle2,
     RefreshCw, AlertTriangle, QrCode
@@ -31,6 +32,13 @@ export const metadata: Metadata = {
 export default function ProductsInventoryPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased min-h-screen pt-28">
+            <BreadcrumbSchema
+                pageId="products-inventory"
+                crumbs={[
+                    { name: 'Home', item: 'https://nobevra.noblesworld.com.ng' },
+                    { name: 'Products & Inventory Management' },
+                ]}
+            />
             {/* Hero */}
             <section className="max-w-[1430px] mx-auto px-4 md:px-16 py-16 md:py-24">
                 <div className="max-w-3xl mx-auto text-center">

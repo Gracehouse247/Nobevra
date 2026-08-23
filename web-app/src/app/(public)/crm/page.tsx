@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Footer from '@/components/shared/Footer';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import {
     Users, Briefcase, Database, Lock, ShieldCheck, ChevronDown,
     Zap, Star, ArrowRight, FolderOpen, Search, CheckCircle2, MessageSquare
@@ -32,7 +33,14 @@ export const metadata: Metadata = {
 export default function CRMPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased min-h-screen pt-28">
-            {/* Hero */}
+           <BreadcrumbSchema
+               pageId="crm"
+               crumbs={[
+                   { name: 'Home', item: 'https://nobevra.noblesworld.com.ng' },
+                   { name: 'CRM for Small Business' },
+               ]}
+           />
+           {/* Hero */}
             <section className="max-w-[1430px] mx-auto px-4 md:px-16 py-16 md:py-24">
                 <div className="max-w-3xl mx-auto text-center">
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 text-violet-700 font-bold text-xs uppercase tracking-widest mb-6">
