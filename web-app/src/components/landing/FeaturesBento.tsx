@@ -328,8 +328,8 @@ export default function FeaturesBento() {
                                             href={active.href}
                                             className="inline-flex items-center gap-2 px-7 py-4 rounded-2xl text-sm font-black text-white transition-all hover:opacity-90 hover:scale-[1.02] active:scale-95 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none shadow-lg"
                                             style={{
-                                                backgroundColor: active.accent,
-                                                boxShadow: `0 12px 40px ${active.accent}40`,
+                                                backgroundColor: '#166FBB',
+                                                boxShadow: '0 12px 30px rgba(22, 111, 187, 0.35)',
                                             }}
                                         >
                                             {active.cta}
@@ -433,7 +433,11 @@ export default function FeaturesBento() {
                     </p>
                     <Link
                         href="/register"
-                        className="shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-black text-white bg-noble-blue hover:bg-noble-blue/90 hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-noble-blue/25 focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:ring-offset-2 focus-visible:outline-none"
+                        className="shrink-0 inline-flex items-center gap-2 px-8 py-4 rounded-2xl text-sm font-black text-white hover:opacity-90 hover:scale-[1.02] active:scale-95 transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:ring-offset-2 focus-visible:outline-none"
+                        style={{
+                            backgroundColor: '#166FBB',
+                            boxShadow: '0 12px 30px rgba(22, 111, 187, 0.35)',
+                        }}
                     >
                         Start Free — No Credit Card
                         <span className="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
