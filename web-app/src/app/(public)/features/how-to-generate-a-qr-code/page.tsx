@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+
 import Image from 'next/image';
 import {
   ArrowRight,
@@ -29,9 +29,8 @@ import AnimatedHeroGraphic from './AnimatedHeroGraphic';
    SEO METADATA  (Phase 4 — corrected intent + keyword)
 ───────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-  title: 'How to Generate a QR Code for Free | Nobevra',
-  description:
-    'Learn how to generate a QR code for free in 3 steps. Nobevra creates payment QR codes for invoices that get you paid in 2.4 days instead of 14. Static vs dynamic explained.',
+  title: 'How to Generate a QR Code for Free: Complete Tutorial | Nobevra',
+  description: 'Learn how to generate a custom QR code for free. Step-by-step guide to creating QR codes for websites, payments, digital business cards, and menus.',
   keywords: [
     'how to generate a qr code',
     'how to generate a qr code for free',
@@ -42,8 +41,16 @@ export const metadata: Metadata = {
     'dynamic qr code',
     'static qr code',
     'qr code generator online',
-    'how can i create a qr code for free',
   ],
+  alternates: {
+    canonical: 'https://nobevra.noblesworld.com.ng/features/how-to-generate-a-qr-code',
+  },
+  openGraph: {
+    title: 'How to Generate a QR Code for Free | Nobevra',
+    description: 'Learn how to generate a QR code for free in 3 steps. Nobevra creates payment QR codes for invoices that get you paid in 2.4 days instead of 14.',
+    url: 'https://nobevra.noblesworld.com.ng/features/how-to-generate-a-qr-code',
+    type: 'website',
+  },
 };
 
 /* ─────────────────────────────────────────────────────────────
@@ -332,12 +339,12 @@ export default function HowToGenerateQRCodePage() {
   return (
     <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased selection:bg-electric-cyan/30 overflow-x-hidden pt-[118px]">
       {/* ── JSON-LD Schemas ── */}
-      <Script
+      <script
         id="faq-schema-qr-code"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <Script
+      <script
         id="howto-schema-qr-code"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}
@@ -997,13 +1004,13 @@ export default function HowToGenerateQRCodePage() {
               },
               {
                 icon: <ShieldCheck className="w-6 h-6 text-noble-blue" />,
-                title: 'Stripe-Powered Processing',
-                desc: 'We partner with Stripe, trusted by Amazon, Google, and millions of businesses. All payment routing, fraud detection, and compliance is handled by the most trusted processor in the world.',
+                title: 'PCI-DSS Level 1 Processing',
+                desc: 'Payment routing, fraud prevention, and settlements are secured via verified payment gateways adhering to strict PCI-DSS Level 1 certifications.',
               },
               {
                 icon: <CreditCard className="w-6 h-6 text-noble-blue" />,
                 title: 'Zero Card Data Storage',
-                desc: 'We never store credit or debit card data on our servers. All sensitive payment information is tokenised and held exclusively by Stripe, who is PCI-DSS Level 1 certified.',
+                desc: 'We never store sensitive credit or debit card data on our application servers. All payments are encrypted and tokenized directly by certified payment processors.',
               },
               {
                 icon: <Globe className="w-6 h-6 text-noble-blue" />,

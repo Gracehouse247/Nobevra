@@ -27,9 +27,9 @@ export const LiceriaLiquidCard: React.FC<CardRendererProps & { defaultColor?: st
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="space-y-4">
-                <h1 className="font-black tracking-tight leading-none uppercase" style={{ fontSize: fs(62), fontFamily: 'Manrope, sans-serif' }}>
+                <div role="presentation" className="font-black tracking-tight leading-none uppercase" style={{ fontSize: fs(62), fontFamily: 'Manrope, sans-serif' }}>
                   {data.fullName || 'LIQUID CREATIVE'}
-                </h1>
+                </div>
                 <p className="font-extrabold tracking-[0.4em] uppercase text-emerald-400 animate-pulse" style={{ fontSize: fs(14), color: accent }}>
                   {data.jobTitle || 'DIGITAL ARCHITECT'}
                 </p>

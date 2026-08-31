@@ -1,11 +1,11 @@
 import { brand } from '@/lib/brand';
 
 /**
- * SchemaOrg — Phase 8 Structured Data Implementation
+ * SchemaOrg — Global Structured Data (E-E-A-T Authority Layer)
  *
  * Entities implemented:
- * - Organization   (verified: CAC-registered entity, social profiles)
- * - WebSite        (no SearchAction — no implemented site search)
+ * - Organization   (globally-scoped Nobevra brand, social profiles, contactPoint)
+ * - WebSite        (no SearchAction — no site search currently implemented)
  * - SoftwareApplication (with real pricing offers from live pricing page)
  * - WebPage        (homepage with primaryImageOfPage)
  * - FAQPage        (matches visible FAQ section content exactly)
@@ -23,13 +23,13 @@ export default function SchemaOrg() {
     '@graph': [
 
       // ─── 1. ORGANIZATION ──────────────────────────────────────────────────
-      // Source: CAC-registered legal entity, verified social handles in brand.ts
+      // Source: globally-scoped Nobevra brand identity
       {
         '@type': 'Organization',
         '@id': `${base}/#organization`,
-        'name': brand.parentCompany,
+        'name': brand.shortName,
         'legalName': brand.parentCompany,
-        'alternateName': 'Nobevra',
+        'alternateName': ['NOBEVRA', 'Nobevra Business OS', 'Nobevra Intelligent Business Operating System'],
         'description': 'Nobevra is the Intelligent Business Operating System that provides invoicing, CRM, expense tracking, payments, AI, and digital business identity for global businesses.',
         'url': base,
         'logo': {

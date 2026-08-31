@@ -27,9 +27,9 @@ export const DynamicWaveCard: React.FC<CardRendererProps & { defaultColor?: stri
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="space-y-3">
-                <h1 className="font-black tracking-tighter uppercase leading-none text-noble-text" style={{ fontSize: fs(66) }}>
+                <div role="presentation" className="font-black tracking-tighter uppercase leading-none text-noble-text" style={{ fontSize: fs(66) }}>
                   {data.fullName || 'WAVE DESIGN'}
-                </h1>
+                </div>
                 <p className="font-bold tracking-[0.35em] uppercase" style={{ fontSize: fs(15), color: accent }}>
                   {data.jobTitle || 'CREATIVE DIRECTOR'}
                 </p>

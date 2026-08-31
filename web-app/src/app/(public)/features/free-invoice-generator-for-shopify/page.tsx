@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+
 import Image from 'next/image';
 import {
     ArrowRight,
@@ -31,8 +31,8 @@ import Footer from '@/components/shared/Footer';
    SEO METADATA
 ───────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Free Invoice Generator for Shopify | Get Paid in 2.4 Days | Nobevra',
-    description: 'The best free Shopify invoice generator that embeds Apple Pay & Google Pay QR codes directly into your PDF. Stop waiting 14 days for B2B payments. Automate billing, reconciliation, and collections for your Shopify store.',
+    title: 'Free Invoice Generator for Shopify — B2B PDF Invoices & QR Codes | Nobevra',
+    description: 'Create compliant B2B PDF invoices for Shopify orders with Nobevra. Free invoice generator with automatic order sync, Apple Pay QR codes, and custom branding.',
     keywords: [
         'invoice generator shopify',
         'free invoice generator shopify',
@@ -50,8 +50,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Free Invoice Generator for Shopify | Nobevra',
         description: 'Embed Apple Pay & Google Pay QR codes in your Shopify invoices. Get paid in 2.4 days instead of 14.',
+        url: 'https://nobevra.noblesworld.com.ng/features/free-invoice-generator-for-shopify',
         type: 'website',
     },
+    alternates: { canonical: 'https://nobevra.noblesworld.com.ng/features/free-invoice-generator-for-shopify' },
 };
 
 /* ─────────────────────────────────────────────────────────────
@@ -202,7 +204,7 @@ export default function ShopifyInvoiceGeneratorPage() {
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased selection:bg-electric-cyan/30 overflow-x-hidden pt-[118px]">
 
             {/* ── JSON-LD Schema ── */}
-            <Script
+            <script
                 id="faq-schema-shopify-invoice"
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}

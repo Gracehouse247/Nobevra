@@ -18,7 +18,7 @@ export const DefaultHeader = (props: SharedEngineProps) => {
             <div className="relative z-10 p-16 flex justify-between items-start text-white">
                {renderLogo?.("w-24 h-24", true)}
                <div className="text-right">
-                 <h1 className="text-6xl font-black uppercase tracking-tighter mb-2">Invoice</h1>
+                 <div role="presentation" className="text-6xl font-black uppercase tracking-tighter mb-2">Invoice</div>
                  <p className="text-white/60 font-black text-xs uppercase tracking-[0.4em]">{data.invoiceNumber}</p>
                </div>
             </div>
@@ -31,7 +31,7 @@ export const DefaultHeader = (props: SharedEngineProps) => {
             <div className="p-16 flex justify-between items-center bg-noble-surface border-b border-slate-50">
                {renderLogo?.("w-20 h-20")}
                <div className="text-center">
-                 <h1 className="text-4xl font-black uppercase tracking-[0.3em] text-noble-text">Invoice</h1>
+                 <div role="presentation" className="text-4xl font-black uppercase tracking-[0.3em] text-noble-text">Invoice</div>
                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.5em] mt-2">Ref: {data.invoiceNumber}</p>
                </div>
                <div className="w-20" />
@@ -42,7 +42,7 @@ export const DefaultHeader = (props: SharedEngineProps) => {
         return (
           <div className="mb-12 flex h-64 border-b-8 border-slate-50">
             <div className="w-[65%] p-16 text-white flex flex-col justify-center relative overflow-hidden" style={{ backgroundColor: accentColor }}>
-               <h1 className="text-8xl font-black uppercase tracking-tighter mb-2 relative z-10 italic opacity-90">Invoice</h1>
+               <div role="presentation" className="text-8xl font-black uppercase tracking-tighter mb-2 relative z-10 italic opacity-90">Invoice</div>
                <p className="text-white font-black tracking-[0.5em] text-xs uppercase opacity-60 relative z-10">#{data.invoiceNumber}</p>
             </div>
             <div className="w-[35%] flex flex-col items-center justify-center bg-slate-50">
@@ -55,7 +55,7 @@ export const DefaultHeader = (props: SharedEngineProps) => {
           <div className="p-16 mb-12 flex justify-between items-end border-b-[12px] border-slate-50">
              <div className="flex flex-col items-start">
                <div className="w-20 h-2 mb-8 rounded-full" style={{ backgroundColor: accentColor }} />
-               <h1 className="text-6xl font-black uppercase tracking-tight text-noble-text leading-none">Invoice</h1>
+               <div role="presentation" className="text-6xl font-black uppercase tracking-tight text-noble-text leading-none">Invoice</div>
              </div>
              <div className="text-right">
                 <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest mb-2">Serial No.</p>
@@ -68,7 +68,7 @@ export const DefaultHeader = (props: SharedEngineProps) => {
           <div className="p-16 mb-12 flex justify-between items-start border-b-2 border-slate-50">
              {renderLogo?.("w-24 h-24")}
              <div className="text-right">
-               <h1 className="text-6xl font-black uppercase tracking-tighter text-noble-text mb-2">Invoice</h1>
+               <div role="presentation" className="text-6xl font-black uppercase tracking-tighter text-noble-text mb-2">Invoice</div>
                <p className="text-slate-400 font-black text-xs uppercase tracking-[0.3em]">#{data.invoiceNumber}</p>
              </div>
           </div>

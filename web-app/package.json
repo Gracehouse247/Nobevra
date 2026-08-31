@@ -6,7 +6,8 @@
     "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seo:guard": "node scripts/seo-keyword-guard.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.7.1",

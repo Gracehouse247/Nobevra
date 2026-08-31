@@ -15,7 +15,7 @@ export default function Footer() {
                     {/* Column 1: Brand */}
                     <div className="space-y-8">
                         <Link href="/" className="flex items-center gap-3 group">
-                            <Image src={brand.assets.logo} alt="Nobevra Logo" width={130} height={36} className="h-9 w-auto object-contain group-hover:scale-105 transition-transform" priority />
+                            <Image src={brand.assets.logo} alt="Nobevra Logo" width={130} height={36} className="h-9 w-auto object-contain group-hover:scale-105 transition-transform" style={{ width: 'auto', height: 'auto' }} priority />
                         </Link>
                         <p className="text-near-black/40 text-base leading-relaxed font-medium">
                             Nobevra is the intelligent all-in-one Business Operating System. Engineered for performance, clarity, and growth for modern businesses, freelancers, and enterprises.
@@ -24,10 +24,10 @@ export default function Footer() {
                         {/* Store Badges */}
                         <div className="flex flex-wrap items-center gap-3 pt-2">
                             <a href="#" aria-label="Download Nobevra on the App Store" className="hover:scale-105 transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none rounded-lg">
-                                <Image src="/images/badges/app-store.png" alt="Download on the App Store" width={120} height={36} className="h-8 w-auto object-contain" />
+                                <Image src="/images/badges/app-store.png" alt="Download on the App Store" width={120} height={36} className="h-8 w-auto object-contain" style={{ width: 'auto', height: 'auto' }} />
                             </a>
                             <a href="#" aria-label="Get Nobevra on Google Play" className="hover:scale-105 transition-transform duration-300 focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none rounded-lg">
-                                <Image src="/images/badges/play-store.png" alt="Get it on Google Play" width={135} height={40} className="h-[36px] w-auto object-contain" />
+                                <Image src="/images/badges/play-store.png" alt="Get it on Google Play" width={135} height={40} className="h-[36px] w-auto object-contain" style={{ width: 'auto', height: 'auto' }} />
                             </a>
                         </div>
 
@@ -45,12 +45,13 @@ export default function Footer() {
                     <div>
                         <p className="text-[10px] font-black text-near-black uppercase tracking-[0.3em] mb-8">Products</p>
                         <ul className="space-y-4">
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/invoicing">Online Invoicing</Link></li>
                             <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/free-invoice-generator">Free Invoice Generator</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/features/best-ai-invoice-generator-free">AI Invoice Generator</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/gamified-invoicing-software">Gamified Invoicing</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/lightweight-crm-for-freelancers">Freelance CRM</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/solutions/enterprise-billing-platform">Enterprise Billing Platform</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/ai-receipt-scanner">Receipt Scanner</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/recurring-billing-software">Recurring Billing</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/client-portal-software">Client Portal</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/cash-flow-analytics">Cash Flow Analytics</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/templates">Invoice Templates</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/digital-business-card">Digital Business Cards</Link></li>
                             <li className="pt-2">
                                 <Link className="text-noble-blue font-bold hover:text-near-black transition-colors text-sm flex items-center gap-1 group" href="/features">
                                     View all our features
@@ -60,15 +61,16 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Column 3: Company */}
+                    {/* Column 3: Resources */}
                     <div>
-                        <p className="text-[10px] font-black text-near-black uppercase tracking-[0.3em] mb-8">Company</p>
+                        <p className="text-[10px] font-black text-near-black uppercase tracking-[0.3em] mb-8">Resources</p>
                         <ul className="space-y-4">
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/free-invoice-maker-app-about">Our Story</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/blog">Press Kit</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/free-invoice-maker-app-about">Careers</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/where-to-make-business-cards">Contact</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/compliance">Global Compliance</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/guides">Guides & Tutorials</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/templates">Invoice Templates</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/glossary">Business Glossary</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/blog">Blog & Updates</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/pricing">Pricing & Plans</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/help-center">Help Center & Support</Link></li>
                         </ul>
                     </div>
 

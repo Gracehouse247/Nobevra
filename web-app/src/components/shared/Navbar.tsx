@@ -32,37 +32,37 @@ export default function Navbar() {
         {
             category: "Invoicing & Billing",
             items: [
-                { title: "Invoice Generator", desc: "Create invoices instantly", icon: "bolt", href: "/free-invoice-generator" },
-                { title: "AI Invoice Generator", desc: "Text-to-invoice engine", icon: "auto_awesome", href: "/features/best-ai-invoice-generator-free" },
-                { title: "Gamified Invoicing", desc: "Make billing engaging", icon: "sports_esports", href: "/gamified-invoicing-software" },
-                { title: "Shopify Billing", desc: "Automate B2B commerce", icon: "inventory_2", href: "/features/free-invoice-generator-for-shopify" },
+                { title: "Online Invoicing", desc: "180+ templates & billing engine", icon: "receipt_long", href: "/invoicing" },
+                { title: "Free Invoice Generator", desc: "Create & download PDF invoices", icon: "bolt", href: "/free-invoice-generator" },
+                { title: "Invoice Templates Hub", desc: "Industry & country tax templates", icon: "file_copy", href: "/templates" },
+                { title: "Recurring Billing", desc: "Automate retainers & subscriptions", icon: "autorenew", href: "/recurring-billing-software" },
             ]
         },
         {
-            category: "Growth & CRM",
+            category: "CRM & Client Hub",
             items: [
-                { title: "Freelance CRM", desc: "Client vault & tracking", icon: "contacts", href: "/lightweight-crm-for-freelancers" },
-                { title: "CRM Engine", desc: "Full client lifecycle", icon: "hub", href: "/features/what-is-invoicing-software" },
-                { title: "QR Code Generator", desc: "Identify high-value clients", icon: "radar", href: "/features/how-to-make-a-qr-code-for-a-website-free" },
-                { title: "Online Billing Software", desc: "White-label dashboard", icon: "vpn_key", href: "/features/billing-software-online" },
+                { title: "Client Management CRM", desc: "Connected customer pipeline", icon: "hub", href: "/crm" },
+                { title: "Client Portal Hub", desc: "White-label self-service billing", icon: "dashboard_customize", href: "/client-portal-software" },
+                { title: "Client Contracts", desc: "E-signatures & legal agreements", icon: "history_edu", href: "/client-contracts" },
+                { title: "Freelance CRM", desc: "Lightweight client vault", icon: "contacts", href: "/lightweight-crm-for-freelancers" },
             ]
         },
         {
-            category: "Operations & Analytics",
+            category: "Operations & Finance",
             items: [
-                { title: "Receipt Scanner", desc: "Automate expense tracking", icon: "document_scanner", href: "/ai-receipt-scanner" },
-                { title: "Proforma Invoice", desc: "Manage your catalog", icon: "category", href: "/features/how-to-make-a-proforma-invoice" },
-                { title: "Create Invoice", desc: "Financial analytics", icon: "query_stats", href: "/features/how-do-i-make-an-invoice" },
-                { title: "Global Settlements", desc: "Get paid across borders", icon: "account_balance_wallet", href: "/features/best-free-invoice-app" },
+                { title: "Cash Flow Analytics", desc: "Forecasting & aging reports", icon: "query_stats", href: "/cash-flow-analytics" },
+                { title: "Expense Management", desc: "Track spend & tax deductions", icon: "account_balance_wallet", href: "/expense-management" },
+                { title: "AI Receipt Scanner", desc: "Instant OCR categorization", icon: "document_scanner", href: "/ai-receipt-scanner" },
+                { title: "Products & Inventory", desc: "Real-time stock catalog", icon: "inventory_2", href: "/products-inventory" },
             ]
         },
         {
-            category: "Brand & Enterprise",
+            category: "Growth & Identity",
             items: [
-                { title: "Professional Identity", desc: "Branded templates", icon: "verified", href: "/features/how-to-create-a-business-card-for-free" },
-                { title: "Digital Business Cards", desc: "Network seamlessly", icon: "contactless", href: "/features/business-card-creation-free" },
-                { title: "Team Workspace", desc: "Multi-user collaboration", icon: "groups", href: "/features/what-is-the-best-invoice-maker" },
-                { title: "Enterprise Scaling", desc: "High-volume tools", icon: "domain", href: "/features/automated-invoicing-software" },
+                { title: "AI Business Assistant", desc: "Natural language ops & insights", icon: "auto_awesome", href: "/ai-business-assistant" },
+                { title: "Digital Business Cards", desc: "NFC tap & custom profile", icon: "contactless", href: "/digital-business-card" },
+                { title: "Dynamic QR Codes", desc: "Custom QR & scan telemetry", icon: "radar", href: "/qr-code-generator" },
+                { title: "Global Payments", desc: "Accept 30+ currencies worldwide", icon: "payments", href: "/payments" },
             ]
         }
     ];
@@ -73,7 +73,7 @@ export default function Navbar() {
             title: "For Freelancers",
             desc: "Independent professionals",
             icon: "person",
-            href: "/solutions/freelancers",
+            href: "/solutions/simple-invoicing-for-freelancers",
         },
         {
             title: "For Agencies",
@@ -169,27 +169,41 @@ export default function Navbar() {
         },
     ];
 
-    // ── Learn Dropdown Data ──
+    // ── Learn & Resources Dropdown Data ──
     const learnLinks = [
         {
-            title: "Help Center",
-            desc: "Explore our support resources",
-            icon: "help",
-            href: "/help-center",
-            external: true,
+            title: "Guides & Tutorials",
+            desc: "Invoicing & cash flow playbooks",
+            icon: "menu_book",
+            href: "/guides",
+            external: false,
         },
         {
-            title: "Blog",
-            desc: "Deep dives into our updates",
+            title: "Invoice Templates",
+            desc: "18+ industry & tax templates",
+            icon: "file_copy",
+            href: "/templates",
+            external: false,
+        },
+        {
+            title: "Business Glossary",
+            desc: "Financial & SaaS terms defined",
+            icon: "library_books",
+            href: "/glossary",
+            external: false,
+        },
+        {
+            title: "Blog & Updates",
+            desc: "Product news and founder tips",
             icon: "article",
             href: "/blog",
             external: false,
         },
         {
-            title: "Video Tutorials",
-            desc: "Learn how Nobevra works",
-            icon: "play_circle",
-            href: "#",
+            title: "Help Center",
+            desc: "Support and documentation",
+            icon: "help",
+            href: "/help-center",
             external: false,
         },
     ];
@@ -201,11 +215,9 @@ export default function Navbar() {
     return (
         <>
             {/* ── Announcement Bar ── */}
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
                 {announcementVisible && (
                     <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         className="fixed top-0 left-0 right-0 z-[130] bg-gradient-to-r from-noble-blue via-[#01A0E2] to-noble-blue overflow-hidden"
@@ -240,8 +252,8 @@ export default function Navbar() {
 
             {/* ── Main Navbar ── */}
             <nav
-                className={`fixed left-0 right-0 z-[120] transition-all duration-500 ${announcementVisible ? 'top-[38px]' : 'top-0'} ${
-                    isScrolled ? 'bg-noble-surface dark:bg-noble-card/90 backdrop-blur-md border-b border-near-black/5 shadow-sm' : 'bg-transparent'
+                className={`fixed left-0 right-0 z-[120] transition-all duration-300 ${announcementVisible ? 'top-[38px]' : 'top-0'} bg-white/95 backdrop-blur-md border-b border-slate-100/80 shadow-xs ${
+                    isScrolled ? 'shadow-sm border-slate-200/80' : ''
                 }`}
                 onMouseLeave={() => setActiveMenu(null)}
                 aria-label="Main Navigation"
@@ -511,7 +523,7 @@ export default function Navbar() {
                         >
                             {/* Drawer Header */}
                             <div className="flex items-center justify-between px-6 py-5 border-b border-near-black/5">
-                                <Image src={brand.assets.logo} alt="Nobevra Logo" width={110} height={28} className="h-7 w-auto object-contain" priority />
+                                <Image src={brand.assets.logo} alt="Nobevra Logo" width={110} height={28} className="h-7 w-auto object-contain" style={{ width: 'auto', height: 'auto' }} priority />
                                 <button
                                     onClick={() => setMobileOpen(false)}
                                     className="w-9 h-9 flex items-center justify-center rounded-xl bg-near-black/5 text-near-black hover:bg-near-black/10 transition-colors focus-visible:ring-2 focus-visible:ring-noble-blue focus-visible:outline-none"

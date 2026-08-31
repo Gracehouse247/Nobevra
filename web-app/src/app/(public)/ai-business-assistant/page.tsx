@@ -9,8 +9,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'AI Business Assistant & Financial Intelligence | Nobevra',
-    description: 'Empower your business with Gemini AI. Automated financial narrative reports, smart cash flow forecasting, and receipt OCR data extraction.',
+    title: 'AI Business Assistant — Intelligent Operations & Cash Flow Advisor | Nobevra',
+    description: "Harness the power of AI to run your business. Nobevra's AI Business Assistant drafts invoices from natural language, forecasts cash flow, and automates tasks.",
     alternates: {
         canonical: 'https://nobevra.noblesworld.com.ng/ai-business-assistant',
     },
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
         'cash flow forecasting AI'
     ],
     openGraph: {
-        title: 'AI Business Assistant | Nobevra',
-        description: 'Actionable financial intelligence powered by Google Gemini AI.',
+        title: 'AI Business Assistant — Intelligent Operations & Cash Flow Advisor | Nobevra',
+        description: "Harness the power of AI to run your business. Nobevra's AI Business Assistant drafts invoices from natural language, forecasts cash flow, and automates tasks.",
         url: 'https://nobevra.noblesworld.com.ng/ai-business-assistant',
         type: 'website',
     },
@@ -77,10 +77,13 @@ export default function AIBusinessAssistantPage() {
                         <div className="w-12 h-12 rounded-2xl bg-noble-blue/10 flex items-center justify-center text-noble-blue mb-6">
                             <FileText className="w-6 h-6" />
                         </div>
-                        <h2 className="text-xl font-bold mb-3">Narrative Summaries</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
-                            Receive plain English monthly financial overviews ready to share with business partners, co-founders, or investors.
+                        <h2 className="text-xl font-bold mb-3">AI Invoice Creation</h2>
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
+                            Draft line-item invoices from natural language prompts, voice notes, and contract milestones in seconds.
                         </p>
+                        <Link href="/features/best-ai-invoice-generator-free" className="text-noble-blue font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            AI Invoice Generator <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
 
                     <div className="bg-noble-surface p-8 rounded-3xl border border-slate-100 shadow-sm">
@@ -88,19 +91,25 @@ export default function AIBusinessAssistantPage() {
                             <TrendingUp className="w-6 h-6" />
                         </div>
                         <h2 className="text-xl font-bold mb-3">Cash Flow Predictions</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
                             Analyze client payment turnaround patterns to forecast your cash balance for the next 30, 60, and 90 days.
                         </p>
+                        <Link href="/cash-flow-analytics" className="text-emerald-600 font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            Cash Flow Analytics <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
 
                     <div className="bg-noble-surface p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <div className="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center text-violet-600 mb-6">
                             <Zap className="w-6 h-6" />
                         </div>
-                        <h2 className="text-xl font-bold mb-3">Automated Extraction</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
-                            Gemini 1.5 Pro extracts invoice line items, tax breakdowns, and vendor metadata from receipts in under 3 seconds.
+                        <h2 className="text-xl font-bold mb-3">Automated Receipt Extraction</h2>
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
+                            Gemini AI extracts invoice line items, tax breakdowns, and vendor metadata from receipts in under 3 seconds.
                         </p>
+                        <Link href="/ai-receipt-scanner" className="text-violet-600 font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            AI Receipt Scanner <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
                 </div>
             </section>

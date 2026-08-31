@@ -4,8 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-    title: 'Best AI Invoice Generator Free — Create Invoices in Seconds | Nobevra',
-    description: 'The best AI invoice generator free online. Turn notes, PDFs, or voice into professional invoices instantly. Export AI invoice generator PDF. Try free — no card needed.',
+    title: 'Best AI Invoice Generator Free — Voice & Text-to-Invoice Maker | Nobevra',
+    description: 'Generate professional invoices using AI with Nobevra. Convert natural language notes or voice prompts into styled, tax-calculated PDF invoices in seconds.',
     keywords: [
         'ai invoice generator',
         'ai invoice generator free',
@@ -18,9 +18,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Best AI Invoice Generator Free — Create Invoices in Seconds | Nobevra',
         description: 'The best AI invoice generator free online. Turn notes, PDFs, or voice into professional invoices in seconds.',
+        url: 'https://nobevra.noblesworld.com.ng/features/best-ai-invoice-generator-free',
         images: ['/images/hero-dashboard-actual.png'],
     },
-    alternates: { canonical: '/features/ai-invoice-generator' },
+    alternates: { canonical: 'https://nobevra.noblesworld.com.ng/features/best-ai-invoice-generator-free' },
 };
 
 // ── Schema Markup ────────────────────────────────────────────────────────────
@@ -32,7 +33,6 @@ const schemaMarkup = [
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web, iOS, Android",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "5000" },
         "featureList": "AI Invoice Generator Free, AI Invoice Generator PDF, Best AI Invoice Generator Online",
     },
     {

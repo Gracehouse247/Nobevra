@@ -16,9 +16,10 @@ import type { Metadata } from 'next';
    Source           : Live SerpAPI data · Jul 2026
 ──────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Expense Tracking Software & Invoicing Features | Nobevra',
-    description: 'Explore all features: expense tracking software, invoice automation, recurring billing, and client management CRM all built into one platform.',
+    title: 'Invoicing Software Features & Small Business Tools Suite | Nobevra',
+    description: 'Explore all Nobevra platform features: smart invoicing software, CRM, AI receipt scanning, multi-currency payments, and digital business cards.',
     keywords: [
+        'invoicing software features',
         'expense tracking software',
         'client management software',
         'billing software with CRM',
@@ -28,15 +29,14 @@ export const metadata: Metadata = {
         'invoice generator tools',
         'online payment integration software',
         'billing and invoicing software features',
-        'invoicing software features',
     ],
     alternates: {
-        canonical: '/features',
+        canonical: 'https://nobevra.noblesworld.com.ng/features',
     },
     openGraph: {
-        title: 'Platform Features | Nobevra',
-        description: 'Explore our full suite of expense tracking software, CRM tools, and invoice automation built for modern service businesses.',
-        url: '/features',
+        title: 'Invoicing Software Features & Small Business Tools Suite | Nobevra',
+        description: 'Explore all Nobevra platform features: smart invoicing software, CRM, AI receipt scanning, multi-currency payments, and digital business cards.',
+        url: 'https://nobevra.noblesworld.com.ng/features',
         type: 'website',
     },
 };

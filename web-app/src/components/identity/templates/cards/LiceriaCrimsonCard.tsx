@@ -13,9 +13,9 @@ export const LiceriaCrimsonCard: React.FC<CardRendererProps & { defaultColor?: s
             {isFront ? (
                 <>
                     <DraggableElement elementKey="content" className="flex-[0.6] flex flex-col justify-end p-20 pl-24 pb-12">
-                        <h1 className="font-black text-white tracking-tighter leading-none" style={{ fontSize: fs(56) }}>
+                        <div role="presentation" className="font-black text-white tracking-tighter leading-none" style={{ fontSize: fs(56) }}>
                             {data.fullName || 'MARIAH LICERIA'}
-                        </h1>
+                        </div>
                         <p style={{ color: ON_COLOR, fontSize: fs(20) }} className="font-medium tracking-[0.4em] uppercase mt-2 opacity-50">
                             {data.jobTitle || 'Executive Chef'}
                         </p>

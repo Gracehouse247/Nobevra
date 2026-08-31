@@ -3,22 +3,21 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-    title: 'Free Invoice Maker App | About Nobevra',
-    description: 'Nobevra is the best free invoice maker app for iPhone, Android & PC. Growing businesses trust our simple invoice app. Start free today.',
-    keywords: [
-        'invoice maker app free',
-        'best invoice maker app free',
-        'invoice maker app free for iphone',
-        'invoice maker app free download',
-        'invoice maker app free download for PC',
-        'my invoice maker app',
-        'simple invoice app free',
-        'free invoice maker app for Android',
-    ],
+    title: 'About Nobevra — The Intelligent Business Operating System | Nobevra',
+    description: 'Nobevra is an all-in-one intelligent business operating system for small businesses and freelancers. Invoicing, CRM, expenses, payments, contracts, and AI — in one platform.',
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng/free-invoice-maker-app-about',
+    },
     openGraph: {
-        title: 'Free Invoice Maker App | About Nobevra',
-        description: 'Nobevra is the best free invoice maker app for iPhone, Android & PC. Growing businesses trust our simple invoice app.',
+        title: 'About Nobevra — The Intelligent Business Operating System',
+        description: 'Everything your business needs. One intelligent platform. Meet Nobevra.',
+        url: 'https://nobevra.noblesworld.com.ng/free-invoice-maker-app-about',
         type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'About Nobevra — The Intelligent Business Operating System',
+        description: 'Invoicing, CRM, expenses, payments, contracts, and AI in one intelligent platform.',
     },
 };
 

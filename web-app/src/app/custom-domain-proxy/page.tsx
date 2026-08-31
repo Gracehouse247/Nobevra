@@ -4,8 +4,9 @@ import { ShieldCheck } from 'lucide-react';
 
 export const dynamic = 'force-dynamic';
 
-export default async function CustomDomainProxyPage({ searchParams }: { searchParams: { domain?: string } }) {
-    const domain = searchParams.domain;
+export default async function CustomDomainProxyPage({ searchParams }: { searchParams: Promise<{ domain?: string }> }) {
+    const params = await searchParams;
+    const domain = params.domain;
     if (!domain) return notFound();
 
     // Since this is a server component handling public requests, we'll use a server client

@@ -14,7 +14,7 @@ export const BlueWavePremiumHeader = (props: SharedEngineProps) => {
              </div>
           </div>
           <div className="text-right">
-             <h1 className="text-7xl font-black uppercase text-[#2563EB] tracking-tighter mb-2 italic">PREMIUM</h1>
+             <div role="presentation" className="text-7xl font-black uppercase text-[#2563EB] tracking-tighter mb-2 italic">PREMIUM</div>
              <p className="text-[10px] font-black uppercase tracking-[1em] text-slate-400">Exclusive Series</p>
           </div>
        </div>
@@ -49,7 +49,7 @@ export const CarbonFiberHeader = (props: SharedEngineProps) => {
              {renderLogo?.("w-20 h-20")}
           </div>
           <div className="text-right">
-             <h1 className="text-7xl font-black uppercase text-white tracking-tighter mb-2 italic drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">CARBON</h1>
+             <div role="presentation" className="text-7xl font-black uppercase text-white tracking-tighter mb-2 italic drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]">CARBON</div>
              <p className="text-[10px] font-black uppercase tracking-[0.8em] text-slate-500">Elite Series • Professional</p>
           </div>
        </div>
@@ -73,7 +73,7 @@ export const SageMinimalHeader = (props: SharedEngineProps) => {
              </div>
           </div>
           <div className="text-right pt-4">
-             <h1 className="text-5xl font-black uppercase text-slate-200 tracking-widest leading-none">INVOICE</h1>
+             <div role="presentation" className="text-5xl font-black uppercase text-slate-200 tracking-widest leading-none">INVOICE</div>
           </div>
        </div>
     </div>
@@ -86,7 +86,7 @@ export const CrimsonLedgerHeader = (props: SharedEngineProps) => {
     <div className="relative pt-16 px-16 z-10 flex flex-col">
        <div className="flex justify-between items-center mb-16">
           <div className="text-white">
-             <h1 className="text-9xl font-black uppercase tracking-tighter leading-none opacity-20 -ml-2 mb-4">LEDGER</h1>
+             <div role="presentation" className="text-9xl font-black uppercase tracking-tighter leading-none opacity-20 -ml-2 mb-4">LEDGER</div>
              <h2 className="text-4xl font-black uppercase text-white relative z-10">INVOICE</h2>
           </div>
           <div className="bg-noble-surface p-8 rounded-[3rem] shadow-2xl border-4 border-white/10">
@@ -106,7 +106,7 @@ export const CobaltSplitHeader = (props: SharedEngineProps) => {
              {renderLogo?.("w-20 h-20")}
           </div>
           <div className="text-right">
-             <h1 className="text-8xl font-black uppercase text-[#1D4ED8] tracking-tighter leading-none opacity-10">COBALT</h1>
+             <div role="presentation" className="text-8xl font-black uppercase text-[#1D4ED8] tracking-tighter leading-none opacity-10">COBALT</div>
              <h2 className="text-4xl font-black uppercase text-noble-text -mt-10 relative z-10">INVOICE</h2>
           </div>
        </div>
@@ -130,7 +130,7 @@ export const SlateGridHeader = (props: SharedEngineProps) => {
              </div>
           </div>
           <div className="text-right">
-             <h1 className="text-4xl font-black uppercase text-[#475569] tracking-tighter leading-none italic">DOCUMENT</h1>
+             <div role="presentation" className="text-4xl font-black uppercase text-[#475569] tracking-tighter leading-none italic">DOCUMENT</div>
              <p className="text-xs font-bold text-slate-400 mt-1 uppercase tracking-[0.4em]">Official Statement</p>
           </div>
        </div>
@@ -147,7 +147,7 @@ export const ForestPremiumHeader = (props: SharedEngineProps) => {
              {renderLogo?.("w-20 h-20")}
           </div>
           <div className="text-right">
-             <h1 className="text-6xl font-black uppercase text-white tracking-tighter italic">FOREST</h1>
+             <div role="presentation" className="text-6xl font-black uppercase text-white tracking-tighter italic">FOREST</div>
              <p className="text-[10px] font-black uppercase tracking-[0.6em] text-[#EAB308] mt-2">Premium Series • Gold Member</p>
           </div>
        </div>
@@ -170,7 +170,7 @@ export const EmeraldNexusHeader = (props: SharedEngineProps) => {
                 <p className="text-xs font-bold opacity-60 max-w-xs">{sender?.address?.split('\n')[0]}</p>
              </div>
           </div>
-          <h1 className="text-6xl font-black uppercase tracking-[0.2em] italic">INVOICE</h1>
+          <div role="presentation" className="text-6xl font-black uppercase tracking-[0.2em] italic">INVOICE</div>
        </div>
        <div className="bg-noble-surface rounded-[2.5rem] p-1 shadow-2xl -mb-1" />
     </div>
@@ -192,7 +192,7 @@ export const RoyalPurpleHeader = (props: SharedEngineProps) => {
                 <p className="text-xs font-bold opacity-60">{sender?.email}</p>
              </div>
           </div>
-          <h1 className="text-6xl font-black uppercase tracking-[0.2em]">INVOICE</h1>
+          <div role="presentation" className="text-6xl font-black uppercase tracking-[0.2em]">INVOICE</div>
        </div>
        <div className="bg-noble-surface rounded-[3rem] p-1 shadow-2xl -mb-1" />
     </div>

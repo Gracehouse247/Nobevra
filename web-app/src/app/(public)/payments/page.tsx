@@ -9,8 +9,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Business Payment Software & Online Billing Solutions | Nobevra',
-    description: 'Accept credit cards, bank transfers, and mobile payments securely via Flutterwave. Integrated in-app wallet and instant checkout for small businesses.',
+    title: 'International Business Payments — Multi-Currency Invoicing & Checkout | Nobevra',
+    description: 'Accept global credit card payments, bank transfers, and mobile money in 30+ currencies with Nobevra. Fast settlement, zero hidden fees, and PCI-DSS Level 1 security.',
     alternates: {
         canonical: 'https://nobevra.noblesworld.com.ng/payments',
     },
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
         'multi currency billing software'
     ],
     openGraph: {
-        title: 'Business Payment Software | Nobevra',
-        description: 'Accelerate cash flow with instant online checkout and multi-currency billing.',
+        title: 'International Business Payments — Multi-Currency Invoicing & Checkout | Nobevra',
+        description: 'Accept global credit card payments, bank transfers, and mobile money in 30+ currencies with Nobevra. Fast settlement, zero hidden fees, and PCI-DSS Level 1 security.',
         url: 'https://nobevra.noblesworld.com.ng/payments',
         type: 'website',
     },
@@ -78,29 +78,38 @@ export default function PaymentsPage() {
                             <CreditCard className="w-6 h-6" />
                         </div>
                         <h2 className="text-xl font-bold mb-3">One-Click Checkout Portal</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
                             Clients click the link on your invoice and pay instantly on web or mobile without registering or remembering passwords.
                         </p>
+                        <Link href="/client-portal-software" className="text-amber-600 font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            Client Portal Checkout <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
 
                     <div className="bg-noble-surface p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 mb-6">
                             <Wallet className="w-6 h-6" />
                         </div>
-                        <h2 className="text-xl font-bold mb-3">In-App Business Wallet</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
-                            Monitor incoming transaction revenue in your real-time wallet ledger and initiate direct payouts to your corporate bank account.
+                        <h2 className="text-xl font-bold mb-3">Automated Retainer Billing</h2>
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
+                            Auto-charge saved payment methods on monthly retainers and recover failed charges with automated dunning workflows.
                         </p>
+                        <Link href="/recurring-billing-software" className="text-emerald-600 font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            Recurring Billing <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
 
                     <div className="bg-noble-surface p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <div className="w-12 h-12 rounded-2xl bg-noble-blue/10 flex items-center justify-center text-noble-blue mb-6">
                             <Lock className="w-6 h-6" />
                         </div>
-                        <h2 className="text-xl font-bold mb-3">PCI-DSS Compliant Security</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
-                            Card data is handled exclusively by certified payment processors with 256-bit TLS encryption. Zero raw card storage on server.
+                        <h2 className="text-xl font-bold mb-3">Integrated Invoicing Engine</h2>
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
+                            Payments automatically reconcile against your accounts receivable ledger as soon as the client transaction settles.
                         </p>
+                        <Link href="/invoicing" className="text-noble-blue font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            Online Invoicing <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
                 </div>
             </section>

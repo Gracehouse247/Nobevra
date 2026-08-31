@@ -313,7 +313,7 @@ export default function RegisterPage() {
                 
                 <div className="w-full lg:w-1/2 flex flex-col justify-center mb-12 lg:mb-0 lg:pr-12">
                     <Link href="/" className="mb-8 self-start block">
-                        <Image src={brand.assets.logo} alt="Nobevra" width={160} height={40} className="h-10 w-auto object-contain hover:opacity-80 transition-opacity brightness-0 invert" />
+                        <Image src={brand.assets.logo} alt="Nobevra" width={160} height={40} className="h-10 w-auto object-contain hover:opacity-80 transition-opacity brightness-0 invert" style={{ width: 'auto', height: 'auto' }} priority />
                     </Link>
                     <AnimatePresence mode="wait">
                         {step === 3 ? (

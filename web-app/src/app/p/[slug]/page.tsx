@@ -9,18 +9,19 @@ import {
 import Image from 'next/image';
 
 interface ProductPassportProps {
-    params: { slug: string };
+    params: Promise<{ slug: string }>;
 }
 
 // Ensure SEO by generating metadata dynamically
 export async function generateMetadata({ params }: ProductPassportProps): Promise<Metadata> {
+    const { slug } = await params;
     const { data: passport } = await supabase
         .from('product_passports')
         .select(`
             seo_title, seo_description, brand_name,
             products (name)
         `)
-        .eq('slug', params.slug)
+        .eq('slug', slug)
         .eq('public_status', 'published')
         .single();
 
@@ -33,10 +34,10 @@ export async function generateMetadata({ params }: ProductPassportProps): Promis
     const brandName = passport.brand_name || 'Brand';
     
     return {
-        title: passport.seo_title || `${productName} by ${brandName} | Digital Product Passport`,
-        description: passport.seo_description || `View digital passport, trace origin, and verify authenticity for ${productName}.`,
+        title: passport.seo_title || `${productName} — Digital Product Passport | Nobevra`,
+        description: passport.seo_description || `Official product passport and supply chain authenticity ledger for ${productName}.`,
         openGraph: {
-            title: passport.seo_title || `${productName} | Product Passport`,
+            title: passport.seo_title || `${productName} — Digital Product Passport`,
             description: passport.seo_description || `Official product passport for ${productName}.`,
             type: 'website',
         },
@@ -46,6 +47,7 @@ export async function generateMetadata({ params }: ProductPassportProps): Promis
 
 // Server Component for SEO and Performance
 export default async function ProductPassportPage({ params }: ProductPassportProps) {
+    const { slug } = await params;
     const { data: passport } = await supabase
         .from('product_passports')
         .select(`
@@ -53,7 +55,7 @@ export default async function ProductPassportPage({ params }: ProductPassportPro
             products (name, description, sku),
             teams (name, logo_url)
         `)
-        .eq('slug', params.slug)
+        .eq('slug', slug)
         .eq('public_status', 'published')
         .single();
 

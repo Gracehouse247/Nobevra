@@ -28,9 +28,9 @@ export const EliteChevronCard: React.FC<CardRendererProps & { defaultColor?: str
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="relative z-10 space-y-2">
-                <h1 className="font-black tracking-tight leading-none uppercase" style={{ fontSize: fs(46), color: ON_COLOR }}>
+                <div role="presentation" className="font-black tracking-tight leading-none uppercase" style={{ fontSize: fs(46), color: ON_COLOR }}>
                   {data.fullName || 'JAMES ELITE'}
-                </h1>
+                </div>
                 <p className="font-bold tracking-[0.25em] uppercase opacity-70" style={{ fontSize: fs(14), color: accent }}>
                   {data.jobTitle || 'CHIEF EXECUTIVE'}
                 </p>

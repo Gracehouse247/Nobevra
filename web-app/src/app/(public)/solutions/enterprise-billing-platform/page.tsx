@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import Footer from '@/components/shared/Footer';
 
 // Custom Enterprise Components
@@ -23,8 +22,8 @@ import EnterpriseCTA from '@/components/landing/enterprise/EnterpriseCTA';
                       high volume invoicing software
 ──────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Enterprise Billing Platform | High-Volume Operations | Nobevra',
-    description: 'The enterprise billing platform for high-volume operations. Automate enterprise billing, API invoicing integration, and multi currency invoicing software.',
+    title: 'Enterprise Billing Platform — High-Volume Financial Infrastructure | Nobevra',
+    description: 'Scale financial operations with Nobevra Enterprise. High-volume billing APIs, dedicated database instances, custom SLAs, SSO/SAML, and multi-entity support.',
     keywords: [
         'enterprise billing platform',
         'enterprise invoice management',
@@ -38,12 +37,12 @@ export const metadata: Metadata = {
         'high volume invoicing software',
     ],
     alternates: {
-        canonical: '/solutions/enterprise',
+        canonical: 'https://nobevra.noblesworld.com.ng/solutions/enterprise-billing-platform',
     },
     openGraph: {
         title: 'Enterprise Billing Platform | Nobevra',
         description: 'Scale your billing operations globally with automated enterprise billing, API integration, and multi-currency support.',
-        url: '/solutions/enterprise',
+        url: 'https://nobevra.noblesworld.com.ng/solutions/enterprise-billing-platform',
         type: 'website',
     },
 };
@@ -55,14 +54,13 @@ const softwareSchema = {
     "name": "Nobevra Enterprise Billing Platform",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web",
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "612" },
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 };
 
 export default function EnterpriseSolutionPage() {
     return (
         <div className="bg-white text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
-            <Script id="sw-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
 
             {/* 1. Hero */}
             <EnterpriseHeroSection />

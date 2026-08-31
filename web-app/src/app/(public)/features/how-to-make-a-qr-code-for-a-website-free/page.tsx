@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+
 import Image from 'next/image';
 import {
   ArrowRight,
@@ -24,16 +24,13 @@ export const metadata: Metadata = {
   title: 'How To Make A QR Code For A Website Free | Nobevra',
   description:
     'Learn how to make a QR code for a website in seconds — free, branded, and scannable. Nobevra generates QR codes that drive payments, leads, and business growth.',
-  keywords: [
-    'how to make a qr code for a website',
-    'how to make a qr code for a website for free',
-    'free qr code generator',
-    'qr code scanner',
-    'google qr code generator',
-    'how to make a qr code for a website without',
-    'qr code for business',
-    'digital business card qr code',
-  ],
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: 'https://nobevra.noblesworld.com.ng/qr-code-generator',
+  },
 };
 
 export default function LeadIntelligencePage() {
@@ -318,12 +315,12 @@ export default function LeadIntelligencePage() {
 
   return (
     <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
-      <Script
+      <script
         id="faq-schema-lead-intelligence"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Script
+      <script
         id="howto-schema-lead-intelligence"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }}

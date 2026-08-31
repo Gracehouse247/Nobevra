@@ -1,142 +1,117 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 import {
   ArrowRight, BarChart3, CheckCircle2, TrendingUp, FileText,
   Clock, DollarSign, ShieldCheck, Star, Users, Zap, Download,
-  AlertTriangle, ChevronDown, Check, X, Globe, CreditCard
+  AlertTriangle, ChevronDown, Check, X, Globe, CreditCard,
+  Sparkles, HelpCircle, BookOpen
 } from 'lucide-react';
-import Footer from '@/components/shared/Footer';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
-  title: 'How Do I Make an Invoice? — Invoice Pro Guide | Nobevra',
-  description: 'How do I make an invoice? Create invoice online free PDF with Nobevra. Use our free invoice maker app, online invoice templates, and get paid faster.',
+  title: 'How to Make an Invoice: Step-by-Step Guide for Beginners | Nobevra',
+  description: 'Learn how to make a professional invoice step-by-step. Discover what information to include, payment terms, tax calculations, and free invoice creation tools.',
   keywords: [
     'how do I make an invoice',
-    'how do i make an invoice template',
+    'how to make an invoice',
+    'how to make an invoice step by step',
     'create invoice online free PDF',
     'online invoice template',
     'free invoice maker app',
-    'invoice generator',
-    'professional invoice',
+    'what to include on an invoice',
+    'professional invoice guide'
   ],
   alternates: {
-    canonical: '/features/growth-reports',
+    canonical: 'https://nobevra.noblesworld.com.ng/features/how-do-i-make-an-invoice',
   },
   openGraph: {
-    title: 'How Do I Make an Invoice? — Step-by-Step Invoice Pro Guide | Nobevra',
-    description: 'Stop Googling how to make an invoice. Nobevra creates it for you in 60 seconds — with payment collection built right in.',
-    url: '/features/growth-reports',
+    title: 'How to Make an Invoice: Step-by-Step Guide for Beginners | Nobevra',
+    description: 'Learn how to make a professional invoice step-by-step. Discover what information to include, payment terms, tax calculations, and free invoice creation tools.',
+    url: 'https://nobevra.noblesworld.com.ng/features/how-do-i-make-an-invoice',
     siteName: 'Nobevra',
-    type: 'website',
+    type: 'article',
   },
 };
 
 const faqs = [
   {
     q: 'How do I make an invoice for the first time?',
-    a: 'Sign up for a free Nobevra account, click "New Invoice", add your client\'s details and the work you completed, then hit Send. Your client gets a professional PDF with a pay button built in — all in under 60 seconds.',
+    a: 'Use a dedicated invoice tool like Nobevra or our free invoice generator. Input your business contact details, your client details, a sequential invoice number, issue date and due date, an itemized list of services with unit rates, and your payment details. You can download a PDF or send a direct payment link in under 60 seconds.',
   },
   {
-    q: 'How do I make an invoice template I can reuse?',
-    a: 'In Nobevra, every invoice you create becomes a reusable template. Add your logo, standard line items, and payment terms once. From then on, duplicating it for new clients takes about 10 seconds.',
+    q: 'What information must be included on an invoice for it to be legally valid?',
+    a: 'A valid commercial invoice must include: 1) The word INVOICE clearly displayed, 2) Your business name and contact details, 3) Client name and billing address, 4) A unique invoice number, 5) Date of issue and payment due date, 6) Clear descriptions of products/services with prices and quantities, 7) Applicable taxes (VAT/GST) and total amount due, 8) Payment terms and account/checkout instructions.',
   },
   {
-    q: 'Can I create an invoice online free and export a PDF?',
-    a: 'Yes. Every plan — including the free Explorer tier — lets you generate a crisp, professional PDF you can download or email to your client directly from the app.',
+    q: 'Can I create a professional invoice online for free?',
+    a: 'Yes. Nobevra provides a 100% free web-based invoice generator that requires no sign-up or credit card. You can choose a professional layout, add your logo, calculate taxes, and export an unalterable PDF instantly.',
   },
   {
-    q: 'What is the best free invoice maker app?',
-    a: 'It depends on what you need. If you send fewer than 10 invoices a month and want a simple, beautiful tool with zero learning curve, Nobevra\'s free plan is genuinely hard to beat. If you need advanced accounting, you may want a full ERP system — and that\'s fine too.',
+    q: 'What is the best way to number invoices?',
+    a: 'Use a systematic, chronological, and non-repeating numbering scheme such as INV-2026-001 or client-specific codes like ACME-001. Never use random or single-digit numbers (#1, #2) as corporate accounting teams may reject them.',
   },
   {
-    q: 'Does an online invoice template look professional enough for corporate clients?',
-    a: 'Yes — if you use the right one. Nobevra templates are designed by professional brand designers. Corporate finance teams regularly receive and approve invoices generated from our platform.',
-  },
-  {
-    q: 'How long does it take to get paid after sending an invoice?',
-    a: 'Businesses using Nobevra with payment links embedded report an average 14-day reduction in payment time compared to PDF-only invoices. When your client can pay directly from the invoice email, they usually do.',
+    q: 'How do I ensure clients pay my invoice on time?',
+    a: 'Embed an instant checkout button (credit card, bank transfer) directly inside digital invoices, specify explicit payment terms (e.g., Net 14 or Due Upon Receipt), establish a clear late fee policy (e.g., 1.5%/month after due date), and enable automated payment reminders.',
   },
 ];
 
 const steps = [
   {
     num: '01',
-    title: 'Add your business details',
-    desc: 'Your name, logo, address, and tax ID. You do this once. The app remembers everything from that point forward.',
+    title: 'Add Your Business Information & Logo',
+    desc: 'Include your legal business name, brand logo, physical or postal address, contact email, phone number, and tax registration ID (VAT, GST, or EIN).',
     time: '30 seconds',
   },
   {
     num: '02',
-    title: 'Enter your client information',
-    desc: 'Type the billing entity name and email. If you\'ve invoiced them before, it auto-fills. First time? Takes about 20 seconds.',
+    title: 'Enter Client & Billing Entity Details',
+    desc: 'Input the exact corporate name of the client, their accounts payable email address, and their physical billing address to avoid internal procurement delays.',
     time: '20 seconds',
   },
   {
     num: '03',
-    title: 'List what you did or sold',
-    desc: 'Add line items — service description, quantity, and rate. Tax is calculated automatically. No manual math.',
-    time: '60 seconds',
-  },
-  {
-    num: '04',
-    title: 'Set your payment terms',
-    desc: 'Pick a due date and late fee policy. Add a note if needed. Keep it short — clients read payment terms, not essays.',
+    title: 'Assign a Unique Invoice Number & Dates',
+    desc: 'Specify a sequential invoice number (e.g., INV-2026-042), the document issue date, and the strict payment due date (e.g., Net 14, Net 30, or Due on Receipt).',
     time: '15 seconds',
   },
   {
+    num: '04',
+    title: 'Itemize Products or Services Provided',
+    desc: 'List each line item with an unambiguous description, the quantity or billable hours, and the unit rate. Avoid vague descriptions like miscellaneous work.',
+    time: '45 seconds',
+  },
+  {
     num: '05',
-    title: 'Send it with a pay button',
-    desc: 'Your client receives a branded email with a one-click payment button. Card, bank transfer, or mobile money. Their choice.',
+    title: 'Calculate Subtotal, Taxes & Discounts',
+    desc: 'Apply applicable sales tax or VAT rates, include any pre-agreed discounts or deposits already paid, and clearly display the final balance due.',
+    time: '15 seconds',
+  },
+  {
+    num: '06',
+    title: 'State Accepted Payment Methods & Terms',
+    desc: 'List payment options: direct bank account details (IBAN/SWIFT/routing), mobile money, or embed a one-click credit card payment link.',
+    time: '20 seconds',
+  },
+  {
+    num: '07',
+    title: 'Deliver via Email or Secure Link',
+    desc: 'Send the digital invoice with tracking telemetry enabled, or download a crisp, professional PDF document to attach to your correspondence.',
     time: '10 seconds',
   },
 ];
 
-const commonMistakes = [
-  {
-    wrong: 'Using Word or Excel',
-    right: 'Online invoice template',
-    impact: 'Word invoices have no payment collection. Clients have to manually bank-transfer you — and many simply forget.',
-  },
-  {
-    wrong: 'Sending invoices weekly in bulk',
-    right: 'Invoice immediately after delivery',
-    impact: 'Studies show invoices sent within 24 hours of project completion are paid 3x faster than those batched weekly.',
-  },
-  {
-    wrong: 'Generic invoice numbers like #001',
-    right: 'Structured numbering (2025-CLIENT-001)',
-    impact: 'Corporate finance teams often reject invoices without structured identifiers. A proper invoice number system prevents payment delays.',
-  },
-  {
-    wrong: 'No late payment clause',
-    right: 'Clear 1.5%/month late fee policy',
-    impact: '67% of late payers admit they prioritize invoices that clearly specify penalties. Most never enforce it — but the clause alone changes behavior.',
-  },
+const invoiceAnatomy = [
+  { part: 'Header & Logo', note: 'Top of page with your company identity and contact info' },
+  { part: 'Document Identifier', note: 'Explicit title "INVOICE" with unique sequence number' },
+  { part: 'Client Billing Box', note: 'Buyer name, corporate entity, and contact email' },
+  { part: 'Key Milestones', note: 'Issue date, supply date, and strict payment due date' },
+  { part: 'Itemized Table', note: 'Description, quantity/hours, unit price, and line totals' },
+  { part: 'Financial Summary', note: 'Subtotal, discounts, tax rates (VAT/GST), and balance due' },
+  { part: 'Payment Instructions', note: 'Bank details, credit card checkout link, and late fee clause' }
 ];
 
-const testimonials = [
-  {
-    quote: "I used to dread billing. Now I do it from my phone on the drive home. My average payment time went from 32 days to 11 days.",
-    name: "James O.",
-    role: "Independent Consultant",
-    revenue: "£12,400/mo",
-  },
-  {
-    quote: "The first time a corporate client said 'your invoices are the cleanest we receive', I knew I'd found my system.",
-    name: "Priya S.",
-    role: "Brand Strategy Freelancer",
-    revenue: "$8,200/mo",
-  },
-  {
-    quote: "We onboarded 14 new clients in one quarter. The billing never became a bottleneck because Nobevra scales with you.",
-    name: "Kofi A.",
-    role: "Creative Agency Founder",
-    revenue: "₦4.8M/mo",
-  },
-];
-
-export default function GrowthReportsPage() {
+export default function HowDoIMakeAnInvoicePage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -152,25 +127,9 @@ export default function GrowthReportsPage() {
         }))
       },
       {
-        "@type": "SoftwareApplication",
-        "name": "Nobevra",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web, iOS, Android",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "reviewCount": "2400"
-        }
-      },
-      {
         "@type": "HowTo",
-        "name": "How do I make an invoice?",
-        "description": "A step-by-step guide to creating a professional invoice online in under 3 minutes.",
+        "name": "How to Make an Invoice: Step-by-Step Guide",
+        "description": "A complete beginner guide explaining how to create and send a professional, legally compliant invoice that gets paid fast.",
         "step": steps.map((s, i) => ({
           "@type": "HowToStep",
           "position": i + 1,
@@ -182,440 +141,146 @@ export default function GrowthReportsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC]">
-      <Script
-        id="invoice-schema"
+    <div className="min-h-screen bg-[#F8FAFC] text-near-black font-inter antialiased pt-[118px]">
+      <BreadcrumbSchema
+        pageId="how-do-i-make-an-invoice"
+        crumbs={[
+          { name: 'Home', item: 'https://nobevra.noblesworld.com.ng' },
+          { name: 'Features', item: 'https://nobevra.noblesworld.com.ng/features' },
+          { name: 'How to Make an Invoice' }
+        ]}
+      />
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ───────────────────────────────────────────────
-          1. HERO — Strong benefit-driven headline
-      ─────────────────────────────────────────────── */}
-      <section className="pt-32 pb-20 px-4 md:px-16 max-w-7xl mx-auto">
+      {/* 1. HERO */}
+      <section className="pt-12 pb-20 px-4 md:px-16 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-16">
-          {/* Left copy */}
           <div className="flex-1 space-y-8 max-w-xl">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/10 text-blue-800 font-bold text-[10px] uppercase tracking-widest border border-noble-blue/5">
-              <span className="w-2 h-2 rounded-full bg-noble-blue animate-pulse" />
-              Invoice Pro — How to Make an Invoice
+              <BookOpen className="w-3.5 h-3.5 text-noble-blue" />
+              Beginner & Pro Invoicing Guide
             </div>
 
-            <h1
-              className="text-[30px] md:text-[50px] leading-[1.05] tracking-tight font-black text-slate-900"
-              style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-            >
-              How do I make an invoice{' '}
-              <span className="text-noble-blue">that actually gets paid?</span>
+            <h1 className="text-[32px] md:text-[52px] leading-[1.08] tracking-tight font-black text-slate-900">
+              How to Make an Invoice: <br/>
+              <span className="text-noble-blue">The Complete Step-by-Step Guide</span>
             </h1>
 
-            <p className="text-xl text-slate-600 font-medium leading-relaxed">
-              Most people know <em>what</em> an invoice is. The problem is the part nobody talks about — sending one that looks credible enough to skip the "can you resend that?" email, and professional enough that your client actually clicks the pay button.
+            <p className="text-lg text-slate-600 font-medium leading-relaxed">
+              Learn exactly what information to include, how to structure professional payment terms, avoid common formatting mistakes, and generate compliant invoices in under 2 minutes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <Link
-                href="/register"
-                className="text-white px-10 py-5 text-base font-extrabold rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(22,111,187,0.3)] hover:scale-[1.02] active:scale-95"
+                href="/free-invoice-generator"
+                className="text-white px-8 py-4 rounded-xl font-bold text-sm tracking-wide shadow-[0_12px_30px_rgba(22,111,187,0.35)] hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-3"
                 style={{ backgroundColor: '#166FBB' }}
               >
-                Create Invoice Online Free <ArrowRight className="w-5 h-5" />
+                Create Invoice Free (PDF) <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="#how-it-works"
-                className="flex items-center justify-center gap-3 px-8 py-5 text-base font-bold rounded-2xl border-2 border-slate-900/10 text-slate-900 hover:border-noble-blue hover:text-noble-blue hover:bg-noble-blue/5 transition-all"
+                href="/register"
+                className="flex items-center justify-center gap-2 px-7 py-4 text-sm font-bold rounded-xl border border-slate-300 text-slate-900 hover:border-noble-blue hover:text-noble-blue hover:bg-slate-50 transition-all"
               >
-                See how it works
+                Try Full Automation Suite
               </Link>
             </div>
 
-            {/* Social proof strip */}
             <div className="flex flex-wrap gap-6 pt-4 border-t border-slate-200">
               <div className="flex items-center gap-2 text-sm font-bold text-slate-600">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Free to start
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" /> 100% Free to Use
               </div>
               <div className="flex items-center gap-2 text-sm font-bold text-slate-600">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" /> No credit card needed
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" /> No Signup Required
               </div>
               <div className="flex items-center gap-2 text-sm font-bold text-slate-600">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" /> PDF export included
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" /> Instant PDF Download
               </div>
             </div>
           </div>
 
-          {/* Right — Invoice mockup */}
+          {/* Right — Invoice preview mockup */}
           <div className="flex-1 w-full max-w-lg">
-            <div className="relative bg-white rounded-[32px] shadow-2xl border border-slate-100 overflow-hidden">
-              {/* Invoice header bar */}
+            <div className="relative bg-white rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden">
               <div className="bg-[#0a192f] px-8 py-6 flex justify-between items-center">
                 <div>
                   <div className="text-white font-black text-lg tracking-tight">INVOICE</div>
-                  <div className="text-slate-400 text-xs font-bold mt-1">#INV-2025-0089</div>
+                  <div className="text-slate-400 text-xs mt-0.5">INV-2026-0042</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-slate-400 font-bold">Due Date</div>
-                  <div className="text-white font-black">Jul 15, 2025</div>
+                  <span className="inline-block bg-emerald-500/20 text-emerald-400 text-xs font-bold px-3 py-1 rounded-full border border-emerald-500/30">
+                    Payment Ready
+                  </span>
                 </div>
               </div>
 
-              {/* Invoice body */}
               <div className="p-8 space-y-6">
-                <div className="flex justify-between text-sm">
+                <div className="grid grid-cols-2 gap-4 text-xs border-b border-slate-100 pb-4">
                   <div>
-                    <div className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">From</div>
-                    <div className="font-black text-slate-900">Your Business Ltd</div>
-                    <div className="text-slate-500 text-xs">hello@yourbusiness.com</div>
+                    <span className="text-slate-400 uppercase tracking-wider font-bold block mb-1">Billed To</span>
+                    <p className="font-bold text-slate-900">Acme Global Corp</p>
+                    <p className="text-slate-500">billing@acmeglobal.com</p>
                   </div>
-                  <div className="text-right">
-                    <div className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">To</div>
-                    <div className="font-black text-slate-900">Client Corp Inc.</div>
-                    <div className="text-slate-500 text-xs">finance@client.com</div>
+                  <div>
+                    <span className="text-slate-400 uppercase tracking-wider font-bold block mb-1">Payment Due</span>
+                    <p className="font-bold text-slate-900">Net 14 Days</p>
+                    <p className="text-slate-500">Due: Oct 28, 2026</p>
                   </div>
                 </div>
 
-                <div className="border border-slate-100 rounded-2xl overflow-hidden">
-                  <table className="w-full text-sm">
-                    <thead className="bg-slate-50">
-                      <tr>
-                        <th className="p-3 text-left text-xs font-black text-slate-500 uppercase tracking-wider">Description</th>
-                        <th className="p-3 text-right text-xs font-black text-slate-500 uppercase tracking-wider">Total</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-t border-slate-100">
-                        <td className="p-3 font-medium text-slate-700">Brand Strategy Consulting (20 hrs)</td>
-                        <td className="p-3 text-right font-bold text-slate-900">$4,000</td>
-                      </tr>
-                      <tr className="border-t border-slate-100">
-                        <td className="p-3 font-medium text-slate-700">Design Assets Package</td>
-                        <td className="p-3 text-right font-bold text-slate-900">$1,500</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div className="space-y-2 text-xs">
+                  <div className="flex justify-between font-bold text-slate-700 pb-2 border-b border-slate-100">
+                    <span>Description</span>
+                    <span>Amount</span>
+                  </div>
+                  <div className="flex justify-between text-slate-600 py-1">
+                    <span>Brand Strategy & Design Sprint</span>
+                    <span className="font-semibold text-slate-900">,500.00</span>
+                  </div>
+                  <div className="flex justify-between text-slate-600 py-1">
+                    <span>Web Development & Deployment</span>
+                    <span className="font-semibold text-slate-900">,200.00</span>
+                  </div>
                 </div>
 
-                <div className="flex justify-between items-center bg-noble-blue/5 rounded-2xl p-4">
-                  <div className="font-black text-slate-900">Total Due</div>
-                  <div className="font-black text-2xl text-noble-blue">$5,500.00</div>
+                <div className="bg-slate-50 p-4 rounded-2xl flex justify-between items-center border border-slate-100">
+                  <span className="font-black text-sm text-slate-900">Total Balance Due</span>
+                  <span className="font-black text-xl text-noble-blue">,700.00</span>
                 </div>
 
-                <div
-                  className="w-full py-4 rounded-2xl text-white font-black text-center text-base shadow-lg"
-                  style={{ backgroundColor: '#166FBB' }}
-                >
-                  Pay Now — $5,500.00
+                <div className="bg-[#166FBB] p-3.5 rounded-xl text-center text-white text-xs font-bold flex items-center justify-center gap-2 shadow-md">
+                  <CreditCard className="w-4 h-4" /> Pay Invoice Online (Instant Checkout)
                 </div>
-              </div>
-
-              {/* Floating badge */}
-              <div className="absolute -top-3 -right-3 bg-emerald-500 text-white font-black text-[10px] px-3 py-1.5 rounded-full shadow-lg transform rotate-6 uppercase tracking-widest">
-                Paid in 4 days
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ───────────────────────────────────────────────
-          1.5 VIDEO SECTION — Behavioral dwell-time hack
-      ─────────────────────────────────────────────── */}
-      <section className="py-20 bg-slate-50 px-4 md:px-16 border-t border-slate-100">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10 space-y-4">
-            <h2 
-              className="text-3xl md:text-4xl font-black text-slate-900 tracking-tight"
-              style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-            >
-              Watch: How to make an invoice in 60 seconds
+      {/* 2. INVOICE ANATOMY BREAKDOWN */}
+      <section className="py-16 bg-white border-y border-slate-200">
+        <div className="max-w-5xl mx-auto px-4 md:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900">
+              Anatomy of a Perfect Invoice
             </h2>
-            <p className="text-lg text-slate-500 font-medium max-w-2xl mx-auto">
-              See exactly how Nobevra transforms billing from a 30-minute chore into a 60-second reflex.
-            </p>
-          </div>
-          
-          <div className="relative aspect-video rounded-[32px] overflow-hidden shadow-2xl border-8 border-white bg-slate-900 group">
-            {/* Placeholder for actual YouTube/Vimeo embed */}
-            <div className="absolute inset-0 flex items-center justify-center bg-noble-blue/10">
-               <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 group-hover:bg-noble-blue transition-all duration-300 cursor-pointer">
-                  <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-2"></div>
-               </div>
-            </div>
-            
-            <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
-               <div className="text-white font-bold text-lg">Invoice Masterclass: Step-by-Step Tutorial</div>
-               <div className="text-white/70 text-sm">1:04 • Nobevra Academy</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────────────────────────────────────────
-          2. EMOTIONAL HOOK — The real problem
-      ─────────────────────────────────────────────── */}
-      <section className="py-24 bg-white px-4 md:px-16 border-t border-slate-100">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900"
-            style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-          >
-            You completed the work.<br />
-            <span className="text-noble-blue">Now you have to ask to be paid.</span>
-          </h2>
-          <p className="text-xl text-slate-600 leading-relaxed font-medium max-w-2xl mx-auto">
-            That transition — from delivering great work to asking someone for money — is awkward for most people. A professional invoice removes the awkwardness. It signals that payment is a standard process, not a personal request.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 text-left">
-            {[
-              { stat: '61%', label: 'Higher approval rate', desc: 'Formal invoices get approved by corporate buyers 61% faster than informal quotes.' },
-              { stat: '14 days', label: 'Faster payment', desc: 'Invoices with embedded pay buttons are settled 14 days sooner on average.' },
-              { stat: '$1,200', label: 'Saved monthly', desc: 'What the average small business loses to billing delays, manual errors, and follow-up time.' },
-            ].map(({ stat, label, desc }) => (
-              <div key={label} className="bg-[#F8FAFC] rounded-3xl p-6 border border-slate-200">
-                <div className="text-4xl font-black text-noble-blue mb-2">{stat}</div>
-                <div className="font-black text-slate-900 text-lg mb-2">{label}</div>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────────────────────────────────────────
-          3. PROBLEM SECTION — Why businesses fail at invoicing
-      ─────────────────────────────────────────────── */}
-      <section className="py-24 bg-slate-50 px-4 md:px-16 border-t border-slate-200">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900"
-              style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-            >
-              Why most invoice approaches quietly fail
-            </h2>
-            <p className="text-slate-500 font-medium max-w-2xl mx-auto text-lg">
-              These are the four habits that delay payment — and the direct fix for each one.
+            <p className="text-slate-600 text-base">
+              Every invoice must contain these 7 essential elements to ensure tax compliance and instant payment processing.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {commonMistakes.map(({ wrong, right, impact }) => (
-              <div key={wrong} className="bg-white rounded-3xl p-8 border border-slate-200 space-y-4 shadow-sm">
-                <div className="flex flex-col gap-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                      <X className="w-4 h-4 text-red-500" />
-                    </div>
-                    <span className="font-bold text-slate-500 line-through text-sm">{wrong}</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-4 h-4 text-emerald-600" />
-                    </div>
-                    <span className="font-black text-slate-900">{right}</span>
-                  </div>
+          <div className="grid md:grid-cols-2 gap-4">
+            {invoiceAnatomy.map((item, idx) => (
+              <div key={idx} className="flex gap-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/80 items-start">
+                <div className="w-8 h-8 rounded-lg bg-noble-blue/10 text-noble-blue font-bold flex items-center justify-center shrink-0 text-sm">
+                  {idx + 1}
                 </div>
-                <p className="text-slate-500 text-sm font-medium leading-relaxed border-t border-slate-100 pt-4">{impact}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────────────────────────────────────────
-          4. HOW-TO SECTION — The 5-step process
-      ─────────────────────────────────────────────── */}
-      <section id="how-it-works" className="py-24 bg-white px-4 md:px-16 border-t border-slate-100">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900"
-              style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-            >
-              How do I make an invoice in 5 steps?
-            </h2>
-            <p className="text-slate-500 font-medium max-w-2xl mx-auto text-lg">
-              This is the exact process — whether you use an online invoice template, a free invoice maker app, or create invoice online as a PDF. Total time: under 3 minutes.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {steps.map((step, i) => (
-              <div
-                key={step.num}
-                className="flex flex-col md:flex-row gap-6 bg-[#F8FAFC] rounded-3xl p-8 border border-slate-200 hover:border-noble-blue/30 hover:bg-noble-blue/5 transition-all duration-300"
-              >
-                <div className="flex-shrink-0 flex items-start gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-noble-blue flex items-center justify-center font-black text-white text-lg shadow-md shadow-noble-blue/30">
-                    {step.num}
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-black text-slate-900 mb-2">{step.title}</h3>
-                  <p className="text-slate-500 font-medium leading-relaxed">{step.desc}</p>
-                </div>
-                <div className="flex-shrink-0 flex items-center">
-                  <div className="flex items-center gap-2 px-4 py-2 bg-emerald-100 text-emerald-700 font-black text-sm rounded-full">
-                    <Clock className="w-3.5 h-3.5" />
-                    {step.time}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/register"
-              className="inline-flex items-center justify-center gap-3 text-white px-12 py-5 text-base font-extrabold rounded-2xl hover:opacity-90 transition-all shadow-[0_20px_50px_rgba(22,111,187,0.3)] hover:scale-[1.02] active:scale-95"
-              style={{ backgroundColor: '#166FBB' }}
-            >
-              Start with a free invoice template <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────────────────────────────────────────
-          5. INFORMATION GAIN — The "Invoice Anatomy" section
-             (Content no competitor covers)
-      ─────────────────────────────────────────────── */}
-      <section className="py-24 bg-[#0a192f] text-white px-4 md:px-16 border-y border-slate-800">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2
-              className="text-4xl md:text-5xl font-black leading-[1.1] tracking-tight text-white"
-              style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-            >
-              The invoice element most people forget
-            </h2>
-            <p className="text-slate-300 font-medium max-w-2xl mx-auto text-lg">
-              Every guide tells you to add a line-item description. Almost none explain which specific fields determine whether a corporate finance team approves or kicks back your invoice.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: <FileText className="w-6 h-6" />,
-                color: 'text-blue-400',
-                bg: 'bg-blue-500/20',
-                title: 'Purchase Order (PO) Reference',
-                desc: 'Corporate buyers generate a PO number before authorizing any purchase. If your invoice doesn\'t reference their PO number, it goes to the back of the queue — or gets rejected outright. Always ask for the PO before you start work.',
-              },
-              {
-                icon: <ShieldCheck className="w-6 h-6" />,
-                color: 'text-emerald-400',
-                bg: 'bg-emerald-500/20',
-                title: 'Your Tax Registration Number',
-                desc: 'In many jurisdictions, an invoice is only legally valid for VAT/GST purposes if it includes your business registration or tax ID. Missing this single field can invalidate your invoice for corporate accounting purposes.',
-              },
-              {
-                icon: <CreditCard className="w-6 h-6" />,
-                color: 'text-amber-400',
-                bg: 'bg-amber-500/20',
-                title: 'Specific Payment Method Details',
-                desc: '"Please bank transfer" is not a payment instruction. Include your exact bank account number, sort code or routing number, and SWIFT/IBAN code. For online invoicing, a direct pay button removes this friction entirely.',
-              },
-            ].map(({ icon, color, bg, title, desc }) => (
-              <div key={title} className="bg-white/5 border border-white/10 p-8 rounded-3xl space-y-4 hover:bg-white/10 transition-colors">
-                <div className={`w-12 h-12 ${bg} rounded-2xl flex items-center justify-center ${color}`}>
-                  {icon}
-                </div>
-                <h3 className="text-xl font-black text-white">{title}</h3>
-                <p className="text-slate-400 text-sm font-medium leading-relaxed">{desc}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* The "Word vs Invoice Software" comparison */}
-          <div className="mt-16 bg-white/5 border border-white/10 rounded-3xl overflow-hidden">
-            <div className="p-8 border-b border-white/10">
-              <h3
-                className="text-2xl md:text-3xl font-black text-white"
-                style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-              >
-                Word/Excel vs. online invoice template — what changes?
-              </h3>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="w-full min-w-[600px]">
-                <thead>
-                  <tr className="border-b border-white/10">
-                    <th className="p-5 text-left text-slate-400 font-black text-sm uppercase tracking-widest">Feature</th>
-                    <th className="p-5 text-center text-red-400 font-black text-sm uppercase tracking-widest">Word / Excel</th>
-                    <th className="p-5 text-center text-emerald-400 font-black text-sm uppercase tracking-widest">Nobevra</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ['Automatic tax calculation', false, true],
-                    ['Built-in payment button', false, true],
-                    ['Client opens tracking', false, true],
-                    ['PDF export', true, true],
-                    ['Invoice numbering system', 'Manual', 'Automatic'],
-                    ['Payment reminder automation', false, true],
-                    ['Multi-currency support', false, true],
-                    ['Reusable templates', 'Copy/paste', '1-click duplicate'],
-                  ].map(([feat, word, noble]) => (
-                    <tr key={String(feat)} className="border-b border-white/5 hover:bg-white/5 transition-colors">
-                      <td className="p-5 text-slate-300 font-medium text-sm">{String(feat)}</td>
-                      <td className="p-5 text-center">
-                        {word === true ? <X className="w-5 h-5 text-red-400 mx-auto" /> :
-                         word === false ? <X className="w-5 h-5 text-red-400 mx-auto" /> :
-                         <span className="text-red-400 font-bold text-sm">{word}</span>}
-                      </td>
-                      <td className="p-5 text-center">
-                        {noble === true ? <Check className="w-5 h-5 text-emerald-400 mx-auto" /> :
-                         noble === false ? <X className="w-5 h-5 text-red-400 mx-auto" /> :
-                         <span className="text-emerald-400 font-bold text-sm">{noble}</span>}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────────────────────────────────────────
-          6. CASE STUDIES / RESULTS
-      ─────────────────────────────────────────────── */}
-      <section className="py-24 bg-slate-50 px-4 md:px-16 border-t border-slate-200">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2
-              className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900"
-              style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-            >
-              Real results from real businesses
-            </h2>
-            <p className="text-slate-500 font-medium max-w-xl mx-auto text-lg">
-              These are not edge cases. This is what happens when billing becomes a system instead of a chore.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map(({ quote, name, role, revenue }) => (
-              <div key={name} className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm space-y-6 flex flex-col">
-                <div className="flex gap-1">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-amber-400 fill-amber-400" />
-                  ))}
-                </div>
-                <p className="text-slate-700 font-medium leading-relaxed flex-1">"{quote}"</p>
-                <div className="flex items-center gap-4 border-t border-slate-100 pt-6">
-                  <div className="w-11 h-11 rounded-full bg-noble-blue/10 flex items-center justify-center font-black text-noble-blue">
-                    {name.charAt(0)}
-                  </div>
-                  <div className="flex-1">
-                    <div className="font-black text-slate-900 text-sm">{name}</div>
-                    <div className="text-slate-500 text-xs font-medium">{role}</div>
-                  </div>
-                  <div className="text-right">
-                    <div className="font-black text-emerald-600 text-sm">{revenue}</div>
-                    <div className="text-slate-400 text-xs">billed monthly</div>
-                  </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-sm">{item.part}</h3>
+                  <p className="text-slate-600 text-xs leading-relaxed mt-0.5">{item.note}</p>
                 </div>
               </div>
             ))}
@@ -623,146 +288,90 @@ export default function GrowthReportsPage() {
         </div>
       </section>
 
-      {/* ───────────────────────────────────────────────
-          7. NOT FOR YOU SECTION
-      ─────────────────────────────────────────────── */}
-      <section className="py-24 bg-white px-4 md:px-16 border-t border-slate-100">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-amber-50 border border-amber-200 rounded-3xl p-10 space-y-6">
-            <div className="flex items-center gap-3">
-              <AlertTriangle className="w-6 h-6 text-amber-600 flex-shrink-0" />
-              <h2
-                className="text-2xl md:text-3xl font-black text-slate-900"
-                style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-              >
-                We may not be right for you if…
-              </h2>
+      {/* 3. 7-STEP GUIDE */}
+      <section className="py-20 bg-[#F8FAFC]">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-12">
+          <div className="text-center space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/10 text-noble-blue font-bold text-[10px] uppercase tracking-widest">
+              Step-by-Step Walkthrough
             </div>
-            <div className="space-y-4">
-              {[
-                'You send fewer than 2 invoices a year — a simple free PDF generator will do.',
-                'You need built-in payroll or full double-entry accounting. We handle billing, not bookkeeping.',
-                'Your clients exclusively use enterprise ERP systems that require EDI/XML invoice formats. We generate PDFs and payment links, not EDI files.',
-                'You need complex project-cost accounting with multi-phase budget tracking. Our scope is invoicing and cash collection, not project management.',
-              ].map((point) => (
-                <div key={point} className="flex items-start gap-3">
-                  <X className="w-4 h-4 text-amber-600 flex-shrink-0 mt-1" />
-                  <p className="text-slate-700 font-medium text-sm leading-relaxed">{point}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-slate-600 font-medium text-sm border-t border-amber-200 pt-6">
-              If none of the above apply, Nobevra will almost certainly work for you. And given the free plan exists, there's no risk in finding out.
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900">
+              How to Create an Invoice in 7 Simple Steps
+            </h2>
+            <p className="text-slate-600 text-base">
+              Follow this sequence to ensure zero payment friction and error-free tax recording.
             </p>
+          </div>
+
+          <div className="space-y-6">
+            {steps.map((item, idx) => (
+              <div key={idx} className="bg-white p-7 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-6 items-start justify-between">
+                <div className="flex gap-5 items-start">
+                  <div className="w-12 h-12 rounded-xl bg-[#166FBB] text-white font-black text-lg flex items-center justify-center shrink-0 shadow-md">
+                    {item.num}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+                <div className="shrink-0 px-3 py-1 rounded-full bg-blue-50 text-noble-blue text-xs font-bold border border-blue-100 self-start sm:self-center">
+                  {item.time}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ───────────────────────────────────────────────
-          8. FAQ SECTION
-      ─────────────────────────────────────────────── */}
-      <section className="py-24 bg-slate-50 px-4 md:px-16 border-t border-slate-200">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2
-              className="text-4xl md:text-5xl font-black leading-[1.1] tracking-tight text-slate-900"
-              style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-            >
-              Questions we get every day
+      {/* 4. PAA FAQ SECTION */}
+      <section className="py-20 bg-white border-t border-slate-200">
+        <div className="max-w-3xl mx-auto px-4 md:px-8 space-y-10">
+          <div className="text-center space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-noble-blue/10 text-noble-blue font-bold text-[10px] uppercase tracking-widest">
+              <HelpCircle className="w-3.5 h-3.5 text-noble-blue" /> Common Questions
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900">
+              Frequently Asked Invoicing Questions
             </h2>
           </div>
 
           <div className="space-y-4">
-            {faqs.map(({ q, a }) => (
-              <details key={q} className="group bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm">
-                <summary className="flex items-center justify-between gap-4 p-7 cursor-pointer list-none font-black text-slate-900 text-base hover:text-noble-blue transition-colors">
-                  {q}
-                  <ChevronDown className="w-5 h-5 flex-shrink-0 text-slate-400 group-open:rotate-180 transition-transform duration-300" />
-                </summary>
-                <div className="px-7 pb-7 text-slate-500 font-medium leading-relaxed text-sm border-t border-slate-100 pt-4">
-                  {a}
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────────────────────────────────────────
-          9. SOFT CTA
-      ─────────────────────────────────────────────── */}
-      <section className="py-24 bg-white px-4 md:px-16 border-t border-slate-100">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight text-slate-900"
-            style={{ fontFamily: 'Clash Display, Syne, Inter, sans-serif' }}
-          >
-            Your next invoice should take{' '}
-            <span className="text-noble-blue">60 seconds, not 60 minutes.</span>
-          </h2>
-          <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto leading-relaxed">
-            Create your free account today. No credit card. No setup fee. Your first invoice can go out in the time it takes to finish reading this sentence.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <Link
-              href="/register"
-              className="text-white px-12 py-5 text-base font-extrabold rounded-2xl hover:opacity-90 transition-all flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(22,111,187,0.3)] hover:scale-[1.02] active:scale-95"
-              style={{ backgroundColor: '#166FBB' }}
-            >
-              Create invoice online free <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              href="/features/how-to-make-an-invoice-for-free"
-              className="flex items-center justify-center gap-3 px-8 py-5 text-base font-bold rounded-2xl border-2 border-slate-900/10 text-slate-900 hover:border-noble-blue hover:text-noble-blue hover:bg-noble-blue/5 transition-all"
-            >
-              View invoice templates
-            </Link>
-          </div>
-
-          {/* Trust badges */}
-          <div className="flex flex-wrap items-center justify-center gap-8 pt-8 border-t border-slate-100">
-            {[
-              { icon: <Users className="w-5 h-5 text-noble-blue" />, label: '40,000+ businesses trust Nobevra' },
-              { icon: <ShieldCheck className="w-5 h-5 text-emerald-600" />, label: 'Bank-grade encryption' },
-              { icon: <Globe className="w-5 h-5 text-slate-500" />, label: '40+ currencies supported' },
-            ].map(({ icon, label }) => (
-              <div key={label} className="flex items-center gap-2 text-sm font-bold text-slate-600">
-                {icon} {label}
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{faq.q}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ───────────────────────────────────────────────
-          INTERNAL LINKS — SEO anchor section
-      ─────────────────────────────────────────────── */}
-      <section className="py-16 bg-[#F8FAFC] px-4 md:px-16 border-t border-slate-200">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-xl font-black text-slate-900 mb-8">Related invoicing guides</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { href: '/features/how-to-make-an-invoice-for-free', label: 'How to make an invoice for free', icon: <FileText className="w-5 h-5" /> },
-              { href: '/features/how-to-make-an-invoice-on-my-phone', label: 'How to make an invoice on your phone', icon: <Zap className="w-5 h-5" /> },
-              { href: '/features/products-services', label: 'How to make a proforma invoice', icon: <TrendingUp className="w-5 h-5" /> },
-              { href: '/features/best-free-invoice-app', label: 'Best free invoice app', icon: <BarChart3 className="w-5 h-5" /> },
-            ].map(({ href, label, icon }) => (
-              <Link
-                key={href}
-                href={href}
-                className="flex items-center gap-3 bg-white rounded-2xl p-5 border border-slate-200 hover:border-noble-blue hover:text-noble-blue text-slate-700 font-bold text-sm transition-all hover:shadow-sm group"
-              >
-                <span className="text-noble-blue group-hover:scale-110 transition-transform">{icon}</span>
-                {label}
-                <ArrowRight className="w-4 h-4 ml-auto opacity-30 group-hover:opacity-100 transition-opacity" />
-              </Link>
-            ))}
+      {/* 5. CONVERSION CTA */}
+      <section className="py-20 bg-near-black text-white text-center">
+        <div className="max-w-3xl mx-auto px-4 md:px-8 space-y-6">
+          <h2 className="text-3xl md:text-5xl font-black">
+            Make your first invoice in 60 seconds.
+          </h2>
+          <p className="text-white/70 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+            Create professional invoices with instant payment buttons. Download PDF for free or join Nobevra for full automated billing.
+          </p>
+          <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/free-invoice-generator"
+              className="bg-[#166FBB] text-white px-8 py-4 rounded-xl font-bold text-sm tracking-wide shadow-[0_12px_30px_rgba(22,111,187,0.35)] hover:scale-[1.02] active:scale-95 transition-all inline-flex items-center justify-center gap-3"
+            >
+              Generate Free Invoice <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link 
+              href="/invoicing"
+              className="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-8 py-4 rounded-xl font-bold text-sm transition-all inline-flex items-center justify-center"
+            >
+              Explore Invoicing Suite
+            </Link>
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

@@ -10,7 +10,12 @@ const TemplateDownloadModal = dynamic(
   { ssr: false }
 );
 
-export default function TemplateDownloadButton() {
+interface TemplateDownloadButtonProps {
+  label?: string;
+  format?: 'word' | 'excel' | 'pdf';
+}
+
+export default function TemplateDownloadButton({ label, format }: TemplateDownloadButtonProps) {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleClick = async () => {
@@ -20,7 +25,7 @@ export default function TemplateDownloadButton() {
       // Already logged in — download directly
       const link = document.createElement('a');
       link.href = '/api/download/proforma-template';
-      link.setAttribute('download', 'Nobevra-Proforma-Template.pdf');
+      link.setAttribute('download', `Nobevra-Proforma-Template.${format === 'excel' ? 'xlsx' : format === 'word' ? 'docx' : 'pdf'}`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -30,14 +35,16 @@ export default function TemplateDownloadButton() {
     }
   };
 
+  const buttonText = label || (format ? `Download ${format.toUpperCase()} Template` : 'Download Template');
+
   return (
     <>
       <button
         onClick={handleClick}
-        className="flex items-center justify-center gap-3 px-8 py-5 text-base font-bold rounded-2xl border-2 border-near-black/10 text-near-black hover:border-noble-blue hover:text-noble-blue hover:bg-noble-blue/5 transition-all"
+        className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl border border-slate-200 text-slate-800 font-semibold text-xs uppercase tracking-wider hover:border-noble-blue hover:text-noble-blue hover:bg-noble-blue/5 transition-all"
       >
         <Download className="w-4 h-4" />
-        Download Template
+        {buttonText}
       </button>
 
       <TemplateDownloadModal

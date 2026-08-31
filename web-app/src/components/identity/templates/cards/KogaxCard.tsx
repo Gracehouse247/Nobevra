@@ -24,9 +24,9 @@ export const KogaxCard: React.FC<CardRendererProps & { defaultColor?: string }> 
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="space-y-4">
-                <h1 className="font-black tracking-tight leading-none uppercase" style={{ fontSize: fs(64), fontFamily: 'Space Grotesk, sans-serif' }}>
+                <div role="presentation" className="font-black tracking-tight leading-none uppercase" style={{ fontSize: fs(64), fontFamily: 'Space Grotesk, sans-serif' }}>
                   {data.fullName || 'KOGAX LABS'}
-                </h1>
+                </div>
                 <p className="font-extrabold tracking-[0.4em] uppercase" style={{ fontSize: fs(14), color: accent }}>
                   {data.jobTitle || 'NEURAL ENGINEER'}
                 </p>

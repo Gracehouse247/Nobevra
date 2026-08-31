@@ -9,8 +9,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Product & Inventory Management Software for Business | Nobevra',
-    description: 'Track stock levels, manage product catalogs, set low-stock alerts, and link inventory to invoices in real time with Nobevra.',
+    title: 'Inventory Management Software — Real-Time Stock & Catalog System | Nobevra',
+    description: 'Manage product catalogs and track stock levels in real time with Nobevra. Automatically deduct inventory when invoices are generated and set low-stock alerts.',
     alternates: {
         canonical: 'https://nobevra.noblesworld.com.ng/products-inventory',
     },
@@ -22,8 +22,8 @@ export const metadata: Metadata = {
         'invoice inventory sync'
     ],
     openGraph: {
-        title: 'Product & Inventory Management Software | Nobevra',
-        description: 'Track inventory and connect stock levels directly to invoicing.',
+        title: 'Inventory Management Software — Real-Time Stock & Catalog System | Nobevra',
+        description: 'Manage product catalogs and track stock levels in real time with Nobevra. Automatically deduct inventory when invoices are generated and set low-stock alerts.',
         url: 'https://nobevra.noblesworld.com.ng/products-inventory',
         type: 'website',
     },
@@ -78,19 +78,25 @@ export default function ProductsInventoryPage() {
                             <RefreshCw className="w-6 h-6" />
                         </div>
                         <h2 className="text-xl font-bold mb-3">Invoice-Linked Deductions</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
                             When an invoice is marked paid, items are deducted from your inventory automatically with zero manual adjustments.
                         </p>
+                        <Link href="/invoicing" className="text-violet-600 font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            Invoicing Engine <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
 
                     <div className="bg-noble-surface p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <div className="w-12 h-12 rounded-2xl bg-amber-500/10 flex items-center justify-center text-amber-600 mb-6">
                             <AlertTriangle className="w-6 h-6" />
                         </div>
-                        <h2 className="text-xl font-bold mb-3">Low-Stock Warnings</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
-                            Set custom threshold quantities for each SKU and receive instant dashboard alerts before items run out of stock.
+                        <h2 className="text-xl font-bold mb-3">Shopify & E-Commerce Sync</h2>
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
+                            Automate PDF invoice delivery and catalog syncing for online stores, marketplaces, and omnichannel sellers.
                         </p>
+                        <Link href="/solutions/ecommerce-invoice-automation" className="text-amber-600 font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            E-Commerce Automation <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
 
                     <div className="bg-noble-surface p-8 rounded-3xl border border-slate-100 shadow-sm">
@@ -98,9 +104,12 @@ export default function ProductsInventoryPage() {
                             <Package className="w-6 h-6" />
                         </div>
                         <h2 className="text-xl font-bold mb-3">Digital & Physical Goods</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
                             Support for physical tangible products, hourly professional services, and digital subscriptions in one unified catalog.
                         </p>
+                        <Link href="/features/free-invoice-generator-for-shopify" className="text-emerald-600 font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            Shopify B2B Billing <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
                 </div>
             </section>

@@ -13,9 +13,9 @@ export const ChastainKineticCard: React.FC<CardRendererProps & { defaultColor?: 
                 <DraggableElement elementKey="content" className="pl-24">
                     <div className="space-y-2">
                         {/* Chastain has a white background — name and title in black */}
-                        <h1 className="font-black tracking-tighter leading-none" style={{ color: ON_WHITE, fontFamily: data.fontFamily || undefined, fontSize: fs(76) }}>
+                        <div role="presentation" className="font-black tracking-tighter leading-none" style={{ color: ON_WHITE, fontFamily: data.fontFamily || undefined, fontSize: fs(76) }}>
                             {data.fullName || 'JAMIE CHASTAIN'}
-                        </h1>
+                        </div>
                         <p className="font-light tracking-[0.3em] uppercase" style={{ color: ON_WHITE, opacity: 0.6, fontFamily: data.fontTitle || data.fontFamily || undefined, fontSize: fs(24) }}>
                             {data.jobTitle || 'Executive Director'}
                         </p>

@@ -9,8 +9,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Free Dynamic QR Code Generator for Business | Nobevra',
-    description: 'Generate customizable dynamic QR codes for website URLs, vCard contacts, payment links, and WiFi. Track scan analytics in real time with Nobevra.',
+    title: 'Dynamic QR Code Generator — Custom QR with Logo & Scan Tracking | Nobevra',
+    description: 'Create custom dynamic QR codes with Nobevra. Add your business logo, embed payment links, update destinations anytime, and track real-time scan analytics.',
     alternates: {
         canonical: 'https://nobevra.noblesworld.com.ng/qr-code-generator',
     },
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
         'vCard QR generator'
     ],
     openGraph: {
-        title: 'Dynamic QR Code Generator for Business | Nobevra',
-        description: 'Generate customizable dynamic QR codes with live analytics.',
+        title: 'Dynamic QR Code Generator — Custom QR with Logo & Scan Tracking | Nobevra',
+        description: 'Create custom dynamic QR codes with Nobevra. Add your business logo, embed payment links, update destinations anytime, and track real-time scan analytics.',
         url: 'https://nobevra.noblesworld.com.ng/qr-code-generator',
         type: 'website',
     },

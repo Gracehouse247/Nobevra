@@ -33,15 +33,22 @@ export const metadata: Metadata = {
 
 const getArticles = unstable_cache(
     async () => {
-        const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co';
-        const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build';
-        const supabase = createClient(url, key);
-        const { data, error } = await supabase
-            .from('seo_articles')
-            .select('*')
-            .eq('status', 'published')
-            .order('published_at', { ascending: false });
-        return { articles: data, error };
+        try {
+            const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co';
+            const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build';
+            const supabase = createClient(url, key);
+            const { data, error } = await supabase
+                .from('seo_articles')
+                .select('*')
+                .eq('status', 'published')
+                .order('published_at', { ascending: false });
+            if (error) {
+                return { articles: [], error: error.message || 'Failed to fetch articles' };
+            }
+            return { articles: data || [], error: null };
+        } catch (err: any) {
+            return { articles: [], error: err?.message || 'Database connection error' };
+        }
     },
     ['published-articles'],
     { revalidate: 3600, tags: ['blog'] }
@@ -50,11 +57,7 @@ const getArticles = unstable_cache(
 
 export default async function BlogIndexPage() {
     // Fetch published articles from Supabase
-    const { articles, error } = await getArticles();
-
-    if (error) {
-        console.error("Error fetching articles:", error);
-    }
+    const { articles } = await getArticles();
 
     const featuredPost = articles && articles.length > 0 ? articles[0] : null;
     const standardPosts = articles && articles.length > 1 ? articles.slice(1) : [];

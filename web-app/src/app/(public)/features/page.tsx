@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
+
 import { 
     FileText, Zap, Sparkles, ShoppingBag, 
     Users, Shield, Target, Lock, 
@@ -13,49 +13,60 @@ import {
 } from 'lucide-react';
 import Footer from '@/components/shared/Footer';
 
-/* ── DATA: THE 19 FEATURES ──────────────────────────────────────── */
+/* ── DATA: THE FEATURES ─────────────────────────────────────────── */
 const featureCategories = [
     {
         title: "Invoicing & Billing Suite",
         description: "The complete invoice automation software stack to get paid faster.",
         features: [
-            { title: "Free Invoice Generator", desc: "Create and download a professional PDF invoice in 30 seconds. No signup required.", icon: FileText, href: "/features/how-to-make-an-invoice-for-free" },
-            { title: "AI Invoice Generator", desc: "Type what you did in plain English. Our AI writes the professional invoice for you.", icon: Sparkles, href: "/features/ai-invoice-generator" },
-            { title: "Gamified Invoicing", desc: "Turn the mundane task of billing into a rewarding experience with XP and leaderboards.", icon: Zap, href: "/features/best-free-invoice-app" },
-            { title: "Shopify Billing", desc: "Automatically generate B2B invoices directly from your Shopify store orders seamlessly.", icon: ShoppingBag, href: "/features/shopify-invoice-generator" },
-            { title: "Online Payment Integration", desc: "Accept secure card payments globally. The online payment integration software settles directly to your bank.", icon: Globe, href: "/features/billing-software-online" },
+            { title: "Online Invoicing", desc: "180+ templates, payment links, and tracking.", icon: FileText, href: "/invoicing" },
+            { title: "Free Invoice Generator", desc: "Create and download a professional PDF invoice in 30 seconds. No signup required.", icon: FileText, href: "/free-invoice-generator" },
+            { title: "Invoice Templates Hub", desc: "18+ industry & country VAT/GST invoice templates free to download.", icon: FileText, href: "/templates" },
+            { title: "Recurring Billing Software", desc: "Automate recurring retainer invoices and auto-charge client cards with smart retries.", icon: Zap, href: "/recurring-billing-software" },
+            { title: "Invoice Tax Calculator", desc: "Calculate VAT, GST, Sales Tax & Reverse Charge across 8 jurisdictions.", icon: Zap, href: "/features/invoice-tax-calculator" },
+            { title: "AI Invoice Generator", desc: "Type what you did in plain English. Our AI writes the professional invoice for you.", icon: Sparkles, href: "/features/best-ai-invoice-generator-free" },
+            { title: "Gamified Invoicing", desc: "Turn the mundane task of billing into a rewarding experience with XP and leaderboards.", icon: Zap, href: "/gamified-invoicing-software" },
+            { title: "Shopify B2B Billing", desc: "Automatically generate B2B invoices directly from your Shopify store orders seamlessly.", icon: ShoppingBag, href: "/features/free-invoice-generator-for-shopify" },
+            { title: "Global Payments", desc: "Accept secure card payments globally. Settle directly to your bank in 30+ currencies.", icon: Globe, href: "/payments" },
         ]
     },
     {
         title: "Client Management & CRM",
         description: "Billing software with CRM built-in to manage your entire customer lifecycle.",
         features: [
-            { title: "Freelance CRM", desc: "A lightweight client vault to track every contact, project, and outstanding invoice.", icon: Users, href: "/solutions/freelancers" },
-            { title: "CRM Engine", desc: "Manage the full client lifecycle from cold lead to retained contractor easily.", icon: Shield, href: "/features/crm-engine" },
-            { title: "Lead Intelligence", desc: "Identify high-value clients and track engagement across your proposals in real-time.", icon: Target, href: "/features/lead-intelligence" },
-            { title: "White-label Client Portal", desc: "Give your clients a custom dashboard to view and pay all their invoices securely.", icon: Lock, href: "/features/professional-identity" },
+            { title: "Client Management CRM", desc: "Manage the full client lifecycle from cold lead to retained client seamlessly.", icon: Shield, href: "/crm" },
+            { title: "Client Portal Hub", desc: "Give clients a dedicated white-label portal to view invoices, download receipts, and pay.", icon: Target, href: "/client-portal-software" },
+            { title: "Freelance CRM", desc: "A lightweight client vault to track every contact, project, and outstanding invoice.", icon: Users, href: "/lightweight-crm-for-freelancers" },
+            { title: "Freelance Rate Calculator", desc: "Compute your target hourly rate, day rate, and monthly retainers mathematically.", icon: Sparkles, href: "/features/freelance-rate-calculator" },
+            { title: "Client Contracts & E-Sign", desc: "Create, send, and legally e-sign client agreements with automated invoice triggers.", icon: Target, href: "/client-contracts" },
+            { title: "Digital Business Cards", desc: "NFC-enabled profiles that capture leads directly into your CRM instantly.", icon: Lock, href: "/digital-business-card" },
+            { title: "Dynamic QR Codes", desc: "Generate contactless payment codes for in-person billing and rapid checkout.", icon: QrCode, href: "/qr-code-generator" },
         ]
     },
     {
-        title: "Operations & Expense Tracking",
-        description: "The expense tracking software that syncs your outflows with your inflows.",
+        title: "Operations, Guides & Cash Flow",
+        description: "Financial intelligence, automated dunning, and actionable playbooks.",
         features: [
-            { title: "AI Receipt Scanner", desc: "Snap a photo of any receipt. Our AI extracts the data and logs the expense instantly.", icon: ScanLine, href: "/features/how-to-make-an-invoice-on-my-phone" },
-            { title: "Products & Services", desc: "Build a reusable catalog of your offerings to generate invoices with one click.", icon: Package, href: "/features/products-services" },
-            { title: "Growth Reports", desc: "Visual dashboards showing your cash flow, overdue balances, and revenue trends.", icon: LineChart, href: "/features/growth-reports" },
-            { title: "Global Settlements", desc: "Accept payments from clients across borders with built-in multi-currency support.", icon: Globe, href: "/solutions/enterprise" },
-            { title: "Mobile Expense Manager", desc: "Track spending and capture deductible expenses directly from your smartphone.", icon: Smartphone, href: "/features/how-to-make-an-invoice-on-my-phone" },
+            { title: "Cash Flow Analytics", desc: "Track real-time inflows, monitor aging invoices, and forecast 90-day cash runway.", icon: LineChart, href: "/cash-flow-analytics" },
+            { title: "Manage Cash Flow Playbook", desc: "Reduce DSO, eliminate late payments, and automate dunning sequences.", icon: LineChart, href: "/features/how-to-manage-business-cash-flow" },
+            { title: "How to Bill on Retainer", desc: "Masterclass on agency retainers, contract clauses, and overage billing.", icon: FileText, href: "/features/how-to-bill-clients-on-retainer" },
+            { title: "AI Receipt Scanner", desc: "Snap a photo of any receipt. Our AI extracts data and logs the expense instantly.", icon: ScanLine, href: "/ai-receipt-scanner" },
+            { title: "Expense Management", desc: "Categorize spending, manage tax deductions, and monitor real-time profit.", icon: LineChart, href: "/expense-management" },
+            { title: "Products & Inventory", desc: "Build a reusable catalog of offerings and track stock levels in real time.", icon: Package, href: "/products-inventory" },
+            { title: "AI Business Assistant", desc: "Harness Google Gemini AI for instant narrative reports and operational advice.", icon: Sparkles, href: "/ai-business-assistant" },
+            { title: "Mobile Invoicing", desc: "Create and send professional PDF invoices directly from your smartphone.", icon: Smartphone, href: "/features/how-to-make-an-invoice-on-my-phone" },
         ]
     },
     {
-        title: "Brand & Enterprise Tools",
-        description: "Scale your operation with an automated billing platform designed for growth.",
+        title: "Solutions & Business Architecture",
+        description: "Scale your operation with tailored billing platforms designed for your specific industry.",
         features: [
-            { title: "Professional Identity", desc: "Full white-labeling. Custom domains, custom emails, and custom brand colors.", icon: Palette, href: "/features/professional-identity" },
-            { title: "Digital Business Cards", desc: "NFC-enabled profiles that capture leads directly into your CRM instantly.", icon: Contact, href: "/features/digital-business-cards" },
-            { title: "Enterprise Scaling", desc: "API access, SOC2 compliance, and custom data residency for large operations.", icon: Building2, href: "/features/enterprise-scaling" },
-            { title: "QR Code Payments", desc: "Generate contactless payment codes for in-person billing and rapid checkout.", icon: QrCode, href: "/features/how-to-generate-a-qr-code" },
-            { title: "Team Workspace", desc: "Multi-user access with granular role permissions for your accountants and staff.", icon: LayoutGrid, href: "/features/team-workspace" },
+            { title: "Small Business Suite", desc: "Unify your entire business operations under one intelligent software suite.", icon: Palette, href: "/business-management-software" },
+            { title: "For Freelancers", desc: "Simple, fast invoicing and lightweight client management for solopreneurs.", icon: Users, href: "/solutions/simple-invoicing-for-freelancers" },
+            { title: "For Agencies", desc: "Automate recurring retainer invoices and multi-client project billing.", icon: LayoutGrid, href: "/solutions/agency-billing-platform" },
+            { title: "For Small Businesses", desc: "Comprehensive invoicing and cash flow management rated #1 for growing SMBs.", icon: Building2, href: "/solutions/best-small-business-invoicing-software" },
+            { title: "For E-Commerce", desc: "Automated PDF tax invoicing for WooCommerce and Shopify online stores.", icon: ShoppingBag, href: "/solutions/ecommerce-invoice-automation" },
+            { title: "Enterprise Scaling", desc: "High-volume billing APIs, dedicated databases, custom SLAs, and multi-entity support.", icon: Building2, href: "/solutions/enterprise-billing-platform" },
         ]
     }
 ];
@@ -93,11 +104,6 @@ const schema = {
     "name": "Nobevra Expense Tracking & Billing",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
-    "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "ratingCount": "1254"
-    },
     "offers": {
         "@type": "Offer",
         "price": "0",
@@ -118,8 +124,8 @@ const faqSchema = {
 export default function FeaturesPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
-            <Script id="sw-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-            <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
             {/* ══ 1. HERO (Benefit-driven headline & Hook) ══ */}
             <section className="relative pt-12 pb-32 overflow-hidden">

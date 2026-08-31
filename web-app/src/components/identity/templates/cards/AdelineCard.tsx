@@ -25,9 +25,9 @@ export const AdelineCard: React.FC<CardRendererProps & { defaultColor?: string }
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="space-y-3">
-                <h1 className="font-black tracking-tighter uppercase leading-none" style={{ fontSize: fs(52) }}>
+                <div role="presentation" className="font-black tracking-tighter uppercase leading-none" style={{ fontSize: fs(52) }}>
                   {data.fullName || 'ADELINE STUDIO'}
-                </h1>
+                </div>
                 <p className="font-black tracking-[0.25em] uppercase opacity-70" style={{ fontSize: fs(13) }}>
                   {data.jobTitle || 'CREATIVE DIRECTOR'}
                 </p>

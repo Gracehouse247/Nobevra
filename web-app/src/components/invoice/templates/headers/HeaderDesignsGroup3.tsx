@@ -7,7 +7,7 @@ export const ModernMinimalHeader = (props: SharedEngineProps) => {
   const { sender } = data;
   return (
     <div className="relative pt-24 pb-16 flex flex-col items-center z-10 bg-noble-surface">
-       <h1 className="text-8xl font-black uppercase tracking-[0.2em] text-noble-text leading-none mb-6">INVOICE</h1>
+       <div role="presentation" className="text-8xl font-black uppercase tracking-[0.2em] text-noble-text leading-none mb-6">INVOICE</div>
        <div className="flex flex-col items-center text-center gap-1">
           <h2 className="text-xl font-black text-slate-800 uppercase tracking-widest">{sender?.full_name}</h2>
           <p className="text-xs font-bold text-slate-400 max-w-md">{sender?.address?.split('\n').join(' • ')}</p>
@@ -32,7 +32,7 @@ export const PastelBloomHeader = (props: SharedEngineProps) => {
           </div>
        </div>
        <div className="text-right flex items-center gap-6">
-          <h1 className="text-7xl font-black text-white uppercase tracking-tighter leading-none italic">INVOICE</h1>
+          <div role="presentation" className="text-7xl font-black text-white uppercase tracking-tighter leading-none italic">INVOICE</div>
           <div className="bg-[#FBBF24] p-3 rounded-2xl shadow-xl -mt-4">
              <Diamond className="w-8 h-8 text-white fill-white" />
           </div>
@@ -60,7 +60,7 @@ export const BluePrecisionHeader = (props: SharedEngineProps) => {
        </div>
        
        <div className="text-right relative z-20 flex items-center gap-6 pr-12">
-          <h1 className="text-7xl font-black text-white uppercase tracking-tighter leading-none italic drop-shadow-2xl">INVOICE</h1>
+          <div role="presentation" className="text-7xl font-black text-white uppercase tracking-tighter leading-none italic drop-shadow-2xl">INVOICE</div>
           <div className="bg-noble-surface/10 backdrop-blur-md p-3 rounded-2xl border border-white/20">
              <Diamond className="w-8 h-8 text-[#FBBF24] fill-[#FBBF24]" />
           </div>
@@ -87,7 +87,7 @@ export const OrangeOrbitHeader = (props: SharedEngineProps) => {
        </div>
        
        <div className="text-right">
-          <h1 className="text-8xl font-black text-[#F97316] uppercase tracking-tighter leading-none">INVOICE</h1>
+          <div role="presentation" className="text-8xl font-black text-[#F97316] uppercase tracking-tighter leading-none">INVOICE</div>
           <div className="w-24 h-2 bg-[#F97316] mt-4 ml-auto rounded-full" />
        </div>
     </div>
@@ -112,7 +112,7 @@ export const OceanicWaveHeader = (props: SharedEngineProps) => {
        </div>
        
        <div className="text-right flex items-center gap-6 relative z-20">
-          <h1 className="text-7xl font-black text-[#3B82F6] uppercase tracking-tighter leading-none italic">INVOICE</h1>
+          <div role="presentation" className="text-7xl font-black text-[#3B82F6] uppercase tracking-tighter leading-none italic">INVOICE</div>
           <div className="bg-[#3B82F6] p-3 rounded-2xl shadow-xl -mt-6">
              <Diamond className="w-8 h-8 text-white fill-white" />
           </div>
@@ -139,7 +139,7 @@ export const BrickHeader = (props: SharedEngineProps) => {
        </div>
        <div className="text-right relative z-20">
           <div className="flex items-center gap-4 justify-end">
-             <h1 className="text-8xl font-black uppercase tracking-tighter text-white drop-shadow-2xl">INVOICE</h1>
+             <div role="presentation" className="text-8xl font-black uppercase tracking-tighter text-white drop-shadow-2xl">INVOICE</div>
              <div className="bg-[#FBBF24] p-3 rounded-2xl shadow-xl -mt-8">
                 <Diamond className="w-8 h-8 text-white fill-white" />
              </div>
@@ -167,7 +167,7 @@ export const DarkGoldHeader = (props: SharedEngineProps) => {
        
        <div className="text-right relative z-20 pr-12">
           <div className="flex items-center gap-4 justify-end">
-             <h1 className="text-7xl font-black uppercase tracking-tighter text-[#0F172A] italic drop-shadow-sm">INVOICE</h1>
+             <div role="presentation" className="text-7xl font-black uppercase tracking-tighter text-[#0F172A] italic drop-shadow-sm">INVOICE</div>
              <div className="bg-[#0F172A] p-3 rounded-2xl shadow-2xl -mt-4">
                 <Diamond className="w-8 h-8 text-[#EAB308] fill-[#EAB308]" />
              </div>
@@ -195,7 +195,7 @@ export const NavyRibbonHeader = (props: SharedEngineProps) => {
        
        <div className="text-right relative z-20 pr-12 text-white">
           <div className="flex items-center gap-4 justify-end">
-             <h1 className="text-7xl font-black uppercase tracking-tighter italic">INVOICE</h1>
+             <div role="presentation" className="text-7xl font-black uppercase tracking-tighter italic">INVOICE</div>
              <div className="bg-noble-surface/10 backdrop-blur-md p-3 rounded-2xl border border-white/20 -mt-6">
                 <Diamond className="w-8 h-8 text-amber-400 fill-amber-400" />
              </div>
@@ -223,7 +223,7 @@ export const SlateAngleHeader = (props: SharedEngineProps) => {
        
        <div className="text-right relative z-20 pr-12 text-white">
           <div className="flex items-center gap-4 justify-end">
-             <h1 className="text-7xl font-black uppercase tracking-tighter italic">INVOICE</h1>
+             <div role="presentation" className="text-7xl font-black uppercase tracking-tighter italic">INVOICE</div>
              <div className="bg-[#1E293B] p-3 rounded-2xl shadow-2xl -mt-6 border border-slate-700">
                 <Diamond className="w-8 h-8 text-amber-400 fill-amber-400" />
              </div>
@@ -253,7 +253,7 @@ export const ConstructionHeader = (props: SharedEngineProps) => {
        
        <div className="text-right relative z-20 pr-12 text-white">
           <div className="flex items-center gap-4 justify-end">
-             <h1 className="text-8xl font-black uppercase tracking-tighter italic drop-shadow-2xl">INVOICE</h1>
+             <div role="presentation" className="text-8xl font-black uppercase tracking-tighter italic drop-shadow-2xl">INVOICE</div>
              <div className="bg-[#EAB308] p-3 rounded-2xl shadow-2xl -mt-8">
                 <Diamond className="w-8 h-8 text-white fill-white" />
              </div>

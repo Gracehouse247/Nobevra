@@ -2,7 +2,6 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import Footer from '@/components/shared/Footer';
 import {
     Users, Briefcase, Database, Lock, ShieldCheck, ChevronDown,
@@ -11,8 +10,8 @@ import {
 
 /* ── SEO Metadata ───────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Lightweight CRM for Freelancers | Ditch the Spreadsheets | Nobevra',
-    description: 'The simple client management software built specifically for solo founders. Stop fighting enterprise CRMs and organize your freelance client tracker today.',
+    title: 'Lightweight CRM for Freelancers — Simple Client Management | Nobevra',
+    description: 'The lightweight CRM built specifically for solo freelancers. Track client contacts, view linked invoices, monitor lifetime revenue, and eliminate CRM bloat.',
     keywords: [
         'CRM for freelancers',
         'client management software simple',
@@ -20,10 +19,13 @@ export const metadata: Metadata = {
         'lightweight CRM',
         'solo founder CRM'
     ],
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng/lightweight-crm-for-freelancers',
+    },
     openGraph: {
-        title: 'Lightweight CRM for Freelancers | Ditch the Spreadsheets',
-        description: 'Organize your clients without the corporate bloat.',
-        url: '/freelance-crm',
+        title: 'Lightweight CRM for Freelancers — Simple Client Management | Nobevra',
+        description: 'The lightweight CRM built specifically for solo freelancers. Track client contacts, view linked invoices, monitor lifetime revenue, and eliminate CRM bloat.',
+        url: 'https://nobevra.noblesworld.com.ng/lightweight-crm-for-freelancers',
         type: 'website',
     },
 };
@@ -204,11 +206,6 @@ const generateSoftwareSchema = () => {
         "name": "Nobevra Freelance CRM",
         "operatingSystem": "Web, iOS, Android",
         "applicationCategory": "BusinessApplication",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "912"
-        },
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -238,8 +235,8 @@ export default function FreelanceCRMPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
             {/* Inject JSON-LD */}
-            <Script id="software-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSoftwareSchema()) }} />
-            <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema()) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSoftwareSchema()) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema()) }} />
 
             {/* ══ 1. HERO ══════════════════════════════════════════════════ */}
             <section className="relative pt-16 pb-28 overflow-hidden" aria-label="Hero">

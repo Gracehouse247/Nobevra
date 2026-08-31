@@ -23,9 +23,9 @@ export const SalfordCard: React.FC<CardRendererProps & { defaultColor?: string }
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="space-y-4">
-                <h1 className="font-black tracking-tight leading-none uppercase text-noble-text" style={{ fontSize: fs(62) }}>
+                <div role="presentation" className="font-black tracking-tight leading-none uppercase text-noble-text" style={{ fontSize: fs(62) }}>
                   {data.fullName || 'CLARK SALFORD'}
-                </h1>
+                </div>
                 <p className="font-bold tracking-[0.35em] uppercase text-slate-500" style={{ fontSize: fs(15) }}>
                   {data.jobTitle || 'SENIOR ARCHITECT'}
                 </p>

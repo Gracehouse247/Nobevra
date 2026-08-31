@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import Footer from '@/components/shared/Footer';
 
 // Page components
@@ -29,8 +28,8 @@ import AgencyCTA from '@/components/landing/agencies/AgencyCTA';
                        white-label, automated retainer billing
 ──────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Agency Billing Platform | Retainer Invoicing | Nobevra',
-    description: 'The agency billing platform built for retainers, creative teams, and marketing agencies. Automate monthly client invoicing, manage white-label portals, and get paid on time. Free to start.',
+    title: 'Agency Billing Platform — Retainer Management & Multi-Client Invoicing | Nobevra',
+    description: 'Streamline agency cash flow with Nobevra. Automate recurring monthly retainers, manage multi-client billing, execute contracts, and collaborate with your team.',
     keywords: [
         'agency billing platform',
         'retainer billing software',
@@ -43,10 +42,13 @@ export const metadata: Metadata = {
         'invoice software for digital agencies',
         'client billing for marketing agencies',
     ],
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng/solutions/agency-billing-platform',
+    },
     openGraph: {
         title: 'Agency Billing Platform | Nobevra',
         description: 'Automate retainer billing, manage clients, and look premium doing it. Built for agencies.',
-        url: '/solutions/agencies',
+        url: 'https://nobevra.noblesworld.com.ng/solutions/agency-billing-platform',
         type: 'website',
     },
 };
@@ -57,14 +59,13 @@ const softwareSchema = {
     "name": "Nobevra Agency Billing",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "863" },
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 };
 
 export default function AgenciesSolutionPage() {
     return (
         <div className="bg-white text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
-            <Script id="sw-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
 
             <AgencyHeroSection />
             <AgencyProblemSection />

@@ -3,14 +3,20 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, ShieldCheck, Lock, CreditCard, LayoutDashboard, Search, Eye, AlertCircle, FileText, CheckCircle2, Zap, BarChart, Globe, Smartphone, RefreshCw, Layers } from 'lucide-react';
-import Script from 'next/script';
+
 import SavingsCalculator from '@/components/landing/SavingsCalculator';
 import SEOQualifierFAQ from '@/components/landing/SEOQualifierFAQ';
 
 export const metadata: Metadata = {
   title: 'Online Billing Software — Create, Send & Track Invoices Free',
   description: 'The best online billing software for small businesses. Create professional invoices, automate recurring billing, and accept online payments globally for free.',
-  keywords: ['billing software online', 'Billing software online free', 'Best billing software online', 'Gst billing software online', 'Best invoice app free', 'online billing software', 'invoice generator program'],
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: 'https://nobevra.noblesworld.com.ng/invoicing',
+  },
 };
 
 export default function ClientPortalPage() {
@@ -143,7 +149,7 @@ export default function ClientPortalPage() {
 
   return (
     <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
-      <Script
+      <script
         id="faq-schema-billing-software"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

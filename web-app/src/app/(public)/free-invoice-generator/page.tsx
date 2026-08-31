@@ -28,7 +28,7 @@ export default function InvoiceGeneratorPage() {
                 <div className="max-w-[1200px] mx-auto px-4 py-3 flex items-center justify-between gap-4">
                     <div className="hidden sm:block">
                         <p className="text-sm font-black text-near-black">Free Invoice Generator</p>
-                        <p className="text-xs text-near-black/50 font-bold">Trusted by 2,000,000+ businesses worldwide</p>
+                        <p className="text-xs text-near-black/50 font-bold">Create and download professional PDF invoices in seconds</p>
                     </div>
                     <Link
                         href="/register"

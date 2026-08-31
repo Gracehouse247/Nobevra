@@ -2,19 +2,19 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Smartphone, Zap, CheckCircle2, Clock, DollarSign, ArrowRight, ShieldCheck, PieChart, Star, Shield, Lock, FileText, Download, Apple, Check, Quote } from 'lucide-react';
-import Script from 'next/script';
+
 
 export const metadata: Metadata = {
-  title: 'How to make an invoice on my phone | Nobevra',
-  description: 'Wondering how to make an invoice on my phone? Learn to use our app on iPhone, Samsung, or Android and get paid before leaving the job site.',
+  title: 'How to Make an Invoice on Your Phone (iPhone & Android) | Nobevra',
+  description: 'Learn how to make and send an invoice from your iPhone or Android phone for free. Create, download, and share professional PDF invoices via WhatsApp in seconds.',
   keywords: ['how to make an invoice on my phone', 'How to make an invoice on my phone iphone', 'How to make an invoice on my phone samsung', 'How to make an invoice on my phone android', 'How to make an invoice on my phone for free', 'Create invoice online free'],
   alternates: {
-    canonical: '/features/how-to-make-an-invoice-on-my-phone',
+    canonical: 'https://nobevra.noblesworld.com.ng/features/how-to-make-an-invoice-on-my-phone',
   },
   openGraph: {
     title: 'How to Make an Invoice on My Phone | Nobevra',
     description: 'Get paid before you leave the job site. Create professional invoices on iPhone or Android in 60 seconds with Nobevra.',
-    url: '/features/how-to-make-an-invoice-on-my-phone',
+    url: 'https://nobevra.noblesworld.com.ng/features/how-to-make-an-invoice-on-my-phone',
     siteName: 'Nobevra',
     type: 'website',
   },
@@ -54,7 +54,7 @@ export default function ExpenseManagerPage() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      <Script
+      <script
         id="faq-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

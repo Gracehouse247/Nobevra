@@ -110,7 +110,7 @@ export default function ResetPasswordPage() {
             <div className="relative z-10 min-h-screen w-full max-w-[1430px] mx-auto px-6 lg:px-16 flex flex-col items-center justify-center py-12">
                 <div className="w-full max-w-md">
                     <Link href="/" className="mb-8 block text-center">
-                        <Image src={brand.assets.logo} alt="Nobevra" width={160} height={40} className="h-10 w-auto object-contain mx-auto hover:opacity-80 transition-opacity" />
+                        <Image src={brand.assets.logo} alt="Nobevra" width={160} height={40} className="h-10 w-auto object-contain mx-auto hover:opacity-80 transition-opacity" style={{ width: 'auto', height: 'auto' }} priority />
                     </Link>
 
                     <motion.div

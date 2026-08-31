@@ -9,8 +9,8 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'Digital Business Card Maker & NFC Smart Cards | Nobevra',
-    description: 'Create modern digital business cards with QR codes and NFC tap-to-share capabilities. Share your contact info, social links, and portfolio instantly.',
+    title: 'Digital Business Cards & NFC Tap Cards — Modern Identity System | Nobevra',
+    description: 'Create your custom digital business card with Nobevra. Share contact details with 1 tap via NFC or QR code, capture client leads, and track scan telemetry.',
     alternates: {
         canonical: 'https://nobevra.noblesworld.com.ng/digital-business-card',
     },
@@ -23,8 +23,8 @@ export const metadata: Metadata = {
         'digital identity card'
     ],
     openGraph: {
-        title: 'Digital Business Card Maker & NFC Smart Cards | Nobevra',
-        description: 'Share your profile and capture leads with modern NFC & QR digital cards.',
+        title: 'Digital Business Cards & NFC Tap Cards — Modern Identity System | Nobevra',
+        description: 'Create your custom digital business card with Nobevra. Share contact details with 1 tap via NFC or QR code, capture client leads, and track scan telemetry.',
         url: 'https://nobevra.noblesworld.com.ng/digital-business-card',
         type: 'website',
     },
@@ -62,10 +62,10 @@ export default function DigitalBusinessCardPage() {
                             <ArrowRight className="w-4 h-4" />
                         </Link>
                         <Link
-                            href="/business-card-maker"
+                            href="/qr-code-generator"
                             className="w-full sm:w-auto px-8 py-4 bg-noble-surface border border-slate-200 text-near-black font-bold rounded-2xl hover:bg-slate-50 transition-all flex items-center justify-center"
                         >
-                            Explore Studio
+                            QR Code Generator
                         </Link>
                     </div>
                 </div>
@@ -79,27 +79,36 @@ export default function DigitalBusinessCardPage() {
                             <Wifi className="w-6 h-6" />
                         </div>
                         <h2 className="text-xl font-bold mb-3">NFC Tap to Connect</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
                             Tap your physical NFC card against any smartphone to open your digital profile instantly. No app installation required.
                         </p>
+                        <Link href="/features/how-to-create-a-business-card-for-free" className="text-noble-blue font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            Digital Card Tutorial <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
                     <div className="bg-noble-surface p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <div className="w-12 h-12 rounded-2xl bg-violet-500/10 flex items-center justify-center text-violet-600 mb-6">
                             <QrCode className="w-6 h-6" />
                         </div>
                         <h2 className="text-xl font-bold mb-3">Dynamic QR Codes</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
                             Update your phone number, email, or company role at any time without changing your QR code or reprinting anything.
                         </p>
+                        <Link href="/qr-code-generator" className="text-violet-600 font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            QR Code Generator <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
                     <div className="bg-noble-surface p-8 rounded-3xl border border-slate-100 shadow-sm">
                         <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-600 mb-6">
                             <Share2 className="w-6 h-6" />
                         </div>
                         <h2 className="text-xl font-bold mb-3">Instant CRM Lead Capture</h2>
-                        <p className="text-near-black/60 text-sm leading-relaxed">
+                        <p className="text-near-black/60 text-sm leading-relaxed mb-4">
                             Contacts who view your card can save your vCard directly to their contacts or submit their details to your Nobevra CRM pipeline.
                         </p>
+                        <Link href="/crm" className="text-emerald-600 font-bold text-xs uppercase tracking-wider hover:underline flex items-center gap-1">
+                            CRM Integration <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
                     </div>
                 </div>
             </section>

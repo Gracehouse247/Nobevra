@@ -41,7 +41,7 @@ const securityHeaders = [
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: blob: https://*.supabase.co https://*.supabase.in https://images.pexels.com https://lh3.googleusercontent.com https://maps.googleapis.com https://maps.gstatic.com https://i.pravatar.cc https://images.unsplash.com https://www.google-analytics.com https://www.googletagmanager.com",
       "connect-src 'self' ws: wss: https://*.supabase.co https://*.supabase.in https://api.flutterwave.com https://checkout.flutterwave.com https://*.ravepay.co https://api.ravepay.co https://ravesandboxapi.flutterwave.com https://*.f4b-flutterwave.com https://open.er-api.com https://maps.googleapis.com https://fonts.googleapis.com https://fonts.gstatic.com https://www.google-analytics.com https://www.googletagmanager.com https://ip-api.com",
-      "frame-src 'self' https://checkout.flutterwave.com https://checkout-v3.flutterwave.com https://checkout-v3-ui-prod.f4b-flutterwave.com https://*.ravepay.co https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com",
+      "frame-src 'self' https://checkout.flutterwave.com https://checkout-v3.flutterwave.com https://checkout-v3-ui-prod.f4b-flutterwave.com https://*.ravepay.co https://www.youtube.com https://www.youtube-nocookie.com https://youtube.com https://www.canva.com https://*.canva.com https://canva.com",
       "worker-src 'self' blob:",
       "manifest-src 'self'",
     ].join('; '),
@@ -134,32 +134,55 @@ const nextConfig = {
       // ── Legacy route kept for backward compat ──────────────────────────────
       { source: '/features/ai-voice-assistant',                destination: '/features/best-ai-invoice-generator-free',         permanent: true },
 
-      // ── SEO URL restructure — 2026-08-07 ──────────────────────────────────
-      // Core pages
+      // ── Core consolidation redirects ───────────────────────────────────────
       { source: '/invoice-generator',                          destination: '/free-invoice-generator',                          permanent: true },
       { source: '/features/ai-invoice-generator',              destination: '/features/best-ai-invoice-generator-free',         permanent: true },
       { source: '/gamified-invoicing',                         destination: '/gamified-invoicing-software',                     permanent: true },
       { source: '/features/shopify-invoice-generator',         destination: '/features/free-invoice-generator-for-shopify',     permanent: true },
       { source: '/freelance-crm',                              destination: '/lightweight-crm-for-freelancers',                 permanent: true },
-      { source: '/features/crm-engine',                        destination: '/features/what-is-invoicing-software',             permanent: true },
-      { source: '/features/lead-intelligence',                 destination: '/features/how-to-make-a-qr-code-for-a-website-free', permanent: true },
       { source: '/receipt-scanner',                            destination: '/ai-receipt-scanner',                              permanent: true },
-      { source: '/features/products-services',                 destination: '/features/how-to-make-a-proforma-invoice',         permanent: true },
-      { source: '/features/growth-reports',                    destination: '/features/how-do-i-make-an-invoice',               permanent: true },
-      { source: '/features/professional-identity',             destination: '/features/how-to-create-a-business-card-for-free', permanent: true },
-      { source: '/features/digital-business-cards',            destination: '/features/business-card-creation-free',            permanent: true },
-      { source: '/features/team-workspace',                    destination: '/features/what-is-the-best-invoice-maker',         permanent: true },
-      { source: '/features/enterprise-scaling',                destination: '/features/automated-invoicing-software',           permanent: true },
+
+      // Invoicing consolidation
+      { source: '/features/best-free-invoice-app',             destination: '/free-invoice-generator',                          permanent: true },
+      { source: '/features/how-to-make-an-invoice-for-free',   destination: '/free-invoice-generator',                          permanent: true },
+      { source: '/features/billing-software-online',           destination: '/invoicing',                                       permanent: true },
+      { source: '/features/automated-invoicing-software',      destination: '/invoicing',                                       permanent: true },
+      { source: '/features/enterprise-scaling',                destination: '/solutions/enterprise-billing-platform',           permanent: true },
+
+      // Digital Business Card consolidation
+      { source: '/business-card-maker',                        destination: '/digital-business-card',                           permanent: true },
+      { source: '/where-to-make-business-cards',                destination: '/digital-business-card',                           permanent: true },
+      { source: '/features/business-card-creation-free',        destination: '/digital-business-card',                           permanent: true },
+      { source: '/features/digital-business-cards',            destination: '/digital-business-card',                           permanent: true },
+      { source: '/features/professional-identity',             destination: '/digital-business-card',                           permanent: true },
+
+      // QR Code consolidation
+      { source: '/features/how-to-make-a-qr-code-for-a-website-free', destination: '/qr-code-generator',                       permanent: true },
+
+      // CRM, Products & Operations mappings
+      { source: '/features/lead-intelligence',                 destination: '/crm',                                             permanent: true },
+      { source: '/features/crm-engine',                        destination: '/crm',                                             permanent: true },
+      { source: '/features/products-services',                 destination: '/products-inventory',                              permanent: true },
+      { source: '/features/growth-reports',                    destination: '/business-management-software',                   permanent: true },
+      { source: '/features/team-workspace',                    destination: '/business-management-software',                   permanent: true },
 
       // Solutions pages
       { source: '/solutions/agencies',                         destination: '/solutions/agency-billing-platform',               permanent: true },
       { source: '/solutions/small-businesses',                 destination: '/solutions/best-small-business-invoicing-software', permanent: true },
       { source: '/solutions/ecommerce',                        destination: '/solutions/ecommerce-invoice-automation',          permanent: true },
       { source: '/solutions/enterprise',                       destination: '/solutions/enterprise-billing-platform',           permanent: true },
+      { source: '/solutions/freelancers',                      destination: '/solutions/simple-invoicing-for-freelancers',      permanent: true },
+
+      // Duplicate Homepage & Legacy Route consolidation
+      { source: '/formal-homepage',                            destination: '/client-contracts',                                permanent: true },
+      { source: '/home-v2',                                    destination: '/client-contracts',                                permanent: true },
+      { source: '/contracts-esignature',                       destination: '/client-contracts',                                permanent: true },
 
       // Global pages
       { source: '/about',                                      destination: '/free-invoice-maker-app-about',                    permanent: true },
-      { source: '/contact',                                    destination: '/where-to-make-business-cards',                    permanent: true },
+      { source: '/contact',                                    destination: '/help-center',                                     permanent: true },
+      { source: '/pitch-deck',                                  destination: '/pitch',                                           permanent: true },
+      { source: '/deck',                                        destination: '/pitch',                                           permanent: true },
     ];
   },
 };

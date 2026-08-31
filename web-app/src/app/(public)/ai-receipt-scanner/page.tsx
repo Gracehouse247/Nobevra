@@ -2,7 +2,6 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import Footer from '@/components/shared/Footer';
 import {
     Camera, Bot, Receipt, ShieldCheck, CheckCircle2, ChevronDown,
@@ -11,8 +10,8 @@ import {
 
 /* ── SEO Metadata ───────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'AI Receipt Scanner — Automate Business Expenses | Nobevra',
-    description: 'Snap a photo of any receipt. Our AI receipt scanner extracts data in seconds—automate business expenses, track spending, and eliminate manual entry.',
+    title: 'AI Receipt Scanner — Instant Receipt OCR & Tax Categorization | Nobevra',
+    description: "Scan receipts instantly with Nobevra's AI receipt scanner. Extract vendor, date, taxes, and line items with high accuracy and export directly to your expense ledger.",
     keywords: [
         'AI receipt scanner',
         'automate business expenses',
@@ -21,10 +20,13 @@ export const metadata: Metadata = {
         'business accounting app',
         'automated bookkeeping solutions'
     ],
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng/ai-receipt-scanner',
+    },
     openGraph: {
-        title: 'AI Receipt Scanner — Automate Business Expenses | Nobevra',
-        description: 'Snap a photo. Our AI does the rest. Extract, categorise, and track every business expense automatically.',
-        url: '/receipt-scanner',
+        title: 'AI Receipt Scanner — Instant Receipt OCR & Tax Categorization | Nobevra',
+        description: "Scan receipts instantly with Nobevra's AI receipt scanner. Extract vendor, date, taxes, and line items with high accuracy and export directly to your expense ledger.",
+        url: 'https://nobevra.noblesworld.com.ng/ai-receipt-scanner',
         type: 'website',
     },
 };
@@ -151,11 +153,6 @@ const generateSoftwareSchema = () => {
         "name": "Nobevra AI Receipt Scanner",
         "operatingSystem": "Web, iOS, Android",
         "applicationCategory": "BusinessApplication",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "1284"
-        },
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -185,8 +182,8 @@ export default function ReceiptScannerPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
             {/* Inject JSON-LD */}
-            <Script id="software-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSoftwareSchema()) }} />
-            <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema()) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSoftwareSchema()) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema()) }} />
 
             {/* ══ 1. HERO ══════════════════════════════════════════════════ */}
             <section className="relative pt-16 pb-28 overflow-hidden" aria-label="Hero">

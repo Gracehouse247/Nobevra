@@ -17,7 +17,7 @@ export const LaranaIncCard: React.FC<CardRendererProps & { defaultColor?: string
           </DraggableElement>
           <DraggableElement elementKey="content" className="w-full">
             <div>
-              <h1 className="font-black leading-[0.88] tracking-[-0.03em] uppercase" style={{ color: ON_WHITE, fontFamily: data.fontFamily || undefined, fontSize: fs(72) }}>{data.fullName||'AVERY DAVIS'}</h1>
+              <div role="presentation" className="font-black leading-[0.88] tracking-[-0.03em] uppercase" style={{ color: ON_WHITE, fontFamily: data.fontFamily || undefined, fontSize: fs(72) }}>{data.fullName||'AVERY DAVIS'}</div>
               <div className="w-12 h-[3px] my-4" style={{ backgroundColor: brandAccent }}/>
               <p className="font-bold tracking-[0.6em] uppercase" style={{ color: ON_WHITE, opacity: 0.5, fontFamily: data.fontTitle || data.fontFamily || undefined, fontSize: fs(15) }}>{data.jobTitle||'CREATIVE DIRECTOR'}</p>
             </div>

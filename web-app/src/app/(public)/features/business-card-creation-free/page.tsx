@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+
 import Image from 'next/image';
 import {
   ArrowRight,
@@ -26,6 +26,13 @@ export const metadata: Metadata = {
   title: 'Business Card Creation Free | Nobevra',
   description:
     'Enjoy business card creation free of charge. Design stunning digital cards, track scans, and generate leads effortlessly today.',
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: 'https://nobevra.noblesworld.com.ng/digital-business-card',
+  },
   keywords: [
     'business card creation free',
     'business card creation free template',
@@ -143,7 +150,7 @@ export default function DigitalBusinessCardsPage() {
 
   return (
     <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
-      <Script
+      <script
         id="faq-schema-digital-cards"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

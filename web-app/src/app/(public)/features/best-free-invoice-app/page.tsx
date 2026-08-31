@@ -2,12 +2,18 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Smartphone, Zap, CheckCircle2, Clock, DollarSign, ArrowRight, ShieldCheck, PieChart, Star, Shield, Lock, FileText, Download, Apple, Check, Quote, Globe, Coins, BadgeCheck, X } from 'lucide-react';
-import Script from 'next/script';
+
 
 export const metadata: Metadata = {
   title: 'What Is the Best Free Invoice App? (2026 Guide) | Nobevra',
   description: 'Looking for the best free invoice app? Compare the top options for iOS and Android. See why Nobevra is the top choice for global multi-currency settlements.',
-  keywords: ['what is the best free invoice app', 'What is the best free invoice app for iphone', 'What is the best free invoice app for android', 'Free invoice app download', 'Zoho Invoice app', 'What is the best free invoice app ios', 'Zoho Invoice free'],
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: 'https://nobevra.noblesworld.com.ng/free-invoice-generator',
+  },
 };
 
 export default function BestFreeInvoiceAppPage() {
@@ -52,7 +58,7 @@ export default function BestFreeInvoiceAppPage() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
-      <Script
+      <script
         id="faq-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

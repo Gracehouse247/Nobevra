@@ -27,9 +27,9 @@ export const AndradeCard: React.FC<CardRendererProps & { defaultColor?: string }
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="space-y-4">
-                <h1 className="font-black tracking-tight leading-none uppercase" style={{ fontSize: fs(62), fontFamily: 'Outfit, sans-serif' }}>
+                <div role="presentation" className="font-black tracking-tight leading-none uppercase" style={{ fontSize: fs(62), fontFamily: 'Outfit, sans-serif' }}>
                   {data.fullName || 'ANDRADE STUDIO'}
-                </h1>
+                </div>
                 <p className="font-extrabold tracking-[0.4em] uppercase text-slate-400" style={{ fontSize: fs(14), color: accent }}>
                   {data.jobTitle || 'LEAD CREATIVE DIRECTOR'}
                 </p>

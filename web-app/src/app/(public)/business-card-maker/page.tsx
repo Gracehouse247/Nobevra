@@ -1,35 +1,22 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
+
 import Footer from '@/components/shared/Footer';
 import {
     CreditCard, Smartphone, Wifi, Palette, Share2, QrCode,
     Zap, Star, ArrowRight, CheckCircle, ShieldCheck, Globe
 } from 'lucide-react';
 
-/* ── SEO Metadata ───────────────────────────────────────────────── */
 export const metadata: Metadata = {
     title: 'Free Digital Business Card Maker | NFC & QR Business Cards | Nobevra',
     description: 'Create a stunning digital business card in minutes. Share via NFC tap, QR code, or link. No printing required. Free digital business card maker with custom branding.',
-    keywords: [
-        'digital business card maker',
-        'free digital business card',
-        'NFC business card app',
-        'QR code business card',
-        'virtual business card creator',
-        'electronic business card',
-        'online business card maker free',
-        'paperless business card'
-    ],
-    openGraph: {
-        title: 'Free Digital Business Card Maker | NFC & QR | Nobevra',
-        description: 'Create a stunning digital business card and share it instantly via NFC, QR code, or a single link. Free forever.',
-        url: '/business-card-maker',
-        type: 'website',
+    robots: {
+        index: false,
+        follow: false,
     },
     alternates: {
-        canonical: '/business-card-maker'
+        canonical: 'https://nobevra.noblesworld.com.ng/digital-business-card'
     }
 };
 
@@ -169,11 +156,6 @@ const generateSoftwareSchema = () => ({
     name: 'Nobevra Digital Business Card Maker',
     operatingSystem: 'Web, iOS, Android',
     applicationCategory: 'BusinessApplication',
-    aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        ratingCount: '1247',
-    },
     offers: {
         '@type': 'Offer',
         price: '0',
@@ -225,8 +207,8 @@ export default function BusinessCardMakerPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
             {/* JSON-LD */}
-            <Script id="software-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSoftwareSchema()) }} />
-            <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema()) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSoftwareSchema()) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema()) }} />
 
             {/* ══ 1. HERO ══════════════════════════════════════════════════ */}
             <section className="relative pt-16 pb-28 overflow-hidden" aria-label="Hero">

@@ -5,8 +5,8 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'What is the best invoice maker? | Nobevra Team Workspace',
-    description: 'Wondering what is the best invoice maker for your small business? Discover why a unified team workspace beats simple solo freelancer tools.',
+    title: 'What is the Best Invoice Maker in 2026? Software Comparison | Nobevra',
+    description: 'What is the best invoice maker for your business? Compare top invoice makers on templates, payment processing, automation, and team features.',
     keywords: [
         'what is the best invoice maker',
         'what is the best invoice maker free',
@@ -18,8 +18,10 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'What is the best invoice maker? | Nobevra Team Workspace',
         description: 'Wondering what is the best invoice maker for your small business? Discover why a unified team workspace beats simple solo freelancer tools.',
+        url: 'https://nobevra.noblesworld.com.ng/features/what-is-the-best-invoice-maker',
         type: 'website',
     },
+    alternates: { canonical: 'https://nobevra.noblesworld.com.ng/features/what-is-the-best-invoice-maker' },
 };
 
 const faqSchema = {

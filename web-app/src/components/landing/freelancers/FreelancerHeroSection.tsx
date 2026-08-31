@@ -205,11 +205,11 @@ export default function FreelancerHeroSection() {
                                 </div>
                                 <div className="rounded-[16px] sm:rounded-[32px] overflow-hidden border border-slate-100/50 shadow-inner bg-slate-50">
                                     <Image
-                                        alt="professional invoice for freelancers"
+                                        alt="Nobevra Freelance Invoicing Dashboard & Ledger"
                                         className="w-full h-auto object-cover object-top"
-                                        src="/images/hero-dashboard-actual.png"
-                                        width={1366}
-                                        height={1633}
+                                        src="/images/crm-engine-hero.png"
+                                        width={1920}
+                                        height={1080}
                                         priority
                                         sizes="(max-width: 768px) 100vw, 50vw"
                                     />

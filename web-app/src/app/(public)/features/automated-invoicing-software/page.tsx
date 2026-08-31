@@ -7,21 +7,12 @@ import { ArrowRight, CheckCircle2, Shield, Settings, Activity, Server, Users, Za
 export const metadata: Metadata = {
     title: 'Automated Invoicing Software for Scaling Teams | Nobevra',
     description: 'Stop relying on probabilistic AI that requires human verification. Nobevra offers deterministic automated invoicing software built for true enterprise scale.',
-    openGraph: {
-        title: 'Automated Invoicing Software for Scaling Teams | Nobevra',
-        description: 'Stop relying on probabilistic AI that requires human verification. Nobevra offers deterministic automated invoicing software built for true enterprise scale.',
-        url: '/features/enterprise-scaling',
-        siteName: 'Nobevra',
-        images: [
-            {
-                url: '/images/og-enterprise.png',
-                width: 1200,
-                height: 630,
-                alt: 'Nobevra Enterprise Scaling Automation',
-            },
-        ],
-        locale: 'en_US',
-        type: 'website',
+    robots: {
+        index: false,
+        follow: false,
+    },
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng/invoicing',
     },
 };
 

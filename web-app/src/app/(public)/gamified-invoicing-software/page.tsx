@@ -2,7 +2,6 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import Footer from '@/components/shared/Footer';
 import {
     Trophy, Target, Zap, ShieldCheck, CheckCircle2, ChevronDown,
@@ -11,8 +10,8 @@ import {
 
 /* ── SEO Metadata ───────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Gamified Invoicing Software — Make Billing Fun | Nobevra',
-    description: 'Stop dreading your billing day. Nobevra turns invoicing into an XP-driven game. Hit business financial goals, earn badges, and get paid faster.',
+    title: 'Gamified Invoicing Software — Celebrate Revenue & Track Milestones | Nobevra',
+    description: "Make billing rewarding with Nobevra's gamified invoicing software. Unlock revenue milestones, celebrate paid invoices with animations, and build cash flow streaks.",
     keywords: [
         'gamified invoicing',
         'make billing fun',
@@ -20,10 +19,13 @@ export const metadata: Metadata = {
         'freelance gamification',
         'startup tracking'
     ],
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng/gamified-invoicing-software',
+    },
     openGraph: {
-        title: 'Gamified Invoicing Software — Make Billing Fun | Nobevra',
-        description: 'Level up your cash flow. Earn XP and badges for every invoice sent and paid.',
-        url: '/gamified-invoicing',
+        title: 'Gamified Invoicing Software — Celebrate Revenue & Track Milestones | Nobevra',
+        description: "Make billing rewarding with Nobevra's gamified invoicing software. Unlock revenue milestones, celebrate paid invoices with animations, and build cash flow streaks.",
+        url: 'https://nobevra.noblesworld.com.ng/gamified-invoicing-software',
         type: 'website',
     },
 };
@@ -146,11 +148,6 @@ const generateSoftwareSchema = () => {
         "name": "Nobevra Gamified Invoicing",
         "operatingSystem": "Web, iOS, Android",
         "applicationCategory": "BusinessApplication",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "ratingCount": "842"
-        },
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -180,8 +177,8 @@ export default function GamifiedInvoicingPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
             {/* Inject JSON-LD */}
-            <Script id="software-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSoftwareSchema()) }} />
-            <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema()) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateSoftwareSchema()) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema()) }} />
 
             {/* ══ 1. HERO ══════════════════════════════════════════════════ */}
             <section className="relative pt-16 pb-28 overflow-hidden" aria-label="Hero">

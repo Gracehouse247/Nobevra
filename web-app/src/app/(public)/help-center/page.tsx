@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Script from 'next/script';
+
 import HelpClientPage from '@/components/help/HelpClientPage';
 
 export const metadata: Metadata = {
@@ -39,7 +39,7 @@ const helpCenterSchema = [
 export default function HelpCenterPage() {
     return (
         <div className="bg-white text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
-            <Script id="help-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(helpCenterSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(helpCenterSchema) }} />
             <HelpClientPage />
         </div>
     );

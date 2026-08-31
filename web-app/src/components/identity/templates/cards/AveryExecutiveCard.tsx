@@ -14,9 +14,9 @@ export const AveryExecutiveCard: React.FC<CardRendererProps & { defaultColor?: s
                     <div className="flex-[0.1]" style={{ backgroundColor: accent }} />
                     <div className="flex-[0.9] flex flex-col justify-between p-24">
                         <DraggableElement elementKey="content" className="space-y-2">
-                            <h1 className="font-black tracking-tighter leading-none" style={{ color: ON_WHITE, fontFamily: data.fontFamily || undefined, fontSize: fs(52) }}>
+                            <div role="presentation" className="font-black tracking-tighter leading-none" style={{ color: ON_WHITE, fontFamily: data.fontFamily || undefined, fontSize: fs(52) }}>
                                 {data.fullName || 'AVERY DAVIS'}
-                            </h1>
+                            </div>
                             <p className="font-bold tracking-[0.3em] uppercase" style={{ color: accent, fontFamily: data.fontTitle || data.fontFamily || undefined, fontSize: fs(20) }}>
                                 {data.jobTitle || 'Product Designer'}
                             </p>

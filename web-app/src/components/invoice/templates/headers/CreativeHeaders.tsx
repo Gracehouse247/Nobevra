@@ -20,7 +20,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
               <div className="text-right">
-                 <h1 className="text-6xl font-black uppercase text-white tracking-tighter italic drop-shadow-[0_0_10px_#7C3AED]">INVOICE</h1>
+                 <div role="presentation" className="text-6xl font-black uppercase text-white tracking-tighter italic drop-shadow-[0_0_10px_#7C3AED]">INVOICE</div>
               </div>
            </div>
         </div>
@@ -38,7 +38,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
               <div className="text-right pt-6">
-                 <h1 className="text-7xl font-black text-noble-text tracking-tighter opacity-10 leading-none">ARTISTIC</h1>
+                 <div role="presentation" className="text-7xl font-black text-noble-text tracking-tighter opacity-10 leading-none">ARTISTIC</div>
                  <h2 className="text-3xl font-black text-slate-800 -mt-8 relative z-10 uppercase">{sender?.full_name}</h2>
                  <p className="text-xs font-bold text-pink-500 mt-1 uppercase tracking-widest italic">Creative Studio Doc</p>
               </div>
@@ -61,7 +61,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
               <div className="h-16 w-px bg-noble-surface/10" />
-              <h1 className="text-5xl font-black uppercase text-magenta-500 tracking-widest pr-4">BILLING</h1>
+              <div role="presentation" className="text-5xl font-black uppercase text-magenta-500 tracking-widest pr-4">BILLING</div>
            </div>
         </div>
       );
@@ -75,7 +75,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
-                 <h1 className="text-8xl font-black uppercase tracking-tighter opacity-10 leading-none -mr-4">PLAN_101</h1>
+                 <div role="presentation" className="text-8xl font-black uppercase tracking-tighter opacity-10 leading-none -mr-4">PLAN_101</div>
                  <h2 className="text-4xl font-black uppercase tracking-widest mb-2 italic">INVOICE</h2>
                  <p className="text-xs font-bold opacity-60 tracking-[0.4em] uppercase">Architectural Excellence</p>
               </div>
@@ -92,7 +92,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-24 h-24")}
               </div>
               <div className="text-right">
-                 <h1 className="text-6xl font-black uppercase text-noble-text tracking-tighter italic drop-shadow-lg">GOLDEN</h1>
+                 <div role="presentation" className="text-6xl font-black uppercase text-noble-text tracking-tighter italic drop-shadow-lg">GOLDEN</div>
                  <p className="text-[10px] font-black uppercase tracking-[0.6em] text-amber-600 mt-2">Executive Horizon Series</p>
               </div>
            </div>
@@ -108,7 +108,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-20 h-20", true)}
               </div>
               <div className="text-right pt-4">
-                 <h1 className="text-9xl font-black uppercase tracking-tighter text-black opacity-5 leading-none absolute right-16 top-16 select-none">M_DOC</h1>
+                 <div role="presentation" className="text-9xl font-black uppercase tracking-tighter text-black opacity-5 leading-none absolute right-16 top-16 select-none">M_DOC</div>
                  <h2 className="text-5xl font-black uppercase tracking-tight text-black relative z-10">INVOICE</h2>
                  <p className="text-xs font-bold text-slate-400 mt-2 uppercase tracking-[0.4em]">Official Monochrome Statement</p>
               </div>
@@ -130,7 +130,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
               </div>
            </div>
            <div className="w-full bg-slate-900 text-white py-4 px-12 flex justify-between items-center">
-              <h1 className="text-2xl font-black tracking-[0.5em] uppercase">OFFICIAL INVOICE</h1>
+              <div role="presentation" className="text-2xl font-black tracking-[0.5em] uppercase">OFFICIAL INVOICE</div>
               <p className="text-xs font-bold italic opacity-60">Ref: {data.invoiceNumber}</p>
            </div>
         </div>
@@ -145,7 +145,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-24 h-24")}
               </div>
               <div className="text-right">
-                 <h1 className="text-7xl font-black uppercase text-white tracking-tighter italic drop-shadow-[0_0_20px_rgba(52,211,153,0.4)]">AURORA</h1>
+                 <div role="presentation" className="text-7xl font-black uppercase text-white tracking-tighter italic drop-shadow-[0_0_20px_rgba(52,211,153,0.4)]">AURORA</div>
                  <p className="text-[10px] font-black uppercase tracking-[0.8em] text-cyan-400 mt-2">Cosmic Series Professional</p>
               </div>
            </div>
@@ -161,7 +161,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
-                 <h1 className="text-9xl font-black text-noble-text tracking-tighter leading-none -mr-4">BAU</h1>
+                 <div role="presentation" className="text-9xl font-black text-noble-text tracking-tighter leading-none -mr-4">BAU</div>
                  <h2 className="text-3xl font-black text-noble-text uppercase tracking-widest mt-2">HAUS INVOICE</h2>
                  <p className="text-xs font-bold text-slate-400 mt-2 tracking-[0.5em] uppercase">{sender?.full_name}</p>
               </div>
@@ -182,7 +182,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                     <p className="text-xs font-bold text-slate-400 italic">Paper Series • Executive</p>
                  </div>
               </div>
-              <h1 className="text-5xl font-black text-slate-200 tracking-widest uppercase italic pr-4">INVOICE</h1>
+              <div role="presentation" className="text-5xl font-black text-slate-200 tracking-widest uppercase italic pr-4">INVOICE</div>
            </div>
         </div>
       );
@@ -200,7 +200,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-20 h-20")}
               </div>
            </div>
-           <h1 className="text-9xl font-black text-noble-text opacity-[0.03] absolute top-12 pointer-events-none uppercase">CREATIVE</h1>
+           <div role="presentation" className="text-9xl font-black text-noble-text opacity-[0.03] absolute top-12 pointer-events-none uppercase">CREATIVE</div>
         </div>
       );
     }
@@ -213,7 +213,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-24 h-24")}
               </div>
               <div className="text-right">
-                 <h1 className="text-6xl font-black text-rose-400 tracking-tighter italic drop-shadow-sm uppercase">ROSE GOLD</h1>
+                 <div role="presentation" className="text-6xl font-black text-rose-400 tracking-tighter italic drop-shadow-sm uppercase">ROSE GOLD</div>
                  <p className="text-[10px] font-black text-slate-400 mt-2 uppercase tracking-[0.6em]">Luxury Elite Series</p>
               </div>
            </div>
@@ -230,7 +230,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  <h2 className="text-2xl font-black uppercase tracking-widest">{sender?.full_name}</h2>
               </div>
               <div className="text-right pt-4">
-                 <h1 className="text-[10rem] font-black text-noble-text opacity-5 leading-none absolute right-16 top-16 select-none">BOLD</h1>
+                 <div role="presentation" className="text-[10rem] font-black text-noble-text opacity-5 leading-none absolute right-16 top-16 select-none">BOLD</div>
                  <h2 className="text-6xl font-black text-noble-text uppercase tracking-tighter relative z-10">INVOICE</h2>
                  <div className="h-2 w-32 bg-red-600 ml-auto mt-4" />
               </div>
@@ -253,7 +253,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                     <p className="text-sm font-bold text-emerald-400 mt-3 uppercase tracking-widest italic">Forest Art Series</p>
                  </div>
               </div>
-              <h1 className="text-6xl font-black tracking-widest opacity-20 italic pr-8">OFFICIAL</h1>
+              <div role="presentation" className="text-6xl font-black tracking-widest opacity-20 italic pr-8">OFFICIAL</div>
            </div>
         </div>
       );
@@ -267,7 +267,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-24 h-24")}
               </div>
               <div className="text-right text-white">
-                 <h1 className="text-7xl font-black uppercase tracking-tighter mb-2 italic text-cyan-500 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">MIDNIGHT</h1>
+                 <div role="presentation" className="text-7xl font-black uppercase tracking-tighter mb-2 italic text-cyan-500 drop-shadow-[0_0_15px_rgba(6,182,212,0.5)]">MIDNIGHT</div>
                  <p className="text-[10px] font-black uppercase tracking-[0.8em] text-slate-500">Global Dark Mode Series</p>
               </div>
            </div>
@@ -283,7 +283,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
-                 <h1 className="text-8xl font-black uppercase tracking-tighter leading-none opacity-10 -mr-4 -mt-4 absolute right-16 top-12 select-none">INVOICE</h1>
+                 <div role="presentation" className="text-8xl font-black uppercase tracking-tighter leading-none opacity-10 -mr-4 -mt-4 absolute right-16 top-12 select-none">INVOICE</div>
                  <h2 className="text-3xl font-black uppercase tracking-tight text-[#92400E] mb-2">{sender?.full_name}</h2>
                  <p className="text-xs font-bold text-[#D97706]">{sender?.email}</p>
               </div>
@@ -305,7 +305,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
               <div className="text-right text-white">
-                 <h1 className="text-6xl font-black uppercase tracking-tighter mb-2 italic">INVOICE</h1>
+                 <div role="presentation" className="text-6xl font-black uppercase tracking-tighter mb-2 italic">INVOICE</div>
                  <div className="flex justify-end">
                     <Diamond className="w-8 h-8 text-[#3B82F6] fill-[#3B82F6]" />
                  </div>
@@ -327,7 +327,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                     <p className="text-sm font-bold opacity-60 italic">{sender?.email}</p>
                  </div>
               </div>
-              <h1 className="text-7xl font-black uppercase tracking-widest opacity-20 absolute -right-8 bottom-0 rotate-12">INVOICE</h1>
+              <div role="presentation" className="text-7xl font-black uppercase tracking-widest opacity-20 absolute -right-8 bottom-0 rotate-12">INVOICE</div>
            </div>
         </div>
       );
@@ -345,7 +345,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-24 h-24")}
               </div>
            </div>
-           <h1 className="text-[12rem] font-black uppercase text-white/5 leading-none absolute top-24 pointer-events-none select-none">BILLING</h1>
+           <div role="presentation" className="text-[12rem] font-black uppercase text-white/5 leading-none absolute top-24 pointer-events-none select-none">BILLING</div>
         </div>
       );
     }
@@ -358,7 +358,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right pb-4">
-                 <h1 className="text-8xl font-black text-[#1E3A8A] opacity-10 tracking-tighter">INVOICE</h1>
+                 <div role="presentation" className="text-8xl font-black text-[#1E3A8A] opacity-10 tracking-tighter">INVOICE</div>
                  <h2 className="text-2xl font-black text-[#3B82F6] tracking-widest -mt-10 uppercase">{sender?.full_name}</h2>
               </div>
            </div>
@@ -384,7 +384,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
               <div className="text-right text-white">
-                 <h1 className="text-6xl font-black tracking-widest italic opacity-60">INV.X</h1>
+                 <div role="presentation" className="text-6xl font-black tracking-widest italic opacity-60">INV.X</div>
               </div>
            </div>
         </div>
@@ -419,7 +419,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
               <div className="text-right">
-                 <h1 className="text-9xl font-black opacity-5 select-none absolute right-0 top-0 leading-none -mr-12 -mt-12">EMERALD</h1>
+                 <div role="presentation" className="text-9xl font-black opacity-5 select-none absolute right-0 top-0 leading-none -mr-12 -mt-12">EMERALD</div>
                  <Diamond className="w-16 h-16 text-emerald-500 fill-emerald-500 opacity-20 ml-auto" />
               </div>
            </div>
@@ -432,7 +432,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col">
            <div className="flex justify-between items-start">
               <div className="text-white border-l-8 border-[#475569] pl-10">
-                 <h1 className="text-7xl font-black uppercase leading-none mb-4 tracking-tighter italic">INVOICE</h1>
+                 <div role="presentation" className="text-7xl font-black uppercase leading-none mb-4 tracking-tighter italic">INVOICE</div>
                  <h2 className="text-2xl font-bold uppercase tracking-[0.5em] opacity-40">{sender?.full_name}</h2>
               </div>
               <div className="bg-[#1E293B] p-6 border border-[#475569] shadow-2xl">
@@ -455,7 +455,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
               </div>
               <div className="text-right relative">
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-red-600 rounded-full blur-[80px] opacity-30" />
-                 <h1 className="text-8xl font-black text-noble-text uppercase tracking-tighter relative z-10 leading-none">INVOICE</h1>
+                 <div role="presentation" className="text-8xl font-black text-noble-text uppercase tracking-tighter relative z-10 leading-none">INVOICE</div>
               </div>
            </div>
         </div>
@@ -473,7 +473,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
              </div>
           </div>
           <div className="flex items-center gap-4">
-             <h1 className="text-7xl font-black uppercase tracking-tight text-noble-text drop-shadow-sm">INVOICE</h1>
+             <div role="presentation" className="text-7xl font-black uppercase tracking-tight text-noble-text drop-shadow-sm">INVOICE</div>
              <Diamond className="w-10 h-10 text-[#FBBF24] fill-[#FBBF24] mb-8" />
           </div>
         </div>
@@ -492,7 +492,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
                </div>
             </div>
             <div className="flex items-center gap-4 text-white drop-shadow-md">
-               <h1 className="text-7xl font-black uppercase tracking-tight">INVOICE</h1>
+               <div role="presentation" className="text-7xl font-black uppercase tracking-tight">INVOICE</div>
                <Diamond className="w-10 h-10 text-[#FBBF24] fill-[#FBBF24] mb-8" />
             </div>
           </div>
@@ -511,7 +511,7 @@ export const CreativeHeader = (props: SharedEngineProps) => {
              </div>
           </div>
           <div className="flex items-center gap-4 relative z-20 text-white mt-4">
-             <h1 className="text-6xl font-black uppercase tracking-tight drop-shadow-xl">INVOICE</h1>
+             <div role="presentation" className="text-6xl font-black uppercase tracking-tight drop-shadow-xl">INVOICE</div>
              <Diamond className="w-8 h-8 text-[#FBBF24] fill-[#FBBF24] mb-6" />
           </div>
           <div className="absolute top-0 left-0 w-full h-full opacity-90 z-0 pointer-events-none">

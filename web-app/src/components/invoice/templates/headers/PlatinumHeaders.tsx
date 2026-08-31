@@ -18,7 +18,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
               </div>
            </div>
            <div className="text-right">
-              <h1 className={`text-9xl font-black uppercase tracking-tighter ${isRed ? 'text-rose-600' : 'text-noble-text'}`}>Invoice</h1>
+              <div role="presentation" className={`text-9xl font-black uppercase tracking-tighter ${isRed ? 'text-rose-600' : 'text-noble-text'}`}>Invoice</div>
            </div>
         </div>
       );
@@ -33,7 +33,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  <h2 className="text-3xl font-black text-noble-text">{sender?.full_name || 'SALFORD & CO.'}</h2>
               </div>
            </div>
-           <h1 className="text-[180px] font-black uppercase tracking-tighter text-noble-text leading-none">INVOICE</h1>
+           <div role="presentation" className="text-[180px] font-black uppercase tracking-tighter text-noble-text leading-none">INVOICE</div>
         </div>
       );
     }
@@ -63,7 +63,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
               </div>
               
               <div className="text-right flex flex-col justify-center h-full pr-8">
-                 <h1 className="text-[140px] font-black text-white uppercase tracking-tighter leading-none">INVOICE</h1>
+                 <div role="presentation" className="text-[140px] font-black text-white uppercase tracking-tighter leading-none">INVOICE</div>
                  <p className="text-3xl font-black text-white/80 tracking-widest uppercase italic mt-4">INV - {data.invoiceNumber}</p>
               </div>
            </div>
@@ -80,7 +80,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
               <h2 className="text-2xl font-black text-noble-text uppercase tracking-widest">Fauget</h2>
            </div>
            <div className="text-right relative z-20 text-white">
-              <h1 className="text-9xl font-black uppercase tracking-tighter leading-none italic">INVOICE</h1>
+              <div role="presentation" className="text-9xl font-black uppercase tracking-tighter leading-none italic">INVOICE</div>
            </div>
         </div>
       );
@@ -101,7 +101,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
               </div>
            </div>
            <div className="text-right relative z-20 text-[#3A8A96]">
-              <h1 className="text-7xl font-black uppercase tracking-tighter leading-none">INVOICE</h1>
+              <div role="presentation" className="text-7xl font-black uppercase tracking-tighter leading-none">INVOICE</div>
               <Diamond className="w-10 h-10 text-amber-400 fill-amber-400 mt-2 ml-auto" />
            </div>
         </div>
@@ -112,7 +112,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
       return (
         <div className="relative h-56 mb-8 flex justify-between items-start px-16 pt-8 z-10 text-white">
            <div className="flex flex-col gap-2">
-              <h1 className="text-6xl font-black uppercase tracking-tighter leading-none">INVOICE</h1>
+              <div role="presentation" className="text-6xl font-black uppercase tracking-tighter leading-none">INVOICE</div>
            </div>
            <div className="flex gap-6 items-center text-right">
               <div>
@@ -142,7 +142,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  </div>
               </div>
               <div className="text-right">
-                 <h1 className="text-5xl font-black text-rose-900 uppercase tracking-widest">INVOICE</h1>
+                 <div role="presentation" className="text-5xl font-black text-rose-900 uppercase tracking-widest">INVOICE</div>
                  <Diamond className="w-8 h-8 text-rose-500 fill-rose-500 float-right mt-2" />
               </div>
            </div>
@@ -155,7 +155,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
         <div className="relative pt-16 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-start mb-16">
               <div>
-                 <h1 className="text-7xl font-black uppercase tracking-tighter italic">PLATINUM</h1>
+                 <div role="presentation" className="text-7xl font-black uppercase tracking-tighter italic">PLATINUM</div>
                  <p className="text-xs font-bold uppercase tracking-[0.5em] text-white/40 mt-2">Executive Corporate Series</p>
               </div>
               <div className="bg-noble-surface p-6 rounded-none shadow-2xl">
@@ -175,7 +175,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  <div className="h-12 w-px bg-noble-surface/20" />
                  <h2 className="text-2xl font-black uppercase tracking-widest italic">{sender?.full_name}</h2>
               </div>
-              <h1 className="text-4xl font-black uppercase tracking-widest text-white/50">INV-P</h1>
+              <div role="presentation" className="text-4xl font-black uppercase tracking-widest text-white/50">INV-P</div>
            </div>
         </div>
       );
@@ -189,7 +189,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-16 h-16")}
               </div>
               <div className="text-right">
-                 <h1 className="text-6xl font-black uppercase tracking-tighter leading-none italic">ELITE</h1>
+                 <div role="presentation" className="text-6xl font-black uppercase tracking-tighter leading-none italic">ELITE</div>
                  <p className="text-[10px] font-black uppercase tracking-[0.6em] text-orange-400 mt-2">Green Orange Platinum</p>
               </div>
            </div>
@@ -208,7 +208,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  <h2 className="text-3xl font-black uppercase tracking-tighter italic leading-none">{sender?.full_name}</h2>
               </div>
               <div className="text-right">
-                 <h1 className="text-5xl font-black uppercase tracking-widest text-slate-800">OBSIDIAN</h1>
+                 <div role="presentation" className="text-5xl font-black uppercase tracking-widest text-slate-800">OBSIDIAN</div>
                  <Diamond className="w-8 h-8 text-[#D4AF37] fill-[#D4AF37] float-right mt-2" />
               </div>
            </div>
@@ -224,7 +224,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
-                 <h1 className="text-6xl font-black text-noble-text uppercase tracking-tighter leading-none italic">IVORY</h1>
+                 <div role="presentation" className="text-6xl font-black text-noble-text uppercase tracking-tighter leading-none italic">IVORY</div>
                  <p className="text-[10px] font-black text-[#D4AF37] mt-1 uppercase tracking-[0.5em]">Gold Leaf Series</p>
               </div>
            </div>
@@ -242,7 +242,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  </div>
                  <h2 className="text-3xl font-black uppercase tracking-tighter italic">{sender?.full_name}</h2>
               </div>
-              <h1 className="text-4xl font-black uppercase tracking-widest text-blue-400">SAPPHIRE</h1>
+              <div role="presentation" className="text-4xl font-black uppercase tracking-widest text-blue-400">SAPPHIRE</div>
            </div>
         </div>
       );
@@ -261,7 +261,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                     <p className="text-[10px] font-bold text-emerald-400 mt-2 uppercase tracking-widest italic">Emerald Luxury Edition</p>
                  </div>
               </div>
-              <h1 className="text-6xl font-black uppercase tracking-tighter text-emerald-900/50 italic leading-none">LUX</h1>
+              <div role="presentation" className="text-6xl font-black uppercase tracking-tighter text-emerald-900/50 italic leading-none">LUX</div>
            </div>
         </div>
       );
@@ -277,7 +277,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  <h2 className="text-3xl font-black text-noble-text uppercase tracking-tighter leading-none">{sender?.full_name}</h2>
               </div>
               <div className="text-right">
-                 <h1 className="text-4xl font-black text-slate-200 uppercase tracking-widest">MARBLE</h1>
+                 <div role="presentation" className="text-4xl font-black text-slate-200 uppercase tracking-widest">MARBLE</div>
                  <Diamond className="w-8 h-8 text-noble-text fill-slate-900 float-right mt-2" />
               </div>
            </div>
@@ -293,7 +293,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-16 h-16")}
               </div>
               <div className="text-right">
-                 <h1 className="text-6xl font-black text-pink-700 uppercase tracking-tighter italic">ROSE</h1>
+                 <div role="presentation" className="text-6xl font-black text-pink-700 uppercase tracking-tighter italic">ROSE</div>
                  <p className="text-[10px] font-black text-pink-300 mt-1 uppercase tracking-[0.6em]">Gold Luxury Series</p>
               </div>
            </div>
@@ -309,7 +309,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-16 h-16")}
               </div>
               <div className="text-right">
-                 <h1 className="text-7xl font-black uppercase tracking-tighter opacity-10">CRIMSON</h1>
+                 <div role="presentation" className="text-7xl font-black uppercase tracking-tighter opacity-10">CRIMSON</div>
                  <h2 className="text-3xl font-black uppercase tracking-widest -mt-10 relative z-10 italic">ELITE EDITION</h2>
               </div>
            </div>
@@ -325,7 +325,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-16 h-16", true)}
                  <h2 className="text-2xl font-black uppercase tracking-widest italic">{sender?.full_name}</h2>
               </div>
-              <h1 className="text-4xl font-black uppercase tracking-tighter text-[#D4AF37]">PRESTIGE</h1>
+              <div role="presentation" className="text-4xl font-black uppercase tracking-tighter text-[#D4AF37]">PRESTIGE</div>
            </div>
         </div>
       );
@@ -337,7 +337,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
            <div className="flex justify-between items-start mb-16 border-b border-slate-100 pb-12">
               {renderLogo?.("w-24 h-24")}
               <div className="text-right">
-                 <h1 className="text-2xl font-black text-noble-text uppercase tracking-[0.5em]">PLATINUM</h1>
+                 <div role="presentation" className="text-2xl font-black text-noble-text uppercase tracking-[0.5em]">PLATINUM</div>
                  <p className="text-[10px] font-bold text-slate-400 mt-2 uppercase tracking-widest italic">The Ultra Minimalist Edition</p>
               </div>
            </div>
@@ -353,7 +353,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-16 h-16")}
                  <h2 className="text-2xl font-black text-amber-900 uppercase tracking-tighter leading-none italic">{sender?.full_name}</h2>
               </div>
-              <h1 className="text-4xl font-black text-amber-600 uppercase tracking-widest pr-4 opacity-30">INV</h1>
+              <div role="presentation" className="text-4xl font-black text-amber-600 uppercase tracking-widest pr-4 opacity-30">INV</div>
            </div>
         </div>
       );
@@ -364,7 +364,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
         <div className="relative pt-12 px-16 z-10 flex flex-col text-white">
            <div className="flex justify-between items-center mb-16">
               <div className="flex flex-col gap-2">
-                 <h1 className="text-8xl font-black uppercase tracking-tighter leading-none text-slate-800">NAVY</h1>
+                 <div role="presentation" className="text-8xl font-black uppercase tracking-tighter leading-none text-slate-800">NAVY</div>
                  <h2 className="text-3xl font-black uppercase tracking-widest -mt-10 pl-2 text-white italic">MIDNIGHT PRESTIGE</h2>
               </div>
               <div className="bg-noble-surface p-6 rounded-none shadow-2xl">
@@ -399,7 +399,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  </div>
                  <h2 className="text-3xl font-black uppercase tracking-widest italic">{sender?.full_name}</h2>
               </div>
-              <h1 className="text-4xl font-black uppercase tracking-tighter text-slate-600">TITAN</h1>
+              <div role="presentation" className="text-4xl font-black uppercase tracking-tighter text-slate-600">TITAN</div>
            </div>
         </div>
       );
@@ -413,7 +413,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right">
-                 <h1 className="text-6xl font-black uppercase tracking-tighter text-teal-400 drop-shadow-[0_0_15px_rgba(45,212,191,0.5)]">LAGOON</h1>
+                 <div role="presentation" className="text-6xl font-black uppercase tracking-tighter text-teal-400 drop-shadow-[0_0_15px_rgba(45,212,191,0.5)]">LAGOON</div>
                  <p className="text-xs font-bold uppercase tracking-[0.5em] text-white/40 mt-2">Oceanic Prestige Series</p>
               </div>
            </div>
@@ -431,7 +431,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  </div>
                  <h2 className="text-3xl font-black uppercase tracking-tighter italic">{sender?.full_name}</h2>
               </div>
-              <h1 className="text-4xl font-black uppercase tracking-widest text-[#F3E5AB] opacity-30">AUBERGINE</h1>
+              <div role="presentation" className="text-4xl font-black uppercase tracking-widest text-[#F3E5AB] opacity-30">AUBERGINE</div>
            </div>
         </div>
       );
@@ -445,7 +445,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-20 h-20")}
               </div>
               <div className="text-right pt-4">
-                 <h1 className="text-7xl font-black text-noble-text tracking-tighter opacity-10">ARCTIC</h1>
+                 <div role="presentation" className="text-7xl font-black text-noble-text tracking-tighter opacity-10">ARCTIC</div>
                  <h2 className="text-4xl font-black text-cyan-600 -mt-10 relative z-10 italic uppercase">FROST EDITION</h2>
               </div>
            </div>
@@ -498,7 +498,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  {renderLogo?.("w-16 h-16")}
                  <h2 className="text-3xl font-black text-red-900 uppercase tracking-tighter italic leading-none">{sender?.full_name}</h2>
               </div>
-              <h1 className="text-5xl font-black text-red-100 uppercase tracking-widest mix-blend-difference">PRIME</h1>
+              <div role="presentation" className="text-5xl font-black text-red-100 uppercase tracking-widest mix-blend-difference">PRIME</div>
            </div>
         </div>
       );
@@ -527,7 +527,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
                  <h2 className="text-4xl font-black text-noble-text uppercase tracking-tighter leading-none">{sender?.full_name}</h2>
               </div>
               <div className="text-right">
-                 <h1 className="text-5xl font-black text-[#D4AF37] uppercase tracking-[0.2em] italic">SOVEREIGN</h1>
+                 <div role="presentation" className="text-5xl font-black text-[#D4AF37] uppercase tracking-[0.2em] italic">SOVEREIGN</div>
                  <p className="text-[10px] font-bold text-slate-400 mt-2 uppercase tracking-widest">Official Gold Edition</p>
               </div>
            </div>
@@ -549,7 +549,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
               </div>
            </div>
            <div className="text-right text-white">
-              <h1 className="text-6xl font-black uppercase tracking-tighter leading-none">INVOICE</h1>
+              <div role="presentation" className="text-6xl font-black uppercase tracking-tighter leading-none">INVOICE</div>
            </div>
         </div>
       );
@@ -569,7 +569,7 @@ export const PlatinumHeader = (props: SharedEngineProps) => {
               </div>
            </div>
            <div className="text-right text-white">
-              <h1 className="text-6xl font-black uppercase tracking-tighter leading-none">INVOICE</h1>
+              <div role="presentation" className="text-6xl font-black uppercase tracking-tighter leading-none">INVOICE</div>
            </div>
         </div>
       );

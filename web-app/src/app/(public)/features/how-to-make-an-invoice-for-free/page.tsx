@@ -37,7 +37,13 @@ const MOCK_DATA = {
 export const metadata: Metadata = {
   title: 'How to Make an Invoice for Free | Nobevra',
   description: 'Learn how to make an invoice for free in seconds. Stop wasting time with DIY templates. Get paid 33% faster with our professional, automated invoice maker.',
-  keywords: 'how to make an invoice for free, create invoice online free, free invoice maker app, simple invoice template, blank invoice PDF, invoice generator without watermark, how to write an invoice for services, invoice fields, types of invoices',
+  robots: {
+    index: false,
+    follow: false,
+  },
+  alternates: {
+    canonical: 'https://nobevra.noblesworld.com.ng/free-invoice-generator',
+  },
 };
 
 const faqSchema = {

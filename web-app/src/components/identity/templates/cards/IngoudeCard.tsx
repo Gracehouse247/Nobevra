@@ -26,9 +26,9 @@ export const IngoudeCard: React.FC<CardRendererProps & { defaultColor?: string }
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="space-y-4">
-                <h1 className="font-extrabold tracking-tight text-stone-800 leading-none uppercase" style={{ fontSize: fs(54), fontFamily: 'Cormorant Garamond, serif' }}>
+                <div role="presentation" className="font-extrabold tracking-tight text-stone-800 leading-none uppercase" style={{ fontSize: fs(54), fontFamily: 'Cormorant Garamond, serif' }}>
                   {data.fullName || 'CLARA INGOUDE'}
-                </h1>
+                </div>
                 <p className="font-bold tracking-[0.4em] uppercase text-stone-500" style={{ fontSize: fs(14) }}>
                   {data.jobTitle || 'ORGANIC PRODUCT ARCHITECT'}
                 </p>

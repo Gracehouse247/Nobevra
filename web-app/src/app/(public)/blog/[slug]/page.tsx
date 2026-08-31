@@ -23,9 +23,14 @@ function getSupabaseClient() {
 
 const getPostBySlug = unstable_cache(
     async (slug: string) => {
-        const supabase = getSupabaseClient();
-        const { data } = await supabase.from('seo_articles').select('*').eq('slug', slug).single();
-        return data;
+        try {
+            const supabase = getSupabaseClient();
+            const { data, error } = await supabase.from('seo_articles').select('*').eq('slug', slug).single();
+            if (error) return null;
+            return data;
+        } catch {
+            return null;
+        }
     },
     ['blog-post-slug'],
     { revalidate: 3600, tags: ['blog'] }
@@ -33,9 +38,14 @@ const getPostBySlug = unstable_cache(
 
 const getRelatedPosts = unstable_cache(
     async (slug: string) => {
-        const supabase = getSupabaseClient();
-        const { data } = await supabase.from('seo_articles').select('id, title, slug, meta_description, published_at, featured_image_url').eq('status', 'published').neq('slug', slug).order('published_at', { ascending: false }).limit(3);
-        return data;
+        try {
+            const supabase = getSupabaseClient();
+            const { data, error } = await supabase.from('seo_articles').select('id, title, slug, meta_description, published_at, featured_image_url').eq('status', 'published').neq('slug', slug).order('published_at', { ascending: false }).limit(3);
+            if (error) return [];
+            return data || [];
+        } catch {
+            return [];
+        }
     },
     ['blog-related-posts'],
     { revalidate: 3600, tags: ['blog'] }
@@ -193,19 +203,29 @@ export async function generateMetadata({ params }: Props, parent: ResolvingMetad
     const { slug } = await params;
     const post = await getPostBySlug(slug);
     if (!post) return { title: 'Post Not Found | Nobevra Blog' };
+    const canonicalUrl = `https://nobevra.noblesworld.com.ng/blog/${slug}`;
+    const ogImage = getImageUrl(post.featured_image_url) || `https://nobevra.noblesworld.com.ng/images/og-blog.jpg`;
     return {
         title: `${post.meta_title || post.title} | Nobevra Blog`,
         description: post.meta_description,
+        alternates: {
+            canonical: canonicalUrl,
+        },
         openGraph: {
             title: post.meta_title || post.title,
             description: post.meta_description,
             type: 'article',
             publishedTime: post.published_at || new Date().toISOString(),
             authors: ['Nobevra Team'],
-            url: `https://nobevra.noblesworld.com.ng/blog/${slug}`,
-            images: [{ url: getImageUrl(post.featured_image_url) || `https://nobevra.noblesworld.com.ng/images/og-blog.jpg`, width: 1200, height: 630, alt: post.title }]
+            url: canonicalUrl,
+            images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }]
         },
-        twitter: { card: 'summary_large_image', title: post.meta_title || post.title, description: post.meta_description },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.meta_title || post.title,
+            description: post.meta_description,
+            images: [ogImage],
+        },
     };
 }
 
@@ -216,17 +236,71 @@ export default async function BlogPostPage({ params }: Props) {
     const post = await getPostBySlug(slug);
     if (!post) notFound();
 
+    const canonicalUrl = `https://nobevra.noblesworld.com.ng/blog/${slug}`;
     const relatedPosts = await getRelatedPosts(slug);
 
     const readTime = Math.max(1, Math.ceil(countWords(post.content_markdown || '') / 200));
     const toc = extractHeadings(post.content_markdown || '');
-    const schemaMarkup = post.schema_markup?.article || { "@context": "https://schema.org", "@type": "Article", "headline": post.title, "datePublished": post.published_at, "author": { "@type": "Organization", "name": "Nobevra Team" },
+    const wordCount = countWords(post.content_markdown || '');
+
+    const breadcrumbSchema = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://nobevra.noblesworld.com.ng"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blog",
+                "item": "https://nobevra.noblesworld.com.ng/blog"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": post.title
+            }
+        ]
+    };
+
+    const schemaMarkup = post.schema_markup?.article || {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": post.title,
+        "description": post.meta_description,
+        "datePublished": post.published_at || new Date().toISOString(),
+        "dateModified": post.updated_at || post.published_at || new Date().toISOString(),
+        "wordCount": wordCount,
+        "author": {
+            "@type": "Organization",
+            "name": "Nobevra Editorial Team",
+            "url": "https://nobevra.noblesworld.com.ng"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Nobevra",
+            "url": "https://nobevra.noblesworld.com.ng",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://nobevra.noblesworld.com.ng/images/brand%20identies/icon.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": canonicalUrl
+        },
+        "url": canonicalUrl
     };
 
     return (
         <>
             <ReadingProgressBar />
 
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }} />
             {post.schema_markup?.faq && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(post.schema_markup.faq) }} />}
 

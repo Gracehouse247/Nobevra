@@ -14,9 +14,9 @@ export const WilsonDynamicCard: React.FC<CardRendererProps & { defaultColor?: st
                 <div className="w-full h-full flex flex-row items-stretch">
                     <DraggableElement elementKey="content" className="flex-[0.5] flex flex-col justify-center p-20 pl-24 space-y-8">
                         <div className="space-y-2">
-                            <h1 className="font-black leading-none uppercase" style={{ color: ON_WHITE, fontFamily: data.fontFamily || undefined, fontSize: fs(52) }}>
+                            <div role="presentation" className="font-black leading-none uppercase" style={{ color: ON_WHITE, fontFamily: data.fontFamily || undefined, fontSize: fs(52) }}>
                                 {data.fullName || 'MORGAN WILSON'}
-                            </h1>
+                            </div>
                             <p className="font-bold tracking-[0.2em] uppercase" style={{ color: accent, fontFamily: data.fontTitle || data.fontFamily || undefined, fontSize: fs(20) }}>
                                 {data.jobTitle || 'Creative Lead'}
                             </p>

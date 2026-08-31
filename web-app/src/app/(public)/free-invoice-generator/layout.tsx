@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Free Invoice Generator — Create Professional Invoices Online | Nobevra',
+    title: 'Free Invoice Generator — Create & Download PDF Invoices Instantly | Nobevra',
     description:
-        'Use our free invoice generator to create invoice online in seconds. Download a polished PDF, add your logo, set payment terms, and get paid faster. Trusted by 2M+ businesses. No sign-up required.',
+        'Generate professional PDF invoices for free in seconds. No sign-up required. Choose custom templates, add your logo, calculate taxes, and download instantly.',
     keywords: [
         'free invoice generator',
         'create invoice online',
@@ -14,21 +14,21 @@ export const metadata: Metadata = {
         'online invoice creator',
     ],
     openGraph: {
-        title: 'Free Invoice Generator — Create Invoices Online in 30 Seconds',
+        title: 'Free Invoice Generator — Create & Download PDF Invoices Instantly | Nobevra',
         description:
-            'The professional invoice maker trusted by 2,000,000+ freelancers. Create, download, and send invoices free. No sign-up required.',
-        url: '/invoice-generator',
+            'Generate professional PDF invoices for free in seconds. No sign-up required. Choose custom templates, add your logo, calculate taxes, and download instantly.',
+        url: 'https://nobevra.noblesworld.com.ng/free-invoice-generator',
         siteName: 'Nobevra',
         type: 'website',
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Free Invoice Generator | Nobevra',
+        title: 'Free Invoice Generator — Create & Download PDF Invoices Instantly | Nobevra',
         description:
-            'Create professional invoices online free. Download PDF instantly. No credit card needed.',
+            'Generate professional PDF invoices for free in seconds. No sign-up required. Choose custom templates, add your logo, calculate taxes, and download instantly.',
     },
     alternates: {
-        canonical: '/invoice-generator',
+        canonical: 'https://nobevra.noblesworld.com.ng/free-invoice-generator',
     },
     robots: {
         index: true,
@@ -103,12 +103,6 @@ const softwareAppSchema = {
         '@type': 'Offer',
         price: '0',
         priceCurrency: 'USD',
-    },
-    aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '4.9',
-        reviewCount: '2841',
-        bestRating: '5',
     },
 };
 

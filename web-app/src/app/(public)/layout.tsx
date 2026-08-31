@@ -14,10 +14,11 @@ export default function PublicLayout({
 }) {
     const pathname = usePathname();
     const isAuthPage = AUTH_PATHS.includes(pathname);
+    const isPitchPage = pathname?.startsWith('/pitch');
 
     return (
         <div data-theme-force="light" className="flex flex-col min-h-screen bg-[#F8FAFC]">
-            {!isAuthPage && <Navbar />}
+            {!isAuthPage && !isPitchPage && <Navbar />}
             <main className="flex-1 w-full">
                 {children}
             </main>

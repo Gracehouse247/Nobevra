@@ -7,20 +7,13 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
     title: 'Where to make business cards? | Nobevra',
     description: 'Wondering where to make business cards online? Stop using paper. Contact Nobevra to build a professional digital billing profile instead.',
-    keywords: [
-        'where to make business cards',
-        'where to make business cards near me',
-        'where to make business cards online',
-        'Staples business cards',
-        'Vistaprint business cards',
-        'business card design free',
-        'Canva business cards'
-    ],
-    openGraph: {
-        title: 'Where to make business cards? | Nobevra',
-        description: 'Wondering where to make business cards online? Stop using paper. Contact Nobevra to build a professional digital billing profile instead.',
-        type: 'website',
+    robots: {
+        index: false,
+        follow: false,
     },
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng/digital-business-card'
+    }
 };
 
 const faqSchema = {

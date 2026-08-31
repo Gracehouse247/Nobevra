@@ -24,9 +24,9 @@ export const AldenaireExecutiveCard: React.FC<CardRendererProps & { defaultColor
                     <DraggableElement elementKey="content" className="flex-[0.6] flex flex-col justify-between p-20 pl-24">
                         <div className="flex justify-between items-start w-full">
                             <div className="space-y-2">
-                                <h1 className="font-black tracking-tighter uppercase leading-none" style={{ color: darkBg, fontSize: fs(52) }}>
+                                <div role="presentation" className="font-black tracking-tighter uppercase leading-none" style={{ color: darkBg, fontSize: fs(52) }}>
                                     {data.fullName || 'RICHARD ALDEN'}
-                                </h1>
+                                </div>
                                 <p className="font-medium tracking-[0.2em] uppercase" style={{ color: ON_WHITE, opacity: 0.5, fontSize: fs(20) }}>
                                     {data.jobTitle || 'Senior Partner'}
                                 </p>

@@ -27,9 +27,9 @@ export const BorcelleCard: React.FC<CardRendererProps & { defaultColor?: string 
                 </svg>
               </DraggableElement>
               <DraggableElement elementKey="content" className="space-y-4">
-                <h1 className="font-black tracking-tight leading-none uppercase text-noble-text" style={{ fontSize: fs(62) }}>
+                <div role="presentation" className="font-black tracking-tight leading-none uppercase text-noble-text" style={{ fontSize: fs(62) }}>
                   {data.fullName || 'BORCELLE CORP'}
-                </h1>
+                </div>
                 <p className="font-bold tracking-[0.35em] uppercase" style={{ fontSize: fs(14), color: accent }}>
                   {data.jobTitle || 'GLOBAL LOGISTICS DIRECTOR'}
                 </p>

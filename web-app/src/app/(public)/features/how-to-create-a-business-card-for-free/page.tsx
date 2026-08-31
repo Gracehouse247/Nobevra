@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { ArrowRight, CheckCircle2, Shield, QrCode, Smartphone, BarChart3, Trash2, XCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-    title: 'How to Create a Business Card for Free | Nobevra Digital Identity',
-    description: 'Stop printing dead paper cards. Learn how to create a business card for free online that instantly captures leads and routes them into your CRM.',
+    title: 'How to Create a Digital Business Card for Free | Nobevra',
+    description: 'Learn how to create a digital business card for free. Step-by-step guide to designing electronic cards, adding NFC tap features, and sharing via QR code.',
     openGraph: {
         title: 'How to Create a Business Card for Free | Nobevra Digital Identity',
         description: 'Stop printing dead paper cards. Learn how to create a business card for free online that instantly captures leads and routes them into your CRM.',
-        url: '/features/professional-identity',
+        url: 'https://nobevra.noblesworld.com.ng/features/how-to-create-a-business-card-for-free',
         siteName: 'Nobevra',
         images: [
             {
@@ -22,6 +22,9 @@ export const metadata: Metadata = {
         ],
         locale: 'en_US',
         type: 'website',
+    },
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng/features/how-to-create-a-business-card-for-free',
     },
 };
 

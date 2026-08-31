@@ -1,6 +1,5 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import Footer from '@/components/shared/Footer';
 
 // Page components
@@ -30,8 +29,8 @@ import EcommerceCTA from '@/components/landing/ecommerce/EcommerceCTA';
                        B2B wholesale sellers needing automated invoicing
 ──────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Ecommerce Invoice Automation | Shopify & B2B | Nobevra',
-    description: 'Automate ecommerce invoice generation for Shopify, WooCommerce, and B2B wholesale orders. Generate bulk invoices, send automatically, and get paid faster.',
+    title: 'E-Commerce Invoice Automation — Automated Invoicing for Online Stores | Nobevra',
+    description: 'Automate PDF invoice generation for your e-commerce store with Nobevra. Sync orders from Shopify and WooCommerce, calculate taxes, and deliver branded receipts.',
     keywords: [
         'ecommerce invoice automation',
         'shopify invoice generator',
@@ -44,10 +43,13 @@ export const metadata: Metadata = {
         'wholesale invoicing software',
         'ecommerce billing automation'
     ],
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng/solutions/ecommerce-invoice-automation',
+    },
     openGraph: {
         title: 'Ecommerce Invoice Automation | Nobevra',
         description: 'Automate your Shopify, WooCommerce, or B2B wholesale invoicing. Generate and send invoices automatically with every order.',
-        url: '/solutions/ecommerce',
+        url: 'https://nobevra.noblesworld.com.ng/solutions/ecommerce-invoice-automation',
         type: 'website',
     },
 };
@@ -58,14 +60,13 @@ const softwareSchema = {
     "name": "Nobevra Ecommerce Invoicing",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "734" },
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 };
 
 export default function EcommerceSolutionPage() {
     return (
         <div className="bg-white text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
-            <Script id="sw-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
 
             <EcommerceHeroSection />
             <EcommerceProblemSection />

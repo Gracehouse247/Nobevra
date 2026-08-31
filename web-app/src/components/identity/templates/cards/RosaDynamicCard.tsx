@@ -16,9 +16,9 @@ export const RosaDynamicCard: React.FC<CardRendererProps & { defaultColor?: stri
                         {/* LEFT white section — name & title must be BLACK */}
                         <DraggableElement elementKey="content">
                             <div className="space-y-1">
-                                <h1 className="font-black tracking-tighter uppercase leading-none" style={{ color: ON_WHITE, fontSize: fs(52) }}>
+                                <div role="presentation" className="font-black tracking-tighter uppercase leading-none" style={{ color: ON_WHITE, fontSize: fs(52) }}>
                                     {data.fullName || 'ROSA MARIA'}
-                                </h1>
+                                </div>
                                 <p className="font-medium tracking-[0.3em] uppercase opacity-70" style={{ color: ON_WHITE, fontSize: fs(20) }}>
                                     {data.jobTitle || 'Digital Marketer'}
                                 </p>

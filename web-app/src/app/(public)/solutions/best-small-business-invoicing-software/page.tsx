@@ -2,7 +2,6 @@ import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import Script from 'next/script';
 import Footer from '@/components/shared/Footer';
 import {
     Receipt, ScanLine, Package, TrendingUp, CheckCircle2,
@@ -18,8 +17,8 @@ import {
    4. best small business billing software (1.9K)
 ──────────────────────────────────────────────────────────────────── */
 export const metadata: Metadata = {
-    title: 'Best Small Business Invoicing Software | Get Paid Faster | Nobevra',
-    description: 'The easiest small business invoicing software. Create professional invoices, scan receipts, and manage billing without complex accounting degrees. Start for free.',
+    title: 'Best Small Business Invoicing Software — Simple, Scalable Billing | Nobevra',
+    description: 'Discover why Nobevra is rated the best small business invoicing software. Create professional invoices, track expenses, accept payments, and manage cash flow.',
     keywords: [
         'small business invoicing software',
         'small business software invoicing',
@@ -31,10 +30,13 @@ export const metadata: Metadata = {
         'small business expense tracker',
         'get paid online small business',
     ],
+    alternates: {
+        canonical: 'https://nobevra.noblesworld.com.ng/solutions/best-small-business-invoicing-software',
+    },
     openGraph: {
         title: 'Small Business Invoicing Software | Nobevra',
         description: 'Stop fighting enterprise tools. Get the best small business billing software that actually makes sense.',
-        url: '/solutions/small-businesses',
+        url: 'https://nobevra.noblesworld.com.ng/solutions/best-small-business-invoicing-software',
         type: 'website',
     },
 };
@@ -185,7 +187,6 @@ const softwareSchema = {
     "name": "Nobevra Small Business Invoicing",
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Web, iOS, Android",
-    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "1042" },
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 };
 
@@ -203,8 +204,8 @@ const faqSchema = {
 export default function SmallBusinessesSolutionPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
-            <Script id="sw-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
-            <Script id="faq-schema" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
             {/* ══ 1. HERO ══════════════════════════════════════════════════ */}
             <section className="relative pt-12 pb-32 overflow-hidden" aria-label="Hero">
