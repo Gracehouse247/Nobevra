@@ -7,6 +7,8 @@ import { unstable_cache } from 'next/cache';
 
 import { brand } from '@/lib/brand';
 
+import { CURATED_BLOG_POSTS, BlogPost } from '@/lib/blogData';
+
 export const revalidate = 3600; // Revalidate every hour
 
 const BLOG_TITLE = `Blog — Invoice Tips, Business Card Guides & Billing Insights | ${brand.name}`;
@@ -34,23 +36,42 @@ export const metadata: Metadata = {
 const getArticles = unstable_cache(
     async () => {
         try {
-            const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co';
-            const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build';
+            const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://iyvikdxzcpcjivmbiwik.supabase.co';
+            const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_P7Cqz0FeBivOCQAtMVHd7A_CwRzIyN2';
             const supabase = createClient(url, key);
             const { data, error } = await supabase
                 .from('seo_articles')
                 .select('*')
                 .eq('status', 'published')
                 .order('published_at', { ascending: false });
-            if (error) {
-                return { articles: [], error: error.message || 'Failed to fetch articles' };
-            }
-            return { articles: data || [], error: null };
+
+            // Merge Supabase articles with curated posts (deduplicating by slug)
+            const remoteArticles: BlogPost[] = (data || []).map((item: any) => ({
+                id: item.id,
+                title: item.title,
+                slug: item.slug,
+                meta_title: item.meta_title || item.title,
+                meta_description: item.meta_description || item.excerpt || '',
+                content_markdown: item.content_markdown || '',
+                featured_image_url: item.featured_image_url || null,
+                status: item.status || 'published',
+                category: item.category || 'Business Strategy',
+                published_at: item.published_at || new Date().toISOString(),
+                word_count: item.word_count || 1200,
+            }));
+
+            const existingSlugs = new Set(remoteArticles.map(a => a.slug));
+            const mergedArticles = [
+                ...remoteArticles,
+                ...CURATED_BLOG_POSTS.filter(p => !existingSlugs.has(p.slug))
+            ];
+
+            return { articles: mergedArticles, error: null };
         } catch (err: any) {
-            return { articles: [], error: err?.message || 'Database connection error' };
+            return { articles: CURATED_BLOG_POSTS, error: err?.message || 'Using offline articles' };
         }
     },
-    ['published-articles'],
+    ['published-articles-v2'],
     { revalidate: 3600, tags: ['blog'] }
 );
 
@@ -102,7 +123,7 @@ export default async function BlogIndexPage() {
             />
 
             {/* Blog Header */}
-            <div className="bg-[#F8FAFC] border-b border-[#E2E8F0] pt-24 pb-16 px-6">
+            <div className="bg-[#F8FAFC] border-b border-[#E2E8F0] pt-36 md:pt-44 pb-16 px-6">
                 <div className="max-w-7xl mx-auto text-center">
                     <h1 className="text-4xl md:text-5xl font-black text-[#0F172A] tracking-tight mb-4">
                         Business Growth <span className="text-[#166FBB]">Insights</span>

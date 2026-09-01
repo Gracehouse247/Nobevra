@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
 import { PROGRAMMATIC_TEMPLATES } from '@/lib/templates/programmaticTemplatesData'
 import { helpCategories } from '@/lib/helpData'
+import { CURATED_BLOG_POSTS } from '@/lib/blogData'
 import { createClient } from '@supabase/supabase-js'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -397,11 +398,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
   )
 
-  // 11. Dynamic Published Blog Articles (Fetched from Supabase SSR with Graceful Fallback)
-  let blogRoutes: MetadataRoute.Sitemap = []
+  // 11. Dynamic Published Blog Articles (Fetched from Supabase SSR with Curated Fallback)
+  let remoteBlogRoutes: MetadataRoute.Sitemap = []
   try {
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co'
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build'
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://iyvikdxzcpcjivmbiwik.supabase.co'
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_P7Cqz0FeBivOCQAtMVHd7A_CwRzIyN2'
     const supabase = createClient(supabaseUrl, supabaseKey)
     const { data: posts } = await supabase
       .from('seo_articles')
@@ -409,7 +410,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .eq('status', 'published')
     
     if (posts && posts.length > 0) {
-      blogRoutes = posts.map((post) => ({
+      remoteBlogRoutes = posts.map((post) => ({
         url: `${baseUrl}/blog/${post.slug}`,
         lastModified: new Date(post.updated_at || post.published_at || now),
         changeFrequency: 'monthly',
@@ -417,8 +418,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }))
     }
   } catch {
-    blogRoutes = []
+    remoteBlogRoutes = []
   }
+
+  const existingBlogSlugs = new Set(remoteBlogRoutes.map((r) => r.url))
+  const curatedBlogRoutes: MetadataRoute.Sitemap = CURATED_BLOG_POSTS
+    .filter((p) => !existingBlogSlugs.has(`${baseUrl}/blog/${p.slug}`))
+    .map((p) => ({
+      url: `${baseUrl}/blog/${p.slug}`,
+      lastModified: new Date(p.published_at || now),
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    }))
+
+  const blogRoutes = [...remoteBlogRoutes, ...curatedBlogRoutes]
 
   return [...coreRoutes, ...templateRoutes, ...helpCategoryRoutes, ...helpArticleRoutes, ...blogRoutes]
 }

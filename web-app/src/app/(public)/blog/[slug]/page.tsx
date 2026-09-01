@@ -11,43 +11,89 @@ import remarkGfm from 'remark-gfm';
 import ReadingProgressBar from './ReadingProgressBar';
 import TableOfContents from './TableOfContents';
 
+import { CURATED_BLOG_POSTS, BlogPost } from '@/lib/blogData';
+
 type Props = { params: Promise<{ slug: string }> };
 
 export const revalidate = 3600; // Revalidate every hour
 
 function getSupabaseClient() {
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://cugomxoyeyeytyedgclj.supabase.co';
-    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'placeholder-key-for-build';
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://iyvikdxzcpcjivmbiwik.supabase.co';
+    const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_P7Cqz0FeBivOCQAtMVHd7A_CwRzIyN2';
     return createClient(url, key);
 }
 
 const getPostBySlug = unstable_cache(
-    async (slug: string) => {
+    async (slug: string): Promise<BlogPost | null> => {
         try {
             const supabase = getSupabaseClient();
             const { data, error } = await supabase.from('seo_articles').select('*').eq('slug', slug).single();
-            if (error) return null;
-            return data;
+            if (!error && data) {
+                return {
+                    id: data.id,
+                    title: data.title,
+                    slug: data.slug,
+                    meta_title: data.meta_title || data.title,
+                    meta_description: data.meta_description || data.excerpt || '',
+                    content_markdown: data.content_markdown || '',
+                    featured_image_url: data.featured_image_url || null,
+                    status: data.status || 'published',
+                    category: data.category || 'Business Strategy',
+                    published_at: data.published_at || new Date().toISOString(),
+                    word_count: data.word_count || 1200,
+                };
+            }
         } catch {
-            return null;
+            // fallback to curated
         }
+        const curated = CURATED_BLOG_POSTS.find((p) => p.slug === slug);
+        return curated || null;
     },
-    ['blog-post-slug'],
+    ['blog-post-slug-v2'],
     { revalidate: 3600, tags: ['blog'] }
 );
 
 const getRelatedPosts = unstable_cache(
-    async (slug: string) => {
+    async (slug: string): Promise<BlogPost[]> => {
+        let remotePosts: BlogPost[] = [];
         try {
             const supabase = getSupabaseClient();
-            const { data, error } = await supabase.from('seo_articles').select('id, title, slug, meta_description, published_at, featured_image_url').eq('status', 'published').neq('slug', slug).order('published_at', { ascending: false }).limit(3);
-            if (error) return [];
-            return data || [];
+            const { data, error } = await supabase
+                .from('seo_articles')
+                .select('*')
+                .eq('status', 'published')
+                .neq('slug', slug)
+                .order('published_at', { ascending: false })
+                .limit(3);
+            if (!error && data) {
+                remotePosts = data.map((item: any) => ({
+                    id: item.id,
+                    title: item.title,
+                    slug: item.slug,
+                    meta_title: item.meta_title || item.title,
+                    meta_description: item.meta_description || item.excerpt || '',
+                    content_markdown: item.content_markdown || '',
+                    featured_image_url: item.featured_image_url || null,
+                    status: item.status || 'published',
+                    category: item.category || 'Business Strategy',
+                    published_at: item.published_at || new Date().toISOString(),
+                    word_count: item.word_count || 1200,
+                }));
+            }
         } catch {
-            return [];
+            remotePosts = [];
         }
+
+        const curatedRelated = CURATED_BLOG_POSTS.filter((p) => p.slug !== slug);
+        const existingSlugs = new Set(remotePosts.map((p) => p.slug));
+        const combined = [
+            ...remotePosts,
+            ...curatedRelated.filter((p) => !existingSlugs.has(p.slug))
+        ];
+
+        return combined.slice(0, 3);
     },
-    ['blog-related-posts'],
+    ['blog-related-posts-v2'],
     { revalidate: 3600, tags: ['blog'] }
 );
 
@@ -187,17 +233,22 @@ const markdownComponents: Components = {
 
 // ─── METADATA & STATIC PARAMS ───────────────────────────────────────────────────
 export async function generateStaticParams() {
-    const supabase = getSupabaseClient();
-    const { data: posts } = await supabase
-        .from('seo_articles')
-        .select('slug')
-        .eq('status', 'published');
-        
-    if (!posts) return [];
-    
-    return posts.map((post) => ({
-        slug: post.slug,
-    }));
+    let remoteSlugs: string[] = [];
+    try {
+        const supabase = getSupabaseClient();
+        const { data: posts } = await supabase
+            .from('seo_articles')
+            .select('slug')
+            .eq('status', 'published');
+        if (posts) {
+            remoteSlugs = posts.map((p) => p.slug);
+        }
+    } catch {
+        remoteSlugs = [];
+    }
+
+    const allSlugs = Array.from(new Set([...remoteSlugs, ...CURATED_BLOG_POSTS.map((p) => p.slug)]));
+    return allSlugs.map((slug) => ({ slug }));
 }
 export async function generateMetadata({ params }: Props, parent: ResolvingMetadata): Promise<Metadata> {
     const { slug } = await params;
@@ -306,7 +357,7 @@ export default async function BlogPostPage({ params }: Props) {
 
 
             {/* ── CONTENT AREA ──────────────────────────────────────────── */}
-            <section className="bg-white #070D1A] min-h-screen pt-32">
+            <section className="bg-white #070D1A] min-h-screen pt-36 md:pt-40">
                 <div className="max-w-[1430px] mx-auto px-4 md:px-16 py-12">
                     <div className="flex justify-between gap-12">
 
