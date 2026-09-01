@@ -50,6 +50,20 @@ export const metadata: Metadata = {
     description: 'Learn how to generate a QR code for free in 3 steps. Nobevra creates payment QR codes for invoices that get you paid in 2.4 days instead of 14.',
     url: 'https://nobevra.noblesworld.com.ng/features/how-to-generate-a-qr-code',
     type: 'website',
+    images: [
+      {
+        url: '/images/precision-invoicing.png',
+        width: 1200,
+        height: 630,
+        alt: 'How to Generate a QR Code for Free — Nobevra Tutorial',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Generate a QR Code for Free | Nobevra',
+    description: 'Step-by-step guide to generating QR codes for payments, websites, and business cards.',
+    images: ['/images/precision-invoicing.png'],
   },
 };
 

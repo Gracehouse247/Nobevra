@@ -27,6 +27,20 @@ export const metadata: Metadata = {
         description: 'The lightweight CRM built specifically for solo freelancers. Track client contacts, view linked invoices, monitor lifetime revenue, and eliminate CRM bloat.',
         url: 'https://nobevra.noblesworld.com.ng/lightweight-crm-for-freelancers',
         type: 'website',
+        images: [
+            {
+                url: '/images/freelance-crm-hero.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Lightweight CRM for Freelancers & Solo Creators',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Lightweight CRM for Freelancers | Nobevra',
+        description: 'Track client contacts, view linked invoices, and eliminate CRM bloat with Nobevra.',
+        images: ['/images/freelance-crm-hero.png'],
     },
 };
 

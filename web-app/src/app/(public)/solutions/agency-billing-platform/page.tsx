@@ -50,6 +50,20 @@ export const metadata: Metadata = {
         description: 'Automate retainer billing, manage clients, and look premium doing it. Built for agencies.',
         url: 'https://nobevra.noblesworld.com.ng/solutions/agency-billing-platform',
         type: 'website',
+        images: [
+            {
+                url: '/images/precision-invoicing.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Agency Billing Platform — Retainer Management & Client Invoicing',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Agency Billing Platform | Nobevra',
+        description: 'Automate recurring monthly retainers, client contracts, and multi-client invoicing for agencies.',
+        images: ['/images/precision-invoicing.png'],
     },
 };
 
@@ -62,10 +76,25 @@ const softwareSchema = {
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 };
 
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Agency Retainer Billing & Financial Services",
+    "provider": {
+        "@type": "Organization",
+        "name": "Nobevra",
+        "url": "https://nobevra.noblesworld.com.ng"
+    },
+    "serviceType": "Agency Billing Software & Retainer Automation",
+    "description": "Multi-client retainer billing, team seats, automated contracts, and client portals for digital agencies.",
+    "url": "https://nobevra.noblesworld.com.ng/solutions/agency-billing-platform"
+};
+
 export default function AgenciesSolutionPage() {
     return (
         <div className="bg-white text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
             <AgencyHeroSection />
             <AgencyProblemSection />

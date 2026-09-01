@@ -30,6 +30,20 @@ export const metadata: Metadata = {
     url: 'https://nobevra.noblesworld.com.ng/features/how-do-i-make-an-invoice',
     siteName: 'Nobevra',
     type: 'article',
+    images: [
+      {
+        url: '/images/precision-invoicing.png',
+        width: 1200,
+        height: 630,
+        alt: 'How to Make an Invoice — Beginner Guide by Nobevra',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Make an Invoice: Step-by-Step Guide for Beginners | Nobevra',
+    description: 'Step-by-step guide to making professional invoices, payment terms, and tax calculations.',
+    images: ['/images/precision-invoicing.png'],
   },
 };
 

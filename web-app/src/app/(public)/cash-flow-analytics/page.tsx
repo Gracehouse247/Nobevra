@@ -28,6 +28,20 @@ export const metadata: Metadata = {
     description: 'Track real-time business revenue, analyze overdue receivables, and forecast cash flow with AI-powered financial analytics from Nobevra.',
     url: 'https://nobevra.noblesworld.com.ng/cash-flow-analytics',
     type: 'website',
+    images: [
+      {
+        url: '/images/cashflow-dashboard.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nobevra Cash Flow Analytics and Financial Forecasting Dashboard',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cash Flow Analytics & Forecasting | Nobevra',
+    description: 'Real-time inflows, overdue receivables tracking, and 90-day cash runway forecasting.',
+    images: ['/images/cashflow-dashboard.png'],
   },
 };
 

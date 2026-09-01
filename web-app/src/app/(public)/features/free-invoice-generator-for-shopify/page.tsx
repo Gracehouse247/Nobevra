@@ -52,6 +52,20 @@ export const metadata: Metadata = {
         description: 'Embed Apple Pay & Google Pay QR codes in your Shopify invoices. Get paid in 2.4 days instead of 14.',
         url: 'https://nobevra.noblesworld.com.ng/features/free-invoice-generator-for-shopify',
         type: 'website',
+        images: [
+            {
+                url: '/images/precision-invoicing.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Free Invoice Generator for Shopify & B2B Orders',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Free Invoice Generator for Shopify | Nobevra',
+        description: 'Automate B2B invoice generation directly from Shopify orders with payment QR codes and custom branding.',
+        images: ['/images/precision-invoicing.png'],
     },
     alternates: { canonical: 'https://nobevra.noblesworld.com.ng/features/free-invoice-generator-for-shopify' },
 };

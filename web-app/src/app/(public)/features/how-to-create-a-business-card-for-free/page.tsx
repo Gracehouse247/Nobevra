@@ -23,6 +23,12 @@ export const metadata: Metadata = {
         locale: 'en_US',
         type: 'website',
     },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'How to Create a Digital Business Card for Free | Nobevra',
+        description: 'Step-by-step guide to designing electronic cards, adding NFC tap features, and sharing via QR code.',
+        images: ['/images/Organization Identity Hub.png'],
+    },
     alternates: {
         canonical: 'https://nobevra.noblesworld.com.ng/features/how-to-create-a-business-card-for-free',
     },

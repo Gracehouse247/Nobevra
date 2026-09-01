@@ -26,6 +26,20 @@ export const metadata: Metadata = {
         description: 'Accept global credit card payments, bank transfers, and mobile money in 30+ currencies with Nobevra. Fast settlement, zero hidden fees, and PCI-DSS Level 1 security.',
         url: 'https://nobevra.noblesworld.com.ng/payments',
         type: 'website',
+        images: [
+            {
+                url: '/images/precision-invoicing.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Global Payments — Multi-Currency Invoicing and Checkout',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'International Business Payments | Nobevra',
+        description: 'Accept card payments, bank transfers, and mobile money in 30+ currencies globally with direct bank settlement.',
+        images: ['/images/precision-invoicing.png'],
     },
 };
 

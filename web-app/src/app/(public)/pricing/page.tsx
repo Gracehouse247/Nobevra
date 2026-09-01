@@ -16,6 +16,56 @@ import PremiumBadge from '@/components/shared/PremiumBadge';
 const schemaMarkup = [
     {
         "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Nobevra",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web, iOS, Android",
+        "url": "https://nobevra.noblesworld.com.ng/pricing",
+        "description": "Intelligent all-in-one Business Operating System combining invoicing, CRM, expense tracking, and global payments.",
+        "offers": [
+            {
+                "@type": "Offer",
+                "name": "Explorer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Free plan for solo operators and freelancers.",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "unitText": "MONTH"
+                }
+            },
+            {
+                "@type": "Offer",
+                "name": "Pulse",
+                "price": "9.99",
+                "priceCurrency": "USD",
+                "description": "Complete automation, custom branding, and unlimited insights.",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "9.99",
+                    "priceCurrency": "USD",
+                    "unitText": "MONTH"
+                }
+            },
+            {
+                "@type": "Offer",
+                "name": "Elite",
+                "price": "24.99",
+                "priceCurrency": "USD",
+                "description": "Advanced multi-seat operations, AI assistant, and white-label portals.",
+                "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "24.99",
+                    "priceCurrency": "USD",
+                    "unitText": "MONTH"
+                }
+            }
+        ]
+    },
+    {
+        "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
             { "@type": "Question", "name": "Is there completely free invoice software?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, many providers offer free invoicing software for small business free of charge. Nobevra offers an Explorer plan allowing up to 10 invoices per month at no cost." } },
@@ -321,9 +371,11 @@ export default function PricingPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
             {schemaMarkup.map((schema, i) => (
-                <script key={i} type="application/ld+json">
-                    {JSON.stringify(schema)}
-                </script>
+                <script
+                    key={i}
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+                />
             ))}
 
             {/* ── 1. HERO SECTION ──────────────────────────────────────────────────── */}

@@ -24,6 +24,20 @@ export const metadata: Metadata = {
     description: 'Calculate your exact target hourly rate, day rate, and monthly retainer fees based on real financial modeling.',
     url: 'https://nobevra.noblesworld.com.ng/features/freelance-rate-calculator',
     type: 'website',
+    images: [
+      {
+        url: '/images/precision-invoicing.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nobevra Free Freelance Rate & Retainer Calculator',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Free Freelance Rate & Retainer Calculator | Nobevra',
+    description: 'Calculate your exact target hourly rate, day rate, and monthly retainers mathematically.',
+    images: ['/images/precision-invoicing.png'],
   },
 };
 

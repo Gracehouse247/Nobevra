@@ -26,6 +26,20 @@ export const metadata: Metadata = {
         description: "Harness the power of AI to run your business. Nobevra's AI Business Assistant drafts invoices from natural language, forecasts cash flow, and automates tasks.",
         url: 'https://nobevra.noblesworld.com.ng/ai-business-assistant',
         type: 'website',
+        images: [
+            {
+                url: '/images/features/ai-invoice-generator-demo.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra AI Business Assistant — AI Financial Operations and Invoicing',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'AI Business Assistant | Nobevra',
+        description: 'Draft invoices from plain English, predict cash flow runway, and get automated financial advice with Nobevra AI.',
+        images: ['/images/features/ai-invoice-generator-demo.png'],
     },
 };
 

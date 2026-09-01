@@ -7,6 +7,29 @@ export const metadata: Metadata = {
   title: 'AI Transparency Disclaimer — Nobevra AI Invoice Generator',
   description: 'How Nobevra uses AI in our invoice generator. Full transparency on AI-powered features, data processing, and our commitment to responsible AI in billing software.',
   keywords: ['AI invoicing', 'artificial intelligence disclaimer', 'automated billing', 'AI invoice generator'],
+  alternates: {
+    canonical: 'https://nobevra.noblesworld.com.ng/legal/ai-disclaimer',
+  },
+  openGraph: {
+    title: 'AI Transparency Disclaimer — Nobevra',
+    description: 'Full transparency on AI-powered features, data processing, and responsible AI in Nobevra billing software.',
+    url: 'https://nobevra.noblesworld.com.ng/legal/ai-disclaimer',
+    type: 'website',
+    images: [
+      {
+        url: '/images/hero-dashboard-actual.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nobevra AI Disclaimer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Transparency Disclaimer — Nobevra',
+    description: 'Full transparency on AI-powered features, data processing, and responsible AI in Nobevra billing software.',
+    images: ['/images/hero-dashboard-actual.png'],
+  },
 };
 
 export default function AIDisclaimerPage() {

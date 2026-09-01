@@ -1,0 +1,209 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nobevra Keyword & Concept Ownership Registry",
+  "description": "The definitive source of truth preventing keyword cannibalization. When planning new content, check this registry first.",
+  "version": "1.0.0",
+  "updatedAt": "2026-09-01",
+  "pillars": [
+    {
+      "concept": "Core Invoicing & Billing",
+      "canonicalOwnerUrl": "/invoicing",
+      "intent": "Commercial / Product Evaluation",
+      "primaryKeyword": "online invoicing software",
+      "semanticKeywords": [
+        "invoice software",
+        "business invoicing",
+        "digital invoicing",
+        "automated invoicing",
+        "invoice management",
+        "invoice creation",
+        "professional invoices",
+        "billing software online",
+        "invoice generator tools"
+      ],
+      "supportingToolUrls": [
+        "/free-invoice-generator",
+        "/features/best-ai-invoice-generator-free",
+        "/features/free-invoice-generator-for-shopify"
+      ],
+      "supportingGuideUrls": [
+        "/features/how-do-i-make-an-invoice",
+        "/features/how-to-make-a-proforma-invoice",
+        "/features/how-to-make-an-invoice-for-free"
+      ],
+      "supportingTemplateUrls": [
+        "/templates",
+        "/templates/photography-invoice-template",
+        "/templates/contractor-construction-invoice-template"
+      ],
+      "governanceRule": "Never create a new general invoicing page. Expand /invoicing for commercial intent or create specific tool/guide nodes."
+    },
+    {
+      "concept": "Client Management & CRM",
+      "canonicalOwnerUrl": "/crm",
+      "intent": "Commercial / Product Evaluation",
+      "primaryKeyword": "client management crm",
+      "semanticKeywords": [
+        "CRM for small business",
+        "small business CRM software",
+        "lightweight CRM",
+        "client management software",
+        "invoice connected CRM",
+        "freelance client tracker"
+      ],
+      "supportingToolUrls": [
+        "/lightweight-crm-for-freelancers"
+      ],
+      "supportingGuideUrls": [
+        "/help-center/client-portals-and-crm"
+      ],
+      "supportingTemplateUrls": [],
+      "governanceRule": "All CRM pipeline and contact relationship keywords belong to /crm and /lightweight-crm-for-freelancers."
+    },
+    {
+      "concept": "Client Portal & Self-Service Billing",
+      "canonicalOwnerUrl": "/client-portal-software",
+      "intent": "Commercial / Solution",
+      "primaryKeyword": "client portal software",
+      "semanticKeywords": [
+        "white label client portal",
+        "invoice client portal",
+        "online client payment portal",
+        "branded client portal",
+        "client self service portal",
+        "magic link invoice access"
+      ],
+      "supportingToolUrls": [],
+      "supportingGuideUrls": [
+        "/help-center/client-portals-and-crm"
+      ],
+      "supportingTemplateUrls": [],
+      "governanceRule": "All client login, magic link, and branded payment hub keywords belong to /client-portal-software."
+    },
+    {
+      "concept": "Recurring Billing & Retainers",
+      "canonicalOwnerUrl": "/recurring-billing-software",
+      "intent": "Commercial / Workflow",
+      "primaryKeyword": "recurring billing software",
+      "semanticKeywords": [
+        "automated recurring invoices",
+        "subscription billing software",
+        "retainer billing software",
+        "automated client billing",
+        "recurring invoice software",
+        "auto debit invoice"
+      ],
+      "supportingToolUrls": [
+        "/features/freelance-rate-calculator"
+      ],
+      "supportingGuideUrls": [
+        "/features/how-to-bill-clients-on-retainer"
+      ],
+      "supportingTemplateUrls": [],
+      "governanceRule": "All retainer contracts, subscription schedules, and automated dunning queries belong to /recurring-billing-software and /features/how-to-bill-clients-on-retainer."
+    },
+    {
+      "concept": "Client Contracts & E-Signatures",
+      "canonicalOwnerUrl": "/client-contracts",
+      "intent": "Commercial / Legal Tool",
+      "primaryKeyword": "client contract software",
+      "semanticKeywords": [
+        "online contract maker",
+        "contract e-signature",
+        "freelance contract generator",
+        "esignature software for small business",
+        "service agreement template",
+        "digital signature software",
+        "legally binding digital contracts"
+      ],
+      "supportingToolUrls": [],
+      "supportingGuideUrls": [
+        "/features/how-to-bill-clients-on-retainer"
+      ],
+      "supportingTemplateUrls": [],
+      "governanceRule": "All e-signature, service contract, and statement of work terms belong to /client-contracts."
+    },
+    {
+      "concept": "Cash Flow Analytics & Financial Forecasting",
+      "canonicalOwnerUrl": "/cash-flow-analytics",
+      "intent": "Commercial / Analytics",
+      "primaryKeyword": "cash flow analytics software",
+      "semanticKeywords": [
+        "business cash flow forecasting",
+        "real time cash flow dashboard",
+        "financial analytics for small business",
+        "accounts receivable analytics",
+        "DSO calculator",
+        "small business financial reporting"
+      ],
+      "supportingToolUrls": [],
+      "supportingGuideUrls": [
+        "/features/how-to-manage-business-cash-flow"
+      ],
+      "supportingTemplateUrls": [],
+      "governanceRule": "All receivables aging, runway calculations, and financial report keywords belong to /cash-flow-analytics and /features/how-to-manage-business-cash-flow."
+    },
+    {
+      "concept": "Expense Tracking & AI Receipt Scanning",
+      "canonicalOwnerUrl": "/expense-management",
+      "intent": "Commercial & Product-Led Tool",
+      "primaryKeyword": "expense management software",
+      "semanticKeywords": [
+        "AI receipt scanner",
+        "automate business expenses",
+        "receipt to text AI",
+        "expense tracker",
+        "business accounting app",
+        "receipt OCR tool"
+      ],
+      "supportingToolUrls": [
+        "/ai-receipt-scanner"
+      ],
+      "supportingGuideUrls": [],
+      "supportingTemplateUrls": [],
+      "governanceRule": "Commercial expense management belongs to /expense-management; free OCR tool intent belongs to /ai-receipt-scanner."
+    },
+    {
+      "concept": "Digital Identity & Contactless Business Cards",
+      "canonicalOwnerUrl": "/digital-business-card",
+      "intent": "Commercial & Product-Led Tool",
+      "primaryKeyword": "digital business card",
+      "semanticKeywords": [
+        "digital business card creator",
+        "NFC business card",
+        "smart business card",
+        "vCard QR code maker",
+        "where to make business cards",
+        "digital identity card"
+      ],
+      "supportingToolUrls": [
+        "/qr-code-generator",
+        "/where-to-make-business-cards"
+      ],
+      "supportingGuideUrls": [
+        "/features/how-to-generate-a-qr-code"
+      ],
+      "supportingTemplateUrls": [],
+      "governanceRule": "Digital cards belong to /digital-business-card. Comparison vs paper cards belongs to /where-to-make-business-cards."
+    },
+    {
+      "concept": "Global Business Payments",
+      "canonicalOwnerUrl": "/payments",
+      "intent": "Commercial / Payments",
+      "primaryKeyword": "international business payments",
+      "semanticKeywords": [
+        "business payment software",
+        "multi currency billing software",
+        "invoice payment gateway",
+        "accept credit cards online",
+        "global payout platform"
+      ],
+      "supportingToolUrls": [
+        "/features/invoice-tax-calculator"
+      ],
+      "supportingGuideUrls": [],
+      "supportingTemplateUrls": [],
+      "governanceRule": "All card processing, multi-currency checkout, and payment gateway queries belong to /payments."
+    }
+  ]
+}

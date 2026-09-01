@@ -8,14 +8,34 @@ import SavingsCalculator from '@/components/landing/SavingsCalculator';
 import SEOQualifierFAQ from '@/components/landing/SEOQualifierFAQ';
 
 export const metadata: Metadata = {
-  title: 'Online Billing Software — Create, Send & Track Invoices Free',
-  description: 'The best online billing software for small businesses. Create professional invoices, automate recurring billing, and accept online payments globally for free.',
-  robots: {
-    index: false,
-    follow: false,
-  },
+  title: 'Online Billing Software — Create, Send & Track Invoices Free | Nobevra',
+  description: 'The best online billing software for small businesses and freelancers. Create professional invoices, automate recurring billing, and accept online card payments globally.',
+  keywords: [
+    'online billing software',
+    'billing software online',
+    'free billing software online',
+    'cloud billing system',
+    'small business billing software',
+    'gst billing software online',
+    'automated client billing',
+  ],
   alternates: {
-    canonical: 'https://nobevra.noblesworld.com.ng/invoicing',
+    canonical: 'https://nobevra.noblesworld.com.ng/features/billing-software-online',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'Online Billing Software — Create, Send & Track Invoices | Nobevra',
+    description: 'Cloud billing software with white-label client portals, recurring auto-billing, and global currency checkout.',
+    url: 'https://nobevra.noblesworld.com.ng/features/billing-software-online',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Online Billing Software | Nobevra',
+    description: 'Free online billing software for small businesses with automated payments and client portals.',
   },
 };
 

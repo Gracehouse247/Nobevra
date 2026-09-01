@@ -51,6 +51,20 @@ export const metadata: Metadata = {
         description: 'Automate your Shopify, WooCommerce, or B2B wholesale invoicing. Generate and send invoices automatically with every order.',
         url: 'https://nobevra.noblesworld.com.ng/solutions/ecommerce-invoice-automation',
         type: 'website',
+        images: [
+            {
+                url: '/images/precision-invoicing.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra E-Commerce Invoice Automation',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Ecommerce Invoice Automation | Nobevra',
+        description: 'Automate order-to-invoice PDF generation for online stores and B2B wholesale merchants.',
+        images: ['/images/precision-invoicing.png'],
     },
 };
 
@@ -63,10 +77,25 @@ const softwareSchema = {
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 };
 
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "E-Commerce Invoice Automation Services",
+    "provider": {
+        "@type": "Organization",
+        "name": "Nobevra",
+        "url": "https://nobevra.noblesworld.com.ng"
+    },
+    "serviceType": "E-Commerce & Wholesale Invoicing Automation",
+    "description": "Zero-touch PDF invoice generation, VAT/GST tax calculation, and receipt delivery for Shopify and online storefronts.",
+    "url": "https://nobevra.noblesworld.com.ng/solutions/ecommerce-invoice-automation"
+};
+
 export default function EcommerceSolutionPage() {
     return (
         <div className="bg-white text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
             <EcommerceHeroSection />
             <EcommerceProblemSection />

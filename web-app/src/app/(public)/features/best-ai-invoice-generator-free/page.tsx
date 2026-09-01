@@ -19,7 +19,14 @@ export const metadata: Metadata = {
         title: 'Best AI Invoice Generator Free — Create Invoices in Seconds | Nobevra',
         description: 'The best AI invoice generator free online. Turn notes, PDFs, or voice into professional invoices in seconds.',
         url: 'https://nobevra.noblesworld.com.ng/features/best-ai-invoice-generator-free',
-        images: ['/images/hero-dashboard-actual.png'],
+        type: 'website',
+        images: ['/images/features/ai-invoice-generator-demo.png'],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Best AI Invoice Generator Free | Nobevra',
+        description: 'Turn notes, rough text, or voice memos into professional, tax-calculated PDF invoices in seconds.',
+        images: ['/images/features/ai-invoice-generator-demo.png'],
     },
     alternates: { canonical: 'https://nobevra.noblesworld.com.ng/features/best-ai-invoice-generator-free' },
 };

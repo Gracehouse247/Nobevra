@@ -38,6 +38,20 @@ export const metadata: Metadata = {
         description: 'Stop fighting enterprise tools. Get the best small business billing software that actually makes sense.',
         url: 'https://nobevra.noblesworld.com.ng/solutions/best-small-business-invoicing-software',
         type: 'website',
+        images: [
+            {
+                url: '/images/hero-dashboard-actual.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Small Business Invoicing Software',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Small Business Invoicing Software | Nobevra',
+        description: 'Create professional invoices, track expenses, accept payments, and manage cash flow with Nobevra.',
+        images: ['/images/hero-dashboard-actual.png'],
     },
 };
 
@@ -190,6 +204,20 @@ const softwareSchema = {
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 };
 
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Small Business Billing & Invoicing Services",
+    "provider": {
+        "@type": "Organization",
+        "name": "Nobevra",
+        "url": "https://nobevra.noblesworld.com.ng"
+    },
+    "serviceType": "Small Business Invoicing & Financial Operations",
+    "description": "All-in-one invoicing, expense receipt scanning, and cash flow analytics for growing small businesses.",
+    "url": "https://nobevra.noblesworld.com.ng/solutions/best-small-business-invoicing-software"
+};
+
 const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -205,6 +233,7 @@ export default function SmallBusinessesSolutionPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
 
             {/* ══ 1. HERO ══════════════════════════════════════════════════ */}

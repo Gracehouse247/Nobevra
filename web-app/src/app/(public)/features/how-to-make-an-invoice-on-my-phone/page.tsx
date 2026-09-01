@@ -17,6 +17,20 @@ export const metadata: Metadata = {
     url: 'https://nobevra.noblesworld.com.ng/features/how-to-make-an-invoice-on-my-phone',
     siteName: 'Nobevra',
     type: 'website',
+    images: [
+      {
+        url: '/images/precision-invoicing.png',
+        width: 1200,
+        height: 630,
+        alt: 'How to Make an Invoice on Your Phone — Nobevra Mobile Billing',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Make an Invoice on Your Phone (iPhone & Android) | Nobevra',
+    description: 'Create and send professional PDF invoices from iPhone or Android in 60 seconds.',
+    images: ['/images/precision-invoicing.png'],
   },
 };
 

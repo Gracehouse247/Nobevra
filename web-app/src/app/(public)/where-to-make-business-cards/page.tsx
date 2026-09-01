@@ -5,15 +5,34 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Where to make business cards? | Nobevra',
-    description: 'Wondering where to make business cards online? Stop using paper. Contact Nobevra to build a professional digital billing profile instead.',
-    robots: {
-        index: false,
-        follow: false,
-    },
+    title: 'Where to Make Business Cards? (Digital vs Paper Guide) | Nobevra',
+    description: 'Wondering where to make business cards online or near you? Stop using paper that gets thrown away. Create a modern digital business card profile with Nobevra that accepts payments and captures leads instantly.',
+    keywords: [
+        'where to make business cards',
+        'where to make business cards online',
+        'where to make business cards near me',
+        'digital business card maker',
+        'free business card design online',
+        'smart business card with qr code',
+    ],
     alternates: {
-        canonical: 'https://nobevra.noblesworld.com.ng/digital-business-card'
-    }
+        canonical: 'https://nobevra.noblesworld.com.ng/where-to-make-business-cards'
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+    openGraph: {
+        title: 'Where to Make Business Cards? (Digital vs Paper Guide) | Nobevra',
+        description: 'Stop throwing away paper cards. Create a permanent digital card with QR codes, NFC tap, and instant payment links.',
+        url: 'https://nobevra.noblesworld.com.ng/where-to-make-business-cards',
+        type: 'article',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Where to Make Business Cards? | Nobevra',
+        description: 'Modern digital business cards vs paper. Create yours free with contact sync and payment collection.',
+    },
 };
 
 const faqSchema = {

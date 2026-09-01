@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Nobevra SEO Content Map",
+  "description": "Maps content intent, content gaps, and upgrade priorities for each page cluster. Use this before commissioning any new content.",
+  "version": "1.0.0",
+  "updatedAt": "2026-09-01",
+  "contentClusters": [
+    {
+      "cluster": "Invoicing Core Cluster",
+      "pillarUrl": "/invoicing",
+      "clusterPages": [
+        "/free-invoice-generator",
+        "/features/best-ai-invoice-generator-free",
+        "/features/free-invoice-generator-for-shopify",
+        "/features/how-do-i-make-an-invoice",
+        "/features/how-to-make-an-invoice-for-free",
+        "/features/how-to-make-an-invoice-on-my-phone",
+        "/features/what-is-invoicing-software",
+        "/features/what-is-the-best-invoice-maker",
+        "/features/automated-invoicing-software"
+      ],
+      "contentHealth": "Strong",
+      "gaps": [
+        "Missing guide: 'How to send invoices internationally'",
+        "Missing guide: 'Invoice payment terms explained'",
+        "Could add a comparison: Nobevra vs Wave vs FreshBooks"
+      ],
+      "upgradeActions": [
+        "Add HowTo schema to /features/what-is-invoicing-software",
+        "Strengthen internal linking from /invoicing to all cluster sub-pages"
+      ]
+    },
+    {
+      "cluster": "Retainer & Recurring Billing Cluster",
+      "pillarUrl": "/recurring-billing-software",
+      "clusterPages": [
+        "/features/how-to-bill-clients-on-retainer",
+        "/features/freelance-rate-calculator"
+      ],
+      "contentHealth": "Moderate",
+      "gaps": [
+        "Missing: 'Retainer contract template' page",
+        "Missing: 'How to manage client scope creep' guide"
+      ],
+      "upgradeActions": [
+        "Create /templates/retainer-agreement-template",
+        "Add internal links from /solutions/agency-billing-platform to /features/how-to-bill-clients-on-retainer"
+      ]
+    },
+    {
+      "cluster": "Cash Flow & Finance Cluster",
+      "pillarUrl": "/cash-flow-analytics",
+      "clusterPages": [
+        "/features/how-to-manage-business-cash-flow",
+        "/features/invoice-tax-calculator"
+      ],
+      "contentHealth": "Moderate",
+      "gaps": [
+        "Missing: 'Cash flow forecast template' guide",
+        "Missing: 'What is days sales outstanding (DSO)?' glossary entry"
+      ],
+      "upgradeActions": [
+        "Expand /glossary with DSO definition",
+        "Add internal link from /cash-flow-analytics → /features/how-to-manage-business-cash-flow"
+      ]
+    },
+    {
+      "cluster": "CRM & Client Management Cluster",
+      "pillarUrl": "/crm",
+      "clusterPages": [
+        "/lightweight-crm-for-freelancers",
+        "/client-portal-software",
+        "/client-contracts"
+      ],
+      "contentHealth": "Strong",
+      "gaps": [
+        "Missing: 'How to write a service agreement' guide",
+        "Missing: Comparison page: 'Nobevra CRM vs HubSpot for small business'"
+      ],
+      "upgradeActions": [
+        "Link /client-contracts to /client-portal-software in body copy",
+        "Add breadcrumb link from /lightweight-crm-for-freelancers to /crm"
+      ]
+    },
+    {
+      "cluster": "Digital Identity & QR Cluster",
+      "pillarUrl": "/digital-business-card",
+      "clusterPages": [
+        "/qr-code-generator",
+        "/where-to-make-business-cards",
+        "/features/how-to-generate-a-qr-code",
+        "/features/business-card-creation-free",
+        "/features/how-to-create-a-business-card-for-free",
+        "/features/how-to-make-a-qr-code-for-a-website-free"
+      ],
+      "contentHealth": "Strong",
+      "gaps": [
+        "Missing: 'NFC vs QR code business card' comparison guide",
+        "Missing: vCard format explainer in /glossary"
+      ],
+      "upgradeActions": [
+        "Strengthen internal link: /qr-code-generator → /digital-business-card",
+        "Add schema markup to /features/how-to-create-a-business-card-for-free"
+      ]
+    },
+    {
+      "cluster": "Solutions / Persona Cluster",
+      "pillarUrl": "/solutions",
+      "clusterPages": [
+        "/solutions/simple-invoicing-for-freelancers",
+        "/solutions/agency-billing-platform",
+        "/solutions/best-small-business-invoicing-software",
+        "/solutions/ecommerce-invoice-automation",
+        "/solutions/enterprise-billing-platform",
+        "/solutions/freelancers"
+      ],
+      "contentHealth": "Moderate",
+      "gaps": [
+        "Missing: /solutions/nonprofits or /solutions/service-businesses",
+        "Missing: Persona-specific testimonial data per solution page"
+      ],
+      "upgradeActions": [
+        "Ensure all /solutions/* pages link back to /solutions hub via breadcrumb",
+        "Add FAQPage schema to /solutions/agency-billing-platform",
+        "Add FAQPage schema to /solutions/ecommerce-invoice-automation"
+      ]
+    },
+    {
+      "cluster": "Templates & Reference Cluster",
+      "pillarUrl": "/templates",
+      "clusterPages": [
+        "/templates/photography-invoice-template",
+        "/templates/freelance-graphic-designer-invoice-template",
+        "/templates/contractor-construction-invoice-template",
+        "/glossary",
+        "/blog"
+      ],
+      "contentHealth": "Strong",
+      "gaps": [
+        "Missing: Proforma invoice template page",
+        "Missing: Receipt template",
+        "Missing: Service quotation template"
+      ],
+      "upgradeActions": [
+        "Create /templates/proforma-invoice-template",
+        "Create /templates/service-quotation-template",
+        "Publish 3 original 'small business data' blog posts targeting cited infographic links"
+      ]
+    }
+  ]
+}

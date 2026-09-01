@@ -27,6 +27,20 @@ export const metadata: Metadata = {
         description: 'Consolidate your business operations with Nobevra. The all-in-one business management software combining invoicing, CRM, expense tracking, and payments.',
         url: 'https://nobevra.noblesworld.com.ng/business-management-software',
         type: 'website',
+        images: [
+            {
+                url: '/images/hero-dashboard-actual.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Business Management Software — All-in-One Operations Platform',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Small Business Management Software | Nobevra',
+        description: 'Consolidate invoicing, CRM, expenses, and payments into one intelligent Business Operating System.',
+        images: ['/images/hero-dashboard-actual.png'],
     },
 };
 

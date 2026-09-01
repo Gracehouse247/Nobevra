@@ -25,6 +25,20 @@ export const metadata: Metadata = {
     description: 'Calculate exact invoice taxes across UK VAT, EU Reverse Charge, US Sales Tax, Canada GST/HST, Australia GST, and Nigeria FIRS VAT.',
     url: 'https://nobevra.noblesworld.com.ng/features/invoice-tax-calculator',
     type: 'website',
+    images: [
+      {
+        url: '/images/precision-invoicing.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nobevra Free Invoice Tax Calculator — VAT, GST, Sales Tax',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Free Invoice Tax Calculator | Nobevra',
+    description: 'Calculate VAT, GST, Sales Tax & Reverse Charge across 8 global tax jurisdictions.',
+    images: ['/images/precision-invoicing.png'],
   },
 };
 

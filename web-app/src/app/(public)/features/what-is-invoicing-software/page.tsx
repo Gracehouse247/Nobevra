@@ -30,6 +30,20 @@ export const metadata: Metadata = {
     description: 'What is invoicing software? Discover how modern billing software automates invoicing, tracks client views, collects payments, and eliminates accounting errors.',
     url: 'https://nobevra.noblesworld.com.ng/features/what-is-invoicing-software',
     type: 'article',
+    images: [
+      {
+        url: '/images/hero-dashboard-actual.png',
+        width: 1200,
+        height: 630,
+        alt: 'What is Invoicing Software — Comprehensive Guide by Nobevra',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'What is Invoicing Software? Definition, Benefits & Guide | Nobevra',
+    description: 'Comprehensive guide to invoicing software, automation, and benefits for modern businesses.',
+    images: ['/images/hero-dashboard-actual.png'],
   },
 };
 

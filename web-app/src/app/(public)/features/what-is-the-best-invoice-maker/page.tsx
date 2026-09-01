@@ -20,6 +20,20 @@ export const metadata: Metadata = {
         description: 'Wondering what is the best invoice maker for your small business? Discover why a unified team workspace beats simple solo freelancer tools.',
         url: 'https://nobevra.noblesworld.com.ng/features/what-is-the-best-invoice-maker',
         type: 'website',
+        images: [
+            {
+                url: '/images/hero-dashboard-actual.png',
+                width: 1200,
+                height: 630,
+                alt: 'What is the Best Invoice Maker — Software Comparison by Nobevra',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'What is the Best Invoice Maker in 2026? | Nobevra',
+        description: 'Compare top invoice makers on templates, payment processing, automation, and team features.',
+        images: ['/images/hero-dashboard-actual.png'],
     },
     alternates: { canonical: 'https://nobevra.noblesworld.com.ng/features/what-is-the-best-invoice-maker' },
 };

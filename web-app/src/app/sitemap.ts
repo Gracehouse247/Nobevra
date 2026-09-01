@@ -58,12 +58,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.92,
     },
     {
-      url: `${baseUrl}/pitch`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.95,
-    },
-    {
       url: `${baseUrl}/digital-business-card`,
       lastModified: now,
       changeFrequency: 'weekly',
@@ -119,6 +113,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     // 2. Solution Pages
     {
+      url: `${baseUrl}/solutions`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.90,
+    },
+    {
       url: `${baseUrl}/solutions/agency-billing-platform`,
       lastModified: now,
       changeFrequency: 'weekly',
@@ -169,6 +169,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/features/free-invoice-generator-for-shopify`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/features/best-free-invoice-app`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/features/billing-software-online`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/where-to-make-business-cards`,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.75,
@@ -317,6 +335,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/sla`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.50,
+    },
+    {
+      url: `${baseUrl}/legal/ai-disclaimer`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.50,
+    },
+    {
+      url: `${baseUrl}/legal/data-transparency`,
       lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.50,

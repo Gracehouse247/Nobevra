@@ -28,6 +28,20 @@ export const metadata: Metadata = {
         description: "Scan receipts instantly with Nobevra's AI receipt scanner. Extract vendor, date, taxes, and line items with high accuracy and export directly to your expense ledger.",
         url: 'https://nobevra.noblesworld.com.ng/ai-receipt-scanner',
         type: 'website',
+        images: [
+            {
+                url: '/images/features/ocr_accuracy_chart.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra AI Receipt Scanner — Instant OCR and Tax Categorization',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'AI Receipt Scanner | Nobevra',
+        description: 'Instant receipt OCR, automatic tax categorization, and direct expense ledger sync powered by AI.',
+        images: ['/images/features/ocr_accuracy_chart.png'],
     },
 };
 

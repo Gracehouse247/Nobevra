@@ -27,6 +27,20 @@ export const metadata: Metadata = {
         description: "Make billing rewarding with Nobevra's gamified invoicing software. Unlock revenue milestones, celebrate paid invoices with animations, and build cash flow streaks.",
         url: 'https://nobevra.noblesworld.com.ng/gamified-invoicing-software',
         type: 'website',
+        images: [
+            {
+                url: '/images/precision-invoicing.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Gamified Invoicing Software — Revenue Milestones and Streaks',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Gamified Invoicing Software | Nobevra',
+        description: 'Celebrate revenue milestones, unlock cash flow streaks, and make billing fun with Nobevra.',
+        images: ['/images/precision-invoicing.png'],
     },
 };
 

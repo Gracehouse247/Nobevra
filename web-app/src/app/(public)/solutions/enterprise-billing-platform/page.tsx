@@ -44,10 +44,23 @@ export const metadata: Metadata = {
         description: 'Scale your billing operations globally with automated enterprise billing, API integration, and multi-currency support.',
         url: 'https://nobevra.noblesworld.com.ng/solutions/enterprise-billing-platform',
         type: 'website',
+        images: [
+            {
+                url: '/images/hero-dashboard-actual.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Enterprise Billing Platform — High-Volume Financial Infrastructure',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Enterprise Billing Platform | Nobevra',
+        description: 'Scale high-volume billing operations globally with automated APIs, dedicated DBs, and multi-currency ledgers.',
+        images: ['/images/hero-dashboard-actual.png'],
     },
 };
 
-/* ── JSON-LD Schema ─────────────────────────────────────────────── */
 const softwareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -57,10 +70,25 @@ const softwareSchema = {
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
 };
 
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Enterprise Billing & High-Volume Financial Infrastructure Services",
+    "provider": {
+        "@type": "Organization",
+        "name": "Nobevra",
+        "url": "https://nobevra.noblesworld.com.ng"
+    },
+    "serviceType": "Enterprise Invoicing & Multi-Entity Ledger Software",
+    "description": "Dedicated database instances, 99.99% uptime SLA, custom SSO/SAML, and automated high-throughput billing APIs for enterprises.",
+    "url": "https://nobevra.noblesworld.com.ng/solutions/enterprise-billing-platform"
+};
+
 export default function EnterpriseSolutionPage() {
     return (
         <div className="bg-white text-near-black font-inter antialiased overflow-x-hidden pt-[118px]">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
 
             {/* 1. Hero */}
             <EnterpriseHeroSection />

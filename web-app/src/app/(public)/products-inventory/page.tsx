@@ -26,6 +26,20 @@ export const metadata: Metadata = {
         description: 'Manage product catalogs and track stock levels in real time with Nobevra. Automatically deduct inventory when invoices are generated and set low-stock alerts.',
         url: 'https://nobevra.noblesworld.com.ng/products-inventory',
         type: 'website',
+        images: [
+            {
+                url: '/images/product and service.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Product & Inventory Management Software',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Inventory Management Software | Nobevra',
+        description: 'Manage product catalogs, track stock levels in real time, and auto-deduct inventory from invoices.',
+        images: ['/images/product and service.png'],
     },
 };
 

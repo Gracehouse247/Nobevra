@@ -43,14 +43,15 @@ export default function Footer() {
 
                     {/* Column 2: Products (Curated Major Features Only) */}
                     <div>
-                        <p className="text-[10px] font-black text-near-black uppercase tracking-[0.3em] mb-8">Products</p>
+                        <p className="text-[10px] font-black text-near-black uppercase tracking-[0.3em] mb-8">Products & Solutions</p>
                         <ul className="space-y-4">
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/business-management-software">Business Operating System</Link></li>
                             <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/invoicing">Online Invoicing</Link></li>
                             <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/free-invoice-generator">Free Invoice Generator</Link></li>
                             <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/recurring-billing-software">Recurring Billing</Link></li>
                             <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/client-portal-software">Client Portal</Link></li>
                             <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/cash-flow-analytics">Cash Flow Analytics</Link></li>
-                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/templates">Invoice Templates</Link></li>
+                            <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/solutions">Industry Solutions</Link></li>
                             <li><Link className="text-near-black/50 font-bold hover:text-noble-blue transition-colors text-sm" href="/digital-business-card">Digital Business Cards</Link></li>
                             <li className="pt-2">
                                 <Link className="text-noble-blue font-bold hover:text-near-black transition-colors text-sm flex items-center gap-1 group" href="/features">
@@ -118,20 +119,26 @@ export default function Footer() {
                 <div className="w-full bg-[#000000] py-2 px-6 rounded-lg mb-8">
                     <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[12px] font-semibold">
                         <Link href="/cookies" className="text-slate-300 hover:text-white transition-colors">Cookie Policy</Link>
-                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <span className="text-slate-600 dark:text-slate-400">|</span>
                         <Link href="/ai-policy" className="text-slate-300 hover:text-white transition-colors">AI Policy</Link>
-                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <span className="text-slate-600 dark:text-slate-400">|</span>
+                        <Link href="/legal/ai-disclaimer" className="text-slate-300 hover:text-white transition-colors">AI Disclaimer</Link>
+                        <span className="text-slate-600 dark:text-slate-400">|</span>
+                        <Link href="/legal/data-transparency" className="text-slate-300 hover:text-white transition-colors">Data Transparency</Link>
+                        <span className="text-slate-600 dark:text-slate-400">|</span>
                         <Link href="/dpa" className="text-slate-300 hover:text-white transition-colors">DPA</Link>
-                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <span className="text-slate-600 dark:text-slate-400">|</span>
                         <Link href="/subprocessors" className="text-slate-300 hover:text-white transition-colors">Subprocessors</Link>
-                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <span className="text-slate-600 dark:text-slate-400">|</span>
                         <Link href="/data-retention" className="text-slate-300 hover:text-white transition-colors">Data Retention</Link>
-                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <span className="text-slate-600 dark:text-slate-400">|</span>
                         <Link href="/esa" className="text-slate-300 hover:text-white transition-colors">Enterprise Security Addendum</Link>
-                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <span className="text-slate-600 dark:text-slate-400">|</span>
                         <Link href="/sla" className="text-slate-300 hover:text-white transition-colors">Service Level Agreement</Link>
-                        <span className="text-slate-600 dark:text-slate-400 dark:text-slate-500">|</span>
+                        <span className="text-slate-600 dark:text-slate-400">|</span>
                         <Link href="/disaster-recovery" className="text-slate-300 hover:text-white transition-colors">Disaster Recovery</Link>
+                        <span className="text-slate-600 dark:text-slate-400">|</span>
+                        <Link href="/pitch" className="text-noble-blue hover:text-white transition-colors">Pitch Deck</Link>
                     </div>
                 </div>
 

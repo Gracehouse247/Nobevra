@@ -24,6 +24,20 @@ export const metadata: Metadata = {
     description: 'Clear, authoritative definitions for essential business management, billing, accounting, and tax terms.',
     url: 'https://nobevra.noblesworld.com.ng/glossary',
     type: 'website',
+    images: [
+      {
+        url: '/images/precision-invoicing.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nobevra Business & Invoicing Glossary',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Business & Invoicing Glossary | Nobevra',
+    description: 'Clear definitions for essential business management, billing, accounting, and tax terms.',
+    images: ['/images/precision-invoicing.png'],
   },
 };
 

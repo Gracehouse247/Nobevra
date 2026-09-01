@@ -28,6 +28,20 @@ export const metadata: Metadata = {
     description: 'Automate recurring monthly invoices, client retainers, and subscription billing with Nobevra. Set automated payment schedules, retry failed payments, and stop chasing clients.',
     url: 'https://nobevra.noblesworld.com.ng/recurring-billing-software',
     type: 'website',
+    images: [
+      {
+        url: '/images/precision-invoicing.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nobevra Recurring Billing Software — Automated Retainers & Subscriptions',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Recurring Billing Software | Nobevra',
+    description: 'Automate recurring monthly invoices, client retainers, smart failed-payment retries, and scheduled billing.',
+    images: ['/images/precision-invoicing.png'],
   },
 };
 

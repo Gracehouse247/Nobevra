@@ -17,7 +17,6 @@ import PsychologicalImpactSection from '@/components/landing/freelancers/Psychol
 import GhostingFrameworkSection from '@/components/landing/freelancers/GhostingFrameworkSection';
 import FreelancerROISection from '@/components/landing/freelancers/FreelancerROISection';
 
-// SEO Metadata matching SEO_BEST_PRACTICES.md
 export const metadata: Metadata = {
     title: 'Freelance Invoicing Software — Simple, Fast Billing for Solopreneurs | Nobevra',
     description: 'Simple, powerful invoicing software for freelancers. Create branded invoices in 30 seconds, track client views, and get paid internationally with zero setup hassle.',
@@ -25,11 +24,58 @@ export const metadata: Metadata = {
     alternates: {
         canonical: 'https://nobevra.noblesworld.com.ng/solutions/simple-invoicing-for-freelancers',
     },
+    openGraph: {
+        title: 'Freelance Invoicing Software | Nobevra',
+        description: 'Simple, powerful invoicing software for freelancers and solopreneurs. Get paid faster with branded invoices and client telemetry.',
+        url: 'https://nobevra.noblesworld.com.ng/solutions/simple-invoicing-for-freelancers',
+        type: 'website',
+        images: [
+            {
+                url: '/images/precision-invoicing.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Simple Invoicing Software for Freelancers',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Freelance Invoicing Software | Nobevra',
+        description: 'Branded invoices in 30 seconds, real-time client view telemetry, and instant global card checkout for freelancers.',
+        images: ['/images/precision-invoicing.png'],
+    },
+};
+
+const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Nobevra Freelance Invoicing",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Simple, powerful invoicing software for freelancers. Create branded invoices in 30 seconds, track client views, and get paid internationally."
+};
+
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Freelance Invoicing & Billing Services",
+    "provider": {
+        "@type": "Organization",
+        "name": "Nobevra",
+        "url": "https://nobevra.noblesworld.com.ng"
+    },
+    "serviceType": "Invoicing & Client Billing",
+    "description": "Branded online invoice creation, payment checkout, and client tracking for freelancers and solopreneurs.",
+    "url": "https://nobevra.noblesworld.com.ng/solutions/simple-invoicing-for-freelancers"
 };
 
 export default function FreelancersLandingPage() {
     return (
         <div className="bg-gradient-to-b from-[#F0F9FF] via-white to-[#F5FCFF] text-near-black font-inter antialiased selection:bg-electric-cyan/30 overflow-x-hidden pt-[118px]">
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+
             {/* H1 and Hero */}
             <FreelancerHeroSection />
 

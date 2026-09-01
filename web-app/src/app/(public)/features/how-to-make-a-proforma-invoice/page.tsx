@@ -46,7 +46,21 @@ export const metadata: Metadata = {
     description: 'Learn how to make a proforma invoice step-by-step. Free proforma templates and one-click conversion to live invoices.',
     url: 'https://nobevra.noblesworld.com.ng/features/how-to-make-a-proforma-invoice',
     type: 'article',
-  }
+    images: [
+      {
+        url: '/images/precision-invoicing.png',
+        width: 1200,
+        height: 630,
+        alt: 'How to Make a Proforma Invoice — Nobevra Tutorial',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Make a Proforma Invoice | Free Proforma Templates | Nobevra',
+    description: 'Step-by-step guide to drafting proforma invoices with free templates.',
+    images: ['/images/precision-invoicing.png'],
+  },
 };
 
 export default function ProformaInvoicePage() {

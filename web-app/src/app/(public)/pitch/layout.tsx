@@ -25,6 +25,17 @@ export const metadata: Metadata = {
         description: 'Discover how Nobevra is automating operations, invoicing, and cash flow intelligence for African and global businesses.',
         images: [brand.assets.ogImage],
     },
+    alternates: {
+        canonical: `${brand.urls.canonical}/pitch`,
+    },
+    robots: {
+        index: false,
+        follow: false,
+        googleBot: {
+            index: false,
+            follow: false,
+        },
+    },
 };
 
 export default function PitchLayout({

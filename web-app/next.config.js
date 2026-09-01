@@ -143,15 +143,12 @@ const nextConfig = {
       { source: '/receipt-scanner',                            destination: '/ai-receipt-scanner',                              permanent: true },
 
       // Invoicing consolidation
-      { source: '/features/best-free-invoice-app',             destination: '/free-invoice-generator',                          permanent: true },
       { source: '/features/how-to-make-an-invoice-for-free',   destination: '/free-invoice-generator',                          permanent: true },
-      { source: '/features/billing-software-online',           destination: '/invoicing',                                       permanent: true },
       { source: '/features/automated-invoicing-software',      destination: '/invoicing',                                       permanent: true },
       { source: '/features/enterprise-scaling',                destination: '/solutions/enterprise-billing-platform',           permanent: true },
 
       // Digital Business Card consolidation
       { source: '/business-card-maker',                        destination: '/digital-business-card',                           permanent: true },
-      { source: '/where-to-make-business-cards',                destination: '/digital-business-card',                           permanent: true },
       { source: '/features/business-card-creation-free',        destination: '/digital-business-card',                           permanent: true },
       { source: '/features/digital-business-cards',            destination: '/digital-business-card',                           permanent: true },
       { source: '/features/professional-identity',             destination: '/digital-business-card',                           permanent: true },

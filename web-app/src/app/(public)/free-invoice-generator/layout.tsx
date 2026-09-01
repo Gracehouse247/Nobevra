@@ -20,12 +20,21 @@ export const metadata: Metadata = {
         url: 'https://nobevra.noblesworld.com.ng/free-invoice-generator',
         siteName: 'Nobevra',
         type: 'website',
+        images: [
+            {
+                url: '/images/precision-invoicing.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Free Invoice Generator — Create Professional PDF Invoices Instantly',
+            },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Free Invoice Generator — Create & Download PDF Invoices Instantly | Nobevra',
         description:
             'Generate professional PDF invoices for free in seconds. No sign-up required. Choose custom templates, add your logo, calculate taxes, and download instantly.',
+        images: ['/images/precision-invoicing.png'],
     },
     alternates: {
         canonical: 'https://nobevra.noblesworld.com.ng/free-invoice-generator',

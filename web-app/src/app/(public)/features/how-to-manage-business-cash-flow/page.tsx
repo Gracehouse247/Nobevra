@@ -23,6 +23,20 @@ export const metadata: Metadata = {
     description: 'The complete small business cash flow playbook: DSO reduction, automated dunning, payment term optimization, and working capital acceleration.',
     url: 'https://nobevra.noblesworld.com.ng/features/how-to-manage-business-cash-flow',
     type: 'article',
+    images: [
+      {
+        url: '/images/cashflow-dashboard.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nobevra Cash Flow Management Playbook for SMBs',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Manage Business Cash Flow | Nobevra',
+    description: 'Reduce DSO, eliminate late payments, automate accounts receivable, and accelerate working capital.',
+    images: ['/images/cashflow-dashboard.png'],
   },
 };
 

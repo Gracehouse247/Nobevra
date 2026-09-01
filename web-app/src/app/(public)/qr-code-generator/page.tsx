@@ -27,6 +27,20 @@ export const metadata: Metadata = {
         description: 'Create custom dynamic QR codes with Nobevra. Add your business logo, embed payment links, update destinations anytime, and track real-time scan analytics.',
         url: 'https://nobevra.noblesworld.com.ng/qr-code-generator',
         type: 'website',
+        images: [
+            {
+                url: '/images/precision-invoicing.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Dynamic QR Code Generator with Logo and Analytics',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Dynamic QR Code Generator | Nobevra',
+        description: 'Create custom QR codes with brand logos, dynamic redirect destinations, and scan analytics.',
+        images: ['/images/precision-invoicing.png'],
     },
 };
 

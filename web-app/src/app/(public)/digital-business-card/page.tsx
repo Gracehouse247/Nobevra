@@ -27,6 +27,20 @@ export const metadata: Metadata = {
         description: 'Create your custom digital business card with Nobevra. Share contact details with 1 tap via NFC or QR code, capture client leads, and track scan telemetry.',
         url: 'https://nobevra.noblesworld.com.ng/digital-business-card',
         type: 'website',
+        images: [
+            {
+                url: '/images/Organization Identity Hub.png',
+                width: 1200,
+                height: 630,
+                alt: 'Nobevra Digital Business Cards & NFC Contactless Identity Hub',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Digital Business Cards & NFC Tap Cards | Nobevra',
+        description: 'Share contact details with 1 tap via NFC or QR code, capture client leads, and track scan analytics.',
+        images: ['/images/Organization Identity Hub.png'],
     },
 };
 

@@ -5,14 +5,34 @@ import { Smartphone, Zap, CheckCircle2, Clock, DollarSign, ArrowRight, ShieldChe
 
 
 export const metadata: Metadata = {
-  title: 'What Is the Best Free Invoice App? (2026 Guide) | Nobevra',
-  description: 'Looking for the best free invoice app? Compare the top options for iOS and Android. See why Nobevra is the top choice for global multi-currency settlements.',
-  robots: {
-    index: false,
-    follow: false,
-  },
+  title: 'What Is the Best Free Invoice App? (2026 Guide & Comparison) | Nobevra',
+  description: 'Looking for the best free invoice app? Compare top options for iPhone, Android, and desktop. Learn why Nobevra is rated #1 for instant multi-currency card payments and client portals.',
+  keywords: [
+    'best free invoice app',
+    'free invoice app for iphone',
+    'free invoice app for android',
+    'best invoice maker app free',
+    'is there an app for making invoices',
+    'free invoice app download',
+    'free mobile invoicing',
+  ],
   alternates: {
-    canonical: 'https://nobevra.noblesworld.com.ng/free-invoice-generator',
+    canonical: 'https://nobevra.noblesworld.com.ng/features/best-free-invoice-app',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'What Is the Best Free Invoice App? (2026 Guide) | Nobevra',
+    description: 'Compare the top free invoice apps for iOS and Android. Generate professional PDFs, accept card checkout, and manage clients on the go.',
+    url: 'https://nobevra.noblesworld.com.ng/features/best-free-invoice-app',
+    type: 'article',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'What Is the Best Free Invoice App? (2026 Guide) | Nobevra',
+    description: 'Compare top free invoice apps for iPhone & Android with instant global payments and zero fees.',
   },
 };
 

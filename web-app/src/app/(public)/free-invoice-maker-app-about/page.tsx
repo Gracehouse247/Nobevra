@@ -13,11 +13,20 @@ export const metadata: Metadata = {
         description: 'Everything your business needs. One intelligent platform. Meet Nobevra.',
         url: 'https://nobevra.noblesworld.com.ng/free-invoice-maker-app-about',
         type: 'website',
+        images: [
+            {
+                url: '/images/hero-dashboard-actual.png',
+                width: 1200,
+                height: 630,
+                alt: 'About Nobevra — The Intelligent Business Operating System',
+            },
+        ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'About Nobevra — The Intelligent Business Operating System',
         description: 'Invoicing, CRM, expenses, payments, contracts, and AI in one intelligent platform.',
+        images: ['/images/hero-dashboard-actual.png'],
     },
 };
 

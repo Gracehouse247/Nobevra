@@ -7,6 +7,29 @@ export const metadata: Metadata = {
   title: 'Data Transparency Report — Nobevra Security',
   description: 'Nobevra data transparency report. See how we handle your billing data, invoice records, and financial information with complete accountability and security.',
   keywords: ['data transparency', 'privacy transparency', 'billing security', 'secure financial data'],
+  alternates: {
+    canonical: 'https://nobevra.noblesworld.com.ng/legal/data-transparency',
+  },
+  openGraph: {
+    title: 'Data Transparency Report — Nobevra Security',
+    description: 'Nobevra data transparency report. See how we handle your billing data, invoice records, and financial information with complete accountability and security.',
+    url: 'https://nobevra.noblesworld.com.ng/legal/data-transparency',
+    type: 'website',
+    images: [
+      {
+        url: '/images/hero-dashboard-actual.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nobevra Data Transparency',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Data Transparency Report — Nobevra Security',
+    description: 'Nobevra data transparency report. See how we handle your billing data, invoice records, and financial information with complete accountability and security.',
+    images: ['/images/hero-dashboard-actual.png'],
+  },
 };
 
 export default function DataTransparencyPage() {

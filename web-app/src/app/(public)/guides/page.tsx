@@ -23,6 +23,20 @@ export const metadata: Metadata = {
     description: 'Expert-crafted guides to help small businesses, agencies, and freelancers master invoicing, cash flow, retainers, and client contracts.',
     url: 'https://nobevra.noblesworld.com.ng/guides',
     type: 'website',
+    images: [
+      {
+        url: '/images/precision-invoicing.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nobevra Business & Invoicing Guides Hub',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Business & Invoicing Guides | Nobevra',
+    description: 'Expert-crafted guides to master invoicing, cash flow, retainers, contracts, and tax compliance.',
+    images: ['/images/precision-invoicing.png'],
   },
 };
 

@@ -22,6 +22,20 @@ export const metadata: Metadata = {
     description: 'Structure, price, and automate agency retainer billing. The complete guide to recurring revenue and client retainer contracts.',
     url: 'https://nobevra.noblesworld.com.ng/features/how-to-bill-clients-on-retainer',
     type: 'article',
+    images: [
+      {
+        url: '/images/precision-invoicing.png',
+        width: 1200,
+        height: 630,
+        alt: 'Nobevra Agency Guide: How to Bill Clients on Retainer',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'How to Bill Clients on Retainer | Nobevra',
+    description: 'Complete guide to structuring retainer models, pricing math, contract clauses, and auto-billing.',
+    images: ['/images/precision-invoicing.png'],
   },
 };
 
